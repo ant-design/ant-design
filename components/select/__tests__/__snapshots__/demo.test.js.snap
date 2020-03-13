@@ -38,7 +38,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 `;
 
 exports[`renders ./components/select/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:120px"
@@ -96,7 +96,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
     style="width:120px"
@@ -156,7 +156,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
     style="width:120px"
@@ -214,7 +214,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
     style="width:120px"
@@ -299,22 +299,22 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
-<div>
+Array [
   <h3
     class="ant-typography"
   >
     Ant Design 4.0
-  </h3>
+  </h3>,
   <h4
     class="ant-typography"
   >
     100000 Items
-  </h4>
+  </h4>,
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
     style="width:100%"
@@ -392,22 +392,22 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />
+  />,
   <h3
     class="ant-typography"
   >
     Ant Design 3.0
-  </h3>
+  </h3>,
   <iframe
     src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
     style="width:100%;height:300px"
     title="Ant Design 3.0 Select demo"
-  />
-</div>
+  />,
+]
 `;
 
 exports[`renders ./components/select/demo/bordered.md correctly 1`] = `
@@ -534,7 +534,7 @@ Array [
 `;
 
 exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:120px"
@@ -592,7 +592,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:120px"
@@ -650,8 +650,8 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
@@ -1442,7 +1442,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 `;
 
 exports[`renders ./components/select/demo/size.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -1504,9 +1504,9 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         Small
       </span>
     </label>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:200px"
@@ -1564,8 +1564,8 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
     style="width:100%"
@@ -1670,8 +1670,8 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
     style="width:100%"
@@ -1774,12 +1774,12 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:120px"
@@ -1837,7 +1837,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
     style="width:120px"
@@ -1897,8 +1897,8 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/select/demo/tags.md correctly 1`] = `
