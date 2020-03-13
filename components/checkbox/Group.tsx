@@ -125,7 +125,7 @@ class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGrou
     }
   };
 
-  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props, state } = this;
     const { prefixCls: customizePrefixCls, className, style, options, ...restProps } = props;
     const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
@@ -162,7 +162,9 @@ class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGrou
       cancelValue: this.cancelValue,
     };
 
-    const classString = classNames(groupPrefixCls, className);
+    const classString = classNames(groupPrefixCls, className, {
+      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
       <div className={classString} style={style} {...domProps}>
         <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
