@@ -44,8 +44,12 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     return (
       <MenuContext.Consumer>
         {({ inlineCollapsed, direction }: MenuContextProps) => {
+          let tooltipTitle = title;
+          if (typeof title === 'undefined') {
+            tooltipTitle = level === 1 ? children : '';
+          }
           const tooltipProps: TooltipProps = {
-            title: title || (level === 1 ? children : ''),
+            title: tooltipTitle,
           };
 
           if (!siderCollapsed && !inlineCollapsed) {
