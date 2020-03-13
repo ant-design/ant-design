@@ -19,12 +19,12 @@
   &-avatar {
     position: relative;
     flex-shrink: 0;
-    margin-right: 12px;
+    margin-right: @margin-sm;
     cursor: pointer;
 
     .@{comment-prefix-cls}-rtl & {
       margin-right: 0;
-      margin-left: 12px;
+      margin-left: @margin-sm;
     }
     img {
       width: 32px;
@@ -44,17 +44,17 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      margin-bottom: 4px;
+      margin-bottom: @margin-xss;
       font-size: @comment-font-size-base;
       & > a,
       & > span {
-        padding-right: 8px;
+        padding-right: @padding-xs;
         font-size: @comment-font-size-sm;
         line-height: 18px;
 
         .@{comment-prefix-cls}-rtl & {
           padding-right: 0;
-          padding-left: 8px;
+          padding-left: @padding-xs;
         }
       }
 
@@ -83,7 +83,7 @@
   }
 
   &-actions {
-    margin-top: 12px;
+    margin-top: @margin-sm;
     padding-left: 0;
 
     .@{comment-prefix-cls}-rtl & {

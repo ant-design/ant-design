@@ -117,7 +117,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        padding: 12px;
+        padding: @padding-sm;
 
         .@{transfer-prefix-cls}-rtl & {
           right: 0;
@@ -137,8 +137,8 @@
       overflow: auto;
       list-style: none;
       &-item {
-        min-height: 32px;
-        padding: 6px @control-padding-horizontal;
+        min-height: @transfer-item-height;
+        padding: @transfer-item-padding-vertical @control-padding-horizontal;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;

@@ -4,23 +4,35 @@
 
 @line-height-base: 1.2858;
 
-// Button
-@btn-height-base: 28px;
-@btn-height-lg: 32px;
-@btn-height-sm: 22px;
+// vertical paddings
+@padding-lg: 16px; // containers
+@padding-md: 12px; // small containers and buttons
+@padding-sm: 8px; // Form controls and items
+@padding-xs: 4px; // small items
+
+// vertical padding for all form controls
+@control-padding-horizontal: @padding-sm;
+@control-padding-horizontal-sm: @padding-xs;
+
+// vertical margins
+@margin-lg: 16px; // containers
+@margin-md: 12px; // small containers and buttons
+@margin-sm: 8px; // Form controls and items
+@margin-xs: 4px; // small items
+@margin-xss: 0px; // more small
+
+// height rules
+@height-base: 28px;
+@height-lg: 32px;
+@height-sm: 22px;
 
 //Dropdown
 @dropdown-line-height: 18px;
 
-// Pagination
-@pagination-item-size: 28px;
-@pagination-item-size-sm: 24px; // todo: should more small?
-
-// Input
+// PageHeader
 // ---
-@input-height-base: 28px;
-@input-height-lg: 32px;
-@input-height-sm: 22px;
+@page-header-padding: 16px;
+@page-header-padding-vertical: 8px;
 
 // Cascader
 // ----
@@ -28,4 +40,23 @@
 
 // Select
 // ---
-@select-dropdown-height: 28px;
+@select-dropdown-height: @height-base;
+
+// Tree
+// ---
+@tree-title-height: 20px;
+
+// Transfer
+// ---
+@transfer-item-padding-vertical: 3px;
+
+// Steps
+// ---
+@steps-icon-size: 24px;
+@steps-icon-margin: 2px 8px 2px 0;
+@steps-icon-font-size: @font-size-base;
+@steps-dot-top: 4px;
+
+// Collapse
+// ---
+@collapse-header-padding-extra: 40px; // todo: unconfirmed with designer
