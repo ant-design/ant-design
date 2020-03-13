@@ -79,6 +79,7 @@ export interface TableProps<RecordType>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
+  showSorterTooltip?: boolean;
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -88,7 +89,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     style,
     size: customizeSize,
     bordered,
-    dropdownPrefixCls,
+    dropdownPrefixCls: customizeDropdownPrefixCls,
     dataSource,
     pagination,
     rowSelection,
@@ -108,6 +109,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     scroll,
     sortDirections,
     locale,
+    showSorterTooltip = true,
   } = props;
 
   const tableProps = omit(props, ['className', 'style']) as TableProps<RecordType>;
@@ -122,6 +124,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
+  const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
     expandIconColumnIndex,
@@ -214,13 +217,14 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       false,
     );
   };
-
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
     columns,
     children,
     onSorterChange,
     sortDirections: sortDirections || ['ascend', 'descend'],
+    tableLocale,
+    showSorterTooltip,
   });
   const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
     rawData,

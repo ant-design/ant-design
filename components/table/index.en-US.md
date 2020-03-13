@@ -82,6 +82,7 @@ const columns = [
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
 | sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
+| showSorterTooltip | header show next sorter direction tooltip | boolean | `true` |
 
 #### onRow usage
 
@@ -138,6 +139,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
 | onHeaderCell | Set props on per header cell | Function(column) | - |
+| showSorterTooltip | header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean | `true` |
 
 ### ColumnGroup
 
@@ -178,20 +180,21 @@ Properties for expandable.
 
 Properties for row selection.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| columnWidth | Set the width of the selection column | string\|number | `60px` |
-| columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
-| fixed | Fixed selection column on the left | boolean | - |
-| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
-| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` |
-| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |
-| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |
-| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
-| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |
-| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |
-| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |
-| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| columnWidth | Set the width of the selection column | string\|number | `60px` | 4.0 |
+| columnTitle | Set the title of the selection column | string\|React.ReactNode | - | 4.0 |
+| fixed | Fixed selection column on the left | boolean | - | 4.0 |
+| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - | 4.0 |
+| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` | 4.0 |
+| renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
+| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] | 4.0 |
+| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - | 4.0 |
+| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` | 4.0 |
+| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - | 4.0 |
+| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
+| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - | 4.0 |
+| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - | 4.0 |
 
 ### scroll
 

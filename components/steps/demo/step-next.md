@@ -73,7 +73,7 @@ class App extends React.Component {
             </Button>
           )}
           {current > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+            <Button style={{ margin: 8 }} onClick={() => this.prev()}>
               Previous
             </Button>
           )}

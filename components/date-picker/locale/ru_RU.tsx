@@ -4,8 +4,10 @@
 
 import CalendarLocale from 'rc-picker/lib/locale/ru_RU';
 import TimePickerLocale from '../../time-picker/locale/ru_RU';
+import { PickerLocale } from '../generatePicker';
 
-const locale = {
+// Merge into a locale object
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Выберите дату',
     rangePlaceholder: ['Начальная дата', 'Конечная дата'],
