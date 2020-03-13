@@ -47,6 +47,8 @@ export default class MenuItem extends React.Component<MenuItemProps> {
           let tooltipTitle = title;
           if (typeof title === 'undefined') {
             tooltipTitle = level === 1 ? children : '';
+          } else if (title === false) {
+            tooltipTitle = '';
           }
           const tooltipProps: TooltipProps = {
             title: tooltipTitle,

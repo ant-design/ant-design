@@ -396,12 +396,16 @@ describe('Menu', () => {
         <Menu.Item key="menu5" title="">
           item
         </Menu.Item>
+        <Menu.Item key="menu6" title={false}>
+          item
+        </Menu.Item>
       </Menu>,
     );
     expect(wrapper.find(Menu.Item).at(0).find(Tooltip).props().title).toBe('item');
     expect(wrapper.find(Menu.Item).at(1).find(Tooltip).props().title).toBe('title');
     expect(wrapper.find(Menu.Item).at(2).find(Tooltip).props().title).toBe('item');
     expect(wrapper.find(Menu.Item).at(3).find(Tooltip).props().title).toBe(null);
+    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
     expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
   });
 
