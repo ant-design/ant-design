@@ -139,7 +139,8 @@
     flex-direction: column;
     flex-grow: 1;
 
-    &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
+    &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]),
+    .@{ant-prefix}-col-rtl &:first-child {
       width: 100%;
     }
   }
