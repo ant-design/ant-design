@@ -98,7 +98,7 @@ export default class Card extends React.Component<CardProps, {}> {
       defaultActiveTabKey,
       tabBarExtraContent,
       hoverable,
-      tabProps,
+      tabProps = {},
       ...others
     } = this.props;
 
