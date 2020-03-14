@@ -165,9 +165,9 @@ export default class Card extends React.Component<CardProps, {}> {
     const tabs =
       tabList && tabList.length ? (
         <Tabs
+          size="large"
           {...extraProps}
           className={`${prefixCls}-head-tabs`}
-          size="large"
           onChange={this.onTabChange}
         >
           {tabList.map(item => (
