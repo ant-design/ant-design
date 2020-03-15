@@ -46,9 +46,9 @@ timeline: true
   - 💄 Optimize the style of Pagination in RTL mode. [#22155](https://github.com/ant-design/ant-design/pull/22155) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 Fixed the icon style with Cascader RTL. [#22191](https://github.com/ant-design/ant-design/pull/22191) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 Optimize the Checkbox.Group style in RTL mode. [#22186](https://github.com/ant-design/ant-design/pull/22186) [@xrkffgg](https://github.com/xrkffgg)
-  - 💄 Optimize Radio.button style issues in RTL mode. [#22066](https://github.com/ant-design/ant-design/pull/22066) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Optimize Radio.Button style issues in RTL mode. [#22066](https://github.com/ant-design/ant-design/pull/22066) [@xrkffgg](https://github.com/xrkffgg)
   - 🐞 Optimize table-pinned style issues that are listed under RTL. [#21914](https://github.com/ant-design/ant-design/pull/21914) [@saeedrahimi](https://github.com/saeedrahimi)
-  - 💄 djust the direction of the Dropdown icon in RTL mode. [#22104](https://github.com/ant-design/ant-design/pull/22104) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Adjust the direction of the Dropdown icon in RTL mode. [#22104](https://github.com/ant-design/ant-design/pull/22104) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 Optimize the Breadcrumb style in RTL mode. [#22159](https://github.com/ant-design/ant-design/pull/22159) [@xrkffgg](https://github.com/xrkffgg)
   - 💄Optimize the style of the Steps component in RTL mode. [#22175](https://github.com/ant-design/ant-design/pull/22175) [@xrkffgg](https://github.com/xrkffgg)
 
