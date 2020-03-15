@@ -46,7 +46,7 @@ timeline: true
   - 💄 优化 Pagination 在 RTL 模式下的样式。[#22155](https://github.com/ant-design/ant-design/pull/22155) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 修复 Cascader RTL 模式下 icon 样式的错误的问题。[#22191](https://github.com/ant-design/ant-design/pull/22191) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 优化 Checkbox.Group 在 RTL 模式下样式。[#22186](https://github.com/ant-design/ant-design/pull/22186) [@xrkffgg](https://github.com/xrkffgg)
-  - 💄 优化 Radio.button 在 RTL 模式下样式问题。[#22066](https://github.com/ant-design/ant-design/pull/22066) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 优化 Radio.Button 在 RTL 模式下样式问题。[#22066](https://github.com/ant-design/ant-design/pull/22066) [@xrkffgg](https://github.com/xrkffgg)
   - 🐞 优化 Table 固定列在 RTL 下的样式问题。[#21914](https://github.com/ant-design/ant-design/pull/21914) [@saeedrahimi](https://github.com/saeedrahimi)
   - 💄 调整 Dropdown 在 RTL 模式的下拉图标方向。[#22104](https://github.com/ant-design/ant-design/pull/22104) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 优化 Breadcrumb 在 RTL 模式下样式。[#22159](https://github.com/ant-design/ant-design/pull/22159) [@xrkffgg](https://github.com/xrkffgg)
