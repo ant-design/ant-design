@@ -10,11 +10,26 @@
     // ========================= Input =========================
     .@{ant-prefix}-input {
       padding-right: 24px;
+
+      .@{form-prefix-cls}-rtl & {
+        padding-right: @input-padding-horizontal-base;
+        padding-left: 24px;
+      }
     }
     // https://github.com/ant-design/ant-design/issues/19884
     .@{ant-prefix}-input-affix-wrapper {
       .@{ant-prefix}-input-suffix {
         padding-right: 18px;
+
+        .@{form-prefix-cls}-rtl & {
+          padding-right: @input-padding-horizontal-base;
+          padding-left: 18px;
+        }
+      }
+      .@{ant-prefix}-input {
+        .@{form-prefix-cls}-rtl & {
+          padding: 0;
+        }
       }
     }
 
@@ -30,10 +45,9 @@
       }
     }
 
-    .@{ant-prefix}-input-password-icon {
+    .@{ant-prefix}-input-number {
       .@{form-prefix-cls}-rtl & {
-        margin-right: 0;
-        margin-left: 18px;
+        padding-left: 18px;
       }
     }
 
@@ -95,12 +109,27 @@
     .@{ant-prefix}-picker {
       padding-right: @input-padding-horizontal-base + @font-size-base * 1.3;
 
+      .@{form-prefix-cls}-rtl & {
+        padding-right: @input-padding-horizontal-base;
+        padding-left: @input-padding-horizontal-base + @font-size-base * 1.3;
+      }
+
       &-large {
         padding-right: @input-padding-horizontal-lg + @font-size-base * 1.3;
+
+        .@{form-prefix-cls}-rtl & {
+          padding-right: @input-padding-horizontal-lg;
+          padding-left: @input-padding-horizontal-lg + @font-size-base * 1.3;
+        }
       }
 
       &-small {
         padding-right: @input-padding-horizontal-sm + @font-size-base * 1.3;
+
+        .@{form-prefix-cls}-rtl & {
+          padding-right: @input-padding-horizontal-sm;
+          padding-left: @input-padding-horizontal-sm + @font-size-base * 1.3;
+        }
       }
     }
 
