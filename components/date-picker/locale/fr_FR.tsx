@@ -7,7 +7,7 @@ const locale = {
     placeholder: 'Sélectionner une date',
     yearPlaceholder: 'Sélectionner une année',
     monthPlaceholder: 'Sélectionner un mois',
-    weekPlaceholder: 'Sélectionne une semaine',
+    weekPlaceholder: 'Sélectionner une semaine',
     rangePlaceholder: ['Date de début', 'Date de fin'],
     rangeYearPlaceholder: ['Année de début', 'Année de fin'],
     rangeMonthPlaceholder: ['Mois de début', 'Mois de fin'],
