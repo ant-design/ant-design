@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ca_ES';
 import DatePicker from '../date-picker/locale/ca_ES';
 import TimePicker from '../time-picker/locale/ca_ES';
 import Calendar from '../calendar/locale/ca_ES';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ca',
   Pagination,
   DatePicker,
@@ -39,3 +40,5 @@ export default {
     description: 'Sense dades',
   },
 };
+
+export default localeValues;

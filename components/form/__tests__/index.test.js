@@ -596,6 +596,28 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('`label` support template', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }}>
+        <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await delay(50);
+    wrapper.update();
+
+    expect(
+      wrapper
+        .find('.ant-form-item-explain')
+        .first()
+        .text(),
+    ).toEqual('Bamboo is good!');
+  });
+
   it('return same form instance', () => {
     const instances = new Set();
 

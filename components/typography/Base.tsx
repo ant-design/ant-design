@@ -40,7 +40,7 @@ interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
-  onExpand?: () => void;
+  onExpand?: React.MouseEventHandler<HTMLElement>;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -165,13 +165,13 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     raf.cancel(this.rafId);
   }
 
-  // =============== Expend ===============
-  onExpandClick = () => {
+  // =============== Expand ===============
+  onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
 
     if (onExpand) {
-      onExpand();
+      (onExpand as React.MouseEventHandler<HTMLElement>)(e);
     }
   };
 
