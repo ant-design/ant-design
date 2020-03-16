@@ -84,6 +84,7 @@ export interface TableProps<RecordType>
   scroll?: Omit<RcTableProps<RecordType>['scroll'], 'y'> & {
     scrollToFirstRowOnChange?: boolean;
     y?: number | true;
+    offsetY?: number;
   };
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean;
@@ -490,7 +491,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
                 (window.parseFloat(cpStyle.getPropertyValue('margin-top')) || 0) +
                 (window.parseFloat(cpStyle.getPropertyValue('margin-bottom')) || 0);
               return prev + height;
-            }, 0),
+            }, 0) +
+            (props.scroll.offsetY || 0),
         );
       }
     }, 100),

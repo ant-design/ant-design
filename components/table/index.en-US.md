@@ -203,6 +203,7 @@ Properties for row selection.
 | --- | --- | --- | --- |
 | x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
 | y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be number. `true` will to set height automatically based on the height of the screen area | number \| `true` | - |
+| offsetY | Set the offset of `y` when `y` is `true` | number | - |
 | scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - |
 
 ### selection

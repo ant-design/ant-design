@@ -208,6 +208,7 @@ const columns = [
 | --- | --- | --- | --- |
 | x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
 | y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值，`true` 将自动根据可视区域的高度自动设置 | number \| `true` | - |
+| offsetY | 当 `y` 为 `true` 时设置它最终值的偏移量 | number | - |
 | scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - |
 
 ### selection
