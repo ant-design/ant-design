@@ -197,7 +197,7 @@ describe('Radio Group', () => {
         expect(wrapper.state().value).toEqual('bamboo');
 
         wrapper.setProps({ value: newValue });
-        expect(wrapper.state().value).toEqual(undefined);
+        expect(wrapper.state().value).toEqual(newValue);
       });
     });
   });
