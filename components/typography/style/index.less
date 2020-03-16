@@ -1,15 +1,12 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './rtl';
 
 @typography-prefix-cls: ~'@{ant-prefix}-typography';
 
 // =============== Basic ===============
 .@{typography-prefix-cls} {
   color: @text-color;
-
-  &-rtl {
-    direction: rtl;
-  }
 
   &&-secondary {
     color: @text-color-secondary;
@@ -132,11 +129,6 @@
     .operation-unit();
 
     margin-left: 8px;
-
-    .@{typography-prefix-cls}-rtl & {
-      margin-right: 8px;
-      margin-left: 0;
-    }
   }
 
   &-copy-success {
@@ -156,11 +148,6 @@
       margin-top: -@input-padding-vertical-base - 1px;
       // stylelint-disable-next-line function-calc-no-invalid
       margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
-
-      &.@{typography-prefix-cls}-rtl {
-        right: -@input-padding-horizontal - 1px;
-        left: auto;
-      }
     }
 
     &-confirm {
@@ -169,11 +156,6 @@
       bottom: 8px;
       color: @text-color-secondary;
       pointer-events: none;
-
-      .@{typography-prefix-cls}-rtl & {
-        right: auto;
-        left: 10px;
-      }
     }
 
     // Fix Editable Textarea flash in Firefox
@@ -191,11 +173,6 @@
     li {
       margin: 0 0 0 20px;
       padding: 0 0 0 4px;
-
-      .@{typography-prefix-cls}-rtl& {
-        margin: 0 20px 0 0;
-        padding: 0 4px 0 0;
-      }
     }
   }
 
