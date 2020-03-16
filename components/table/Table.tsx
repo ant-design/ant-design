@@ -83,7 +83,10 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean;
 }
 
-function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
+function Table<RecordType extends object = any>(
+  props: TableProps<RecordType>,
+  ref: React.Ref<HTMLDivElement>,
+) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -111,10 +114,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
     showSorterTooltip = true,
-    ref,
   } = props;
 
-  const tableProps = omit(props, ['className', 'style', 'ref']) as TableProps<RecordType>;
+  const tableProps = omit(props, ['className', 'style']) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
   const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
@@ -451,25 +453,15 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
 }
 
-const RefTable = function<RecordType extends object = any>(props: TableProps<RecordType>) {
-  const { children, ...rest } = props;
-  const Component = React.forwardRef<HTMLDivElement, TableProps<RecordType>>(
-    ({ children: innerChildren, ...innerRest }, ref) => (
-      <Table {...innerRest} ref={ref}>
-        {innerChildren}
-      </Table>
-    ),
-  );
-  return <Component {...rest}>{children}</Component>;
-};
+const RefTable = React.forwardRef(Table);
 
 RefTable.defaultProps = {
   rowKey: 'key',
 };
 
-RefTable.SELECTION_ALL = SELECTION_ALL;
-RefTable.SELECTION_INVERT = SELECTION_INVERT;
-RefTable.Column = Column;
-RefTable.ColumnGroup = ColumnGroup;
+(RefTable as any).SELECTION_ALL = SELECTION_ALL;
+(RefTable as any).SELECTION_INVERT = SELECTION_INVERT;
+(RefTable as any).Column = Column;
+(RefTable as any).ColumnGroup = ColumnGroup;
 
 export default RefTable;
