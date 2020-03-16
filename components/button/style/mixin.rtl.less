@@ -1,4 +1,10 @@
 .btn-group(@btnClassName: btn) {
+  .@{btnClassName} + .@{btnClassName},
+  .@{btnClassName} + &,
+  span + .@{btnClassName},
+  .@{btnClassName} + span,
+  > span + span,
+  & + .@{btnClassName},
   & + & {
     .@{btnClassName}-rtl& {
       margin-right: -1px;
