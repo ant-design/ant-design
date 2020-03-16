@@ -22,13 +22,13 @@ const layout = {
 };
 
 const validateMessages = {
-  required: 'This field is required!',
+  required: '${label} is required!',
   types: {
-    email: 'Not a validate email!',
-    number: 'Not a validate number!',
+    email: '${label} is not validate email!',
+    number: '${label} is not a validate number!',
   },
   number: {
-    range: 'Must be between ${min} and ${max}',
+    range: '${label} must be between ${min} and ${max}',
   },
 };
 

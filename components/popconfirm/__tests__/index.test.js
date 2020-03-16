@@ -58,6 +58,26 @@ describe('Popconfirm', () => {
     expect(popup.innerHTML).toMatchSnapshot();
   });
 
+  it('shows content for render functions', async () => {
+    const makeRenderFunction = content => () => content;
+
+    const popconfirm = mount(
+      <Popconfirm title={makeRenderFunction('some-title')}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    expect(popconfirm.instance().getPopupDomNode()).toBe(null);
+
+    popconfirm.find('span').simulate('click');
+    await sleep(100);
+
+    const popup = popconfirm.instance().getPopupDomNode();
+    expect(popup).not.toBe(null);
+    expect(popup.innerHTML).toContain('some-title');
+    expect(popup.innerHTML).toMatchSnapshot();
+  });
+
   it('should be controlled by visible', () => {
     jest.useFakeTimers();
     const popconfirm = mount(

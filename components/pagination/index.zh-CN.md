@@ -34,7 +34,8 @@ cols: 1
 | showSizeChanger | 是否可以改变 pageSize | boolean | false |  |
 | showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - |  |
 | simple | 当添加该属性时，显示为简单分页 | boolean | - |  |
-| size | 当为「small」时，是小尺寸分页 | string | "" |  |
+| size | 当为「small」时，是小尺寸分页 | 'default' \| 'small' | "" |  |
+| responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  |
 | total | 数据总数 | number | 0 |  |
 | onChange | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize) | noop |  |
 | onShowSizeChange | pageSize 变化的回调 | Function(current, size) | noop |  |
