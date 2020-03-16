@@ -1,3 +1,5 @@
+@import './mixin.rtl.less';
+
 // mixins for button
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
@@ -408,19 +410,12 @@
   & + .@{btnClassName},
   & + & {
     margin-left: -1px;
-    .@{btnClassName}-rtl& {
-      margin-right: -1px;
-      margin-left: auto;
-    }
   }
   .@{btnClassName}-primary + .@{btnClassName}:not(.@{btnClassName}-primary):not([disabled]) {
     border-left-color: transparent;
   }
   .@{btnClassName} {
     border-radius: 0;
-  }
-  &.@{btnClassName}-group-rtl {
-    direction: rtl;
   }
   > .@{btnClassName}:first-child,
   > span:first-child > .@{btnClassName} {
@@ -436,23 +431,11 @@
   > span:first-child:not(:last-child) > .@{btnClassName} {
     border-top-left-radius: @btn-border-radius-base;
     border-bottom-left-radius: @btn-border-radius-base;
-    .@{btnClassName}-group-rtl& {
-      border-top-left-radius: 0;
-      border-top-right-radius: @btn-border-radius-base;
-      border-bottom-right-radius: @btn-border-radius-base;
-      border-bottom-left-radius: 0;
-    }
   }
   > .@{btnClassName}:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .@{btnClassName} {
     border-top-right-radius: @btn-border-radius-base;
     border-bottom-right-radius: @btn-border-radius-base;
-    .@{btnClassName}-group-rtl& {
-      border-top-left-radius: @btn-border-radius-base;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: @btn-border-radius-base;
-    }
   }
   &-sm {
     > .@{btnClassName}:only-child {
@@ -465,23 +448,11 @@
     > span:first-child:not(:last-child) > .@{btnClassName} {
       border-top-left-radius: @btn-border-radius-sm;
       border-bottom-left-radius: @btn-border-radius-sm;
-      .@{btnClassName}-group-rtl& {
-        border-top-left-radius: 0;
-        border-top-right-radius: @btn-border-radius-sm;
-        border-bottom-right-radius: @btn-border-radius-sm;
-        border-bottom-left-radius: 0;
-      }
     }
     > .@{btnClassName}:last-child:not(:first-child),
     > span:last-child:not(:first-child) > .@{btnClassName} {
       border-top-right-radius: @btn-border-radius-sm;
       border-bottom-right-radius: @btn-border-radius-sm;
-      .@{btnClassName}-group-rtl& {
-        border-top-left-radius: @btn-border-radius-sm;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: @btn-border-radius-sm;
-      }
     }
   }
   & > & {
