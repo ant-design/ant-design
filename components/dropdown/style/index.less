@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './rtl';
 
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 
@@ -12,10 +13,6 @@
   z-index: @zindex-dropdown;
   display: block;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &::before {
     position: absolute;
     top: -7px;
@@ -25,11 +22,6 @@
     z-index: -9999;
     opacity: 0.0001;
     content: ' ';
-
-    .@{dropdown-prefix-cls}-rtl& {
-      right: -7px;
-      left: 0;
-    }
   }
 
   &-wrap {
@@ -85,10 +77,6 @@
       ul,
       li {
         list-style: none;
-
-        .@{dropdown-prefix-cls}-rtl & {
-          text-align: right;
-        }
       }
 
       ul {
@@ -110,20 +98,11 @@
       cursor: pointer;
       transition: all 0.3s;
 
-      .@{dropdown-prefix-cls}-rtl & {
-        text-align: right;
-      }
-
       > .anticon:first-child,
       > span > .anticon:first-child {
         min-width: 12px;
         margin-right: 8px;
         font-size: @font-size-sm;
-
-        .@{dropdown-prefix-cls}-rtl & {
-          margin-right: 0;
-          margin-left: 8px;
-        }
       }
 
       > a {
@@ -182,21 +161,11 @@
         position: absolute;
         right: @padding-xs;
 
-        .@{dropdown-prefix-cls}-rtl & {
-          right: auto;
-          left: @padding-xs;
-        }
-
         &-icon {
           margin-right: 0 !important;
           color: @text-color-secondary;
           font-style: normal;
           .iconfont-size-under-12px(10px);
-
-          .@{dropdown-prefix-cls}-rtl & {
-            margin-left: 0 !important;
-            transform: scaleX(-1);
-          }
         }
       }
     }
@@ -209,11 +178,6 @@
 
     &-submenu-title {
       padding-right: @control-padding-horizontal + @font-size-sm;
-
-      .@{dropdown-prefix-cls}-rtl & {
-        padding-right: @control-padding-horizontal;
-        padding-left: @control-padding-horizontal + @font-size-sm;
-      }
     }
 
     &-submenu-vertical {
@@ -227,13 +191,6 @@
       min-width: 100%;
       margin-left: 4px;
       transform-origin: 0 0;
-
-      .@{dropdown-prefix-cls}-rtl & {
-        right: 100%;
-        left: 0;
-        margin-right: 4px;
-        margin-left: 0;
-      }
     }
 
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
