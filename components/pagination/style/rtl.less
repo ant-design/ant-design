@@ -1,0 +1,69 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@pagination-prefix-cls: ~'@{ant-prefix}-pagination';
+
+.@{pagination-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-total-text {
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+
+  &-item {
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+
+  &-prev,
+  &-jump-prev,
+  &-jump-next {
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+
+  &-options {
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 16px;
+      margin-left: 0;
+    }
+
+    &-size-changer.@{ant-prefix}-select {
+      .@{pagination-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &-simple &-simple-pager {
+    .@{pagination-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+
+    input {
+      .@{pagination-prefix-cls}-rtl& {
+        margin-right: 0;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &.mini &-options {
+    .@{pagination-prefix-cls}-rtl& {
+      margin-right: 2px;
+      margin-left: 0;
+    }
+  }
+}
