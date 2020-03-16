@@ -170,10 +170,35 @@ describe('Radio Group', () => {
   });
 
   it('passes prefixCls down to radio', () => {
-    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange', style: { fontSize: 12 } }];
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
+    ];
 
     const wrapper = render(<RadioGroup prefixCls="my-radio" options={options} />);
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('value is null or undefined', () => {
+    it('use `defaultValue` when `value` is undefined', () => {
+      const options = [{ label: 'Bamboo', value: 'bamboo' }];
+      const wrapper = mount(
+        <RadioGroup defaultValue="bamboo" value={undefined} options={options} />,
+      );
+
+      expect(wrapper.state().value).toEqual('bamboo');
+    });
+
+    [undefined, null].forEach(newValue => {
+      it(`should set value back when value change back to ${newValue}`, () => {
+        const options = [{ label: 'Bamboo', value: 'bamboo' }];
+        const wrapper = mount(<RadioGroup value="bamboo" options={options} />);
+        expect(wrapper.state().value).toEqual('bamboo');
+
+        wrapper.setProps({ value: newValue });
+        expect(wrapper.state().value).toEqual(newValue);
+      });
+    });
   });
 });
