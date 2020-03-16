@@ -57,7 +57,6 @@ export interface TableProps<RecordType>
     RcTableProps<RecordType>,
     'transformColumns' | 'internalHooks' | 'internalRefs' | 'data' | 'columns' | 'scroll'
   > {
-  ref?: React.Ref<HTMLDivElement>;
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
