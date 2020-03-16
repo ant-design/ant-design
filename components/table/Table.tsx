@@ -114,7 +114,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     ref,
   } = props;
 
-  const tableProps = omit(props, ['className', 'style']) as TableProps<RecordType>;
+  const tableProps = omit(props, ['className', 'style', 'ref']) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
   const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
