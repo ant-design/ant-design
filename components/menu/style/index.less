@@ -148,11 +148,17 @@
   &-vertical-left&-sub,
   &-vertical-right&-sub {
     min-width: 160px;
-    max-height: 100vh;
+    max-height: calc(100vh - 100px);
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
     border-right: 0;
     transform-origin: 0 0;
+
+    // https://github.com/ant-design/ant-design/issues/22244
+    &:not(.zoom-big-enter-active):not(.zoom-big-leave-active) {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
 
     .@{menu-prefix-cls}-rtl& {
       transform-origin: top right;
