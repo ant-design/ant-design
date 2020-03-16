@@ -84,6 +84,11 @@ const App = () => (
     </Input.Group>
     <br />
     <Input.Group compact>
+      <Input style={{ width: '20%' }} defaultValue="0571" />
+      <Input.Search style={{ width: '30%' }} defaultValue="26888888" />
+    </Input.Group>
+    <br />
+    <Input.Group compact>
       <Select defaultValue="Option1">
         <Option value="Option1">Option1</Option>
         <Option value="Option2">Option2</Option>

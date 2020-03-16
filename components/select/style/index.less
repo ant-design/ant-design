@@ -7,6 +7,7 @@
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
+@select-dropdown-edge-child-vertical-padding: @dropdown-edge-child-vertical-padding;
 
 .select-selector() {
   position: relative;
@@ -166,6 +167,7 @@
     left: -9999px;
     z-index: @zindex-dropdown;
     box-sizing: border-box;
+    padding: @select-dropdown-edge-child-vertical-padding 0;
     overflow: hidden;
     font-size: @font-size-base;
     // Fix select render lag of long text in chrome

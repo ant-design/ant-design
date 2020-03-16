@@ -28,28 +28,29 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 
-  static getDerivedStateFromProps(nextProps: RadioGroupProps) {
-    if ('value' in nextProps) {
-      return {
-        value: nextProps.value,
-      };
-    }
-    const checkedValue = getCheckedValue(nextProps.children);
-    if (checkedValue) {
-      return {
-        value: checkedValue.value,
-      };
+  static getDerivedStateFromProps(nextProps: RadioGroupProps, prevState: RadioGroupState) {
+    const newState: Partial<RadioGroupState> = {
+      prevPropValue: nextProps.value,
+    };
+
+    if (nextProps.value !== undefined || prevState.prevPropValue !== nextProps.value) {
+      newState.value = nextProps.value;
+    } else {
+      const checkedValue = getCheckedValue(nextProps.children);
+      if (checkedValue) {
+        newState.value = checkedValue.value;
+      }
     }
 
-    return null;
+    return newState;
   }
 
   constructor(props: RadioGroupProps) {
     super(props);
     let value;
-    if ('value' in props) {
+    if (props.value !== undefined) {
       value = props.value;
-    } else if ('defaultValue' in props) {
+    } else if (props.defaultValue !== undefined) {
       value = props.defaultValue;
     } else {
       const checkedValue = getCheckedValue(props.children);
@@ -57,6 +58,7 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
     }
     this.state = {
       value,
+      prevPropValue: props.value,
     };
   }
 

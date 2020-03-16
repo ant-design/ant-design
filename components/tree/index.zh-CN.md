@@ -95,3 +95,7 @@ subtitle: 树形控件
 ### 在 showLine 时，如何隐藏子节点图标？
 
 文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：https://codesandbox.io/s/883vo47xp8
+
+### defaultExpandedAll 在异步加载数据时为何不生效？
+
+`default` 前缀属性只有在初始化时生效，因而异步加载数据时 `defaultExpandedAll` 已经执行完成。你可以通过受控 `expandedKeys` 或者在数据加载完成后渲染 Tree 来实现全部展开。

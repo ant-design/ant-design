@@ -194,7 +194,7 @@ Properties for row selection.
 | onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - | 4.0 |
 | onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - | 4.0 |
-| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - | 4.0 |
+| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRowKeys) | - | 4.0 |
 
 ### scroll
 

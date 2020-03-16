@@ -34,7 +34,7 @@ title: 表单页
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*R9PIRbGpFfYAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>安全感</h4>
-      <p>合理的操作后果保障机制，列如针对复杂表单提供分布或即时保存机制；针对不同场景任务提供返回、重置、取消、清空、撤销等后悔药和速效药功能。</p>
+      <p>合理的操作后果保障机制，例如针对复杂表单提供分布或即时保存机制；针对不同场景任务提供返回、重置、取消、清空、撤销等后悔药和速效药功能。</p>
     </div>
   </div>
 </div>
@@ -58,7 +58,7 @@ title: 表单页
 
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范" />
 
-预填提示避免正确的废话，列如一个叫姓名的表单项输入提示是“请输入姓名”。
+预填提示避免正确的废话，例如一个叫姓名的表单项输入提示是“请输入姓名”。
 
 <br>
 

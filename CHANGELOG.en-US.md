@@ -15,6 +15,50 @@ timeline: true
 
 ---
 
+## 4.0.3
+
+`2020-03-14`
+
+- Menu
+  - 🐞 Fix Menu horizontal Item with nest Icon miss margin style. [#22021](https://github.com/ant-design/ant-design/pull/22021)
+  - 🐞 Fix Menu item wrong `title` when setting `getPopupContainer`. [#22182](https://github.com/ant-design/ant-design/pull/22182)
+  - 💄 Optimize the style of Icon in Menu. [#22090](https://github.com/ant-design/ant-design/pull/22090) [@x1mrdonut1x](https://github.com/x1mrdonut1x)
+  - 🐞 Fix Avatar in horizontal Menu `margin` issue. [#22038](https://github.com/ant-design/ant-design/pull/22038) [#22033](https://github.com/ant-design/ant-design/pull/22033)
+- Slider
+  - 🐞 Fix an issue where the position of 'slider handle' is incorrect in the vertical case of Slider. [#22135](https://github.com/ant-design/ant-design/pull/22135) [@wendellhu95](https://github.com/wendellhu95)
+  - 💄 Fix Slider missing `focus` style. [#22161](https://github.com/ant-design/ant-design/pull/22161)
+- Table
+  - 🐞 Fix ConfigProvider not work on Table filter dropdown. [#22133](https://github.com/ant-design/ant-design/pull/22133)
+  - 🐞 Fix Table nest tree column expandable style issue with fixed column. [#22131](https://github.com/ant-design/ant-design/pull/22131)
+  - 🐞 Fix an issue where Table filtering throws `cannot read property 'map' of undefined`. [#22096](https://github.com/ant-design/ant-design/pull/22096) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Table expandable column not fixed when selection column is fixed. [#22087](https://github.com/ant-design/ant-design/pull/22087)
+  - 🐞 Fix Table filter menu reset not working. [#22079](https://github.com/ant-design/ant-design/pull/22079) [@shaodahong](https://github.com/shaodahong)
+  - 🐞 Fix Table filter sub menu max height with many items. [#22230](https://github.com/ant-design/ant-design/pull/22230)
+- Form
+  - 💄 Optimize the responsive and box model performance of The Form. [#21907](https://github.com/ant-design/ant-design/pull/21907) [@shaodahong](https://github.com/shaodahong)
+  - 🐞 Fix FormItem hooks render error. [#22053](https://github.com/ant-design/ant-design/pull/22053) [@kagawagao](https://github.com/kagawagao)
+- 🐞 Fixed the problem of using custom icons to wrap in Input.Group. [#22197](https://github.com/ant-design/ant-design/pull/22197) [@xrkffgg](https://github.com/xrkffgg)
+- 💄 Adjust Select single padding style to avoid tweak with dropdown. [#22167](https://github.com/ant-design/ant-design/pull/22167)
+- 💄 Fix Calendar header select ellipsis bug. [#22148](https://github.com/ant-design/ant-design/pull/22148)
+- 💄 Fixed Dropdown content and icons overlapping. [#22098](https://github.com/ant-design/ant-design/pull/22098) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Fix Select ellipsis bug in Firefox. [#22101](https://github.com/ant-design/ant-design/pull/22101)
+- 🐞 Remove PageHeader unnecessary `overflow: hidden` style,Optimize PageHeader extra buttons responsive design. [#22030](https://github.com/ant-design/ant-design/pull/22030)
+- 🐞 Fix TextArea `autoSize` don't scroll bottom in Firefox. [#22014](https://github.com/ant-design/ant-design/pull/22014)
+- 🇫🇷 The full fr_FR internationalized text. [#22122](https://github.com/ant-design/ant-design/pull/22122) [@PaulJln](https://github.com/PaulJln)
+- RTL
+  - 💄 Optimize the style of Pagination in RTL mode. [#22155](https://github.com/ant-design/ant-design/pull/22155) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Fixed the icon style with Cascader RTL. [#22191](https://github.com/ant-design/ant-design/pull/22191) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Optimize the Checkbox.Group style in RTL mode. [#22186](https://github.com/ant-design/ant-design/pull/22186) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Optimize Radio.Button style issues in RTL mode. [#22066](https://github.com/ant-design/ant-design/pull/22066) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 Optimize table-pinned style issues that are listed under RTL. [#21914](https://github.com/ant-design/ant-design/pull/21914) [@saeedrahimi](https://github.com/saeedrahimi)
+  - 💄 Adjust the direction of the Dropdown icon in RTL mode. [#22104](https://github.com/ant-design/ant-design/pull/22104) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Optimize the Breadcrumb style in RTL mode. [#22159](https://github.com/ant-design/ant-design/pull/22159) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Optimize the style of the Steps component in RTL mode. [#22175](https://github.com/ant-design/ant-design/pull/22175) [@xrkffgg](https://github.com/xrkffgg)
+  - 💄 Optimize styles in RTL mode with form feedback. [#22222](https://github.com/ant-design/ant-design/pull/22222)
+- TypeScript
+  - 🔷 Update the `operation` type definition of FormList. [#22058](https://github.com/ant-design/ant-design/pull/22058) [@kagawagao](https://github.com/kagawagao)
+  - 🔷 Update the definition of the `trigger` parameter for components such as Tooltip. [#22043](https://github.com/ant-design/ant-design/pull/22043) [@wendellhu95](https://github.com/wendellhu95)
+
 ## 4.0.2
 
 `2020-03-08`
@@ -292,7 +336,7 @@ timeline: true
 
 Ant Design 4.0-rc released! Here is the release [document](https://github.com/ant-design/ant-design/issues/20661).
 
-⚠️ Migrate from v3 to v4 please ref to [migration document](/docs/react/migration-v4)。
+⚠️ Migrate from v3 to v4 please ref to [migration document](/docs/react/migration-v4).
 
 ### New features and improvements
 

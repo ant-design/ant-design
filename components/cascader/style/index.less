@@ -3,8 +3,6 @@
 @import '../../input/style/mixin';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
-@picker-rtl-cls: ~'@{cascader-prefix-cls}-picker-rtl';
-@menu-rtl-cls: ~'@{cascader-prefix-cls}-menu-rtl';
 
 .@{cascader-prefix-cls} {
   .reset-component;
@@ -19,12 +17,6 @@
     // because input.less will compile after cascader.less
     background-color: transparent !important;
     cursor: pointer;
-
-    .@{picker-rtl-cls} & {
-      padding-right: @input-padding-horizontal-base;
-      padding-left: 24px;
-      text-align: right;
-    }
   }
 
   &-picker-show-search &-input.@{ant-prefix}-input {
@@ -80,11 +72,6 @@
       line-height: 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
-
-      .@{picker-rtl-cls} & {
-        padding: 0 @control-padding-horizontal 0 20px;
-        text-align: right;
-      }
     }
 
     &-clear {
@@ -104,11 +91,6 @@
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
         color: @text-color-secondary;
-      }
-
-      .@{picker-rtl-cls} & {
-        right: auto;
-        left: @control-padding-horizontal;
       }
     }
 
@@ -132,11 +114,6 @@
       &&-expand {
         transform: rotate(180deg);
       }
-
-      .@{picker-rtl-cls} & {
-        right: auto;
-        left: @control-padding-horizontal;
-      }
     }
   }
 
@@ -148,11 +125,6 @@
   &-picker-small &-picker-clear,
   &-picker-small &-picker-arrow {
     right: @control-padding-horizontal-sm;
-
-    .@{picker-rtl-cls} & {
-      right: auto;
-      left: @control-padding-horizontal;
-    }
   }
 
   &-menus {
@@ -215,17 +187,6 @@
     &:only-child {
       border-radius: @border-radius-base;
     }
-    &-rtl {
-      direction: rtl;
-      border-right: none;
-      border-left: @border-width-base @border-style-base @border-color-split;
-      &:last-child {
-        margin-right: 0;
-        margin-left: -1px;
-        border-left-color: transparent;
-        border-radius: 0 0 4px 4px;
-      }
-    }
   }
   &-menu-item {
     padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
@@ -253,11 +214,6 @@
     &-expand {
       position: relative;
       padding-right: 24px;
-
-      .@{menu-rtl-cls} & {
-        padding-right: @control-padding-horizontal;
-        padding-left: 24px;
-      }
     }
 
     &-expand &-expand-icon,
@@ -267,11 +223,6 @@
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
-
-      .@{menu-rtl-cls} & {
-        right: auto;
-        left: @control-padding-horizontal;
-      }
     }
 
     & &-keyword {
