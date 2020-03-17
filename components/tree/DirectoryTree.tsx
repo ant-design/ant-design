@@ -151,7 +151,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const { onSelect, multiple } = this.props;
     const { expandedKeys = [] } = this.state;
     const { node, nativeEvent } = event;
-    const { eventKey = '' } = node.props;
+    const { key = '' } = node;
 
     const treeData = getTreeData(this.props);
     const newState: DirectoryTreeState = {};
@@ -171,7 +171,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     if (multiple && ctrlPick) {
       // Control click
       newSelectedKeys = keys;
-      this.lastSelectedKey = eventKey;
+      this.lastSelectedKey = key;
       this.cachedSelectedKeys = newSelectedKeys;
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     } else if (multiple && shiftPick) {
@@ -179,16 +179,16 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       newSelectedKeys = Array.from(
         new Set([
           ...(this.cachedSelectedKeys || []),
-          ...calcRangeKeys(treeData, expandedKeys, eventKey, this.lastSelectedKey),
+          ...calcRangeKeys(treeData, expandedKeys, key, this.lastSelectedKey),
         ]),
       );
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     } else {
       // Single click
-      newSelectedKeys = [eventKey];
-      this.lastSelectedKey = eventKey;
+      newSelectedKeys = [key];
+      this.lastSelectedKey = key;
       this.cachedSelectedKeys = newSelectedKeys;
-      newEvent.selectedNodes = [event.node.props.data];
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     }
     newState.selectedKeys = newSelectedKeys;
 
