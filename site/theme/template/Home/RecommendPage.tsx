@@ -24,11 +24,11 @@ const LIST_CN: Recommend[] = [
     popularize: true,
   },
   {
-    title: '我的按钮究竟该放哪儿！？',
+    title: '图表库 G2Plot 1.0 发布了！',
     description:
-      '按钮是一种使用广泛的基础界面元素，我们需要并一直在探索建立按钮设计规范。Ant Design 提供了丰富的按钮类型以覆盖各种场景。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wXuKQ6-ssWMAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/109644406',
+      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*Wv4XTIoIJ3gAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/113888415',
   },
   {
     title: 'HiTu·让人人都是插画师',
