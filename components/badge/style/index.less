@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './rtl';
 
 @badge-prefix-cls: ~'@{ant-prefix}-badge';
 @number-prefix-cls: ~'@{ant-prefix}-scroll-number';
@@ -11,10 +12,6 @@
   display: inline-block;
   color: unset;
   line-height: 1;
-
-  &-rtl {
-    direction: rtl;
-  }
 
   &-count {
     z-index: @zindex-badge;
@@ -57,20 +54,6 @@
     right: 0;
     transform: translate(50%, -50%);
     transform-origin: 100% 0%;
-
-    .@{badge-prefix-cls}-rtl & {
-      right: auto;
-      left: 0;
-      transform: translate(-50%, -50%);
-      transform-origin: 0% 0%;
-    }
-  }
-
-  .@{badge-prefix-cls}-rtl& .@{number-prefix-cls}-custom-component {
-    right: auto;
-    left: 0;
-    transform: translate(-50%, -50%);
-    transform-origin: 0% 0%;
   }
 
   &-status {
@@ -129,11 +112,6 @@
       margin-left: 8px;
       color: @text-color;
       font-size: @font-size-base;
-
-      .@{badge-prefix-cls}-rtl & {
-        margin-right: 8px;
-        margin-left: 0;
-      }
     }
   }
 
@@ -141,19 +119,11 @@
   &-zoom-enter {
     animation: antZoomBadgeIn 0.3s @ease-out-back;
     animation-fill-mode: both;
-
-    .@{badge-prefix-cls}-rtl & {
-      animation-name: antZoomBadgeInRtl;
-    }
   }
 
   &-zoom-leave {
     animation: antZoomBadgeOut 0.3s @ease-in-back;
     animation-fill-mode: both;
-
-    .@{badge-prefix-cls}-rtl & {
-      animation-name: antZoomBadgeOutRtl;
-    }
   }
 
   &-not-a-wrapper {
@@ -217,26 +187,6 @@
   }
   100% {
     transform: scale(0) translate(50%, -50%);
-    opacity: 0;
-  }
-}
-
-@keyframes antZoomBadgeInRtl {
-  0% {
-    transform: scale(0) translate(-50%, -50%);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1) translate(-50%, -50%);
-  }
-}
-
-@keyframes antZoomBadgeOutRtl {
-  0% {
-    transform: scale(1) translate(-50%, -50%);
-  }
-  100% {
-    transform: scale(0) translate(-50%, -50%);
     opacity: 0;
   }
 }
