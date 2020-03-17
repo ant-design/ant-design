@@ -24,11 +24,11 @@ const LIST_CN: Recommend[] = [
     popularize: true,
   },
   {
-    title: '图表库 G2Plot 1.0发布了！',
+    title: '图表库 G2Plot 1.0 发布了！',
     description:
-      '开箱即用图表库 G2Plot 1.0 发布，支持40+图表类型，高级统计分析组件和复杂交互内置。',
+      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
     img: 'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*Wv4XTIoIJ3gAAAAAAAAAAABkARQnAQ',
-    href: 'https://www.yuque.com/antv/blog/igfe4h',
+    href: 'https://zhuanlan.zhihu.com/p/113888415',
   },
   {
     title: 'HiTu·让人人都是插画师',
