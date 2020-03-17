@@ -221,22 +221,22 @@ a {
   }
 }
 
-// keep transition consistent to make mode toggle animation be more smooth
+// keep transition consistent to make mode toggle animation be more smooth, include:
 // nav bar background
-#header,
 // nav search border
-#header #search-box,
 // nav menu background
-#header #nav.ant-menu,
 // wrapper content
-.main-wrapper,
 // sidemenu background
-.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu,
 // sidemenu active background
-.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu.aside-container.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-title::after,
 // content background
-.main-wrapper .main-container,
 // affix toc
+#header,
+#header #search-box,
+#header #nav.ant-menu,
+.main-wrapper,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu.aside-container.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-title::after,
+.main-wrapper .main-container,
 #demo-toc.toc {
   transition: all 0.3s @ease-in-out-circ;
 }
