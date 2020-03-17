@@ -1217,8 +1217,8 @@ describe('Table.filter', () => {
   it('with onFilter', () => {
     const onFilter = jest.fn((value, record) => record.key === value);
     const columns = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
-    const data = [{ key: 1 }, { key: 3 }, { key: 5 }];
-    const wrapper = mount(<Table columns={columns} dataSource={data} />);
+    const testData = [{ key: 1 }, { key: 3 }, { key: 5 }];
+    const wrapper = mount(<Table columns={columns} dataSource={testData} />);
 
     expect(onFilter).toHaveBeenCalled();
     expect(wrapper.find('tbody tr')).toHaveLength(1);
