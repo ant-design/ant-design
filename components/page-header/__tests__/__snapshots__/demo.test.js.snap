@@ -1138,7 +1138,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         <div
           class="ant-tabs-bar ant-tabs-top-bar"
           role="tablist"
-          tabindex="0"
+          tabindex="-1"
         >
           <div
             class="ant-tabs-nav-container"
@@ -1212,18 +1212,24 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                 >
                   <div>
                     <div
+                      aria-controls="tabpane-1"
                       aria-disabled="false"
                       aria-selected="true"
                       class="ant-tabs-tab-active ant-tabs-tab"
+                      id="tab-1"
                       role="tab"
+                      tabindex="0"
                     >
                       Details
                     </div>
                     <div
+                      aria-controls="tabpane-2"
                       aria-disabled="false"
                       aria-selected="false"
                       class=" ant-tabs-tab"
+                      id="tab-2"
                       role="tab"
+                      tabindex="-1"
                     >
                       Rule
                     </div>
@@ -1237,11 +1243,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
           </div>
         </div>
         <div
-          role="presentation"
-          style="width:0;height:0;overflow:hidden;position:absolute"
-          tabindex="0"
-        />
-        <div
           class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:0%"
         >
@@ -1249,29 +1250,17 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          >
-            <div
-              role="presentation"
-              style="width:0;height:0;overflow:hidden;position:absolute"
-              tabindex="0"
-            />
-            <div
-              role="presentation"
-              style="width:0;height:0;overflow:hidden;position:absolute"
-              tabindex="0"
-            />
-          </div>
+            style="visibility:visible"
+            tabindex="0"
+          />
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
+            style="visibility:hidden"
+            tabindex="-1"
           />
         </div>
-        <div
-          role="presentation"
-          style="width:0;height:0;overflow:hidden;position:absolute"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
