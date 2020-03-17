@@ -23,10 +23,12 @@ function renderFilterItems(
   multiple: boolean,
 ) {
   return filters.map((filter, index) => {
+    const key = String(filter.value);
+
     if (filter.children) {
       return (
         <SubMenu
-          key={filter.value || index}
+          key={key || index}
           title={filter.text}
           popupClassName={`${prefixCls}-dropdown-submenu`}
         >
@@ -38,8 +40,8 @@ function renderFilterItems(
     const Component = multiple ? Checkbox : Radio;
 
     return (
-      <MenuItem key={filter.value !== undefined ? filter.value : index}>
-        <Component checked={filteredKeys.includes(String(filter.value))} />
+      <MenuItem key={filter.value !== undefined ? key : index}>
+        <Component checked={filteredKeys.includes(key)} />
         <span>{filter.text}</span>
       </MenuItem>
     );
@@ -187,7 +189,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {renderFilterItems(column.filters || [], prefixCls, getFilteredKeysSync(), filterMultiple)}
+          {renderFilterItems(
+            column.filters || [],
+            prefixCls,
+            getFilteredKeysSync(),
+            filterMultiple,
+          )}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
           <a className={`${prefixCls}-dropdown-link confirm`} onClick={onConfirm}>

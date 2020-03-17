@@ -125,7 +125,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
 }
 
 function flattenKeys(filters?: ColumnFilterItem[]) {
-  let keys: Key[] = [];
+  let keys: (string | number | boolean)[] = [];
   (filters || []).forEach(({ value, children }) => {
     keys.push(value);
     if (children) {
