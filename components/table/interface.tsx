@@ -31,7 +31,7 @@ export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
-  value: any;
+  value: string | number | boolean;
   children?: ColumnFilterItem[];
 }
 
