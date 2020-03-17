@@ -10,12 +10,19 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Bitte auswählen',
+  },
   Table: {
     filterTitle: 'Filter-Menü',
     filterConfirm: 'OK',
     filterReset: 'Zurücksetzen',
     selectAll: 'Selektiere Alle',
     selectInvert: 'Selektion Invertieren',
+    selectionAll: 'Wählen Sie alle Daten aus',
+    sortTitle: 'Sortieren',
+    expand: 'Zeile erweitern',
+    collapse: 'Zeile reduzieren',
   },
   Modal: {
     okText: 'OK',
@@ -40,6 +47,15 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Keine Daten',
+  },
+  Text: {
+    edit: 'Bearbeiten',
+    copy: 'Kopieren',
+    copied: 'Kopiert',
+    expand: 'Erweitern',
+  },
+  PageHeader: {
+    back: 'Zurück',
   },
 };
 
