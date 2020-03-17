@@ -1,0 +1,29 @@
+.steps-vertical() {
+  .@{steps-prefix-cls}-item {
+    &-icon {
+      .@{steps-prefix-cls}-rtl& {
+        float: right;
+        margin-right: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
+    .@{steps-prefix-cls}-rtl& {
+      right: 16px;
+      left: auto;
+    }
+  }
+
+  &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item-container {
+    .@{steps-prefix-cls}-item-tail {
+      .@{steps-prefix-cls}-rtl& {
+        right: 12px;
+        left: auto;
+      }
+    }
+  }
+}

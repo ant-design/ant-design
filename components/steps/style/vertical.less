@@ -1,3 +1,5 @@
+@import './vertical.rtl.less';
+
 .steps-vertical() {
   display: block;
   .@{steps-prefix-cls}-item {
@@ -6,12 +8,6 @@
     &-icon {
       float: left;
       margin-right: 16px;
-
-      .@{steps-prefix-cls}-rtl& {
-        float: right;
-        margin-right: 0;
-        margin-left: 16px;
-      }
     }
     &-content {
       display: block;
@@ -35,11 +31,6 @@
     width: 1px;
     height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
-
-    .@{steps-prefix-cls}-rtl& {
-      right: 16px;
-      left: auto;
-    }
 
     &::after {
       width: 1px;
@@ -68,11 +59,6 @@
       top: 0;
       left: 12px;
       padding: @steps-small-icon-size + 6px 0 6px;
-
-      .@{steps-prefix-cls}-rtl& {
-        right: 12px;
-        left: auto;
-      }
     }
     .@{steps-prefix-cls}-item-title {
       line-height: @steps-small-icon-size;
