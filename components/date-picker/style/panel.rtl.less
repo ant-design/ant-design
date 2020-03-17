@@ -1,0 +1,125 @@
+@import './index';
+
+.@{picker-prefix-cls} {
+  &-panel {
+    &-rtl {
+      direction: rtl;
+    }
+  }
+
+  &-prev-icon,
+  &-super-prev-icon {
+    .@{picker-prefix-cls}-panel-rtl & {
+      transform: rotate(135deg);
+    }
+  }
+
+  &-next-icon,
+  &-super-next-icon {
+    .@{picker-prefix-cls}-panel-rtl & {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .picker-cell-inner(@cellClassName) {
+    &-in-view&-range-start::before {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 0;
+      }
+    }
+    &-in-view&-range-end::before {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 50%;
+      }
+    }
+
+    .@{picker-prefix-cls}-date-panel
+      &-in-view&-in-range&-range-hover-start
+      .@{cellClassName}::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: -6px - @border-width-base;
+      }
+    }
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: -6px - @border-width-base;
+        left: 0;
+      }
+    }
+
+    // Hover with range start & end
+    &-range-hover&-range-start::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 50%;
+      }
+    }
+
+    &-range-hover&-range-end::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 0;
+      }
+    }
+
+    // Edge start
+    tr > &-in-view&-range-hover:first-child::after,
+    tr > &-in-view&-range-hover-end:first-child::after,
+    &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
+    &-in-view&-range-hover-start::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 6px;
+        left: 0;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-left: none;
+        border-top-right-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+      }
+    }
+
+    // Edge end
+    tr > &-in-view&-range-hover:last-child::after,
+    tr > &-in-view&-range-hover-start:last-child::after,
+    &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
+    &-in-view&-range-hover-end::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 6px;
+        border-right: none;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-top-left-radius: @border-radius-base;
+        border-bottom-left-radius: @border-radius-base;
+      }
+    }
+  }
+
+  // ================== Year & Month Panel ==================
+  &-year-panel,
+  &-month-panel {
+    .@{picker-prefix-cls}-cell-range-hover-start::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: @hover-cell-fixed-distance;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
+    }
+
+    .@{picker-prefix-cls}-cell-range-hover-end::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        left: @hover-cell-fixed-distance;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-radius: @border-radius-base 0 0 @border-radius-base;
+      }
+    }
+  }
+
+  // ====================== Time Panel ======================
+  &-time-panel {
+    .@{picker-prefix-cls}-panel-rtl & {
+      direction: ltr;
+    }
+  }
+}
