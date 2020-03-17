@@ -131,8 +131,8 @@ describe('Upload List', () => {
   it('should be uploading when upload a file', done => {
     let wrapper;
     let latestFileList = null;
-    const onChange = ({ file, fileList }) => {
-      expect(fileList === latestFileList).toBeFalsy();
+    const onChange = ({ file, fileList: eventFileList }) => {
+      expect(eventFileList === latestFileList).toBeFalsy();
       if (file.status === 'uploading') {
         expect(wrapper.render()).toMatchSnapshot();
       }
@@ -141,7 +141,7 @@ describe('Upload List', () => {
         done();
       }
 
-      latestFileList = fileList;
+      latestFileList = eventFileList;
     };
     wrapper = mount(
       <Upload
