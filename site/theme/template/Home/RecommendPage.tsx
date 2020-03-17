@@ -41,7 +41,8 @@ const LIST_CN: Recommend[] = [
 const LIST_EN: Recommend[] = [
   {
     title: 'Ant Design 4.0 is out!',
-    description: '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
+    description:
+      '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
     href: 'https://github.com/ant-design/ant-design/issues/21656',
     popularize: true,
@@ -49,13 +50,16 @@ const LIST_EN: Recommend[] = [
   {
     title: 'Introduce AntV',
     description: '✨ New player of front-end data visualization',
-    img: 'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
-    href: 'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
+    img:
+      'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
+    href:
+      'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
   },
   {
     title: 'G2Plot: a charting library',
     description: '📊 A charting library based on the grammar of graphics',
-    img: 'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
+    img:
+      'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
     href: 'https://github.com/antvis/G2Plot',
   },
 ];

@@ -181,7 +181,10 @@ class Demo extends React.Component {
       html,
       js: sourceCode
         .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'antd';/, 'const { $1 } = antd;')
-        .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
+        .replace(
+          /import\s+\{(\s+[^}]*\s+)\}\s+from\s+'@ant-design\/icons';/,
+          'const { $1 } = icons;',
+        )
         .replace("import moment from 'moment';", '')
         .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
@@ -252,25 +255,25 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
     const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
 
     const codesandboxPackage = {
-      "name": `${localizedTitle} - Ant Design Demo`,
-      "version": "1.0.0",
-      "main": "index.js",
-      "dependencies": {
+      name: `${localizedTitle} - Ant Design Demo`,
+      version: '1.0.0',
+      main: 'index.js',
+      dependencies: {
         ...dependencies,
-        "react": "^16.12.0",
-        "react-dom": "^16.12.0",
-        "react-scripts": "^3.0.1",
-       },
-      "devDependencies": {
-        "typescript": "^3.8.2",
+        react: '^16.12.0',
+        'react-dom': '^16.12.0',
+        'react-scripts': '^3.0.1',
       },
-      "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
+      devDependencies: {
+        typescript: '^3.8.2',
       },
-      "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
+      scripts: {
+        start: 'react-scripts start',
+        build: 'react-scripts build',
+        test: 'react-scripts test --env=jsdom',
+        eject: 'react-scripts eject',
+      },
+      browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
     };
     const codesanboxPrefillConfig = {
       files: {
