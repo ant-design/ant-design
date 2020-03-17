@@ -1,0 +1,69 @@
+@import './index';
+
+@selection-item-padding: ceil(@font-size-base * 1.25);
+
+.@{select-prefix-cls}-single {
+  // ========================= Selector =========================
+  .@{select-prefix-cls}-selector {
+    .@{select-prefix-cls}-selection-item,
+    .@{select-prefix-cls}-selection-placeholder {
+      .@{select-prefix-cls}-rtl& {
+        right: 0;
+        left: 9px;
+        text-align: right;
+      }
+    }
+  }
+
+  // With arrow should provides `padding-right` to show the arrow
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
+    .@{select-prefix-cls}-rtl& {
+      right: @input-padding-horizontal-base;
+      left: @input-padding-horizontal-base + @font-size-base;
+    }
+  }
+
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
+    .@{select-prefix-cls}-rtl& {
+      padding-right: 0;
+      padding-left: @selection-item-padding;
+    }
+  }
+
+  // ========================== Input ==========================
+  // We only change the style of non-customize input which is only support by `combobox` mode.
+
+  // Not customize
+  &:not(.@{select-prefix-cls}-customize-input) {
+    .@{select-prefix-cls}-selector {
+      .@{select-prefix-cls}-rtl& {
+        padding: 0 @input-padding-horizontal-base;
+      }
+    }
+  }
+
+  // ============================================================
+  // ==                          Size                          ==
+  // ============================================================
+
+  // Size small need additional set padding
+  &.@{select-prefix-cls}-sm {
+    &:not(.@{select-prefix-cls}-customize-input) {
+      // With arrow should provides `padding-right` to show the arrow
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
+        .@{select-prefix-cls}-rtl& {
+          right: 0;
+        }
+      }
+
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
+        .@{select-prefix-cls}-rtl& {
+          padding-right: 0;
+          padding-left: @font-size-base * 1.5;
+        }
+      }
+    }
+  }
+}
