@@ -39,6 +39,7 @@ export interface TabsProps {
     DefaultTabBar: React.ComponentClass<any>,
   ) => React.ReactElement<any>;
   destroyInactiveTabPane?: boolean;
+  keyboard?: boolean;
 }
 
 // Tabs
