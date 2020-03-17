@@ -104,8 +104,8 @@ ReactDOM.render(
         <li>
           Ordered list item with unordered sublist
           <ul>
-            <li>I'm unordered!</li>
-            <li>I'm also unordered!</li>
+            <li>I am unordered!</li>
+            <li>I am also unordered!</li>
           </ul>
         </li>
       </ol>

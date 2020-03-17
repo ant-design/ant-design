@@ -571,10 +571,10 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         Ordered list item with unordered sublist
         <ul>
           <li>
-            I'm unordered!
+            I am unordered!
           </li>
           <li>
-            I'm also unordered!
+            I am also unordered!
           </li>
         </ul>
       </li>
