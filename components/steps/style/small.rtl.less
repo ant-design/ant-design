@@ -1,0 +1,21 @@
+.@{steps-prefix-cls}-small {
+  &.@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical)
+    .@{steps-prefix-cls}-item {
+    .@{steps-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 12px;
+    }
+
+    &:last-child {
+      .@{steps-prefix-cls}-rtl& {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .@{steps-prefix-cls}-item-title {
+    .@{steps-prefix-cls}-rtl& {
+      padding-right: 0;
+    }
+  }
+}
