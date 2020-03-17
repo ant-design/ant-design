@@ -1213,4 +1213,14 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('.ant-table-filter-trigger').hasClass('active')).toBeTruthy();
   });
+
+  it('with onFilter', () => {
+    const onFilter = jest.fn((value, record) => record.key === value);
+    const columns = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
+    const testData = [{ key: 1 }, { key: 3 }, { key: 5 }];
+    const wrapper = mount(<Table columns={columns} dataSource={testData} />);
+
+    expect(onFilter).toHaveBeenCalled();
+    expect(wrapper.find('tbody tr')).toHaveLength(1);
+  });
 });
