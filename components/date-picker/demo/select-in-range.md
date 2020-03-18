@@ -36,11 +36,6 @@ const App = () => {
       onCalendarChange={value => {
         setDates(value);
       }}
-      onOpenChange={open => {
-        if (!open) {
-          setDates([]);
-        }
-      }}
     />
   );
 };
