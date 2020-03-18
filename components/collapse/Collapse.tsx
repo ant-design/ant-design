@@ -40,7 +40,6 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    openAnimation: { ...animation, appear() {} },
     expandIconPosition: 'left',
   };
 
@@ -77,6 +76,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     );
     return (
       <RcCollapse
+        openAnimation={{ ...animation, appear() {} }}
         {...this.props}
         expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
         prefixCls={prefixCls}
