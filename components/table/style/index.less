@@ -419,6 +419,11 @@
 
   &-row-indent {
     float: left;
+    height: 1px;
+
+    .@{table-wrapepr-rtl-cls} & {
+      float: right;
+    }
   }
 
   &-row-expand-icon {
@@ -440,6 +445,10 @@
     outline: none;
     transition: all 0.3s;
     user-select: none;
+
+    .@{table-wrapepr-rtl-cls} & {
+      float: right;
+    }
 
     &:focus,
     &:hover,
