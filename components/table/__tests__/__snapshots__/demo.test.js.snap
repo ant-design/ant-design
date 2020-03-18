@@ -5031,7 +5031,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -5432,7 +5431,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -6362,7 +6360,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
@@ -7718,7 +7715,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0"
                 >
                   <td
                     style="padding:0;border:0;height:0"
