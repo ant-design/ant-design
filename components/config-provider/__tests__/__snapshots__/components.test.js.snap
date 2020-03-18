@@ -12631,7 +12631,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   <div
     class="config-tabs-bar config-tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="config-tabs-nav-container"
@@ -12705,10 +12705,13 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-Light"
                 aria-disabled="false"
                 aria-selected="true"
                 class="config-tabs-tab-active config-tabs-tab"
+                id="tab-Light"
                 role="tab"
+                tabindex="0"
               >
                 Bamboo
               </div>
@@ -12722,11 +12725,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="config-tabs-content config-tabs-content-animated config-tabs-top-content"
     style="margin-left:0%"
   >
@@ -12734,24 +12732,10 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       aria-hidden="false"
       class="config-tabs-tabpane config-tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -12762,7 +12746,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="ant-tabs-nav-container"
@@ -12836,10 +12820,13 @@ exports[`ConfigProvider components Tabs normal 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-Light"
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
+                id="tab-Light"
                 role="tab"
+                tabindex="0"
               >
                 Bamboo
               </div>
@@ -12853,11 +12840,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
@@ -12865,24 +12847,10 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -12893,7 +12861,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   <div
     class="prefix-Tabs-bar prefix-Tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="prefix-Tabs-nav-container"
@@ -12967,10 +12935,13 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-Light"
                 aria-disabled="false"
                 aria-selected="true"
                 class="prefix-Tabs-tab-active prefix-Tabs-tab"
+                id="tab-Light"
                 role="tab"
+                tabindex="0"
               >
                 Bamboo
               </div>
@@ -12984,11 +12955,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="prefix-Tabs-content prefix-Tabs-content-animated prefix-Tabs-top-content"
     style="margin-left:0%"
   >
@@ -12996,24 +12962,10 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       aria-hidden="false"
       class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
