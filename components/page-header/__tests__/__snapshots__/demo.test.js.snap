@@ -647,32 +647,32 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         </div>
         <div>
           <a
-            style="margin-right:16px"
+            class="example-link"
           >
             <img
               alt="Quick Start"
+              class="example-link-icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-              style="margin-right:8px"
             />
             Quick Start
           </a>
           <a
-            style="margin-right:16px"
+            class="example-link"
           >
             <img
               alt=" Product Info"
+              class="example-link-icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
-              style="margin-right:8px"
             />
              Product Info
           </a>
           <a
-            style="margin-right:16px"
+            class="example-link"
           >
             <img
               alt="Product Doc"
+              class="example-link-icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
-              style="margin-right:8px"
             />
             Product Doc
           </a>
