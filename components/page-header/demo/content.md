@@ -75,18 +75,8 @@ const routes = [
 ];
 
 const IconLink = ({ src, text }) => (
-  <a
-    style={{
-      marginRight: 16,
-    }}
-  >
-    <img
-      style={{
-        marginRight: 8,
-      }}
-      src={src}
-      alt={text}
-    />
+  <a className="example-link">
+    <img className="example-link-icon" src={src} alt={text} />
     {text}
   </a>
 );
@@ -166,6 +156,23 @@ ReactDOM.render(
   margin: 0 0 0 60px;
   display: flex;
   align-items: center;
+}
+
+#components-page-header-demo-content .example-link {
+  margin-right: 16px;
+}
+#components-page-header-demo-content .example-link-icon {
+  margin-right: 8px;
+}
+
+#components-page-header-demo-content .ant-page-header-rtl .example-link {
+  float: right;
+  margin-right: 0;
+  margin-left: 16px;
+}
+#components-page-header-demo-content .ant-page-header-rtl .example-link-icon {
+  margin-right: 0;
+  margin-left: 8px;
 }
 
 @media (max-width: 768px) {
