@@ -6,7 +6,7 @@ title:
 ---
 
 ```jsx
-import { Button, Space, Card } from 'antd';
+import { Space, Card } from 'antd';
 
 function SpaceDemo() {
   return (

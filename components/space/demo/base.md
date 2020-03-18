@@ -14,7 +14,7 @@ title:
 Crowded button horizontal space.
 
 ```jsx
-import { Button, Space, ConfigProvider } from 'antd';
+import { Button, Space } from 'antd';
 
 function SpaceDemo() {
   return (
