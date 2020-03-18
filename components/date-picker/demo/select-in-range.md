@@ -14,14 +14,13 @@ title:
 A example shows how to select a dynamic range by using `onCalendarChange` and `disabledDate`.
 
 ```jsx
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { DatePicker } from 'antd';
 
 const { RangePicker } = DatePicker;
 
 const App = () => {
   const [dates, setDates] = useState([]);
-
   const disabledDate = current => {
     if (!dates || dates.length === 0) {
       return false;
@@ -34,8 +33,8 @@ const App = () => {
   return (
     <RangePicker
       disabledDate={disabledDate}
-      onCalendarChange={dates => {
-        setDates(dates);
+      onCalendarChange={value => {
+        setDates(value);
       }}
       onOpenChange={open => {
         if (!open) {
