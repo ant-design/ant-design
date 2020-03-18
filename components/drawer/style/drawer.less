@@ -15,10 +15,6 @@
       box-shadow @animation-duration-slow @ease-base-out;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-content-wrapper {
     position: absolute;
   }
@@ -178,11 +174,6 @@
     cursor: pointer;
     transition: color @animation-duration-slow;
     text-rendering: auto;
-
-    .@{drawer-prefix-cls}-rtl & {
-      right: auto;
-      left: 0;
-    }
 
     &:focus,
     &:hover {
