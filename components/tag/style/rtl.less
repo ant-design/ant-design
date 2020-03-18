@@ -1,0 +1,20 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@tag-prefix-cls: ~'@{ant-prefix}-tag';
+
+.@{tag-prefix-cls} {
+  &-rtl {
+    margin-right: 0;
+    margin-left: 8px;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .@{iconfont-css-prefix}-close {
+    .@{tag-prefix-cls}-rtl& {
+      margin-right: 3px;
+      margin-left: 0;
+    }
+  }
+}

@@ -57,11 +57,6 @@
     &:hover {
       color: @heading-color;
     }
-
-    .@{tab-prefix-cls}-rtl& {
-      margin-right: 3px;
-      margin-left: -5px;
-    }
   }
 
   &&-card &-card-content > &-tabpane,
@@ -79,10 +74,6 @@
   &-extra-content {
     line-height: @tabs-title-font-size * @line-height-base + extract(@tabs-horizontal-padding, 1) *
       2;
-
-    .@{tab-prefix-cls}-rtl & {
-      float: left !important;
-    }
 
     .@{tab-prefix-cls}-new-tab {
       position: relative;
@@ -193,3 +184,5 @@
     color: @primary-color;
   }
 }
+
+@import './card-style.rtl.less';
