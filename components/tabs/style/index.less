@@ -23,10 +23,6 @@
   overflow: hidden;
   .clearfix;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-ink-bar {
     position: absolute;
     bottom: 1px;
@@ -37,11 +33,6 @@
     height: 2px;
     background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
-
-    .@{tab-prefix-cls}-rtl & {
-      right: 0;
-      left: auto;
-    }
   }
 
   &-bar {
@@ -125,11 +116,6 @@
       text-transform: none;
       transform: translate(-50%, -50%);
 
-      .@{tab-prefix-cls}-rtl & {
-        right: 50%;
-        left: auto;
-      }
-
       &-target {
         display: block;
         .iconfont-size-under-12px(10px);
@@ -147,20 +133,10 @@
 
   &-tab-next {
     right: 2px;
-
-    .@{tab-prefix-cls}-rtl & {
-      right: auto;
-      left: 2px;
-    }
   }
 
   &-tab-prev {
     left: 0;
-
-    .@{tab-prefix-cls}-rtl & {
-      right: 2px;
-      left: auto;
-    }
 
     :root & {
       filter: none;
@@ -207,10 +183,6 @@
       cursor: pointer;
       transition: color 0.3s @ease-in-out;
 
-      .@{tab-prefix-cls}-rtl & {
-        margin: @tabs-horizontal-margin-rtl;
-      }
-
       &::before {
         position: absolute;
         top: -1px;
@@ -237,11 +209,6 @@
 
       .@{iconfont-css-prefix} {
         margin-right: 8px;
-
-        .@{tab-prefix-cls}-rtl & {
-          margin-right: 0;
-          margin-left: 8px;
-        }
       }
 
       &-active {
@@ -468,3 +435,5 @@
 .@{tab-prefix-cls}-right-content {
   .tabs-no-animation();
 }
+
+@import './rtl.less';
