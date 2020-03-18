@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
+@import './rtl';
 
 @btn-prefix-cls: ~'@{ant-prefix}-btn';
 
@@ -12,10 +13,16 @@
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // Fixing https://github.com/ant-design/ant-design/issues/20058
+  // Fixing https://github.com/ant-design/ant-design/issues/19972
+  // Fixing https://github.com/ant-design/ant-design/issues/18107
+  // Fixing https://github.com/ant-design/ant-design/issues/13214
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.001px solution works and I don't why
   line-height: @line-height-base;
   .btn;
   .btn-default;
-
   // Make sure that the target of Button's click event always be `button`
   // Ref: https://github.com/ant-design/ant-design/issues/7034
   > i,
@@ -40,6 +47,7 @@
     .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
         border-right-color: @btn-group-border;
+
         &[disabled] {
           border-right-color: @btn-default-border;
         }
@@ -49,6 +57,7 @@
     .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + & {
       border-left-color: @btn-group-border;
+
       &[disabled] {
         border-left-color: @btn-default-border;
       }
@@ -63,6 +72,8 @@
     .btn-dashed;
   }
 
+  // type="danger" will deprecated
+  // use danger instead
   &-danger {
     .btn-danger;
   }
@@ -71,8 +82,24 @@
     .btn-link;
   }
 
+  &-dangerous {
+    .btn-danger-default;
+  }
+
+  &-dangerous&-primary {
+    .btn-danger;
+  }
+
+  &-dangerous&-link {
+    .btn-danger-link;
+  }
+
   &-icon-only {
     .btn-square(@btn-prefix-cls);
+
+    > i {
+      vertical-align: middle;
+    }
   }
 
   &-round {
@@ -118,7 +145,9 @@
 
   &&-loading {
     position: relative;
-    pointer-events: none;
+    &:not([disabled]) {
+      pointer-events: none;
+    }
   }
 
   &&-loading::before {
@@ -127,6 +156,7 @@
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
     padding-left: 29px;
+
     .@{iconfont-css-prefix}:not(:last-child) {
       margin-left: -14px;
     }
@@ -134,6 +164,7 @@
 
   &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
     padding-left: 24px;
+
     .@{iconfont-css-prefix} {
       margin-left: -17px;
     }
@@ -156,9 +187,9 @@
   }
 
   &-background-ghost {
-    color: @component-background;
-    background: transparent !important;
-    border-color: @component-background;
+    color: @btn-default-ghost-color;
+    background: @btn-default-ghost-bg !important;
+    border-color: @btn-default-ghost-border;
   }
 
   &-background-ghost&-primary {
@@ -169,10 +200,18 @@
     .button-variant-ghost(@btn-danger-border);
   }
 
+  &-background-ghost&-dangerous {
+    .button-variant-ghost(@btn-danger-border);
+  }
+
+  &-background-ghost&-dangerous&-link {
+    .button-variant-ghost(@btn-danger-border, transparent);
+  }
+
   &-background-ghost&-link {
     .button-variant-ghost(@link-color; transparent);
 
-    color: @component-background;
+    color: @btn-link-ghost-color;
   }
 
   &-two-chinese-chars::first-letter {

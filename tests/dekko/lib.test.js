@@ -31,8 +31,6 @@ $('lib/*/style')
   .hasFile('css.js')
   .hasFile('index.js');
 
-$('lib/style').hasFile('v2-compatible-reset.css');
-
 // locale
 const filterLocaleFile = filePath => {
   const fileName = getFileName(filePath);

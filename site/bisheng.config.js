@@ -1,6 +1,9 @@
 const path = require('path');
-const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
+const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const { version } = require('../package.json');
+
+const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
@@ -30,24 +33,25 @@ module.exports = {
     components: './components',
     docs: './docs',
     changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
+    'components/form/v3': ['components/form/v3.zh-CN.md', 'components/form/v3.en-US.md'],
+    'docs/resources': ['./docs/resources.zh-CN.md', './docs/resources.en-US.md'],
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
     categoryOrder: {
       'Ant Design': 0,
-      原则: 1,
-      Principles: 1,
-      视觉: 2,
-      Visual: 2,
-      模式: 3,
-      Patterns: 3,
-      其他: 6,
-      Other: 6,
+      全局样式: 1,
+      'Global Styles': 1,
+      设计模式: 2,
+      'Design Patterns': 2,
+      '设计模式 - 探索': 3,
+      'Design Patterns (Research)': 3,
       Components: 100,
       组件: 100,
     },
     typeOrder: {
+      // Component
       General: 0,
       Layout: 1,
       Navigation: 2,
@@ -64,14 +68,23 @@ module.exports = {
       反馈: 5,
       其他: 6,
       废弃: 7,
+
+      // Design
+      原则: 1,
+      Principles: 1,
+      全局规则: 2,
+      'Global Rules': 2,
+      模板文档: 3,
+      'Template Document': 3,
     },
     docVersions: {
-      '0.9.x': 'http://09x.ant.design',
-      '0.10.x': 'http://010x.ant.design',
-      '0.11.x': 'http://011x.ant.design',
-      '0.12.x': 'http://012x.ant.design',
-      '1.x': 'http://1x.ant.design',
+      '3.x': 'http://3x.ant.design',
       '2.x': 'http://2x.ant.design',
+      '1.x': 'http://1x.ant.design',
+      '0.12.x': 'http://012x.ant.design',
+      '0.11.x': 'http://011x.ant.design',
+      '0.10.x': 'http://010x.ant.design',
+      '0.9.x': 'http://09x.ant.design',
     },
   },
   filePathMapper(filePath) {
@@ -131,7 +144,13 @@ module.exports = {
       type: 'javascript/auto',
     });
 
-    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        antdReproduceVersion: JSON.stringify(version),
+      }),
+    );
+
+    delete config.module.noParse;
 
     return config;
   },

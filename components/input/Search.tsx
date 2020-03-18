@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -39,6 +40,12 @@ export default class Search extends React.Component<SearchProps, any> {
     }
   };
 
+  onMouseDown: React.MouseEventHandler<HTMLElement> = e => {
+    if (document.activeElement === this.input.input) {
+      e.preventDefault();
+    }
+  };
+
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch, loading, disabled } = this.props;
     if (loading || disabled) {
@@ -47,7 +54,6 @@ export default class Search extends React.Component<SearchProps, any> {
     if (onSearch) {
       onSearch(this.input.input.value, e);
     }
-    this.input.focus();
   };
 
   focus() {
@@ -64,11 +70,11 @@ export default class Search extends React.Component<SearchProps, any> {
     if (enterButton) {
       return (
         <Button className={`${prefixCls}-button`} type="primary" size={size} key="enterButton">
-          <Icon type="loading" />
+          <LoadingOutlined />
         </Button>
       );
     }
-    return <Icon className={`${prefixCls}-icon`} type="loading" />;
+    return <LoadingOutlined className={`${prefixCls}-icon`} key="loadingIcon" />;
   };
 
   renderSuffix = (prefixCls: string) => {
@@ -80,26 +86,22 @@ export default class Search extends React.Component<SearchProps, any> {
 
     if (enterButton) return suffix;
 
-    const node = (
-      <Icon
-        className={`${prefixCls}-icon`}
-        type="search"
-        key="searchIcon"
-        onClick={this.onSearch}
-      />
+    const icon = (
+      <SearchOutlined className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {
-      let cloneSuffix = suffix;
-      if (React.isValidElement(cloneSuffix) && !cloneSuffix.key) {
-        cloneSuffix = React.cloneElement(cloneSuffix, {
-          key: 'originSuffix',
-        });
-      }
-      return [cloneSuffix, node];
+      return [
+        React.isValidElement(suffix)
+          ? React.cloneElement(suffix, {
+              key: 'suffix',
+            })
+          : null,
+        icon,
+      ];
     }
 
-    return node;
+    return icon;
   };
 
   renderAddonAfter = (prefixCls: string) => {
@@ -119,6 +121,7 @@ export default class Search extends React.Component<SearchProps, any> {
       (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
     if (isAntdButton || enterButtonAsElement.type === 'button') {
       button = React.cloneElement(enterButtonAsElement, {
+        onMouseDown: this.onMouseDown,
         onClick: this.onSearch,
         key: 'enterButton',
         ...(isAntdButton
@@ -136,21 +139,29 @@ export default class Search extends React.Component<SearchProps, any> {
           size={size}
           disabled={disabled}
           key="enterButton"
+          onMouseDown={this.onMouseDown}
           onClick={this.onSearch}
         >
-          {enterButton === true ? <Icon type="search" /> : enterButton}
+          {enterButton === true ? <SearchOutlined /> : enterButton}
         </Button>
       );
     }
 
     if (addonAfter) {
-      return [button, addonAfter];
+      return [
+        button,
+        React.isValidElement(addonAfter)
+          ? React.cloneElement(addonAfter, {
+              key: 'addonAfter',
+            })
+          : null,
+      ];
     }
 
     return button;
   };
 
-  renderSearch = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSearch = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
@@ -161,6 +172,7 @@ export default class Search extends React.Component<SearchProps, any> {
     } = this.props;
 
     delete (restProps as any).onSearch;
+    delete (restProps as any).loading;
 
     const prefixCls = getPrefixCls('input-search', customizePrefixCls);
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
@@ -169,11 +181,14 @@ export default class Search extends React.Component<SearchProps, any> {
 
     if (enterButton) {
       inputClassName = classNames(prefixCls, className, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-enter-button`]: !!enterButton,
         [`${prefixCls}-${size}`]: !!size,
       });
     } else {
-      inputClassName = classNames(prefixCls, className);
+      inputClassName = classNames(prefixCls, className, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      });
     }
 
     return (

@@ -1,5 +1,6 @@
 ---
-category: Principles
+category: Design Patterns
+type: Principles
 order: 9
 title: Use Transition
 ---
@@ -69,4 +70,4 @@ If actual performance can hardly improved, there is a difference between actual 
 
 ## Natural Motion
 
-Please refer to [Ant Motion, a motion language](http://motion.ant.design/#/language/).
+Please refer to [Ant Motion, a motion language](https://motion.ant.design/language/basic).

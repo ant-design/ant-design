@@ -35,6 +35,7 @@ export default {
     removeFile: 'Bestand verwijderen',
     uploadError: 'Upload fout',
     previewFile: 'Preview bestand',
+    downloadFile: 'Download bestand',
   },
   Empty: {
     description: 'Geen gegevens',

@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 title:
   en-US: Reset filters and sorters
   zh-CN: 可控的筛选和排序
@@ -94,7 +94,10 @@ class App extends React.Component {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        filters: [{ text: 'Joe', value: 'Joe' }, { text: 'Jim', value: 'Jim' }],
+        filters: [
+          { text: 'Joe', value: 'Joe' },
+          { text: 'Jim', value: 'Jim' },
+        ],
         filteredValue: filteredInfo.name || null,
         onFilter: (value, record) => record.name.includes(value),
         sorter: (a, b) => a.name.length - b.name.length,
@@ -113,7 +116,10 @@ class App extends React.Component {
         title: 'Address',
         dataIndex: 'address',
         key: 'address',
-        filters: [{ text: 'London', value: 'London' }, { text: 'New York', value: 'New York' }],
+        filters: [
+          { text: 'London', value: 'London' },
+          { text: 'New York', value: 'New York' },
+        ],
         filteredValue: filteredInfo.address || null,
         onFilter: (value, record) => record.address.includes(value),
         sorter: (a, b) => a.address.length - b.address.length,

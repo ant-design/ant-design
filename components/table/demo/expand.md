@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 14
 title:
   en-US: Expandable Row
   zh-CN: 可展开
@@ -45,6 +45,13 @@ const data = [
   },
   {
     key: 3,
+    name: 'Not Expandable',
+    age: 29,
+    address: 'Jiangsu No. 1 Lake Park',
+    description: 'This not expandable',
+  },
+  {
+    key: 4,
     name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
@@ -55,7 +62,10 @@ const data = [
 ReactDOM.render(
   <Table
     columns={columns}
-    expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
+    expandable={{
+      expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
+      rowExpandable: record => record.name !== 'Not Expandable',
+    }}
     dataSource={data}
   />,
   mountNode,

@@ -8,10 +8,29 @@
 
   display: inline-block;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-line {
     position: relative;
     width: 100%;
     font-size: @font-size-base;
+  }
+
+  &-steps {
+    display: inline-block;
+    &-outer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    &-item {
+      flex-shrink: 0;
+      min-width: 2px;
+      margin-right: 2px;
+      background: @progress-steps-item-bg;
+    }
   }
 
   &-small&-line,
@@ -27,6 +46,13 @@
     .@{progress-prefix-cls}-show-info & {
       margin-right: ~'calc(-2em - 8px)';
       padding-right: ~'calc(2em + 8px)';
+
+      .@{progress-prefix-cls}-rtl& {
+        margin-right: 0;
+        margin-left: ~'calc(-2em - 8px)';
+        padding-right: 0;
+        padding-left: ~'calc(2em + 8px)';
+      }
     }
   }
 
@@ -67,6 +93,11 @@
     top: 0;
     left: 0;
     background-color: @success-color;
+
+    .@{progress-prefix-cls}-rtl & {
+      right: 0;
+      left: auto;
+    }
   }
 
   &-text {
@@ -82,6 +113,12 @@
     word-break: normal;
     .@{iconfont-css-prefix} {
       font-size: @font-size-base;
+    }
+
+    .@{progress-prefix-cls}-rtl & {
+      margin-right: 8px;
+      margin-left: 0;
+      text-align: right;
     }
   }
 

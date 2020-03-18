@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6.1
 title:
   zh-CN: 自定义表单控件
   en-US: Customized Form Controls
@@ -11,9 +11,6 @@ title:
 
 > - 提供受控属性 `value` 或其它与 [`valuePropName`](http://ant.design/components/form/#getFieldDecorator-参数) 的值同名的属性。
 > - 提供 `onChange` 事件或 [`trigger`](http://ant.design/components/form/#getFieldDecorator-参数) 的值同名的事件。
-> - 支持 ref：
->   - React@16.3.0 之前只有 Class 组件支持。
->   - React@16.3.0 及之后可以通过 [forwardRef](https://reactjs.org/docs/forwarding-refs.html) 添加 ref 支持。（[示例](https://codesandbox.io/s/7wj199900x)）
 
 ## en-US
 
@@ -21,130 +18,102 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 > - It has a controlled property `value` or other name which is equal to the value of [`valuePropName`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
 > - It has event `onChange` or an event which name is equal to the value of [`trigger`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
-> - Support ref:
->   - Can only use class component before React@16.3.0.
->   - Can use [forwardRef](https://reactjs.org/docs/forwarding-refs.html) to add ref support after React@16.3.0. ([Sample](https://codesandbox.io/s/7wj199900x))
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Form, Input, Select, Button } from 'antd';
 
 const { Option } = Select;
 
-class PriceInput extends React.Component {
-  static getDerivedStateFromProps(nextProps) {
-    // Should be a controlled component.
-    if ('value' in nextProps) {
-      return {
-        ...(nextProps.value || {}),
-      };
-    }
-    return null;
-  }
+interface PriceValue {
+  number?: number;
+  currency?: 'rmb' | 'dollar';
+}
 
-  constructor(props) {
-    super(props);
+interface PriceInputProps {
+  value?: PriceValue;
+  onChange?: (value: PriceValue) => void;
+}
 
-    const value = props.value || {};
-    this.state = {
-      number: value.number || 0,
-      currency: value.currency || 'rmb',
-    };
-  }
+const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
+  const [number, setNumber] = useState(0);
+  const [currency, setCurrency] = useState('rmb');
 
-  handleNumberChange = e => {
-    const number = parseInt(e.target.value || 0, 10);
-    if (isNaN(number)) {
-      return;
-    }
-    if (!('value' in this.props)) {
-      this.setState({ number });
-    }
-    this.triggerChange({ number });
-  };
-
-  handleCurrencyChange = currency => {
-    if (!('value' in this.props)) {
-      this.setState({ currency });
-    }
-    this.triggerChange({ currency });
-  };
-
-  triggerChange = changedValue => {
-    // Should provide an event to pass value to Form.
-    const { onChange } = this.props;
+  const triggerChange = changedValue => {
     if (onChange) {
-      onChange({
-        ...this.state,
-        ...changedValue,
-      });
+      onChange({ number, currency, ...value, ...changedValue });
     }
   };
 
-  render() {
-    const { size } = this.props;
-    const { currency, number } = this.state;
-    return (
-      <span>
-        <Input
-          type="text"
-          size={size}
-          value={number}
-          onChange={this.handleNumberChange}
-          style={{ width: '65%', marginRight: '3%' }}
-        />
-        <Select
-          value={currency}
-          size={size}
-          style={{ width: '32%' }}
-          onChange={this.handleCurrencyChange}
-        >
-          <Option value="rmb">RMB</Option>
-          <Option value="dollar">Dollar</Option>
-        </Select>
-      </span>
-    );
-  }
-}
-
-class Demo extends React.Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  };
-
-  checkPrice = (rule, value, callback) => {
-    if (value.number > 0) {
-      callback();
+  const onNumberChange = e => {
+    const newNumber = parseInt(e.target.value || 0, 10);
+    if (Number.isNaN(number)) {
       return;
     }
-    callback('Price must greater than zero!');
+    if (!('number' in value)) {
+      setNumber(newNumber);
+    }
+    triggerChange({ number: newNumber });
   };
 
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    return (
-      <Form layout="inline" onSubmit={this.handleSubmit}>
-        <Form.Item label="Price">
-          {getFieldDecorator('price', {
-            initialValue: { number: 0, currency: 'rmb' },
-            rules: [{ validator: this.checkPrice }],
-          })(<PriceInput />)}
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-    );
-  }
-}
+  const onCurrencyChange = newCurrency => {
+    if (!('currency' in value)) {
+      setCurrency(newCurrency);
+    }
+    triggerChange({ currency: newCurrency });
+  };
 
-const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo);
+  return (
+    <span>
+      <Input
+        type="text"
+        value={value.number || number}
+        onChange={onNumberChange}
+        style={{ width: 100, marginRight: 8 }}
+      />
+      <Select value={value.currency || currency} style={{ width: 80 }} onChange={onCurrencyChange}>
+        <Option value="rmb">RMB</Option>
+        <Option value="dollar">Dollar</Option>
+      </Select>
+    </span>
+  );
+};
 
-ReactDOM.render(<WrappedDemo />, mountNode);
+const Demo = () => {
+  const onFinish = values => {
+    console.log('Received values from form: ', values);
+  };
+
+  const checkPrice = (rule, value) => {
+    if (value.number > 0) {
+      return Promise.resolve();
+    }
+    return Promise.reject('Price must be greater than zero!');
+  };
+
+  return (
+    <Form
+      name="customized_form_controls"
+      layout="inline"
+      onFinish={onFinish}
+      initialValues={{
+        price: {
+          number: 0,
+          currency: 'rmb',
+        },
+      }}
+    >
+      <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>
+        <PriceInput />
+      </Form.Item>
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

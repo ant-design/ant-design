@@ -35,6 +35,7 @@ export default {
     removeFile: 'Odstrani datoteko',
     uploadError: 'Napaka pri nalaganju',
     previewFile: 'Predogled datoteke',
+    downloadFile: 'Prenos datoteke',
   },
   Empty: {
     description: 'Ni podatkov',

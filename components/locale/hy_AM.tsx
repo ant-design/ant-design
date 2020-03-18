@@ -1,5 +1,6 @@
 const datePickerLocale = {
   lang: {
+    locale: 'hy-am',
     placeholder: 'Ընտրեք ամսաթիվը',
     rangePlaceholder: ['Մեկնարկի ամսաթիվ', 'Ավարտի ամսաթիվը'],
     today: 'Այսօր',
@@ -35,7 +36,7 @@ const datePickerLocale = {
 };
 
 export default {
-  locale: 'hy',
+  locale: 'hy-am',
   Pagination: {
     // Options.jsx
     items_per_page: '/ էջ',
@@ -89,6 +90,7 @@ export default {
     removeFile: 'Հեռացնել ֆայլը',
     uploadError: 'Ներբեռնման սխալ',
     previewFile: 'Դիտել ֆայլը',
+    downloadFile: 'Ներբեռնել ֆայլը',
   },
   Empty: {
     description: 'Տվյալներ չկան',

@@ -11,41 +11,26 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table"
       >
         <div
-          class="ant-table-content"
+          class="ant-table-container"
         >
           <div
-            class="ant-table-body"
+            class="ant-table-content"
           >
             <table
-              class=""
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col />
               </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
+              <thead>
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Name
                   </th>
                 </tr>
               </thead>
@@ -57,7 +42,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   data-row-key="0"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Jack
                   </td>
@@ -67,7 +52,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Lucy
                   </td>
@@ -77,7 +62,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Tom
                   </td>
@@ -87,7 +72,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Jerry
                   </td>
@@ -103,15 +88,17 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
+          class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
-            <i
-              aria-label="icon: left"
+            <span
+              aria-label="left"
               class="anticon anticon-left"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -124,10 +111,10 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
-            </i>
+            </span>
           </a>
         </li>
         <li
@@ -141,15 +128,17 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
         </li>
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
+          class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -162,10 +151,10 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </a>
         </li>
       </ul>
@@ -185,41 +174,26 @@ exports[`Table.pagination renders pagination correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table"
       >
         <div
-          class="ant-table-content"
+          class="ant-table-container"
         >
           <div
-            class="ant-table-body"
+            class="ant-table-content"
           >
             <table
-              class=""
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col />
               </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
+              <thead>
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Name
                   </th>
                 </tr>
               </thead>
@@ -231,7 +205,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   data-row-key="0"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Jack
                   </td>
@@ -241,7 +215,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Lucy
                   </td>
@@ -252,20 +226,22 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination my-page ant-table-pagination"
+        class="ant-pagination my-page"
         unselectable="unselectable"
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
+          class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
-            <i
-              aria-label="icon: left"
+            <span
+              aria-label="left"
               class="anticon anticon-left"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -278,10 +254,10 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
-            </i>
+            </span>
           </a>
         </li>
         <li
@@ -304,16 +280,17 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         </li>
         <li
           aria-disabled="false"
-          class=" ant-pagination-next"
+          class="ant-pagination-next"
           tabindex="0"
           title="Next Page"
         >
           <a
             class="ant-pagination-item-link"
           >
-            <i
-              aria-label="icon: right"
+            <span
+              aria-label="right"
               class="anticon anticon-right"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -326,10 +303,10 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                 />
               </svg>
-            </i>
+            </span>
           </a>
         </li>
       </ul>

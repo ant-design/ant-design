@@ -30,8 +30,12 @@ describe('react router', () => {
   afterAll(() => {
     jest.useRealTimers();
   });
+
   // https://github.com/airbnb/enzyme/issues/875
-  (process.env.REACT === '15' ? it.skip : it)('react router 4', () => {
+  it('react router 4', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
     const Home = withRouter(props => {
       const { location, history } = props;
       const pathSnippets = location.pathname.split('/').filter(i => i);

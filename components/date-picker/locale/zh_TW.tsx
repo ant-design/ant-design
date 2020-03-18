@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-calendar/lib/locale/zh_TW';
+import CalendarLocale from 'rc-picker/lib/locale/zh_TW';
 import TimePickerLocale from '../../time-picker/locale/zh_TW';
 
 const locale = {

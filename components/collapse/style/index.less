@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './rtl';
 
 @collapse-prefix-cls: ~'@{ant-prefix}-collapse';
 
@@ -29,6 +30,7 @@
       line-height: 22px;
       cursor: pointer;
       transition: all 0.3s;
+      .clearfix;
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
@@ -102,7 +104,7 @@
   }
 
   &-borderless {
-    background-color: @component-background;
+    background-color: @collapse-header-bg;
     border: 0;
   }
 

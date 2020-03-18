@@ -23,7 +23,7 @@ function onPanelChange(value, mode) {
 }
 
 ReactDOM.render(
-  <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+  <div className="site-calendar-customize-header-wrapper">
     <Calendar
       fullscreen={false}
       headerRender={({ value, type, onChange, onTypeChange }) => {
@@ -60,14 +60,14 @@ ReactDOM.render(
         return (
           <div style={{ padding: 10 }}>
             <div style={{ marginBottom: '10px' }}>Custom header </div>
-            <Row type="flex" justify="space-between">
-              <Col>
+            <Row style={{ flexWrap: 'nowrap' }} gutter={8}>
+              <Col style={{ flex: 'none' }}>
                 <Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>
                   <Button value="month">Month</Button>
                   <Button value="year">Year</Button>
                 </Group>
               </Col>
-              <Col>
+              <Col style={{ flex: 'auto' }}>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
@@ -81,7 +81,7 @@ ReactDOM.render(
                   {options}
                 </Select>
               </Col>
-              <Col>
+              <Col style={{ flex: 'auto' }}>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
@@ -105,3 +105,17 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+```css
+.site-calendar-customize-header-wrapper {
+  width: 300px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-calendar-customize-header-wrapper {
+    border: 1px solid #303030;
+  }
+</style>

@@ -28,6 +28,13 @@ export default {
     itemUnit: 'item',
     itemsUnit: 'items',
   },
+  Upload: {
+    uploading: 'Carregant...',
+    removeFile: 'Elimina el fitxer',
+    uploadError: 'Error de càrrega',
+    previewFile: 'Vista prèvia del fitxer',
+    downloadFile: "Descarrega l'arxiu",
+  },
   Empty: {
     description: 'Sense dades',
   },

@@ -63,7 +63,7 @@ class Demo extends React.Component {
     return (
       <TreeSelect
         treeDataSimpleMode
-        style={{ width: 300 }}
+        style={{ width: '100%' }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="Please select"

@@ -108,7 +108,7 @@ class Page extends React.Component {
         <div className="example">
           <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
         </div>
-        <div style={{ width: 319, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+        <div className="site-config-provider-calendar-wrapper">
           <Calendar fullscreen={false} value={moment()} />
         </div>
         <div className="example">
@@ -169,16 +169,22 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 ```css
+.site-config-provider-calendar-wrapper {
+  width: 319px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
 .locale-components {
   border-top: 1px solid #d9d9d9;
   padding-top: 16px;
 }
 
-.example {
+.code-box-demo .example {
   margin: 16px 0;
 }
 
-.example > * {
+.code-box-demo .example > * {
   margin-right: 8px;
 }
 
@@ -186,3 +192,12 @@ ReactDOM.render(<App />, mountNode);
   margin-bottom: 16px;
 }
 ```
+
+<style>
+[data-theme="dark"] .locale-components {
+  border-top: 1px solid #303030;
+}
+[data-theme="dark"] .site-config-provider-calendar-wrapper {
+  border: 1px solid #303030;
+}
+</style>

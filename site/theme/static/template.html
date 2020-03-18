@@ -20,7 +20,7 @@
       }
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
-    <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,matchMedia,Intl"></script>
+    <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
       (function() {
         function isLocalStorageNameSupported() {
@@ -82,7 +82,8 @@
     <div id="react-content">
       {{ content | safe }}
     </div>
-    {% for jsFile in manifest["js"] %}<script src="{{ root }}{{ jsFile }}"></script>
+    {% for jsFile in manifest["js"] %}
+    <script src="{{ root }}{{ jsFile }}"></script>
     {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>

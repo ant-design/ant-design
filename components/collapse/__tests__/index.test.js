@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Collapse', () => {
   // Fix css-animation deps on these
@@ -17,6 +18,7 @@ describe('Collapse', () => {
   // eslint-disable-next-line global-require
   const Collapse = require('..').default;
   mountTest(Collapse);
+  rtlTest(Collapse);
 
   it('should support remove expandIcon', () => {
     const wrapper = mount(

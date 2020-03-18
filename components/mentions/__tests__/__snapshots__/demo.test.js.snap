@@ -43,25 +43,23 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-col-16 ant-form-item-control-wrapper"
+      class="ant-col ant-col-16 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <div
+          class="ant-form-item-control-input-content"
         >
           <div
             class="ant-mentions"
           >
             <textarea
-              data-__field="[object Object]"
-              data-__meta="[object Object]"
               id="coders"
               rows="1"
             />
           </div>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -80,26 +78,24 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-col-16 ant-form-item-control-wrapper"
+      class="ant-col ant-col-16 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <div
+          class="ant-form-item-control-input-content"
         >
           <div
             class="ant-mentions"
           >
             <textarea
-              data-__field="[object Object]"
-              data-__meta="[object Object]"
               id="bio"
               placeholder="You can use @ to ref user here"
               rows="3"
             />
           </div>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -107,17 +103,17 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <div
+          class="ant-form-item-control-input-content"
         >
           <button
             class="ant-btn ant-btn-primary"
-            type="button"
+            type="submit"
           >
             <span>
               Submit
@@ -132,7 +128,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
               Reset
             </span>
           </button>
-        </span>
+        </div>
       </div>
     </div>
   </div>

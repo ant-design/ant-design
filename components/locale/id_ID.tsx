@@ -37,6 +37,7 @@ export default {
     removeFile: 'Hapus file',
     uploadError: 'Kesalahan pengunggahan',
     previewFile: 'File pratinjau',
+    downloadFile: 'Unduh berkas',
   },
   Empty: {
     description: 'Tidak ada data',

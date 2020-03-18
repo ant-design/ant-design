@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Result from '..';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Result', () => {
   mountTest(Result);
+  rtlTest(Result);
 
   it('🙂  successPercent should decide the progress status when it exists', () => {
     const wrapper = mount(
@@ -54,5 +56,16 @@ describe('Result', () => {
   it('🙂  result should support className', () => {
     const wrapper = mount(<Result status="404" title="404" className="my-result" />);
     expect(wrapper.find('.ant-result.my-result')).toHaveLength(1);
+  });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Result title="404" icon="ab" />);
+    expect(warnSpy).not.toHaveBeenCalled();
+    mount(<Result title="404" icon="smile" />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Result] \`icon\` is using ReactNode instead of string naming in v4. Please check \`smile\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
   });
 });

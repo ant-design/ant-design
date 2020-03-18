@@ -16,37 +16,56 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 ## API
 
+### Common Icon
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| type | Type of the ant design icon | string | - |  |
+| className | className of Icon  | `string` | - |  |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
-| theme | Theme of the ant design icon | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' | 3.9.0 |
 | spin | Rotate icon with animation | boolean | false |  |
-| rotate | Rotate degrees (added in 3.13.0, not working in IE9) | number | - | 3.13.0 |
-| component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
-| twoToneColor | Only supports the two-tone icon. Specify the primary color. | string (hex color) | - | 3.9.0 |
+| rotate | Rotate by n degrees (not working in IE9) | number | - |  |
+| twoToneColor | Only supports the two-tone icon. Specify the primary color. | string (hex color) | - |  |
 
-> Note: icon rendering priority of the Icon component is component > children > type. When props is passed, higher priority item will works, and lower priority item would be invalid.
-
-### SVG icons
-
-We introduced SVG icons in `3.9.0` version replacing font icons which brings benefits below:
-
-- Complete offline usage of icon, no dependency of CDN font icon file. No more empty square during downloading and no need to deploy icon font files locally either.
-- Much more display accuracy in lower-level screens.
-- Support multiple colors for icon.
-- No need to change built-in icons with overriding styles by providing more props in component.
-
-More discussion of SVG icon reference to [#10353](https://github.com/ant-design/ant-design/issues/10353).
-
-> ⚠️ About the extra bundle size brought by all SVG icons we imported in 3.9.0, we will provide new API to allow developers importing icons as your need, you can trace [#12011](https://github.com/ant-design/ant-design/issues/12011) for further progress.
->
-> Before this, you can use [webpack plugin](https://github.com/Beven91/webpack-ant-icon-loader) from community to chunk the icon file.
-
-The properties `theme`, `component` and `twoToneColor` are added in `3.9.0`. The best practice is to pass the property `theme` to every `<Icon />` components.
+We still have three different themes for icons, icon component name is the icon name suffixed by the theme name.
 
 ```jsx
-<Icon type="star" theme="filled" />
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+
+<StarOutlined />
+<StarFilled />
+<StarTwoTone twoToneColor="#eb2f96" />
+```
+
+### Custom Icon
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
+| spin | Rotate icon with animation | boolean | false |  |
+| rotate | Rotate degrees (not working in IE9) | number | - |  |
+| component | The component used for the root node. | ComponentType<CustomIconComponentProps\> | - |  |
+
+### About SVG icons
+
+We introduced SVG icons in version `3.9.0`, replacing font icons. This has the following benefits:
+
+- Complete offline usage of icons, without dependency on a CDN-hosted font icon file (No more empty square during downloading and no need to deploy icon font files locally either!)
+- Much more display accuracy on lower-resolution screens
+- The ability to choose icon color
+- No need to change built-in icons with overriding styles by providing more props in component
+
+More discussion of SVG icon reference at [#10353](https://github.com/ant-design/ant-design/issues/10353).
+
+> ⚠️ Given the extra bundle size caused by all SVG icons imported in 3.9.0, we will provide a new API to allow developers to import icons as needed, you can track [#12011](https://github.com/ant-design/ant-design/issues/12011) for updates.
+>
+> While you wait, you can use [webpack plugin](https://github.com/Beven91/webpack-ant-icon-loader) from the community to chunk the icon file.
+
+The properties `theme`, `component` and `twoToneColor` were added in `3.9.0`. The best practice is to pass the property `theme` to every `<Icon />` component.
+
+```jsx
+import { MessageOutlined } from '@ant-design/icons';
+
+<MessageOutlined style={{ fontSize: '16px', color: '#08c' }} />;
 ```
 
 All the icons will render to `<svg>`. You can still set `style` and `className` for size and color of icons.
@@ -57,11 +76,13 @@ All the icons will render to `<svg>`. You can still set `style` and `className` 
 
 ### Set TwoTone Color
 
-When using the two-tone icons, you can use the static methods `Icon.getTwoToneColor()` and `Icon.setTwoToneColor(colorString)` to spicify the primary color.
+When using the two-tone icons, you can use the static methods `getTwoToneColor()` and `setTwoToneColor(colorString)` to specify the primary color.
 
 ```jsx
-Icon.setTwoToneColor('#eb2f96');
-Icon.getTwoToneColor(); // #eb2f96
+import { getTwoToneColor, setTwoToneColor } from '@ant-design/icons';
+
+setTwoToneColor('#eb2f96');
+getTwoToneColor(); // #eb2f96
 ```
 
 ### Custom Font Icon
@@ -71,8 +92,10 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 > This method is specified for [iconfont.cn](http://iconfont.cn/).
 
 ```js
-const MyIcon = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generated by iconfont.cn
+import { createFromIconfontCN } from '@ant-design/icons';
+
+const MyIcon = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
 ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
@@ -84,8 +107,8 @@ The following options are available:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| scriptUrl | The URL generated by [iconfont.cn](http://iconfont.cn/) project. | string | - | 3.9.3 |
-| extraCommonProps | Define extra properties to the component | `{ [key: string]: any }` | {} | 3.9.3 |
+| scriptUrl | The URL generated by [iconfont.cn](http://iconfont.cn/) project. | string | - |  |
+| extraCommonProps | Define extra properties to the component | `{ [key: string]: any }` | {} |  |
 
 The property `scriptUrl` should be set to import the SVG sprite symbols.
 
@@ -115,7 +138,7 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
 ```
 
 ```jsx
-import { Icon } from 'antd';
+import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
 ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
@@ -125,8 +148,8 @@ The following properties are available for the component:
 
 | Property | Description | Type | Readonly | Version |
 | --- | --- | --- | --- | --- |
-| width | The width of the `svg` element | string \| number | '1em' | 3.10.0 |
-| height | The height of the `svg` element | string \| number | '1em' | 3.10.0 |
-| fill | Define the color used to paint the `svg` element | string | 'currentColor' | 3.10.0 |
-| className | The computed class name of the `svg` element | string | - | 3.10.0 |
-| style | The computed style of the `svg` element | CSSProperties | - | 3.10.0 |
+| width | The width of the `svg` element | string \| number | '1em' |  |
+| height | The height of the `svg` element | string \| number | '1em' |  |
+| fill | Define the color used to paint the `svg` element | string | 'currentColor' |  |
+| className | The computed class name of the `svg` element | string | - |  |
+| style | The computed style of the `svg` element | CSSProperties | - |  |

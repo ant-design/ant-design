@@ -31,6 +31,13 @@ export default {
   Empty: {
     description: 'Aucune donnée',
   },
+  Upload: {
+    uploading: 'Téléchargement...',
+    removeFile: 'Effacer le fichier',
+    uploadError: 'Erreur de téléchargement',
+    previewFile: 'Fichier de prévisualisation',
+    downloadFile: 'Télécharger un fichier',
+  },
   Text: {
     edit: 'éditer',
     copy: 'copier',

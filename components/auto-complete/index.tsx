@@ -1,160 +1,136 @@
+/**
+ * TODO: 4.0
+ * - remove `dataSource`
+ * - `size` not work with customizeInput
+ * - customizeInput not feedback `ENTER` key since accessibility enhancement
+ */
+
 import * as React from 'react';
-import { Option, OptGroup } from 'rc-select';
+import toArray from 'rc-util/lib/Children/toArray';
+import { SelectProps as RcSelectProps } from 'rc-select';
 import classNames from 'classnames';
-import InputElement from './InputElement';
-import Input, { InputProps } from '../input';
-import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
+import omit from 'omit.js';
+import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { Omit } from '../_util/type';
+import warning from '../_util/warning';
+
+const { Option } = Select;
+
+const InternalSelect = Select as React.ComponentClass<RcSelectProps>;
 
 export interface DataSourceItemObject {
   value: string;
   text: string;
 }
-export type DataSourceItemType =
-  | string
-  | DataSourceItemObject
-  | React.ReactElement<OptionProps>
-  | React.ReactElement<OptGroupProps>;
+export type DataSourceItemType = string | DataSourceItemObject;
 
-export interface AutoCompleteInputProps {
-  onChange?: React.FormEventHandler<any>;
-  value: any;
-}
-
-export type ValidInputElement =
-  | HTMLInputElement
-  | HTMLTextAreaElement
-  | React.ReactElement<AutoCompleteInputProps>;
-
-export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> {
-  value?: SelectValue;
-  defaultValue?: SelectValue;
+export interface AutoCompleteProps
+  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'> {
   dataSource?: DataSourceItemType[];
-  dropdownMenuStyle?: React.CSSProperties;
-  autoFocus?: boolean;
-  backfill?: boolean;
-  optionLabelProp?: string;
-  onChange?: (value: SelectValue) => void;
-  onSelect?: (value: SelectValue, option: Object) => any;
-  onBlur?: (value: SelectValue) => void;
-  onFocus?: () => void;
-  children?:
-    | ValidInputElement
-    | React.ReactElement<InputProps>
-    | React.ReactElement<OptionProps>
-    | Array<React.ReactElement<OptionProps>>;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-export default class AutoComplete extends React.Component<AutoCompleteProps, {}> {
-  static Option = Option as React.ClassicComponentClass<OptionProps>;
+const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (props, ref) => {
+  const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
+  const childNodes: React.ReactElement[] = toArray(children);
 
-  static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
+  const selectRef = React.useRef<Select>();
 
-  static defaultProps = {
-    transitionName: 'slide-up',
-    optionLabelProp: 'children',
-    choiceTransitionName: 'zoom',
-    showSearch: false,
-    filterOption: false,
-  };
+  React.useImperativeHandle<Select, Select>(ref, () => selectRef.current!);
 
-  private select: any;
+  // ============================= Input =============================
+  let customizeInput: React.ReactElement;
 
-  saveSelect = (node: any) => {
-    this.select = node;
-  };
-
-  getInputElement = () => {
-    const { children } = this.props;
-    const element =
-      children && React.isValidElement(children) && children.type !== Option ? (
-        React.Children.only(this.props.children)
-      ) : (
-        <Input />
-      );
-    const elementProps = { ...(element as React.ReactElement<any>).props };
-    // https://github.com/ant-design/ant-design/pull/7742
-    delete elementProps.children;
-    return <InputElement {...elementProps}>{element}</InputElement>;
-  };
-
-  focus() {
-    this.select.focus();
+  if (
+    childNodes.length === 1 &&
+    React.isValidElement(childNodes[0]) &&
+    !isSelectOptionOrSelectOptGroup(childNodes[0])
+  ) {
+    customizeInput = childNodes[0];
   }
 
-  blur() {
-    this.select.blur();
+  const getInputElement = (): React.ReactElement => customizeInput;
+
+  // ============================ Options ============================
+  let optionChildren: React.ReactNode;
+
+  // [Legacy] convert `children` or `dataSource` into option children
+  if (childNodes.length && isSelectOptionOrSelectOptGroup(childNodes[0])) {
+    optionChildren = children;
+  } else {
+    optionChildren = dataSource
+      ? dataSource.map(item => {
+          if (React.isValidElement(item)) {
+            return item;
+          }
+          switch (typeof item) {
+            case 'string':
+              return (
+                <Option key={item} value={item}>
+                  {item}
+                </Option>
+              );
+            case 'object': {
+              const { value: optionValue } = item as DataSourceItemObject;
+              return (
+                <Option key={optionValue} value={optionValue}>
+                  {(item as DataSourceItemObject).text}
+                </Option>
+              );
+            }
+            default:
+              throw new Error('AutoComplete[dataSource] only supports type `string[] | Object[]`.');
+          }
+        })
+      : [];
   }
 
-  renderAutoComplete = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      size,
-      className = '',
-      notFoundContent,
-      optionLabelProp,
-      dataSource,
-      children,
-    } = this.props;
-    const prefixCls = getPrefixCls('select', customizePrefixCls);
-
-    const cls = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
-      [`${prefixCls}-show-search`]: true,
-      [`${prefixCls}-auto-complete`]: true,
-    });
-
-    let options;
-    const childArray = React.Children.toArray(children);
-    if (childArray.length && isSelectOptionOrSelectOptGroup(childArray[0])) {
-      options = children;
-    } else {
-      options = dataSource
-        ? dataSource.map(item => {
-            if (React.isValidElement(item)) {
-              return item;
-            }
-            switch (typeof item) {
-              case 'string':
-                return <Option key={item}>{item}</Option>;
-              case 'object':
-                return (
-                  <Option key={(item as DataSourceItemObject).value}>
-                    {(item as DataSourceItemObject).text}
-                  </Option>
-                );
-              default:
-                throw new Error(
-                  'AutoComplete[dataSource] only supports type `string[] | Object[]`.',
-                );
-            }
-          })
-        : [];
-    }
-
-    return (
-      <Select
-        {...this.props}
-        className={cls}
-        mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE}
-        optionLabelProp={optionLabelProp}
-        getInputElement={this.getInputElement}
-        notFoundContent={notFoundContent}
-        ref={this.saveSelect}
-      >
-        {options}
-      </Select>
+  // ============================ Warning ============================
+  React.useEffect(() => {
+    warning(
+      !('dataSource' in props),
+      'AutoComplete',
+      '`dataSource` is deprecated, please use `options` instead.',
     );
-  };
 
-  render() {
-    return <ConfigConsumer>{this.renderAutoComplete}</ConfigConsumer>;
-  }
-}
+    warning(
+      !customizeInput || !('size' in props),
+      'AutoComplete',
+      'You need to control style self instead of setting `size` when using customize input.',
+    );
+  }, []);
+
+  return (
+    <ConfigConsumer>
+      {({ getPrefixCls }: ConfigConsumerProps) => {
+        const prefixCls = getPrefixCls('select', customizePrefixCls);
+
+        return (
+          <InternalSelect
+            ref={selectRef as any}
+            {...omit(props, ['dataSource'])}
+            prefixCls={prefixCls}
+            className={classNames(className, `${prefixCls}-auto-complete`)}
+            mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+            getInputElement={getInputElement}
+          >
+            {optionChildren}
+          </InternalSelect>
+        );
+      }}
+    </ConfigConsumer>
+  );
+};
+
+const RefAutoComplete = React.forwardRef<Select, AutoCompleteProps>(AutoComplete);
+
+type RefAutoComplete = typeof RefAutoComplete & {
+  Option: OptionType;
+};
+
+(RefAutoComplete as RefAutoComplete).Option = Option;
+
+export default RefAutoComplete as RefAutoComplete;

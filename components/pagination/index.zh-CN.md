@@ -15,8 +15,8 @@ cols: 1
 
 ## API
 
-```html
-<Pagination onChange="{onChange}" total="{50}" />
+```jsx
+<Pagination onChange={onChange} total={50} />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -24,12 +24,12 @@ cols: 1
 | current | 当前页数 | number | - |  |
 | defaultCurrent | 默认的当前页数 | number | 1 |  |
 | defaultPageSize | 默认的每页条数 | number | 10 |  |
-| disabled | 禁用分页 | boolean | - | 3.18.0 |
-| hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false | 3.1.0 |
+| disabled | 禁用分页 | boolean | - |  |
+| hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |  |
 | itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | 每页条数 | number | - |  |
 | pageSizeOptions | 指定每页可以显示多少条 | string\[] | \['10', '20', '30', '40'] |  |
-| showLessItems | show less page items | boolean | false | 3.16.3 |
+| showLessItems | 是否显示较少页面内容 | boolean | false |  |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| `{ goButton: ReactNode }` | false |  |
 | showSizeChanger | 是否可以改变 pageSize | boolean | false |  |
 | showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - |  |

@@ -3,6 +3,7 @@ import { mount, render } from 'enzyme';
 import debounce from 'lodash/debounce';
 import Tree from '../index';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { DirectoryTree, TreeNode } = Tree;
 
@@ -11,6 +12,9 @@ jest.mock('lodash/debounce');
 describe('Directory Tree', () => {
   mountTest(Tree);
   mountTest(DirectoryTree);
+
+  rtlTest(Tree);
+  rtlTest(DirectoryTree);
 
   debounce.mockImplementation(fn => fn);
 

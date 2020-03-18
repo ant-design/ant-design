@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
   mountTest(Progress);
+  rtlTest(Progress);
 
   it('successPercent should decide the progress status when it exists', () => {
     const wrapper = mount(<Progress percent={100} successPercent={50} />);
@@ -74,6 +76,11 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('render trailColor progress', () => {
+    const wrapper = mount(<Progress status="normal" trailColor="#ffffff" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('get correct line-gradient', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
@@ -86,6 +93,9 @@ describe('Progress', () => {
 
   it('sort gradients correctly', () => {
     expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
+      'test10 10%, test20 20%, test30 30%',
+    );
+    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20', dummy: 'test' })).toBe(
       'test10 10%, test20 20%, test30 30%',
     );
   });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+// eslint-disable-next-line jest/no-export
 export default function mountTest(Component) {
   describe(`mount and unmount`, () => {
     // https://github.com/ant-design/ant-design/pull/18441

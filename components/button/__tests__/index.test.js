@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
-import Icon from '../../icon';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 
 describe('Button', () => {
@@ -14,15 +16,19 @@ describe('Button', () => {
   mountTest(() => <Button.Group size="large" />);
   mountTest(() => <Button.Group size="small" />);
 
+  rtlTest(Button);
+  rtlTest(() => <Button size="large" />);
+  rtlTest(() => <Button size="small" />);
+  rtlTest(Button.Group);
+  rtlTest(() => <Button.Group size="large" />);
+  rtlTest(() => <Button.Group size="small" />);
+
   it('renders correctly', () => {
     const wrapper = render(<Button>Follow</Button>);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('mount correctly', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
     expect(() => renderer.create(<Button>Follow</Button>)).not.toThrow();
   });
 
@@ -30,22 +36,22 @@ describe('Button', () => {
     const wrapper = render(<Button>按钮</Button>);
     expect(wrapper).toMatchSnapshot();
     // should not insert space when there is icon
-    const wrapper1 = render(<Button icon="search">按钮</Button>);
+    const wrapper1 = render(<Button icon={<SearchOutlined />}>按钮</Button>);
     expect(wrapper1).toMatchSnapshot();
     // should not insert space when there is icon
     const wrapper2 = render(
       <Button>
-        <Icon type="search" />
+        <SearchOutlined />
         按钮
       </Button>,
     );
     expect(wrapper2).toMatchSnapshot();
     // should not insert space when there is icon
-    const wrapper3 = render(<Button icon="search">按钮</Button>);
+    const wrapper3 = render(<Button icon={<SearchOutlined />}>按钮</Button>);
     expect(wrapper3).toMatchSnapshot();
     // should not insert space when there is icon while loading
     const wrapper4 = render(
-      <Button icon="search" loading>
+      <Button icon={<SearchOutlined />} loading>
         按钮
       </Button>,
     );
@@ -235,5 +241,35 @@ describe('Button', () => {
     expect(() => {
       wrapper.unmount();
     }).not.toThrow();
+  });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Button type="primary" icon="ab" />);
+    expect(warnSpy).not.toHaveBeenCalled();
+    mount(<Button type="primary" icon="search" />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('skip check 2 words when ConfigProvider disable this', () => {
+    const wrapper = mount(
+      <ConfigProvider autoInsertSpaceInButton={false}>
+        <Button>test</Button>
+      </ConfigProvider>,
+    );
+
+    const btn = wrapper.find('button').instance();
+    Object.defineProperty(btn, 'textContent', {
+      get() {
+        throw new Error('Should not called!!!');
+      },
+    });
+    wrapper
+      .find('Button')
+      .instance()
+      .forceUpdate();
   });
 });

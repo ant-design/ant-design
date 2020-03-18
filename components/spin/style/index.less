@@ -15,6 +15,10 @@
   opacity: 0;
   transition: transform 0.3s @ease-in-out-circ;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-spinning {
     position: static;
     display: inline-block;
@@ -162,6 +166,11 @@
     &-spin {
       transform: rotate(45deg);
       animation: antRotate 1.2s infinite linear;
+
+      .@{spin-prefix-cls}-rtl & {
+        transform: rotate(-45deg);
+        animation-name: antRotateRtl;
+      }
     }
   }
 
@@ -210,5 +219,11 @@
 @keyframes antRotate {
   to {
     transform: rotate(405deg);
+  }
+}
+
+@keyframes antRotateRtl {
+  to {
+    transform: rotate(-405deg);
   }
 }

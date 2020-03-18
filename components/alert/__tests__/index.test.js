@@ -1,8 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Alert from '..';
+import rtlTest from '../../../tests/shared/rtlTest';
+
+const { ErrorBoundary } = Alert;
 
 describe('Alert', () => {
+  rtlTest(Alert);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -50,18 +55,15 @@ describe('Alert', () => {
     });
   });
 
-  it('warning for props#iconType', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Alert
-        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
-        type="warning"
-        iconType="up"
-      />,
+  const testIt = process.env.REACT === '15' ? it.skip : it;
+  testIt('ErrorBoundary', () => {
+    const ThrowError = () => <NotExisted />; // eslint-disable-line
+    const wrapper = mount(
+      <ErrorBoundary>
+        <ThrowError />
+      </ErrorBoundary>,
     );
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Alert] `iconType` is deprecated. Please use `icon` instead.',
-    );
-    warnSpy.mockRestore();
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

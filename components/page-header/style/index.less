@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './rtl';
 
 @pageheader-prefix-cls: ~'@{ant-prefix}-page-header';
 
@@ -10,7 +11,7 @@
   background-color: @component-background;
 
   &-ghost {
-    background-color: inherit;
+    background-color: @page-header-ghost-bg;
   }
 
   &.has-breadcrumb {
@@ -27,6 +28,7 @@
     margin-right: 16px;
     font-size: 16px;
     line-height: 1;
+
     &-button {
       .operation-unit();
       color: @page-header-back-color;
@@ -46,7 +48,8 @@
 
   &-heading {
     width: 100%;
-    overflow: hidden;
+    .clearfix;
+
     &-title {
       display: block;
       float: left;
@@ -79,6 +82,7 @@
 
     &-extra {
       float: right;
+
       > * {
         margin-left: 8px;
       }
@@ -90,7 +94,6 @@
 
   &-content {
     padding-top: 12px;
-    overflow: hidden;
   }
 
   &-footer {
@@ -98,21 +101,23 @@
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
-      .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-        padding: 8px;
-        font-size: 16px;
+      .@{ant-prefix}-tabs-nav {
+        .@{ant-prefix}-tabs-tab {
+          padding: @tabs-horizontal-padding-sm;
+          font-size: 16px;
+        }
       }
     }
   }
 
-  @media (max-width: @screen-sm) {
+  @media (max-width: @screen-md) {
     &-heading {
       &-extra {
         display: block;
         float: unset;
+        clear: both;
         width: 100%;
         padding-top: 12px;
-        overflow: hidden;
       }
     }
   }

@@ -23,11 +23,11 @@ This components provides some static methods, with usage and arguments as follow
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| Argument | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| content | content of the message | string\|ReactNode\|config | - |  |
-| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |  |
-| onClose | Specify a function that will be called when the message is closed | Function | - |  |
+| Argument | Description | Type | Default |
+| --- | --- | --- | --- |
+| content | content of the message | string\|ReactNode\|config | - |
+| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
+| onClose | Specify a function that will be called when the message is closed | Function | - |
 
 `afterClose` can be called in thenable interface:
 
@@ -48,13 +48,13 @@ Supports passing parameters wrapped in an object:
 
 The properties of config are as follows:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| content | content of the message | ReactNode | - |  |
-| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |  |
-| onClose | Specify a function that will be called when the message is closed | function | - |  |
-| icon | Customized Icon | ReactNode | - | 3.9.0 |
-| key | The unique identifier of the Message | string\|number | - | 3.24.0 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| content | content of the message | ReactNode | - |
+| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
+| onClose | Specify a function that will be called when the message is closed | function | - |
+| icon | Customized Icon | ReactNode | - |
+| key | The unique identifier of the Message | string\|number | - |
 
 ### Global static methods
 
@@ -73,9 +73,9 @@ message.config({
 });
 ```
 
-| Argument | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| duration | time before auto-dismiss, in seconds | number | 1.5 | 3.9.0 |
-| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body | 3.9.0 |
-| maxCount | max message show, drop oldest if exceed limit | number | - | 3.9.0 |
-| top | distance from top | number | 24 | 3.9.0 |
+| Argument | Description | Type | Default |
+| --- | --- | --- | --- |
+| duration | time before auto-dismiss, in seconds | number | 1.5 |
+| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
+| maxCount | max message show, drop oldest if exceed limit | number | - |
+| top | distance from top | number | 24 |

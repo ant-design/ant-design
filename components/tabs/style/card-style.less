@@ -57,6 +57,11 @@
     &:hover {
       color: @heading-color;
     }
+
+    .@{tab-prefix-cls}-rtl& {
+      margin-right: 3px;
+      margin-left: -5px;
+    }
   }
 
   &&-card &-card-content > &-tabpane,
@@ -75,6 +80,10 @@
     line-height: @tabs-title-font-size * @line-height-base + extract(@tabs-horizontal-padding, 1) *
       2;
 
+    .@{tab-prefix-cls}-rtl & {
+      float: left !important;
+    }
+
     .@{tab-prefix-cls}-new-tab {
       position: relative;
       width: 20px;
@@ -84,7 +93,7 @@
       line-height: 20px;
       text-align: center;
       border: @border-width-base @border-style-base @border-color-split;
-      border-radius: @border-radius-sm;
+      border-radius: @border-radius-base;
       cursor: pointer;
       transition: all 0.3s;
       &:hover {

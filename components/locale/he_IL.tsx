@@ -35,6 +35,7 @@ export default {
     removeFile: 'הסר קובץ',
     uploadError: 'שגיאת העלאה',
     previewFile: 'הצג קובץ',
+    downloadFile: 'הורד קובץ',
   },
   Empty: {
     description: 'אין מידע',

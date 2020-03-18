@@ -69,7 +69,7 @@ ReactDOM.render(
     <Input.TextArea rows={1} style={{ width: 100 }} />
     <Button type="primary">Button</Button>
     <Input style={{ width: 100 }} />
-    <Text copiable>Ant Design</Text>
+    <Text copyable>Ant Design</Text>
     <Input prefix="1" suffix="2" style={{ width: 100 }} />
     <Input addonBefore="1" addonAfter="2" style={{ width: 100 }} />
     <InputNumber style={{ width: 100 }} />
@@ -83,7 +83,6 @@ ReactDOM.render(
       </Option>
       <Option value="Yiminghe">yiminghe</Option>
     </Select>
-    <Select style={{ width: 100 }} combobox defaultValue="jack" />
     <TreeSelect style={{ width: 100 }} />
     <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} />
     <RangePicker />
@@ -93,6 +92,8 @@ ReactDOM.render(
       <RadioButton value="b">Shanghai</RadioButton>
     </RadioGroup>
     <AutoComplete style={{ width: 100 }} placeholder="input here" />
+    <br />
+    <Input prefix="$" addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
   </div>,
   mountNode,
 );

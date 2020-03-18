@@ -21,9 +21,9 @@ const components = uniq(
 
 describe('site test', () => {
   let server;
-  const host = 3000;
+  const port = 3000;
   const render = async path => {
-    const resp = await fetch(`http://localhost:${host}${path}`).then(async res => {
+    const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async res => {
       const html = await res.text();
       const $ = cheerio.load(html, { decodeEntities: false, recognizeSelfClosing: true });
       return {
@@ -34,14 +34,10 @@ describe('site test', () => {
     });
     return resp;
   };
+
   const handleComponentName = name => {
-    const componentMap = {
-      descriptions: 'description list',
-    };
-    // eslint-disable-next-line no-unused-vars
-    const [_, componentName] = name.split('/');
-    const compName = componentName.toLowerCase().replace('-', '');
-    return componentMap[compName] || compName;
+    const componentName = name.split('/')[1];
+    return componentName.toLowerCase().replace('-', '');
   };
 
   const expectComponent = async component => {
@@ -58,7 +54,7 @@ describe('site test', () => {
     server = createServer({
       root: join(process.cwd(), '_site'),
     });
-    server.listen(host);
+    server.listen(port);
     // eslint-disable-next-line no-console
     console.log('site static server run: http://localhost:3000');
   });
@@ -82,12 +78,14 @@ describe('site test', () => {
   });
 
   for (const component of components) {
-    it(`Component ${component} zh Page`, async () => {
-      await expectComponent(component);
-    });
+    if (component.split('/').length < 3) {
+      it(`Component ${component} zh Page`, async () => {
+        await expectComponent(component);
+      });
 
-    it(`Component ${component} en Page`, async () => {
-      await expectComponent(component);
-    });
+      it(`Component ${component} en Page`, async () => {
+        await expectComponent(component);
+      });
+    }
   }
 });

@@ -1,279 +1,164 @@
+// TODO: 4.0 - codemod should help to change `filterOption` to support node props.
+
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import RcSelect, { Option, OptGroup } from 'rc-select';
-import classNames from 'classnames';
 import omit from 'omit.js';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import warning from '../_util/warning';
-import Icon from '../icon';
-import { tuple } from '../_util/type';
+import classNames from 'classnames';
+import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import getIcons from './utils/iconUtil';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
-const SelectSizes = tuple('default', 'large', 'small');
+type RawValue = string | number;
 
-export interface AbstractSelectProps {
-  prefixCls?: string;
-  className?: string;
-  showAction?: string | string[];
-  size?: (typeof SelectSizes)[number];
-  notFoundContent?: React.ReactNode | null;
-  transitionName?: string;
-  choiceTransitionName?: string;
-  showSearch?: boolean;
-  allowClear?: boolean;
-  disabled?: boolean;
-  showArrow?: boolean;
-  style?: React.CSSProperties;
-  tabIndex?: number;
-  placeholder?: string | React.ReactNode;
-  defaultActiveFirstOption?: boolean;
-  dropdownClassName?: string;
-  dropdownStyle?: React.CSSProperties;
-  dropdownMenuStyle?: React.CSSProperties;
-  dropdownMatchSelectWidth?: boolean;
-  onSearch?: (value: string) => void;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  filterOption?:
-    | boolean
-    | ((inputValue: string, option: React.ReactElement<OptionProps>) => boolean);
-  id?: string;
-  defaultOpen?: boolean;
-  open?: boolean;
-  onDropdownVisibleChange?: (open: boolean) => void;
-  autoClearSearchValue?: boolean;
-  dropdownRender?: (menu?: React.ReactNode, props?: SelectProps) => React.ReactNode;
-  loading?: boolean;
-}
+export type OptionType = typeof Option;
 
 export interface LabeledValue {
-  key: string;
+  key?: string;
+  value: RawValue;
   label: React.ReactNode;
 }
 
-export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
+export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-const ModeOptions = tuple(
-  'default',
-  'multiple',
-  'tags',
-  'combobox',
-  'SECRET_COMBOBOX_MODE_DO_NOT_USE',
-);
-export type ModeOption = (typeof ModeOptions)[number];
-export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
-  value?: T;
-  defaultValue?: T;
-  mode?: ModeOption;
-  optionLabelProp?: string;
-  firstActiveValue?: string | string[];
-  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
-  onSelect?: (value: T extends (infer I)[] ? I : T, option: React.ReactElement<any>) => void;
-  onDeselect?: (value: T extends (infer I)[] ? I : T) => void;
-  onBlur?: (value: T) => void;
-  onFocus?: () => void;
-  onPopupScroll?: React.UIEventHandler<HTMLDivElement>;
-  onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  maxTagCount?: number;
-  maxTagTextLength?: number;
-  maxTagPlaceholder?: React.ReactNode | ((omittedValues: T[]) => React.ReactNode);
-  optionFilterProp?: string;
-  labelInValue?: boolean;
-  tokenSeparators?: string[];
-  getInputElement?: () => React.ReactElement<any>;
-  autoFocus?: boolean;
+export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
-  removeIcon?: React.ReactNode;
-  clearIcon?: React.ReactNode;
-  menuItemSelectedIcon?: React.ReactNode;
+  size?: SizeType;
+  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  bordered?: boolean;
 }
 
-export interface OptionProps {
-  disabled?: boolean;
-  value?: string | number;
-  title?: string;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
+export interface SelectProps<VT>
+  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'> {
+  mode?: 'multiple' | 'tags';
 }
 
-export interface OptGroupProps {
-  label?: React.ReactNode;
-}
+// We still use class here since `forwardRef` not support generic in typescript
+class Select<ValueType extends SelectValue = SelectValue> extends React.Component<
+  SelectProps<ValueType>
+> {
+  static Option = Option;
 
-export interface SelectLocale {
-  notFoundContent?: string;
-}
+  static OptGroup = OptGroup;
 
-const SelectPropTypes = {
-  prefixCls: PropTypes.string,
-  className: PropTypes.string,
-  size: PropTypes.oneOf(SelectSizes),
-  notFoundContent: PropTypes.any,
-  showSearch: PropTypes.bool,
-  optionLabelProp: PropTypes.string,
-  transitionName: PropTypes.string,
-  choiceTransitionName: PropTypes.string,
-  id: PropTypes.string,
-};
-
-export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
-  static Option = Option as React.ClassicComponentClass<OptionProps>;
-
-  static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
-
-  static SECRET_COMBOBOX_MODE_DO_NOT_USE: ModeOption = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
   static defaultProps = {
-    showSearch: false,
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
+    bordered: true,
   };
 
-  static propTypes = SelectPropTypes;
+  selectRef = React.createRef<RcSelect<ValueType>>();
 
-  private rcSelect: any;
-
-  constructor(props: SelectProps<T>) {
-    super(props);
-
-    warning(
-      props.mode !== 'combobox',
-      'Select',
-      'The combobox mode is deprecated, ' +
-        'it will be removed in next major version, ' +
-        'please use AutoComplete instead',
-    );
-  }
-
-  getNotFoundContent(renderEmpty: RenderEmptyHandler) {
-    const { notFoundContent } = this.props;
-    if (notFoundContent !== undefined) {
-      return notFoundContent;
+  public focus = () => {
+    if (this.selectRef.current) {
+      this.selectRef.current.focus();
     }
-
-    if (this.isCombobox()) {
-      return null;
-    }
-
-    return renderEmpty('Select');
-  }
-
-  saveSelect = (node: any) => {
-    this.rcSelect = node;
   };
 
-  focus() {
-    this.rcSelect.focus();
-  }
-
-  blur() {
-    this.rcSelect.blur();
-  }
-
-  isCombobox() {
-    const { mode } = this.props;
-    return mode === 'combobox' || mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE;
-  }
-
-  renderSuffixIcon(prefixCls: string) {
-    const { loading, suffixIcon } = this.props;
-    if (suffixIcon) {
-      return React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon, {
-            className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
-          })
-        : suffixIcon;
+  public blur = () => {
+    if (this.selectRef.current) {
+      this.selectRef.current.blur();
     }
-    if (loading) {
-      return <Icon type="loading" />;
+  };
+
+  getMode = () => {
+    const { mode } = this.props as InternalSelectProps<ValueType>;
+
+    if ((mode as any) === 'combobox') {
+      return undefined;
     }
-    return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
-  }
+
+    if (mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE) {
+      return 'combobox';
+    }
+
+    return mode;
+  };
 
   renderSelect = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      className = '',
-      size,
-      mode,
+      notFoundContent,
+      className,
+      size: customizeSize,
+      listHeight = 256,
+      listItemHeight = 32,
       getPopupContainer,
-      removeIcon,
-      clearIcon,
-      menuItemSelectedIcon,
-      showArrow,
-      ...restProps
-    } = this.props;
-    const rest = omit(restProps, ['inputIcon']);
+      dropdownClassName,
+      bordered,
+    } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
-    const cls = classNames(
-      {
-        [`${prefixCls}-lg`]: size === 'large',
-        [`${prefixCls}-sm`]: size === 'small',
-        [`${prefixCls}-show-arrow`]: showArrow,
-      },
-      className,
-    );
+    const mode = this.getMode();
 
-    let { optionLabelProp } = this.props;
-    if (this.isCombobox()) {
-      // children 带 dom 结构时，无法填入输入框
-      optionLabelProp = optionLabelProp || 'value';
+    const isMultiple = mode === 'multiple' || mode === 'tags';
+
+    // ===================== Empty =====================
+    let mergedNotFound: React.ReactNode;
+    if (notFoundContent !== undefined) {
+      mergedNotFound = notFoundContent;
+    } else if (mode === 'combobox') {
+      mergedNotFound = null;
+    } else {
+      mergedNotFound = renderEmpty('Select');
     }
 
-    const modeConfig = {
-      multiple: mode === 'multiple',
-      tags: mode === 'tags',
-      combobox: this.isCombobox(),
-    };
+    // ===================== Icons =====================
+    const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+      ...this.props,
+      multiple: isMultiple,
+    });
 
-    const finalRemoveIcon = (removeIcon &&
-      (React.isValidElement<{ className?: string }>(removeIcon)
-        ? React.cloneElement(removeIcon, {
-            className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
-          })
-        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const selectProps = omit(this.props, [
+      'prefixCls',
+      'suffixIcon',
+      'itemIcon',
+      'removeIcon',
+      'clearIcon',
+      'size',
+      'bordered',
+    ]);
 
-    const finalClearIcon = (clearIcon &&
-      (React.isValidElement<{ className?: string }>(clearIcon)
-        ? React.cloneElement(clearIcon, {
-            className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
-          })
-        : clearIcon)) || (
-      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
-    );
-
-    const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
-      (React.isValidElement<{ className?: string }>(menuItemSelectedIcon)
-        ? React.cloneElement(menuItemSelectedIcon, {
-            className: classNames(
-              menuItemSelectedIcon.props.className,
-              `${prefixCls}-selected-icon`,
-            ),
-          })
-        : menuItemSelectedIcon)) || <Icon type="check" className={`${prefixCls}-selected-icon`} />;
-
+    const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    });
     return (
-      <RcSelect
-        inputIcon={this.renderSuffixIcon(prefixCls)}
-        removeIcon={finalRemoveIcon}
-        clearIcon={finalClearIcon}
-        menuItemSelectedIcon={finalMenuItemSelectedIcon}
-        showArrow={showArrow}
-        {...rest}
-        {...modeConfig}
-        prefixCls={prefixCls}
-        className={cls}
-        optionLabelProp={optionLabelProp || 'children'}
-        notFoundContent={this.getNotFoundContent(renderEmpty)}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        ref={this.saveSelect}
-      />
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const mergedClassName = classNames(className, {
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-borderless`]: !bordered,
+          });
+
+          return (
+            <RcSelect<ValueType>
+              ref={this.selectRef}
+              {...selectProps}
+              listHeight={listHeight}
+              listItemHeight={listItemHeight}
+              mode={mode}
+              prefixCls={prefixCls}
+              inputIcon={suffixIcon}
+              menuItemSelectedIcon={itemIcon}
+              removeIcon={removeIcon}
+              clearIcon={clearIcon}
+              notFoundContent={mergedNotFound}
+              className={mergedClassName}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              dropdownClassName={rcSelectRtlDropDownClassName}
+            />
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 
@@ -281,3 +166,5 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     return <ConfigConsumer>{this.renderSelect}</ConfigConsumer>;
   }
 }
+
+export default Select;

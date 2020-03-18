@@ -3,6 +3,8 @@ import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
+// We should avoid use it in 4.0. Reopen if can not handle this.
+const USE_REPLACEMENT = false;
 const testDist = process.env.LIB_DIR === 'dist';
 
 /**
@@ -12,7 +14,7 @@ const testDist = process.env.LIB_DIR === 'dist';
  * So we need hack of this to modify the `aria-controls`.
  */
 function ariaConvert(wrapper) {
-  if (!testDist) return wrapper;
+  if (!testDist || !USE_REPLACEMENT) return wrapper;
 
   const matches = new Map();
 

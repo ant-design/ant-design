@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   en-US: Ajax
   zh-CN: 远程加载数据
@@ -34,7 +34,10 @@ const columns = [
   {
     title: 'Gender',
     dataIndex: 'gender',
-    filters: [{ text: 'Male', value: 'male' }, { text: 'Female', value: 'female' }],
+    filters: [
+      { text: 'Male', value: 'male' },
+      { text: 'Female', value: 'female' },
+    ],
     width: '20%',
   },
   {

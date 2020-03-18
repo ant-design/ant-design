@@ -1,5 +1,4 @@
 import * as React from 'react';
-import createReactContext from '@ant-design/create-react-context';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import { Locale } from '../locale-provider';
 
@@ -18,9 +17,10 @@ export interface ConfigConsumerProps {
   pageHeader?: {
     ghost: boolean;
   };
+  direction?: 'ltr' | 'rtl';
 }
 
-export const ConfigContext = createReactContext<ConfigConsumerProps>({
+export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;

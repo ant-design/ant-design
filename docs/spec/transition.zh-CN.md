@@ -1,5 +1,6 @@
 ---
-category: 原则
+category: 设计模式
+type: 原则
 order: 9
 title: 巧用过渡
 ---
@@ -36,7 +37,7 @@ title: 巧用过渡
 
 ## 解释刚刚发生了什么
 
-<video class="transition-video-player" alt="对象增加示例" description="新增一条对象时，该行『高亮』告知用户这是新增项；几秒后『高亮』消失，以免过度干扰用户。" src="https://os.alipayobjects.com/rmsportal/FqkQMyFqNqielOw.mp4" />
+<video class="transition-video-player" alt="对象增加示例" description="新增一条对象时，该行「高亮」告知用户这是新增项；几秒后「高亮」消失，以免过度干扰用户。" src="https://os.alipayobjects.com/rmsportal/FqkQMyFqNqielOw.mp4" />
 
 对象增加：在列表/表格中，新增了一个对象。
 
@@ -48,7 +49,7 @@ title: 巧用过渡
 
 <br>
 
-<video class="transition-video-player" alt="对象更改示例" description="状态一：用户更改了『详情』中的值；<br>状态二：用户点击『保存』后，详情所在的网格出现『黄底』，表明该对象发生了更改；<br>状态三：底色持续几秒后，恢复正常。" src="https://os.alipayobjects.com/rmsportal/XrUIWmsmOlEnZGc.mp4" />
+<video class="transition-video-player" alt="对象更改示例" description="状态一：用户更改了「详情」中的值；<br>状态二：用户点击「保存」后，详情所在的网格出现「黄底」，表明该对象发生了更改；<br>状态三：底色持续几秒后，恢复正常。" src="https://os.alipayobjects.com/rmsportal/XrUIWmsmOlEnZGc.mp4" />
 
 对象更改：在列表/表格中，更改了一个对象。
 
@@ -62,7 +63,7 @@ title: 巧用过渡
 
 ## 改善感知性能
 
-当无法有效提升『实际性能』时，可以考虑适当转移用户的注意力，来缩短某项操作的感知时间，改善感知性能。
+当无法有效提升「实际性能」时，可以考虑适当转移用户的注意力，来缩短某项操作的感知时间，改善感知性能。
 
 <br>
 
@@ -70,4 +71,4 @@ title: 巧用过渡
 
 ## 自然运动
 
-参见 [Ant Motion 动画语言](http://motion.ant.design/language/time)。
+参见 [Ant Motion 动画语言](https://motion.ant.design/language/basic-cn)。

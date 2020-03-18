@@ -58,5 +58,6 @@ export default {
     removeFile: 'Buang fail',
     uploadError: 'Masalah muat naik',
     previewFile: 'Tengok fail',
+    downloadFile: 'Muat turun fail',
   },
 };

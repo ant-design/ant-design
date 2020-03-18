@@ -48,11 +48,15 @@ class Demo extends React.Component {
         {longText ? (
           <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>
             Ant Design, a design language for background applications, is refined by Ant UED Team.
-            This is a nest sample <Text code strong delete>Test</Text> case.
-            Bnt Design, a design language for background applications, is refined by Ant UED Team.
-            Cnt Design, a design language for background applications, is refined by Ant UED Team.
-            Dnt Design, a design language for background applications, is refined by Ant UED Team.
-            Ent Design, a design language for background applications, is refined by Ant UED Team.
+            This is a nest sample{' '}
+            <Text code strong delete>
+              Test
+            </Text>{' '}
+            case. Bnt Design, a design language for background applications, is refined by Ant UED
+            Team. Cnt Design, a design language for background applications, is refined by Ant UED
+            Team. Dnt Design, a design language for background applications, is refined by Ant UED
+            Team. Ent Design, a design language for background applications, is refined by Ant UED
+            Team.
           </Paragraph>
         ) : (
           <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>

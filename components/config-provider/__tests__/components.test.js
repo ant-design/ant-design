@@ -21,13 +21,13 @@ import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
+import Empty from '../../empty';
 import Form from '../../form';
 import { Row, Col } from '../../grid';
 import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
-import Mention from '../../mention';
 import Menu from '../../menu';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
@@ -55,12 +55,12 @@ import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
-jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name, renderComponent) {
+      // eslint-disable-next-line jest/valid-describe
       describe(`${name}`, () => {
         // normal
         it('normal', () => {
@@ -234,6 +234,9 @@ describe('ConfigProvider', () => {
       ));
     });
 
+    // Empty
+    testPair('Empty', props => <Empty {...props} />);
+
     // Divider
     testPair('Divider', props => <Divider {...props} />);
 
@@ -287,6 +290,7 @@ describe('ConfigProvider', () => {
           <Input {...props} />
           <Input.Search {...props} />
         </Input.Group>
+        <Input.Password {...props} />
         <Input.TextArea {...props} />
       </div>
     ));
@@ -339,9 +343,6 @@ describe('ConfigProvider', () => {
         )}
       />
     ));
-
-    // Mention
-    testPair('Mention', props => <Mention {...props} />);
 
     // Menu
     testPair('Menu', props => (

@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Card from '../index';
 import Button from '../../button/index';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Card', () => {
   mountTest(Card);
+  rtlTest(Card);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -33,19 +35,6 @@ describe('Card', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('warning', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Card noHovering>xxx</Card>);
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Card] `noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
-    );
-    mount(<Card noHovering={false}>xxx</Card>);
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Card] `noHovering={false}` is deprecated, use `hoverable` instead.',
-    );
-    warnSpy.mockRestore();
-  });
-
   it('onTabChange should work', () => {
     const tabList = [
       {
@@ -68,11 +57,6 @@ describe('Card', () => {
       .at(1)
       .simulate('click');
     expect(onTabChange).toHaveBeenCalledWith('tab2');
-  });
-
-  it('getCompatibleHoverable should work', () => {
-    const wrapper = mount(<Card noHovering={false}>xxx</Card>);
-    expect(wrapper.find('.ant-card-hoverable').length).toBe(1);
   });
 
   it('should not render when actions is number', () => {

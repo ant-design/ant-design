@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import './rtl';
 
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
@@ -41,7 +42,7 @@
     text-align: center;
     vertical-align: middle;
     list-style: none;
-    background-color: @component-background;
+    background-color: @pagination-item-bg;
     border: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base;
     outline: 0;
@@ -96,9 +97,8 @@
       position: relative;
 
       .@{pagination-prefix-cls}-item-link-icon {
-        .iconfont-size-under-12px(12px);
-
         color: @primary-color;
+        font-size: @font-size-sm;
         letter-spacing: -1px;
         opacity: 0;
         transition: all 0.2s;
@@ -180,7 +180,7 @@
       height: 100%;
       font-size: 12px;
       text-align: center;
-      background-color: @component-background;
+      background-color: @pagination-item-link-bg;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-base;
       outline: none;
@@ -264,7 +264,7 @@
       margin-right: 8px;
       padding: 0 6px;
       text-align: center;
-      background-color: @component-background;
+      background-color: @pagination-item-input-bg;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-base;
       outline: none;
@@ -321,6 +321,7 @@
 
   &.mini &-options {
     margin-left: 2px;
+
     &-quick-jumper {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;
@@ -350,10 +351,10 @@
       }
 
       &-active {
-        background: darken(@disabled-bg, 10%);
+        background: @pagination-item-disabled-bg-active;
         border-color: transparent;
         a {
-          color: #fff;
+          color: @pagination-item-disabled-color-active;
         }
       }
     }

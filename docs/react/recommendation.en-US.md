@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 9
 title: Third-Party Libraries
 ---
 
@@ -7,7 +7,8 @@ title: Third-Party Libraries
 
 | Category | Recommended Components |
 | --- | --- |
-| Visualization and charts | [🔥 AntV 数据可视化解决方案](https://antv.alipay.com) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| Visualization and charts | [AntV Data Visualization](https://antv.vision/en) [🔥 AntV Charting Library](https://g2plot.antv.vision/en) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| React Hooks Library | [umi-hooks](https://github.com/umijs/hooks) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
 | Layout | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](http://whoisandy.github.io/react-blocks/) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | Drag and drop | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
@@ -17,8 +18,8 @@ title: Third-Party Libraries
 | Color Picker | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/) |
 | Media Query | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |
 | Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
-| Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title) |
-| Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons) |
+| Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-helmet-async](https://github.com/staylor/react-helmet-async) |
+| Icons | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) [react-icons](https://github.com/gorangajic/react-icons) |
 | QR Code | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | Visual Graph Editor | [GGEditor](https://github.com/gaoli/GGEditor) |
 | Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress) |
@@ -40,29 +41,29 @@ title: Third-Party Libraries
 
 There are some products to recommend for developer/designer/product manager.
 
-| Category | Recommended Products |
-| --- | --- |
-| Documentation | [🐦 Yuque](https://www.yuque.com/?chInfo=ch_antd) |
-| Icon | [Iconfont](https://www.iconfont.cn/) |
-| Sketch plugin | [Kitchen](https://kitchen.alipay.com) |
+| Category          | Recommended Products                                                  |
+| ----------------- | --------------------------------------------------------------------- |
+| Documentation     | [🐦 Yuque](https://www.yuque.com/?chInfo=ch_antd)                     |
+| Icon              | [Iconfont](https://www.iconfont.cn/)                                  |
+| Sketch plugin     | [Kitchen](https://kitchen.alipay.com)                                 |
 | Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
-| Image Compressor | [tinypng](https://tinypng.com/) |
-| Charts Dictionary | [G2](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html) [图之典](http://tuzhidian.com/) |
+| Image Compressor  | [tinypng](https://tinypng.com/)                                       |
+| Charts Dictionary | [图之典](http://tuzhidian.com/)                                       |
 
 <style>
 .markdown table td:first-child {
+  width: 20%;
   font-weight: 500;
-  width: 25%;
   background: #fcfcfc;
 }
 .markdown table td > a:not(:last-child) {
   margin-right: 18px;
 }
-.markdown table td > a:not(:last-child):after {
-  content: '|';
-  color: #bbb;
-  margin: 0 6px 0 8px;
-  pointer-events: none;
+.markdown table td > a:not(:last-child)::after {
   position: absolute;
+  margin: 0 6px 0 8px;
+  color: #bbb;
+  content: '|';
+  pointer-events: none;
 }
 </style>

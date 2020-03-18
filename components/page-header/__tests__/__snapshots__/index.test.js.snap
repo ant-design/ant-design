@@ -6,6 +6,22 @@ exports[`PageHeader pageHeader should not render blank dom 1`] = `
 />
 `;
 
+exports[`PageHeader pageHeader should render correctly int RTL direction 1`] = `
+<div
+  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
+>
+  <div
+    class="ant-page-header-heading"
+  >
+    <span
+      class="ant-page-header-heading-title"
+    >
+      Page Title
+    </span>
+  </div>
+</div>
+`;
+
 exports[`PageHeader pageHeader should support className 1`] = `
 <div
   class="ant-page-header not-works ant-page-header-ghost"
@@ -20,4 +36,10 @@ exports[`PageHeader pageHeader should support className 1`] = `
     </span>
   </div>
 </div>
+`;
+
+exports[`PageHeader rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
+/>
 `;

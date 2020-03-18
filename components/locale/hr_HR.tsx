@@ -40,6 +40,7 @@ export default {
     removeFile: 'Makni datoteku',
     uploadError: 'Greška kod uploada',
     previewFile: 'Pogledaj datoteku',
+    downloadFile: 'Preuzmi datoteku',
   },
   Empty: {
     description: 'Nema podataka',

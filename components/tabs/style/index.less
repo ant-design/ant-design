@@ -23,15 +23,25 @@
   overflow: hidden;
   .clearfix;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-ink-bar {
     position: absolute;
     bottom: 1px;
     left: 0;
     z-index: 1;
     box-sizing: border-box;
+    width: 0;
     height: 2px;
     background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
+
+    .@{tab-prefix-cls}-rtl & {
+      right: 0;
+      left: auto;
+    }
   }
 
   &-bar {
@@ -115,6 +125,11 @@
       text-transform: none;
       transform: translate(-50%, -50%);
 
+      .@{tab-prefix-cls}-rtl & {
+        right: 50%;
+        left: auto;
+      }
+
       &-target {
         display: block;
         .iconfont-size-under-12px(10px);
@@ -132,10 +147,21 @@
 
   &-tab-next {
     right: 2px;
+
+    .@{tab-prefix-cls}-rtl & {
+      right: auto;
+      left: 2px;
+    }
   }
 
   &-tab-prev {
     left: 0;
+
+    .@{tab-prefix-cls}-rtl & {
+      right: 2px;
+      left: auto;
+    }
+
     :root & {
       filter: none;
     }
@@ -181,6 +207,10 @@
       cursor: pointer;
       transition: color 0.3s @ease-in-out;
 
+      .@{tab-prefix-cls}-rtl & {
+        margin: @tabs-horizontal-margin-rtl;
+      }
+
       &::before {
         position: absolute;
         top: -1px;
@@ -207,6 +237,11 @@
 
       .@{iconfont-css-prefix} {
         margin-right: 8px;
+
+        .@{tab-prefix-cls}-rtl & {
+          margin-right: 0;
+          margin-left: 8px;
+        }
       }
 
       &-active {
@@ -330,7 +365,7 @@
       bottom: auto;
       left: auto;
       width: 2px;
-      height: auto;
+      height: 0;
     }
 
     .@{tab-prefix-cls}-tab-next {
@@ -403,12 +438,12 @@
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out, left 0.3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, width 0.2s @ease-in-out, left 0.3s @ease-in-out;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, height 0.3s @ease-in-out, top 0.3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, height 0.2s @ease-in-out, top 0.3s @ease-in-out;
 }
 
 // No animation

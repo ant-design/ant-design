@@ -11,31 +11,13 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: @screen-xl) {
-  #search-box {
-    display: none;
-  }
-  #logo {
-    padding: 0 40px;
-  }
-  .banner-wrapper .banner-title-wrapper {
-    h1 {
-      font-size: 36px;
-    }
-    p {
-      font-size: 16px;
-    }
-  }
-}
+@media only screen and (max-width: @screen-lg) {
+  .main-container {
+    padding-right: 48px;
+    padding-left: 48px;
 
-@media only screen and (max-width: 991.99px) {
-  .main-menu {
-    > div > .ant-affix {
-      position: static !important;
-    }
-    .main-menu-inner {
-      max-height: none;
-      overflow: hidden;
+    .toc-affix {
+      display: none;
     }
   }
   .code-boxes-col-2-1,
@@ -46,19 +28,6 @@
 }
 
 @media only screen and (max-width: 767.99px) {
-  #header {
-    text-align: center;
-    #logo {
-      float: initial;
-
-      img:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-  #search-box {
-    display: none;
-  }
   .preview-image-boxes {
     float: none;
     width: 100%;
@@ -77,44 +46,6 @@
   div.version {
     display: block;
     margin: 29px auto 16px;
-  }
-
-  .popover-menu {
-    width: 300px;
-    div.version {
-      margin: 16px auto;
-    }
-    .ant-popover-inner {
-      overflow: hidden;
-      &-content {
-        padding: 0;
-        .ant-select {
-          display: block;
-          width: 60%;
-        }
-        .ant-btn {
-          margin: 16px 8% 0 8px;
-        }
-      }
-    }
-    #nav a.header-link {
-      color: #333;
-    }
-  }
-
-  ul#nav,
-  ul#nav li {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  ul#nav li {
-    padding: 0 !important;
-    line-height: 40px;
-    border: 0;
-    a {
-      color: #333;
-    }
   }
 
   .toc {
@@ -136,8 +67,10 @@
     border-right: 0;
   }
 
-  .main-container {
+  .main-container,
+  .ant-row-rtl .main-container {
     margin-right: 0;
+    margin-left: 0;
     padding-right: 16px;
     padding-left: 16px;
     > .markdown > * {
@@ -154,6 +87,11 @@
   .prev-next-nav {
     width: ~'calc(100% - 32px)';
     margin-left: 16px;
+
+    .ant-row-rtl & {
+      margin-right: 16px;
+      margin-left: 64px;
+    }
   }
 
   .drawer {
@@ -254,7 +192,7 @@
   }
   .page2 {
     min-height: 840px;
-    background: #fff;
+    background: @body-background;
     &-content {
       box-shadow: none;
     }
@@ -327,7 +265,7 @@
     .page3-block {
       margin-bottom: 32px;
       padding: 24px;
-      background: #fff;
+      background: @body-background;
       border-radius: 4px;
       box-shadow: 0 8px 16px rgba(174, 185, 193, 0.3);
       &:nth-child(2) {

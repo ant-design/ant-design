@@ -28,6 +28,13 @@ export default {
     itemUnit: 'élément',
     itemsUnit: 'éléments',
   },
+  Upload: {
+    uploading: 'Téléchargement...',
+    removeFile: 'Effacer le fichier',
+    uploadError: 'Erreur de téléchargement',
+    previewFile: 'Fichier de prévisualisation',
+    downloadFile: 'Télécharger un fichier',
+  },
   Empty: {
     description: 'Aucune donnée',
   },

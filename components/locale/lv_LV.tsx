@@ -35,6 +35,7 @@ export default {
     removeFile: 'Noņemt failu',
     uploadError: 'Augšupielādes kļūda',
     previewFile: 'Priekšskatiet failu',
+    downloadFile: 'Lejupielādēt failu',
   },
   Empty: {
     description: 'Nav datu',

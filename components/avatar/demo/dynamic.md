@@ -13,46 +13,32 @@ title:
 
 For letter type Avatar, when the letters are too long to display, the font size can be automatically adjusted according to the width of the Avatar.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Avatar, Button } from 'antd';
 
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
-const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
+const ColorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
 
-class Autoset extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: UserList[0],
-      color: colorList[0],
-    };
-  }
-
-  changeUser = () => {
-    const index = UserList.indexOf(this.state.user);
-    this.setState({
-      user: index < UserList.length - 1 ? UserList[index + 1] : UserList[0],
-      color: index < colorList.length - 1 ? colorList[index + 1] : colorList[0],
-    });
+const Autoset: React.FC = () => {
+  const [user, setUser] = useState(UserList[0]);
+  const [color, setColor] = useState(ColorList[0]);
+  const changeUser = () => {
+    const index = UserList.indexOf(user);
+    setUser(index < UserList.length - 1 ? UserList[index + 1] : UserList[0]);
+    setColor(index < ColorList.length - 1 ? ColorList[index + 1] : ColorList[0]);
   };
-
-  render() {
-    return (
-      <div>
-        <Avatar style={{ backgroundColor: this.state.color, verticalAlign: 'middle' }} size="large">
-          {this.state.user}
-        </Avatar>
-        <Button
-          size="small"
-          style={{ marginLeft: 16, verticalAlign: 'middle' }}
-          onClick={this.changeUser}
-        >
-          Change
-        </Button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
+        {user}
+      </Avatar>
+      <Button size="small" style={{ marginLeft: 16, verticalAlign: 'middle' }} onClick={changeUser}>
+        Change
+      </Button>
+    </div>
+  );
+};
 
 ReactDOM.render(<Autoset />, mountNode);
 ```

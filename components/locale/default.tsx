@@ -18,6 +18,7 @@ export default {
     filterReset: 'Reset',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
+    selectionAll: 'Select all data',
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',

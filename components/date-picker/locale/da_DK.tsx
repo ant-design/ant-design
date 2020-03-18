@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-calendar/lib/locale/da_DK';
+import CalendarLocale from 'rc-picker/lib/locale/da_DK';
 import TimePickerLocale from '../../time-picker/locale/da_DK';
 
 // Merge into a locale object

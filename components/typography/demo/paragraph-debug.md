@@ -29,13 +29,12 @@ ReactDOM.render(
     </Paragraph>
     <Paragraph>
       After massive project practice and summaries, Ant Design, a design language for background
-      applications, is refined by Ant UED Team, which aims to 
+      applications, is refined by Ant UED Team, which aims to
       <Text strong>
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and
         front-end development
-      </Text>
-      .
+      </Text>.
     </Paragraph>
     <Title level={2}>Guidelines and Resources</Title>
     <Paragraph>
@@ -86,6 +85,30 @@ ReactDOM.render(
           <a href="/docs/resource/download">设计资源</a>
         </li>
       </ul>
+    </Paragraph>
+
+    <Paragraph>
+      <ul>
+        <li>I am an unordered item</li>
+        <li>
+          I am an unordered item with an ordered sublist
+          <ol>
+            <li>I am ordered</li>
+          </ol>
+          <ul>
+            <li>I am unordered</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>
+          Ordered list item with unordered sublist
+          <ul>
+            <li>I am unordered!</li>
+            <li>I am also unordered!</li>
+          </ul>
+        </li>
+      </ol>
     </Paragraph>
   </div>,
   mountNode,

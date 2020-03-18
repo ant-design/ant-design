@@ -1,5 +1,16 @@
 import * as React from 'react';
-import { CustomIconComponentProps } from 'antd/es/icon';
+
+interface CustomIconComponentProps {
+  width: string | number;
+  height: string | number;
+  fill: string;
+  viewBox?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  spin?: boolean;
+  rotate?: number;
+  ['aria-hidden']?: React.AriaAttributes['aria-hidden'];
+}
 
 export const FilledIcon: React.SFC<CustomIconComponentProps> = props => {
   const path =

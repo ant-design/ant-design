@@ -9,6 +9,7 @@ import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -30,7 +31,6 @@ const listCommonProps = {
   ],
   selectedKeys: ['a'],
   targetKeys: ['b'],
-  lazy: false,
 };
 
 const listDisabledProps = {
@@ -47,7 +47,6 @@ const listDisabledProps = {
   ],
   selectedKeys: ['a', 'b'],
   targetKeys: [],
-  lazy: false,
 };
 
 const searchTransferProps = {
@@ -91,11 +90,11 @@ const searchTransferProps = {
   ],
   selectedKeys: [],
   targetKeys: ['3', '4'],
-  lazy: false,
 };
 
 describe('Transfer', () => {
   mountTest(Transfer);
+  rtlTest(Transfer);
 
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
@@ -121,7 +120,7 @@ describe('Transfer', () => {
         selectedKeys={['a']}
         targetKeys={['a']}
         onChange={handleChange}
-      />
+      />,
     );
     wrapper
       .find(TransferOperation)
@@ -247,7 +246,7 @@ describe('Transfer', () => {
       .at(0)
       .find('input')
       .simulate('change', { target: { value: 'content2' } });
-    expect(headerText(wrapper)).toEqual('1 items');
+    expect(headerText(wrapper)).toEqual('1 item');
   });
 
   it('should display the correct locale', () => {
@@ -278,10 +277,19 @@ describe('Transfer', () => {
     ).toEqual('Nothing');
   });
 
-  it('should display the correct locale using old API', () => {
+  it('should display the correct locale and ignore old API', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
-    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} {...locale} showSearch />);
+    const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
+    const wrapper = mount(
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        {...locale}
+        locale={newLocalProp}
+        showSearch
+      />,
+    );
 
     expect(
       wrapper
@@ -290,7 +298,7 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-search')
         .at(0)
         .prop('placeholder'),
-    ).toEqual('old2');
+    ).toEqual('new2');
 
     expect(
       wrapper
@@ -299,9 +307,9 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-body-not-found')
         .at(0)
         .text(),
-    ).toEqual('old1');
+    ).toEqual('new1');
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
+    expect(consoleErrorSpy).not.toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
     consoleErrorSpy.mockRestore();
@@ -442,8 +450,11 @@ describe('Transfer', () => {
     const style = {
       backgroundColor: 'red',
     };
-    const listStyle = {
+    const leftStyle = {
       backgroundColor: 'blue',
+    };
+    const rightStyle = {
+      backgroundColor: 'red',
     };
     const operationStyle = {
       backgroundColor: 'yellow',
@@ -453,7 +464,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         style={style}
-        listStyle={listStyle}
+        listStyle={({ direction }) => (direction === 'left' ? leftStyle : rightStyle)}
         operationStyle={operationStyle}
       />,
     );
@@ -465,32 +476,32 @@ describe('Transfer', () => {
 
     expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
-    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
   });
 
   it('should support onScroll', () => {
     const onScroll = jest.fn();
-    const component = mount(
-      <Transfer
-        {...listCommonProps}
-        onScroll={onScroll}
-      />,
-    );
-    component.find('.ant-transfer-list').at(0).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    const component = mount(<Transfer {...listCommonProps} onScroll={onScroll} />);
+    component
+      .find('.ant-transfer-list')
+      .at(0)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('left', expect.anything());
-    component.find('.ant-transfer-list').at(1).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    component
+      .find('.ant-transfer-list')
+      .at(1)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
   });
 
   it('should support rowKey is function', () => {
     expect(() => {
-      mount(
-        <Transfer
-          {...listCommonProps}
-          rowKey={record => record.key}
-        />,
-      );
+      mount(<Transfer {...listCommonProps} rowKey={record => record.key} />);
     }).not.toThrow();
   });
 
@@ -507,5 +518,23 @@ describe('Transfer', () => {
       />,
     );
     expect(component).toMatchSnapshot();
+  });
+
+  it('should render correct checkbox label when checkboxLabel is defined', () => {
+    const selectAllLabels = ['Checkbox Label'];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
+    expect(headerText(wrapper)).toEqual('Checkbox Label');
+  });
+
+  it('should render correct checkbox label when checkboxLabel is a function', () => {
+    const selectAllLabels = [
+      ({ selectedCount, totalCount }) => (
+        <span>
+          {selectedCount} of {totalCount}
+        </span>
+      ),
+    ];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
+    expect(headerText(wrapper)).toEqual('1 of 2');
   });
 });

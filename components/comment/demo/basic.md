@@ -14,8 +14,9 @@ title:
 A basic comment with author, avatar, time and actions.
 
 ```jsx
-import { Comment, Icon, Tooltip, Avatar } from 'antd';
+import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
+import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 
 class App extends React.Component {
   state = {
@@ -46,23 +47,19 @@ class App extends React.Component {
     const actions = [
       <span key="comment-basic-like">
         <Tooltip title="Like">
-          <Icon
-            type="like"
-            theme={action === 'liked' ? 'filled' : 'outlined'}
-            onClick={this.like}
-          />
+          {React.createElement(action === 'liked' ? LikeFilled : LikeOutlined, {
+            onClick: this.like,
+          })}
         </Tooltip>
-        <span style={{ paddingLeft: 8, cursor: 'auto' }}>{likes}</span>
+        <span className="comment-action">{likes}</span>
       </span>,
       <span key=' key="comment-basic-dislike"'>
         <Tooltip title="Dislike">
-          <Icon
-            type="dislike"
-            theme={action === 'disliked' ? 'filled' : 'outlined'}
-            onClick={this.dislike}
-          />
+          {React.createElement(action === 'liked' ? DislikeFilled : DislikeOutlined, {
+            onClick: this.dislike,
+          })}
         </Tooltip>
-        <span style={{ paddingLeft: 8, cursor: 'auto' }}>{dislikes}</span>
+        <span className="comment-action">{dislikes}</span>
       </span>,
       <span key="comment-basic-reply-to">Reply to</span>,
     ];
@@ -95,4 +92,17 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
+```
+
+```css
+/* tile uploaded pictures */
+.comment-action {
+  padding-left: 8px;
+  cursor: 'auto';
+}
+
+[class*='-col-rtl'] .comment-action {
+  padding-right: 8px;
+  padding-left: 0;
+}
 ```

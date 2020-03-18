@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-comment ant-comment-rtl"
+>
+  <div
+    class="ant-comment-inner"
+  >
+    <div
+      class="ant-comment-avatar"
+    />
+    <div
+      class="ant-comment-content"
+    >
+      <div
+        class="ant-comment-content-author"
+      />
+      <div
+        class="ant-comment-content-detail"
+      />
+    </div>
+  </div>
+</div>
+`;

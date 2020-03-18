@@ -4,10 +4,12 @@ import Search from '../Search';
 import Button from '../../button';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Input.Search', () => {
   focusTest(Search);
   mountTest(Search);
+  rtlTest(Search);
 
   it('should support custom button', () => {
     const wrapper = mount(<Search enterButton={<button type="button">ok</button>} />);
@@ -165,5 +167,24 @@ describe('Input.Search', () => {
     const wrapperWithEnterButton = mount(<Search loading enterButton />);
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
+
+  it('should support addonAfter and suffix for loading', () => {
+    const wrapper = mount(<Search loading suffix="suffix" addonAfter="addonAfter" />);
+    const wrapperWithEnterButton = mount(
+      <Search loading enterButton suffix="suffix" addonAfter="addonAfter" />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
+
+  it('should support invalid suffix', () => {
+    const wrapper = mount(<Search suffix={[]} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support invalid addonAfter', () => {
+    const wrapper = mount(<Search addonAfter={[]} enterButton />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

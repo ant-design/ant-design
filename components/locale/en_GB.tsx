@@ -35,6 +35,7 @@ export default {
     removeFile: 'Remove file',
     uploadError: 'Upload error',
     previewFile: 'Preview file',
+    downloadFile: 'Download file',
   },
   Empty: {
     description: 'No data',

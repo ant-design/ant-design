@@ -14,7 +14,8 @@ title:
 Complex error feedback.
 
 ```jsx
-import { Result, Button, Icon, Typography } from 'antd';
+import { Result, Button, Typography } from 'antd';
+import { CloseCircleOutlined } from '@ant-design/icons';
 
 const { Paragraph, Text } = Typography;
 
@@ -42,15 +43,27 @@ ReactDOM.render(
         </Text>
       </Paragraph>
       <Paragraph>
-        <Icon style={{ color: 'red' }} type="close-circle" /> Your account has been frozen 
+        <CloseCircleOutlined className="site-result-demo-error-icon" /> Your account has been frozen
         <a>Thaw immediately &gt;</a>
       </Paragraph>
       <Paragraph>
-        <Icon style={{ color: 'red' }} type="close-circle" /> Your account is not yet eligible to
-        apply <a>Apply Unlock &gt;</a>
+        <CloseCircleOutlined className="site-result-demo-error-icon" /> Your account is not yet
+        eligible to apply <a>Apply Unlock &gt;</a>
       </Paragraph>
     </div>
   </Result>,
   mountNode,
 );
 ```
+
+```css
+.site-result-demo-error-icon {
+  color: red;
+}
+```
+
+<style>
+[data-theme="dark"] .site-result-demo-error-icon {
+  color: #a61d24;
+}
+</style>
