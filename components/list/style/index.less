@@ -24,7 +24,7 @@
   }
 
   &-pagination {
-    margin-top: 24px;
+    margin-top: @margin-lg;
     text-align: right;
 
     // https://github.com/ant-design/ant-design/issues/20037
@@ -38,7 +38,7 @@
   }
 
   &-more {
-    margin-top: 12px;
+    margin-top: @margin-sm;
     text-align: center;
     button {
       padding-right: 32px;
@@ -106,7 +106,7 @@
       }
       &-description {
         color: @text-color-secondary;
-        font-size: @font-size-base;
+        font-size: @list-item-meta-description-font-size;
         line-height: 22px;
       }
     }
@@ -125,7 +125,7 @@
       & > li {
         position: relative;
         display: inline-block;
-        padding: 0 8px;
+        padding: 0 @padding-xs;
         color: @text-color-secondary;
         font-size: @font-size-base;
         line-height: 22px;
@@ -137,7 +137,7 @@
 
         .@{list-prefix-cls}-rtl & {
           padding-right: 0;
-          padding-left: 8px;
+          padding-left: @padding-xs;
         }
       }
       &-split {
@@ -167,12 +167,12 @@
 
   &-header,
   &-footer {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: @padding-sm;
+    padding-bottom: @padding-sm;
   }
 
   &-empty {
-    padding: 16px 0;
+    padding: @padding-md 0;
     color: @text-color-secondary;
     font-size: 12px;
     text-align: center;
@@ -198,13 +198,13 @@
   }
 
   &-lg &-item {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: @padding-md;
+    padding-bottom: @padding-md;
   }
 
   &-sm &-item {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: @padding-xs;
+    padding-bottom: @padding-xs;
   }
 
   &-vertical &-item {
@@ -244,13 +244,13 @@
       }
 
       > li {
-        padding: 0 16px;
+        padding: 0 @padding-md;
         &:first-child {
           padding-left: 0;
 
           .@{list-prefix-cls}-rtl & {
             padding-right: 0;
-            padding-left: 16px;
+            padding-left: @padding-md;
           }
         }
       }
@@ -260,7 +260,7 @@
   &-grid .@{ant-prefix}-col > &-item {
     display: block;
     max-width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: @margin-md;
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;

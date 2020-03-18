@@ -3,9 +3,9 @@
 
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
-@descriptions-default-padding: 16px 24px;
-@descriptions-middle-padding: 12px 24px;
-@descriptions-small-padding: 8px 16px;
+@descriptions-default-padding: @padding-md @padding-lg;
+@descriptions-middle-padding: @padding-sm @padding-lg;
+@descriptions-small-padding: @padding-xs @padding-md;
 
 .@{descriptions-prefix-cls} {
   &-rtl {
@@ -13,7 +13,7 @@
   }
 
   &-title {
-    margin-bottom: 20px;
+    margin-bottom: 20px; // todo: unconfirmed
     color: @heading-color;
     font-weight: bold;
     font-size: @font-size-lg;
@@ -33,7 +33,7 @@
   &-row {
     > th,
     > td {
-      padding-bottom: 16px;
+      padding-bottom: @padding-md;
     }
     &:last-child {
       border-bottom: none;
@@ -90,7 +90,7 @@
     .@{descriptions-prefix-cls}-row {
       > th,
       > td {
-        padding-bottom: 12px;
+        padding-bottom: @padding-sm;
       }
     }
   }
@@ -99,7 +99,7 @@
     .@{descriptions-prefix-cls}-row {
       > th,
       > td {
-        padding-bottom: 8px;
+        padding-bottom: @padding-xs;
       }
     }
   }
