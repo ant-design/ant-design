@@ -73,8 +73,8 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     );
     return (
       <RcCollapse
-        {...this.props}
         openAnimation={{ ...animation, appear() {} }}
+        {...this.props}
         expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
         prefixCls={prefixCls}
         className={collapseClassName}
