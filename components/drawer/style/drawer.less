@@ -15,10 +15,6 @@
       box-shadow @animation-duration-slow @ease-base-out;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-content-wrapper {
     position: absolute;
   }
@@ -179,11 +175,6 @@
     transition: color @animation-duration-slow;
     text-rendering: auto;
 
-    .@{drawer-prefix-cls}-rtl & {
-      right: auto;
-      left: 0;
-    }
-
     &:focus,
     &:hover {
       color: @icon-color-hover;
@@ -261,3 +252,5 @@
     opacity: 1;
   }
 }
+
+@import './drawer.rtl.less';
