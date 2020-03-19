@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-相邻按钮水平间距。
+相邻组件水平间距。
 
 ## en-US
 
-Crowded button horizontal space.
+Crowded components horizontal spacing.
 
 ```jsx
 import { Button, Space } from 'antd';
