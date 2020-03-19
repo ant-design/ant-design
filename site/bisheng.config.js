@@ -134,6 +134,13 @@ module.exports = {
     if (isDev) {
       // eslint-disable-next-line
       config.devtool = 'source-map';
+
+      // Resolve use react hook fail when yarn link or npm link
+      // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
+      // eslint-disable-next-line
+      config.resolve.alias = Object.assign({}, config.resolve.alias, {
+        react: require.resolve('react'),
+      });
     }
 
     alertBabelConfig(config.module.rules);
