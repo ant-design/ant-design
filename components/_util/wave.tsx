@@ -106,13 +106,11 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     }
 
     const node = findDOMNode(this) as HTMLElement;
-    if (!e || e.target !== node) {
+    if (!e || e.target !== node || this.animationStart) {
       return;
     }
 
-    if (!this.animationStart) {
-      this.resetEffect(node);
-    }
+    this.resetEffect(node);
   };
 
   onTransitionEnd = (e: AnimationEvent) => {
