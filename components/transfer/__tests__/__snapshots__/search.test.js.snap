@@ -51,7 +51,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
       className="undefined-action"
     >
       <ForwardRef(SearchOutlined)>
-        <ForwardRef(AntdIcon)
+        <AntdIcon
           icon={
             Object {
               "icon": Object {
@@ -121,7 +121,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
               </svg>
             </IconReact>
           </span>
-        </ForwardRef(AntdIcon)>
+        </AntdIcon>
       </ForwardRef(SearchOutlined)>
     </span>
   </div>
@@ -181,7 +181,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
       onClick={[Function]}
     >
       <ForwardRef(CloseCircleFilled)>
-        <ForwardRef(AntdIcon)
+        <AntdIcon
           icon={
             Object {
               "icon": Object {
@@ -251,7 +251,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
               </svg>
             </IconReact>
           </span>
-        </ForwardRef(AntdIcon)>
+        </AntdIcon>
       </ForwardRef(CloseCircleFilled)>
     </a>
   </div>

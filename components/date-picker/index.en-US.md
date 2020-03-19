@@ -63,7 +63,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | bordered | whether has border style | Boolean | true |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | style | to customize the style of the input box | object | {} |  |
-| onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |  |
+| onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | callback when picker panel mode is changed | function(value, mode) | - |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 

@@ -284,7 +284,6 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px"
     >
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -1293,7 +1292,6 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px"
     >
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -1464,7 +1462,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px"
     >
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -1810,7 +1807,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px"
     >
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"

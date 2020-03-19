@@ -1,6 +1,5 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@dialog-wrap-rtl-cls: ~'@{dialog-prefix-cls}-wrap-rtl';
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -22,10 +21,6 @@
     overflow: auto;
     outline: 0;
     -webkit-overflow-scrolling: touch;
-
-    &-rtl {
-      direction: rtl;
-    }
   }
 
   &-title {
@@ -62,11 +57,6 @@
     outline: 0;
     cursor: pointer;
     transition: color 0.3s;
-
-    .@{dialog-wrap-rtl-cls} & {
-      right: initial;
-      left: 0;
-    }
 
     &-x {
       display: block;
@@ -109,17 +99,9 @@
     border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
 
-    .@{dialog-wrap-rtl-cls} & {
-      text-align: left;
-    }
     button + button {
       margin-bottom: 0;
       margin-left: 8px;
-
-      .@{dialog-wrap-rtl-cls} & {
-        margin-right: 8px;
-        margin-left: 0;
-      }
     }
   }
 
@@ -166,10 +148,6 @@
     display: inline-block;
     text-align: left;
     vertical-align: middle;
-
-    .@{dialog-wrap-rtl-cls}& {
-      text-align: right;
-    }
   }
 }
 

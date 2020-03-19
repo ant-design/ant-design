@@ -58,17 +58,10 @@
     // Fixed first or last should special process
     &.@{table-prefix-cls}-cell-fix-left-last,
     &.@{table-prefix-cls}-cell-fix-right-first {
-      display: flex;
       overflow: visible;
-
-      > .@{table-prefix-cls}-row-indent,
-      > .@{table-prefix-cls}-row-expand-icon {
-        flex: none;
-      }
 
       .@{table-prefix-cls}-cell-content {
         display: block;
-        flex: auto;
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -427,14 +420,25 @@
     text-align: center;
   }
 
+  &-row-indent {
+    float: left;
+    height: 1px;
+
+    .@{table-wrapepr-rtl-cls} & {
+      float: right;
+    }
+  }
+
   &-row-expand-icon {
     .operation-unit();
     position: relative;
     display: inline-flex;
+    float: left;
     box-sizing: border-box;
 
     width: ceil(@font-size-sm * 1.4);
     height: ceil(@font-size-sm * 1.4);
+    padding: 0;
     color: inherit;
     line-height: @font-size-sm;
     vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
@@ -444,6 +448,10 @@
     outline: none;
     transition: all 0.3s;
     user-select: none;
+
+    .@{table-wrapepr-rtl-cls} & {
+      float: right;
+    }
 
     &:focus,
     &:hover,
@@ -493,6 +501,7 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
+      margin-top: (@font-size-base * @line-height-base - ceil(@font-size-sm * 1.4)) / 2;
       margin-right: @padding-xs;
 
       .@{table-wrapepr-rtl-cls} & {

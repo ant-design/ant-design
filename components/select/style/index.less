@@ -4,6 +4,7 @@
 
 @import './single';
 @import './multiple';
+@import './rtl';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
@@ -60,10 +61,6 @@
     .hover();
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   // ======================== Selection ========================
   &-selection-item {
     flex: 1;
@@ -110,11 +107,6 @@
         transform: rotate(180deg);
       }
     }
-
-    .@{select-prefix-cls}-rtl & {
-      right: initial;
-      left: @control-padding-horizontal - 1px;
-    }
   }
 
   // ========================== Clear ==========================
@@ -148,20 +140,11 @@
     .@{select-prefix-cls}:hover & {
       opacity: 1;
     }
-
-    .@{select-prefix-cls}-rtl & {
-      right: initial;
-      left: @control-padding-horizontal - 1px;
-    }
   }
 
   // ========================== Popup ==========================
   &-dropdown {
     .reset-component;
-
-    &-rtl {
-      direction: rtl;
-    }
     position: absolute;
     top: -9999px;
     left: -9999px;

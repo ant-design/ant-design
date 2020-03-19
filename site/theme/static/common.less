@@ -220,3 +220,28 @@ a {
     box-shadow: @shadow-2;
   }
 }
+
+// keep transition consistent to make mode toggle animation be more smooth, include:
+// nav bar background
+// nav search border
+// nav menu background
+// wrapper content
+// sidemenu background
+// sidemenu active background
+// content background
+// affix toc
+#header,
+#header #search-box,
+#header #nav.ant-menu,
+.main-wrapper,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu.aside-container.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-title::after,
+.main-wrapper .main-container,
+#demo-toc.toc {
+  transition: all 0.3s @ease-in-out-circ;
+}
+
+// remove margin-bottom from dark theme (why need margin-bottom in dark theme?)
+#header > .ant-row > .ant-col h1 {
+  margin-bottom: 0;
+}

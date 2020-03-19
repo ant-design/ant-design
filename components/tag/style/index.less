@@ -36,13 +36,6 @@
     padding: 0 8px;
   }
 
-  &-rtl {
-    margin-right: 0;
-    margin-left: 8px;
-    direction: rtl;
-    text-align: right;
-  }
-
   .@{iconfont-css-prefix}-close {
     .iconfont-size-under-12px(10px);
 
@@ -51,11 +44,6 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s @ease-in-out-circ;
-
-    .@{tag-prefix-cls}-rtl& {
-      margin-right: 3px;
-      margin-left: 0;
-    }
 
     &:hover {
       color: @heading-color;
@@ -132,3 +120,5 @@
   .make-status-color-classes('red', error);
   .make-status-color-classes('orange', warning);
 }
+
+@import './rtl.less';
