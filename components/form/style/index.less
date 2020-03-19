@@ -24,10 +24,6 @@
     padding-right: 8px;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   // ================================================================
   // =                             Size                             =
   // ================================================================
@@ -80,10 +76,6 @@
     text-align: right;
     vertical-align: middle;
 
-    .@{form-prefix-cls}-rtl & {
-      text-align: right;
-    }
-
     &-left {
       text-align: left;
     }
@@ -110,11 +102,6 @@
         font-family: SimSun, sans-serif;
         line-height: 1;
         content: '*';
-
-        .@{form-prefix-cls}-rtl & {
-          margin-right: 0;
-          margin-left: 4px;
-        }
 
         .@{form-prefix-cls}-hide-required-mark & {
           display: none;
@@ -148,8 +135,7 @@
     flex-direction: column;
     flex-grow: 1;
 
-    &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]),
-    .@{ant-prefix}-col-rtl &:first-child {
+    &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
     }
   }
@@ -238,3 +224,5 @@
     transform: scale(1);
   }
 }
+
+@import './rtl.less';
