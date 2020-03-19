@@ -11,8 +11,8 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
   disabled?: boolean;
-  onConfirm?: (e?: React.MouseEvent<HTMLElement>) => void;
-  onCancel?: (e?: React.MouseEvent<HTMLElement>) => void;
+  onConfirm?: (event: React.MouseEvent<HTMLElement>) => void;
+  onCancel?: (event: React.MouseEvent<HTMLElement>) => void;
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
