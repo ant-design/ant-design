@@ -1,8 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 
-@input-rtl-cls: ~'@{ant-prefix}-input-rtl';
-
 @input-affix-with-clear-btn-width: 38px;
 
 // size mixins for input
@@ -27,22 +25,12 @@
   border-right-width: @border-width-base !important;
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, @outline-fade);
-
-  .@{input-rtl-cls} & {
-    border-right-width: 0;
-    border-left-width: @border-width-base !important;
-  }
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
   border-right-width: @border-width-base !important;
-
-  .@{input-rtl-cls} & {
-    border-right-width: 0;
-    border-left-width: @border-width-base !important;
-  }
 }
 
 .disabled() {
@@ -107,10 +95,6 @@
 
   &-sm {
     .input-sm();
-  }
-
-  &-rtl {
-    direction: rtl;
   }
 }
 
@@ -231,13 +215,6 @@
     }
   }
 
-  > .@{inputClass}-rtl:first-child,
-  &-rtl &-addon:first-child {
-    border-radius: @border-radius-base;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
   > .@{inputClass}-affix-wrapper {
     &:not(:first-child) .@{inputClass} {
       border-top-left-radius: 0;
@@ -252,32 +229,16 @@
 
   &-addon:first-child {
     border-right: 0;
-
-    .@{inputClass}-group-rtl & {
-      border-right: @border-width-base @border-style-base @input-border-color;
-      border-left: 0;
-    }
   }
 
   &-addon:last-child {
     border-left: 0;
-
-    .@{inputClass}-group-rtl & {
-      border-right: 0;
-      border-left: @border-width-base @border-style-base @input-border-color;
-    }
   }
 
   > .@{inputClass}:last-child,
   &-addon:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-
-    .@{inputClass}-group-rtl & {
-      border-radius: @border-radius-base;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
 
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selector {
@@ -389,13 +350,6 @@
     & > .@{ant-prefix}-time-picker:first-child .@{ant-prefix}-time-picker-input {
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
-
-      .@{inputClass}-group-rtl& {
-        border-top-left-radius: 0;
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
-        border-bottom-left-radius: 0;
-      }
     }
 
     & > *:last-child,
@@ -409,15 +363,6 @@
       border-right-width: @border-width-base;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
-
-      .@{inputClass}-group-rtl& {
-        border-right-width: 0;
-        border-left-width: @border-width-base;
-        border-top-left-radius: @border-radius-base;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: @border-radius-base;
-      }
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
