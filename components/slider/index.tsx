@@ -91,7 +91,13 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     prefixCls,
     info: { value, dragging, index, ...restProps },
   }) => {
-    const { tipFormatter, tooltipVisible, tooltipPlacement, getTooltipPopupContainer } = this.props;
+    const {
+      tipFormatter,
+      tooltipVisible,
+      tooltipPlacement,
+      getTooltipPopupContainer,
+      vertical,
+    } = this.props;
     const { visibles } = this.state;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
@@ -100,7 +106,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
-        placement={tooltipPlacement || 'top'}
+        placement={tooltipPlacement || vertical ? 'right' : 'top'}
         transitionName="zoom-down"
         key={index}
         overlayClassName={`${prefixCls}-tooltip`}

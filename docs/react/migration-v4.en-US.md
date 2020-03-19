@@ -3,7 +3,7 @@ order: 8
 title: V3 to V4
 ---
 
-This document will help you upgrade from antd `3.x` version to antd `4.x` version. If you are using `2.x` or older version, please refer to the previous [upgrade document] (https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.en-US.md#300) to 3.x.
+This document will help you upgrade from antd `3.x` version to antd `4.x` version. If you are using `2.x` or older version, please refer to the previous [upgrade document](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.en-US.md#300) to 3.x.
 
 ## Upgrade preparation
 
@@ -120,7 +120,7 @@ const Demo = () => (
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
   - `onBlur` no longer trigger value change.
-  - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
+  - `dropdownMatchSelectWidth={false}` will no longer automatically adapt dropdown to the content width, please set the dropdown width with numbers.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.

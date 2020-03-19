@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
+@import './rtl';
 
 // Grid system
 .@{ant-prefix}-row {
@@ -10,10 +11,6 @@
   &::before,
   &::after {
     display: flex;
-  }
-
-  &-rtl {
-    direction: rtl;
   }
 }
 
@@ -63,10 +60,6 @@
   max-width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
-
-  &&-rtl {
-    float: right;
-  }
 }
 
 .make-grid();

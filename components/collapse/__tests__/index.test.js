@@ -74,4 +74,19 @@ describe('Collapse', () => {
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
     jest.useRealTimers();
   });
+
+  it('could override default openAnimation', () => {
+    const wrapper = mount(
+      <Collapse openAnimation={{}}>
+        <Collapse.Panel header="This is panel header 1" key="1">
+          content
+        </Collapse.Panel>
+      </Collapse>,
+    );
+    wrapper
+      .find('.ant-collapse-header')
+      .at(0)
+      .simulate('click');
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

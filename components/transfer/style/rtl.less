@@ -1,0 +1,74 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../checkbox/style/mixin';
+
+@transfer-prefix-cls: ~'@{ant-prefix}-transfer';
+
+.@{transfer-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-list {
+    &-search {
+      &-action {
+        .@{transfer-prefix-cls}-rtl & {
+          right: auto;
+          left: 12px;
+        }
+      }
+    }
+
+    &-header {
+      .@{transfer-prefix-cls}-rtl & {
+        right: 0;
+        left: auto;
+      }
+      &-title {
+        .@{transfer-prefix-cls}-rtl & {
+          right: auto;
+          left: 12px;
+        }
+      }
+
+      .@{ant-prefix}-checkbox-wrapper + span {
+        .@{transfer-prefix-cls}-rtl & {
+          padding-right: 8px;
+          padding-left: 0;
+        }
+      }
+    }
+
+    &-body {
+      &-search-wrapper {
+        .@{transfer-prefix-cls}-rtl & {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+
+    &-content {
+      &-item {
+        > span {
+          .@{transfer-prefix-cls}-rtl & {
+            padding-left: 0;
+          }
+        }
+        &-text {
+          .@{transfer-prefix-cls}-rtl & {
+            padding-right: 8px;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    &-footer {
+      .@{transfer-prefix-cls}-rtl & {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}

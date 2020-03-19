@@ -1,0 +1,71 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@number-prefix-cls: ~'@{ant-prefix}-scroll-number';
+
+.@{badge-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-count,
+  &-dot,
+  .@{number-prefix-cls}-custom-component {
+    .@{badge-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+      transform: translate(-50%, -50%);
+      transform-origin: 0% 0%;
+    }
+  }
+
+  .@{badge-prefix-cls}-rtl& .@{number-prefix-cls}-custom-component {
+    right: auto;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transform-origin: 0% 0%;
+  }
+
+  &-status {
+    &-text {
+      .@{badge-prefix-cls}-rtl & {
+        margin-right: 8px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    .@{badge-prefix-cls}-rtl & {
+      animation-name: antZoomBadgeInRtl;
+    }
+  }
+
+  &-zoom-leave {
+    .@{badge-prefix-cls}-rtl & {
+      animation-name: antZoomBadgeOutRtl;
+    }
+  }
+}
+
+@keyframes antZoomBadgeInRtl {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes antZoomBadgeOutRtl {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}

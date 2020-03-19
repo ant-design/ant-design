@@ -65,7 +65,7 @@ import 'moment/locale/zh-cn';
 | bordered | 是否有边框 | Boolean | true |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | style | 自定义输入框样式 | object | {} |  |
-| onOpenChange | 弹出日历和关闭日历的回调 | function(status) | 无 |  |
+| onOpenChange | 弹出日历和关闭日历的回调 | function(open) | 无 |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 

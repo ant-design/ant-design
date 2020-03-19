@@ -127,7 +127,7 @@ module.exports = {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
 +       modifyVars: {
-+          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
 +          ...darkThemeVars,
 +       },
 +       javascriptEnabled: true,

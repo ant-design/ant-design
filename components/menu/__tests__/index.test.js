@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
+import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { resetWarned } from '../../_util/warning';
@@ -370,6 +371,76 @@ describe('Menu', () => {
         .at(0)
         .hasClass('ant-menu-hidden'),
     ).toBe(false);
+  });
+
+  it('inlineCollapsed Menu.Item Tooltip can be removed', () => {
+    const wrapper = mount(
+      <Menu
+        defaultOpenKeys={['not-existed']}
+        mode="inline"
+        inlineCollapsed
+        getPopupContainer={node => node.parentNode}
+      >
+        <Menu.Item key="menu1">item</Menu.Item>
+        <Menu.Item key="menu2" title="title">
+          item
+        </Menu.Item>
+        <Menu.Item key="menu3" title={undefined}>
+          item
+        </Menu.Item>
+        <Menu.Item key="menu4" title={null}>
+          item
+        </Menu.Item>
+        <Menu.Item key="menu5" title="">
+          item
+        </Menu.Item>
+        <Menu.Item key="menu6" title={false}>
+          item
+        </Menu.Item>
+      </Menu>,
+    );
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(0)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('item');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(1)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('title');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(2)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('item');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(3)
+        .find(Tooltip)
+        .props().title,
+    ).toBe(null);
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(4)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(4)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('');
   });
 
   describe('open submenu when click submenu title', () => {

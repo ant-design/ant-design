@@ -66,6 +66,7 @@ ReactDOM.render(
     <br />
     <DatePicker picker="month" disabledDate={disabledDate} />
     <br />
+    <RangePicker disabledDate={disabledDate} />
     <RangePicker
       disabledDate={disabledDate}
       disabledTime={disabledRangeTime}
