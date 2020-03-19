@@ -120,7 +120,7 @@ const Demo = () => (
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值。
-  - `dropdownMatchSelectWidth` 不再自动适应内容宽度，请用数字设置下拉宽度。
+  - `dropdownMatchSelectWidth={false}` 时下拉菜单不再会自动适应内容宽度，请用数字设置下拉宽度。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
