@@ -99,3 +99,42 @@ export function useForm(form?: FormInstance): [FormInstance] {
 
   return [wrapForm];
 }
+
+type Updater<ValueType> = (prev?: ValueType) => ValueType;
+
+export function useFrameState<ValueType>(
+  defaultValue: ValueType,
+): [ValueType, (updater: Updater<ValueType>) => void] {
+  const [value, setValue] = React.useState(defaultValue);
+  const frameRef = React.useRef<number | null>(null);
+  const batchRef = React.useRef<Updater<ValueType>[]>([]);
+
+  React.useEffect(
+    () => () => {
+      cancelAnimationFrame(frameRef.current!);
+    },
+    [],
+  );
+
+  function setFrameValue(updater: Updater<ValueType>) {
+    if (frameRef.current === null) {
+      batchRef.current = [];
+      frameRef.current = requestAnimationFrame(() => {
+        frameRef.current = null;
+        setValue(prevValue => {
+          let current = prevValue;
+
+          batchRef.current.forEach(func => {
+            current = func(current);
+          });
+
+          return current;
+        });
+      });
+    }
+
+    batchRef.current.push(updater);
+  }
+
+  return [value, setFrameValue];
+}
