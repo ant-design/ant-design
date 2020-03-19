@@ -4,13 +4,19 @@ exports[`Space should render correct with children 1`] = `
 <div
   class="ant-space"
 >
-  text1
   <span
     style="margin-right:8px"
   >
     text1
   </span>
-  text3
+  <span
+    style="margin-right:8px"
+  >
+    text1
+  </span>
+  <span>
+    text3
+  </span>
 </div>
 `;
 

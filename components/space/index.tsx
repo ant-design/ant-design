@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 
@@ -46,21 +47,29 @@ const Space: React.FC<SpaceProps> = props => {
     };
   };
 
-  const items = React.Children.toArray(children);
+  const items = toArray(children);
   const len = items.length;
+
+  const transformChild = (child: React.ReactNode, styles: React.CSSProperties) => {
+    if (React.isValidElement(child)) {
+      const { type, props: childProps } = child;
+      const isPopup = (type as any).__ANT_POPCONFIRM;
+      const { style, childStyle } = childProps || {};
+
+      return React.cloneElement(child, {
+        [isPopup ? 'childStyle' : 'style']: {
+          ...(isPopup ? childStyle : style),
+          ...styles,
+        },
+      });
+    }
+
+    return <span style={styles}>{child}</span>;
+  };
 
   return (
     <div className={cn} {...otherProps}>
-      {items.map((child, i) => {
-        return React.isValidElement(child)
-          ? React.cloneElement(child, {
-              style: {
-                ...child.props.style,
-                ...injectStyles(i === len - 1),
-              },
-            })
-          : child;
-      })}
+      {items.map((child, i) => transformChild(child, injectStyles(i === len - 1)))}
     </div>
   );
 };

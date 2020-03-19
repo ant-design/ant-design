@@ -36,6 +36,8 @@ export interface TooltipAlignConfig {
 
 export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
   style?: React.CSSProperties;
+  // Support Space compoent inject
+  childStyle?: React.CSSProperties;
   className?: string;
   placement?: TooltipPlacement;
   builtinPlacements?: BuildInPlacements;
@@ -74,7 +76,10 @@ const splitObject = (obj: any, keys: string[]) => {
 // Fix Tooltip won't hide at disabled button
 // mouse events don't trigger at disabled button in Chrome
 // https://github.com/react-component/tooltip/issues/18
-function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+function getDisabledCompatibleChildren(
+  element: React.ReactElement<any>,
+  childStyle: React.CSSProperties = {},
+) {
   const elementType = element.type as any;
   if (
     (elementType.__ANT_BUTTON === true ||
@@ -100,6 +105,7 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
       ...picked,
       cursor: 'not-allowed',
       width: element.props.block ? '100%' : null,
+      ...childStyle,
     };
     const buttonStyle = {
       ...omitted,
@@ -115,7 +121,9 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
       </span>
     );
   }
-  return element;
+  return React.cloneElement(element, {
+    style: { ...element.props.style, ...childStyle },
+  });
 }
 
 class Tooltip extends React.Component<TooltipProps, any> {
@@ -227,6 +235,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
       getPopupContainer,
       getTooltipContainer,
       overlayClassName,
+      childStyle,
     } = props;
     const children = props.children as React.ReactElement<any>;
     const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
@@ -235,9 +244,9 @@ class Tooltip extends React.Component<TooltipProps, any> {
     if (!('visible' in props) && this.isNoTitle()) {
       visible = false;
     }
-
     const child = getDisabledCompatibleChildren(
       React.isValidElement(children) ? children : <span>{children}</span>,
+      childStyle,
     );
 
     const childProps = child.props;

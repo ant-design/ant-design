@@ -115,6 +115,63 @@ Array [
 ]
 `;
 
+exports[`renders ./components/space/demo/debug.md correctly 1`] = `
+<div
+  class="ant-space"
+>
+  <span
+    style="margin-right:8px"
+  >
+    Button
+  </span>
+  <button
+    class="ant-btn"
+    style="margin-right:8px"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <span
+    style="margin-right:8px"
+  >
+    Button
+  </span>
+  <button
+    class="ant-btn"
+    style="margin-right:8px"
+    type="button"
+  >
+    <span>
+      Delete
+    </span>
+  </button>
+  <span
+    style="display:inline-block;cursor:not-allowed;margin-right:8px"
+  >
+    <button
+      class="ant-btn"
+      disabled=""
+      style="pointer-events:none"
+      type="button"
+    >
+      <span>
+        Delete
+      </span>
+    </button>
+  </span>
+  <span
+    style="margin-right:8px"
+  >
+    1
+  </span>
+  <span>
+    Button
+  </span>
+</div>
+`;
+
 exports[`renders ./components/space/demo/size.md correctly 1`] = `
 Array [
   <div

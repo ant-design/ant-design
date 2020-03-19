@@ -32,6 +32,8 @@ export interface PopconfirmLocale {
 }
 
 class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
+  static __ANT_POPCONFIRM = true;
+
   static defaultProps = {
     transitionName: 'zoom-big',
     placement: 'top' as PopconfirmProps['placement'],

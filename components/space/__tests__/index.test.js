@@ -88,4 +88,15 @@ describe('Space', () => {
 
     expect(render(wrapper)).toMatchSnapshot();
   });
+
+  it('should render with invalidElement', () => {
+    const wrapper = mount(
+      <Space>
+        text1<span>text1</span>
+        text1
+      </Space>,
+    );
+
+    expect(wrapper.find('span').length).toBe(3);
+  });
 });
