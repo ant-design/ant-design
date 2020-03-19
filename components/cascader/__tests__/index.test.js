@@ -335,6 +335,18 @@ describe('Cascader', () => {
     expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
   });
 
+  it('should select item immediately when searching and pressing down arrow key', () => {
+    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'a' } });
+    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
+    expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(0);
+    wrapper.find('input').simulate('keyDown', {
+      keyCode: KeyCode.DOWN,
+    });
+    expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(1);
+  });
+
   it('can use fieldNames', () => {
     const customerOptions = [
       {
