@@ -12,19 +12,10 @@
   display: table;
   width: 100%;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-header {
     display: table-cell;
     padding-right: 16px;
     vertical-align: top;
-
-    .@{skeleton-prefix-cls}-rtl & {
-      padding-right: 0;
-      padding-left: 16px;
-    }
 
     // Avatar
     .@{skeleton-avatar-prefix-cls} {
@@ -87,19 +78,11 @@
       .@{skeleton-title-prefix-cls},
       .@{skeleton-paragraph-prefix-cls} > li {
         .skeleton-color();
-
-        .@{skeleton-prefix-cls}-rtl& {
-          animation-name: ~'@{skeleton-prefix-cls}-loading-rtl';
-        }
       }
     }
 
     .@{skeleton-avatar-prefix-cls} {
       .skeleton-color();
-
-      .@{skeleton-prefix-cls}-rtl& {
-        animation-name: ~'@{skeleton-prefix-cls}-loading-rtl';
-      }
     }
 
     .@{skeleton-button-prefix-cls} {
@@ -231,11 +214,4 @@
   }
 }
 
-@keyframes ~"@{skeleton-prefix-cls}-loading-rtl" {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
+@import './rtl.less';
