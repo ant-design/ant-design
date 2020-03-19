@@ -430,8 +430,8 @@
     .operation-unit();
     position: relative;
     display: inline-flex;
-    box-sizing: border-box;
     float: left;
+    box-sizing: border-box;
 
     width: ceil(@font-size-sm * 1.4);
     height: ceil(@font-size-sm * 1.4);
@@ -498,8 +498,8 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
-      margin-right: @padding-xs;
       margin-top: (@font-size-base * @line-height-base - ceil(@font-size-sm * 1.4)) / 2;
+      margin-right: @padding-xs;
 
       .@{table-wrapepr-rtl-cls} & {
         margin-right: 0;
