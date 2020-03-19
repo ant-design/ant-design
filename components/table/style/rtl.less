@@ -1,0 +1,130 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@table-prefix-cls: ~'@{ant-prefix}-table';
+@table-wrapepr-rtl-cls: ~'@{table-prefix-cls}-wrapper-rtl';
+
+.@{table-prefix-cls}-wrapper {
+  &-rtl {
+    direction: rtl;
+  }
+}
+
+.@{table-prefix-cls} {
+  table {
+    .@{table-wrapepr-rtl-cls} & {
+      text-align: right;
+    }
+  }
+
+  // ============================ Header ============================
+  thead {
+    > tr {
+      > th {
+        &[colspan]:not([colspan='1']) {
+          .@{table-wrapepr-rtl-cls} & {
+            text-align: center;
+          }
+        }
+
+        .@{table-wrapepr-rtl-cls} & {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  // ============================= Body =============================
+  tbody {
+    > tr {
+      // ========================= Nest Table ===========================
+      .@{table-prefix-cls} {
+        &.@{table-prefix-cls}-rtl {
+          margin: -@table-padding-vertical (@table-padding-horizontal + ceil(@font-size-sm * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
+        }
+      }
+    }
+  }
+
+  // ========================== Pagination ==========================
+  &-pagination.@{ant-prefix}-pagination {
+    .@{table-wrapepr-rtl-cls} & {
+      float: left;
+    }
+  }
+
+  // ================================================================
+  // =                           Function                           =
+  // ================================================================
+
+  // ============================ Sorter ============================
+  &-column-sorter {
+    .@{table-wrapepr-rtl-cls} & {
+      margin-right: @padding-xs;
+      margin-left: 0;
+    }
+  }
+
+  // ============================ Filter ============================
+  &-filter-column-title {
+    .@{table-wrapepr-rtl-cls} & {
+      padding: @table-padding-vertical @table-padding-horizontal @table-padding-vertical 2.3em;
+    }
+  }
+
+  &-filter-trigger-container {
+    .@{table-wrapepr-rtl-cls} & {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  // Dropdown
+  &-filter-dropdown {
+    // Checkbox
+    &,
+    &-submenu {
+      .@{ant-prefix}-checkbox-wrapper + span {
+        .@{ant-prefix}-dropdown-rtl & {
+          padding-right: 8px;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  // ========================== Selections ==========================
+  &-selection {
+    .@{table-wrapepr-rtl-cls} & {
+      text-align: center;
+    }
+
+    &-extra {
+      .@{table-wrapepr-rtl-cls} & {
+        right: auto;
+        left: 0;
+        transform: translate(-100%, -50%);
+      }
+    }
+  }
+
+  // ========================== Expandable ==========================
+  &-row-indent {
+    .@{table-wrapepr-rtl-cls} & {
+      float: right;
+    }
+  }
+
+  &-row-expand-icon {
+    .@{table-wrapepr-rtl-cls} & {
+      float: right;
+    }
+
+    .@{table-prefix-cls}-row-indent + & {
+      .@{table-wrapepr-rtl-cls} & {
+        margin-right: 0;
+        margin-left: @padding-xs;
+      }
+    }
+  }
+}
