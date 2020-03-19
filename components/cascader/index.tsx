@@ -3,7 +3,7 @@ import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import isEqual from 'lodash/isEqual';
+import shallowequal from 'shallowequal';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
@@ -523,7 +523,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         if (options && options.length > 0) {
           if (state.inputValue) {
             options = this.generateFilteredOptions(prefixCls, renderEmpty);
-            if (isEqual(options, this.cachedOptions)) {
+            if (shallowequal(options, this.cachedOptions)) {
               options = this.cachedOptions;
             }
           }
