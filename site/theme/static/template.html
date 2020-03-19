@@ -20,8 +20,16 @@
       }
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
+    <link rel="manifest" href="{{ root }}manifest.json" />
     <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js').then(reg => {
+            console.log('Service worker registered.', reg);
+          });
+        });
+      }
       (function() {
         function isLocalStorageNameSupported() {
           var testKey = 'test';

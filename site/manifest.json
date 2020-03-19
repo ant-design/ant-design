@@ -1,0 +1,14 @@
+{
+  "name": "Ant Design",
+  "short_name": "antd",
+  "icons": [
+    {
+      "src": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      "sizes": "200x200"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF"
+}
