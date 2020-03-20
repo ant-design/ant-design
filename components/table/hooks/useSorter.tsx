@@ -94,8 +94,6 @@ function collectSortStates<RecordType>(
     }
   });
 
-  console.log('=>', sortStates);
-
   return sortStates;
 }
 
@@ -304,12 +302,9 @@ export default function useFilterSorter<RecordType>({
     collectSortStates(mergedColumns, true),
   );
 
-  console.log('sortStates', sortStates);
-
   const mergedSorterStates = React.useMemo(() => {
     let validate = true;
     const collectedStates = collectSortStates(mergedColumns, false);
-    console.log('collectedStates', collectedStates, sortStates);
 
     // Return if not controlled
     if (!collectedStates.length) {
@@ -383,7 +378,6 @@ export default function useFilterSorter<RecordType>({
       ];
     }
 
-    console.log('SetSortState:', newSorterStates);
     setSortStates(newSorterStates);
     onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
   }
