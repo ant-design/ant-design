@@ -23,7 +23,7 @@ title: Tag
 | color | 标签色 | string | - |
 | onClose | 关闭时的回调 | (e) => void | - |
 | visible | 是否显示标签 | boolean | `true` |
-| icon | 设置图标类型 | ReactNode | - |  |
+| icon | 设置图标 | ReactNode | - |  |
 
 ### Tag.CheckableTag
 
