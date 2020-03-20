@@ -728,7 +728,7 @@ describe('Table.sorter', () => {
       {
         title: 'Math Score',
         dataIndex: 'math1',
-        sortOrder: 'asc',
+        sortOrder: 'ascend',
         sorter: { multiple: 1 },
         children: [
           {
@@ -740,7 +740,7 @@ describe('Table.sorter', () => {
       {
         title: 'English Score',
         dataIndex: 'english',
-        sortOrder: 'desc',
+        sortOrder: 'descend',
         sorter: { multiple: 2 },
       },
     ];
@@ -757,7 +757,6 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<Table columns={groupColumns} data={groupData} />);
     wrapper.update();
-    console.log(wrapper.find('thead').html());
     expect(
       wrapper
         .find('.ant-table-column-sorter-full')
