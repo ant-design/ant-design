@@ -112,9 +112,10 @@ module.exports = {
 我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
 
 - 🌑 暗色主题（用法见下方文档）
+- 📦 紧凑主题（用法见下方文档）
 - ☁️ [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
 
-### 使用暗色主题
+### 使用暗色主题和紧凑主题
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
@@ -128,33 +129,39 @@ module.exports = {
    $ npm i @umijs/plugin-antd -D
    ```
 
-2. 配置 `dark: true`。
+2. 配置 `dark` 和 `compact`。
 
    ```js
    // .umirc.ts or config/config.ts
    export default {
      antd: {
-       dark: true,
+       dark: true, // 开启暗色主题
+       compact: true, // 开启紧凑主题
      },
    },
    ```
 
-方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less)。
+方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
 
 ```less
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
+@import '~antd/dist/antd.compact.less'; // 引入官方提供的暗色 less 样式入口文件
 ```
 
-如果项目不使用 Less，可在 CSS 文件中，全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css)。
+如果项目不使用 Less，可在 CSS 文件中全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) 或 [antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css)。
 
 ```css
 @import '~antd/dist/antd.dark.css';
+@import '~antd/dist/antd.compact.css';
 ```
+
+> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。
 
 方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
 ```diff
-const darkThemeVars = require('antd/dist/dark-theme');
+const darkTheme = require('antd/dist/dark-theme');
+const compactTheme = require('antd/dist/compact-theme');
 
 // webpack.config.js
 module.exports = {
@@ -169,7 +176,8 @@ module.exports = {
 +     options: {
 +       modifyVars: {
 +          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
-+          ...darkThemeVars,
++          ...darkTheme,
++          ...compactTheme,
 +       },
 +       javascriptEnabled: true,
 +     },
