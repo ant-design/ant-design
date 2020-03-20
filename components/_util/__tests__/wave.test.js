@@ -46,7 +46,7 @@ describe('Wave component', () => {
   it('wave color is not grey', async () => {
     const wrapper = mount(<Wave><button type="button" style={{ borderColor: 'red' }}>button</button></Wave>);
     wrapper.find('button').getDOMNode().click();
-    await sleep(0);
+    await sleep(200);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');

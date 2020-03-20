@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
+import { sleep } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -22,17 +23,15 @@ describe('TextArea', () => {
         },
       }),
     });
-    jest.useFakeTimers();
   });
 
   afterAll(() => {
     Object.defineProperty(window, 'getComputedStyle', {
       value: originalGetComputedStyle,
     });
-    jest.useRealTimers();
   });
 
-  it('should auto calculate height according to content length', () => {
+  it('should auto calculate height according to content length', async () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const wrapper = mount(
@@ -40,10 +39,10 @@ describe('TextArea', () => {
     );
     const mockFunc = jest.spyOn(wrapper.instance().resizableTextArea, 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
-    jest.runAllTimers();
+    await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(1);
     wrapper.setProps({ value: '1111' });
-    jest.runAllTimers();
+    await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(2);
     wrapper.update();
     expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
@@ -143,10 +142,10 @@ describe('TextArea', () => {
     expect(onKeyDown).toHaveBeenCalled();
   });
 
-  it('should trigger onResize', () => {
+  it('should trigger onResize', async () => {
     const onResize = jest.fn();
     const wrapper = mount(<TextArea onResize={onResize} autoSize />);
-    jest.runAllTimers();
+    await sleep(100);
     wrapper
       .find('ResizeObserver')
       .instance()
@@ -285,8 +284,7 @@ describe('TextArea allowClear', () => {
     expect(onFocus).toHaveBeenCalled();
   });
 
-  it('scroll to bottom when autoSize', () => {
-    jest.useFakeTimers();
+  it('scroll to bottom when autoSize', async () => {
     const wrapper = mount(<Input.TextArea autoSize />, { attachTo: document.body });
     wrapper.find('textarea').simulate('focus');
     wrapper
@@ -298,8 +296,7 @@ describe('TextArea allowClear', () => {
       'setSelectionRange',
     );
     wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
-    jest.runAllTimers();
-    jest.useRealTimers();
+    await sleep(50);
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
   });
