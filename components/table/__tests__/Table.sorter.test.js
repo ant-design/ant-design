@@ -722,4 +722,56 @@ describe('Table.sorter', () => {
         .hasClass('active'),
     ).toBeFalsy();
   });
+
+  it('controlled multiple group', () => {
+    const groupColumns = [
+      {
+        title: 'Math Score',
+        dataIndex: 'math1',
+        sortOrder: 'ascend',
+        sorter: { multiple: 1 },
+        children: [
+          {
+            title: 'math',
+            dataIndex: 'math',
+          },
+        ],
+      },
+      {
+        title: 'English Score',
+        dataIndex: 'english',
+        sortOrder: 'descend',
+        sorter: { multiple: 2 },
+      },
+    ];
+
+    const groupData = [
+      {
+        key: '1',
+        name: 'John Brown',
+        chinese: 98,
+        math: 60,
+        english: 70,
+      },
+    ];
+
+    const wrapper = mount(<Table columns={groupColumns} data={groupData} />);
+    wrapper.update();
+    expect(
+      wrapper
+        .find('.ant-table-column-sorter-full')
+        .first()
+        .find('.ant-table-column-sorter-up')
+        .first()
+        .hasClass('active'),
+    ).toBeTruthy();
+    expect(
+      wrapper
+        .find('.ant-table-column-sorter-full')
+        .last()
+        .find('.ant-table-column-sorter-down')
+        .first()
+        .hasClass('active'),
+    ).toBeTruthy();
+  });
 });
