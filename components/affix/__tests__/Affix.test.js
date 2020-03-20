@@ -154,13 +154,13 @@ describe('Affix Render', () => {
       const originLength = getObserverLength();
       const getTarget = () => target;
       wrapper = mount(<Affix target={getTarget} />);
-      await sleep(20);
+      await sleep(50);
 
       expect(getObserverLength()).toBe(originLength + 1);
       target = null;
       wrapper.setProps({});
       wrapper.update();
-      await sleep(20);
+      await sleep(50);
       expect(getObserverLength()).toBe(originLength);
     });
   });
