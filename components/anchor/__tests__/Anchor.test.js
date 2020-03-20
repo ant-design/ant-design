@@ -273,9 +273,7 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('#API2');
   });
 
-  it('Anchor targetOffset prop', () => {
-    jest.useFakeTimers();
-
+  it('Anchor targetOffset prop', async () => {
     let dateNowMock;
 
     function dataNowMockFn() {
@@ -304,23 +302,22 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     wrapper.instance().handleScrollTo('#API');
-    jest.runAllTimers();
+    await sleep(20);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ offsetTop: 100 });
     wrapper.instance().handleScrollTo('#API');
-    jest.runAllTimers();
+    await sleep(20);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ targetOffset: 200 });
     wrapper.instance().handleScrollTo('#API');
-    jest.runAllTimers();
+    await sleep(20);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
-    jest.useRealTimers();
   });
 
   it('Anchor onChange prop', async () => {
