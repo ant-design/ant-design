@@ -133,8 +133,8 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- 🌑 Dark Theme (follow document below)
-- 🌑 Compact Theme (follow document below)
+- 🌑 Dark Theme (supported in 4.0.0+)
+- 🌑 Compact Theme (supported in 4.1.0+)
 - ☁️  [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ### Use dark or compact theme
