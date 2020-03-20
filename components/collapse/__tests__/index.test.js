@@ -69,7 +69,7 @@ describe('Collapse', () => {
       .find('.ant-collapse-header')
       .at(0)
       .simulate('click');
-    await sleep(300);
+    await sleep(400);
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
   });
 

@@ -277,26 +277,20 @@ describe('Tooltip', () => {
       <Tooltip
         title="xxxxx"
         placement="bottomLeft"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
+        visible
+        transitionName=""
       >
         <span>
           Hello world!
         </span>
       </Tooltip>,
     );
-
-    expect(wrapper.find('span')).toHaveLength(1);
-    const button = wrapper.find('span').at(0);
-    button.simulate('mouseenter');
-    await sleep(300);
+    await sleep(200);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
-    button.simulate('mouseleave');
     wrapper.setProps({
       placement: 'topRight',
     });
-    button.simulate('mouseenter');
-    await sleep(300);
+    await sleep(200);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
 });
