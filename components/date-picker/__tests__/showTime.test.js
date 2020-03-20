@@ -75,7 +75,9 @@ describe('DatePicker with showTime', () => {
   });
 
   it('should have correct className when use12Hours is true', () => {
-    const wrapper = mount(<DatePicker showTime={{ use12Hours: true }} open />);
+    const wrapper = mount(
+      <DatePicker defaultValue={moment()} showTime={{ use12Hours: true }} open />,
+    );
     const calendarWrapper = mount(
       wrapper
         .find('Trigger')
