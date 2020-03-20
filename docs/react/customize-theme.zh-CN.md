@@ -100,17 +100,58 @@ module.exports = {
 
 注意，这种方式已经载入了所有组件的样式，不需要也无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
 
+## 没有生效？
+
+注意样式必须加载 less 格式，一个常见的问题就是引入了多份样式，less 的样式被 css 的样式覆盖了。
+
+- 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
+- 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
+
+## 官方主题 🌈
+
+我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
+
+- 🌑 暗色主题（用法见下方文档）
+- ☁️ [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+
 ### 使用暗色主题
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
-方式一：是在样式文件全量引入 `antd/dist/antd.dark.less`：
+方式一：使用 Umi 3
+
+如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+
+1. 安装 `@umijs/plugin-antd` 插件;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. 配置 `dark: true`。
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true,
+     },
+   },
+   ```
+
+方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less)。
 
 ```less
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
 ```
 
-方式二：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+如果项目不使用 Less，可在 CSS 文件中，全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css)。
+
+```css
+@import '~antd/dist/antd.dark.css';
+```
+
+方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
 ```diff
 const darkThemeVars = require('antd/dist/dark-theme');
@@ -133,29 +174,9 @@ module.exports = {
 +       javascriptEnabled: true,
 +     },
     }],
-    // ...other rules
   }],
-  // ...other config
+};
 ```
-
-方式三：如果项目不使用 Less，可在 CSS 文件中，全量引入 `antd.dark.css`：
-
-```css
-@import '~antd/dist/antd.dark.css';
-```
-
-## 没有生效？
-
-注意样式必须加载 less 格式，一个常见的问题就是引入了多份样式，less 的样式被 css 的样式覆盖了。
-
-- 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
-- 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
-
-## 官方主题 🌈
-
-我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
-
-- [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ## 社区教程
 
