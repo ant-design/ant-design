@@ -35,7 +35,7 @@ describe('TreeSelect', () => {
       expect(wrapper.render()).toMatchSnapshot();
     });
 
-    it('should support customized icons', () => {
+    it('should `treeIcon` work', () => {
       const wrapper = mount(
         <TreeSelect treeIcon open>
           <TreeNode value="parent 1" title="parent 1" icon={<span>Bamboo</span>} />
