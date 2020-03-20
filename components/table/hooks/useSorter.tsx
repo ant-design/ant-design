@@ -12,6 +12,7 @@ import {
   CompareFn,
   ColumnTitleProps,
   SorterResult,
+  ColumnGroupType,
 } from '../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
@@ -56,20 +57,31 @@ function collectSortStates<RecordType>(
 ): SortState<RecordType>[] {
   let sortStates: SortState<RecordType>[] = [];
 
+  function pushState(column: ColumnsType<RecordType>[number], columnPos: string) {
+    sortStates.push({
+      column,
+      key: getColumnKey(column, columnPos),
+      multiplePriority: getMultiplePriority(column),
+      sortOrder: column.sortOrder!,
+    });
+  }
+
   (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
 
-    if ('children' in column) {
-      sortStates = [...sortStates, ...collectSortStates(column.children, init, columnPos)];
+    if ((column as ColumnGroupType<RecordType>).children) {
+      if ('sortOrder' in column) {
+        // Controlled
+        pushState(column, columnPos);
+      }
+      sortStates = [
+        ...sortStates,
+        ...collectSortStates((column as ColumnGroupType<RecordType>).children, init, columnPos),
+      ];
     } else if (column.sorter) {
       if ('sortOrder' in column) {
         // Controlled
-        sortStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          multiplePriority: getMultiplePriority(column),
-          sortOrder: column.sortOrder!,
-        });
+        pushState(column, columnPos);
       } else if (init && column.defaultSortOrder) {
         // Default sorter
         sortStates.push({
@@ -81,6 +93,8 @@ function collectSortStates<RecordType>(
       }
     }
   });
+
+  console.log('=>', sortStates);
 
   return sortStates;
 }
@@ -290,9 +304,12 @@ export default function useFilterSorter<RecordType>({
     collectSortStates(mergedColumns, true),
   );
 
+  console.log('sortStates', sortStates);
+
   const mergedSorterStates = React.useMemo(() => {
     let validate = true;
     const collectedStates = collectSortStates(mergedColumns, false);
+    console.log('collectedStates', collectedStates, sortStates);
 
     // Return if not controlled
     if (!collectedStates.length) {
@@ -366,6 +383,7 @@ export default function useFilterSorter<RecordType>({
       ];
     }
 
+    console.log('SetSortState:', newSorterStates);
     setSortStates(newSorterStates);
     onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
   }
