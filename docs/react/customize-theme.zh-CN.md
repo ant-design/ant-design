@@ -111,11 +111,11 @@ module.exports = {
 
 我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
 
-- 🌑 暗色主题（4.0.0+ 支持）
+- 🌑 暗黑主题（4.0.0+ 支持）
 - 📦 紧凑主题（4.1.0+ 支持）
 - ☁️ [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
 
-### 使用暗色主题和紧凑主题
+### 使用暗黑主题和紧凑主题
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
@@ -185,6 +185,8 @@ module.exports = {
   }],
 };
 ```
+
+同时开启暗黑和紧凑模式会导致 css 的加载体积增加一倍，这暂时受限于我们目前的主题实现方式，请知晓。
 
 ## 社区教程
 
