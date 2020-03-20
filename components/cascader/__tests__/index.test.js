@@ -503,6 +503,7 @@ describe('Cascader', () => {
     });
     expect(wrapper.find('input').prop('placeholder')).toBe(customPlaceholder);
   });
+
   it('popup correctly with defaultValue RTL', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
@@ -523,6 +524,7 @@ describe('Cascader', () => {
       ),
     ).toMatchSnapshot();
   });
+
   it('can be selected in RTL direction', () => {
     const options2 = [
       {

@@ -522,10 +522,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
           if (state.inputValue) {
-            options = this.generateFilteredOptions(prefixCls, renderEmpty);
-            if (isEqual(options, this.cachedOptions)) {
-              options = this.cachedOptions;
-            }
+             const filteredOptions = this.generateFilteredOptions(prefixCls, renderEmpty);
+             options = isEqual(filteredOptions, this.cachedOptions) ? this.cachedOptions : filteredOptions;
           }
         } else {
           options = [
