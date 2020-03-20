@@ -88,7 +88,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
+export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
