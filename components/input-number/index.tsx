@@ -54,7 +54,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     this.inputNumberRef.blur();
   }
 
-  renderInputNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderInputNumber = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { className, size: customizeSize, prefixCls: customizePrefixCls, ...others } = this.props;
     const prefixCls = getPrefixCls('input-number', customizePrefixCls);
     const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
@@ -68,6 +68,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
             {
               [`${prefixCls}-lg`]: mergeSize === 'large',
               [`${prefixCls}-sm`]: mergeSize === 'small',
+              [`${prefixCls}-rtl`]: direction === 'rtl',
             },
             className,
           );
