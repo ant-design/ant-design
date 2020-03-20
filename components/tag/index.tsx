@@ -7,7 +7,6 @@ import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
-import warning from '../_util/warning';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -112,11 +111,6 @@ class Tag extends React.Component<TagProps, TagState> {
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
     const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
-    warning(
-      !(typeof icon === 'string' && icon.length > 2),
-      'Tag',
-      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-    );
     const iconNode = icon || null;
     const kids = iconNode ? (
       <>
