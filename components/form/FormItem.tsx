@@ -94,11 +94,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       innerSetDomErrorVisible(visible);
     }
   }
-  // function setInlineErrors(errors: Record<string, string[]>) {
-  //   if (!destroyRef.current) {
-  //     innerSetInlineErrors(errors);
-  //   }
-  // }
 
   const { name: formName } = formContext;
   const hasName = hasValidName(name);
