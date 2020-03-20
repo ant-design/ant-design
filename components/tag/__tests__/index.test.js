@@ -52,17 +52,6 @@ describe('Tag', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
-  it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Tag icon="ab" />);
-    expect(warnSpy).not.toHaveBeenCalled();
-    mount(<Tag icon="twitter" />);
-    expect(warnSpy).toHaveBeenCalledWith(
-      `Warning: [antd: Tag] \`icon\` is using ReactNode instead of string naming in v4. Please check \`twitter\` at https://ant.design/components/icon`,
-    );
-    warnSpy.mockRestore();
-  });
-
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
       const wrapper = mount(<Tag visible />);
