@@ -84,7 +84,7 @@ describe('Slider', () => {
   it('should keepAlign by calling forcePopupAlign', async () => {
     const wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
     wrapper.find('Tooltip').instance().tooltip.forcePopupAlign = jest.fn();
-    await sleep(0);
+    await sleep(20);
     expect(wrapper.find('Tooltip').instance().tooltip.forcePopupAlign).toHaveBeenCalled();
   });
 });

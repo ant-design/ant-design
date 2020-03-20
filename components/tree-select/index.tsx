@@ -94,6 +94,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
       getPopupContainer,
       dropdownClassName,
       bordered,
+      treeIcon = false,
     } = this.props;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -173,7 +174,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
               switcherIcon={(nodeProps: AntTreeNodeProps) =>
                 renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
               }
-              showTreeIcon={false}
+              showTreeIcon={treeIcon}
               notFoundContent={mergedNotFound}
               getPopupContainer={getPopupContainer || getContextPopupContainer}
               treeMotion={null}

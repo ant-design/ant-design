@@ -1,6 +1,5 @@
 @import '../../style/themes/default';
 @import '../../style/mixins/index';
-@import './rtl';
 
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
@@ -42,7 +41,6 @@
     font-weight: normal;
     font-size: @font-size-base;
     line-height: @line-height-base;
-    white-space: nowrap;
 
     &::after {
       position: relative;
@@ -144,3 +142,5 @@
     }
   }
 }
+
+@import './rtl';

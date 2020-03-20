@@ -5,6 +5,7 @@ import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import { spyElementPrototype } from '../../__tests__/util/domHook';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 const events = {};
 
@@ -54,7 +55,6 @@ describe('Affix Render', () => {
   };
 
   beforeAll(() => {
-    jest.useFakeTimers();
     domMock = spyElementPrototype(HTMLElement, 'getBoundingClientRect', function mockBounding() {
       return (
         classRect[this.className] || {
@@ -66,10 +66,10 @@ describe('Affix Render', () => {
   });
 
   afterAll(() => {
-    jest.useRealTimers();
     domMock.mockRestore();
   });
-  const movePlaceholder = top => {
+
+  const movePlaceholder = async top => {
     classRect.fixed = {
       top,
       bottom: top,
@@ -77,58 +77,58 @@ describe('Affix Render', () => {
     events.scroll({
       type: 'scroll',
     });
-    jest.runAllTimers();
+    await sleep(20);
   };
 
-  it('Anchor render perfectly', () => {
+  it('Anchor render perfectly', async () => {
     document.body.innerHTML = '<div id="mounter" />';
 
     wrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
-    jest.runAllTimers();
+    await sleep(20);
 
-    movePlaceholder(0);
+    await movePlaceholder(0);
     expect(wrapper.instance().affix.state.affixStyle).toBeFalsy();
 
-    movePlaceholder(-100);
+    await movePlaceholder(-100);
     expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
 
-    movePlaceholder(0);
+    await movePlaceholder(0);
     expect(wrapper.instance().affix.state.affixStyle).toBeFalsy();
   });
 
-  it('support offsetBottom', () => {
+  it('support offsetBottom', async () => {
     document.body.innerHTML = '<div id="mounter" />';
 
     wrapper = mount(<AffixMounter offsetBottom={0} />, {
       attachTo: document.getElementById('mounter'),
     });
 
-    jest.runAllTimers();
+    await sleep(20);
 
-    movePlaceholder(300);
+    await movePlaceholder(300);
     expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
 
-    movePlaceholder(0);
+    await movePlaceholder(0);
     expect(wrapper.instance().affix.state.affixStyle).toBeFalsy();
 
-    movePlaceholder(300);
+    await movePlaceholder(300);
     expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
   });
 
-  it('updatePosition when offsetTop changed', () => {
+  it('updatePosition when offsetTop changed', async () => {
     document.body.innerHTML = '<div id="mounter" />';
 
     wrapper = mount(<AffixMounter offsetTop={0} />, {
       attachTo: document.getElementById('mounter'),
     });
-    jest.runAllTimers();
+    await sleep(20);
 
-    movePlaceholder(-100);
+    await movePlaceholder(-100);
     expect(wrapper.instance().affix.state.affixStyle.top).toBe(0);
     wrapper.setProps({
       offsetTop: 10,
     });
-    jest.runAllTimers();
+    await sleep(20);
     expect(wrapper.instance().affix.state.affixStyle.top).toBe(10);
   });
 
@@ -144,7 +144,7 @@ describe('Affix Render', () => {
       expect(wrapper.instance().state.placeholderStyle).toBe(undefined);
     });
 
-    it('instance change', () => {
+    it('instance change', async () => {
       const getObserverLength = () => Object.keys(getObserverEntities()).length;
 
       const container = document.createElement('div');
@@ -154,20 +154,20 @@ describe('Affix Render', () => {
       const originLength = getObserverLength();
       const getTarget = () => target;
       wrapper = mount(<Affix target={getTarget} />);
-      jest.runAllTimers();
+      await sleep(20);
 
       expect(getObserverLength()).toBe(originLength + 1);
       target = null;
       wrapper.setProps({});
       wrapper.update();
-      jest.runAllTimers();
+      await sleep(20);
       expect(getObserverLength()).toBe(originLength);
     });
   });
 
   describe('updatePosition when size changed', () => {
     function test(name, index) {
-      it(name, () => {
+      it(name, async () => {
         document.body.innerHTML = '<div id="mounter" />';
 
         const updateCalled = jest.fn();
@@ -175,11 +175,11 @@ describe('Affix Render', () => {
           attachTo: document.getElementById('mounter'),
         });
 
-        jest.runAllTimers();
+        await sleep(20);
 
-        movePlaceholder(300);
+        await movePlaceholder(300);
         expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
-        jest.runAllTimers();
+        await sleep(20);
         wrapper.update();
 
         // Mock trigger resize
@@ -189,7 +189,7 @@ describe('Affix Render', () => {
           .at(index)
           .instance()
           .onResize([{ target: { getBoundingClientRect: () => ({ width: 99, height: 99 }) } }]);
-        jest.runAllTimers();
+        await sleep(20);
 
         expect(updateCalled).toHaveBeenCalled();
       });
