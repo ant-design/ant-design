@@ -100,50 +100,6 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
-### Use dark theme
-
-![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
-
-Method 1: include `antd/dist/antd.dark.less` in the style file:
-
-```less
-@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
-```
-
-Method 2: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
-
-```diff
-const darkThemeVars = require('antd/dist/dark-theme');
-
-// webpack.config.js
-module.exports = {
-  rules: [{
-    test: /\.less$/,
-    use: [{
-      loader: 'style-loader',
-    }, {
-      loader: 'css-loader', // translates CSS into CommonJS
-    }, {
-      loader: 'less-loader', // compiles Less to CSS
-+     options: {
-+       modifyVars: {
-+          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
-+          ...darkThemeVars,
-+       },
-+       javascriptEnabled: true,
-+     },
-    }],
-    // ...other rules
-  }],
-  // ...other config
-```
-
-Method 3: If the project does not use Less, you can include `antd.dark.css` in the CSS file in full:
-
-```css
-@import '~antd/dist/antd.dark.css';
-```
-
 ## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc). If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
@@ -177,7 +133,72 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+- 🌑 Dark Theme (follow document below)
+- ☁️  [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+
+### Use dark theme
+
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
+
+Method 1: using Umi 3
+
+If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
+
+1. Install `@umijs/plugin-antd` plugin;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. set `dark: true`.
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true,
+     },
+   },
+   ```
+
+Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) in the style file:
+
+```less
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+```
+
+If the project does not use Less, you can import [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) in the CSS file:
+
+```css
+@import '~antd/dist/antd.dark.css';
+```
+
+Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
+
+```diff
+const darkThemeVars = require('antd/dist/dark-theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: {
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
++          ...darkThemeVars,
++       },
++       javascriptEnabled: true,
++     },
+    }],
+  }],
+}
+```
 
 ## Related Articles
 

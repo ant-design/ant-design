@@ -10,26 +10,11 @@
     // ========================= Input =========================
     .@{ant-prefix}-input {
       padding-right: 24px;
-
-      .@{form-prefix-cls}-rtl & {
-        padding-right: @input-padding-horizontal-base;
-        padding-left: 24px;
-      }
     }
     // https://github.com/ant-design/ant-design/issues/19884
     .@{ant-prefix}-input-affix-wrapper {
       .@{ant-prefix}-input-suffix {
         padding-right: 18px;
-
-        .@{form-prefix-cls}-rtl & {
-          padding-right: @input-padding-horizontal-base;
-          padding-left: 18px;
-        }
-      }
-      .@{ant-prefix}-input {
-        .@{form-prefix-cls}-rtl & {
-          padding: 0;
-        }
       }
     }
 
@@ -37,17 +22,6 @@
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
         right: 28px;
-
-        .@{form-prefix-cls}-rtl & {
-          right: auto;
-          left: 28px;
-        }
-      }
-    }
-
-    .@{ant-prefix}-input-number {
-      .@{form-prefix-cls}-rtl & {
-        padding-left: 18px;
       }
     }
 
@@ -66,41 +40,21 @@
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection__clear {
       right: 28px;
-
-      .@{form-prefix-cls}-rtl & {
-        right: auto;
-        left: 28px;
-      }
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
-
-      .@{form-prefix-cls}-rtl & {
-        padding-right: 0;
-        padding-left: 42px;
-      }
     }
 
     // ======================= Cascader ========================
     .@{ant-prefix}-cascader-picker {
       &-arrow {
         margin-right: 17px;
-
-        .@{form-prefix-cls}-rtl & {
-          margin-right: 0;
-          margin-left: 17px;
-        }
       }
       &-clear {
         right: 28px;
-
-        .@{form-prefix-cls}-rtl & {
-          right: auto;
-          left: 28px;
-        }
       }
     }
 
@@ -109,27 +63,12 @@
     .@{ant-prefix}-picker {
       padding-right: @input-padding-horizontal-base + @font-size-base * 1.3;
 
-      .@{form-prefix-cls}-rtl & {
-        padding-right: @input-padding-horizontal-base;
-        padding-left: @input-padding-horizontal-base + @font-size-base * 1.3;
-      }
-
       &-large {
         padding-right: @input-padding-horizontal-lg + @font-size-base * 1.3;
-
-        .@{form-prefix-cls}-rtl & {
-          padding-right: @input-padding-horizontal-lg;
-          padding-left: @input-padding-horizontal-lg + @font-size-base * 1.3;
-        }
       }
 
       &-small {
         padding-right: @input-padding-horizontal-sm + @font-size-base * 1.3;
-
-        .@{form-prefix-cls}-rtl & {
-          padding-right: @input-padding-horizontal-sm;
-          padding-left: @input-padding-horizontal-sm + @font-size-base * 1.3;
-        }
       }
     }
 
@@ -154,11 +93,6 @@
           visibility: visible;
           animation: zoomIn 0.3s @ease-out-back;
           pointer-events: none;
-
-          .@{form-prefix-cls}-rtl & {
-            right: auto;
-            left: 0;
-          }
 
           & svg {
             position: absolute;

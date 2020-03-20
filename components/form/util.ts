@@ -1,4 +1,5 @@
 import * as React from 'react';
+import raf from 'raf';
 import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import { ScrollOptions } from './interface';
@@ -98,4 +99,43 @@ export function useForm(form?: FormInstance): [FormInstance] {
   );
 
   return [wrapForm];
+}
+
+type Updater<ValueType> = (prev?: ValueType) => ValueType;
+
+export function useFrameState<ValueType>(
+  defaultValue: ValueType,
+): [ValueType, (updater: Updater<ValueType>) => void] {
+  const [value, setValue] = React.useState(defaultValue);
+  const frameRef = React.useRef<number | null>(null);
+  const batchRef = React.useRef<Updater<ValueType>[]>([]);
+
+  React.useEffect(
+    () => () => {
+      raf.cancel(frameRef.current!);
+    },
+    [],
+  );
+
+  function setFrameValue(updater: Updater<ValueType>) {
+    if (frameRef.current === null) {
+      batchRef.current = [];
+      frameRef.current = raf(() => {
+        frameRef.current = null;
+        setValue(prevValue => {
+          let current = prevValue;
+
+          batchRef.current.forEach(func => {
+            current = func(current);
+          });
+
+          return current;
+        });
+      });
+    }
+
+    batchRef.current.push(updater);
+  }
+
+  return [value, setFrameValue];
 }

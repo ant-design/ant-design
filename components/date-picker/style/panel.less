@@ -15,10 +15,6 @@
     border-radius: @border-radius-base;
     outline: none;
 
-    &-rtl {
-      direction: rtl;
-    }
-
     &-focused {
       border-color: @primary-color;
     }
@@ -129,19 +125,11 @@
   &-prev-icon,
   &-super-prev-icon {
     transform: rotate(-45deg);
-
-    .@{picker-prefix-cls}-panel-rtl & {
-      transform: rotate(135deg);
-    }
   }
 
   &-next-icon,
   &-super-next-icon {
     transform: rotate(135deg);
-
-    .@{picker-prefix-cls}-panel-rtl & {
-      transform: rotate(-45deg);
-    }
   }
 
   // ======================== Body ========================
@@ -626,10 +614,6 @@
   &-time-panel {
     width: auto;
     min-width: auto;
-
-    .@{picker-prefix-cls}-panel-rtl & {
-      direction: ltr;
-    }
 
     .@{picker-prefix-cls}-content {
       display: flex;

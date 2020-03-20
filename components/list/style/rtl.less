@@ -88,3 +88,52 @@
     }
   }
 }
+
+// responsive
+@media screen and (max-width: @screen-md) {
+  .@{list-prefix-cls} {
+    &-item {
+      &-action {
+        .@{list-prefix-cls}-rtl & {
+          margin-right: 24px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .@{list-prefix-cls}-vertical {
+    .@{list-prefix-cls}-item {
+      &-extra {
+        .@{list-prefix-cls}-rtl & {
+          margin-right: 24px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-sm) {
+  .@{list-prefix-cls} {
+    &-item {
+      &-action {
+        .@{list-prefix-cls}-rtl & {
+          margin-right: 22px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .@{list-prefix-cls}-vertical {
+    .@{list-prefix-cls}-item {
+      &-extra {
+        // to override margins on rtl view
+        .@{list-prefix-cls}-rtl& {
+          margin: auto auto 16px;
+        }
+      }
+    }
+  }
+}
