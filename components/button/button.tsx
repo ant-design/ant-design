@@ -149,7 +149,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const { loading } = this.props;
     if (loading && typeof loading !== 'boolean' && loading.delay) {
       this.delayTimeout = window.setTimeout(() => {
-        this.setState({ loading });
+        this.setState({ loading: false });
       }, loading.delay);
     } else if (prevProps.loading !== loading) {
       // eslint-disable-next-line react/no-did-update-set-state
