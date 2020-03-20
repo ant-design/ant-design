@@ -8039,7 +8039,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
       >
         <div
           aria-hidden="true"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;outline:none"
           tabindex="0"
         />
         <div
@@ -8105,7 +8105,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
         </div>
         <div
           aria-hidden="true"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;outline:none"
           tabindex="0"
         />
       </div>
@@ -8134,7 +8134,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
       >
         <div
           aria-hidden="true"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;outline:none"
           tabindex="0"
         />
         <div
@@ -8200,7 +8200,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
         </div>
         <div
           aria-hidden="true"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;outline:none"
           tabindex="0"
         />
       </div>
@@ -8229,7 +8229,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
       >
         <div
           aria-hidden="true"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;outline:none"
           tabindex="0"
         />
         <div
@@ -8295,7 +8295,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
         </div>
         <div
           aria-hidden="true"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;outline:none"
           tabindex="0"
         />
       </div>
