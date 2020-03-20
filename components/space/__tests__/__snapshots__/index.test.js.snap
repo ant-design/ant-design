@@ -2,61 +2,88 @@
 
 exports[`Space should render correct with children 1`] = `
 <div
-  class="ant-space"
+  class="ant-space ant-space-horizontal"
 >
-  <span
+  <div
+    class="ant-space-item"
     style="margin-right:8px"
   >
     text1
-  </span>
-  <span
+  </div>
+  <div
+    class="ant-space-item"
     style="margin-right:8px"
   >
-    text1
-  </span>
-  <span>
+    <span>
+      text1
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
     text3
-  </span>
+  </div>
 </div>
 `;
 
 exports[`Space should render width ConfigProvider 1`] = `
 Array [
   <div
-    class="ant-space"
+    class="ant-space ant-space-horizontal"
   >
-    <span
+    <div
+      class="ant-space-item"
       style="margin-right:24px"
     >
-      1
-    </span>
-    <span>
-      2
-    </span>
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
   </div>,
   <div
-    class="ant-space"
+    class="ant-space ant-space-horizontal"
   >
-    <span
+    <div
+      class="ant-space-item"
       style="margin-right:16px"
     >
-      1
-    </span>
-    <span>
-      2
-    </span>
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
   </div>,
   <div
-    class="ant-space"
+    class="ant-space ant-space-horizontal"
   >
-    <span
+    <div
+      class="ant-space-item"
       style="margin-right:24px"
     >
-      1
-    </span>
-    <span>
-      2
-    </span>
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
   </div>,
 ]
 `;

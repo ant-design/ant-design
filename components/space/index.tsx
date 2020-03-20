@@ -35,7 +35,10 @@ const Space: React.FC<SpaceProps> = props => {
   }
 
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const cn = classnames(prefixCls, className);
+  const cn = classnames(prefixCls, className, {
+    [`${prefixCls}-vertical`]: direction === 'vertical',
+    [`${prefixCls}-horizontal`]: direction === 'horizontal',
+  });
 
   const injectStyles = (isLast: boolean) => {
     if (isLast) {
@@ -48,23 +51,16 @@ const Space: React.FC<SpaceProps> = props => {
   };
 
   const items = toArray(children);
+
   const len = items.length;
+  const itemClassName = `${prefixCls}-item`;
 
   const transformChild = (child: React.ReactNode, styles: React.CSSProperties) => {
-    if (React.isValidElement(child)) {
-      const { type, props: childProps } = child;
-      const isPopup = (type as any).__ANT_POPCONFIRM;
-      const { style, childStyle } = childProps || {};
-
-      return React.cloneElement(child, {
-        [isPopup ? 'childStyle' : 'style']: {
-          ...(isPopup ? childStyle : style),
-          ...styles,
-        },
-      });
-    }
-
-    return <span style={styles}>{child}</span>;
+    return (
+      <div className={itemClassName} style={styles}>
+        {child}
+      </div>
+    );
   };
 
   return (

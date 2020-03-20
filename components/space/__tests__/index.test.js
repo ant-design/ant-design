@@ -44,13 +44,13 @@ describe('Space', () => {
 
     expect(
       wrapper
-        .find('span')
+        .find('.ant-space-item')
         .at(0)
         .prop('style').marginRight,
     ).toBe(10);
     expect(
       wrapper
-        .find('span')
+        .find('.ant-space-item')
         .at(1)
         .prop('style').marginRight,
     ).toBeUndefined();
@@ -66,13 +66,13 @@ describe('Space', () => {
 
     expect(
       wrapper
-        .find('span')
+        .find('.ant-space-item')
         .at(0)
         .prop('style').marginBottom,
     ).toBe(10);
     expect(
       wrapper
-        .find('span')
+        .find('.ant-space-item')
         .at(1)
         .prop('style').marginBottom,
     ).toBeUndefined();
@@ -97,6 +97,6 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(wrapper.find('span').length).toBe(3);
+    expect(wrapper.find('.ant-space-item').length).toBe(3);
   });
 });

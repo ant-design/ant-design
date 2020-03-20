@@ -14,15 +14,22 @@ title:
 Crowded components horizontal spacing.
 
 ```jsx
-import { Button, Space } from 'antd';
+import { Button, Space, Upload, Popconfirm } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 
 function SpaceDemo() {
   return (
     <Space>
-      <Button type="primary">Primary</Button>
-      <Button>Default</Button>
-      <Button type="dashed">Dashed</Button>
-      <Button type="link">Link</Button>
+      Space
+      <Button type="primary">Button</Button>
+      <Upload>
+        <Button>
+          <UploadOutlined /> Click to Upload
+        </Button>
+      </Upload>
+      <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
+        <Button>Confirm</Button>
+      </Popconfirm>
     </Space>
   );
 }
