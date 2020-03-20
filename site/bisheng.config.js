@@ -137,10 +137,7 @@ module.exports = {
 
       // Resolve use react hook fail when yarn link or npm link
       // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
-      // eslint-disable-next-line prefer-object-spread
-      config.resolve.alias = Object.assign({}, config.resolve.alias, {
-        react: require.resolve('react'),
-      });
+      config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
     }
 
     alertBabelConfig(config.module.rules);
