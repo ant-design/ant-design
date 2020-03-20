@@ -100,6 +100,15 @@ function NestedTable() {
       expandable={{ expandedRowRender }}
       dataSource={data}
     />
+
+    <h4>Small size table</h4>
+    <Table
+      className="components-table-demo-nested"
+      columns={columns}
+      expandable={{ expandedRowRender }}
+      dataSource={data}
+      size="small"
+    />
   );
 }
 

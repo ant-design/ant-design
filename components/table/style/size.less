@@ -10,8 +10,15 @@
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
     thead > tr > th,
-    tbody > tr > td {
-      padding: @padding-vertical @padding-horizontal;
+    tbody > tr {
+      > td {
+        padding: @padding-vertical @padding-horizontal;
+      }
+
+      // ========================= Nest Table ===========================
+      .@{table-prefix-cls} {
+        margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+              ceil(@font-size-sm * 1.4));
     }
 
     .@{table-prefix-cls}-filter-column {
