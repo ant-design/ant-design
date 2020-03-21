@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Mentions from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { getMentions } = Mentions;
 
@@ -75,6 +76,7 @@ describe('Mentions', () => {
 
   focusTest(Mentions);
   mountTest(Mentions);
+  rtlTest(Mentions);
 
   it('loading', () => {
     const wrapper = mount(<Mentions loading />);

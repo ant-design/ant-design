@@ -1,0 +1,43 @@
+@import '../../../../../components/style/themes/default.less';
+
+.home-card-logo {
+  position: relative;
+  display: inline-block;
+  max-width: 490px;
+  margin: 0 32px;
+  cursor: pointer;
+
+  .home-card-logo-icon {
+    position: absolute;
+    top: -35px;
+    left: 334px;
+    display: none;
+    width: 64px;
+    height: 64px;
+  }
+
+  .home-banner-mini {
+    display: block;
+    max-width: 100%;
+  }
+  .home-banner-normal {
+    display: none;
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .home-card-logo {
+    height: 90px;
+    vertical-align: top;
+
+    .home-banner-mini {
+      display: none;
+    }
+    .home-banner-normal {
+      display: block;
+    }
+    .home-card-logo-icon {
+      display: block;
+    }
+  }
+}

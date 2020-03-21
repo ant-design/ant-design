@@ -1,191 +1,55 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
-@import '../../tree/style/mixin';
+@import '../../tree/style/index';
 @import '../../checkbox/style/mixin';
 
-@select-prefix-cls: ~'@{ant-prefix}-select';
+@tree-select-prefix-cls: ~'@{ant-prefix}-tree-select';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 
-.antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-select-tree-checkbox');
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{select-tree-prefix-cls}-checkbox');
 
-.@{select-tree-prefix-cls} {
-  .reset-component;
+.@{tree-select-prefix-cls} {
+  // ======================= Dropdown =======================
+  &-dropdown {
+    padding: @padding-xs (@padding-xs / 2) 0;
 
-  margin: 0;
-  margin-top: -4px;
-  padding: 0 4px;
-  li {
-    margin: 8px 0;
-    padding: 0;
-    white-space: nowrap;
-    list-style: none;
-    outline: 0;
-    &.filter-node {
-      > span {
-        font-weight: 500;
-      }
+    &-rtl {
+      direction: rtl;
     }
-    ul {
-      margin: 0;
-      padding: 0 0 0 18px;
-    }
-    .@{select-tree-prefix-cls}-node-content-wrapper {
-      display: inline-block;
-      width: ~'calc(100% - 24px)';
-      margin: 0;
-      padding: 3px 5px;
-      color: @text-color;
-      text-decoration: none;
-      border-radius: @border-radius-sm;
-      cursor: pointer;
-      transition: all 0.3s;
-      &:hover {
-        background-color: @item-hover-bg;
-      }
-      &.@{select-tree-prefix-cls}-node-selected {
-        background-color: @primary-2;
-      }
-    }
-    span {
-      &.@{select-tree-prefix-cls}-checkbox {
-        margin: 0 4px 0 0;
-        + .@{select-tree-prefix-cls}-node-content-wrapper {
-          width: ~'calc(100% - 46px)';
-        }
-      }
-      &.@{select-tree-prefix-cls}-switcher,
-      &.@{select-tree-prefix-cls}-iconEle {
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        margin: 0;
-        line-height: 22px;
-        text-align: center;
-        vertical-align: middle;
-        border: 0 none;
-        outline: none;
-        cursor: pointer;
-      }
-      &.@{select-prefix-cls}-icon_loading {
-        .@{select-prefix-cls}-switcher-loading-icon {
-          position: absolute;
-          left: 0;
-          display: inline-block;
-          color: @primary-color;
-          font-size: 14px;
-          transform: none;
-          svg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-          }
-        }
-      }
-      &.@{select-tree-prefix-cls}-switcher {
-        position: relative;
-        &.@{select-tree-prefix-cls}-switcher-noop {
-          cursor: auto;
-        }
-        &.@{select-tree-prefix-cls}-switcher_open {
-          .antTreeSwitcherIcon();
-        }
-        &.@{select-tree-prefix-cls}-switcher_close {
-          .antTreeSwitcherIcon();
-          .@{select-prefix-cls}-switcher-icon {
-            svg {
-              transform: rotate(-90deg);
-            }
-          }
-        }
+    // ======================== Tree ========================
+    .@{select-tree-prefix-cls} {
+      border-radius: 0;
 
-        &.@{select-tree-prefix-cls}-switcher_open,
-        &.@{select-tree-prefix-cls}-switcher_close {
-          .@{select-prefix-cls}-switcher-loading-icon {
-            position: absolute;
-            left: 0;
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            color: @primary-color;
-            font-size: 14px;
-            transform: none;
-            svg {
-              position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              margin: auto;
-            }
+      &-list-holder-inner {
+        align-items: stretch;
+
+        .@{select-tree-prefix-cls}-treenode {
+          padding-bottom: @padding-xs;
+
+          .@{select-tree-prefix-cls}-node-content-wrapper {
+            flex: auto;
           }
         }
       }
     }
-  }
-
-  .@{select-tree-prefix-cls}-treenode-loading {
-    .@{select-tree-prefix-cls}-iconEle {
-      display: none;
-    }
-  }
-  &-child-tree {
-    display: none;
-    &-open {
-      display: block;
-    }
-  }
-  li&-treenode-disabled {
-    > span:not(.@{select-tree-prefix-cls}-switcher),
-    > .@{select-tree-prefix-cls}-node-content-wrapper,
-    > .@{select-tree-prefix-cls}-node-content-wrapper span {
-      color: @disabled-color;
-      cursor: not-allowed;
-    }
-    > .@{select-tree-prefix-cls}-node-content-wrapper:hover {
-      background: transparent;
-    }
-  }
-  &-icon__open {
-    margin-right: 2px;
-    vertical-align: top;
-  }
-  &-icon__close {
-    margin-right: 2px;
-    vertical-align: top;
   }
 }
 
-.@{select-prefix-cls}-tree-dropdown {
-  .reset-component;
-  .@{select-prefix-cls}-dropdown-search {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    display: block;
-    padding: 4px;
-    background: @component-background;
-    .@{select-prefix-cls}-search__field__wrap {
-      width: 100%;
+// ========================== Tree ==========================
+.antTreeFn(@select-tree-prefix-cls);
+
+// change switcher icon rotation in rtl direction
+.@{select-tree-prefix-cls} {
+  // >>> Switcher
+  & &-switcher {
+    &_close {
+      .@{select-tree-prefix-cls}-switcher-icon {
+        svg {
+          .@{tree-select-prefix-cls}-dropdown-rtl & {
+            transform: rotate(90deg);
+          }
+        }
+      }
     }
-    .@{select-prefix-cls}-search__field {
-      box-sizing: border-box;
-      width: 100%;
-      padding: 4px 7px;
-      border: @border-width-base @border-style-base @border-color-base;
-      border-radius: 4px;
-      outline: none;
-    }
-    &.@{select-prefix-cls}-search--hide {
-      display: none;
-    }
-  }
-  .@{select-prefix-cls}-not-found {
-    display: block;
-    padding: 7px 16px;
-    color: @disabled-color;
-    cursor: not-allowed;
   }
 }

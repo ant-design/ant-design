@@ -22,7 +22,7 @@ const { TabPane } = Tabs;
 const renderTabBar = (props, DefaultTabBar) => (
   <Sticky bottomOffset={80}>
     {({ style }) => (
-      <DefaultTabBar {...props} style={{ ...style, zIndex: 1, background: '#fff' }} />
+      <DefaultTabBar {...props} className="site-custom-tab-bar" style={{ ...style }} />
     )}
   </Sticky>
 );
@@ -44,3 +44,16 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+```css
+.site-custom-tab-bar {
+  z-index: 1;
+  background: #fff;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-custom-tab-bar {
+    background: #141414;
+  }
+</style>

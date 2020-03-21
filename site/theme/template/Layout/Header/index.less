@@ -1,0 +1,54 @@
+@import '../../../static/theme.less';
+@import '../../../../../components/style/themes/default.less';
+
+@header-height: 64px;
+@menu-item-border: 2px;
+@mobile-max-width: 767.99px;
+
+#header {
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  background: @component-background;
+  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
+
+  .menu-row {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    > * {
+      flex: none;
+      margin: 0 16px 0 0;
+
+      &:last-child {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  // Adjust github button style
+
+  .ant-row-rtl {
+    .menu-row {
+      > * {
+        &:last-child {
+          margin-right: 16px;
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+
+  // Buttons
+  .header-button {
+    color: @text-color;
+    border-color: @border-color-base;
+  }
+}
+
+@media only screen and (max-width: @mobile-max-width) {
+  #header {
+    text-align: center;
+  }
+}

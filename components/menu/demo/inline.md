@@ -14,7 +14,8 @@ title:
 Vertical menu with inline submenus.
 
 ```jsx
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -36,7 +37,7 @@ class Sider extends React.Component {
           key="sub1"
           title={
             <span>
-              <Icon type="mail" />
+              <MailOutlined />
               <span>Navigation One</span>
             </span>
           }
@@ -54,7 +55,7 @@ class Sider extends React.Component {
           key="sub2"
           title={
             <span>
-              <Icon type="appstore" />
+              <AppstoreOutlined />
               <span>Navigation Two</span>
             </span>
           }
@@ -70,7 +71,7 @@ class Sider extends React.Component {
           key="sub4"
           title={
             <span>
-              <Icon type="setting" />
+              <SettingOutlined />
               <span>Navigation Three</span>
             </span>
           }

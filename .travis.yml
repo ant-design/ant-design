@@ -13,19 +13,11 @@ matrix:
   fast_finish: true
   include:
     - env: TEST_TYPE=lint
-    - env: REACT=16 TEST_TYPE=test:dist
-    - env: REACT=16 TEST_TYPE=test:lib
-    - env: REACT=16 TEST_TYPE=test:es
-    - env: REACT=16 TEST_TYPE=test:dom
-    - env: REACT=16 TEST_TYPE=test:node
-    - env: REACT=15 TEST_TYPE=test:dist
-    - env: REACT=15 TEST_TYPE=test:lib
-    - env: REACT=15 TEST_TYPE=test:es
-    - env: REACT=15 TEST_TYPE=test:dom
-    - env: REACT=15 TEST_TYPE=test:node
-
-before_script:
-  - scripts/install-react.sh
+    - env: TEST_TYPE=test:dist
+    - env: TEST_TYPE=test:lib
+    - env: TEST_TYPE=test:es
+    - env: TEST_TYPE=test:dom
+    - env: TEST_TYPE=test:node
 
 script:
   - scripts/travis-script.sh

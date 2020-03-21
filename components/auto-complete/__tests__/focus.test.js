@@ -1,11 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
-import focusTest from '../../../tests/shared/focusTest';
-
-describe('AutoComplete could be focus', () => {
-  focusTest(AutoComplete);
-});
 
 describe('AutoComplete children could be focus', () => {
   beforeAll(() => {
@@ -67,7 +62,11 @@ describe('AutoComplete children could be focus', () => {
     let inputRef;
     mount(
       <AutoComplete dataSource={[]}>
-        <input ref={node => { inputRef = node; }} />
+        <input
+          ref={node => {
+            inputRef = node;
+          }}
+        />
       </AutoComplete>,
     );
     expect(typeof inputRef.focus).toBe('function');

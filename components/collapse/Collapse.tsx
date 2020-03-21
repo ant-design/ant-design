@@ -1,8 +1,9 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+
 import CollapsePanel from './CollapsePanel';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 
@@ -39,7 +40,6 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    openAnimation: { ...animation, appear() {} },
     expandIconPosition: 'left',
   };
 
@@ -48,7 +48,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     const icon = (expandIcon ? (
       expandIcon(panelProps)
     ) : (
-      <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
+      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
     )) as React.ReactNode;
 
     return React.isValidElement(icon)
@@ -58,7 +58,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       : icon;
   };
 
-  renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -70,11 +70,15 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       {
         [`${prefixCls}-borderless`]: !bordered,
         [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
+    const openAnimation = { ...animation, appear() {} };
+
     return (
       <RcCollapse
+        openAnimation={openAnimation}
         {...this.props}
         expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
         prefixCls={prefixCls}

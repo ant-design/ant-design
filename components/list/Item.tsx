@@ -72,7 +72,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   context: any;
 
-  isItemContainsTextNode() {
+  isItemContainsTextNodeAndNotSingular() {
     const { children } = this.props;
     let result;
     React.Children.forEach(children, (element: React.ReactElement<any>) => {
@@ -80,7 +80,7 @@ export default class Item extends React.Component<ListItemProps, any> {
         result = true;
       }
     });
-    return result;
+    return result && React.Children.count(children) > 1;
   }
 
   isFlexMode() {
@@ -89,7 +89,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (itemLayout === 'vertical') {
       return !!extra;
     }
-    return !this.isItemContainsTextNode();
+    return !this.isItemContainsTextNodeAndNotSingular();
   }
 
   renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {

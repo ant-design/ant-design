@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import omit from 'omit.js';
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import Spin from '../spin';
@@ -48,28 +47,26 @@ class Mentions extends React.Component<MentionProps, MentionState> {
 
     return value
       .split(split)
-      .map(
-        (str = ''): MentionsEntity | null => {
-          let hitPrefix: string | null = null;
+      .map((str = ''): MentionsEntity | null => {
+        let hitPrefix: string | null = null;
 
-          prefixList.some(prefixStr => {
-            const startStr = str.slice(0, prefixStr.length);
-            if (startStr === prefixStr) {
-              hitPrefix = prefixStr;
-              return true;
-            }
-            return false;
-          });
-
-          if (hitPrefix !== null) {
-            return {
-              prefix: hitPrefix,
-              value: str.slice(hitPrefix!.length),
-            };
+        prefixList.some(prefixStr => {
+          const startStr = str.slice(0, prefixStr.length);
+          if (startStr === prefixStr) {
+            hitPrefix = prefixStr;
+            return true;
           }
-          return null;
-        },
-      )
+          return false;
+        });
+
+        if (hitPrefix !== null) {
+          return {
+            prefix: hitPrefix,
+            value: str.slice(hitPrefix!.length),
+          };
+        }
+        return null;
+      })
       .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
   };
 
@@ -173,7 +170,5 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     return <ConfigConsumer>{this.renderMentions}</ConfigConsumer>;
   }
 }
-
-polyfill(Mentions);
 
 export default Mentions;

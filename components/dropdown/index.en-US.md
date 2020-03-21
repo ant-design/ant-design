@@ -19,8 +19,8 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010). | Function(triggerNode) | `() => document.body` |  |
 | overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
-| overlayClassName | Class name of the dropdown root element | string | - | 3.11.0 |
-| overlayStyle | Style of the dropdown root element | object | - | 3.11.0 |
+| overlayClassName | Class name of the dropdown root element | string | - |  |
+| overlayStyle | Style of the dropdown root element | object | - |  |
 | placement | Placement of popup menu: `bottomLeft`, `bottomCenter`, `bottomRight`, `topLeft`, `topCenter` or `topRight` | String | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens. | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |  |
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
@@ -37,7 +37,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
-| icon | Icon (appears on the right) | ReactNode | - | 3.17.0 |
+| icon | Icon (appears on the right) | ReactNode | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) | - |  |
 | placement | Placement of popup menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |  |
 | size | Size of the button, the same as [Button](/components/button) | string | `default` |  |
@@ -46,3 +46,4 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
 | onClick | The same as [Button](/components/button): called when you click the button on the left | Function | - |  |
 | onVisibleChange | Called when the visible state is changed | Function | - |  |
+| buttonsRender | custom buttons inside Dropdown.Button | `([buttons: ReactNode[]]) => ReactNode` | - |  |

@@ -14,7 +14,8 @@ title:
 Both the top navigation and the sidebar, commonly used in application site.
 
 ```jsx
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -27,7 +28,6 @@ ReactDOM.render(
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
       >
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>
@@ -35,7 +35,7 @@ ReactDOM.render(
       </Menu>
     </Header>
     <Layout>
-      <Sider width={200} style={{ background: '#fff' }}>
+      <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
           defaultSelectedKeys={['1']}
@@ -46,7 +46,7 @@ ReactDOM.render(
             key="sub1"
             title={
               <span>
-                <Icon type="user" />
+                <UserOutlined />
                 subnav 1
               </span>
             }
@@ -60,7 +60,7 @@ ReactDOM.render(
             key="sub2"
             title={
               <span>
-                <Icon type="laptop" />
+                <LaptopOutlined />
                 subnav 2
               </span>
             }
@@ -74,7 +74,7 @@ ReactDOM.render(
             key="sub3"
             title={
               <span>
-                <Icon type="notification" />
+                <NotificationOutlined />
                 subnav 3
               </span>
             }
@@ -93,8 +93,8 @@ ReactDOM.render(
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
         <Content
+          className="site-layout-background"
           style={{
-            background: '#fff',
             padding: 24,
             margin: 0,
             minHeight: 280,
@@ -117,4 +117,14 @@ ReactDOM.render(
   margin: 16px 28px 16px 0;
   float: left;
 }
+
+.site-layout-background {
+  background: #fff;
+}
 ```
+
+<style>
+  #components-layout-demo-top-side-2 .logo {
+    background: rgba(255, 255, 255, 0.3);
+  }
+</style>

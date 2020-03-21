@@ -15,16 +15,16 @@ title: Popconfirm
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| cancelText | 取消按钮文字 | string | 取消 |  |
-| okText | 确认按钮文字 | string | 确定 |  |
-| okType | 确认按钮类型 | string | primary |  |
-| title | 确认框的描述 | string\|ReactNode | 无 |  |
-| onCancel | 点击取消的回调 | function(e) | 无 |  |
-| onConfirm | 点击确认的回调 | function(e) | 无 |  |
-| icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;Icon type="exclamation-circle" /&gt; | 3.8.0 |
-| disabled | 点击 Popconfirm 子元素是否弹出气泡确认框 | boolean | false | 3.19.8 |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| cancelText | 取消按钮文字 | string | 取消 |
+| okText | 确认按钮文字 | string | 确定 |
+| okType | 确认按钮类型 | string | primary |
+| title | 确认框的描述 | string\|ReactNode | - |
+| onCancel | 点击取消的回调 | function(e) | - |
+| onConfirm | 点击确认的回调 | function(e) | - |
+| icon | 自定义弹出气泡 Icon 图标 | ReactNode | `<ExclamationCircle />` |
+| disabled | 点击 Popconfirm 子元素是否弹出气泡确认框 | boolean | false |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

@@ -1,7 +1,9 @@
 ---
-category: Patterns
-order: 11
+category: Design Patterns
+type: Global Rules
+order: 1
 title: Feedback
+skip: true
 ---
 
 In order to help users understand what the application is currently doing, and to refer to the user's next behavior, and to understand the results of the operation, when the user need to interact with the system , use different modes to feedback information or results. When the designer uses feedback or customizes some feedback, please note:

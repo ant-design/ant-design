@@ -160,7 +160,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     );
   };
 
-  renderList = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderList = ({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
     const { paginationCurrent, paginationSize } = this.state;
     const {
       prefixCls: customizePrefixCls,
@@ -211,6 +211,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
       [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: grid,
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastItem(),
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const paginationProps = {

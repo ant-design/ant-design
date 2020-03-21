@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Dropdown from '..';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('DropdownButton', () => {
   mountTest(() => (
@@ -11,6 +12,13 @@ describe('DropdownButton', () => {
     </Dropdown>
   ));
   mountTest(Dropdown.Button);
+
+  rtlTest(() => (
+    <Dropdown menu={<Menu />}>
+      <span />
+    </Dropdown>
+  ));
+  rtlTest(Dropdown.Button);
 
   it('pass appropriate props to Dropdown', () => {
     const props = {
@@ -56,5 +64,15 @@ describe('DropdownButton', () => {
     );
     const wrapper = mount(<Dropdown.Button overlay={menu} href="https://ant.design" />);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('have static property for type detecting', () => {
+    const menu = (
+      <Menu>
+        <Menu.Item>foo</Menu.Item>
+      </Menu>
+    );
+    const wrapper = mount(<Dropdown.Button overlay={menu} />);
+    expect(wrapper.type().__ANT_BUTTON).toBe(true);
   });
 });

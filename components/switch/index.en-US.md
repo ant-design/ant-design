@@ -13,23 +13,23 @@ Switching Selector.
 
 ## API
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| autoFocus | get focus when component mounted | boolean | false |  |
-| checked | determine whether the `Switch` is checked | boolean | false |  |
-| checkedChildren | content to be shown when the state is checked | string\|ReactNode |  |  |
-| defaultChecked | to set the initial state | boolean | false |  |
-| disabled | Disable switch | boolean | false |  |
-| loading | loading state of switch | boolean | false |  |
-| size | the size of the `Switch`, options: `default` `small` | string | default |  |
-| unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode |  |  |
-| onChange | trigger when the checked state is changing | Function(checked: boolean, event: Event) |  |  |
-| onClick | trigger when clicked | Function(checked: boolean, event: Event) |  | 3.13.0 |
-| className | additional class to Switch | string | - | 3.10.1 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| autoFocus | get focus when component mounted | boolean | false |
+| checked | determine whether the `Switch` is checked | boolean | false |
+| checkedChildren | content to be shown when the state is checked | string\|ReactNode |  |
+| defaultChecked | to set the initial state | boolean | false |
+| disabled | Disable switch | boolean | false |
+| loading | loading state of switch | boolean | false |
+| size | the size of the `Switch`, options: `default` `small` | string | default |
+| unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode |  |
+| onChange | trigger when the checked state is changing | Function(checked: boolean, event: Event) |  |
+| onClick | trigger when clicked | Function(checked: boolean, event: Event) |  |
+| className | additional class to Switch | string |  |
 
 ## Methods
 
-| Name    | Description  | Version |
-| ------- | ------------ | ------- |
-| blur()  | remove focus |         |
-| focus() | get focus    |         |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

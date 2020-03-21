@@ -1,46 +1,20 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import Tree from '../index';
-import { calcRangeKeys, getFullKeyListByTreeData } from '../util';
-
-const { TreeNode } = Tree;
+import { calcRangeKeys } from '../utils/dictUtil';
 
 describe('Tree util', () => {
   it('calc range keys', () => {
-    const wrapper = mount(
-      <Tree>
-        <TreeNode key="0-0">
-          <TreeNode key="0-0-0" />
-          <TreeNode key="0-0-1" />
-        </TreeNode>
-        <TreeNode key="0-1">
-          <TreeNode key="0-1-0" />
-          <TreeNode key="0-1-1" />
-        </TreeNode>
-        <TreeNode key="0-2">
-          <TreeNode key="0-2-0">
-            <TreeNode key="0-2-0-0" />
-            <TreeNode key="0-2-0-1" />
-            <TreeNode key="0-2-0-2" />
-          </TreeNode>
-        </TreeNode>
-      </Tree>,
-    );
+    const treeData = [
+      { key: '0-0', children: [{ key: '0-0-0' }, { key: '0-0-1' }] },
+      { key: '0-1', children: [{ key: '0-1-0' }, { key: '0-1-1' }] },
+      {
+        key: '0-2',
+        children: [
+          { key: '0-2-0', children: [{ key: '0-2-0-0' }, { key: '0-2-0-1' }, { key: '0-2-0-2' }] },
+        ],
+      },
+    ];
 
-    const { children } = wrapper.find(Tree).props();
-    const keys = calcRangeKeys(children, ['0-0', '0-2', '0-2-0'], '0-2-0-1', '0-0-0');
+    const keys = calcRangeKeys(treeData, ['0-0', '0-2', '0-2-0'], '0-2-0-1', '0-0-0');
     const target = ['0-0-0', '0-0-1', '0-1', '0-2', '0-2-0', '0-2-0-0', '0-2-0-1'];
     expect(keys.sort()).toEqual(target.sort());
-  });
-
-  it('getFullKeyListByTreeData', () => {
-    expect(
-      getFullKeyListByTreeData([
-        {
-          key: 'light',
-          children: [{ key: 'bamboo' }],
-        },
-      ]),
-    ).toEqual(['light', 'bamboo']);
   });
 });

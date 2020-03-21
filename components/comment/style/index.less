@@ -5,6 +5,7 @@
 
 .@{comment-prefix-cls} {
   position: relative;
+  background-color: @comment-bg;
 
   &-inner {
     display: flex;
@@ -16,6 +17,7 @@
     flex-shrink: 0;
     margin-right: 12px;
     cursor: pointer;
+
     img {
       width: 32px;
       height: 32px;
@@ -70,6 +72,7 @@
   &-actions {
     margin-top: 12px;
     padding-left: 0;
+
     > li {
       display: inline-block;
       color: @comment-action-color;
@@ -80,6 +83,7 @@
         cursor: pointer;
         transition: color 0.3s;
         user-select: none;
+
         &:hover {
           color: @comment-action-hover-color;
         }
@@ -91,3 +95,5 @@
     margin-left: @comment-nest-indent;
   }
 }
+
+@import './rtl';

@@ -40,13 +40,13 @@ class Demo extends React.Component {
         treeDefaultExpandAll
         onChange={this.onChange}
       >
-        <TreeNode value="parent 1" title="parent 1" key="0-1">
-          <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
-            <TreeNode value="leaf1" title="my leaf" key="random" />
-            <TreeNode value="leaf2" title="your leaf" key="random1" />
+        <TreeNode value="parent 1" title="parent 1">
+          <TreeNode value="parent 1-0" title="parent 1-0">
+            <TreeNode value="leaf1" title="my leaf" />
+            <TreeNode value="leaf2" title="your leaf" />
           </TreeNode>
-          <TreeNode value="parent 1-1" title="parent 1-1" key="random2">
-            <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} key="random3" />
+          <TreeNode value="parent 1-1" title="parent 1-1">
+            <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} />
           </TreeNode>
         </TreeNode>
       </TreeSelect>

@@ -18,6 +18,18 @@ exports[`Grid renders wrapped Col correctly 1`] = `
 </div>
 `;
 
+exports[`Grid rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-row ant-row-rtl"
+/>
+`;
+
+exports[`Grid rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-col ant-col-rtl"
+/>
+`;
+
 exports[`Grid should render Col 1`] = `
 <div
   class="ant-col ant-col-2"

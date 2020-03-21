@@ -57,7 +57,7 @@ class App extends React.Component {
             {!this.state.checked ? 'Check' : 'Uncheck'}
           </Button>
           <Button
-            style={{ marginLeft: '10px' }}
+            style={{ margin: '0 10px' }}
             type="primary"
             size="small"
             onClick={this.toggleDisable}

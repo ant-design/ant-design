@@ -7,8 +7,8 @@ import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
 import { Omit } from '../_util/type';
+import SizeContext from '../config-provider/SizeContext';
 
 function getAction(actions: React.ReactNode[]) {
   const actionList = actions.map((action, index) => (
@@ -41,7 +41,6 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
-  noHovering?: boolean;
   hoverable?: boolean;
   children?: React.ReactNode;
   id?: string;
@@ -62,30 +61,6 @@ export default class Card extends React.Component<CardProps, {}> {
 
   static Meta: typeof Meta = Meta;
 
-  componentDidMount() {
-    if ('noHovering' in this.props) {
-      warning(
-        !this.props.noHovering,
-        'Card',
-        '`noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
-      );
-      warning(
-        !!this.props.noHovering,
-        'Card',
-        '`noHovering={false}` is deprecated, use `hoverable` instead.',
-      );
-    }
-  }
-
-  // For 2.x compatible
-  getCompatibleHoverable() {
-    const { noHovering, hoverable } = this.props;
-    if ('noHovering' in this.props) {
-      return !noHovering || hoverable;
-    }
-    return !!hoverable;
-  }
-
   onTabChange = (key: string) => {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
@@ -102,7 +77,7 @@ export default class Card extends React.Component<CardProps, {}> {
     return containGrid;
   }
 
-  renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCard = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -112,7 +87,7 @@ export default class Card extends React.Component<CardProps, {}> {
       title,
       loading,
       bordered = true,
-      size = 'default',
+      size: customizeSize,
       type,
       cover,
       actions,
@@ -121,19 +96,11 @@ export default class Card extends React.Component<CardProps, {}> {
       activeTabKey,
       defaultActiveTabKey,
       tabBarExtraContent,
+      hoverable,
       ...others
     } = this.props;
 
     const prefixCls = getPrefixCls('card', customizePrefixCls);
-    const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-hoverable`]: this.getCompatibleHoverable(),
-      [`${prefixCls}-contain-grid`]: this.isContainGrid(),
-      [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
-      [`${prefixCls}-${size}`]: size !== 'default',
-      [`${prefixCls}-type-${type}`]: !!type,
-    });
 
     const loadingBlockStyle =
       bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
@@ -191,7 +158,7 @@ export default class Card extends React.Component<CardProps, {}> {
       tabBarExtraContent,
     };
 
-    let head;
+    let head: React.ReactNode;
     const tabs =
       tabList && tabList.length ? (
         <Tabs
@@ -226,14 +193,32 @@ export default class Card extends React.Component<CardProps, {}> {
       actions && actions.length ? (
         <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
       ) : null;
-    const divProps = omit(others, ['onTabChange', 'noHovering', 'hoverable']);
+    const divProps = omit(others, ['onTabChange']);
     return (
-      <div {...divProps} className={classString}>
-        {head}
-        {coverDom}
-        {body}
-        {actionDom}
-      </div>
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const classString = classNames(prefixCls, className, {
+            [`${prefixCls}-loading`]: loading,
+            [`${prefixCls}-bordered`]: bordered,
+            [`${prefixCls}-hoverable`]: hoverable,
+            [`${prefixCls}-contain-grid`]: this.isContainGrid(),
+            [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+            [`${prefixCls}-${mergedSize}`]: mergedSize,
+            [`${prefixCls}-type-${type}`]: !!type,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
+
+          return (
+            <div {...divProps} className={classString}>
+              {head}
+              {coverDom}
+              {body}
+              {actionDom}
+            </div>
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 

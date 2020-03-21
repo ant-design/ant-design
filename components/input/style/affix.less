@@ -1,0 +1,34 @@
+@import './index';
+@import './mixin';
+
+@input-affix-margin: 4px;
+
+.@{ant-prefix}-input {
+  &-affix-wrapper {
+    .input();
+    display: inline-flex;
+
+    > input.@{ant-prefix}-input {
+      padding: 0;
+      border: none;
+      outline: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-prefix,
+  &-suffix {
+    flex: none;
+  }
+
+  &-prefix {
+    margin-right: @input-affix-margin;
+  }
+
+  &-suffix {
+    margin-left: @input-affix-margin;
+  }
+}

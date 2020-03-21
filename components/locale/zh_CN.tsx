@@ -19,6 +19,7 @@ export default {
     filterReset: '重置',
     selectAll: '全选当页',
     selectInvert: '反选当页',
+    selectionAll: '全选所有',
     sortTitle: '排序',
     expand: '展开行',
     collapse: '关闭行',

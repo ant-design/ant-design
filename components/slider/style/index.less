@@ -24,7 +24,7 @@
     width: 100%;
     height: 4px;
     background-color: @slider-rail-background-color;
-    border-radius: @border-radius-sm;
+    border-radius: @border-radius-base;
     transition: background-color 0.3s;
   }
 
@@ -48,6 +48,11 @@
     cursor: pointer;
     transition: border-color 0.3s, box-shadow 0.6s,
       transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+    &-dragging&-dragging&-dragging {
+      border-color: @slider-handle-color-focus;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
+    }
 
     &:focus {
       border-color: @slider-handle-color-focus;
@@ -110,6 +115,7 @@
     border: 2px solid @slider-dot-border-color;
     border-radius: 50%;
     cursor: pointer;
+
     &:first-child {
       margin-left: -4px;
     }
@@ -160,7 +166,7 @@
     }
 
     .@{slider-prefix-cls}-handle {
-      margin-bottom: -7px;
+      margin-top: -6px; // we chould consider border width as well: (10 + 2 ) / 2
       margin-left: -5px;
     }
 
@@ -187,4 +193,13 @@
       margin-bottom: -4px;
     }
   }
+
+  &-tooltip {
+    // https://github.com/ant-design/ant-design/issues/20014
+    .@{ant-prefix}-tooltip-inner {
+      min-width: unset;
+    }
+  }
 }
+
+@import './rtl';

@@ -1,5 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Skeleton avatar element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element shape 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element shape 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-square"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-sm ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 4`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+    style="width: 20px; height: 20px; line-height: 20px;"
+  />
+</div>
+`;
+
 exports[`Skeleton avatar shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
@@ -169,6 +240,116 @@ exports[`Skeleton avatar size 4`] = `
 </div>
 `;
 
+exports[`Skeleton button element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button element shape 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button element shape 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-round"
+  />
+</div>
+`;
+
+exports[`Skeleton button element shape 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton button element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-lg"
+  />
+</div>
+`;
+
+exports[`Skeleton button element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-sm"
+  />
+</div>
+`;
+
+exports[`Skeleton input element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-input"
+  />
+</div>
+`;
+
+exports[`Skeleton input element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-input ant-skeleton-input-sm"
+  />
+</div>
+`;
+
+exports[`Skeleton input element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-input"
+  />
+</div>
+`;
+
+exports[`Skeleton input element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-input ant-skeleton-input-lg"
+  />
+</div>
+`;
+
 exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"
@@ -241,6 +422,65 @@ exports[`Skeleton paragraph width 2`] = `
       />
       <li />
     </ul>
+  </div>
+</div>
+`;
+
+exports[`Skeleton rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-rtl"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:38%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width:61%"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Skeleton should square avatar 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+    />
+  </div>
+</div>
+`;
+
+exports[`Skeleton should without avatar and paragraph 1`] = `
+<div
+  class="ant-skeleton"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+    />
   </div>
 </div>
 `;

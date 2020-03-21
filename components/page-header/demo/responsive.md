@@ -64,9 +64,7 @@ const Content = ({ children, extra }) => {
 ReactDOM.render(
   <div>
     <PageHeader
-      style={{
-        border: '1px solid rgb(235, 237, 240)',
-      }}
+      className="site-page-header-responsive"
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"
@@ -91,7 +89,16 @@ ReactDOM.render(
 );
 ```
 
+```css
+.site-page-header-responsive {
+  border: 1px solid rgb(235, 237, 240);
+}
+```
+
 <style>
+[data-theme="dark"] .site-page-header-responsive {
+  border: 1px solid #303030;
+}
 tr:last-child td {
   padding-bottom: 0;
 }

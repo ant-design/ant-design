@@ -39,7 +39,7 @@ class SelectSizesDemo extends React.Component {
   render() {
     const { size } = this.state;
     return (
-      <div>
+      <>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
           <Radio.Button value="large">Large</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>
@@ -72,7 +72,7 @@ class SelectSizesDemo extends React.Component {
         >
           {children}
         </Select>
-      </div>
+      </>
     );
   }
 }

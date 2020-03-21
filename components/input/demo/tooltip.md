@@ -35,7 +35,7 @@ function formatNumber(value) {
 class NumericInput extends React.Component {
   onChange = e => {
     const { value } = e.target;
-    const reg = /^-?(0|[1-9][0-9]*)(\.[0-9]*)?$/;
+    const reg = /^-?[0-9]*(\.[0-9]*)?$/;
     if ((!isNaN(value) && reg.test(value)) || value === '' || value === '-') {
       this.props.onChange(value);
     }
@@ -44,9 +44,11 @@ class NumericInput extends React.Component {
   // '.' at the end or only '-' in the input box.
   onBlur = () => {
     const { value, onBlur, onChange } = this.props;
+    let valueTemp = value;
     if (value.charAt(value.length - 1) === '.' || value === '-') {
-      onChange(value.slice(0, -1));
+      valueTemp = value.slice(0, -1);
     }
+    onChange(valueTemp.replace(/0*(\d+)/, '$1'));
     if (onBlur) {
       onBlur();
     }

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle"
+>
+  <span
+    class="ant-avatar-string"
+    style="opacity:0"
+  />
+</span>
+`;

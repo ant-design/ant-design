@@ -4,19 +4,21 @@ import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { resetWarned } from '../../_util/warning';
-
-jest.mock('mutationobserver-shim', () => {
-  global.MutationObserver = function MutationObserver() {
-    this.observe = () => {};
-    this.disconnect = () => {};
-  };
-});
 
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
   mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
+
+  rtlTest(() => (
     <Menu>
       <Menu.Item />
       <Menu.ItemGroup />
@@ -674,6 +676,29 @@ describe('Menu', () => {
     jest.useRealTimers();
   });
 
+  it('props#onOpen and props#onClose do not warn anymore', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const onOpen = jest.fn();
+    const onClose = jest.fn();
+    mount(
+      <Menu defaultOpenKeys={['1']} mode="inline" onOpen={onOpen} onClose={onClose}>
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="submenu1">Option 1</Menu.Item>
+          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="2">menu2</Menu.Item>
+      </Menu>,
+    );
+
+    expect(errorSpy.mock.calls.length).toBe(1);
+    expect(errorSpy.mock.calls[0][0]).not.toContain(
+      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, see: https://u.ant.design/menu-on-open-change.',
+    );
+    expect(onOpen).not.toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
   // https://github.com/ant-design/ant-design/issues/18825
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
@@ -702,7 +727,12 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-menu-submenu-popup:not(.ant-menu-submenu-hidden)').length).toBe(0);
+    expect(
+      wrapper
+        .find('Trigger')
+        .map(node => node.prop('popupVisible'))
+        .findIndex(node => !!node),
+    ).toBe(-1);
     wrapper.setProps({ inlineCollapsed: false });
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();

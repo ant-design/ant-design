@@ -2,9 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Carousel', () => {
   mountTest(Carousel);
+  rtlTest(Carousel);
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -93,19 +95,6 @@ describe('Carousel', () => {
         expect(wrapper.render()).toMatchSnapshot();
       });
     });
-  });
-
-  it('warning', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Carousel vertical>
-        <div />
-      </Carousel>,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
-    );
-    warnSpy.mockRestore();
   });
 
   describe('should active when children change', () => {

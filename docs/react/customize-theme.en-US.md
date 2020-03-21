@@ -1,9 +1,9 @@
 ---
-order: 5
+order: 7
 title: Customize Theme
 ---
 
-Ant Design allows you to customize our design tokens in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
+Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
 
 ![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
@@ -22,8 +22,8 @@ There are some major variables below, all less variables could be found in [Defa
 @font-size-base: 14px; // major text font size
 @heading-color: rgba(0, 0, 0, 0.85); // heading text color
 @text-color: rgba(0, 0, 0, 0.65); // major text color
-@text-color-secondary : rgba(0, 0, 0, .45); // secondary text color
-@disabled-color : rgba(0, 0, 0, .25); // disable state color
+@text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+@disabled-color: rgba(0, 0, 0, 0.25); // disable state color
 @border-radius-base: 4px; // major border radius
 @border-color-base: #d9d9d9; // major border color
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
@@ -133,8 +133,72 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- [Dark Theme (Beta)](https://github.com/ant-design/ant-design-dark-theme)
-- [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+- 🌑 Dark Theme (follow document below)
+- ☁️  [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+
+### Use dark theme
+
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
+
+Method 1: using Umi 3
+
+If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
+
+1. Install `@umijs/plugin-antd` plugin;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. set `dark: true`.
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true,
+     },
+   },
+   ```
+
+Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) in the style file:
+
+```less
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+```
+
+If the project does not use Less, you can import [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) in the CSS file:
+
+```css
+@import '~antd/dist/antd.dark.css';
+```
+
+Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
+
+```diff
+const darkThemeVars = require('antd/dist/dark-theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: {
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
++          ...darkThemeVars,
++       },
++       javascriptEnabled: true,
++     },
+    }],
+  }],
+}
+```
 
 ## Related Articles
 

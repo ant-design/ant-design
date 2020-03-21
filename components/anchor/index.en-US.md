@@ -19,14 +19,14 @@ For displaying anchor hyperlinks on page and jumping between them.
 | --- | --- | --- | --- | --- |
 | affix | Fixed mode of Anchor | boolean | true |  |
 | bounds | Bounding distance of anchor area | number | 5(px) |  |
-| getContainer | Scrolling container | () => HTMLElement | () => window | 3.4.0 |
+| getContainer | Scrolling container | () => HTMLElement | () => window |  |
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |  |
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |  |
 | showInkInFixed | Whether show ink-balls in Fixed mode | boolean | false |  |
-| onClick | set the handler to handle `click` event | Function(e: Event, link: Object) | - | 3.9.0 |
-| getCurrentAnchor | Customize the anchor highlight | () => string | - | 3.22.0 |
-| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | `offsetTop` | 3.22.0 |
-| onChange | Listening for anchor link change | (currentActiveLink: string) => void |  | 3.24.0 |
+| onClick | set the handler to handle `click` event | Function(e: Event, link: Object) | - |  |
+| getCurrentAnchor | Customize the anchor highlight | () => string | - |  |
+| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | `offsetTop` |  |
+| onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 
 ### Link Props
 

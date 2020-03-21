@@ -28,16 +28,8 @@
 }
 
 // for iconfont font size
-// fix chrome 12px bug, support ie
-.iconfont-size-under-12px(@size, @rotate: 0deg) {
+// fix chrome 12px bug
+.iconfont-size-under-12px(@size) {
   display: inline-block;
-  @font-scale: unit(@size / 12px);
-
-  font-size: 12px;
-  // IE9
-  font-size: ~'@{size} \9';
-  transform: scale(@font-scale) rotate(@rotate);
-  :root & {
-    font-size: @font-size-sm; // reset IE9 and above
-  }
+  font-size: @size;
 }

@@ -1,6 +1,7 @@
 ---
-category: 模式
-order: 10
+category: 设计模式
+type: 全局规则
+order: 4
 title: 数据展示
 ---
 

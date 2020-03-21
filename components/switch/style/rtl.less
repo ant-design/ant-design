@@ -1,0 +1,73 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@switch-prefix-cls: ~'@{ant-prefix}-switch';
+
+.@{switch-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-inner {
+    .@{switch-prefix-cls}-rtl & {
+      margin-right: 24px;
+      margin-left: 6px;
+    }
+  }
+
+  &-loading-icon,
+  &::after {
+    .@{switch-prefix-cls}-rtl& {
+      left: 100%;
+      margin-left: -1px;
+      transform: translateX(-100%);
+    }
+  }
+
+  &-small {
+    .@{switch-prefix-cls}-inner {
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 18px;
+        margin-left: 3px;
+      }
+    }
+  }
+
+  &-small &-loading-icon {
+    .@{switch-prefix-cls}-rtl& {
+      margin-left: 12px;
+    }
+  }
+
+  &-small&-checked {
+    .@{switch-prefix-cls}-inner {
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 3px;
+        margin-left: 18px;
+      }
+    }
+  }
+
+  &-checked {
+    .@{switch-prefix-cls}-inner {
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 6px;
+        margin-left: 24px;
+      }
+    }
+
+    &::after {
+      .@{switch-prefix-cls}-rtl& {
+        left: 1px;
+        margin-left: 0;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &-checked &-loading-icon {
+    .@{switch-prefix-cls}-rtl& {
+      margin-left: -41px;
+    }
+  }
+}

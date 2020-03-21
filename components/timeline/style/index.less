@@ -13,7 +13,7 @@
   &-item {
     position: relative;
     margin: 0;
-    padding: 0 0 20px;
+    padding-bottom: @timeline-item-padding-bottom;
     font-size: @font-size-base;
     list-style: none;
 
@@ -96,7 +96,8 @@
   }
 
   &.@{timeline-prefix-cls}-alternate,
-  &.@{timeline-prefix-cls}-right {
+  &.@{timeline-prefix-cls}-right,
+  &.@{timeline-prefix-cls}-label {
     .@{timeline-prefix-cls}-item {
       &-tail,
       &-head,
@@ -106,6 +107,7 @@
 
       &-head {
         margin-left: -4px;
+
         &-custom {
           margin-left: 1px;
         }
@@ -164,4 +166,21 @@
       min-height: 48px;
     }
   }
+  &.@{timeline-prefix-cls}-label {
+    .@{timeline-prefix-cls}-item-label {
+      position: absolute;
+      top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
+      width: calc(50% - 12px);
+      text-align: right;
+    }
+    .@{timeline-prefix-cls}-item-right {
+      .@{timeline-prefix-cls}-item-label {
+        left: calc(50% + 14px);
+        width: calc(50% - 14px);
+        text-align: left;
+      }
+    }
+  }
 }
+
+@import './rtl.less';

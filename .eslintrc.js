@@ -20,13 +20,15 @@ const eslintrc = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint'],
+  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-unused-expressions': 2,
       },
     },
   ],
@@ -37,6 +39,7 @@ const eslintrc = {
     'react/forbid-prop-types': 0,
     'react/jsx-indent': 0,
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
+    'import/extensions': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -55,6 +58,7 @@ const eslintrc = {
     'jsx-a11y/anchor-has-content': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/anchor-is-valid': 0,
+    'jsx-a11y/no-noninteractive-element-interactions': 0,
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-filename-extension': 0,
     'react/state-in-constructor': 0,
@@ -86,6 +90,7 @@ const eslintrc = {
     'react/static-property-placement': 0,
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
+    'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
   },
   globals: {
     gtag: true,

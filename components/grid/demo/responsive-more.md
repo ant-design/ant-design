@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title:
   zh-CN: 其他属性的响应式
   en-US: More responsive

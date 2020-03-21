@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title: 在 TypeScript 中使用
 ---
 
@@ -11,10 +11,14 @@ title: 在 TypeScript 中使用
 
 请确保电脑上已经安装了最新版的 [yarn](https://yarnpkg.com) 或者 [npm](https://www.npmjs.com/)。
 
-使用 yarn 创建项目。
+使用 yarn 创建 [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) 项目。
 
 ```bash
-$ yarn create react-app antd-demo-ts --typescript
+$ yarn create react-app antd-demo-ts --template typescript
+
+# or
+
+npx create-react-app my-app --template typescript
 ```
 
 如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。

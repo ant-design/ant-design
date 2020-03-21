@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-calendar/lib/locale/sv_SE';
+import CalendarLocale from 'rc-picker/lib/locale/sv_SE';
 import TimePickerLocale from '../../time-picker/locale/sv_SE';
 
 const locale = {

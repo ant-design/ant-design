@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import { AntAnchor } from './Anchor';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -82,7 +81,5 @@ class AnchorLink extends React.Component<AnchorLinkProps, any> {
     return <ConfigConsumer>{this.renderAnchorLink}</ConfigConsumer>;
   }
 }
-
-polyfill(AnchorLink);
 
 export default AnchorLink;

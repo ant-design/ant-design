@@ -1,7 +1,5 @@
 import * as React from 'react';
-import * as moment from 'moment';
 import padStart from 'lodash/padStart';
-import interopDefault from '../_util/interopDefault';
 
 export type valueType = number | string;
 export type countdownValueType = valueType | string;
@@ -64,8 +62,8 @@ export function formatTimeStr(duration: number, format: string) {
 
 export function formatCountdown(value: countdownValueType, config: CountdownFormatConfig) {
   const { format = '' } = config;
-  const target = interopDefault(moment)(value).valueOf();
-  const current = interopDefault(moment)().valueOf();
+  const target = new Date(value).getTime();
+  const current = Date.now();
   const diff = Math.max(target - current, 0);
 
   return formatTimeStr(diff, format);

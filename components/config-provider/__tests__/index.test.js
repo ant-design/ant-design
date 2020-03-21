@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
 import Button from '../../button';
+import Table from '../../table';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
@@ -30,5 +31,15 @@ describe('ConfigProvider', () => {
     );
 
     expect(wrapper.find('Button').text()).toBe('确定');
+  });
+
+  it('renderEmpty', () => {
+    const wrapper = mount(
+      <ConfigProvider renderEmpty={() => <div>empty placeholder</div>}>
+        <Table />
+      </ConfigProvider>,
+    );
+
+    expect(wrapper.text()).toContain('empty placeholder');
   });
 });

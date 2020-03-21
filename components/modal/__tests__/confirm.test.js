@@ -87,17 +87,15 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
   });
 
-  if (process.env.REACT !== '15') {
-    it('shows animation when close', () => {
-      jest.useFakeTimers();
-      open();
-      expect($$('.ant-modal-confirm')).toHaveLength(1);
-      $$('.ant-btn')[0].click();
-      jest.runAllTimers();
-      expect($$('.ant-modal-confirm')).toHaveLength(0);
-      jest.useRealTimers();
-    });
-  }
+  it('shows animation when close', () => {
+    jest.useFakeTimers();
+    open();
+    expect($$('.ant-modal-confirm')).toHaveLength(1);
+    $$('.ant-btn')[0].click();
+    jest.runAllTimers();
+    expect($$('.ant-modal-confirm')).toHaveLength(0);
+    jest.useRealTimers();
+  });
 
   it('ok only', () => {
     open({ okCancel: false });
@@ -215,5 +213,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect(destroyFns.length).toBe(length - index - 1);
     });
     jest.useRealTimers();
+  });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    confirm({
+      content: 'some descriptions',
+      icon: 'ab',
+    });
+    expect(warnSpy).not.toHaveBeenCalled();
+    confirm({
+      content: 'some descriptions',
+      icon: 'question',
+    });
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Modal] \`icon\` is using ReactNode instead of string naming in v4. Please check \`question\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
   });
 });

@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './customize.less';
 
 @list-prefix-cls: ~'@{ant-prefix}-list';
 
@@ -15,6 +16,11 @@
   &-pagination {
     margin-top: 24px;
     text-align: right;
+
+    // https://github.com/ant-design/ant-design/issues/20037
+    .@{ant-prefix}-pagination-options {
+      text-align: left;
+    }
   }
 
   &-more {
@@ -47,6 +53,7 @@
   &-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: @list-item-padding;
 
     &-content {
@@ -58,6 +65,7 @@
       flex: 1;
       align-items: flex-start;
       font-size: 0;
+
       &-avatar {
         margin-right: @list-item-meta-avatar-margin-right;
       }
@@ -89,6 +97,7 @@
       padding: 0;
       font-size: 0;
       list-style: none;
+
       & > li {
         position: relative;
         display: inline-block;
@@ -226,3 +235,4 @@
 
 @import './bordered';
 @import './responsive';
+@import './rtl';

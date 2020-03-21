@@ -1,15 +1,26 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Select from '..';
 import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Option } = Select;
 
 describe('Select', () => {
   focusTest(Select);
   mountTest(Select);
+  rtlTest(Select);
+
+  function toggleOpen(wrapper) {
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      jest.runAllTimers();
+      wrapper.update();
+    });
+  }
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -21,27 +32,14 @@ describe('Select', () => {
 
   it('should have default notFoundContent', () => {
     const wrapper = mount(<Select mode="multiple" />);
-    wrapper.find('.ant-select').simulate('click');
-    jest.runAllTimers();
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
-    expect(dropdownWrapper.find('MenuItem').length).toBe(1);
-    expect(
-      dropdownWrapper
-        .find('MenuItem')
-        .at(0)
-        .text(),
-    ).toBe('No Data');
+    toggleOpen(wrapper);
+    expect(wrapper.find('.ant-select-item-option').length).toBeFalsy();
+    expect(wrapper.find('.ant-empty').length).toBeTruthy();
   });
 
   it('should support set notFoundContent to null', () => {
     const wrapper = mount(<Select mode="multiple" notFoundContent={null} />);
-    wrapper.find('.ant-select').simulate('click');
-    jest.runAllTimers();
+    toggleOpen(wrapper);
     const dropdownWrapper = mount(
       wrapper
         .find('Trigger')
@@ -53,8 +51,7 @@ describe('Select', () => {
 
   it('should not have default notFoundContent when mode is combobox', () => {
     const wrapper = mount(<Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} />);
-    wrapper.find('.ant-select').simulate('click');
-    jest.runAllTimers();
+    toggleOpen(wrapper);
     const dropdownWrapper = mount(
       wrapper
         .find('Trigger')
@@ -68,18 +65,17 @@ describe('Select', () => {
     const wrapper = mount(
       <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} notFoundContent="not at all" />,
     );
-    wrapper.find('.ant-select').simulate('click');
-    jest.runAllTimers();
+    toggleOpen(wrapper);
     const dropdownWrapper = mount(
       wrapper
         .find('Trigger')
         .instance()
         .getComponent(),
     );
-    expect(dropdownWrapper.find('MenuItem').length).toBe(1);
+    expect(dropdownWrapper.find('.ant-select-item-option').length).toBeFalsy();
     expect(
       dropdownWrapper
-        .find('MenuItem')
+        .find('.ant-select-item-empty')
         .at(0)
         .text(),
     ).toBe('not at all');
@@ -99,7 +95,7 @@ describe('Select', () => {
         .getComponent(),
     );
     expect(dropdownWrapper.props().visible).toBe(true);
-    wrapper.find('.ant-select').simulate('click');
+    toggleOpen(wrapper);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(false);
     expect(dropdownWrapper.props().visible).toBe(true);
 
@@ -111,7 +107,7 @@ describe('Select', () => {
         .getComponent(),
     );
     expect(dropdownWrapper.props().visible).toBe(false);
-    wrapper.find('.ant-select').simulate('click');
+    toggleOpen(wrapper);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
     expect(dropdownWrapper.props().visible).toBe(false);
   });

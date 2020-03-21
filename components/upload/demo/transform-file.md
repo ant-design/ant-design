@@ -14,7 +14,8 @@ title:
 Use `transformFile` for transform file before request such as add a watermark.
 
 ```jsx
-import { Upload, Button, Icon } from 'antd';
+import { Upload, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 
 const props = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -43,7 +44,7 @@ ReactDOM.render(
   <div>
     <Upload {...props}>
       <Button>
-        <Icon type="upload" /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
   </div>,

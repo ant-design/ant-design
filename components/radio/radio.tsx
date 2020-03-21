@@ -1,14 +1,13 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
-import { RadioProps, RadioChangeEvent, RadioGroupContext } from './interface';
+import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RadioGroupContext from './context';
 
-export default class Radio extends React.Component<RadioProps, {}> {
+export default class Radio extends React.PureComponent<RadioProps, {}> {
   static Group: typeof RadioGroup;
 
   static Button: typeof RadioButton;
@@ -17,21 +16,9 @@ export default class Radio extends React.Component<RadioProps, {}> {
     type: 'radio',
   };
 
-  static contextTypes = {
-    radioGroup: PropTypes.any,
-  };
-
-  context: any;
+  static contextType = RadioGroupContext;
 
   private rcCheckbox: any;
-
-  shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
-    return (
-      !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState) ||
-      !shallowEqual(this.context.radioGroup, nextContext.radioGroup)
-    );
-  }
 
   saveCheckbox = (node: any) => {
     this.rcCheckbox = node;
@@ -42,8 +29,8 @@ export default class Radio extends React.Component<RadioProps, {}> {
       this.props.onChange(e);
     }
 
-    if (this.context.radioGroup && this.context.radioGroup.onChange) {
-      this.context.radioGroup.onChange(e);
+    if (this.context?.onChange) {
+      this.context.onChange(e);
     }
   };
 
@@ -55,22 +42,22 @@ export default class Radio extends React.Component<RadioProps, {}> {
     this.rcCheckbox.blur();
   }
 
-  renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderRadio = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props, context } = this;
     const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
-    const { radioGroup } = context;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const radioProps: RadioProps = { ...restProps };
-    if (radioGroup) {
-      radioProps.name = radioGroup.name;
+    if (context) {
+      radioProps.name = context.name;
       radioProps.onChange = this.onChange;
-      radioProps.checked = props.value === radioGroup.value;
-      radioProps.disabled = props.disabled || radioGroup.disabled;
+      radioProps.checked = props.value === context.value;
+      radioProps.disabled = props.disabled || context.disabled;
     }
     const wrapperClassString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     });
 
     return (

@@ -1,0 +1,50 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@comment-prefix-cls: ~'@{ant-prefix}-comment';
+
+.@{comment-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-avatar {
+    .@{comment-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 12px;
+    }
+  }
+
+  &-content {
+    &-author {
+      & > a,
+      & > span {
+        .@{comment-prefix-cls}-rtl & {
+          padding-right: 0;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  &-actions {
+    .@{comment-prefix-cls}-rtl & {
+      padding-right: 0;
+    }
+    > li {
+      > span {
+        .@{comment-prefix-cls}-rtl & {
+          padding-right: 0;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  &-nested {
+    .@{comment-prefix-cls}-rtl & {
+      margin-right: @comment-nest-indent;
+      margin-left: 0;
+    }
+  }
+}

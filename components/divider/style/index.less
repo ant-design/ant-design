@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @divider-prefix-cls: ~'@{ant-prefix}-divider';
+@divider-text-padding: 1em;
 
 .@{divider-prefix-cls} {
   .reset-component;
@@ -55,7 +56,7 @@
   &-horizontal&-with-text-right {
     .@{divider-prefix-cls}-inner-text {
       display: inline-block;
-      padding: 0 10px;
+      padding: 0 @divider-text-padding;
     }
   }
 
@@ -83,7 +84,7 @@
 
   &-inner-text {
     display: inline-block;
-    padding: 0 24px;
+    padding: 0 @divider-text-padding;
   }
 
   &-dashed {

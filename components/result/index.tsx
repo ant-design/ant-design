@@ -1,16 +1,22 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import WarningFilled from '@ant-design/icons/WarningFilled';
+
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
-import Icon from '../icon';
+import warning from '../_util/warning';
+
 import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';
 
 export const IconMap = {
-  success: 'check-circle',
-  error: 'close-circle',
-  info: 'exclamation-circle',
-  warning: 'warning',
+  success: CheckCircleFilled,
+  error: CloseCircleFilled,
+  info: ExclamationCircleFilled,
+  warning: WarningFilled,
 };
 
 export const ExceptionMap = {
@@ -19,7 +25,7 @@ export const ExceptionMap = {
   '403': unauthorized,
 };
 
-export type ExceptionStatusType = keyof typeof ExceptionMap;
+export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
 export interface ResultProps {
@@ -46,7 +52,13 @@ const ExceptionStatus = Object.keys(ExceptionMap);
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
-  if (ExceptionStatus.includes(status as ResultStatusType)) {
+  warning(
+    !(typeof icon === 'string' && icon.length > 2),
+    'Result',
+    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+  );
+
+  if (ExceptionStatus.includes(`${status}`)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
       <div className={`${className} ${prefixCls}-image`}>
@@ -55,10 +67,11 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
     );
   }
 
-  const iconString: string = IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>];
-  const iconNode = icon || <Icon type={iconString} theme="filled" />;
+  const iconNode = React.createElement(
+    IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>],
+  );
 
-  return <div className={className}>{iconNode}</div>;
+  return <div className={className}>{icon || iconNode}</div>;
 };
 
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
@@ -72,7 +85,7 @@ export interface ResultType extends React.SFC<ResultProps> {
 
 const Result: ResultType = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         className: customizeClassName,
@@ -83,7 +96,9 @@ const Result: ResultType = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName);
+      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      });
       return (
         <div className={className} style={style}>
           {renderIcon(prefixCls, props)}

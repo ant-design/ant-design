@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 7
 title: 定制主题
 ---
 
@@ -22,8 +22,8 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 @font-size-base: 14px; // 主字号
 @heading-color: rgba(0, 0, 0, 0.85); // 标题色
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
-@text-color-secondary : rgba(0, 0, 0, .45); // 次文本色
-@disabled-color : rgba(0, 0, 0, .25); // 失效色
+@text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
+@disabled-color: rgba(0, 0, 0, 0.25); // 失效色
 @border-radius-base: 4px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
@@ -111,8 +111,72 @@ module.exports = {
 
 我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
 
-- [黑色主题（Beta）](https://github.com/ant-design/ant-design-dark-theme)
-- [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+- 🌑 暗色主题（用法见下方文档）
+- ☁️ [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+
+### 使用暗色主题
+
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
+
+方式一：使用 Umi 3
+
+如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+
+1. 安装 `@umijs/plugin-antd` 插件;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. 配置 `dark: true`。
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true,
+     },
+   },
+   ```
+
+方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less)。
+
+```less
+@import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
+```
+
+如果项目不使用 Less，可在 CSS 文件中，全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css)。
+
+```css
+@import '~antd/dist/antd.dark.css';
+```
+
+方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+
+```diff
+const darkThemeVars = require('antd/dist/dark-theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: {
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
++          ...darkThemeVars,
++       },
++       javascriptEnabled: true,
++     },
+    }],
+  }],
+};
+```
 
 ## 社区教程
 

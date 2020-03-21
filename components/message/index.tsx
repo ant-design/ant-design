@@ -1,6 +1,10 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -56,17 +60,19 @@ export interface ArgsProps {
   key?: string | number;
 }
 
+const iconMap = {
+  info: InfoCircleFilled,
+  success: CheckCircleFilled,
+  error: CloseCircleFilled,
+  warning: ExclamationCircleFilled,
+  loading: LoadingOutlined,
+};
+
 function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const iconType = {
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'close-circle',
-    warning: 'exclamation-circle',
-    loading: 'loading',
-  }[args.type];
+  const IconComponent = iconMap[args.type];
 
-  const target = key++;
+  const target = args.key || key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
       if (typeof args.onClose === 'function') {
@@ -75,12 +81,8 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance(instance => {
-      const iconNode = (
-        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
-      );
-      const switchIconNode = iconType ? iconNode : '';
       instance.notice({
-        key: args.key || target,
+        key: target,
         duration,
         style: {},
         content: (
@@ -89,7 +91,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : switchIconNode}
+            {args.icon || (IconComponent && <IconComponent />)}
             <span>{args.content}</span>
           </div>
         ),
@@ -114,7 +116,10 @@ type JointContent = ConfigContent | ArgsProps;
 export type ConfigOnClose = () => void;
 
 function isArgsProps(content: JointContent): content is ArgsProps {
-  return typeof content === 'object' && !!(content as ArgsProps).content;
+  return (
+    Object.prototype.toString.call(content) === '[object Object]' &&
+    !!(content as ArgsProps).content
+  );
 }
 
 export interface ConfigOptions {

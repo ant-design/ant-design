@@ -72,11 +72,9 @@ title: Grid
 - 栅格系统中的列是指 1 到 24 的值来表示其跨越的范围。例如，三个等宽的列可以使用 `<Col span={8} />` 来创建
 - 如果一个 `row` 中的 `col` 总和超过 24，那么多余的 `col` 会作为一个整体另起一行排列
 
-## Flex 布局
+我们的栅格化系统基于 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。
 
-我们的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。
-
-Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但不拘泥于栅格。
+布局是基于 24 栅格来定义每一个『盒子』的宽度，但不拘泥于栅格。
 
 ## API
 
@@ -89,17 +87,17 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 | 成员 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| align | flex 布局下的垂直对齐方式：`top` `middle` `bottom` | string | `top` |  |
-| gutter | 栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 `{ xs: 8, sm: 16, md: 24}`。或者使用数组形式同时设置 `[水平间距, 垂直间距]`（`3.24.0 后支持`）。 | number/object/array | 0 |  |
-| justify | flex 布局下的水平排列方式：`start` `end` `center` `space-around` `space-between` | string | `start` |  |
-| type | 布局模式，可选 `flex`，[现代浏览器](http://caniuse.com/#search=flex) 下有效 | string |  |  |
+| align | 垂直对齐方式 | `top` \| `middle` \| `bottom` | `top` |  |
+| gutter | 栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 `{ xs: 8, sm: 16, md: 24}`。或者使用数组形式同时设置 `[水平间距, 垂直间距]`。 | number/object/array | 0 |  |
+| justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |  |
 
 ### Col
 
 | 成员 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| flex | flex 布局属性 | string \| number | - |  |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  |
-| order | 栅格顺序，`flex` 布局模式下有效 | number | 0 |  |
+| order | 栅格顺序 | number | 0 |  |
 | pull | 栅格向左移动格数 | number | 0 |  |
 | push | 栅格向右移动格数 | number | 0 |  |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  |
@@ -112,8 +110,9 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
-## FAQ
-
-### IE9 响应式不工作怎么办？
-
-可以引入 [matchMedia polyfill](https://github.com/paulirish/matchMedia.js/) 添加支持。
+<style>
+  [data-theme="dark"] #components-grid-demo-playground pre {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,.65);
+  }
+</style>

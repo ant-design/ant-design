@@ -36,7 +36,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   private animationStart: boolean = false;
 
-  private destroy: boolean = false;
+  private destroyed: boolean = false;
 
   private csp?: CSPConfig;
 
@@ -56,7 +56,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       clearTimeout(this.clickWaveTimeoutId);
     }
 
-    this.destroy = true;
+    this.destroyed = true;
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
@@ -101,16 +101,16 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   };
 
   onTransitionStart = (e: AnimationEvent) => {
-    if (this.destroy) return;
-
-    const node = findDOMNode(this) as HTMLElement;
-    if (!e || e.target !== node) {
+    if (this.destroyed) {
       return;
     }
 
-    if (!this.animationStart) {
-      this.resetEffect(node);
+    const node = findDOMNode(this) as HTMLElement;
+    if (!e || e.target !== node || this.animationStart) {
+      return;
     }
+
+    this.resetEffect(node);
   };
 
   onTransitionEnd = (e: AnimationEvent) => {
