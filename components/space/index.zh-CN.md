@@ -14,7 +14,7 @@ cols: 1
 
 ## API
 
-| 参数      | 说明     | 类型                                       | 默认值       |
-| --------- | -------- | ------------------------------------------ | ------------ |
-| size      | 间距大小 | `small` \| `middle` \| `large` \| `number` | `small`      |
-| direction | 间距方向 | `vertical` \| `horizontal`                 | `horizontal` |
+| 参数      | 说明     | 类型                                       | 默认值       | 版本  |
+| --------- | -------- | ------------------------------------------ | ------------ | ----- |
+| size      | 间距大小 | `small` \| `middle` \| `large` \| `number` | `small`      | 4.1.0 |
+| direction | 间距方向 | `vertical` \| `horizontal`                 | `horizontal` | 4.1.0 |
