@@ -4,8 +4,12 @@
 @space-prefix-cls: ~'@{ant-prefix}-space';
 
 .@{space-prefix-cls} {
+  display: inline-flex;
   &-horizontal {
-    display: inline-flex;
     align-items: center;
+  }
+  &-vertical {
+    flex-direction: column;
+    width: 100%;
   }
 }
