@@ -1,8 +1,12 @@
 import React from 'react';
 import puppeteer from 'puppeteer';
-import { toMatchImageSnapshot } from 'jest-image-snapshot';
+import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import ReactDOMServer from 'react-dom/server';
 import { Col, Row } from '..';
+
+const toMatchImageSnapshot = configureToMatchImageSnapshot({
+  dumpDiffToConsole: true,
+});
 
 expect.extend({ toMatchImageSnapshot });
 
