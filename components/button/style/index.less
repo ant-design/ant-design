@@ -227,8 +227,12 @@
   }
 
   // https://github.com/ant-design/ant-design/issues/12681
+  // same method as Select
   &:empty {
-    vertical-align: top;
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+    content: '\a0';
   }
 }
 
