@@ -74,7 +74,7 @@ const splitObject = (obj: any, keys: string[]) => {
 // Fix Tooltip won't hide at disabled button
 // mouse events don't trigger at disabled button in Chrome
 // https://github.com/react-component/tooltip/issues/18
-function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
   const elementType = element.type as any;
   if (
     (elementType.__ANT_BUTTON === true ||
@@ -110,7 +110,10 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
       className: null,
     });
     return (
-      <span style={spanStyle} className={element.props.className}>
+      <span
+        style={spanStyle}
+        className={classNames(element.props.className, `${prefixCls}-disabled-compatible-wrapper`)}
+      >
         {child}
       </span>
     );
@@ -238,6 +241,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
 
     const child = getDisabledCompatibleChildren(
       React.isValidElement(children) ? children : <span>{children}</span>,
+      prefixCls,
     );
 
     const childProps = child.props;
