@@ -240,7 +240,6 @@ exports[`Progress render strokeColor 1`] = `
 
 exports[`Progress render strokeColor 2`] = `
 <Progress
-  gapDegree={0}
   percent={50}
   showInfo={true}
   size="default"
@@ -258,7 +257,6 @@ exports[`Progress render strokeColor 2`] = `
     className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <Line
-      gapDegree={0}
       percent={50}
       prefixCls="ant-progress"
       showInfo={true}
@@ -305,7 +303,6 @@ exports[`Progress render strokeColor 2`] = `
 
 exports[`Progress render strokeColor 3`] = `
 <Progress
-  gapDegree={0}
   percent={50}
   showInfo={true}
   size="default"
@@ -323,7 +320,6 @@ exports[`Progress render strokeColor 3`] = `
     className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <Line
-      gapDegree={0}
       percent={50}
       prefixCls="ant-progress"
       showInfo={true}
