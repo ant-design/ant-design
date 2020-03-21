@@ -9,9 +9,13 @@ title:
 
 相邻组件垂直间距。
 
+可以设置 `width: 100%` 独占一行。
+
 ## en-US
 
 Crowded components vertical spacing.
+
+Can set `width: 100%` fill a row.
 
 ```jsx
 import { Space, Card } from 'antd';
