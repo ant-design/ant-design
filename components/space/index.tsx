@@ -38,10 +38,7 @@ const Space: React.FC<SpaceProps> = props => {
   }
 
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const cn = classnames(prefixCls, className, {
-    [`${prefixCls}-vertical`]: direction === 'vertical',
-    [`${prefixCls}-horizontal`]: direction === 'horizontal',
-  });
+  const cn = classnames(prefixCls, `${prefixCls}-${direction}`, className);
 
   const itemClassName = `${prefixCls}-item`;
 
