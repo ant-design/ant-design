@@ -89,6 +89,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
     "site:test": "jest --config .jest.site.js --cache=false",
+    "test:image": "jest --config .jest.image.js --no-cache",
     "version": "node ./scripts/generate-version"
   },
   "husky": {
