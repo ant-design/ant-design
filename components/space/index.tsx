@@ -30,7 +30,10 @@ const Space: React.FC<SpaceProps> = props => {
     ...otherProps
   } = props;
 
-  if (children === null || children === undefined) {
+  const items = toArray(children);
+  const len = items.length;
+
+  if (len === 0) {
     return null;
   }
 
@@ -40,32 +43,26 @@ const Space: React.FC<SpaceProps> = props => {
     [`${prefixCls}-horizontal`]: direction === 'horizontal',
   });
 
-  const injectStyles = (isLast: boolean) => {
-    if (isLast) {
-      return {};
-    }
-    return {
-      [direction === 'vertical' ? 'marginBottom' : 'marginRight']:
-        typeof size === 'string' ? spaceSize[size] : size,
-    };
-  };
-
-  const items = toArray(children);
-
-  const len = items.length;
   const itemClassName = `${prefixCls}-item`;
-
-  const transformChild = (child: React.ReactNode, styles: React.CSSProperties) => {
-    return (
-      <div className={itemClassName} style={styles}>
-        {child}
-      </div>
-    );
-  };
 
   return (
     <div className={cn} {...otherProps}>
-      {items.map((child, i) => transformChild(child, injectStyles(i === len - 1)))}
+      {items.map((child, i) => (
+        <div
+          className={itemClassName}
+          key={`${itemClassName}-i`}
+          style={
+            i === len - 1
+              ? {}
+              : {
+                  [direction === 'vertical' ? 'marginBottom' : 'marginRight']:
+                    typeof size === 'string' ? spaceSize[size] : size,
+                }
+          }
+        >
+          {child}
+        </div>
+      ))}
     </div>
   );
 };
