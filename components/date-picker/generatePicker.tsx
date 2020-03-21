@@ -99,6 +99,7 @@ export type AdditionalPickerLocaleProps = {
 export type AdditionalPickerLocaleLangProps = {
   placeholder: string;
   yearPlaceholder?: string;
+  quarterPlaceholder?: string;
   monthPlaceholder?: string;
   weekPlaceholder?: string;
   rangeYearPlaceholder?: [string, string];
