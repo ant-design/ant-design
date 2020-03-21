@@ -147,7 +147,6 @@
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@qixian.cs/github-contributors-list": "^1.0.3",
-    "@sentry/browser": "^5.4.0",
     "@stackblitz/sdk": "^1.3.0",
     "@types/classnames": "^2.2.8",
     "@types/gtag.js": "^0.0.3",
