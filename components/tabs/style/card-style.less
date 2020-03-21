@@ -15,7 +15,7 @@
     height: @tabs-card-height;
     margin: 0;
     margin-right: @tabs-card-gutter;
-    padding: 0 16px;
+    padding: 0 @padding-md;
     line-height: @tabs-card-height - 2px;
     background: @tabs-card-head-background;
     border: @border-width-base @border-style-base @border-color-split;
@@ -34,7 +34,6 @@
     }
   }
   &&-card &-card-bar &-tab-disabled {
-    color: @tabs-card-active-color;
     color: @disabled-color;
   }
   &&-card &-card-bar &-tab-inactive {
@@ -45,7 +44,6 @@
   }
   &&-card &-card-bar &-tab &-close-x {
     width: 16px;
-    height: 16px;
     height: @font-size-base;
     margin-right: -5px;
     margin-left: 3px;
@@ -126,13 +124,13 @@
       height: 100%;
     }
     .@{tab-prefix-cls}-tab {
-      margin-bottom: 8px;
+      margin-bottom: @margin-sm;
       border-bottom: @border-width-base @border-style-base @border-color-split;
       &-active {
         padding-bottom: 4px;
       }
       &:last-child {
-        margin-bottom: 8px;
+        margin-bottom: @margin-sm;
       }
     }
     .@{tab-prefix-cls}-new-tab {
@@ -150,7 +148,7 @@
       border-radius: @border-radius-base 0 0 @border-radius-base;
       &-active {
         margin-right: -1px;
-        padding-right: 18px;
+        padding-right: @padding-md + 2px;
       }
     }
   }
@@ -165,7 +163,7 @@
       border-radius: 0 @border-radius-base @border-radius-base 0;
       &-active {
         margin-left: -1px;
-        padding-left: 18px;
+        padding-left: @padding-md + 2px;
       }
     }
   }
