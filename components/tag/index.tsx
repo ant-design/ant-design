@@ -18,6 +18,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   visible?: boolean;
   onClose?: Function;
   style?: React.CSSProperties;
+  icon?: React.ReactNode;
 }
 
 interface TagState {
@@ -106,10 +107,20 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {
-    const { children, ...otherProps } = this.props;
+    const { children, icon, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
     const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
+    const iconNode = icon || null;
+    const kids = iconNode ? (
+      <>
+        {iconNode}
+        <span>{children}</span>
+      </>
+    ) : (
+      children
+    );
+
     return isNeedWave ? (
       <Wave>
         <span
@@ -117,13 +128,13 @@ class Tag extends React.Component<TagProps, TagState> {
           className={this.getTagClassName(configProps)}
           style={this.getTagStyle()}
         >
-          {children}
+          {kids}
           {this.renderCloseIcon()}
         </span>
       </Wave>
     ) : (
       <span {...tagProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
-        {children}
+        {kids}
         {this.renderCloseIcon()}
       </span>
     );
