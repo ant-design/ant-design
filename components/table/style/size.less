@@ -17,8 +17,8 @@
 
       // ========================= Nest Table ===========================
       .@{table-prefix-cls} {
-        margin-top: -@padding-vertical;
-        margin-bottom: -@padding-vertical;
+        margin: -@padding-vertical -@padding-horizontal -@padding-vertical (@padding-horizontal +
+              ceil(@font-size-sm * 1.4));
       }
     }
 
