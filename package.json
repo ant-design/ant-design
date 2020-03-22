@@ -131,7 +131,7 @@
     "rc-tabs": "~10.0.0",
     "rc-tooltip": "~4.0.2",
     "rc-tree": "~3.0.0",
-    "rc-tree-select": "~3.0.0",
+    "rc-tree-select": "~3.0.5",
     "rc-trigger": "~4.0.0",
     "rc-upload": "~3.0.0",
     "rc-util": "^4.20.0",
