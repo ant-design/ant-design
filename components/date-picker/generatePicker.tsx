@@ -273,7 +273,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       const {
         prefixCls: customizePrefixCls,
         className,
-        size,
+        size: customizeSize,
         bordered = true,
         ...restProps
       } = this.props;
@@ -289,30 +289,38 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       };
 
       return (
-        <RCRangePicker<DateType>
-          separator={<span className={`${prefixCls}-separator`}>→</span>}
-          ref={this.pickerRef}
-          placeholder={getRangePlaceholder(picker, locale)}
-          suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-          clearIcon={<CloseCircleFilled />}
-          allowClear
-          transitionName="slide-up"
-          {...restProps}
-          className={classNames(className, {
-            [`${prefixCls}-${size}`]: size,
-            [`${prefixCls}-borderless`]: !bordered,
-          })}
-          {...additionalOverrideProps}
-          locale={locale!.lang}
-          prefixCls={prefixCls}
-          generateConfig={generateConfig}
-          prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-          nextIcon={<span className={`${prefixCls}-next-icon`} />}
-          superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-          superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-          components={Components}
-          direction={direction}
-        />
+        <SizeContext.Consumer>
+          {size => {
+            const mergedSize = customizeSize || size;
+
+            return (
+              <RCRangePicker<DateType>
+                separator={<span className={`${prefixCls}-separator`}>→</span>}
+                ref={this.pickerRef}
+                placeholder={getRangePlaceholder(picker, locale)}
+                suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+                clearIcon={<CloseCircleFilled />}
+                allowClear
+                transitionName="slide-up"
+                {...restProps}
+                className={classNames(className, {
+                  [`${prefixCls}-${mergedSize}`]: mergedSize,
+                  [`${prefixCls}-borderless`]: !bordered,
+                })}
+                {...additionalOverrideProps}
+                locale={locale!.lang}
+                prefixCls={prefixCls}
+                generateConfig={generateConfig}
+                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                components={Components}
+                direction={direction}
+              />
+            );
+          }}
+        </SizeContext.Consumer>
       );
     };
 
