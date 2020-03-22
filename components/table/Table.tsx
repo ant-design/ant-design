@@ -446,7 +446,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 }
 
 Table.defaultProps = {
-  rowKey: 'key',
+  rowKey: (record: any, index: number) => index,
 };
 
 Table.SELECTION_ALL = SELECTION_ALL;
