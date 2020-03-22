@@ -48,7 +48,15 @@ const Circle: React.SFC<CircleProps> = props => {
   };
   const circleWidth = strokeWidth || 6;
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
-  const gapDeg = gapDegree || (type === 'dashboard' ? 75 : undefined);
+  // Support gapDeg = 0 when type = 'dashboard'
+  let gapDeg;
+  if (gapDegree || gapDegree === 0) {
+    gapDeg = gapDegree;
+  }
+  else if (type === 'dashboard') {
+    gapDeg = 75;
+  }
+
   // using className to style stroke color
   const strokeColor = getStrokeColor(props) as string | string[] | object;
   const isGradient = Object.prototype.toString.call(strokeColor) === '[object Object]';
