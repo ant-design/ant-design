@@ -64,7 +64,7 @@ export interface SliderState {
 export default class Slider extends React.Component<SliderProps, SliderState> {
   static defaultProps = {
     tipFormatter(value: number) {
-      return value.toString();
+      return typeof value === 'number' ? value.toString() : '';
     },
   };
 
