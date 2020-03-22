@@ -34,6 +34,7 @@ Tree selection control.
 | placeholder | Placeholder of the select input | string | - |  |
 | searchValue | work with `onSearch` to make search value controlled. | string | - |  |
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
+| switcherIcon | customize collapse/expand icon of tree node | ReactNode | - |
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |  |
 | showSearch | Support search or not | boolean | single: `false` \| multiple: `true` |  |
 | size | To set the size of the select input | `large` \| `middle` \| `small` |  |  |

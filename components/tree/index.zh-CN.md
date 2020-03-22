@@ -37,7 +37,7 @@ subtitle: 树形控件
 | selectable | 是否可选中 | boolean | true |
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |
-| switcherIcon | 自定义树节点的展开/折叠图标 | React.ReactElement | - |
+| switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |
 | showLine | 是否展示连接线 | boolean | false |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |
