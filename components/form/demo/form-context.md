@@ -31,9 +31,8 @@ interface ModalFormProps {
   onCancel: () => void;
 }
 
-const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
-  const [form] = Form.useForm();
-
+// reset form fields when modal is form, closed
+const useResetFormOnCloseModal = ({ visible }) => {
   const prevVisibleRef = useRef();
   useEffect(() => {
     prevVisibleRef.current = visible;
@@ -41,11 +40,19 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   const prevVisible = prevVisibleRef.current;
 
   useEffect(() => {
-    console.log(visible, prevVisible);
     if (!visible && prevVisible) {
       form.resetFields();
     }
   }, [visible]);
+};
+
+const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
+  const [form] = Form.useForm();
+
+  useResetFormOnCloseModal({
+    form,
+    visible,
+  });
 
   const onOk = () => {
     form.submit();
