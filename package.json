@@ -211,7 +211,7 @@
     "node-fetch": "^2.6.0",
     "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
-    "prettier": "^1.17.1",
+    "prettier": "^2.0.1",
     "pretty-quick": "^2.0.0",
     "querystring": "^0.2.0",
     "rc-footer": "^0.6.0",
