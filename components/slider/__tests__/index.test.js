@@ -87,4 +87,10 @@ describe('Slider', () => {
     await sleep(20);
     expect(wrapper.find('Tooltip').instance().tooltip.forcePopupAlign).toHaveBeenCalled();
   });
+
+  it('tipFormatter should not crash with undefined value', () => {
+    [undefined, null].forEach(value => {
+      mount(<Slider value={value} tooltipVisible />);
+    });
+  });
 });
