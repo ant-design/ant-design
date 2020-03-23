@@ -22,7 +22,7 @@ Tree selection control.
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. | boolean | true |  |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownStyle | To set the style of the dropdown menu | object | - |  |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |  |
@@ -50,6 +50,7 @@ Tree selection control.
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value' |  |
 | treeNodeLabelProp | Will render as content of select | string | 'title' |  |
 | value | To set the current selected treeNode(s). | string\|string\[] | - |  |
+| virtual | Disable virtual scroll when set to `false` | boolean | - | 4.1.0 |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
 | onSearch | A callback function, can be executed when the search input changes. | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode. | function(value, node, extra) | - |  |

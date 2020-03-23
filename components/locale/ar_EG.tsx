@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ar_EG';
 import DatePicker from '../date-picker/locale/ar_EG';
 import TimePicker from '../time-picker/locale/ar_EG';
 import Calendar from '../calendar/locale/ar_EG';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ar',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'لا توجد بيانات',
   },
 };
+
+export default localeValues;

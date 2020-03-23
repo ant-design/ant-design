@@ -1,7 +1,8 @@
 import TimePickerLocale from '../../time-picker/locale/sl_SI';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     locale: 'sl',
     placeholder: 'Izberite datum',

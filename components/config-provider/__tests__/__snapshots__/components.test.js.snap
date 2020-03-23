@@ -1255,9 +1255,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell"
                   title="2000-08-27"
@@ -1378,9 +1376,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view config-picker-cell-selected"
                   title="2000-09-03"
@@ -1501,9 +1497,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view"
                   title="2000-09-10"
@@ -1624,9 +1618,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view"
                   title="2000-09-17"
@@ -1747,9 +1739,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view"
                   title="2000-09-24"
@@ -1870,9 +1860,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell"
                   title="2000-10-01"
@@ -2262,7 +2250,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
                 <td
-                  class="config-picker-cell config-picker-cell-selected config-picker-cell-in-view"
+                  class="config-picker-cell config-picker-cell-in-view config-picker-cell-selected"
                   title="2000-09"
                 >
                   <div
@@ -2546,9 +2534,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2000-08-27"
@@ -2669,9 +2655,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
                   title="2000-09-03"
@@ -2792,9 +2776,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2000-09-10"
@@ -2915,9 +2897,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2000-09-17"
@@ -3038,9 +3018,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2000-09-24"
@@ -3161,9 +3139,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2000-10-01"
@@ -3553,7 +3529,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
                   title="2000-09"
                 >
                   <div
@@ -3837,9 +3813,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell"
                   title="2000-08-27"
@@ -3960,9 +3934,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view prefix-Calendar-cell-selected"
                   title="2000-09-03"
@@ -4083,9 +4055,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view"
                   title="2000-09-10"
@@ -4206,9 +4176,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view"
                   title="2000-09-17"
@@ -4329,9 +4297,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view"
                   title="2000-09-24"
@@ -4452,9 +4418,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell"
                   title="2000-10-01"
@@ -4844,7 +4808,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
                 <td
-                  class="prefix-Calendar-cell prefix-Calendar-cell-selected prefix-Calendar-cell-in-view"
+                  class="prefix-Calendar-cell prefix-Calendar-cell-in-view prefix-Calendar-cell-selected"
                   title="2000-09"
                 >
                   <div
@@ -9271,57 +9235,55 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
           class="config-popover-inner"
           role="tooltip"
         >
-          <div>
+          <div
+            class="config-popover-inner-content"
+          >
             <div
-              class="config-popover-inner-content"
+              class="config-popover-message"
             >
-              <div
-                class="config-popover-message"
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+              <div
+                class="config-popover-message-title"
+              />
+            </div>
+            <div
+              class="config-popover-buttons"
+            >
+              <button
+                class="config-btn config-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
                 </span>
-                <div
-                  class="config-popover-message-title"
-                />
-              </div>
-              <div
-                class="config-popover-buttons"
+              </button>
+              <button
+                class="config-btn config-btn-primary config-btn-sm"
+                type="button"
               >
-                <button
-                  class="config-btn config-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="config-btn config-btn-primary config-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </div>
+                <span>
+                  OK
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -9353,57 +9315,55 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
           class="ant-popover-inner"
           role="tooltip"
         >
-          <div>
+          <div
+            class="ant-popover-inner-content"
+          >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popover-message"
             >
-              <div
-                class="ant-popover-message"
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+              <div
+                class="ant-popover-message-title"
+              />
+            </div>
+            <div
+              class="ant-popover-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
                 </span>
-                <div
-                  class="ant-popover-message-title"
-                />
-              </div>
-              <div
-                class="ant-popover-buttons"
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </div>
+                <span>
+                  OK
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -9435,57 +9395,55 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
           class="prefix-Popconfirm-inner"
           role="tooltip"
         >
-          <div>
+          <div
+            class="prefix-Popconfirm-inner-content"
+          >
             <div
-              class="prefix-Popconfirm-inner-content"
+              class="prefix-Popconfirm-message"
             >
-              <div
-                class="prefix-Popconfirm-message"
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+              <div
+                class="prefix-Popconfirm-message-title"
+              />
+            </div>
+            <div
+              class="prefix-Popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
                 </span>
-                <div
-                  class="prefix-Popconfirm-message-title"
-                />
-              </div>
-              <div
-                class="prefix-Popconfirm-buttons"
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </div>
+                <span>
+                  OK
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -9517,11 +9475,9 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
           class="config-popover-inner"
           role="tooltip"
         >
-          <div>
-            <div
-              class="config-popover-inner-content"
-            />
-          </div>
+          <div
+            class="config-popover-inner-content"
+          />
         </div>
       </div>
     </div>
@@ -9551,11 +9507,9 @@ exports[`ConfigProvider components Popover normal 1`] = `
           class="ant-popover-inner"
           role="tooltip"
         >
-          <div>
-            <div
-              class="ant-popover-inner-content"
-            />
-          </div>
+          <div
+            class="ant-popover-inner-content"
+          />
         </div>
       </div>
     </div>
@@ -9585,11 +9539,9 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
           class="prefix-Popover-inner"
           role="tooltip"
         >
-          <div>
-            <div
-              class="prefix-Popover-inner-content"
-            />
-          </div>
+          <div
+            class="prefix-Popover-inner-content"
+          />
         </div>
       </div>
     </div>
@@ -11811,16 +11763,23 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               <div
                                 class="config-table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="config-table-filter-dropdown-link confirm"
+                                <button
+                                  class="config-btn config-btn-link config-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="config-table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="config-btn config-btn-primary config-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -12150,16 +12109,23 @@ exports[`ConfigProvider components Table normal 1`] = `
                               <div
                                 class="ant-table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="ant-table-filter-dropdown-link confirm"
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="ant-table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -12489,16 +12455,23 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               <div
                                 class="prefix-Table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="prefix-Table-filter-dropdown-link confirm"
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="prefix-Table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -12658,7 +12631,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   <div
     class="config-tabs-bar config-tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="config-tabs-nav-container"
@@ -12732,10 +12705,13 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-Light"
                 aria-disabled="false"
                 aria-selected="true"
                 class="config-tabs-tab-active config-tabs-tab"
+                id="tab-Light"
                 role="tab"
+                tabindex="0"
               >
                 Bamboo
               </div>
@@ -12749,11 +12725,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="config-tabs-content config-tabs-content-animated config-tabs-top-content"
     style="margin-left:0%"
   >
@@ -12761,24 +12732,10 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       aria-hidden="false"
       class="config-tabs-tabpane config-tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -12789,7 +12746,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="ant-tabs-nav-container"
@@ -12863,10 +12820,13 @@ exports[`ConfigProvider components Tabs normal 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-Light"
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
+                id="tab-Light"
                 role="tab"
+                tabindex="0"
               >
                 Bamboo
               </div>
@@ -12880,11 +12840,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
@@ -12892,24 +12847,10 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -12920,7 +12861,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   <div
     class="prefix-Tabs-bar prefix-Tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="prefix-Tabs-nav-container"
@@ -12994,10 +12935,13 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-Light"
                 aria-disabled="false"
                 aria-selected="true"
                 class="prefix-Tabs-tab-active prefix-Tabs-tab"
+                id="tab-Light"
                 role="tab"
+                tabindex="0"
               >
                 Bamboo
               </div>
@@ -13011,11 +12955,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="prefix-Tabs-content prefix-Tabs-content-animated prefix-Tabs-top-content"
     style="margin-left:0%"
   >
@@ -13023,24 +12962,10 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       aria-hidden="false"
       class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 

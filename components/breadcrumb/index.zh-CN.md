@@ -26,11 +26,12 @@ title: Breadcrumb
 
 ### Breadcrumb.Item
 
-| 参数    | 说明           | 类型                                   | 默认值 | 版本 |
-| ------- | -------------- | -------------------------------------- | ------ | ---- |
-| href    | 链接的目的地   | string                                 | -      |      |
-| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | -      |      |
-| onClick | 单击事件       | (e:MouseEvent)=>void                   | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| href | 链接的目的地 | string | - |  |
+| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
+| onClick | 单击事件 | (e:MouseEvent)=>void | - |  |
+| dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - |  |
 
 ### Breadcrumb.Separator
 

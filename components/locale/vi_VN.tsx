@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/vi_VN';
 import DatePicker from '../date-picker/locale/vi_VN';
 import TimePicker from '../time-picker/locale/vi_VN';
 import Calendar from '../calendar/locale/vi_VN';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'vi',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'Trống',
   },
 };
+
+export default localeValues;

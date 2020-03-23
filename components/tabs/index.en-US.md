@@ -37,6 +37,7 @@ Ant Design has 3 types of Tabs for different situations.
 | onNextClick | Callback executed when next button is clicked | Function | - |
 | onPrevClick | Callback executed when prev button is clicked | Function | - |
 | onTabClick | Callback executed when tab is clicked | Function(key: string, event: MouseEvent) | - |
+| keyboard | whether to turn on keyboard navigation | boolean | true |
 
 More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 
