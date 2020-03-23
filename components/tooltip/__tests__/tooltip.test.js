@@ -279,6 +279,7 @@ describe('Tooltip', () => {
         placement="bottomLeft"
         visible
         transitionName=""
+        mouseEnterDelay={0}
       >
         <span>
           Hello world!
@@ -287,11 +288,6 @@ describe('Tooltip', () => {
     );
     await sleep(500);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
-    wrapper.setProps({
-      placement: 'topRight',
-    });
-    await sleep(500);
-    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
 
   it('other placement when mouse enter', async () => {
@@ -300,6 +296,7 @@ describe('Tooltip', () => {
         title="xxxxx"
         placement="topRight"
         transitionName=""
+        mouseEnterDelay={0}
       >
         <span>
           Hello world!
