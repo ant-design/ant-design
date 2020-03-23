@@ -1,14 +1,8 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
-import { Settings } from '@ant-design/react-slick';
+import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-// Use require over import (will be lifted up)
-// make sure matchMedia polyfill run before require('react-slick')
-// Fix https://github.com/ant-design/ant-design/issues/6560
-// Fix https://github.com/ant-design/ant-design/issues/3308
-const SlickCarousel = require('@ant-design/react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
