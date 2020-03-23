@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.14
+
+`2020-03-23`
+
+- 🐞 Fix Descriptions cannot fit to small container width. [#22407](https://github.com/ant-design/ant-design/pull/22407)
+- 🐞 Fix TextArea `autoSize` don't scroll bottom in Firefox. [#22014](https://github.com/ant-design/ant-design/pull/22014)
+- 🐞 Fix TextArea style get warning in `react@16.13`. [#21703](https://github.com/ant-design/ant-design/pull/21703)
+- Typescript
+  - Adjust Popconfirm `onConfirm` `onCancel` event definition. [#22438](https://github.com/ant-design/ant-design/pull/22438) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
+
 ## 3.26.13
 
 `2020-03-07`
@@ -32,7 +42,6 @@ timeline: true
 - 🐞 修复 Input 在设置 `readOnly` 时 `allowClear` 仍然可以清除的问题。[#21492](https://github.com/ant-design/ant-design/pull/21492)
 - 🐞 修复 Upload 列表默认情况下不展现下载按钮。[#21496](https://github.com/ant-design/ant-design/pull/21496)
 - ⚡️ 提升 Button 渲染性能。[#21217](https://github.com/ant-design/ant-design/pull/21217)
-
 
 ## 3.26.11
 

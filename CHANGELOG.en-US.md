@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.14
+
+`2020-03-23`
+
+- 🐞 修复 Descriptions 在小尺寸下无法自适应的问题。[#22407](https://github.com/ant-design/ant-design/pull/22407)
+- 🐞 修复 TextArea `autoSize` 时在 Firefox 下不会自动滚动到底的问题。[#22014](https://github.com/ant-design/ant-design/pull/22014)
+- 🐞 修复 TextArea 样式在 `react@16.13` 下会报警告的问题。[#21703](https://github.com/ant-design/ant-design/pull/21703)
+- Typescript
+  - 调整 Popconfirm `onConfirm` `onCancel` 事件类型定义。[#22438](https://github.com/ant-design/ant-design/pull/22438) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
+
 ## 3.26.13
 
 `2020-03-07`
@@ -25,14 +35,13 @@ timeline: true
 - 🐞 Fix Grid multiple Rows `margin` overlapping. [#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
 - 🐞 Fix Table filter menu max height with many items. [#21602](https://github.com/ant-design/ant-design/pull/21602)
 
-
 ## 3.26.12
 
 `2020-02-24`
 
 - 🐞 Fix Input with `readOnly` still clearable by `allowClear`. [#21492](https://github.com/ant-design/ant-design/pull/21492)
 - 🐞 Fix Upload won't showing download icon defaultly. [#21496](https://github.com/ant-design/ant-design/pull/21496)
-- ⚡️  Improve Button render performance. [#21217](https://github.com/ant-design/ant-design/pull/21217)
+- ⚡️ Improve Button render performance. [#21217](https://github.com/ant-design/ant-design/pull/21217)
 
 ## 3.26.11
 
