@@ -2,8 +2,6 @@
 
 @mode: compact;
 
-@line-height-base: 1.2858;
-
 // vertical paddings
 @padding-lg: 16px; // containers
 @padding-md: 8px; // small containers and buttons
@@ -17,7 +15,7 @@
 
 // vertical margins
 @margin-lg: 16px; // containers
-@margin-md: 12px; // small containers and buttons
+@margin-md: 8px; // small containers and buttons
 @margin-sm: 8px; // Form controls and items
 @margin-xs: 4px; // small items
 @margin-xss: 0px; // more small
@@ -29,6 +27,14 @@
 
 //Dropdown
 @dropdown-line-height: 18px;
+
+// Input
+// ---
+@input-padding-vertical-base: max(
+  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+    @border-width-base,
+  2px
+);
 
 // PageHeader
 // ---
@@ -61,6 +67,7 @@
 @steps-icon-margin: 2px 8px 2px 0;
 @steps-icon-font-size: @font-size-base;
 @steps-dot-top: 4px;
+@steps-icon-top: 0px;
 
 // Collapse
 // ---
@@ -90,3 +97,21 @@
 // Card
 // ---
 @card-padding-base: 16px;
+@card-head-height: 36px;
+@card-head-font-size: @card-head-font-size-sm;
+@card-head-padding: 8px;
+@card-padding-base: 12px;
+@card-padding-base-sm: @card-padding-base;
+@card-head-height-sm: 30px;
+@card-head-padding-sm: 4px;
+@card-actions-li-margin: 4px 0;
+@card-head-tabs-margin-bottom: -9px;
+
+// Table
+// ---
+@table-padding-vertical: 12px;
+@table-padding-horizontal: 8px;
+@table-padding-vertical-md: 8px;
+@table-padding-horizontal-md: 8px;
+@table-padding-vertical-sm: 8px;
+@table-padding-horizontal-sm: 8px;

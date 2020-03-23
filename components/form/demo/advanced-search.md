@@ -99,6 +99,7 @@ ReactDOM.render(
 ```
 
 ```css
+[data-theme='compact'] .ant-advanced-search-form,
 .ant-advanced-search-form {
   padding: 24px;
   background: #fbfbfb;
@@ -106,10 +107,12 @@ ReactDOM.render(
   border-radius: 2px;
 }
 
+[data-theme='compact'] .ant-advanced-search-form .ant-form-item,
 .ant-advanced-search-form .ant-form-item {
   display: flex;
 }
 
+[data-theme='compact'] .ant-advanced-search-form .ant-form-item-control-wrapper,
 .ant-advanced-search-form .ant-form-item-control-wrapper {
   flex: 1;
 }
