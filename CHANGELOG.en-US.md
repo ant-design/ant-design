@@ -15,6 +15,85 @@ timeline: true
 
 ---
 
+## 4.0.4
+
+`2020-03-23`
+
+- 🐞 Fix AutoComplete clear icon overlap issue on search icon. [#22310](https://github.com/ant-design/ant-design/pull/22310)
+- 🐞 Fix Button align issue when is `disabled` and wrapped by Tooltip. [#22461](https://github.com/ant-design/ant-design/pull/22461)
+- 🐞 Fix Cascader search need to press down arrow twice to select item(#16762). [#22216](https://github.com/ant-design/ant-design/pull/22216) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 Fix ConfigProvider `componentSize` not works on DatePicker.RangePicker. [#22486](https://github.com/ant-design/ant-design/pull/22486)
+- 🐞 Fix Descriptions cannot fit to small container width. [#22407](https://github.com/ant-design/ant-design/pull/22407)
+- ⚡️ Optimization Form.Item with multiple noStyle children Form.Item message collection performance. [#22410](https://github.com/ant-design/ant-design/pull/22410)
+- 🐞 Fix Grid broken style using Col without `span`. [#22455](https://github.com/ant-design/ant-design/pull/22455)
+- 💄 Add InputNumber RTL style. [#22434](https://github.com/ant-design/ant-design/pull/22434)
+- Menu
+  - 🛠 Menu inherit `line-height` from header. [#16142](https://github.com/ant-design/ant-design/pull/16142) [@sheerun](https://github.com/sheerun)
+  - 🐞 Fix Menu unexpected scrollbar when show and hide. [#22248](https://github.com/ant-design/ant-design/pull/22248)
+- 🐞 Fix Progress Dashboard won't allow `gapDeg` to be `0`. [#22462](https://github.com/ant-design/ant-design/pull/22462) [@thisrabbit](https://github.com/thisrabbit)
+- 🛠 Adjust Radio.Group logic that `value` is `undefined` should be uncontrolled mode. [#22245](https://github.com/ant-design/ant-design/pull/22245)
+- ⚡️ Reduce Row unnecessary render when `gutter` is array. [#22475](https://github.com/ant-design/ant-design/pull/22475) [@dolfje](https://github.com/dolfje)
+- 💄 Tweak RangePicker arrow shadow style. [#22406](https://github.com/ant-design/ant-design/pull/22406)
+- 🐞 Fix Select dropdown menu vertical padding. [#22251](https://github.com/ant-design/ant-design/pull/22251)
+- 🐞 Fix Slider tooltip crash when with `nullable` value. [#22482](https://github.com/ant-design/ant-design/pull/22482)
+- Table
+  - 🐞 Fix Table ColumnGroup with controlled `sorterOrder` not working issue. [#22450](https://github.com/ant-design/ant-design/pull/22450)
+  - 🐞 Fix Table border radius style. [#22413](https://github.com/ant-design/ant-design/pull/22413) [@akshatmittal](https://github.com/akshatmittal)
+  - 🐞 Fix Table fixed column height issue. [#22367](https://github.com/ant-design/ant-design/pull/22367)
+  - 🐞Fix Table row expand icon show error in ipad. [#22334](https://github.com/ant-design/ant-design/pull/22334) [@BugHiding](https://github.com/BugHiding)
+  - 🛠 Table `column.filter` support `boolean` value. [#22277](https://github.com/ant-design/ant-design/pull/22277) [@xudongdev](https://github.com/xudongdev)
+  - 🐞 Fix Table filter no working when only set `onFilter`. [#22317](https://github.com/ant-design/ant-design/pull/22317)
+- 🐞 Fix TreeSelect `treeIcon` not working. [#22437](https://github.com/ant-design/ant-design/pull/22437)
+- 🐞 Refactor DirectoryTree to fix deprecated warning. [#22318](https://github.com/ant-design/ant-design/pull/22318)
+- 🐞 Fix Typography nest list style issue. [#22284](https://github.com/ant-design/ant-design/pull/22284)
+- 🐞 Adjust Upload `onChange` return `fileList` is immutable data to avoid render issue. [#22322](https://github.com/ant-design/ant-design/pull/22322)
+- 💄 Move RTL style to single less file.
+  - Alert [#22339](https://github.com/ant-design/ant-design/pull/22339)
+  - Badge [#22320](https://github.com/ant-design/ant-design/pull/22320)
+  - Breadcrumb [#22258](https://github.com/ant-design/ant-design/pull/22258)
+  - Button [#22384](https://github.com/ant-design/ant-design/pull/22384) [#22260](https://github.com/ant-design/ant-design/pull/22260) [#22252](https://github.com/ant-design/ant-design/pull/22252)
+  - Carousel [#22330](https://github.com/ant-design/ant-design/pull/22330)
+  - Comment [#22320](https://github.com/ant-design/ant-design/pull/22320)
+  - Collapse [#22320](https://github.com/ant-design/ant-design/pull/22320)
+  - DatePicker [#22414](https://github.com/ant-design/ant-design/pull/22414)
+  - Descriptions [#22330](https://github.com/ant-design/ant-design/pull/22330)
+  - Drawer [#22354](https://github.com/ant-design/ant-design/pull/22354)
+  - Dropdown [#22258](https://github.com/ant-design/ant-design/pull/22258)
+  - Empty [#22330](https://github.com/ant-design/ant-design/pull/22330)
+  - Form [#22389](https://github.com/ant-design/ant-design/pull/22389)
+  - Grid [#22384](https://github.com/ant-design/ant-design/pull/22384) [#22252](https://github.com/ant-design/ant-design/pull/22252)
+  - Input [#22399](https://github.com/ant-design/ant-design/pull/22399)
+  - List [#22384](https://github.com/ant-design/ant-design/pull/22384) [#22331](https://github.com/ant-design/ant-design/pull/22331)
+  - Menu [#22271](https://github.com/ant-design/ant-design/pull/22271)
+  - Modal [#22354](https://github.com/ant-design/ant-design/pull/22354)
+  - PageHeader [#22271](https://github.com/ant-design/ant-design/pull/22271)
+  - Pagination [#22271](https://github.com/ant-design/ant-design/pull/22271)
+  - Popover [#22331](https://github.com/ant-design/ant-design/pull/22331)
+  - Progress [#22354](https://github.com/ant-design/ant-design/pull/22354)
+  - Radio [#22405](https://github.com/ant-design/ant-design/pull/22405)
+  - Rate [#22294](https://github.com/ant-design/ant-design/pull/22294)
+  - Result [#22354](https://github.com/ant-design/ant-design/pull/22354)
+  - Statistic [#22331](https://github.com/ant-design/ant-design/pull/22331)
+  - Select [#22384](https://github.com/ant-design/ant-design/pull/22384) [#22307](https://github.com/ant-design/ant-design/pull/22307)
+  - Skeleton [#22388](https://github.com/ant-design/ant-design/pull/22388)
+  - Slider [#22294](https://github.com/ant-design/ant-design/pull/22294)
+  - Spin [#22388](https://github.com/ant-design/ant-design/pull/22388)
+  - Steps [#22384](https://github.com/ant-design/ant-design/pull/22384) [#22290](https://github.com/ant-design/ant-design/pull/22290)
+  - Switch [#22294](https://github.com/ant-design/ant-design/pull/22294)
+  - Table [#22402](https://github.com/ant-design/ant-design/pull/22402) [#22339](https://github.com/ant-design/ant-design/pull/22339)
+  - Tag [#22339](https://github.com/ant-design/ant-design/pull/22339)
+  - Timeline [#22335](https://github.com/ant-design/ant-design/pull/22335)
+  - Tooltip [#22335](https://github.com/ant-design/ant-design/pull/22335)
+  - Transfer [#22307](https://github.com/ant-design/ant-design/pull/22307)
+  - Tree [#22335](https://github.com/ant-design/ant-design/pull/22335)
+  - Typography [#22252](https://github.com/ant-design/ant-design/pull/22252)
+  - Upload [#22307](https://github.com/ant-design/ant-design/pull/22307)
+- 🌎 Localization
+  - 🇩🇪 Updated German locale. [#22270](https://github.com/ant-design/ant-design/pull/22270) [@iChebbi](https://github.com/iChebbi)
+  - 🇫🇷 Update French locale. [#22238](https://github.com/ant-design/ant-design/pull/22238) [@abenhamdine](https://github.com/abenhamdine)
+- Typescript
+  - 🐞 Omit Table `getCheckboxProps` typeof `checked`. [#22391](https://github.com/ant-design/ant-design/pull/22391) [@geekrainy](https://github.com/geekrainy)
+
 ## 4.0.3
 
 `2020-03-14`
