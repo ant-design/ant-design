@@ -285,12 +285,12 @@ describe('Tooltip', () => {
         </span>
       </Tooltip>,
     );
-    await sleep(300);
+    await sleep(500);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
     wrapper.setProps({
       placement: 'topRight',
     });
-    await sleep(300);
+    await sleep(500);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
 
