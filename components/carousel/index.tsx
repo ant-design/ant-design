@@ -1,8 +1,7 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
-import { Settings } from '@ant-design/react-slick';
+import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
-import SlickCarousel from ''@ant-design/react-slick';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type CarouselEffect = 'scrollx' | 'fade';
