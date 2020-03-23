@@ -28,11 +28,19 @@ const warning = () => {
   message.warning('This is a warning message');
 };
 
+const rtl = () => {
+  message.info({
+    content: 'This is RTL mode!',
+    direction: 'rtl',
+  });
+};
+
 ReactDOM.render(
   <div>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
+    <Button onClick={rtl}>RTL</Button>
   </div>,
   mountNode,
 );

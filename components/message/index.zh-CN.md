@@ -49,13 +49,14 @@ title: Message
 
 `config` 对象属性如下：
 
-| 参数     | 说明                                          | 类型           | 默认值 |
-| -------- | --------------------------------------------- | -------------- | ------ |
-| content  | 提示内容                                      | ReactNode      | -      |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number         | 3      |
-| onClose  | 关闭时触发的回调函数                          | Function       | -      |
-| icon     | 自定义图标                                    | ReactNode      | -      |
-| key      | 当前提示的唯一标志                            | string\|number | -      |
+| 参数      | 说明                                          | 类型           | 默认值 |
+| --------- | --------------------------------------------- | -------------- | ------ |
+| content   | 提示内容                                      | ReactNode      | -      |
+| duration  | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number         | 3      |
+| onClose   | 关闭时触发的回调函数                          | Function       | -      |
+| icon      | 自定义图标                                    | ReactNode      | -      |
+| key       | 当前提示的唯一标志                            | string\|number | -      |
+| direction | 自定义方向                                    | string         | -      |
 
 ### 全局方法
 

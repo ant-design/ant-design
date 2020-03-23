@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import Notification from 'rc-notification';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
@@ -58,6 +59,7 @@ export interface ArgsProps {
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
+  direction?: string;
 }
 
 const iconMap = {
@@ -71,6 +73,11 @@ const iconMap = {
 function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const IconComponent = iconMap[args.type];
+
+  const messageClass = classNames(`${prefixCls}-custom-content`, {
+    [`${prefixCls}-${args.type}`]: args.type,
+    [`${prefixCls}-rtl`]: args.direction === 'rtl',
+  });
 
   const target = args.key || key++;
   const closePromise = new Promise(resolve => {
@@ -86,11 +93,7 @@ function notice(args: ArgsProps): MessageType {
         duration,
         style: {},
         content: (
-          <div
-            className={`${prefixCls}-custom-content${
-              args.type ? ` ${prefixCls}-${args.type}` : ''
-            }`}
-          >
+          <div className={messageClass}>
             {args.icon || (IconComponent && <IconComponent />)}
             <span>{args.content}</span>
           </div>

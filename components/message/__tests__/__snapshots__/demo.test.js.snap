@@ -59,6 +59,14 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
       Warning
     </span>
   </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      RTL
+    </span>
+  </button>
 </div>
 `;
 

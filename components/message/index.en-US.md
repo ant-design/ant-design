@@ -55,6 +55,7 @@ The properties of config are as follows:
 | onClose | Specify a function that will be called when the message is closed | function | - |
 | icon | Customized Icon | ReactNode | - |
 | key | The unique identifier of the Message | string\|number | - |
+| direction | direction of the message | string | - |
 
 ### Global static methods
 
