@@ -109,15 +109,21 @@ export function useFrameState<ValueType>(
   const [value, setValue] = React.useState(defaultValue);
   const frameRef = React.useRef<number | null>(null);
   const batchRef = React.useRef<Updater<ValueType>[]>([]);
+  const destroyRef = React.useRef(false);
 
   React.useEffect(
     () => () => {
+      destroyRef.current = true;
       raf.cancel(frameRef.current!);
     },
     [],
   );
 
   function setFrameValue(updater: Updater<ValueType>) {
+    if (destroyRef.current) {
+      return;
+    }
+
     if (frameRef.current === null) {
       batchRef.current = [];
       frameRef.current = raf(() => {
