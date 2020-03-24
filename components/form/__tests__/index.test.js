@@ -25,10 +25,7 @@ describe('Form', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   async function change(wrapper, index, value) {
-    wrapper
-      .find(Input)
-      .at(index)
-      .simulate('change', { target: { value } });
+    wrapper.find(Input).at(index).simulate('change', { target: { value } });
     await delay(50);
     wrapper.update();
   }
@@ -74,10 +71,7 @@ describe('Form', () => {
         );
 
         async function operate(className) {
-          wrapper
-            .find(className)
-            .last()
-            .simulate('click');
+          wrapper.find(className).last().simulate('click');
           await delay();
           wrapper.update();
         }
@@ -115,10 +109,7 @@ describe('Form', () => {
 
     it('correct onFinish values', async () => {
       async function click(wrapper, className) {
-        wrapper
-          .find(className)
-          .last()
-          .simulate('click');
+        wrapper.find(className).last().simulate('click');
         await delay();
         wrapper.update();
       }
@@ -405,22 +396,12 @@ describe('Form', () => {
     /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
       await change(wrapper, 0, '');
-      expect(
-        wrapper
-          .find('.ant-form-item-explain')
-          .first()
-          .text(),
-      ).toEqual("'name' is required");
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual("'name' is required");
 
       await change(wrapper, 0, 'p');
       await delay(100);
       wrapper.update();
-      expect(
-        wrapper
-          .find('.ant-form-item-explain')
-          .first()
-          .text(),
-      ).toEqual('not a p');
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('not a p');
     }
     /* eslint-enable */
   });
@@ -441,12 +422,7 @@ describe('Form', () => {
 
     const wrapper = mount(<App />);
     wrapper.find('button').simulate('click');
-    expect(
-      wrapper
-        .find('.ant-form-item')
-        .first()
-        .hasClass('ant-form-item-with-help'),
-    ).toBeTruthy();
+    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-with-help')).toBeTruthy();
     expect(wrapper.find('.ant-form-item-explain').text()).toEqual('bamboo');
   });
 
@@ -651,5 +627,19 @@ describe('Form', () => {
 
     expect(renderTimes).toEqual(1);
     expect(wrapper.find('input').props().value).toEqual('a');
+  });
+
+  it('warning with `defaultValue`', () => {
+    mount(
+      <Form>
+        <Form.Item name="light">
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
+    );
   });
 });
