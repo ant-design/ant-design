@@ -30,5 +30,9 @@
 
   &-suffix {
     margin-left: @input-affix-margin;
+    &:empty {
+      // https://github.com/ant-design/ant-design/issues/22562
+      width: 16px;
+    }
   }
 }
