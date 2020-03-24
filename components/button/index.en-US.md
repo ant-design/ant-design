@@ -15,6 +15,7 @@ In Ant Design we provide 4 types of button.
 - Primary button: indicate the main action, one primary button at most in one section.
 - Default button: indicate a series of actions without priority.
 - Dashed button: used for adding action commonly.
+- Text button: used for the most secondary action.
 - Link button: used for external links.
 
 And 4 other properties additionally.
@@ -53,7 +54,6 @@ It accepts all props which native buttons support.
 Following the Ant Design specification, we will add one space between if Button contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="Button with two Chinese characters" />
-
 
 <style>
 [id^=components-button-demo-] .ant-btn {
