@@ -135,6 +135,11 @@
     line-height: @font-size-lg;
     text-align: center;
     cursor: default;
+    .@{picker-prefix-cls}-range-separator & {
+      .@{picker-prefix-cls}-disabled & {
+        cursor: not-allowed;
+      }
+    }
   }
 
   // ======================== Range =========================
