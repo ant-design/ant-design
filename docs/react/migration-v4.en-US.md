@@ -120,7 +120,6 @@ const Demo = () => (
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
   - `onBlur` no longer trigger value change.
-  - `dropdownMatchSelectWidth={false}` will no longer automatically adapt dropdown to the content width, please set the dropdown width with numbers.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.

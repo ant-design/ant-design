@@ -30,7 +30,7 @@ Select component to select value from options.
 | defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
-| dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |  |
+| dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (menuNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | style of dropdown menu | object | - |  |
 | dropdownMenuStyle | additional style applied to dropdown menu | object | - |  |
