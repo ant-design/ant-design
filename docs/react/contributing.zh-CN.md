@@ -68,3 +68,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 3. `npm test` 运行测试。
 4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
 5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
+
+## 加入社区
+
+如果你贡献度度足够活跃，希望和 Ant Design 团队一起参与维护工作，你可以[申请成为社区协作者](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)。

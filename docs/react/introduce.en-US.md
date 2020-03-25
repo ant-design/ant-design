@@ -141,6 +141,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
+- [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## Companies using antd
 
