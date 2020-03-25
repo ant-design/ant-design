@@ -31,6 +31,18 @@
       direction: rtl;
     }
   }
+
+  // ========================= Options =========================
+  &-item {
+    &-option {
+      &-grouped {
+        .@{select-prefix-cls}-dropdown-rtl & {
+          padding-right: @control-padding-horizontal * 2;
+          padding-left: @control-padding-horizontal;
+        }
+      }
+    }
+  }
 }
 
 // multiple
