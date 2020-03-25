@@ -233,4 +233,4 @@ jobs:
 
       - name: test
         run: npm run test:image
-    needs: compile
+    needs: dist
