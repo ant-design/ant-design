@@ -890,6 +890,42 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       </span>
     </span>
   </span>
+  <span
+    class="ant-input-affix-wrapper"
+    style="width:50px"
+  >
+    <input
+      class="ant-input"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      Y
+    </span>
+  </span>
+  <input
+    class="ant-input"
+    style="width:50px"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-affix-wrapper"
+    style="width:50px"
+  >
+    <input
+      class="ant-input"
+      type="text"
+      value="1"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      Y
+    </span>
+  </span>
 </div>
 `;
 
