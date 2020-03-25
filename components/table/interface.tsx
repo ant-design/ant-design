@@ -56,6 +56,7 @@ export interface ColumnProps<T> {
   fixed?: boolean | typeof ColumnFixedPlacements[number];
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[] | null;
+  filtered?: boolean;
   defaultFilteredValue?: any[];
   sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
