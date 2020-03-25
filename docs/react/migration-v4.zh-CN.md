@@ -121,6 +121,7 @@ const Demo = () => (
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
+  - Select 移除 `dropdownMenuStyle` 属性。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
