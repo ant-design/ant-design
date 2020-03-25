@@ -30,6 +30,19 @@
     }
   }
 
+  &-header {
+    &-view {
+      button {
+        &:not(:first-child) {
+          .@{picker-prefix-cls}-panel-rtl & {
+            margin-right: @padding-xs;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
   // ======================== Range =========================
   &-range {
     // Clear

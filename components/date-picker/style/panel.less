@@ -353,12 +353,14 @@
       border-bottom-left-radius: @border-radius-base;
 
       .@{picker-prefix-cls}-panel-rtl & {
-        right: 6px;
+        right: 6px !important;
         left: 0;
-        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color !important;
         border-left: none;
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
+        border-top-left-radius: 0;
+        border-top-right-radius: @border-radius-base !important;
+        border-bottom-right-radius: @border-radius-base !important;
+        border-bottom-left-radius: 0;
       }
     }
 
@@ -374,11 +376,13 @@
 
       .@{picker-prefix-cls}-panel-rtl & {
         right: 0;
-        left: 6px;
+        left: 6px !important;
         border-right: none;
-        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
-        border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color !important;
+        border-top-left-radius: @border-radius-base !important;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: @border-radius-base !important;
       }
     }
 
