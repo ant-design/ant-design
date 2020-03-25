@@ -329,6 +329,10 @@
       // for tree-select
       margin-top: 3px;
       line-height: @input-height-base - 8px - 2px;
+
+      input {
+        padding: 1px;
+      }
     }
 
     .@{select-prefix-cls}-selection__choice {
@@ -469,7 +473,7 @@
   &-menu {
     max-height: 250px;
     margin-bottom: 0;
-    padding: @select-dropdown-edge-child-vertical-padding 0;  //Change
+    padding: @select-dropdown-edge-child-vertical-padding 0; //Change
     padding-left: 0; // Override default ul/ol
     overflow: auto;
     list-style: none;
