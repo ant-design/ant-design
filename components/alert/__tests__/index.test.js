@@ -1,7 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Alert from '..';
+import Tooltip from '../../tooltip';
+import Popconfirm from '../../popconfirm';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 const { ErrorBoundary } = Alert;
 
@@ -65,5 +68,47 @@ describe('Alert', () => {
     );
     // eslint-disable-next-line jest/no-standalone-expect
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('could be used with Tooltip', async () => {
+    jest.useRealTimers();
+    const wrapper = mount(
+      <Tooltip title="xxx" mouseEnterDelay={0}>
+        <Alert
+          message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+          type="warning"
+        />
+      </Tooltip>,
+    );
+    wrapper.find('.ant-alert').simulate('mouseenter');
+    await sleep(0);
+    expect(
+      wrapper
+        .find(Tooltip)
+        .instance()
+        .getPopupDomNode(),
+    ).toBeTruthy();
+    jest.useFakeTimers();
+  });
+
+  it('could be used with Popconfirm', async () => {
+    jest.useRealTimers();
+    const wrapper = mount(
+      <Popconfirm title="xxx">
+        <Alert
+          message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+          type="warning"
+        />
+      </Popconfirm>,
+    );
+    wrapper.find('.ant-alert').simulate('click');
+    await sleep(0);
+    expect(
+      wrapper
+        .find(Popconfirm)
+        .instance()
+        .getPopupDomNode(),
+    ).toBeTruthy();
+    jest.useFakeTimers();
   });
 });
