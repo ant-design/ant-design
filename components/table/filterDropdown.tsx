@@ -206,7 +206,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     }
 
     const dropdownIconClass = classNames({
-      [`${prefixCls}-selected`]: filtered,
+      [`${prefixCls}-selected`]: 'filtered' in column ? column.filtered : filtered,
       [`${prefixCls}-open`]: this.getDropdownVisible(),
     });
 
