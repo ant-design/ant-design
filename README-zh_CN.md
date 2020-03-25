@@ -72,9 +72,13 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 你也可以使用 [babel-plugin-import](https://ant.design/docs/react/getting-started-cn#按需加载)。
 
+### 🌈 定制主题
+
+参考 [定制主题](https://ant.design/docs/react/customize-theme-cn) 文档。
+
 ### 🛡 TypeScript
 
-参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)
+参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)。
 
 ## 🌍 国际化
 
