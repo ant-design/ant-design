@@ -50,12 +50,14 @@ export default class Radio extends React.PureComponent<RadioProps, {}> {
     if (context) {
       radioProps.name = context.name;
       radioProps.onChange = this.onChange;
+      radioProps.required = props.required;
       radioProps.checked = props.value === context.value;
       radioProps.disabled = props.disabled || context.disabled;
     }
     const wrapperClassString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
+      [`${prefixCls}-wrapper-required`]: radioProps.required,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     });
