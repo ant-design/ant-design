@@ -109,10 +109,6 @@ class Demo extends React.Component {
     bottom: 'bottomRight',
   };
 
-  onChange = (checkedValues) => {
-    this.setState({ position: checkedValues });
-  };
-
   render() {
     return (
       <div>
