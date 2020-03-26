@@ -147,6 +147,13 @@
   }
 
   &-picture-card {
+    &-container {
+      .@{upload-prefix-cls}-list-rtl & {
+        float: right;
+        margin: 0 0 8px 8px;
+      }
+    }
+
     .@{upload-item} {
       .@{upload-prefix-cls}-list-rtl& {
         float: right;
@@ -165,6 +172,12 @@
     .@{upload-item}-file + .@{upload-item}-name {
       .@{upload-prefix-cls}-list-rtl& {
         margin: 8px 0 0;
+        padding: 0;
+      }
+    }
+
+    .@{upload-item}-info {
+      .@{upload-prefix-cls}-list-rtl& {
         padding: 0;
       }
     }
