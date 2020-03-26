@@ -129,7 +129,7 @@ const Demo = () => {
             <Button htmlType="submit" type="primary">
               Submit
             </Button>
-            <Button htmlType="button" style={{ marginLeft: 8 }} onClick={showUserModal}>
+            <Button htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
               Add User
             </Button>
           </Form.Item>

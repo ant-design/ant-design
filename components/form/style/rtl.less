@@ -22,7 +22,7 @@
   // ==============================================================
   &-label {
     .@{form-prefix-cls}-rtl & {
-      text-align: right;
+      text-align: left;
     }
 
     > label {
@@ -30,6 +30,11 @@
         .@{form-prefix-cls}-rtl & {
           margin-right: 0;
           margin-left: 4px;
+        }
+      }
+      &::after {
+        .@{form-prefix-cls}-rtl & {
+          margin: 0 @form-item-label-colon-margin-left 0 @form-item-label-colon-margin-right;
         }
       }
     }

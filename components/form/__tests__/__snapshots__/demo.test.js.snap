@@ -262,7 +262,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </button>
         <button
           class="ant-btn"
-          style="margin-left:8px"
+          style="margin:0 8px"
           type="button"
         >
           <span>
@@ -270,7 +270,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           </span>
         </button>
         <a
-          style="margin-left:8px;font-size:12px"
+          style="font-size:12px"
         >
           <span
             aria-label="down"
@@ -835,13 +835,13 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
           <span>
             <input
               class="ant-input"
-              style="width:100px;margin-right:8px"
+              style="width:100px"
               type="text"
               value="0"
             />
             <div
               class="ant-select ant-select-single ant-select-show-arrow"
-              style="width:80px"
+              style="width:80px;margin:0 8px"
             >
               <div
                 class="ant-select-selector"
@@ -1259,7 +1259,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             </button>
             <button
               class="ant-btn"
-              style="margin-left:8px"
+              style="margin:0 8px"
               type="button"
             >
               <span>
@@ -5941,7 +5941,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
           <span
-            style="display:inline-block;width:24px;text-align:center"
+            style="display:inline-block;width:24px;line-height:32px;text-align:center"
           >
             -
           </span>
