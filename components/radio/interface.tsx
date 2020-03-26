@@ -34,6 +34,7 @@ export type RadioProps = AbstractCheckboxProps<RadioChangeEvent>;
 
 export interface RadioChangeEventTarget extends RadioProps {
   checked: boolean;
+  required: string;
 }
 
 export interface RadioChangeEvent {
