@@ -14,7 +14,7 @@
 
   &-header {
     display: table-cell;
-    padding-right: 16px;
+    padding-right: @padding-md;
     vertical-align: top;
 
     // Avatar
@@ -32,11 +32,11 @@
     .@{skeleton-title-prefix-cls} {
       width: 100%;
       height: 16px;
-      margin-top: 16px;
+      margin-top: @margin-md;
       background: @skeleton-color;
 
       + .@{skeleton-paragraph-prefix-cls} {
-        margin-top: 24px;
+        margin-top: @margin-lg;
       }
     }
 
@@ -55,7 +55,7 @@
         }
 
         + li {
-          margin-top: 16px;
+          margin-top: @skeleton-paragraph-li-margin-top;
         }
       }
     }
@@ -64,10 +64,10 @@
   &-with-avatar &-content {
     // Title
     .@{skeleton-title-prefix-cls} {
-      margin-top: 12px;
+      margin-top: @margin-sm;
 
       + .@{skeleton-paragraph-prefix-cls} {
-        margin-top: 28px;
+        margin-top: @skeleton-paragraph-margin-top;
       }
     }
   }

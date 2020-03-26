@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
+import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
-import { DarkIcon, DefaultIcon } from './ThemeIcon';
+import ThemeIcon from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -266,6 +266,21 @@ class MainContent extends Component {
     );
   }
 
+  getThemeSwitchMenu() {
+    const { theme } = this.context;
+    return (
+      <Menu onClick={({ key }) => this.changeThemeMode(key)} selectedKeys={[theme]}>
+        {[
+          { type: 'default', text: '普通模式' },
+          { type: 'dark', text: '暗黑模式' },
+          { type: 'compact', text: '紧凑模式' },
+        ].map(({ type, text }) => (
+          <Menu.Item key={type}>{text}</Menu.Item>
+        ))}
+      </Menu>
+    );
+  }
+
   flattenMenu(menu) {
     if (!menu) {
       return null;
@@ -279,17 +294,11 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
-  changeCompactTheme = () => {
-    // todo: separate with changeDarkTheme temporal
-    const { theme, setTheme } = this.context;
-    const nextTheme = theme !== 'compact' ? 'compact' : 'default';
-    setTheme(nextTheme);
-  };
-
-  changeDarkTheme = () => {
-    const { theme, setTheme } = this.context;
-    const nextTheme = theme !== 'dark' ? 'dark' : 'default';
-    setTheme(nextTheme);
+  changeThemeMode = theme => {
+    const { setTheme, theme: selectedTheme } = this.context;
+    if (selectedTheme !== theme) {
+      setTheme(theme);
+    }
   };
 
   render() {
@@ -327,7 +336,7 @@ class MainContent extends Component {
             </Menu>
           );
           const componentPage = /^\/?components/.test(this.props.location.pathname);
-
+          const isNotDefaultMode = theme !== undefined && theme !== 'default';
           return (
             <div className="main-wrapper">
               <Row>
@@ -384,13 +393,10 @@ class MainContent extends Component {
                   </section>
                   {componentPage && (
                     <div className="fixed-widgets">
-                      {/* todo: replace right icon  */}
-                      <Tooltip
-                        getPopupContainer={node => node.parentNode}
-                        title={formatMessage({
-                          id: `app.theme.switch.${theme === 'compact' ? 'compact' : 'normal'}`,
-                        })}
-                        overlayClassName="fixed-widgets-tooltip"
+                      <Dropdown
+                        overlay={this.getThemeSwitchMenu()}
+                        placement="topCenter"
+                        trigger="click"
                       >
                         <Avatar
                           className={classNames(
@@ -398,27 +404,9 @@ class MainContent extends Component {
                             `fixed-widgets-avatar-${theme}`,
                           )}
                           size={44}
-                          onClick={this.changeCompactTheme}
-                          icon={theme === 'compact' ? <DarkIcon /> : <DefaultIcon />}
+                          icon={<ThemeIcon color={isNotDefaultMode && '#1890ff'} />}
                         />
-                      </Tooltip>
-                      <Tooltip
-                        getPopupContainer={node => node.parentNode}
-                        title={formatMessage({
-                          id: `app.theme.switch.${theme === 'dark' ? 'dark' : 'default'}`,
-                        })}
-                        overlayClassName="fixed-widgets-tooltip"
-                      >
-                        <Avatar
-                          className={classNames(
-                            'fixed-widgets-avatar',
-                            `fixed-widgets-avatar-${theme}`,
-                          )}
-                          size={44}
-                          onClick={this.changeDarkTheme}
-                          icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
-                        />
-                      </Tooltip>
+                      </Dropdown>
                     </div>
                   )}
                   <PrevAndNext prev={prev} next={next} />

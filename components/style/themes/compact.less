@@ -2,6 +2,13 @@
 
 @mode: compact;
 
+// default paddings
+@default-padding-lg: 24px; // containers
+@default-padding-md: 16px; // small containers and buttons
+@default-padding-sm: 12px; // Form controls and items
+@default-padding-xs: 8px; // small items
+@default-padding-xss: 4px; // more small
+
 // vertical paddings
 @padding-lg: 16px; // containers
 @padding-md: 8px; // small containers and buttons
@@ -11,7 +18,7 @@
 
 // vertical padding for all form controls
 @control-padding-horizontal: @padding-sm;
-@control-padding-horizontal-sm: @padding-xs;
+@control-padding-horizontal-sm: @default-padding-xs;
 
 // vertical margins
 @margin-lg: 16px; // containers
@@ -24,6 +31,12 @@
 @height-base: 28px;
 @height-lg: 32px;
 @height-sm: 22px;
+
+// Button
+// ---
+@btn-padding-horizontal-base: @default-padding-sm - 1px;
+@btn-padding-horizontal-lg: @btn-padding-horizontal-base;
+@btn-padding-horizontal-sm: @default-padding-xs - 1px;
 
 //Dropdown
 @dropdown-line-height: 18px;
@@ -52,6 +65,9 @@
 // Select
 // ---
 @select-dropdown-height: @height-base;
+@select-multiple-item-height: @input-height-base - max(@input-padding-vertical-base, 4) * 2; // Normal 24px
+@select-multiple-item-height-lg: 24px;
+@select-multiple-item-spacing-half: 3px;
 
 // Tree
 // ---
@@ -60,10 +76,19 @@
 // Transfer
 // ---
 @transfer-item-padding-vertical: 3px;
+@transfer-list-search-icon-top: 8px;
+
+// Comment
+// ---
+@comment-actions-margin-top: @margin-xs;
+@comment-content-detail-p-margin-bottom: 0px;
 
 // Steps
 // ---
 @steps-icon-size: 24px;
+@steps-icon-custom-size: 20px;
+@steps-icon-custom-font-size: 20px;
+@steps-icon-custom-top: 2px;
 @steps-icon-margin: 2px 8px 2px 0;
 @steps-icon-font-size: @font-size-base;
 @steps-dot-top: 4px;
@@ -76,6 +101,8 @@
 // List
 // ---
 @list-item-meta-description-font-size: @font-size-sm;
+@list-item-padding-sm: 4px 12px;
+@list-item-padding-lg: 12px 16px;
 
 // Drawer
 // ---
@@ -93,6 +120,7 @@
 // popover
 // --
 @popover-min-height: 28px;
+@popover-padding-horizontal: @default-padding-sm;
 
 // Card
 // ---
@@ -113,5 +141,18 @@
 @table-padding-horizontal: 8px;
 @table-padding-vertical-md: 8px;
 @table-padding-horizontal-md: 8px;
-@table-padding-vertical-sm: 8px;
-@table-padding-horizontal-sm: 8px;
+@table-padding-vertical-sm: 4px;
+@table-padding-horizontal-sm: 4px;
+
+// Statistic
+// ---
+@statistic-content-font-size: 20px;
+
+// Alert
+// ---
+@alert-with-description-no-icon-padding-vertical: 11px;
+
+// Skeleton
+// ---
+@skeleton-paragraph-margin-top: 20px;
+@skeleton-paragraph-li-margin-top: 12px;

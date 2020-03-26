@@ -404,6 +404,9 @@
 @select-clear-background: @select-background;
 @select-selection-item-bg: @background-color-base;
 @select-selection-item-border-color: @border-color-split;
+@select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
+@select-multiple-item-height-lg: 32px;
+@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
 
 // Cascader
 // ---
@@ -457,6 +460,7 @@
 @popover-arrow-outer-color: @popover-bg;
 // Popover distance with trigger
 @popover-distance: @popover-arrow-width + 4px;
+@popover-padding-horizontal: @padding-md;
 
 // Modal
 // --
@@ -486,7 +490,7 @@
 // ---
 @menu-inline-toplevel-item-height: 40px;
 @menu-item-height: 40px;
-@menu-item-group-height: 38px;
+@menu-item-group-height: @line-height-base;
 @menu-collapsed-width: 80px;
 @menu-bg: @component-background;
 @menu-popup-bg: @component-background;
@@ -630,6 +634,8 @@
 @comment-author-time-color: #ccc;
 @comment-action-color: @text-color-secondary;
 @comment-action-hover-color: #595959;
+@comment-actions-margin-top: @margin-sm;
+@comment-content-detail-p-margin-bottom: inherit;
 
 // Tabs
 // ---
@@ -761,6 +767,8 @@
 // ---
 @skeleton-color: #f2f2f2;
 @skeleton-to-color: shade(@skeleton-color, 5%);
+@skeleton-paragraph-margin-top: 28px;
+@skeleton-paragraph-li-margin-top: @margin-md;
 
 // Transfer
 // ---
@@ -770,6 +778,7 @@
 @transfer-list-height: 200px;
 @transfer-item-hover-bg: @item-hover-bg;
 @transfer-item-padding-vertical: 6px;
+@transfer-list-search-icon-top: 12px;
 
 // Message
 // ---
@@ -797,6 +806,8 @@
 @alert-text-color: @text-color;
 @alert-close-color: @text-color-secondary;
 @alert-close-hover-color: @icon-color-hover;
+@alert-no-icon-padding-vertical: @padding-xs;
+@alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 
 // List
 // ---
@@ -804,6 +815,8 @@
 @list-footer-background: transparent;
 @list-empty-text-padding: @padding-md;
 @list-item-padding: @padding-sm 0;
+@list-item-padding-sm: @padding-xs @padding-md;
+@list-item-padding-lg: 16px 24px;
 @list-item-meta-margin-bottom: @padding-md;
 @list-item-meta-avatar-margin-right: @padding-md;
 @list-item-meta-title-margin-bottom: @padding-sm;
@@ -851,6 +864,9 @@
 @steps-nav-arrow-color: fade(@black, 25%);
 @steps-background: @component-background;
 @steps-icon-size: 32px;
+@steps-icon-custom-size: @steps-icon-size;
+@steps-icon-custom-top: 0px;
+@steps-icon-custom-font-size: 24px;
 @steps-icon-top: -1px;
 @steps-icon-font-size: @font-size-lg;
 @steps-icon-margin: 0 8px 0 0;

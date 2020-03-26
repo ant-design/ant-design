@@ -35,11 +35,11 @@
     }
 
     &-search {
-      padding-right: 24px;
+      padding-right: 24px !important;
       padding-left: @control-padding-horizontal-sm;
       &-action {
         position: absolute;
-        top: 12px;
+        top: @transfer-list-search-icon-top;
         right: 12px;
         bottom: 12px;
         width: 28px;
@@ -99,7 +99,7 @@
     }
 
     &-body-with-search {
-      padding-top: @input-height-base + 24px;
+      padding-top: @input-height-base + @padding-sm * 2;
     }
 
     &-content {

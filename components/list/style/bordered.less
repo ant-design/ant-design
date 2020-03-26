@@ -24,19 +24,21 @@
 
   &.@{list-prefix-cls}-sm {
     .@{list-prefix-cls}-item {
-      padding-right: @padding-md;
-      padding-left: @padding-md;
+      padding: @list-item-padding-sm;
     }
     .@{list-prefix-cls}-header,
     .@{list-prefix-cls}-footer {
-      padding: @padding-xs @padding-md;
+      padding: @list-item-padding-sm;
     }
   }
 
   &.@{list-prefix-cls}-lg {
+    .@{list-prefix-cls}-item {
+      padding: @list-item-padding-lg;
+    }
     .@{list-prefix-cls}-header,
     .@{list-prefix-cls}-footer {
-      padding: @padding-md @padding-lg;
+      padding: @list-item-padding-lg;
     }
   }
 }
