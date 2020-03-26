@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Checkbox, Radio } from 'antd';
+import { Table, Tag, Radio } from 'antd';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },
@@ -107,11 +107,12 @@ class Demo extends React.Component {
   state = {
     top: 'topLeft',
     bottom: 'bottomRight',
-    position: ['topLeft', 'bottomRight'],
   };
+
   onChange = (checkedValues) => {
     this.setState({ position: checkedValues });
   };
+
   render() {
     return (
       <div>

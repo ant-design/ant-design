@@ -9893,6 +9893,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
           topRight
         </span>
       </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="none"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          none
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -9955,6 +9974,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
       </span>
       <span>
         bottomRight
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="none"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        none
       </span>
     </label>
   </div>
