@@ -33,7 +33,11 @@ const Autoset: React.FC = () => {
       <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
         {user}
       </Avatar>
-      <Button size="small" style={{ marginLeft: 16, verticalAlign: 'middle' }} onClick={changeUser}>
+      <Button
+        size="small"
+        style={{ margin: '0 16px', verticalAlign: 'middle' }}
+        onClick={changeUser}
+      >
         Change
       </Button>
     </div>
