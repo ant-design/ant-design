@@ -13,13 +13,3 @@ jobs:
           git@gitee.com:ant-design/ant-design.git
         ssh_private_key:
           ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
-  to_gitee_gh:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: pixta-dev/repository-mirroring-action@v1
-      with:
-        target_repo_url:
-          git@gitee.com:ant-design/ant-design.git
-        ssh_private_key:
-          ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
