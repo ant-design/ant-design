@@ -520,7 +520,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                     <col />
                     <col />
                   </colgroup>
-                  <thead>
+                  <thead
+                    class="ant-table-thead"
+                  >
                     <tr>
                       <th
                         class="ant-table-cell"

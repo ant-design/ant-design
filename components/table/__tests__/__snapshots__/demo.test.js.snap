@@ -31,7 +31,9 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                 />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
@@ -239,7 +241,9 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -540,7 +544,9 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -748,7 +754,9 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -1030,7 +1038,9 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -1359,7 +1369,9 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -2285,7 +2297,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -3330,7 +3344,9 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell"
@@ -3542,7 +3558,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -4043,7 +4061,9 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -4324,7 +4344,9 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -4618,7 +4640,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   style="width:30%;min-width:30%"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
@@ -4887,7 +4911,9 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   style="width:100px;min-width:100px"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5246,7 +5272,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   style="width:0;min-width:0"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -6243,7 +6271,9 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                   style="width:0;min-width:0"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -7429,7 +7459,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   style="width:0;min-width:0"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -8336,7 +8368,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
@@ -8772,7 +8806,9 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -9095,7 +9131,9 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -9504,7 +9542,9 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -9844,7 +9884,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
@@ -10316,7 +10358,9 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell react-resizable"
@@ -10678,7 +10722,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
@@ -11026,7 +11072,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
@@ -11614,7 +11662,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
@@ -12230,7 +12280,9 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell"
@@ -12425,7 +12477,9 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   <col />
                   <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell"
@@ -12621,7 +12675,9 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -12814,7 +12870,9 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
                   style="width:0;min-width:0"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"

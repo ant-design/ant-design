@@ -11659,7 +11659,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="config-table-thead"
+              >
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
@@ -11922,7 +11924,9 @@ exports[`ConfigProvider components Table normal 1`] = `
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
@@ -12185,7 +12189,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="prefix-Table-thead"
+              >
                 <tr>
                   <th
                     class="prefix-Table-cell prefix-Table-column-has-sorters"

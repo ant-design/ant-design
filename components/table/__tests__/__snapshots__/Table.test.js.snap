@@ -27,7 +27,9 @@ exports[`Table renders JSX correctly 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -133,7 +135,9 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"

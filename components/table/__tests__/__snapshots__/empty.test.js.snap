@@ -32,7 +32,9 @@ exports[`Table renders empty table 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -176,7 +178,9 @@ exports[`Table renders empty table with custom emptyText 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -284,7 +288,9 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   style="width:100px;min-width:100px"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -468,7 +474,9 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                 <col />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
