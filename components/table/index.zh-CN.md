@@ -95,16 +95,16 @@ const columns = [
 
 ```jsx
 <Table
-  onRow={record => {
+  onRow={(record) => {
     return {
-      onClick: event => {}, // 点击行
-      onDoubleClick: event => {},
-      onContextMenu: event => {},
-      onMouseEnter: event => {}, // 鼠标移入行
-      onMouseLeave: event => {},
+      onClick: (event) => {}, // 点击行
+      onDoubleClick: (event) => {},
+      onContextMenu: (event) => {},
+      onMouseEnter: (event) => {}, // 鼠标移入行
+      onMouseLeave: (event) => {},
     };
   }}
-  onHeaderRow={column => {
+  onHeaderRow={(column) => {
     return {
       onClick: () => {}, // 点击表头行
     };
@@ -156,9 +156,9 @@ const columns = [
 
 分页的配置项。
 
-| 参数     | 说明               | 类型                        | 默认值   |
-| -------- | ------------------ | --------------------------- | -------- |
-| position | 指定分页显示的位置 | `top` \| `bottom` \| `both` | `bottom` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| position | 指定分页显示的位置， 取值为`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` | Array | `['bottomRight']` |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
 
@@ -269,7 +269,7 @@ class NameColumn extends Table.Column<User> {}
 // 比如你的数据主键是 uid
 return <Table rowKey="uid" />;
 // 或
-return <Table rowKey={record => record.uid} />;
+return <Table rowKey={(record) => record.uid} />;
 ```
 
 ## 从 v3 升级到 v4
