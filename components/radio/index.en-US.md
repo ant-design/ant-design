@@ -21,6 +21,7 @@ Radio.
 | checked | Specifies whether the radio is selected. | boolean |  |
 | defaultChecked | Specifies the initial state: whether or not the radio is selected. | boolean | false |
 | disabled | Disable radio | boolean | false |
+| required | adds HTML required attribute for the radio group(required on at least one radio button) | string |  |
 | value | According to value for comparison, to determine whether the selected | any |  |
 
 ### RadioGroup
