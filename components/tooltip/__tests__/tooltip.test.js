@@ -253,7 +253,7 @@ describe('Tooltip', () => {
     );
     expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
   });
-  
+
   it('autoAdjustOverflow should be object or undefined', () => {
     expect(() => {
       mount(
@@ -286,7 +286,7 @@ describe('Tooltip', () => {
         </span>
       </Tooltip>,
     );
-    await sleep(500);
+    await sleep(600);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
   });
 

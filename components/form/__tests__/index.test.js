@@ -6,6 +6,7 @@ import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -84,6 +85,7 @@ describe('Form', () => {
 
         await change(wrapper, 1, '');
         wrapper.update();
+        await sleep(0);
         expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
 
         await operate('.remove');
