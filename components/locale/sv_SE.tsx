@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/sv_SE';
 import DatePicker from '../date-picker/locale/sv_SE';
 import TimePicker from '../time-picker/locale/sv_SE';
 import Calendar from '../calendar/locale/sv_SE';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'sv',
   Pagination,
   DatePicker,
@@ -45,3 +46,5 @@ export default {
     downloadFile: 'Nedladdning fil',
   },
 };
+
+export default localeValues;

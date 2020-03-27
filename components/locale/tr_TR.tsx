@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/tr_TR';
 import DatePicker from '../date-picker/locale/tr_TR';
 import TimePicker from '../time-picker/locale/tr_TR';
 import Calendar from '../calendar/locale/tr_TR';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'tr',
   Pagination,
   DatePicker,
@@ -55,3 +56,5 @@ export default {
     expand: 'genişlet',
   },
 };
+
+export default localeValues;

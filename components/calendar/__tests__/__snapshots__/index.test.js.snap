@@ -206,9 +206,24 @@ exports[`Calendar Calendar should support locale 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr
-              class=""
-            >
+            <tr>
+              <td
+                class="ant-picker-cell"
+                title="2018-09-30"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-01"
@@ -311,6 +326,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-07"
@@ -328,10 +345,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr
-              class=""
-            >
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-08"
@@ -434,6 +447,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-14"
@@ -451,10 +466,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr
-              class=""
-            >
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-15"
@@ -557,6 +568,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-21"
@@ -574,10 +587,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr
-              class=""
-            >
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-22"
@@ -680,6 +689,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-28"
@@ -697,10 +708,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr
-              class=""
-            >
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-29"
@@ -803,6 +810,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2018-11-04"
@@ -820,10 +829,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr
-              class=""
-            >
               <td
                 class="ant-picker-cell"
                 title="2018-11-05"
@@ -920,23 +925,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                     class="ant-picker-calendar-date-value"
                   >
                     10
-                  </div>
-                  <div
-                    class="ant-picker-calendar-date-content"
-                  />
-                </div>
-              </td>
-              <td
-                class="ant-picker-cell"
-                title="2018-11-11"
-              >
-                <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
-                >
-                  <div
-                    class="ant-picker-calendar-date-value"
-                  >
-                    11
                   </div>
                   <div
                     class="ant-picker-calendar-date-content"
@@ -1156,9 +1144,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             </tr>
           </thead>
           <tbody>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2000-08-27"
@@ -1279,9 +1265,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2000-09-03"
@@ -1402,9 +1386,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2000-09-10"
@@ -1525,9 +1507,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2000-09-17"
@@ -1648,9 +1628,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2000-09-24"
@@ -1771,9 +1749,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2000-10-01"

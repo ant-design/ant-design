@@ -568,7 +568,7 @@ describe('Table.rowSelection', () => {
         wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
       });
       wrapper
-        .find('.ant-table-filter-dropdown-btns .ant-table-filter-dropdown-link.confirm')
+        .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
         .simulate('click');
     }
 

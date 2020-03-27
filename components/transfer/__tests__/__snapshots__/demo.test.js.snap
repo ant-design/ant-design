@@ -2734,7 +2734,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination mini"
+                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
                   unselectable="unselectable"
                 >
                   <li
@@ -3147,7 +3147,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination mini"
+                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
                   unselectable="unselectable"
                 >
                   <li

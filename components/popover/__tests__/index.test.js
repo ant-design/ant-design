@@ -24,6 +24,38 @@ describe('Popover', () => {
     expect(popup).not.toBe(null);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();
+  });
+
+  it('shows content for render functions', () => {
+    const renderTitle = () => 'some-title';
+    const renderContent = () => 'some-content';
+
+    const popover = mount(
+      <Popover content={renderContent} title={renderTitle} trigger="click">
+        <span>show me your code</span>
+      </Popover>,
+    );
+
+    popover.find('span').simulate('click');
+
+    const popup = popover.instance().getPopupDomNode();
+    expect(popup).not.toBe(null);
+    expect(popup.innerHTML).toContain('some-title');
+    expect(popup.innerHTML).toContain('some-content');
+    expect(popup.innerHTML).toMatchSnapshot();
+  });
+
+  it('handles empty title/content props safely', () => {
+    const popover = mount(
+      <Popover trigger="click">
+        <span>show me your code</span>
+      </Popover>,
+    );
+
+    popover.find('span').simulate('click');
+
+    const popup = popover.instance().getPopupDomNode();
+    expect(popup).not.toBe(null);
     expect(popup.innerHTML).toMatchSnapshot();
   });
 

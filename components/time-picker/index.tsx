@@ -7,6 +7,11 @@ import { Omit } from '../_util/type';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
+export interface TimePickerLocale {
+  placeholder?: string;
+  rangePlaceholder?: [string, string];
+}
+
 export interface TimeRangePickerProps extends RangePickerTimeProps<Moment> {}
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
