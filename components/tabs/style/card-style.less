@@ -5,14 +5,10 @@
 
 // card style
 .@{tab-prefix-cls} {
-  &&-card &-card-bar &-nav-container {
-    height: @tabs-card-height;
-  }
   &&-card &-card-bar &-ink-bar {
     visibility: hidden;
   }
   &&-card &-card-bar &-tab {
-    height: @tabs-card-height;
     margin: 0;
     margin-right: @tabs-card-gutter;
     padding: 0 @padding-md;
@@ -23,7 +19,7 @@
     transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
-    height: @tabs-card-height;
+    padding: @tabs-card-horizontal-padding;
     color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
@@ -32,6 +28,12 @@
     &::before {
       border-top: @tabs-card-tab-active-border-top;
     }
+  }
+  &&-small &-card-bar &-tab {
+    padding: @tabs-card-horizontal-padding-sm;
+  }
+  &&-small &-card-bar &-tab-active {
+    padding: @tabs-card-horizontal-padding-sm;
   }
   &&-card &-card-bar &-tab-disabled {
     color: @disabled-color;
