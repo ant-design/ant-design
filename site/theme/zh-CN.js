@@ -1,10 +1,9 @@
 module.exports = {
   locale: 'zh-CN',
   messages: {
-    'app.theme.switch.dark': '切换浅色模式',
-    'app.theme.switch.default': '切换暗黑模式',
-    'app.theme.switch.normal': '切换紧凑模式',
-    'app.theme.switch.compact': '切换普通模式',
+    'app.theme.switch.default': '默认主题',
+    'app.theme.switch.dark': '暗黑主题',
+    'app.theme.switch.compact': '紧凑主题',
     'app.header.search': '全文本搜索...',
     'app.header.menu.documentation': '文档',
     'app.header.menu.components': '组件',

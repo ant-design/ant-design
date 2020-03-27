@@ -268,12 +268,15 @@ class MainContent extends Component {
 
   getThemeSwitchMenu() {
     const { theme } = this.context;
+    const {
+      intl: { formatMessage },
+    } = this.props;
     return (
       <Menu onClick={({ key }) => this.changeThemeMode(key)} selectedKeys={[theme]}>
         {[
-          { type: 'default', text: '普通模式' },
-          { type: 'dark', text: '暗黑模式' },
-          { type: 'compact', text: '紧凑模式' },
+          { type: 'default', text: formatMessage({ id: 'app.theme.switch.default' }) },
+          { type: 'dark', text: formatMessage({ id: 'app.theme.switch.dark' }) },
+          { type: 'compact', text: formatMessage({ id: 'app.theme.switch.compact' }) },
         ].map(({ type, text }) => (
           <Menu.Item key={type}>{text}</Menu.Item>
         ))}
