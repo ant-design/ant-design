@@ -29,7 +29,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                 <col
                   style="width:20%;min-width:20%"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -234,13 +233,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -539,11 +532,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -747,13 +736,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -1036,7 +1019,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 <col
                   style="width:20%;min-width:20%"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -1364,11 +1346,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -2292,10 +2270,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     style="width:60px;min-width:60px"
                   />
-                  <col />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
@@ -3340,9 +3314,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   <col
                     style="width:30%;min-width:30%"
                   />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
@@ -3556,7 +3527,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 <col
                   style="width:40%;min-width:40%"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -4056,10 +4026,6 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 <col
                   style="width:80px;min-width:80px"
                 />
-                <col />
-                <col />
-                <col />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -4339,10 +4305,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 <col
                   class="ant-table-expand-icon-col"
                 />
-                <col />
-                <col />
-                <col />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -5256,22 +5218,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col
-                  style="width:0;min-width:0"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -6263,14 +6210,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col
-                  style="width:0;min-width:0"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -6308,7 +6248,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 <col
                   style="width:150px;min-width:150px"
                 />
-                <col />
               </colgroup>
               <tbody
                 class="ant-table-tbody"
@@ -7446,19 +7385,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col
-                  style="width:0;min-width:0"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -8363,11 +8290,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -8798,14 +8721,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -9125,12 +9041,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -9534,13 +9445,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 <col
                   class="ant-table-expand-icon-col"
                 />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -9879,11 +9783,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
               <table
                 style="table-layout:fixed"
               >
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
+                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -10356,7 +10256,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 <col
                   style="width:100px;min-width:100px"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -10718,9 +10617,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <col
                     style="width:60px;min-width:60px"
                   />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
@@ -11068,9 +10964,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   <col
                     style="width:60px;min-width:60px"
                   />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
@@ -11658,9 +11551,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
-                <col />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -12275,11 +12165,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
+                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -12472,11 +12358,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
+                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -12670,11 +12552,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -12865,9 +12743,6 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
                 />
                 <col
                   style="width:100px;min-width:100px"
-                />
-                <col
-                  style="width:0;min-width:0"
                 />
               </colgroup>
               <thead

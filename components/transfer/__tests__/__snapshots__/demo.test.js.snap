@@ -2247,9 +2247,6 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           <col
                             style="width:60px;min-width:60px"
                           />
-                          <col />
-                          <col />
-                          <col />
                         </colgroup>
                         <thead
                           class="ant-table-thead"
@@ -2931,7 +2928,6 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           <col
                             style="width:60px;min-width:60px"
                           />
-                          <col />
                         </colgroup>
                         <thead
                           class="ant-table-thead"
