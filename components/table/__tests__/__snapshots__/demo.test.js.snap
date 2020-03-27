@@ -12277,7 +12277,9 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                 />
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"

@@ -213,7 +213,7 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toBeFalsy();
     wrapper.find('FilterDropdown').find('input[type="checkbox"]').first().simulate('click');
-    wrapper.find('FilterDropdown').find('.confirm').simulate('click');
+    wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(['boy']);
     wrapper.setProps({ dataSource: [...data, { key: 999, name: 'Chris' }] });
     expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(['boy']);
@@ -344,7 +344,7 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
-    wrapper.find('FilterDropdown').find('.confirm').simulate('click');
+    wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
 
     expect(handleChange).toHaveBeenCalledWith(
       {},
@@ -361,7 +361,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({ onChange: handleChange }));
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-    wrapper.find('.clear').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').simulate('click');
 
     expect(handleChange).not.toHaveBeenCalled();
   });
@@ -515,7 +515,7 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     wrapper.find('MenuItem').first().simulate('click');
-    wrapper.find('.confirm').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
 
@@ -761,7 +761,7 @@ describe('Table.filter', () => {
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('MenuItem').first().simulate('click');
-    wrapper.find('.confirm').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(onChange).toHaveBeenCalled();
     onChange.mockReset();
     expect(onChange).not.toHaveBeenCalled();
@@ -776,7 +776,7 @@ describe('Table.filter', () => {
     });
 
     wrapper.find('MenuItem').first().simulate('click');
-    wrapper.find('.confirm').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(onChange).toHaveBeenCalled();
   });
 
@@ -899,7 +899,7 @@ describe('Table.filter', () => {
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('MenuItem').first().simulate('click');
-    wrapper.find('.confirm').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -930,7 +930,7 @@ describe('Table.filter', () => {
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('MenuItem').first().simulate('click');
-    wrapper.find('.confirm').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -1020,7 +1020,7 @@ describe('Table.filter', () => {
     onChange.mockReset();
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
     wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
-    wrapper.find('.ant-table-filter-dropdown-link.confirm').simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(onChange).toHaveBeenCalledWith(
       expect.anything(),
       {
@@ -1050,8 +1050,15 @@ describe('Table.filter', () => {
       }),
     );
 
-    expect(wrapper.find('.ant-table-filter-dropdown-link').first().text()).toEqual('Bamboo');
-    expect(wrapper.find('.ant-table-filter-dropdown-link').last().text()).toEqual('Reset');
+    expect(wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').text()).toEqual(
+      'Bamboo',
+    );
+    expect(
+      wrapper
+        .find('.ant-table-filter-dropdown-btns .ant-btn-link')
+        .last()
+        .text(),
+    ).toEqual('Reset');
   });
 
   it('filtered should work', () => {
