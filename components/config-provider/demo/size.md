@@ -53,6 +53,9 @@ const FormSizeDemo = () => {
           <DatePicker />
         </div>
         <div className="example">
+          <DatePicker.RangePicker />
+        </div>
+        <div className="example">
           <Button>Button</Button>
         </div>
         <div className="example">

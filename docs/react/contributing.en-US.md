@@ -68,3 +68,7 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 1. `npm test` runs the complete test suite.
 1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
 1. `npm run dist` creates UMD build of antd.
+
+## Being a collaborator
+
+If you are a active contributor and are willing to work with Ant Design Team in our opensource workflow, you can [apply to be a outside collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator).

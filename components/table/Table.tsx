@@ -442,7 +442,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           internalRefs={internalRefs as any}
           transformColumns={transformColumns}
         />
-        {bottomPaginationNode}
+        {pageData && pageData.length > 0 && bottomPaginationNode}
       </Spin>
     </div>
   );

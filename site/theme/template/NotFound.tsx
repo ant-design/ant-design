@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'bisheng/router';
+import { Result, Button } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 import * as utils from './utils';
 
 export interface NotFoundProps {
@@ -30,14 +32,14 @@ export default function NotFound(props: NotFoundProps) {
     router,
   } = props;
 
-  React.useEffect(() => {
+  const isZhCN = utils.isZhCN(pathname);
+
+  useEffect(() => {
     const directLinks = Object.keys(DIRECT_MAP);
     for (let i = 0; i < directLinks.length; i += 1) {
       const matchPath = directLinks[i];
       if (pathname.includes(matchPath)) {
-        router.replace(
-          utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, utils.isZhCN(pathname)),
-        );
+        router.replace(utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, isZhCN));
       }
     }
   }, []);
@@ -45,11 +47,20 @@ export default function NotFound(props: NotFoundProps) {
   return (
     <div id="page-404">
       <section>
-        <h1>404!</h1>
-        <p>
-          你要找的页面不存在
-          <Link to={utils.getLocalizedPathname('/', utils.isZhCN(pathname))}>返回首页</Link>
-        </p>
+        <Result
+          status="404"
+          title="404"
+          subTitle={
+            isZhCN ? '你访问的页面貌似不存在？' : 'Sorry, the page you visited does not exist.'
+          }
+          extra={
+            <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+              <Button type="primary" icon={<HomeOutlined />}>
+                {isZhCN ? '返回 Ant Design 首页' : 'Back to home page'}
+              </Button>
+            </Link>
+          }
+        />
       </section>
       <style
         dangerouslySetInnerHTML={{

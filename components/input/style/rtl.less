@@ -84,6 +84,14 @@
   }
 
   &&-compact {
+    & > *:not(:last-child) {
+      .@{inputClass}-group-rtl& {
+        margin-right: 0;
+        margin-left: -@border-width-base;
+        border-left-width: @border-width-base;
+      }
+    }
+
     & > *:first-child,
     & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input,
@@ -108,7 +116,6 @@
     & > .@{ant-prefix}-mention-wrapper:last-child .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
       .@{inputClass}-group-rtl& {
-        border-right-width: 0;
         border-left-width: @border-width-base;
         border-top-left-radius: @border-radius-base;
         border-top-right-radius: 0;
@@ -132,6 +139,11 @@
       .@{search-rtl-cls}& {
         border: @border-width-base @border-style-base @input-border-color;
         border-left: 0;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: @input-hover-border-color;
       }
     }
 

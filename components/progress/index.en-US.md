@@ -51,5 +51,5 @@ Properties that shared by all types.
 | --- | --- | --- | --- |
 | width | to set the canvas width of the dashboard progress, unit: `px` | number | 132 |
 | strokeWidth | to set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
-| gapDegree | the gap degree of half circle, 0 ~ 360 | number | 0 |
-| gapPosition | the gap position, options: `top` `bottom` `left` `right` | string | `top` |
+| gapDegree | the gap degree of half circle, 0 ~ 295 | number | 75 |
+| gapPosition | the gap position, options: `top` `bottom` `left` `right` | string | `bottom` |

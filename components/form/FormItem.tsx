@@ -87,7 +87,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  // const [inlineErrors, innerSetInlineErrors] = React.useState<Record<string, string[]>>({});
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   function setDomErrorVisible(visible: boolean) {
@@ -304,6 +303,12 @@ function FormItem(props: FormItemProps): React.ReactElement {
             'Must set `name` or use render props when `dependencies` is set.',
           );
         } else if (React.isValidElement(children)) {
+          warning(
+            (children.props as any).defaultValue === undefined,
+            'Form.Item',
+            '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
+          );
+
           const childProps = { ...children.props, ...mergedControl };
 
           // We should keep user origin event handler

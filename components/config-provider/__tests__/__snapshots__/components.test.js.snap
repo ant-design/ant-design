@@ -11611,7 +11611,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="config-table-thead"
+              >
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
@@ -11851,82 +11853,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="config-pagination config-table-pagination"
-        unselectable="unselectable"
-      >
-        <li
-          aria-disabled="true"
-          class="config-pagination-prev config-pagination-disabled"
-          title="Previous Page"
-        >
-          <a
-            class="config-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-        <li
-          class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
-          tabindex="0"
-          title="0"
-        >
-          <a>
-            0
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="config-pagination-next config-pagination-disabled"
-          title="Next Page"
-        >
-          <a
-            class="config-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
@@ -11957,7 +11883,9 @@ exports[`ConfigProvider components Table normal 1`] = `
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
@@ -12197,82 +12125,6 @@ exports[`ConfigProvider components Table normal 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
-      >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
-          tabindex="0"
-          title="0"
-        >
-          <a>
-            0
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
@@ -12303,7 +12155,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               <colgroup>
                 <col />
               </colgroup>
-              <thead>
+              <thead
+                class="prefix-Table-thead"
+              >
                 <tr>
                   <th
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
@@ -12543,82 +12397,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination prefix-Table-pagination"
-        unselectable="unselectable"
-      >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
-          tabindex="0"
-          title="0"
-        >
-          <a>
-            0
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>

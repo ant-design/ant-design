@@ -35,6 +35,7 @@ title: TreeSelect
 | placeholder | 选择框默认文字 | string | - |  |
 | searchValue | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  |
 | treeIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
+| switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |
 | showCheckedStrategy | 定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |  |
 | showSearch | 是否支持搜索框 | boolean | 单选：`false` \| 多选：`true` |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | 无 |  |

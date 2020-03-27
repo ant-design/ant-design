@@ -61,6 +61,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
   });
 
   webpackDarkConfig.forEach(config => {
+    ignoreMomentLocale(config);
+    externalMoment(config);
+
     // rename default entry to dark entry
     Object.keys(config.entry).forEach(entryName => {
       config.entry[entryName.replace('antd', 'antd.dark')] = config.entry[entryName];

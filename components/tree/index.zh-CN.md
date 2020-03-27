@@ -37,7 +37,7 @@ subtitle: 树形控件
 | selectable | 是否可选中 | boolean | true |  |
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
-| switcherIcon | 自定义树节点的展开/折叠图标 | React.ReactElement | - |  |
+| switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |
 | showLine | 是否展示连接线 | boolean | false |  |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array\<{key, title, children, \[disabled, selectable]}> | - |  |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |

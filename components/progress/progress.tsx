@@ -49,7 +49,7 @@ export default class Progress extends React.Component<ProgressProps> {
     // null for different theme definition
     trailColor: null,
     size: 'default',
-    gapDegree: 0,
+    gapDegree: undefined,
     strokeLinecap: 'round',
   };
 

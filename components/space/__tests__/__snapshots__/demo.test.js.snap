@@ -229,6 +229,7 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
     style="margin-right:8px"
   >
     <span
+      class="ant-popover-disabled-compatible-wrapper"
       style="display:inline-block;cursor:not-allowed"
     >
       <button
