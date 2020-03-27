@@ -33,8 +33,8 @@
   }
 
   // ============================= Cell =============================
-  thead > tr > th,
-  tbody > tr > td,
+  &-thead > tr > th,
+  &-tbody > tr > td,
   tfoot > tr > th,
   tfoot > tr > td {
     position: relative;
@@ -74,7 +74,7 @@
   }
 
   // ============================ Header ============================
-  thead {
+  &-thead {
     > tr {
       > th {
         color: @table-header-color;
@@ -98,7 +98,7 @@
   }
 
   // ============================= Body =============================
-  tbody {
+  &-tbody {
     > tr {
       > td {
         border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -132,7 +132,7 @@
           background: transparent;
         }
 
-        tbody > tr:last-child > td {
+        &-tbody > tr:last-child > td {
           border-bottom: 0;
 
           &:first-child,
@@ -165,7 +165,7 @@
   // ================================================================
 
   // ============================ Sorter ============================
-  thead th.@{table-prefix-cls}-column-has-sorters {
+  &-thead th.@{table-prefix-cls}-column-has-sorters {
     padding: 0;
     cursor: pointer;
     transition: all 0.3s;
@@ -179,7 +179,7 @@
     }
   }
 
-  thead th.@{table-prefix-cls}-column-sort {
+  &-thead th.@{table-prefix-cls}-column-sort {
     background: @table-header-sort-bg;
   }
   td&-column-sort {
@@ -250,7 +250,7 @@
 
     &-open,
     &:hover,
-    thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
+    .@{table-prefix-cls}-thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
       background: @table-header-filter-active-bg;
     }
   }
@@ -464,7 +464,8 @@
   }
 
   // ========================= Placeholder ==========================
-  tbody > tr&-placeholder {
+  &-tbody > tr&-placeholder {
+    text-align: center;
     &:hover {
       > td {
         background: @component-background;

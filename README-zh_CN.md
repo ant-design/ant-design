@@ -72,9 +72,13 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 你也可以使用 [babel-plugin-import](https://ant.design/docs/react/getting-started-cn#按需加载)。
 
+### 🌈 定制主题
+
+参考 [定制主题](https://ant.design/docs/react/customize-theme-cn) 文档。
+
 ### 🛡 TypeScript
 
-参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)
+参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)。
 
 ## 🌍 国际化
 
@@ -103,6 +107,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](http://ant.design/docs/react/customize-theme-cn)
+- [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ 本地开发
 

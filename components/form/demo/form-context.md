@@ -32,7 +32,7 @@ interface ModalFormProps {
 }
 
 // reset form fields when modal is form, closed
-const useResetFormOnCloseModal = ({ visible }) => {
+const useResetFormOnCloseModal = ({ form, visible }) => {
   const prevVisibleRef = useRef();
   useEffect(() => {
     prevVisibleRef.current = visible;

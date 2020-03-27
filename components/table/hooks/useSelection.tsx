@@ -321,6 +321,7 @@ export default function useSelection<RecordType>(
               <Radio
                 {...checkboxPropsMap.get(key)}
                 checked={checked}
+                onClick={e => e.stopPropagation()}
                 onChange={event => {
                   if (!keySet.has(key)) {
                     triggerSingleSelection(key, true, [key], event.nativeEvent);
@@ -342,6 +343,7 @@ export default function useSelection<RecordType>(
               <Checkbox
                 {...checkboxPropsMap.get(key)}
                 checked={checked}
+                onClick={e => e.stopPropagation()}
                 onChange={({ nativeEvent }) => {
                   const { shiftKey } = nativeEvent;
 

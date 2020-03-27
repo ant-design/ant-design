@@ -309,6 +309,10 @@ validator(rule, value, callback) => {
 
 这是因为你在调用 form 方法时，Modal 还未初始化导致 form 没有关联任何 Form 组件。你可以通过给 Modal 设置 `forceRender` 将其预渲染。示例点击[此处](https://codesandbox.io/s/antd-reproduction-template-ibu5c)。
 
+### 为什么 Form.Item 下的子组件 defaultValue 不生效？
+
+当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);

@@ -308,6 +308,10 @@ validator(rule, value, callback) => {
 
 Before Modal open, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
 
+### 为什么 Form.Item 下的子组件 defaultValue 不生效？
+
+当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
