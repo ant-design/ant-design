@@ -19,7 +19,7 @@ export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren = (form: FormInstance) => React.ReactNode;
 type RcFieldProps = Omit<FieldProps, 'children'>;
-type ChildrenType = RenderChildren | React.ReactNode | null;
+type ChildrenType = RenderChildren | React.ReactNode;
 
 interface MemoInputProps {
   value: any;
