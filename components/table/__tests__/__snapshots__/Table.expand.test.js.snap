@@ -81,7 +81,7 @@ exports[`Table.expand click to expand 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li

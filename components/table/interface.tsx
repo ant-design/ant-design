@@ -161,5 +161,5 @@ export interface SorterResult<RecordType> {
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
 export interface TablePaginationConfig extends PaginationConfig {
-  position?: 'top' | 'bottom' | 'both';
+  // position?: 'top' | 'bottom' | 'both';
 }

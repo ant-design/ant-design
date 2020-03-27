@@ -92,14 +92,14 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 <Table
   onRow={(record, rowIndex) => {
     return {
-      onClick: event => {}, // click row
-      onDoubleClick: event => {}, // double click row
-      onContextMenu: event => {}, // right button click row
-      onMouseEnter: event => {}, // mouse enter row
-      onMouseLeave: event => {}, // mouse leave row
+      onClick: (event) => {}, // click row
+      onDoubleClick: (event) => {}, // double click row
+      onContextMenu: (event) => {}, // right button click row
+      onMouseEnter: (event) => {}, // mouse enter row
+      onMouseLeave: (event) => {}, // mouse leave row
     };
   }}
-  onHeaderRow={column => {
+  onHeaderRow={(column) => {
     return {
       onClick: () => {}, // click header row
     };
@@ -151,9 +151,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 Properties for pagination.
 
-| Property | Description                          | Type                        | Default  |
-| -------- | ------------------------------------ | --------------------------- | -------- |
-| position | specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| position | specify the position of `Pagination`, could be `topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` | Array | `['bottomRight']` |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -265,7 +265,7 @@ If `dataSource[i].key` is not provided, then you should specify the primary key 
 // primary key is uid
 return <Table rowKey="uid" />;
 // or
-return <Table rowKey={record => record.uid} />;
+return <Table rowKey={(record) => record.uid} />;
 ```
 
 ## Migrate to v4
