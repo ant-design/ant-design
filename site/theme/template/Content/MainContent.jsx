@@ -336,7 +336,6 @@ class MainContent extends Component {
             </Menu>
           );
           const componentPage = /^\/?components/.test(this.props.location.pathname);
-          const isNotDefaultMode = theme !== undefined && theme !== 'default';
           return (
             <div className="main-wrapper">
               <Row>
@@ -393,19 +392,8 @@ class MainContent extends Component {
                   </section>
                   {componentPage && (
                     <div className="fixed-widgets">
-                      <Dropdown
-                        overlay={this.getThemeSwitchMenu()}
-                        placement="topCenter"
-                        trigger="click"
-                      >
-                        <Avatar
-                          className={classNames(
-                            'fixed-widgets-avatar',
-                            `fixed-widgets-avatar-${theme}`,
-                          )}
-                          size={44}
-                          icon={<ThemeIcon color={isNotDefaultMode && '#1890ff'} />}
-                        />
+                      <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
+                        <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
                       </Dropdown>
                     </div>
                   )}
