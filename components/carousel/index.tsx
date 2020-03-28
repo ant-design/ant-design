@@ -1,5 +1,4 @@
 import * as React from 'react';
-import isPlainObject from 'lodash/isPlainObject';
 import debounce from 'lodash/debounce';
 import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
@@ -107,7 +106,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     const dotPosition = this.getDotPosition();
     props.vertical = dotPosition === 'left' || dotPosition === 'right';
 
-    const enableDots = props.dots === true || isPlainObject(props.dots);
+    const enableDots = !!props.dots;
     const dsClass = classNames(
       dotsClass,
       `${dotsClass}-${dotPosition || 'bottom'}`,
