@@ -1,10 +1,10 @@
 import React from 'react';
-import DownOutlined from '@ant-design/icons/lib/icons/DownOutlined';
-import LoadingOutlined from '@ant-design/icons/lib/icons/LoadingOutlined';
-import CheckOutlined from '@ant-design/icons/lib/icons/CheckOutlined';
-import CloseOutlined from '@ant-design/icons/lib/icons/CloseOutlined';
-import CloseCircleFilled from '@ant-design/icons/lib/icons/CloseCircleFilled';
-import SearchOutlined from '@ant-design/icons/lib/icons/SearchOutlined';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
 export default function getIcons({
   suffixIcon,

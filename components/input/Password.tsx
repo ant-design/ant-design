@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import EyeOutlined from '@ant-design/icons/lib/icons/EyeOutlined';
-import EyeInvisibleOutlined from '@ant-design/icons/lib/icons/EyeInvisibleOutlined';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Input, { InputProps } from './Input';

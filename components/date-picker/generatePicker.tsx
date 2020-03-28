@@ -14,9 +14,9 @@ import {
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
 import { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
-import CalendarOutlined from '@ant-design/icons/lib/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/lib/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/lib/icons/CloseCircleFilled';
+import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
+import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';

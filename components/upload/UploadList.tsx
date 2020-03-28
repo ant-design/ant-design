@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/lib/icons/LoadingOutlined';
-import PaperClipOutlined from '@ant-design/icons/lib/icons/PaperClipOutlined';
-import PictureTwoTone from '@ant-design/icons/lib/icons/PictureTwoTone';
-import FileTwoTone from '@ant-design/icons/lib/icons/FileTwoTone';
-import EyeOutlined from '@ant-design/icons/lib/icons/EyeOutlined';
-import DeleteOutlined from '@ant-design/icons/lib/icons/DeleteOutlined';
-import DownloadOutlined from '@ant-design/icons/lib/icons/DownloadOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
+import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
+import FileTwoTone from '@ant-design/icons/FileTwoTone';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
+import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 
 import { UploadListProps, UploadFile, UploadListType } from './interface';
 import { previewImage, isImageUrl } from './utils';

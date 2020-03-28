@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import StarFilled from '@ant-design/icons/lib/icons/StarFilled';
+import StarFilled from '@ant-design/icons/StarFilled';
 
 import Tooltip from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

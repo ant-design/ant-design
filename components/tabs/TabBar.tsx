@@ -1,10 +1,10 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
-import UpOutlined from '@ant-design/icons/lib/icons/UpOutlined';
-import LeftOutlined from '@ant-design/icons/lib/icons/LeftOutlined';
-import DownOutlined from '@ant-design/icons/lib/icons/DownOutlined';
-import RightOutlined from '@ant-design/icons/lib/icons/RightOutlined';
+import UpOutlined from '@ant-design/icons/UpOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import { TabsProps } from './index';
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';

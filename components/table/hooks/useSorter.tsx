@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
-import CaretDownOutlined from '@ant-design/icons/lib/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/lib/icons/CaretUpOutlined';
+import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
+import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import {
   TransformColumns,
   ColumnsType,

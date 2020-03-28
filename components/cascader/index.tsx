@@ -5,11 +5,11 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import isEqual from 'lodash/isEqual';
 import KeyCode from 'rc-util/lib/KeyCode';
-import CloseCircleFilled from '@ant-design/icons/lib/icons/CloseCircleFilled';
-import DownOutlined from '@ant-design/icons/lib/icons/DownOutlined';
-import RightOutlined from '@ant-design/icons/lib/icons/RightOutlined';
-import RedoOutlined from '@ant-design/icons/lib/icons/RedoOutlined';
-import LeftOutlined from '@ant-design/icons/lib/icons/LeftOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import RedoOutlined from '@ant-design/icons/RedoOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';

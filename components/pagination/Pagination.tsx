@@ -2,10 +2,10 @@ import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import LeftOutlined from '@ant-design/icons/lib/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/lib/icons/RightOutlined';
-import DoubleLeftOutlined from '@ant-design/icons/lib/icons/DoubleLeftOutlined';
-import DoubleRightOutlined from '@ant-design/icons/lib/icons/DoubleRightOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
+import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 
 import ResponsiveObserve from '../_util/responsiveObserve';
 import MiniSelect from './MiniSelect';
