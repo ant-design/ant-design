@@ -263,7 +263,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout:auto"
+              style="table-layout:fixed"
             >
               <colgroup>
                 <col
