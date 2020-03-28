@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import uniqBy from 'lodash/uniqBy';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -208,12 +207,17 @@ class Upload extends React.Component<UploadProps, UploadState> {
     }
     const result = beforeUpload(file, fileList);
     if (result === false) {
+      // Get unique file list
+      const uniqueList: UploadFile<any>[] = [];
+      stateFileList.concat(fileList.map(fileToObject)).forEach(f => {
+        if (uniqueList.every(uf => uf.uid !== f.uid)) {
+          uniqueList.push(f);
+        }
+      });
+
       this.onChange({
         file,
-        fileList: uniqBy(
-          stateFileList.concat(fileList.map(fileToObject)),
-          (item: UploadFile) => item.uid,
-        ),
+        fileList: uniqueList,
       });
       return false;
     }
