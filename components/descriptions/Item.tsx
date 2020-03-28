@@ -9,7 +9,7 @@ export interface DescriptionsItemProps {
   span?: number;
 }
 
-const DescriptionsItem: React.SFC<DescriptionsItemProps> = ({ children }) =>
+const DescriptionsItem: React.FunctionComponent<DescriptionsItemProps> = ({ children }) =>
   children as JSX.Element;
 
 export default DescriptionsItem;

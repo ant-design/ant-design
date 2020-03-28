@@ -12,7 +12,7 @@ export interface DividerProps {
   style?: React.CSSProperties;
 }
 
-const Divider: React.SFC<DividerProps> = props => (
+const Divider: React.FunctionComponent<DividerProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
