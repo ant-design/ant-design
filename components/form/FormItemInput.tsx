@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import LoadingOutlined from '@ant-design/icons/lib/icons/LoadingOutlined';
+import CloseCircleFilled from '@ant-design/icons/lib/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/lib/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/lib/icons/ExclamationCircleFilled';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 

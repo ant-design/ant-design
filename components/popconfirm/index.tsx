@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/lib/icons/ExclamationCircleFilled';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import LoadingOutlined from '@ant-design/icons/lib/icons/LoadingOutlined';
 
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
