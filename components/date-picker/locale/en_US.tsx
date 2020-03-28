@@ -7,6 +7,7 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Select date',
     yearPlaceholder: 'Select year',
+    quarterPlaceholder: 'Select quarter',
     monthPlaceholder: 'Select month',
     weekPlaceholder: 'Select week',
     rangePlaceholder: ['Start date', 'End date'],

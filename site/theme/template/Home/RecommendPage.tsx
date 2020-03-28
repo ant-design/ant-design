@@ -84,6 +84,14 @@ const RecommendBlock = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        if (window.gtag) {
+          window.gtag('event', '点击', {
+            event_category: '首页推广',
+            event_label: href,
+          });
+        }
+      }}
     >
       <img src={img} alt={title} />
       {popularize && (

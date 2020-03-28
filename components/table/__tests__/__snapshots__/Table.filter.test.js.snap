@@ -72,10 +72,10 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -194,10 +194,10 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -324,10 +324,10 @@ exports[`Table.filter renders filter correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -657,10 +657,10 @@ exports[`Table.filter should support getPopupContainer 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -890,10 +890,10 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"

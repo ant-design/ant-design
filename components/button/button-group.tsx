@@ -10,7 +10,7 @@ export interface ButtonGroupProps {
   prefixCls?: string;
 }
 
-const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
+const ButtonGroup: React.FC<ButtonGroupProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, size, className, ...others } = props;

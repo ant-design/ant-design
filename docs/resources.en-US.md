@@ -85,7 +85,7 @@ Do you want to know the story behind the Ant Design design system? How can I bet
 
 ## Reference
 
-Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
+Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
 
 <div class="next-block-use-cards"></div>
 

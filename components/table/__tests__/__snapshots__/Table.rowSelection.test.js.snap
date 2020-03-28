@@ -29,9 +29,10 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
@@ -237,7 +238,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -343,9 +344,10 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -507,7 +509,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -613,9 +615,10 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
@@ -782,7 +785,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -915,9 +918,10 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
@@ -1074,7 +1078,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li

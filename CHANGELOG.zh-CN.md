@@ -15,6 +15,45 @@ timeline: true
 
 ---
 
+## 4.0.4
+
+`2020-03-23`
+
+- 🐞 修复 AutoComplete 下使用 Search 时清除图标和搜索图标重叠样式异常的问题。[#22310](https://github.com/ant-design/ant-design/pull/22310)
+- 🐞 修复 Button 为 `disabled` 时被 Tooltip 包裹时的对齐问题。[#22461](https://github.com/ant-design/ant-design/pull/22461)
+- 🐞 修复 Cascader 搜索时需要按两次向下箭头才能选中问题。[#22216](https://github.com/ant-design/ant-design/pull/22216) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 修复 Carousel 无法使用 Snowpack 构建的问题。[#22507](https://github.com/ant-design/ant-design/pull/22507)
+- 🐞 修复 ConfigProvider `componentSize` 对 DatePicker.RangePicker 无效的问题。[#22486](https://github.com/ant-design/ant-design/pull/22486)
+- 🐞 修复 Descriptions 在小尺寸下无法自适应的问题。[#22407](https://github.com/ant-design/ant-design/pull/22407)
+- 🐞 修复 Grid 下使用不带 `span` 的 Col 时样式错乱的问题。[#22455](https://github.com/ant-design/ant-design/pull/22455)
+- ⚡️ 优化 Form.Item 有多个 `noStyle` 子 Form.Item 时信息收集性能。[#22410](https://github.com/ant-design/ant-design/pull/22410)
+- 💄 增加 InputNumber RTL 模式样式。[#22434](https://github.com/ant-design/ant-design/pull/22434)
+- Menu
+  - 🛠 Menu 继承标题的 `line-height`。[#16142](https://github.com/ant-design/ant-design/pull/16142) [@sheerun](https://github.com/sheerun)
+  - 🐞 修复 Menu 子菜单展开/收起时会出现滚动条的问题。[#22248](https://github.com/ant-design/ant-design/pull/22248)
+- 🐞 修复 Progress 仪表盘状进度条传入 `gapDeg` 为 `0` 时仍然有缺口的问题。[#22462](https://github.com/ant-design/ant-design/pull/22462) [@thisrabbit](https://github.com/thisrabbit)
+- 🛠 调整 Radio.Group 逻辑，`value` 为 `undefined` 时为非受控状态。[#22245](https://github.com/ant-design/ant-design/pull/22245)
+- 💄 微调 RangePicker 箭头阴影样式。[#22406](https://github.com/ant-design/ant-design/pull/22406)
+- ⚡️ 减少 Row 在 `gutter` 是数组时非必要的额外渲染。[#22475](https://github.com/ant-design/ant-design/pull/22475) [@dolfje](https://github.com/dolfje)
+- 🐞 修复 Select 下拉菜单的上下 padding。[#22251](https://github.com/ant-design/ant-design/pull/22251)
+- 🐞 修复 Slider 使用 `nullable` 值时弹出提示会崩溃的问题。[#22482](https://github.com/ant-design/ant-design/pull/22482)
+- Table
+  - 🐞 修复 Table ColumnGroup 使用受控 `sorterOrder` 无效的问题。[#22450](https://github.com/ant-design/ant-design/pull/22450)
+  - 🐞 修复 Table 边框圆角样式问题。[#22413](https://github.com/ant-design/ant-design/pull/22413) [@akshatmittal](https://github.com/akshatmittal)
+  - 🐞 修复 Table 固定列高度样式问题。[#22367](https://github.com/ant-design/ant-design/pull/22367)
+  - 🐞 修复 Table 展开行按钮在 ipad 下的样式问题。[#22334](https://github.com/ant-design/ant-design/pull/22334) [@BugHiding](https://github.com/BugHiding)
+  - 🐞 修复 Table 在只设置 `onFilter` 时过滤无效的问题。[#22317](https://github.com/ant-design/ant-design/pull/22317)
+  - 🛠 Table `column.filter` 的 value 定义可以支持 `boolean`。[#22277](https://github.com/ant-design/ant-design/pull/22277) [@xudongdev](https://github.com/xudongdev)
+- 🐞 重构 DirectoryTree 以修复废弃 API 警告信息。[#22318](https://github.com/ant-design/ant-design/pull/22318)
+- 🐞 修复 TreeSelect `treeIcon` 无效的问题。[#22437](https://github.com/ant-design/ant-design/pull/22437)
+- 🐞 修复 Typography 嵌套列表的样式问题。[#22284](https://github.com/ant-design/ant-design/pull/22284)
+- 🐞 调整 Upload `onChange` 返回参数 `fileList` 为不可变数据以解决渲染问题。[#22322](https://github.com/ant-design/ant-design/pull/22322)
+- 🌎 国际化
+  - 🇩🇪 更新德语国际化。[#22270](https://github.com/ant-design/ant-design/pull/22270) [@iChebbi](https://github.com/iChebbi)
+  - 🇫🇷 更新法语国际化。[#22238](https://github.com/ant-design/ant-design/pull/22238) [@abenhamdine](https://github.com/abenhamdine)
+- Typescript
+  - 🐞 移除 Table `getCheckboxProps` 的 `checked` 类型定义。[#22391](https://github.com/ant-design/ant-design/pull/22391) [@geekrainy](https://github.com/geekrainy)
+
 ## 4.0.3
 
 `2020-03-14`
@@ -32,7 +71,7 @@ timeline: true
   - 🐞 修复 ConfigProvider 没有作用在 Table 过滤弹框上的问题。[#22133](https://github.com/ant-design/ant-design/pull/22133)
   - 🐞 修复 Table 树形结构下展开与固定列配合的样式问题。[#22131](https://github.com/ant-design/ant-design/pull/22131)
   - 🐞 修复 Table 选择列固定时展开列不固定的问题。[#22087](https://github.com/ant-design/ant-design/pull/22087)
-  - 🐞 修复 Table 过滤菜单重置失效的问题。[#22079](https://github.com/ant-design/ant-design/pull/22079) [@shaodahong](https://github.com/shaodahong)
+  - 🐞 修复 Table 过滤菜单重置失效的问题。[#22079](https://github.com/ant-design/ant-design/pull/22079)
   - 🐞 修复 Table 筛选子菜单高度溢出屏幕的问题。[#22230](https://github.com/ant-design/ant-design/pull/22230)
 - Form
   - 💄 优化 Form 的响应式和盒模型表现。[#21907](https://github.com/ant-design/ant-design/pull/21907) [@shaodahong](https://github.com/shaodahong)

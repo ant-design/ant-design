@@ -253,7 +253,7 @@ describe('Tooltip', () => {
     );
     expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
   });
-  
+
   it('autoAdjustOverflow should be object or undefined', () => {
     expect(() => {
       mount(
@@ -279,19 +279,15 @@ describe('Tooltip', () => {
         placement="bottomLeft"
         visible
         transitionName=""
+        mouseEnterDelay={0}
       >
         <span>
           Hello world!
         </span>
       </Tooltip>,
     );
-    await sleep(300);
+    await sleep(600);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
-    wrapper.setProps({
-      placement: 'topRight',
-    });
-    await sleep(300);
-    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
 
   it('other placement when mouse enter', async () => {
@@ -300,6 +296,7 @@ describe('Tooltip', () => {
         title="xxxxx"
         placement="topRight"
         transitionName=""
+        mouseEnterDelay={0}
       >
         <span>
           Hello world!

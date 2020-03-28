@@ -116,4 +116,20 @@
       }
     }
   }
+
+  &.@{timeline-prefix-cls}-label {
+    .@{timeline-prefix-cls}-item-label {
+      .@{timeline-prefix-cls}-rtl& {
+        text-align: left;
+      }
+    }
+    .@{timeline-prefix-cls}-item-right {
+      .@{timeline-prefix-cls}-item-label {
+        .@{timeline-prefix-cls}-rtl& {
+          right: calc(50% + 14px);
+          text-align: right;
+        }
+      }
+    }
+  }
 }

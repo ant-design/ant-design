@@ -137,6 +137,8 @@ When you need context info (like ConfigProvider context), you can use `Modal.use
 ```tsx
 const [modal, contextHolder] = Modal.useModal();
 
+// then call modal.confirm instead of Modal.confirm
+
 return (
   <Context1.Provider value="Ant">
     {/* contextHolder is in Context1 which mean modal will not get context of Context1 */}

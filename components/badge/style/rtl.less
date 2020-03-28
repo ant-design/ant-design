@@ -15,6 +15,7 @@
     .@{badge-prefix-cls}-rtl & {
       right: auto;
       left: 0;
+      direction: ltr;
       transform: translate(-50%, -50%);
       transform-origin: 0% 0%;
     }
@@ -46,6 +47,12 @@
   &-zoom-leave {
     .@{badge-prefix-cls}-rtl & {
       animation-name: antZoomBadgeOutRtl;
+    }
+  }
+
+  &-not-a-wrapper {
+    .@{badge-prefix-cls}-count {
+      transform: none;
     }
   }
 }

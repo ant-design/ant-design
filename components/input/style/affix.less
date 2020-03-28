@@ -17,6 +17,12 @@
         box-shadow: none;
       }
     }
+
+    &::before {
+      width: 0;
+      visibility: hidden;
+      content: '\a0';
+    }
   }
 
   &-prefix,

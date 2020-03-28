@@ -42,6 +42,9 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface AlertState {
@@ -103,6 +106,9 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       className = '',
       style,
       icon,
+      onMouseEnter,
+      onMouseLeave,
+      onClick,
     } = this.props;
     let { closable, type, showIcon } = this.props;
     const { closing, closed } = this.state;
@@ -173,7 +179,15 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
-        <div data-show={!closing} className={alertCls} style={style} {...dataOrAriaProps}>
+        <div
+          data-show={!closing}
+          className={alertCls}
+          style={style}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={onClick}
+          {...dataOrAriaProps}
+        >
           {showIcon ? iconNode : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>

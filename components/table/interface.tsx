@@ -97,7 +97,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
+export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
@@ -161,5 +161,5 @@ export interface SorterResult<RecordType> {
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
 export interface TablePaginationConfig extends PaginationConfig {
-  position?: 'top' | 'bottom' | 'both';
+  // position?: 'top' | 'bottom' | 'both';
 }

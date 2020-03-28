@@ -29,9 +29,10 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                 <col
                   style="width:20%;min-width:20%"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
@@ -205,82 +206,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
-      >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="left"
-              class="anticon anticon-left"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
-          tabindex="0"
-          title="0"
-        >
-          <a>
-            0
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-            disabled=""
-          >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
@@ -308,14 +233,10 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -504,7 +425,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -611,12 +532,10 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -715,7 +634,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -817,14 +736,10 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -995,7 +910,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -1104,9 +1019,10 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 <col
                   style="width:20%;min-width:20%"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -1328,7 +1244,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -1430,12 +1346,10 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -1526,7 +1440,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -2356,12 +2270,10 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     style="width:60px;min-width:60px"
                   />
-                  <col />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -3285,7 +3197,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -3402,11 +3314,10 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   <col
                     style="width:30%;min-width:30%"
                   />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell"
@@ -3503,7 +3414,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -3616,9 +3527,10 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 <col
                   style="width:40%;min-width:40%"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -3921,7 +3833,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -4114,12 +4026,10 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 <col
                   style="width:80px;min-width:80px"
                 />
-                <col />
-                <col />
-                <col />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -4289,7 +4199,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -4395,12 +4305,10 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 <col
                   class="ant-table-expand-icon-col"
                 />
-                <col />
-                <col />
-                <col />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -4580,7 +4488,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -4694,7 +4602,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   style="width:30%;min-width:30%"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
@@ -4841,7 +4751,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -4963,7 +4873,9 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   style="width:100px;min-width:100px"
                 />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5203,7 +5115,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -5306,23 +5218,10 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col
-                  style="width:0;min-width:0"
-                />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -6124,7 +6023,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -6311,15 +6210,10 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col
-                  style="width:0;min-width:0"
-                />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -6354,7 +6248,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 <col
                   style="width:150px;min-width:150px"
                 />
-                <col />
               </colgroup>
               <tbody
                 class="ant-table-tbody"
@@ -7380,7 +7273,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -7492,20 +7385,10 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col
-                  style="width:0;min-width:0"
-                />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -8221,7 +8104,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination mini"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
         unselectable="unselectable"
       >
         <li
@@ -8407,12 +8290,10 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
@@ -8738,7 +8619,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -8840,15 +8721,10 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -9063,7 +8939,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -9165,13 +9041,10 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -9466,7 +9339,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -9572,15 +9445,10 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 <col
                   class="ant-table-expand-icon-col"
                 />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -9784,7 +9652,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -9864,6 +9732,544 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="ant-radio-group ant-radio-group-outline"
+      style="margin-bottom:10px"
+    >
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked"
+      >
+        <span
+          class="ant-radio ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+            value="topLeft"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          topLeft
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="topCenter"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          topCenter
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="topRight"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          topRight
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+            value="none"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span>
+          none
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+    style="margin-bottom:10px"
+  >
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="bottomLeft"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        bottomLeft
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="bottomCenter"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        bottomCenter
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="bottomRight"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        bottomRight
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="none"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        none
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-table-wrapper"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-left"
+          unselectable="unselectable"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+              disabled=""
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+              disabled=""
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <div
+          class="ant-table"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout:auto"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Tags
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <a>
+                        John Brown
+                      </a>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <span>
+                        <span
+                          class="ant-tag ant-tag-green"
+                        >
+                          NICE
+                        </span>
+                        <span
+                          class="ant-tag ant-tag-geekblue"
+                        >
+                          DEVELOPER
+                        </span>
+                      </span>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <span>
+                        <a
+                          style="margin-right:16px"
+                        >
+                          Invite John Brown
+                        </a>
+                        <a>
+                          Delete
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <a>
+                        Jim Green
+                      </a>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <span>
+                        <span
+                          class="ant-tag ant-tag-volcano"
+                        >
+                          LOSER
+                        </span>
+                      </span>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <span>
+                        <a
+                          style="margin-right:16px"
+                        >
+                          Invite Jim Green
+                        </a>
+                        <a>
+                          Delete
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <a>
+                        Joe Black
+                      </a>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sidney No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <span>
+                        <span
+                          class="ant-tag ant-tag-green"
+                        >
+                          COOL
+                        </span>
+                        <span
+                          class="ant-tag ant-tag-geekblue"
+                        >
+                          TEACHER
+                        </span>
+                      </span>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      <span>
+                        <a
+                          style="margin-right:16px"
+                        >
+                          Invite Joe Black
+                        </a>
+                        <a>
+                          Delete
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+          unselectable="unselectable"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+              disabled=""
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+              disabled=""
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
 <div>
   <div
@@ -9915,12 +10321,10 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
               <table
                 style="table-layout:fixed"
               >
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
-                <thead>
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
@@ -10274,7 +10678,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -10390,9 +10794,10 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 <col
                   style="width:100px;min-width:100px"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell react-resizable"
@@ -10596,7 +11001,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -10750,11 +11155,10 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <col
                     style="width:60px;min-width:60px"
                   />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
@@ -10974,7 +11378,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -11098,11 +11502,10 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   <col
                     style="width:60px;min-width:60px"
                   />
-                  <col />
-                  <col />
-                  <col />
                 </colgroup>
-                <thead>
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
@@ -11543,7 +11946,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -11686,11 +12089,10 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
-                <col />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
@@ -12159,7 +12561,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -12301,9 +12703,10 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
@@ -12549,7 +12952,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -12691,12 +13094,10 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
-                <thead>
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell"
@@ -12784,7 +13185,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination mini"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
           unselectable="unselectable"
         >
           <li
@@ -12886,12 +13287,10 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
-                <thead>
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
                   <tr>
                     <th
                       class="ant-table-cell"
@@ -12979,7 +13378,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination mini"
+          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
           unselectable="unselectable"
         >
           <li
@@ -13082,12 +13481,10 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -13276,11 +13673,10 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
                 <col
                   style="width:100px;min-width:100px"
                 />
-                <col
-                  style="width:0;min-width:0"
-                />
               </colgroup>
-              <thead>
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
