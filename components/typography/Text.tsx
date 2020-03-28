@@ -6,7 +6,7 @@ export interface TextProps extends BlockProps {
   ellipsis?: boolean;
 }
 
-const Text: React.SFC<TextProps> = ({ ellipsis, ...restProps }) => {
+const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
   warning(
     typeof ellipsis !== 'object',
     'Typography.Text',
