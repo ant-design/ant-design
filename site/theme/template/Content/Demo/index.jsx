@@ -342,7 +342,6 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                   href={`https://codesandbox.io/api/v1/sandboxes/define?parameters=${compress(
                     JSON.stringify(codesanboxPrefillConfig),
                   )}`}
-                  type="submit"
                   className="code-box-codesandbox"
                   onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
                 />
