@@ -6,7 +6,7 @@ interface StepsProps extends ProgressProps {
   size?: ProgressSize;
 }
 
-const Steps: React.FunctionComponent<StepsProps> = props => {
+const Steps: React.FC<StepsProps> = props => {
   const {
     size = 'default',
     steps,

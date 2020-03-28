@@ -28,7 +28,7 @@ function getStrokeColor({ successPercent, strokeColor }: CircleProps) {
   return [null, color];
 }
 
-const Circle: React.FunctionComponent<CircleProps> = props => {
+const Circle: React.FC<CircleProps> = props => {
   const {
     prefixCls,
     width,
