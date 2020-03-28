@@ -11608,9 +11608,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -11880,9 +11878,7 @@ exports[`ConfigProvider components Table normal 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -12152,9 +12148,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="prefix-Table-thead"
               >

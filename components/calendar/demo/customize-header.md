@@ -14,9 +14,7 @@ title:
 Customize Calendar header content.
 
 ```jsx
-import { Calendar, Select, Radio, Col, Row } from 'antd';
-
-const { Group, Button } = Radio;
+import { Calendar, Select, Radio, Col, Row, Typography } from 'antd';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);
@@ -58,16 +56,18 @@ ReactDOM.render(
           );
         }
         return (
-          <div style={{ padding: 10 }}>
-            <div style={{ marginBottom: '10px' }}>Custom header </div>
-            <Row style={{ flexWrap: 'nowrap' }} gutter={8}>
-              <Col style={{ flex: 'none' }}>
-                <Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>
-                  <Button value="month">Month</Button>
-                  <Button value="year">Year</Button>
-                </Group>
+          <div style={{ padding: 8 }}>
+            <Typography.Title level={4}>
+              Custom header
+            </Typography.Title>
+            <Row gutter={8}>
+              <Col>
+                <Radio.Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>
+                  <Radio.Button value="month">Month</Radio.Button>
+                  <Radio.Button value="year">Year</Radio.Button>
+                </Radio.Group>
               </Col>
-              <Col style={{ flex: 'auto' }}>
+              <Col>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
@@ -81,7 +81,7 @@ ReactDOM.render(
                   {options}
                 </Select>
               </Col>
-              <Col style={{ flex: 'auto' }}>
+              <Col>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
@@ -109,8 +109,8 @@ ReactDOM.render(
 ```css
 .site-calendar-customize-header-wrapper {
   width: 300px;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
 }
 ```
 

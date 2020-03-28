@@ -14,7 +14,7 @@ export interface TimeLineItemProps {
   label?: React.ReactNode;
 }
 
-const TimelineItem: React.SFC<TimeLineItemProps> = props => (
+const TimelineItem: React.FC<TimeLineItemProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {

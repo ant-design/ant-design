@@ -17,7 +17,7 @@ export interface CopyableIconProps {
   onCopied: (type: string, text: string) => any;
 }
 
-const CopyableIcon: React.SFC<CopyableIconProps> = ({
+const CopyableIcon: React.FC<CopyableIconProps> = ({
   name,
   isNew,
   justCopied,

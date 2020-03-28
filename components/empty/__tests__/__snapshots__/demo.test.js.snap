@@ -516,10 +516,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                 <table
                   style="table-layout:auto"
                 >
-                  <colgroup>
-                    <col />
-                    <col />
-                  </colgroup>
+                  <colgroup />
                   <thead
                     class="ant-table-thead"
                   >
