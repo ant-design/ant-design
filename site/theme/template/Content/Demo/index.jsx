@@ -332,22 +332,19 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <form
-              action="https://codesandbox.io/api/v1/sandboxes/define"
-              method="POST"
-              target="_blank"
-              onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
-            >
-              <input
-                type="hidden"
-                name="parameters"
-                value={compress(JSON.stringify(codesanboxPrefillConfig))}
-              />
+            <form>
               <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                <input
+                {/* FIXME: This temporarily solution to fix issues/22636, we need revert it to use form after the codesandbox api issue fixed. */}
+                <a
+                  aria-label="Create New Sandbox with Prefilled Data"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={`https://codesandbox.io/api/v1/sandboxes/define?parameters=${compress(
+                    JSON.stringify(codesanboxPrefillConfig),
+                  )}`}
                   type="submit"
-                  value="Create New Sandbox with Prefilled Data"
                   className="code-box-codesandbox"
+                  onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
                 />
               </Tooltip>
             </form>
