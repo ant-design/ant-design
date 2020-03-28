@@ -3,6 +3,7 @@ const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const packageInfo = require('./package.json');
 const darkVars = require('./scripts/dark-vars');
+const compactVars = require('./scripts/compact-vars');
 
 // We need compile additional content for antd user
 function finalizeCompile() {
@@ -49,6 +50,27 @@ function finalizeCompile() {
   }
 }
 
+function buildThemeFile(theme, vars) {
+  // Build less entry file: dist/antd.${theme}.less
+  fs.writeFileSync(
+    path.join(process.cwd(), 'dist', `antd.${theme}.less`),
+    `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
+  );
+
+  // eslint-disable-next-line
+  console.log(`Built a entry less file to dist/antd.${theme}.less`);
+
+  // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
+
+  fs.writeFileSync(
+    path.join(process.cwd(), 'dist', `${theme}-theme.js`),
+    `module.exports = ${JSON.stringify(vars, null, 2)};`,
+  );
+
+  // eslint-disable-next-line
+  console.log(`Built a ${theme} theme js file to dist/${theme}-theme.js`);
+}
+
 function finalizeDist() {
   if (fs.existsSync(path.join(__dirname, './dist'))) {
     // Build less entry file: dist/antd.less
@@ -56,28 +78,10 @@ function finalizeDist() {
       path.join(process.cwd(), 'dist', 'antd.less'),
       '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
     );
-
     // eslint-disable-next-line
     console.log('Built a entry less file to dist/antd.less');
-
-    // Build less entry file: dist/antd.dark.less
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'antd.dark.less'),
-      '@import "../lib/style/dark.less";\n@import "../lib/style/components.less";',
-    );
-
-    // eslint-disable-next-line
-    console.log('Built a entry less file to dist/antd.dark.less');
-
-    // Build dark.js: dist/dark-theme.js, for less-loader
-
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'dark-theme.js'),
-      `module.exports = ${JSON.stringify(darkVars, null, 2)};`,
-    );
-
-    // eslint-disable-next-line
-    console.log('Built a dark theme js file to dist/dark-theme.js');
+    buildThemeFile('dark', darkVars);
+    buildThemeFile('compact', compactVars);
   }
 }
 
