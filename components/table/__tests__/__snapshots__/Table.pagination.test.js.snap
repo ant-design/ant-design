@@ -22,9 +22,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -187,9 +185,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -341,9 +337,7 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >

@@ -9,7 +9,7 @@ export interface CardGridProps {
   hoverable?: boolean;
 }
 
-const Grid: React.SFC<CardGridProps> = props => (
+const Grid: React.FC<CardGridProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, className, hoverable = true, ...others } = props;

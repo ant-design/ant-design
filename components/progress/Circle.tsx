@@ -28,7 +28,7 @@ function getStrokeColor({ successPercent, strokeColor }: CircleProps) {
   return [null, color];
 }
 
-const Circle: React.SFC<CircleProps> = props => {
+const Circle: React.FC<CircleProps> = props => {
   const {
     prefixCls,
     width,
@@ -52,8 +52,7 @@ const Circle: React.SFC<CircleProps> = props => {
   let gapDeg;
   if (gapDegree || gapDegree === 0) {
     gapDeg = gapDegree;
-  }
-  else if (type === 'dashboard') {
+  } else if (type === 'dashboard') {
     gapDeg = 75;
   }
 

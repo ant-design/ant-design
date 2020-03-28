@@ -29,7 +29,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -345,7 +344,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -617,7 +615,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -921,7 +918,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 <col
                   style="width:60px;min-width:60px"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"

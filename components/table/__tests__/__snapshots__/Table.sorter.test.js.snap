@@ -90,9 +90,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >

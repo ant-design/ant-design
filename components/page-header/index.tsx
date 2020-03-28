@@ -97,7 +97,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
   return <div className={`${prefixCls}-content`}>{children}</div>;
 };
 
-const PageHeader: React.SFC<PageHeaderProps> = props => (
+const PageHeader: React.FC<PageHeaderProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls, pageHeader, direction }: ConfigConsumerProps) => {
       const {
