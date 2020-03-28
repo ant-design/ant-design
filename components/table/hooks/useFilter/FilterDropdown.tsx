@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import FilterFilled from '@ant-design/icons/lib/icons/FilterFilled';
+import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Checkbox from '../../../checkbox';
