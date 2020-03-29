@@ -54,4 +54,4 @@ title: AutoComplete
 
 ### v3 的部分属性为何在 v4 中没有了？
 
-AutoComplete 组件是一个支持自动提示的 Input 组件，因而其不具有 `labelInValue` 等影响 value 展示的属性。在 v3 版本，AutoComplete 实现存在输入值如果遇到 `value` 与 `label` 相同时无法映射的问题。 v4 中不在支持 `label` 为值的输入形态。
+AutoComplete 组件是一个支持自动提示的 Input 组件，因而其不具有 `labelInValue` 等影响 value 展示的属性。在 v3 版本，AutoComplete 实现存在输入值如果遇到 `value` 与 `label` 相同时无法映射的问题。 v4 中不再支持 `label` 为值的输入形态。
