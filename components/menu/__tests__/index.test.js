@@ -381,9 +381,7 @@ describe('Menu', () => {
         inlineCollapsed
         getPopupContainer={node => node.parentNode}
       >
-        <Menu.Item key="menu1">
-          item
-        </Menu.Item>
+        <Menu.Item key="menu1">item</Menu.Item>
         <Menu.Item key="menu2" title="title">
           item
         </Menu.Item>
@@ -401,12 +399,48 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find(Menu.Item).at(0).find(Tooltip).props().title).toBe('item');
-    expect(wrapper.find(Menu.Item).at(1).find(Tooltip).props().title).toBe('title');
-    expect(wrapper.find(Menu.Item).at(2).find(Tooltip).props().title).toBe('item');
-    expect(wrapper.find(Menu.Item).at(3).find(Tooltip).props().title).toBe(null);
-    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
-    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(0)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('item');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(1)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('title');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(2)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('item');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(3)
+        .find(Tooltip)
+        .props().title,
+    ).toBe(null);
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(4)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('');
+    expect(
+      wrapper
+        .find(Menu.Item)
+        .at(4)
+        .find(Tooltip)
+        .props().title,
+    ).toBe('');
   });
 
   describe('open submenu when click submenu title', () => {

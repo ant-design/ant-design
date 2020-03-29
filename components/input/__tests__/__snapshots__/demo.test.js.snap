@@ -42,8 +42,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
-            style="width:90px"
+            class="ant-select select-before ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -109,8 +108,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
-            style="width:80px"
+            class="ant-select select-after ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"

@@ -1,9 +1,7 @@
 @import './index';
 
 @select-multiple-item-border-width: 1px;
-@select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
 
-@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
 @select-multiple-padding: max(
   @input-padding-vertical-base - @select-multiple-item-border-width -
     @select-multiple-item-spacing-half,
@@ -156,13 +154,19 @@
     }
   }
 
-  .select-size('lg', @input-height-lg);
+  .select-size('lg', @select-multiple-item-height-lg);
   .select-size('sm', @input-height-sm);
 
   // Size small need additional set padding
   &.@{select-prefix-cls}-sm {
     .@{select-prefix-cls}-selection-placeholder {
       left: @input-padding-horizontal-sm;
+    }
+  }
+  &.@{select-prefix-cls}-lg {
+    .@{select-prefix-cls}-selection-item {
+      height: @select-multiple-item-height-lg;
+      line-height: @select-multiple-item-height-lg;
     }
   }
 }

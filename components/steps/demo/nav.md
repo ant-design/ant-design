@@ -90,6 +90,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css
+[data-theme='compact'] .site-navigation-steps,
 .site-navigation-steps {
   margin-bottom: 60px;
   box-shadow: 0px -1px 0 0 #e8e8e8 inset;

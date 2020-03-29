@@ -130,7 +130,7 @@
     }
   }
 
-  .select-size('lg', @input-height-lg);
+  .select-size('lg', @select-single-item-height-lg);
   .select-size('sm', @input-height-sm);
 
   // Size small need additional set padding
@@ -153,6 +153,14 @@
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
         padding-right: @font-size-base * 1.5;
+      }
+    }
+  }
+
+  &.@{select-prefix-cls}-lg {
+    &:not(.@{select-prefix-cls}-customize-input) {
+      .@{select-prefix-cls}-selector {
+        padding: 0 @input-padding-horizontal-lg;
       }
     }
   }

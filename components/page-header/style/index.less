@@ -24,7 +24,7 @@
   &-back {
     float: left;
     margin: 8px 0;
-    margin-right: 16px;
+    margin-right: @margin-md;
     font-size: 16px;
     line-height: 1;
 
@@ -37,12 +37,12 @@
 
   .@{ant-prefix}-divider-vertical {
     height: 14px;
-    margin: 0 12px;
+    margin: 0 @margin-sm;
     vertical-align: middle;
   }
 
   .@{ant-prefix}-breadcrumb + &-heading {
-    margin-top: 8px;
+    margin-top: @margin-xs;
   }
 
   &-heading {
@@ -53,7 +53,7 @@
       display: block;
       float: left;
       margin-bottom: 0;
-      padding-right: 12px;
+      padding-right: @padding-sm;
       color: @heading-color;
       font-weight: 600;
       font-size: @heading-4-size;
@@ -62,13 +62,13 @@
 
     .@{ant-prefix}-avatar {
       float: left;
-      margin-right: 12px;
+      margin-right: @margin-sm;
     }
 
     &-sub-title {
       float: left;
       margin: 5px 0;
-      margin-right: 12px;
+      margin-right: @margin-sm;
       color: @text-color-secondary;
       font-size: 14px;
       line-height: 22px;
@@ -92,11 +92,11 @@
   }
 
   &-content {
-    padding-top: 12px;
+    padding-top: @page-header-content-padding-vertical;
   }
 
   &-footer {
-    margin-top: 16px;
+    margin-top: @margin-md;
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
@@ -116,7 +116,7 @@
         float: unset;
         clear: both;
         width: 100%;
-        padding-top: 12px;
+        padding-top: @padding-sm;
       }
     }
   }

@@ -32,7 +32,7 @@ ReactDOM.render(
 ```
 
 <style>
-p {
+.ant-popover-content p {
   margin: 0;
 }
 </style>

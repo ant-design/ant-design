@@ -55,3 +55,9 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
+
+```css
+[data-theme='compact'] .ant-drawer-body p {
+  margin-bottom: 0px;
+}
+```

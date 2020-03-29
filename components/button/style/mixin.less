@@ -254,6 +254,7 @@
     .button-size(
       @btn-height-sm; @btn-padding-horizontal-sm; @btn-font-size-sm; @btn-border-radius-sm
     );
+    line-height: @btn-height-sm - 2px;
   }
 }
 // primary button style
@@ -370,14 +371,23 @@
 // square button: the content only contains icon
 .btn-square(@btnClassName: btn) {
   .square(@btn-square-size);
-  .button-size(@btn-square-size; 0; @font-size-base + 2px; @btn-border-radius-base);
+  .button-size(@btn-square-size; 0; @btn-square-only-icon-size; @btn-border-radius-base);
+  & > * {
+    font-size: @btn-square-only-icon-size;
+  }
   &.@{btnClassName}-lg {
     .square(@btn-square-size-lg);
-    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + 2px; @btn-border-radius-base);
+    .button-size(@btn-square-size-lg; 0; @btn-square-only-icon-size-lg; @btn-border-radius-base);
+    & > * {
+      font-size: @btn-square-only-icon-size-lg;
+    }
   }
   &.@{btnClassName}-sm {
     .square(@btn-square-size-sm);
-    .button-size(@btn-square-size-sm; 0; @font-size-base; @btn-border-radius-base);
+    .button-size(@btn-square-size-sm; 0; @btn-square-only-icon-size-sm; @btn-border-radius-base);
+    & > * {
+      font-size: @btn-square-only-icon-size-sm;
+    }
   }
 }
 // circle button: the content only contains icon

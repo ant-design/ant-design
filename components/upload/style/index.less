@@ -52,7 +52,7 @@
       display: table-cell;
       width: 100%;
       height: 100%;
-      padding: 8px;
+      padding: @padding-xs;
       text-align: center;
       vertical-align: middle;
     }
@@ -74,7 +74,7 @@
     transition: border-color 0.3s;
 
     .@{upload-prefix-cls} {
-      padding: 16px 0;
+      padding: @padding-md 0;
     }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
@@ -140,6 +140,7 @@
 .@{upload-prefix-cls}-list {
   .reset-component;
   .clearfix;
+  line-height: 22px;
   &-item-list-type-text {
     &:hover {
       .@{upload-prefix-cls}-list-item-name-icon-count-1 {
@@ -153,13 +154,14 @@
   &-item {
     position: relative;
     height: 22px;
-    margin-top: 8px;
+    margin-top: @margin-xs;
     font-size: @font-size-base;
     &-name {
       display: inline-block;
       width: 100%;
       padding-left: @font-size-base + 8px;
       overflow: hidden;
+      line-height: 22px;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
@@ -263,7 +265,7 @@
     .@{upload-item} {
       position: relative;
       height: 66px;
-      padding: 8px;
+      padding: @padding-xs;
       border: @border-width-base @upload-picture-card-border-style @border-color-base;
       border-radius: @border-radius-base;
       &:hover {
@@ -374,13 +376,13 @@
       float: left;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
-      margin: 0 8px 8px 0;
+      margin: 0 @margin-xs @margin-xs 0;
     }
     .@{upload-item} {
       float: left;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
-      margin: 0 8px 8px 0;
+      margin: 0 @margin-xs @margin-xs 0;
     }
 
     .@{upload-item}-info {

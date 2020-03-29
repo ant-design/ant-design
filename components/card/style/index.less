@@ -2,7 +2,6 @@
 @import '../../style/mixins/index';
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
-@card-head-height: 48px;
 @card-hoverable-hover-border: transparent;
 @card-action-icon-size: 16px;
 
@@ -39,7 +38,7 @@
     padding: 0 @card-padding-base;
     color: @card-head-color;
     font-weight: 500;
-    font-size: @font-size-lg;
+    font-size: @card-head-font-size;
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: @card-radius @card-radius 0 0;
@@ -61,7 +60,7 @@
 
     .@{ant-prefix}-tabs {
       clear: both;
-      margin-bottom: -17px;
+      margin-bottom: @card-head-tabs-margin-bottom;
       color: @text-color;
       font-weight: normal;
       font-size: @font-size-base;
@@ -154,7 +153,7 @@
 
     & > li {
       float: left;
-      margin: 12px 0;
+      margin: @card-actions-li-margin;
       color: @text-color-secondary;
       text-align: center;
 
@@ -236,7 +235,7 @@
     &-detail {
       overflow: hidden;
       > div:not(:last-child) {
-        margin-bottom: 8px;
+        margin-bottom: @margin-xs;
       }
     }
 
