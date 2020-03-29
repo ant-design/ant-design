@@ -6477,6 +6477,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
             <button
               aria-label="Close"
               class="config-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -6537,6 +6538,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -6597,6 +6599,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
             <button
               aria-label="Close"
               class="prefix-Drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
