@@ -26,7 +26,7 @@ timeline: true
 - 🆕 Improve Pagination switch experience. [#22711](https://github.com/ant-design/ant-design/pull/22711)
   - Pagination will show size changer when `total > 50`.
   - Unify Pagination items to fixed length.
-  - Change default size options to `10, 25, 50, 100`.
+  - Change default size options to `10, 20, 50, 100`.
 - Table
   - 🆕 Table pagination `position` add more option. [#22647](https://github.com/ant-design/ant-design/pull/22647) [@hengkx](https://github.com/hengkx)
   - 🆕 Table selection column support `renderCell`. [#21711](https://github.com/ant-design/ant-design/pull/21711)
