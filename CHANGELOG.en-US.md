@@ -61,7 +61,7 @@ timeline: true
 - 💄 Adjust Tag `processing` status color. [#22303](https://github.com/ant-design/ant-design/pull/22303)
 - 💄 Optimize Checkbox `inner` style. [#22627](https://github.com/ant-design/ant-design/pull/22627)
 - 💄 Remove Select dropdown group title mouse click style. [#22581](https://github.com/ant-design/ant-design/pull/22581)
-- 💄Redesign Table filter menu buttons and fix Dropdown edge `padding` style. [#22072](https://github.com/ant-design/ant-design/pull/22072)
+- 💄 Redesign Table filter menu buttons and fix Dropdown edge `padding` style. [#22072](https://github.com/ant-design/ant-design/pull/22072)
 - 💄 Move `@form-item-label-height` from form styles to theme variables. [#22600](https://github.com/ant-design/ant-design/pull/22600) [@slavakam](https://github.com/slavakam)
 - 💄 Add less variables `@link-focus-decoration` and `@link-focus-outline`. [#22511](https://github.com/ant-design/ant-design/pull/22511)
 - 💄 add separator cursor `disabled` of DatePicker. [#22563](https://github.com/ant-design/ant-design/pull/22563)
