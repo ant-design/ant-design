@@ -39,7 +39,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
 class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
   static defaultProps = {
     showIcon: true,
-    expandAction: 'click',
+    expandAction: 'click' as DirectoryTreeProps['expandAction'],
   };
 
   static getDerivedStateFromProps(nextProps: DirectoryTreeProps) {

@@ -40,7 +40,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    expandIconPosition: 'left',
+    expandIconPosition: 'left' as CollapseProps['expandIconPosition'],
   };
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
