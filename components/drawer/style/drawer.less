@@ -158,11 +158,11 @@
     z-index: @zindex-popup-close;
     display: block;
     padding: 20px;
-    line-height: 1;
     color: @text-color-secondary;
     font-weight: 700;
     font-size: @font-size-lg;
     font-style: normal;
+    line-height: 1;
     text-align: center;
     text-transform: none;
     text-decoration: none;
@@ -180,8 +180,8 @@
     }
 
     .@{drawer-prefix-cls}-header-no-title & {
-      padding-right: calc(20px - var(--scroll-bar));
       margin-right: var(--scroll-bar);
+      padding-right: calc(20px - var(--scroll-bar));
     }
   }
 
