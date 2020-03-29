@@ -60,11 +60,11 @@
 
     &-x {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: @modal-header-close-size;
+      height: @modal-header-close-size;
       font-size: @font-size-lg;
       font-style: normal;
-      line-height: 56px;
+      line-height: @modal-header-close-size;
       text-align: center;
       text-transform: none;
       text-rendering: auto;
@@ -78,7 +78,7 @@
   }
 
   &-header {
-    padding: 16px 24px;
+    padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
     border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;

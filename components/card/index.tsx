@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Grid from './Grid';
 import Meta from './Meta';
-import Tabs from '../tabs';
+import Tabs, { TabsProps } from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -54,6 +54,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;
+  tabProps?: TabsProps;
 }
 
 export default class Card extends React.Component<CardProps, {}> {
@@ -97,6 +98,7 @@ export default class Card extends React.Component<CardProps, {}> {
       defaultActiveTabKey,
       tabBarExtraContent,
       hoverable,
+      tabProps = {},
       ...others
     } = this.props;
 
@@ -152,6 +154,7 @@ export default class Card extends React.Component<CardProps, {}> {
 
     const hasActiveTabKey = activeTabKey !== undefined;
     const extraProps = {
+      ...tabProps,
       [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
         ? activeTabKey
         : defaultActiveTabKey,
@@ -162,9 +165,9 @@ export default class Card extends React.Component<CardProps, {}> {
     const tabs =
       tabList && tabList.length ? (
         <Tabs
+          size="large"
           {...extraProps}
           className={`${prefixCls}-head-tabs`}
-          size="large"
           onChange={this.onTabChange}
         >
           {tabList.map(item => (

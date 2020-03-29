@@ -28,7 +28,7 @@ describe('Table.pagination', () => {
   }
 
   function renderedNames(wrapper) {
-    return wrapper.find('BodyRow').map(row => row.props().record.name);
+    return wrapper.find('BodyRow').map((row) => row.props().record.name);
   }
 
   it('renders pagination correctly', () => {
@@ -60,10 +60,7 @@ describe('Table.pagination', () => {
     const wrapper = mount(createTable());
 
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy']);
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -91,17 +88,11 @@ describe('Table.pagination', () => {
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
     expect(scrollTo).toHaveBeenCalledTimes(1);
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
-    wrapper
-      .find('.ant-select-item')
-      .last()
-      .simulate('click');
+    wrapper.find('.ant-select-item').last().simulate('click');
     expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
@@ -116,10 +107,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -196,36 +184,17 @@ describe('Table.pagination', () => {
   });
 
   it('specify the position of pagination', () => {
-    const wrapper = mount(createTable({ pagination: { position: 'top' } }));
+    const wrapper = mount(createTable({ pagination: { position: ['topLeft'] } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(0)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: 'bottom' } });
+
+    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: ['bottomRight'] } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(1)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: 'both' } });
+    expect(wrapper.find('.ant-spin-container').childAt(1).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: ['topLeft', 'bottomRight'] } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(3);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(0)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(2)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
+    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
   });
 
   /**
@@ -274,17 +243,9 @@ describe('Table.pagination', () => {
     );
     wrapper.find('.ant-select-selector').simulate('mousedown');
     jest.runAllTimers();
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
-    dropdownWrapper
-      .find('.ant-select-item-option')
-      .at(3)
-      .simulate('click');
+    dropdownWrapper.find('.ant-select-item-option').at(3).simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();
     expect(onChange).toHaveBeenCalled();
     jest.useRealTimers();
@@ -319,5 +280,10 @@ describe('Table.pagination', () => {
   it('pagination should ignore invalidate total', () => {
     const wrapper = mount(createTable({ pagination: { total: null } }));
     expect(wrapper.find('.ant-pagination-item-1').length).toBeTruthy();
+  });
+
+  it('renders pagination topLeft and bottomRight', () => {
+    const wrapper = mount(createTable({ pagination: ['topLeft', 'bottomRight'] }));
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

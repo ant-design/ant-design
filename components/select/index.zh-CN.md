@@ -31,7 +31,7 @@ title: Select
 | defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean \| number | true |  |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。`false` 时会关闭虚拟滚动 | boolean \| number | true |  |
 | dropdownRender | 自定义下拉框内容 | (menuNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |  |
@@ -56,6 +56,7 @@ title: Select
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |  |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |  |
 | value | 指定当前选中的条目 | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(string\|number\|LabeledValue) | - |  |
@@ -83,12 +84,12 @@ title: Select
 
 ### Option props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| disabled | 是否禁用 | boolean | false |  |
-| title | 选中该 Option 后，Select 的 title | string | - |  |
-| value | 默认根据此属性值进行筛选 | string\|number | - |  |
-| className | Option 器类名 | string | - |  |
+| 参数      | 说明                              | 类型           | 默认值 | 版本 |
+| --------- | --------------------------------- | -------------- | ------ | ---- |
+| disabled  | 是否禁用                          | boolean        | false  |      |
+| title     | 选中该 Option 后，Select 的 title | string         | -      |      |
+| value     | 默认根据此属性值进行筛选          | string\|number | -      |      |
+| className | Option 器类名                     | string         | -      |      |
 
 ### OptGroup props
 

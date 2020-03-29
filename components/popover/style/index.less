@@ -68,16 +68,16 @@
 
   &-title {
     min-width: @popover-min-width;
-    min-height: 32px;
+    min-height: @popover-min-height;
     margin: 0; // reset heading margin
-    padding: 5px @padding-md 4px;
+    padding: 5px @popover-padding-horizontal 4px;
     color: @heading-color;
     font-weight: 500;
     border-bottom: 1px solid @border-color-split;
   }
 
   &-inner-content {
-    padding: 12px @padding-md;
+    padding: @padding-sm @popover-padding-horizontal;
     color: @popover-color;
   }
 

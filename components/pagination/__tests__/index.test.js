@@ -36,4 +36,14 @@ describe('Pagination', () => {
         .props().disabled,
     ).toBe(true);
   });
+
+  it('should autometically be small when size is not specified', async () => {
+    const wrapper = mount(<Pagination responsive />);
+    expect(
+      wrapper
+        .find('ul')
+        .at(0)
+        .hasClass('mini'),
+    ).toBe(true);
+  });
 });

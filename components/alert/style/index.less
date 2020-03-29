@@ -12,7 +12,7 @@
   border-radius: @border-radius-base;
 
   &&-no-icon {
-    padding: 8px 15px;
+    padding: @alert-no-icon-padding-vertical 15px;
   }
 
   &&-closable {
@@ -71,7 +71,7 @@
 
   &-close-icon {
     position: absolute;
-    top: 8px;
+    top: @padding-xs;
     right: 16px;
     padding: 0;
     overflow: hidden;
@@ -108,7 +108,7 @@
   }
 
   &-with-description&-no-icon {
-    padding: 15px;
+    padding: @alert-with-description-no-icon-padding-vertical 15px;
   }
 
   &-with-description &-icon {

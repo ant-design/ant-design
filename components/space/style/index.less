@@ -1,0 +1,14 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@space-prefix-cls: ~'@{ant-prefix}-space';
+
+.@{space-prefix-cls} {
+  display: inline-flex;
+  &-horizontal {
+    align-items: center;
+  }
+  &-vertical {
+    flex-direction: column;
+  }
+}

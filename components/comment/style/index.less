@@ -15,7 +15,7 @@
   &-avatar {
     position: relative;
     flex-shrink: 0;
-    margin-right: 12px;
+    margin-right: @margin-sm;
     cursor: pointer;
 
     img {
@@ -36,11 +36,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      margin-bottom: 4px;
+      margin-bottom: @margin-xss;
       font-size: @comment-font-size-base;
       & > a,
       & > span {
-        padding-right: 8px;
+        padding-right: @padding-xs;
         font-size: @comment-font-size-sm;
         line-height: 18px;
       }
@@ -65,12 +65,14 @@
     }
 
     &-detail p {
+      margin-bottom: @comment-content-detail-p-margin-bottom;
       white-space: pre-wrap;
     }
   }
 
   &-actions {
-    margin-top: 12px;
+    margin-top: @comment-actions-margin-top;
+    margin-bottom: @comment-actions-margin-bottom;
     padding-left: 0;
 
     > li {

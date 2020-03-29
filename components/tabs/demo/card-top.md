@@ -43,25 +43,30 @@ ReactDOM.render(
 ```
 
 ```css
+[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content,
 .card-container > .ant-tabs-card > .ant-tabs-content {
   height: 120px;
   margin-top: -16px;
 }
 
+[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane,
 .card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
   background: #fff;
   padding: 16px;
 }
 
+[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-bar,
 .card-container > .ant-tabs-card > .ant-tabs-bar {
   border-color: #fff;
 }
 
+[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab,
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
   border-color: transparent;
   background: transparent;
 }
 
+[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active,
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
   border-color: #fff;
   background: #fff;

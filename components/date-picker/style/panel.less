@@ -25,6 +25,7 @@
   // ========================================================
   &-decade-panel,
   &-year-panel,
+  &-quarter-panel,
   &-month-panel,
   &-week-panel,
   &-date-panel,
@@ -419,6 +420,7 @@
 
   &-decade-panel,
   &-year-panel,
+  &-quarter-panel,
   &-month-panel {
     .@{picker-prefix-cls}-content {
       height: 265px;
@@ -432,6 +434,12 @@
       &-disabled .@{picker-cell-inner-cls} {
         background: @picker-basic-cell-disabled-bg;
       }
+    }
+  }
+
+  &-quarter-panel {
+    .@{picker-prefix-cls}-content {
+      height: 56px;
     }
   }
 
@@ -487,8 +495,9 @@
     }
   }
 
-  // ================== Year & Month Panel ==================
+  // ============= Year & Quarter & Month Panel =============
   &-year-panel,
+  &-quarter-panel,
   &-month-panel {
     @hover-cell-fixed-distance: (
         (@picker-panel-width - @padding-xs * 2) / 3 - @picker-year-month-cell-width
@@ -651,11 +660,11 @@
           .@{picker-prefix-cls}-time-panel-cell-inner {
             display: block;
             width: 100%;
-            height: 32px;
+            height: @picker-time-panel-cell-height;
             margin: 0;
             padding: 0;
             color: @text-color;
-            line-height: 32px;
+            line-height: @picker-time-panel-cell-height;
             text-align: center;
             border-radius: 0;
             cursor: pointer;

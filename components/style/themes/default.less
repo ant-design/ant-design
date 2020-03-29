@@ -79,10 +79,23 @@
 @padding-md: 16px; // small containers and buttons
 @padding-sm: 12px; // Form controls and items
 @padding-xs: 8px; // small items
+@padding-xss: 4px; // more small
 
 // vertical padding for all form controls
 @control-padding-horizontal: @padding-sm;
 @control-padding-horizontal-sm: @padding-xs;
+
+// vertical margins
+@margin-lg: 24px; // containers
+@margin-md: 16px; // small containers and buttons
+@margin-sm: 12px; // Form controls and items
+@margin-xs: 8px; // small items
+@margin-xss: 4px; // more small
+
+// height rules
+@height-base: 32px;
+@height-lg: 40px;
+@height-sm: 24px;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -98,6 +111,8 @@
 @link-active-color: color(~`colorPalette('@{link-color}', 7) `);
 @link-decoration: none;
 @link-hover-decoration: none;
+@link-focus-decoration: none;
+@link-focus-outline: 0;
 
 // Animation
 @ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
@@ -186,9 +201,9 @@
 @btn-padding-horizontal-lg: @btn-padding-horizontal-base;
 @btn-padding-horizontal-sm: @padding-xs - 1px;
 
-@btn-height-base: 32px;
-@btn-height-lg: 40px;
-@btn-height-sm: 24px;
+@btn-height-base: @height-base;
+@btn-height-lg: @height-lg;
+@btn-height-sm: @height-sm;
 
 @btn-circle-size: @btn-height-base;
 @btn-circle-size-lg: @btn-height-lg;
@@ -197,6 +212,9 @@
 @btn-square-size: @btn-height-base;
 @btn-square-size-lg: @btn-height-lg;
 @btn-square-size-sm: @btn-height-sm;
+@btn-square-only-icon-size: @font-size-base + 2px;
+@btn-square-only-icon-size-sm: @font-size-base;
+@btn-square-only-icon-size-lg: @btn-font-size-lg + 2px;
 
 @btn-group-border: @primary-5;
 
@@ -211,6 +229,10 @@
 
 // Descriptions
 @descriptions-bg: #fafafa;
+@descriptions-title-margin-bottom: 20px;
+@descriptions-default-padding: @padding-md @padding-lg;
+@descriptions-middle-padding: @padding-sm @padding-lg;
+@descriptions-small-padding: @padding-xs @padding-md;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
@@ -338,9 +360,9 @@
 
 // Input
 // ---
-@input-height-base: 32px;
-@input-height-lg: 40px;
-@input-height-sm: 24px;
+@input-height-base: @height-base;
+@input-height-lg: @height-lg;
+@input-height-sm: @height-sm;
 @input-padding-horizontal: @control-padding-horizontal - 1px;
 @input-padding-horizontal-base: @input-padding-horizontal;
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
@@ -350,8 +372,10 @@
     @border-width-base,
   3px
 );
-@input-padding-vertical-sm: round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) /
-  10 - @border-width-base;
+@input-padding-vertical-sm: max(
+  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  0
+);
 @input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
@@ -385,10 +409,15 @@
 @select-dropdown-vertical-padding: @dropdown-vertical-padding;
 @select-dropdown-font-size: @dropdown-font-size;
 @select-dropdown-line-height: @dropdown-line-height;
+@select-dropdown-height: 32px;
 @select-background: @component-background;
 @select-clear-background: @select-background;
 @select-selection-item-bg: @background-color-base;
 @select-selection-item-border-color: @border-color-split;
+@select-single-item-height-lg: 40px;
+@select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
+@select-multiple-item-height-lg: 32px;
+@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
 
 // Cascader
 // ---
@@ -432,6 +461,7 @@
 @popover-color: @text-color;
 // Popover maximum width
 @popover-min-width: 177px;
+@popover-min-height: 32px;
 // Popover arrow width
 @popover-arrow-width: 6px;
 // Popover arrow color
@@ -441,12 +471,15 @@
 @popover-arrow-outer-color: @popover-bg;
 // Popover distance with trigger
 @popover-distance: @popover-arrow-width + 4px;
+@popover-padding-horizontal: @padding-md;
 
 // Modal
 // --
-@modal-body-padding: 24px;
+@modal-body-padding: @padding-lg;
 @modal-header-bg: @component-background;
+@modal-header-padding: @padding-md @padding-lg;
 @modal-header-border-color-split: @border-color-split;
+@modal-header-close-size: 56px;
 @modal-content-bg: @component-background;
 @modal-heading-color: @heading-color;
 @modal-footer-bg: transparent;
@@ -454,6 +487,7 @@
 @modal-footer-padding-vertical: 10px;
 @modal-footer-padding-horizontal: 16px;
 @modal-mask-bg: fade(@black, 45%);
+@modal-confirm-body-padding: 32px 32px 24px;
 
 // Progress
 // --
@@ -467,6 +501,7 @@
 // ---
 @menu-inline-toplevel-item-height: 40px;
 @menu-item-height: 40px;
+@menu-item-group-height: @line-height-base;
 @menu-collapsed-width: 80px;
 @menu-bg: @component-background;
 @menu-popup-bg: @component-background;
@@ -513,6 +548,10 @@
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
+@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
+@table-padding-horizontal-md: @table-padding-horizontal / 2;
+@table-padding-vertical-sm: @table-padding-vertical / 2;
+@table-padding-horizontal-sm: @table-padding-horizontal / 2;
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
@@ -542,6 +581,7 @@
 @picker-border-color: @border-color-split;
 @picker-date-hover-range-border-color: lighten(@primary-color, 20%);
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
+@picker-time-panel-cell-height: 28px;
 
 // Calendar
 // ---
@@ -576,20 +616,28 @@
 // ---
 @card-head-color: @heading-color;
 @card-head-background: transparent;
+@card-head-font-size: @font-size-lg;
+@card-head-font-size-sm: @font-size-base;
 @card-head-padding: 16px;
+@card-head-padding-sm: @card-head-padding / 2;
+@card-head-height: 48px;
+@card-head-height-sm: 36px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
+@card-padding-base-sm: @card-padding-base / 2;
 @card-actions-background: @background-color-light;
+@card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
   0 5px 12px 4px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-base;
+@card-head-tabs-margin-bottom: -17px;
 
 // Comment
 // ---
 @comment-bg: inherit;
-@comment-padding-base: 16px 0;
+@comment-padding-base: @padding-md 0;
 @comment-nest-indent: 44px;
 @comment-font-size-base: @font-size-base;
 @comment-font-size-sm: @font-size-sm;
@@ -597,6 +645,9 @@
 @comment-author-time-color: #ccc;
 @comment-action-color: @text-color-secondary;
 @comment-action-hover-color: #595959;
+@comment-actions-margin-bottom: inherit;
+@comment-actions-margin-top: @margin-sm;
+@comment-content-detail-p-margin-bottom: inherit;
 
 // Tabs
 // ---
@@ -607,14 +658,14 @@
 @tabs-title-font-size-lg: @font-size-lg;
 @tabs-title-font-size-sm: @font-size-base;
 @tabs-ink-bar-color: @primary-color;
-@tabs-bar-margin: 0 0 16px 0;
+@tabs-bar-margin: 0 0 @margin-md 0;
 @tabs-horizontal-margin: 0 32px 0 0;
 @tabs-horizontal-margin-rtl: 0 0 0 32px;
-@tabs-horizontal-padding: 12px 0;
-@tabs-horizontal-padding-lg: 16px 0;
-@tabs-horizontal-padding-sm: 8px 0;
-@tabs-vertical-padding: 8px 24px;
-@tabs-vertical-margin: 0 0 16px 0;
+@tabs-horizontal-padding: @padding-sm 0;
+@tabs-horizontal-padding-lg: @padding-md 0;
+@tabs-horizontal-padding-sm: @padding-xs 0;
+@tabs-vertical-padding: @padding-xs @padding-lg;
+@tabs-vertical-margin: 0 0 @margin-md 0;
 @tabs-scrolling-size: 32px;
 @tabs-highlight-color: @primary-color;
 @tabs-hover-color: @primary-5;
@@ -655,7 +706,7 @@
 // Pagination
 // ---
 @pagination-item-bg: @component-background;
-@pagination-item-size: 32px;
+@pagination-item-size: @height-base;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
@@ -664,12 +715,14 @@
 @pagination-item-disabled-color-active: @white;
 @pagination-item-disabled-bg-active: darken(@disabled-bg, 10%);
 @pagination-item-input-bg: @component-background;
+@pagination-mini-options-size-changer-top: 0px;
 
 // PageHeader
 // ---
-@page-header-padding: 24px;
-@page-header-padding-vertical: 16px;
-@page-header-padding-breadcrumb: 12px;
+@page-header-padding: @padding-lg;
+@page-header-padding-vertical: @padding-md;
+@page-header-padding-breadcrumb: @padding-sm;
+@page-header-content-padding-vertical: @padding-sm;
 @page-header-back-color: #000;
 @page-header-ghost-bg: inherit;
 
@@ -716,7 +769,7 @@
 
 // Collapse
 // ---
-@collapse-header-padding: 12px 16px;
+@collapse-header-padding: @padding-sm @padding-md;
 @collapse-header-padding-extra: 40px;
 @collapse-header-bg: @background-color-light;
 @collapse-content-padding: @padding-md;
@@ -726,13 +779,18 @@
 // ---
 @skeleton-color: #f2f2f2;
 @skeleton-to-color: shade(@skeleton-color, 5%);
+@skeleton-paragraph-margin-top: 28px;
+@skeleton-paragraph-li-margin-top: @margin-md;
 
 // Transfer
 // ---
 @transfer-header-height: 40px;
+@transfer-item-height: @height-base;
 @transfer-disabled-bg: @disabled-bg;
 @transfer-list-height: 200px;
 @transfer-item-hover-bg: @item-hover-bg;
+@transfer-item-padding-vertical: 6px;
+@transfer-list-search-icon-top: 12px;
 
 // Message
 // ---
@@ -760,6 +818,8 @@
 @alert-text-color: @text-color;
 @alert-close-color: @text-color-secondary;
 @alert-close-hover-color: @icon-color-hover;
+@alert-no-icon-padding-vertical: @padding-xs;
+@alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 
 // List
 // ---
@@ -767,10 +827,13 @@
 @list-footer-background: transparent;
 @list-empty-text-padding: @padding-md;
 @list-item-padding: @padding-sm 0;
+@list-item-padding-sm: @padding-xs @padding-md;
+@list-item-padding-lg: 16px 24px;
 @list-item-meta-margin-bottom: @padding-md;
 @list-item-meta-avatar-margin-right: @padding-md;
 @list-item-meta-title-margin-bottom: @padding-sm;
 @list-customize-card-bg: @component-background;
+@list-item-meta-description-font-size: @font-size-base;
 
 // Statistic
 // ---
@@ -781,11 +844,12 @@
 
 // Drawer
 // ---
-@drawer-header-padding: 16px 24px;
-@drawer-body-padding: 24px;
+@drawer-header-padding: @padding-md @padding-lg;
+@drawer-body-padding: @padding-lg;
 @drawer-bg: @component-background;
 @drawer-footer-padding-vertical: @modal-footer-padding-vertical;
 @drawer-footer-padding-horizontal: @modal-footer-padding-horizontal;
+@drawer-header-close-size: 56px;
 
 // Timeline
 // ---
@@ -811,6 +875,21 @@
 @process-tail-color: @border-color-split;
 @steps-nav-arrow-color: fade(@black, 25%);
 @steps-background: @component-background;
+@steps-icon-size: 32px;
+@steps-icon-custom-size: @steps-icon-size;
+@steps-icon-custom-top: 0px;
+@steps-icon-custom-font-size: 24px;
+@steps-icon-top: -1px;
+@steps-icon-font-size: @font-size-lg;
+@steps-icon-margin: 0 8px 0 0;
+@steps-title-line-height: @height-base;
+@steps-small-icon-size: 24px;
+@steps-small-icon-margin: 0 8px 0 0;
+@steps-dot-size: 8px;
+@steps-dot-top: 2px;
+@steps-current-dot-size: 10px;
+@steps-desciption-max-width: 140px;
+@steps-nav-content-max-width: auto;
 
 // Notification
 // ---

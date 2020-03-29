@@ -133,10 +133,11 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- 🌑 Dark Theme (follow document below)
-- ☁️  [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+- 🌑 Dark Theme (supported in 4.0.0+)
+- 🌑 Compact Theme (supported in 4.1.0+)
+- ☁️ [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
 
-### Use dark theme
+### Use dark or compact theme
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
@@ -150,33 +151,39 @@ If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
    $ npm i @umijs/plugin-antd -D
    ```
 
-2. set `dark: true`.
+2. set `dark` or `compact` to `true`.
 
    ```js
    // .umirc.ts or config/config.ts
    export default {
      antd: {
-       dark: true,
+       dark: true, // active dark theme
+       compact: true, // active compact theme
      },
    },
    ```
 
-Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) in the style file:
+Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
 
 ```less
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+@import '~antd/dist/antd.compact.less';
 ```
 
-If the project does not use Less, you can import [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) in the CSS file:
+If the project does not use Less, you can import [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) or [antd/dist/antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css) in the CSS file:
 
 ```css
 @import '~antd/dist/antd.dark.css';
+@import '~antd/dist/antd.compact.css';
 ```
+
+> Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too.
 
 Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
 ```diff
-const darkThemeVars = require('antd/dist/dark-theme');
+const darkTheme = require('antd/dist/dark-theme');
+const compactTheme = require('antd/dist/compact-theme');
 
 // webpack.config.js
 module.exports = {
@@ -191,14 +198,17 @@ module.exports = {
 +     options: {
 +       modifyVars: {
 +          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
-+          ...darkThemeVars,
++          ...darkTheme,
++          ...compactTheme,
 +       },
 +       javascriptEnabled: true,
 +     },
     }],
   }],
-}
+};
 ```
+
+Use dark theme and compact theme at the same time will cause double css bundle size in current implementation, please be aware of this.
 
 ## Related Articles
 

@@ -146,9 +146,7 @@ Array [
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    class=""
-                  >
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-disabled"
                       title="2016-10-30"
@@ -220,9 +218,7 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class=""
-                  >
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                       title="2016-11-06"
@@ -294,9 +290,7 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class=""
-                  >
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                       title="2016-11-13"
@@ -368,9 +362,7 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class=""
-                  >
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                       title="2016-11-20"
@@ -442,9 +434,7 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class=""
-                  >
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2016-11-27"
@@ -516,9 +506,7 @@ Array [
                       </div>
                     </td>
                   </tr>
-                  <tr
-                    class=""
-                  >
+                  <tr>
                     <td
                       class="ant-picker-cell"
                       title="2016-12-04"
@@ -780,9 +768,17 @@ Array [
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    class=""
-                  >
+                  <tr>
+                    <td
+                      class="ant-picker-cell"
+                      title="1999-12-26"
+                    >
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        26
+                      </div>
+                    </td>
                     <td
                       class="ant-picker-cell"
                       title="1999-12-27"
@@ -843,6 +839,8 @@ Array [
                         1
                       </div>
                     </td>
+                  </tr>
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-02"
@@ -853,10 +851,6 @@ Array [
                         2
                       </div>
                     </td>
-                  </tr>
-                  <tr
-                    class=""
-                  >
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-03"
@@ -917,6 +911,8 @@ Array [
                         8
                       </div>
                     </td>
+                  </tr>
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-09"
@@ -927,10 +923,6 @@ Array [
                         9
                       </div>
                     </td>
-                  </tr>
-                  <tr
-                    class=""
-                  >
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-10"
@@ -991,6 +983,8 @@ Array [
                         15
                       </div>
                     </td>
+                  </tr>
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-16"
@@ -1001,10 +995,6 @@ Array [
                         16
                       </div>
                     </td>
-                  </tr>
-                  <tr
-                    class=""
-                  >
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-17"
@@ -1065,6 +1055,8 @@ Array [
                         22
                       </div>
                     </td>
+                  </tr>
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-23"
@@ -1075,10 +1067,6 @@ Array [
                         23
                       </div>
                     </td>
-                  </tr>
-                  <tr
-                    class=""
-                  >
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-24"
@@ -1139,6 +1127,8 @@ Array [
                         29
                       </div>
                     </td>
+                  </tr>
+                  <tr>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-30"
@@ -1149,10 +1139,6 @@ Array [
                         30
                       </div>
                     </td>
-                  </tr>
-                  <tr
-                    class=""
-                  >
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
                       title="2000-01-31"
@@ -1211,16 +1197,6 @@ Array [
                         class="ant-picker-cell-inner"
                       >
                         5
-                      </div>
-                    </td>
-                    <td
-                      class="ant-picker-cell"
-                      title="2000-02-06"
-                    >
-                      <div
-                        class="ant-picker-cell-inner"
-                      >
-                        6
                       </div>
                     </td>
                   </tr>

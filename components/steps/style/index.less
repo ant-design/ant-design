@@ -20,13 +20,6 @@
 @error-tail-color: @wait-tail-color;
 @steps-nav-active-color: @primary-color;
 
-@steps-icon-size: 32px;
-@steps-small-icon-size: 24px;
-@steps-dot-size: 8px;
-@steps-current-dot-size: 10px;
-@steps-desciption-max-width: 140px;
-@steps-nav-content-max-width: auto;
-
 .@{steps-prefix-cls} {
   .reset-component;
 
@@ -64,8 +57,8 @@
   &-icon {
     width: @steps-icon-size;
     height: @steps-icon-size;
-    margin-right: 8px;
-    font-size: @font-size-lg;
+    margin: @steps-icon-margin;
+    font-size: @steps-icon-font-size;
     font-family: @font-family;
     line-height: @steps-icon-size;
     text-align: center;
@@ -75,7 +68,7 @@
 
     > .@{steps-prefix-cls}-icon {
       position: relative;
-      top: -1px;
+      top: @steps-icon-top;
       color: @primary-color;
       line-height: 1;
     }
@@ -103,11 +96,11 @@
     padding-right: 16px;
     color: @text-color;
     font-size: @font-size-lg;
-    line-height: @steps-icon-size;
+    line-height: @steps-title-line-height;
 
     &::after {
       position: absolute;
-      top: @steps-icon-size / 2;
+      top: @steps-title-line-height / 2;
       left: 100%;
       display: block;
       width: 9999px;

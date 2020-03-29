@@ -5,7 +5,7 @@
       line-height: @line-height-base;
     }
     &-tail {
-      top: 2px;
+      top: @steps-dot-top;
       width: 100%;
       margin: 0 0 0 @steps-desciption-max-width / 2;
       padding: 0;
@@ -93,6 +93,7 @@
   .@{steps-prefix-cls}-item-icon {
     margin-top: 8px;
     margin-left: 0;
+    background: none;
 
     .@{steps-prefix-cls}-rtl& {
       margin-right: 0;

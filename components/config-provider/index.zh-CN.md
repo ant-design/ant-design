@@ -48,6 +48,7 @@ return (
 | prefixCls | 设置统一样式前缀。`注意：这将不会应用由 antd 提供的默认样式` | string | ant |  |
 | pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | 'true' |  |
 | direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 
 ## FAQ
 

@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ja_JP';
 import DatePicker from '../date-picker/locale/ja_JP';
 import TimePicker from '../time-picker/locale/ja_JP';
 import Calendar from '../calendar/locale/ja_JP';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ja',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'データがありません',
   },
 };
+
+export default localeValues;

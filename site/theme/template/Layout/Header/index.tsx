@@ -65,7 +65,7 @@ interface HeaderState {
 class Header extends React.Component<HeaderProps, HeaderState> {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-    theme: PropTypes.oneOf(['default', 'dark']),
+    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
     direction: PropTypes.string,
   };
 
@@ -298,7 +298,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
                 </Popover>
               )}
-              <Row style={{ flexFlow: 'nowrap' }}>
+              <Row style={{ flexFlow: 'nowrap', height: 64 }}>
                 <Col {...colProps[0]}>
                   <Logo {...sharedProps} />
                 </Col>

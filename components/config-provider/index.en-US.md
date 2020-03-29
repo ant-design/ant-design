@@ -47,6 +47,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | prefixCls | set prefix class. `Note:` This will discard default styles from `antd`. | string | ant |  |
 | pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost:boolean } | 'true' |  |
 | direction | set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| space | set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 
 ## FAQ
 

@@ -9,8 +9,8 @@
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
   @font-height: floor(@font-size * @line-height-base) + 2;
-  @padding-top: (@input-height - @font-height) / 2;
-  @padding-bottom: @input-height - @font-height - @padding-top;
+  @padding-top: max((@input-height - @font-height) / 2, 0);
+  @padding-bottom: max(@input-height - @font-height - @padding-top, 0);
   padding: @padding-top @padding-horizontal @padding-bottom;
 }
 

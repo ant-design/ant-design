@@ -1,6 +1,7 @@
 import * as React from 'react';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import { Locale } from '../locale-provider';
+import { SizeType } from './SizeContext';
 
 export interface CSPConfig {
   nonce?: string;
@@ -18,6 +19,9 @@ export interface ConfigConsumerProps {
     ghost: boolean;
   };
   direction?: 'ltr' | 'rtl';
+  space?: {
+    size?: SizeType | number;
+  };
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({

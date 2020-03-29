@@ -8,11 +8,6 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
     custom-tab-bar
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
@@ -20,25 +15,12 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
+      style="visibility:visible"
+      tabindex="0"
     >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
       foo
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
     </div>
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -49,7 +31,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="ant-tabs-nav-container"
@@ -123,10 +105,13 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
           >
             <div>
               <div
+                aria-controls="tabpane-xx"
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
+                id="tab-xx"
                 role="tab"
+                tabindex="0"
               >
                 xx
               </div>
@@ -140,11 +125,6 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:100%"
   >
@@ -152,24 +132,10 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
-    >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
-    </div>
+      style="visibility:visible"
+      tabindex="0"
+    />
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -180,7 +146,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   <div
     class="ant-tabs-bar ant-tabs-left-bar"
     role="tablist"
-    tabindex="0"
+    tabindex="-1"
   >
     <div
       class="ant-tabs-nav-container"
@@ -254,10 +220,13 @@ exports[`Tabs tabPosition remove card 1`] = `
           >
             <div>
               <div
+                aria-controls="tabpane-1"
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
+                id="tab-1"
                 role="tab"
+                tabindex="0"
               >
                 foo
               </div>
@@ -276,11 +245,6 @@ exports[`Tabs tabPosition remove card 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-left-content"
     style="margin-top:0%"
   >
@@ -288,24 +252,11 @@ exports[`Tabs tabPosition remove card 1`] = `
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
+      style="visibility:visible"
+      tabindex="0"
     >
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
       foo
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
     </div>
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;

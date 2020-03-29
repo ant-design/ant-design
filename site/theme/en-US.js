@@ -1,8 +1,9 @@
 module.exports = {
   locale: 'en-US',
   messages: {
-    'app.theme.switch.dark': 'Switch default mode',
-    'app.theme.switch.default': 'Switch dark mode',
+    'app.theme.switch.default': 'Default theme',
+    'app.theme.switch.dark': 'Dark theme',
+    'app.theme.switch.compact': 'Compact theme',
     'app.header.search': 'Search...',
     'app.header.menu.documentation': 'Docs',
     'app.header.menu.components': 'Components',

@@ -348,7 +348,7 @@ exports[`List.pagination should change page size work 2`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_2"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="true"
@@ -366,13 +366,13 @@ exports[`List.pagination should change page size work 2`] = `
         <span
           class="ant-select-selection-item"
         >
-          30 / page
+          50 / page
         </span>
       </div>
       <div>
         <div
           class="ant-select-dropdown"
-          style="width: 0px; opacity: 0;"
+          style="min-width: 0; opacity: 0;"
         >
           <div>
             <div
@@ -382,24 +382,17 @@ exports[`List.pagination should change page size work 2`] = `
             >
               <div
                 aria-selected="false"
+                id="rc_select_TEST_OR_SSR_list_0"
+                role="option"
+              >
+                10
+              </div>
+              <div
+                aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_1"
                 role="option"
               >
                 20
-              </div>
-              <div
-                aria-selected="true"
-                id="rc_select_TEST_OR_SSR_list_2"
-                role="option"
-              >
-                30
-              </div>
-              <div
-                aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_3"
-                role="option"
-              >
-                40
               </div>
             </div>
             <div
@@ -413,7 +406,7 @@ exports[`List.pagination should change page size work 2`] = `
                 >
                   <div
                     aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
                       class="ant-select-item-option-content"
@@ -445,12 +438,12 @@ exports[`List.pagination should change page size work 2`] = `
                   </div>
                   <div
                     aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   >
                     <div
                       class="ant-select-item-option-content"
                     >
-                      30 / page
+                      50 / page
                     </div>
                     <span
                       aria-hidden="true"
@@ -466,7 +459,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      40 / page
+                      100 / page
                     </div>
                     <span
                       aria-hidden="true"
@@ -508,9 +501,6 @@ exports[`List.pagination should change page size work 2`] = `
           </svg>
         </span>
       </span>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
       <div
         style="position: absolute; top: 0px; left: 0px; width: 100%;"
       />
