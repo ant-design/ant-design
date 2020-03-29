@@ -38,6 +38,12 @@ exports[`Breadcrumb rtl render component should be rendered correctly in RTL dir
 />
 `;
 
+exports[`Breadcrumb should accept undefined routes 1`] = `
+<div
+  class="ant-breadcrumb"
+/>
+`;
+
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 <div
   class="ant-breadcrumb"
@@ -152,9 +158,11 @@ exports[`Breadcrumb should render a menu 1`] = `
     <span
       class="ant-breadcrumb-link"
     >
-      <span>
+      <a
+        href="#/index/first/second"
+      >
         second
-      </span>
+      </a>
     </span>
     <span
       class="ant-breadcrumb-separator"
@@ -162,6 +170,62 @@ exports[`Breadcrumb should render a menu 1`] = `
       /
     </span>
   </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      <span />
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  0
 </div>
 `;
 
