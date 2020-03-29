@@ -6,7 +6,11 @@ title: Icon
 toc: false
 ---
 
-语义化的矢量图形。
+语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+
+```bash
+npm install --save @ant-design/icons
+```
 
 ## 设计师专属
 
