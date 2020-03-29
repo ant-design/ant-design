@@ -72,7 +72,7 @@ timeline: true
   - 🐞 修复 Badge RTL 样式问题。[#22551](https://github.com/ant-design/ant-design/pull/22551)
   - 🐞 修复 Input RTL 样式问题。[#22525](https://github.com/ant-design/ant-design/pull/22525)
   - 🐞 修复 Steps RTL 样式问题。[#22523](https://github.com/ant-design/ant-design/pull/22523)
-  - 💄 优化 Tabs RTL 下，按钮样式。[#22653](https://github.com/ant-design/ant-design/pull/22653)
+  - 💄 优化 Tabs RTL 按钮样式。[#22653](https://github.com/ant-design/ant-design/pull/22653)
   - 💄 优化 Input.Group RTL 样式。[#22624](https://github.com/ant-design/ant-design/pull/22624)
   - 💄 优化 Timeline label 在 RTL 模式下样式。[#22652](https://github.com/ant-design/ant-design/pull/22652)
   - 💄 优化 Select group RTL 下的显示。[#22584](https://github.com/ant-design/ant-design/pull/22584)
