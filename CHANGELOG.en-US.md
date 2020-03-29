@@ -32,7 +32,7 @@ timeline: true
   - 🆕 Table pagination `position` add more option. [#22647](https://github.com/ant-design/ant-design/pull/22647) [@hengkx](https://github.com/hengkx)
   - 🆕 Table selection column support `renderCell`. [#21711](https://github.com/ant-design/ant-design/pull/21711)
   - 🆕 Table sorter adding hint tooltip and a new prop `showSorterTooltip`. [#21631](https://github.com/ant-design/ant-design/pull/21631) [@AshoneA](https://github.com/AshoneA)
-- 🆕 Tag 支持 `icon` 属性。[#22418](https://github.com/ant-design/ant-design/pull/22418) [@vtsybulin](https://github.com/vtsybulin)
+- 🆕 Tag component support `icon` prop. [#22418](https://github.com/ant-design/ant-design/pull/22418) [@vtsybulin](https://github.com/vtsybulin)
 - 🆕 Grid add `useBreakpoint` hook. [#22226](https://github.com/ant-design/ant-design/pull/22226)
 - 🆕 Card support `tabProps`. [#22207](https://github.com/ant-design/ant-design/pull/22207)
 - 🆕 Pagination add `autoResize` prop. [#21959](https://github.com/ant-design/ant-design/pull/21959) [@wendellhu95](https://github.com/wendellhu95)
