@@ -67,7 +67,7 @@ timeline: true
   - 💄 优化 CheckBox `inner` RTL 样式。[#22627](https://github.com/ant-design/ant-design/pull/22627)
   - 🐞 优化 Upload `picture-card` RTL 样式。[#22630](https://github.com/ant-design/ant-design/pull/22630)
   - 🐞 修复 Badge RTL 数字显示。[#22665](https://github.com/ant-design/ant-design/pull/22665)
-  - 🐞 修复 Select RTL 多选可清空时，选项样式。[#22596](https://github.com/ant-design/ant-design/pull/22596)
+  - 🐞 修复 Select RTL 多选可清空时的选项样式。[#22596](https://github.com/ant-design/ant-design/pull/22596)
   - 🐞 修复 Progress RTL 样式问题。[#22558](https://github.com/ant-design/ant-design/pull/22558)
   - 🐞 修复 Badge RTL 样式问题。[#22551](https://github.com/ant-design/ant-design/pull/22551)
   - 🐞 修复 Input RTL 样式问题。[#22525](https://github.com/ant-design/ant-design/pull/22525)
