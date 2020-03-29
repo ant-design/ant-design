@@ -2,7 +2,9 @@ const libDir = process.env.LIB_DIR;
 
 const transformIgnorePatterns = [
   '/dist/',
-  'node_modules/[^/]+?/(?!(es|node_modules)/)', // Ignore modules without es dir
+  // Ignore modules without es dir.
+  // Update: @babel/runtime should also be transformed
+  'node_modules/(?!.*@babel)[^/]+?/(?!(es|node_modules)/)',
 ];
 
 module.exports = {

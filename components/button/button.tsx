@@ -120,7 +120,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     loading: false,
     ghost: false,
     block: false,
-    htmlType: 'button',
+    htmlType: 'button' as ButtonProps['htmlType'],
   };
 
   private delayTimeout: number;

@@ -5,7 +5,11 @@ title: Icon
 toc: false
 ---
 
-Semantic vector graphics.
+Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:
+
+```bash
+npm install --save @ant-design/icons
+```
 
 ## List of icons
 

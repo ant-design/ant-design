@@ -21,7 +21,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
 
   static defaultProps = {
     reverse: false,
-    mode: '',
+    mode: '' as TimelineProps['mode'],
   };
 
   renderTimeline = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
