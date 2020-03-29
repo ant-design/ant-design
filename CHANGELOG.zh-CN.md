@@ -26,7 +26,7 @@ timeline: true
 - 🆕 改进 Pagination 使用体验。[#22711](https://github.com/ant-design/ant-design/pull/22711)
   - Pagination 当 `total > 50` 时默认显示切换页数选择器。
   - 统一 Pagination 十页以内的页码个数使其宽度更统一。
-  - Pagination 调整默认页数选项为 `10, 25, 50, 100`。
+  - Pagination 调整默认页数选项为 `10, 20, 50, 100`。
 - Table
   - 🆕 Table 分页位置增加更多选项。[#22647](https://github.com/ant-design/ant-design/pull/22647) [@hengkx](https://github.com/hengkx)
   - 🆕 Table 选择列支持 `renderCell`。[#21711](https://github.com/ant-design/ant-design/pull/21711)
