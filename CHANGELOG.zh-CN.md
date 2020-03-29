@@ -39,7 +39,7 @@ timeline: true
 - 🆕 Pagination supports `autoResize` prop。[#21959](https://github.com/ant-design/ant-design/pull/21959) [@wendellhu95](https://github.com/wendellhu95)
 - 🆕 Popover/Popconfirm 添加 render props 支持。[#22034](https://github.com/ant-design/ant-design/pull/22034) [@nossbigg](https://github.com/nossbigg)
 - 🆕 TimePicker.RangePicker 支持 `order` 属性用于设置排序行为。[#21948](https://github.com/ant-design/ant-design/pull/21948)
-- 🆕 Carousel `dots` support object to pass `className`. [#21848](https://github.com/ant-design/ant-design/pull/21848)
+- 🆕 Carousel `dots` 支持对象传递 `className`。[#21848](https://github.com/ant-design/ant-design/pull/21848)
 - 🆕 Form `validateMessages` 支持 `${label}` 变量。[#21835](https://github.com/ant-design/ant-design/pull/21835)
 - 🆕 暴露 Breadcrumb.Item 组件的所有 Dropdown 的可配置属性。[#20763](https://github.com/ant-design/ant-design/pull/20763) [@paranoidjk](https://github.com/paranoidjk)
 - ⌨️ 增强 Tabs 可访问性。[#22287](https://github.com/ant-design/ant-design/pull/22287)

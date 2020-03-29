@@ -38,7 +38,7 @@ timeline: true
 - 🆕 Pagination add `autoResize` prop. [#21959](https://github.com/ant-design/ant-design/pull/21959) [@wendellhu95](https://github.com/wendellhu95)
 - 🆕 Add render props support for Popover/Popconfirm. [#22034](https://github.com/ant-design/ant-design/pull/22034) [@nossbigg](https://github.com/nossbigg)
 - 🆕 TimePicker.RangePicker support `order` prop. [#21948](https://github.com/ant-design/ant-design/pull/21948)
-- 🆕 Carousel `dots` 支持对象传递 `className`。[#21848](https://github.com/ant-design/ant-design/pull/21848)
+- 🆕 Carousel `dots` support object to pass `className`. [#21848](https://github.com/ant-design/ant-design/pull/21848)
 - 🆕 Form `validateMessages` support `${label}` variable. [#21835](https://github.com/ant-design/ant-design/pull/21835)
 - 🆕 Expose all Dropdown props in Breadcrumb.Item. [#20763](https://github.com/ant-design/ant-design/pull/20763) [@paranoidjk](https://github.com/paranoidjk)
 - ⌨️ Improve Tabs Accessibility. [#22287](https://github.com/ant-design/ant-design/pull/22287)
