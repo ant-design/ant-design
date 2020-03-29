@@ -24,7 +24,7 @@ timeline: true
 - 🔥 DatePicker 支持季度选择器。[#22468](https://github.com/ant-design/ant-design/pull/22468)
 - 🆕 Tree/TreeSelect/Select 支持 `virtual` 属性以关闭虚拟滚动。[#21955](https://github.com/ant-design/ant-design/pull/21955)
   - 🐞 修复 Autocomplete `value` 为 `null` 时，值展示 `null` 的问题。
-- 🆕 改进 Pagination 切换用户体验。[#22711](https://github.com/ant-design/ant-design/pull/22711)
+- 🆕 改进 Pagination 使用体验。[#22711](https://github.com/ant-design/ant-design/pull/22711)
   - Pagination 当 `total > 50` 时默认显示切换页数选择器。
   - 统一 Pagination 十页以内的页码个数使其宽度更统一。
   - Pagination 调整默认页数选项为 `10, 25, 50, 100`。
