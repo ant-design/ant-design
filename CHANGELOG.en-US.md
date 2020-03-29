@@ -48,7 +48,6 @@ timeline: true
 - 🛠 Menu.Item Tooltip could be hidden by falsy `title` prop. [#22202](https://github.com/ant-design/ant-design/pull/22202)
 - 🛠 Typography `onExpand` function support event parameter. [#22092](https://github.com/ant-design/ant-design/pull/22092) [@BlazPocrnja](https://github.com/BlazPocrnja)
 - 🛠 Simplify Popconfirm and Popover dom structure. [#22052](https://github.com/ant-design/ant-design/pull/22052)
-
 - 🐞 Adjust Drawer close button without `title` style to avoid overlap with scroll bar. [#22710](https://github.com/ant-design/ant-design/pull/22710)
 - 🐞 Fix Table fixed column shadow style in Safari. [#22680](https://github.com/ant-design/ant-design/pull/22680)
 - 🐞 Fix Calendar style details. [#22676](https://github.com/ant-design/ant-design/pull/22676)
