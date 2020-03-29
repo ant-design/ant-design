@@ -366,7 +366,7 @@ exports[`List.pagination should change page size work 2`] = `
         <span
           class="ant-select-selection-item"
         >
-          30 / page
+          50 / page
         </span>
       </div>
       <div>
@@ -392,7 +392,7 @@ exports[`List.pagination should change page size work 2`] = `
                 id="rc_select_TEST_OR_SSR_list_1"
                 role="option"
               >
-                20
+                25
               </div>
             </div>
             <div
@@ -427,7 +427,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      20 / page
+                      25 / page
                     </div>
                     <span
                       aria-hidden="true"
@@ -443,7 +443,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      30 / page
+                      50 / page
                     </div>
                     <span
                       aria-hidden="true"
@@ -459,7 +459,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      40 / page
+                      100 / page
                     </div>
                     <span
                       aria-hidden="true"

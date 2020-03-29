@@ -286,7 +286,7 @@ describe('Tooltip', () => {
         </span>
       </Tooltip>,
     );
-    await sleep(600);
+    await sleep(1000);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
   });
 
