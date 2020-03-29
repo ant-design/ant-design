@@ -157,14 +157,12 @@
     right: 0;
     z-index: @zindex-popup-close;
     display: block;
-    width: 56px;
-    height: 56px;
-    padding: 0;
+    padding: 20px;
     color: @text-color-secondary;
     font-weight: 700;
     font-size: @font-size-lg;
     font-style: normal;
-    line-height: 56px;
+    line-height: 1;
     text-align: center;
     text-transform: none;
     text-decoration: none;
@@ -179,6 +177,11 @@
     &:hover {
       color: @icon-color-hover;
       text-decoration: none;
+    }
+
+    .@{drawer-prefix-cls}-header-no-title & {
+      margin-right: var(--scroll-bar);
+      padding-right: calc(20px - var(--scroll-bar));
     }
   }
 
