@@ -23,6 +23,7 @@ timeline: true
 - 🔥 New Space component. [#22363](https://github.com/ant-design/ant-design/pull/22363)
 - 🔥 DatePicker support quarter picker. [#22468](https://github.com/ant-design/ant-design/pull/22468)
 - 🆕 Tree/TreeSelect/Select support `virtual` prop to disable virtual scroll. [#21955](https://github.com/ant-design/ant-design/pull/21955)
+  - 🐞 Fix Autocomplete display `null` when `value` is `null`.
 - 🆕 Improve Pagination switch experience. [#22711](https://github.com/ant-design/ant-design/pull/22711)
   - Pagination will show size changer when `total > 50`.
   - Unify Pagination items to fixed length.
