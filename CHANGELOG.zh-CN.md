@@ -78,7 +78,7 @@ timeline: true
   - 💄 优化 Select group RTL 下的显示。[#22584](https://github.com/ant-design/ant-design/pull/22584)
   - 💄 优化 Dropdown.Button RTL 样式。[#22519](https://github.com/ant-design/ant-design/pull/22519)
 - Typescript
-  - 🛠 replace deprecated `React.SFC` with `React.FC`. [#22691](https://github.com/ant-design/ant-design/pull/22691) [@Rustin-Liu](https://github.com/Rustin-Liu)
+  - 🛠 替换废弃的 `React.SFC` 为 `React.FC`。[#22691](https://github.com/ant-design/ant-design/pull/22691) [@Rustin-Liu](https://github.com/Rustin-Liu)
   - 🐞 修复 Form.Item `children` 的类型定义。[#22662](https://github.com/ant-design/ant-design/pull/22662)
 
 ## 4.0.4
