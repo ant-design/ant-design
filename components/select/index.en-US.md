@@ -54,7 +54,7 @@ Select component to select value from options.
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |  |
-| value | Current selected option. | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
+| value | Current selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | Called when a option is deselected, param is the selected option's value. Only called for multiple or tags, effective in multiple or tags mode only. | function(string\|number\|LabeledValue) | - |  |
