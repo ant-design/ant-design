@@ -20,7 +20,7 @@ timeline: true
 `2020-03-29`
 
 - 🔥 支持紧凑模式主题。[#22126](https://github.com/ant-design/ant-design/pull/22126) [@AshoneA](https://github.com/AshoneA)
-- 🔥 新的 Space 组件。[#22363](https://github.com/ant-design/ant-design/pull/22363)
+- 🔥 新的 Space 组件以支持内联组件的间距样式。[#22363](https://github.com/ant-design/ant-design/pull/22363)
 - 🔥 DatePicker 支持季度选择器。[#22468](https://github.com/ant-design/ant-design/pull/22468)
 - 🆕 Tree/TreeSelect/Select 支持 `virtual` 属性以关闭虚拟滚动。[#21955](https://github.com/ant-design/ant-design/pull/21955)
 - 🆕 改进 Pagination 使用体验。[#22711](https://github.com/ant-design/ant-design/pull/22711)

@@ -20,7 +20,7 @@ timeline: true
 `2020-03-29`
 
 - 🔥 Support compact mode theme. [#22126](https://github.com/ant-design/ant-design/pull/22126) [@AshoneA](https://github.com/AshoneA)
-- 🔥 New Space component. [#22363](https://github.com/ant-design/ant-design/pull/22363)
+- 🔥 New Space component to resolve inline component margin style. [#22363](https://github.com/ant-design/ant-design/pull/22363)
 - 🔥 DatePicker support quarter picker. [#22468](https://github.com/ant-design/ant-design/pull/22468)
 - 🆕 Tree/TreeSelect/Select support `virtual` prop to disable virtual scroll. [#21955](https://github.com/ant-design/ant-design/pull/21955)
 - 🆕 Improve Pagination switch experience. [#22711](https://github.com/ant-design/ant-design/pull/22711)
