@@ -164,4 +164,19 @@ describe('Table', () => {
       />,
     );
   });
+
+  it('prevent touch event', () => {
+    const wrapper = mount(
+      <Table
+        columns={[
+          {
+            dataIndex: 'name',
+            children: undefined,
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+    wrapper.simulate('touchmove');
+  });
 });

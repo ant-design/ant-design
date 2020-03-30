@@ -398,20 +398,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         }
       }
     } else {
-      // compatible
-      switch (mergedPagination.position) {
-        case 'top':
-          topPaginationNode = renderPagination();
-          break;
-
-        case 'both':
-          topPaginationNode = renderPagination();
-          bottomPaginationNode = renderPagination();
-          break;
-
-        default:
-          bottomPaginationNode = renderPagination();
-      }
+      bottomPaginationNode = renderPagination();
     }
   }
 
