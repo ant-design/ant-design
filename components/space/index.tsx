@@ -47,7 +47,8 @@ const Space: React.FC<SpaceProps> = props => {
       {items.map((child, i) => (
         <div
           className={itemClassName}
-          key={`${itemClassName}-i`}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${itemClassName}-${i}`}
           style={
             i === len - 1
               ? {}
