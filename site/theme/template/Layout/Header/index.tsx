@@ -173,7 +173,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             themeConfig,
             intl: { locale },
           } = this.props;
-          const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
+          const docVersions = { [antdVersion]: antdVersion, ...themeConfig.docVersions };
           const versionOptions = Object.keys(docVersions).map(version => (
             <Option value={docVersions[version]} key={version}>
               {version}
