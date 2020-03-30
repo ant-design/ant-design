@@ -69,13 +69,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     const { locale, children } = this.props;
 
     return (
-      <LocaleContext.Consumer>
-        {parentLocale => (
-          <LocaleContext.Provider value={{ ...parentLocale, ...locale, exist: true }}>
-            {children}
-          </LocaleContext.Provider>
-        )}
-      </LocaleContext.Consumer>
+      <LocaleContext.Provider value={{ ...locale, exist: true }}>{children}</LocaleContext.Provider>
     );
   }
 }
