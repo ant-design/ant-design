@@ -68,7 +68,7 @@ const AdvancedSearchForm = () => {
             Search
           </Button>
           <Button
-            style={{ marginLeft: 8 }}
+            style={{ margin: '0 8px' }}
             onClick={() => {
               form.resetFields();
             }}
@@ -76,7 +76,7 @@ const AdvancedSearchForm = () => {
             Clear
           </Button>
           <a
-            style={{ marginLeft: 8, fontSize: 12 }}
+            style={{ fontSize: 12 }}
             onClick={() => {
               setExpand(!expand);
             }}

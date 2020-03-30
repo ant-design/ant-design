@@ -74,7 +74,7 @@ const Demo = () => {
           <Input style={{ width: 160 }} placeholder="Please input" />
         </Form.Item>
         <Tooltip title="Useful information">
-          <a href="#API" style={{ marginLeft: 8 }}>
+          <a href="#API" style={{ margin: '0 8px' }}>
             Need Help?
           </a>
         </Tooltip>
@@ -104,14 +104,14 @@ const Demo = () => {
         <Form.Item
           name="year"
           rules={[{ required: true }]}
-          style={{ display: 'inline-block', width: 'calc(50% - 5px)', marginRight: 8 }}
+          style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}
         >
           <Input placeholder="Input birth year" />
         </Form.Item>
         <Form.Item
           name="month"
           rules={[{ required: true }]}
-          style={{ display: 'inline-block', width: 'calc(50% - 5px)' }}
+          style={{ display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 8px' }}
         >
           <Input placeholder="Input birth month" />
         </Form.Item>

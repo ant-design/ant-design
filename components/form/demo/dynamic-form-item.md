@@ -64,11 +64,12 @@ const DynamicFieldSet = () => {
                     ]}
                     noStyle
                   >
-                    <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
+                    <Input placeholder="passenger name" style={{ width: '60%' }} />
                   </Form.Item>
                   {fields.length > 1 ? (
                     <MinusCircleOutlined
                       className="dynamic-delete-button"
+                      style={{ margin: '0 8px' }}
                       onClick={() => {
                         remove(field.name);
                       }}
