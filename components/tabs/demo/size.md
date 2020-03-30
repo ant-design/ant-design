@@ -34,7 +34,7 @@ class Demo extends React.Component {
           <Radio.Button value="default">Default</Radio.Button>
           <Radio.Button value="large">Large</Radio.Button>
         </Radio.Group>
-        <Tabs defaultActiveKey="1" size={size}>
+        <Tabs defaultActiveKey="1" size={size} style={{ marginBottom: 32 }}>
           <TabPane tab="Tab 1" key="1">
             Content of tab 1
           </TabPane>
