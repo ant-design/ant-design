@@ -421,8 +421,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     spinProps = {
       spinning: loading,
     };
-  } else {
-    spinProps = loading;
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
   }
 
   const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {
