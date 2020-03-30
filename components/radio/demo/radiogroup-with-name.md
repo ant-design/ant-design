@@ -16,16 +16,14 @@ Passing the `name` property to all `input[type="radio"]` that are in the same Ra
 ```jsx
 import { Radio } from 'antd';
 
-function App() {
-  return (
-    <Radio.Group name="radiogroup" defaultValue={1}>
-      <Radio value={1}>A</Radio>
-      <Radio value={2}>B</Radio>
-      <Radio value={3}>C</Radio>
-      <Radio value={4}>D</Radio>
-    </Radio.Group>
-  );
-}
+const App = () => (
+  <Radio.Group name="radiogroup" defaultValue={1}>
+    <Radio value={1}>A</Radio>
+    <Radio value={2}>B</Radio>
+    <Radio value={3}>C</Radio>
+    <Radio value={4}>D</Radio>
+  </Radio.Group>
+);
 
 ReactDOM.render(<App />, mountNode);
 ```
