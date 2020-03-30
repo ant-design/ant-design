@@ -233,6 +233,7 @@
     "react-router-dom": "^5.0.1",
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^16.8.6",
+    "react-text-loop": "^2.3.0",
     "react-virtualized": "~9.21.1",
     "react-window": "^1.8.5",
     "reqwest": "^2.0.5",

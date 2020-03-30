@@ -1,18 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-danger"
-  type="button"
->
-  <span>
-    Click me to throw a error
-  </span>
-</button>
-`;
-
 exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-banner"
     data-show="true"
@@ -45,8 +34,8 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-alert ant-alert-warning ant-alert-banner ant-alert-closable"
     data-show="true"
@@ -105,8 +94,8 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
     data-show="true"
@@ -119,8 +108,8 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-alert ant-alert-error ant-alert-banner"
     data-show="true"
@@ -153,8 +142,8 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
@@ -640,6 +629,17 @@ exports[`renders ./components/alert/demo/description.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-danger"
+  type="button"
+>
+  <span>
+    Click me to throw a error
+  </span>
+</button>
+`;
+
 exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
 <div>
   <div
@@ -926,6 +926,57 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
       This is an error message about copywriting.
     </span>
   </div>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
+<div
+  class="ant-alert ant-alert-warning ant-alert-banner"
+  data-show="true"
+>
+  <span
+    aria-label="exclamation-circle"
+    class="anticon anticon-exclamation-circle ant-alert-icon"
+    role="img"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="exclamation-circle"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+      />
+    </svg>
+  </span>
+  <span
+    class="ant-alert-message"
+  >
+    <div
+      class="x0 x1 x2 x3 "
+    >
+      <div
+        style="transition:width 150ms linear;height:auto;width:auto"
+      >
+        <div
+          class="x1 x4 x5 x6"
+          style="opacity:1;transform:translateY(0px);position:relative"
+        >
+          <div>
+            Notice message one
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>
+  <span
+    class="ant-alert-description"
+  />
 </div>
 `;
 
