@@ -11,15 +11,14 @@
   &&-card &-card-bar &-tab {
     margin: 0;
     margin-right: @tabs-card-gutter;
-    padding: 0 @padding-md;
-    line-height: @tabs-card-height - 2px;
+    padding: @tabs-card-horizontal-padding;
+    line-height: 22px;
     background: @tabs-card-head-background;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
     transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
-    padding: @tabs-card-horizontal-padding;
     color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
@@ -30,9 +29,6 @@
     }
   }
   &&-small &-card-bar &-tab {
-    padding: @tabs-card-horizontal-padding-sm;
-  }
-  &&-small &-card-bar &-tab-active {
     padding: @tabs-card-horizontal-padding-sm;
   }
   &&-card &-card-bar &-tab-disabled {
