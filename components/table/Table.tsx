@@ -398,20 +398,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         }
       }
     } else {
-      // compatible
-      switch (mergedPagination.position) {
-        case 'top':
-          topPaginationNode = renderPagination();
-          break;
-
-        case 'both':
-          topPaginationNode = renderPagination();
-          bottomPaginationNode = renderPagination();
-          break;
-
-        default:
-          bottomPaginationNode = renderPagination();
-      }
+      bottomPaginationNode = renderPagination();
     }
   }
 
@@ -421,8 +408,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     spinProps = {
       spinning: loading,
     };
-  } else {
-    spinProps = loading;
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
   }
 
   const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {

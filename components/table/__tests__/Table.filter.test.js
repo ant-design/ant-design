@@ -340,12 +340,9 @@ describe('Table.filter', () => {
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
-
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
-
     wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
     wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
-
     expect(handleChange).toHaveBeenCalledWith(
       {},
       { name: ['boy'] },
@@ -354,6 +351,16 @@ describe('Table.filter', () => {
         currentDataSource: [],
       },
     );
+  });
+
+  it('fires pagination change event', () => {
+    const onPaginationChange = jest.fn();
+    const wrapper = mount(createTable({ pagination: { onChange: onPaginationChange } }));
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
+    wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+
+    expect(onPaginationChange).toHaveBeenCalledWith(1, 10);
   });
 
   it('should not fire change event on close filterDropdown without changing anything', () => {
