@@ -106,7 +106,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
-        placement={tooltipPlacement || vertical ? 'right' : 'top'}
+        placement={tooltipPlacement || (vertical ? 'right' : 'top')}
         transitionName="zoom-down"
         key={index}
         overlayClassName={`${prefixCls}-tooltip`}
