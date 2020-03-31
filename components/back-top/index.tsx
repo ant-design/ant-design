@@ -28,6 +28,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   };
 
   scrollEvent: any;
+
   node: HTMLDivElement;
 
   componentDidMount() {
