@@ -155,11 +155,15 @@
     border-bottom: 1px solid @border-color-split;
   }
 
+  &-split&-empty &-footer {
+    border-top: 1px solid @border-color-split;
+  }
+
   &-loading &-spin-nested-loading {
     min-height: 32px;
   }
 
-  &-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
+  &-split&-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
     border-bottom: 1px solid @border-color-split;
   }
 
