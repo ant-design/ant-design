@@ -46,6 +46,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     if (this.scrollEvent) {
       this.scrollEvent.remove();
     }
+    (this.handleScroll as any).cancel();
   }
 
   bindScrollEvent() {

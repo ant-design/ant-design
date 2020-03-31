@@ -1,5 +1,5 @@
 import raf from 'raf';
-import getScroll from './getScroll';
+import getScroll, { isWindow } from './getScroll';
 import { easeInOutCubic } from './easings';
 
 interface ScrollToOptions {
@@ -22,8 +22,10 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
     const timestamp = Date.now();
     const time = timestamp - startTime;
     const nextScrollTop = easeInOutCubic(time > duration ? duration : time, scrollTop, y, duration);
-    if (container === window) {
-      window.scrollTo(window.pageXOffset, nextScrollTop);
+    if (isWindow(container)) {
+      (container as Window).scrollTo(window.pageXOffset, nextScrollTop);
+    } else if (container instanceof Document) {
+      container.documentElement.scrollTop = nextScrollTop;
     } else {
       (container as HTMLElement).scrollTop = nextScrollTop;
     }

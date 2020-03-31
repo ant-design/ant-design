@@ -14,14 +14,16 @@ describe('BackTop', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
+      document.documentElement.scrollTop = y;
     });
     window.scrollTo(0, 400);
+    expect(document.documentElement.scrollTop).toBe(400);
     // trigger scroll manually
     wrapper.instance().handleScroll();
     await sleep();
     wrapper.find('.ant-back-top').simulate('click');
     await sleep(500);
-    expect(window.pageYOffset).toBe(0);
+    expect(document.documentElement.scrollTop).toBe(0);
     scrollToSpy.mockRestore();
   });
 

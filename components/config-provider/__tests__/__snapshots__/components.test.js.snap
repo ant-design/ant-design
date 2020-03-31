@@ -280,12 +280,14 @@ exports[`ConfigProvider components BackTop configProvider 1`] = `
 <div
   class="config-back-top"
 >
-  <div
-    class="config-back-top-content"
-  >
+  <div>
     <div
-      class="config-back-top-icon"
-    />
+      class="config-back-top-content"
+    >
+      <div
+        class="config-back-top-icon"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -294,12 +296,14 @@ exports[`ConfigProvider components BackTop normal 1`] = `
 <div
   class="ant-back-top"
 >
-  <div
-    class="ant-back-top-content"
-  >
+  <div>
     <div
-      class="ant-back-top-icon"
-    />
+      class="ant-back-top-content"
+    >
+      <div
+        class="ant-back-top-icon"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -308,12 +312,14 @@ exports[`ConfigProvider components BackTop prefixCls 1`] = `
 <div
   class="prefix-BackTop"
 >
-  <div
-    class="prefix-BackTop-content"
-  >
+  <div>
     <div
-      class="prefix-BackTop-icon"
-    />
+      class="prefix-BackTop-content"
+    >
+      <div
+        class="prefix-BackTop-icon"
+      />
+    </div>
   </div>
 </div>
 `;
