@@ -55,7 +55,6 @@ The properties of config are as follows:
 | onClose | Specify a function that will be called when the message is closed | function | - |
 | icon | Customized Icon | ReactNode | - |
 | key | The unique identifier of the Message | string\|number | - |
-| direction | direction of the message | string | - |
 
 ### Global static methods
 
@@ -71,6 +70,7 @@ message.config({
   top: 100,
   duration: 2,
   maxCount: 3,
+  rtl: true,
 });
 ```
 
@@ -80,3 +80,4 @@ message.config({
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
 | maxCount | max message show, drop oldest if exceed limit | number | - |
 | top | distance from top | number | 24 |
+| rtl | whether to enable RTL mode | boolean | `false` |

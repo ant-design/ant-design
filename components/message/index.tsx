@@ -15,6 +15,7 @@ let prefixCls = 'ant-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
+let rtl = false;
 
 function getMessageInstance(callback: (i: any) => void) {
   if (messageInstance) {
@@ -59,7 +60,6 @@ export interface ArgsProps {
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
-  direction?: string;
 }
 
 const iconMap = {
@@ -76,7 +76,7 @@ function notice(args: ArgsProps): MessageType {
 
   const messageClass = classNames(`${prefixCls}-custom-content`, {
     [`${prefixCls}-${args.type}`]: args.type,
-    [`${prefixCls}-rtl`]: args.direction === 'rtl',
+    [`${prefixCls}-rtl`]: rtl === true,
   });
 
   const target = args.key || key++;
@@ -132,6 +132,7 @@ export interface ConfigOptions {
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
+  rtl?: boolean;
 }
 
 const api: any = {
@@ -157,6 +158,9 @@ const api: any = {
     if (options.maxCount !== undefined) {
       maxCount = options.maxCount;
       messageInstance = null;
+    }
+    if (options.rtl !== undefined) {
+      rtl = options.rtl;
     }
   },
   destroy() {
