@@ -134,7 +134,7 @@ You must import styles as less format. A common mistake would be importing multi
 We have some official themes, try them out and give us some feedback!
 
 - 🌑 Dark Theme (supported in 4.0.0+)
-- 🌑 Compact Theme (supported in 4.1.0+)
+- 📦 Compact Theme (supported in 4.1.0+)
 - ☁️ [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ### Use dark or compact theme
@@ -167,7 +167,7 @@ Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/di
 
 ```less
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
-@import '~antd/dist/antd.compact.less';
+@import '~antd/dist/antd.compact.less'; // Introduce the official compact less style entry file
 ```
 
 If the project does not use Less, you can import [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) or [antd/dist/antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css) in the CSS file:

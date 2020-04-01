@@ -132,7 +132,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some((item) => (item as any)[childrenColumnName])) {
+    if (rawData.some(item => (item as any)[childrenColumnName])) {
       return 'nest';
     }
 
@@ -320,6 +320,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     childrenColumnName,
     locale: tableLocale,
     expandIconColumnIndex: mergedExpandable.expandIconColumnIndex,
+    getPopupContainer,
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
@@ -385,8 +386,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       />
     );
     if (mergedPagination.position !== null && Array.isArray(mergedPagination.position)) {
-      const topPos = mergedPagination.position.find((p) => p.indexOf('top') !== -1);
-      const bottomPos = mergedPagination.position.find((p) => p.indexOf('bottom') !== -1);
+      const topPos = mergedPagination.position.find(p => p.indexOf('top') !== -1);
+      const bottomPos = mergedPagination.position.find(p => p.indexOf('bottom') !== -1);
       if (!topPos && !bottomPos) {
         bottomPaginationNode = renderPagination();
       } else {
@@ -398,20 +399,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         }
       }
     } else {
-      // compatible
-      switch (mergedPagination.position) {
-        case 'top':
-          topPaginationNode = renderPagination();
-          break;
-
-        case 'both':
-          topPaginationNode = renderPagination();
-          bottomPaginationNode = renderPagination();
-          break;
-
-        default:
-          bottomPaginationNode = renderPagination();
-      }
+      bottomPaginationNode = renderPagination();
     }
   }
 
@@ -421,8 +409,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     spinProps = {
       spinning: loading,
     };
-  } else {
-    spinProps = loading;
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
   }
 
   const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {
@@ -432,7 +423,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     <div
       className={wrapperClassNames}
       style={style}
-      onTouchMove={(e) => {
+      onTouchMove={e => {
         e.preventDefault();
       }}
     >

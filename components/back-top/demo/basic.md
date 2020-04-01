@@ -17,12 +17,12 @@ The most basic usage.
 import { BackTop } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <BackTop />
     Scroll down to see the bottom-right
     <strong className="site-back-top-basic"> gray </strong>
     button.
-  </div>,
+  </>,
   mountNode,
 );
 ```

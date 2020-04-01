@@ -358,9 +358,10 @@
 
     &-extra {
       position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translate(100%, -50%);
+      top: 0;
+      right: -10px;
+      cursor: pointer;
+      transition: all .3s;
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);
@@ -525,7 +526,7 @@
       top: 0;
       bottom: 0;
       z-index: 1;
-      width: 20px;
+      width: 30px;
       transition: box-shadow 0.3s;
       content: '';
       pointer-events: none;

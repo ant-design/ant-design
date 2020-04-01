@@ -3,6 +3,7 @@ import { mount, render } from 'enzyme';
 import Table from '..';
 import Checkbox from '../../checkbox';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 describe('Table.rowSelection', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -567,9 +568,7 @@ describe('Table.rowSelection', () => {
       indexList.forEach(index => {
         wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
       });
-      wrapper
-        .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
-        .simulate('click');
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     }
 
     function clickItem() {
@@ -741,5 +740,40 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').last().simulate('click');
 
     expect(onRowClick).not.toHaveBeenCalled();
+  });
+
+  it('should support getPopupContainer', () => {
+    const rowSelection = {
+      selections: true,
+    };
+    const getPopupContainer = jest.fn(node => node);
+    const wrapper = mount(
+      createTable({
+        rowSelection,
+        getPopupContainer,
+      }),
+    );
+    jest.useFakeTimers();
+    wrapper.find('.ant-dropdown-trigger').simulate('mouseenter');
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(getPopupContainer).toHaveBeenCalled();
+  });
+
+  it('should support getPopupContainer from ConfigProvider', () => {
+    const rowSelection = {
+      selections: true,
+    };
+    const wrapper = mount(
+      <ConfigProvider getPopupContainer={node => node.parentNode}>
+        {createTable({
+          rowSelection,
+        })}
+      </ConfigProvider>,
+    );
+    jest.useFakeTimers();
+    wrapper.find('.ant-dropdown-trigger').simulate('mouseenter');
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

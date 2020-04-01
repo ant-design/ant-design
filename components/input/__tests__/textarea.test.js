@@ -296,7 +296,7 @@ describe('TextArea allowClear', () => {
       'setSelectionRange',
     );
     wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
-    await sleep(50);
+    await sleep(100);
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
   });

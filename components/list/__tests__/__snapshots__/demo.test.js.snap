@@ -643,12 +643,17 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
 `;
 
 exports[`renders ./components/list/demo/simple.md correctly 1`] = `
-<div>
-  <h3
-    style="margin-bottom:16px"
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    role="separator"
   >
-    Default Size
-  </h3>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Default Size
+    </span>
+  </div>,
   <div
     class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
   >
@@ -738,12 +743,17 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
         Footer
       </div>
     </div>
-  </div>
-  <h3
-    style="margin:16px 0"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    role="separator"
   >
-    Small Size
-  </h3>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Small Size
+    </span>
+  </div>,
   <div
     class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
   >
@@ -798,12 +808,17 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
         Footer
       </div>
     </div>
-  </div>
-  <h3
-    style="margin:16px 0"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    role="separator"
   >
-    Large Size
-  </h3>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Large Size
+    </span>
+  </div>,
   <div
     class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
   >
@@ -858,8 +873,8 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
         Footer
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/list/demo/vertical.md correctly 1`] = `

@@ -21,6 +21,8 @@
   }
 
   .@{select-prefix-cls}-show-search& {
+    cursor: text;
+
     input {
       cursor: auto;
     }
@@ -54,6 +56,7 @@
   .reset-component;
   position: relative;
   display: inline-block;
+  cursor: pointer;
 
   &:not(.@{select-prefix-cls}-disabled):hover &-selector {
     .hover();

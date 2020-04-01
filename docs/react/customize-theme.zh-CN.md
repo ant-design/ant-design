@@ -145,7 +145,7 @@ module.exports = {
 
 ```less
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
-@import '~antd/dist/antd.compact.less'; // 引入官方提供的暗色 less 样式入口文件
+@import '~antd/dist/antd.compact.less'; // 引入官方提供的紧凑 less 样式入口文件
 ```
 
 如果项目不使用 Less，可在 CSS 文件中全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) 或 [antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css)。

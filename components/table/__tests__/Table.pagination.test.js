@@ -186,7 +186,6 @@ describe('Table.pagination', () => {
   it('specify the position of pagination', () => {
     const wrapper = mount(createTable({ pagination: { position: ['topLeft'] } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-
     expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
     wrapper.setProps({ pagination: { position: ['bottomRight'] } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
@@ -195,6 +194,8 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(3);
     expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: ['invalid'] } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 
   /**
@@ -209,12 +210,14 @@ describe('Table.pagination', () => {
 
   it('ajax render should keep display by the dataSource', () => {
     const onChange = jest.fn();
+    const onPaginationChange = jest.fn();
 
     const wrapper = mount(
       createTable({
         onChange,
         pagination: {
           total: 200,
+          onChange: onPaginationChange,
         },
       }),
     );
@@ -223,6 +226,8 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-pagination .ant-pagination-item-2').simulate('click');
     expect(onChange.mock.calls[0][0].current).toBe(2);
+    expect(onChange).toHaveBeenCalledWith({"current": 2, "pageSize": 10, "total": 200}, {}, {}, {"currentDataSource": [{"key": 0, "name": "Jack"}, {"key": 1, "name": "Lucy"}, {"key": 2, "name": "Tom"}, {"key": 3, "name": "Jerry"}]});
+    expect(onPaginationChange).toHaveBeenCalledWith(2, 10);
 
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
   });

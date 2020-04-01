@@ -15,6 +15,7 @@ import {
   SelectionItem,
   TransformColumns,
   ExpandType,
+  GetPopupContainer,
 } from '../interface';
 
 const EMPTY_LIST: any[] = [];
@@ -37,6 +38,7 @@ interface UseSelectionConfig<RecordType> {
   childrenColumnName: string;
   expandIconColumnIndex?: number;
   locale: TableLocale;
+  getPopupContainer?: GetPopupContainer;
 }
 
 type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
@@ -89,6 +91,7 @@ export default function useSelection<RecordType>(
     childrenColumnName,
     locale: tableLocale,
     expandIconColumnIndex,
+    getPopupContainer,
   } = config;
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
@@ -257,7 +260,7 @@ export default function useSelection<RecordType>(
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
           const menu = (
-            <Menu>
+            <Menu getPopupContainer={getPopupContainer}>
               {mergedSelections.map((selection, index) => {
                 const { key, text, onSelect: onSelectionClick } = selection;
                 return (
@@ -277,7 +280,7 @@ export default function useSelection<RecordType>(
           );
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
-              <Dropdown overlay={menu}>
+              <Dropdown overlay={menu} getPopupContainer={getPopupContainer}>
                 <span>
                   <DownOutlined />
                 </span>

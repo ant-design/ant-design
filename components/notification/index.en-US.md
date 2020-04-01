@@ -80,10 +80,10 @@ const [api, contextHolder] = notification.useNotification();
 
 return (
   <Context1.Provider value="Ant">
-    {/* contextHolder is in Context1 which mean api will not get context of Context1 */}
+    {/* contextHolder is inside Context1 which means api will get value of Context1 */}
     {contextHolder}
     <Context2.Provider value="Design">
-      {/* contextHolder is out of Context2 which mean api will not get context of Context2 */}
+      {/* contextHolder is outside Context2 which means api will **not** get value of Context2 */}
     </Context2.Provider>
   </Context1.Provider>
 );

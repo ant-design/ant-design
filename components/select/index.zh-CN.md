@@ -28,7 +28,7 @@ title: Select
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效。 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |  |
-| defaultValue | 指定默认选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
+| defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。`false` 时会关闭虚拟滚动 | boolean \| number | true |  |
@@ -55,7 +55,7 @@ title: Select
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |  |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |  |
-| value | 指定当前选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
+| value | 指定当前选中的条目 | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value, option:Option/Array&lt;Option>) | - |  |
