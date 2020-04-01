@@ -43,12 +43,12 @@ describe('Space', () => {
     );
 
     expect(wrapper.find('.ant-space-item').at(0).prop('style').marginRight).toBe(10);
-    expect(wrapper.find('.ant-space-item').at(1).prop('style').marginRigh).toBeUndefined();
+    expect(wrapper.find('.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
   });
 
   it('should render vertical space width customize size', () => {
     const wrapper = mount(
-      <Space size={10} layout="vertical">
+      <Space size={10} direction="vertical">
         <span>1</span>
         <span>2</span>
       </Space>,

@@ -22,7 +22,7 @@ import { Space, Card } from 'antd';
 
 function SpaceVertical() {
   return (
-    <Space layout="vertical">
+    <Space direction="vertical">
       <Card title="Card" style={{ width: 300 }}>
         <p>Card content</p>
         <p>Card content</p>

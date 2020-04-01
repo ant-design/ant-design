@@ -9,7 +9,7 @@ export interface SpaceProps {
   className?: string;
   style?: React.CSSProperties;
   size?: SizeType | number;
-  layout?: 'horizontal' | 'vertical';
+  direction?: 'horizontal' | 'vertical';
 }
 
 const spaceSize = {
@@ -19,13 +19,15 @@ const spaceSize = {
 };
 
 const Space: React.FC<SpaceProps> = props => {
-  const { getPrefixCls, space, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
+  const { getPrefixCls, space, direction: directionConfig }: ConfigConsumerProps = React.useContext(
+    ConfigContext,
+  );
 
   const {
     size = space?.size || 'small',
     className,
     children,
-    layout = 'horizontal',
+    direction = 'horizontal',
     prefixCls: customizePrefixCls,
     ...otherProps
   } = props;
@@ -38,11 +40,11 @@ const Space: React.FC<SpaceProps> = props => {
   }
 
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const cn = classnames(prefixCls, `${prefixCls}-${layout}`, className);
+  const cn = classnames(prefixCls, `${prefixCls}-${direction}`, className);
 
   const itemClassName = `${prefixCls}-item`;
 
-  const marginDirection = direction === 'rtl' ? 'marginLeft' : 'marginRight';
+  const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
   return (
     <div className={cn} {...otherProps}>
@@ -55,7 +57,7 @@ const Space: React.FC<SpaceProps> = props => {
             i === len - 1
               ? {}
               : {
-                  [layout === 'vertical' ? 'marginBottom' : marginDirection]:
+                  [direction === 'vertical' ? 'marginBottom' : marginDirection]:
                     typeof size === 'string' ? spaceSize[size] : size,
                 }
           }
