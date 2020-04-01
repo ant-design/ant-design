@@ -57,6 +57,18 @@ describe('Table.filter', () => {
     return wrapper.find('BodyRow').map(row => row.props().record.name);
   }
 
+  it('not show filter icon when undefined', () => {
+    const noFilterColumn = { ...column, filters: undefined };
+    delete noFilterColumn.onFilter;
+    const wrapper = mount(
+      createTable({
+        columns: [noFilterColumn],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-column')).toHaveLength(0);
+  });
+
   it('renders filter correctly', () => {
     const wrapper = mount(createTable());
 
