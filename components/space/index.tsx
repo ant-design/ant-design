@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
@@ -40,7 +40,12 @@ const Space: React.FC<SpaceProps> = props => {
   }
 
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const cn = classnames(prefixCls, `${prefixCls}-${direction}`, className);
+  const cn = classNames(
+    prefixCls,
+    `${prefixCls}-${direction}`,
+    { [`${prefixCls}-rtl`]: directionConfig === 'rtl' },
+    className,
+  );
 
   const itemClassName = `${prefixCls}-item`;
 
