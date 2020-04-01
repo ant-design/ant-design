@@ -429,6 +429,7 @@ describe('Table.rowSelection', () => {
     const wrapper = render(
       createTable({
         rowSelection: { fixed: true },
+        scroll: { x: 903 },
       }),
     );
 
@@ -444,6 +445,7 @@ describe('Table.rowSelection', () => {
           },
         },
         rowSelection: { fixed: true },
+        scroll: { x: 903 },
       }),
     );
 
@@ -461,6 +463,7 @@ describe('Table.rowSelection', () => {
             fixed: 'left',
           },
         ],
+        scroll: { x: 903 },
       }),
     );
 

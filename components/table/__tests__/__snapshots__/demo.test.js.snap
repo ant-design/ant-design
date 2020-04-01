@@ -4903,7 +4903,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-column ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -5267,7 +5267,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-header ant-table-fixed-column ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -7556,7 +7556,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered ant-table-fixed-header ant-table-fixed-column ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-middle ant-table-bordered ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -13886,7 +13886,7 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-header ant-table-fixed-column"
+        class="ant-table ant-table-fixed-header ant-table-scroll-horizontal"
       >
         <div
           class="ant-table-container"

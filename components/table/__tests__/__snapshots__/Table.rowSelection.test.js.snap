@@ -11,16 +11,17 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-has-fix-left"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
       >
         <div
           class="ant-table-container"
         >
           <div
             class="ant-table-content"
+            style="overflow-x:scroll;overflow-y:hidden"
           >
             <table
-              style="table-layout:fixed"
+              style="width:903px;min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
@@ -72,6 +73,21 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
               <tbody
                 class="ant-table-tbody"
               >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
@@ -329,16 +345,17 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-has-fix-left"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
       >
         <div
           class="ant-table-container"
         >
           <div
             class="ant-table-content"
+            style="overflow-x:scroll;overflow-y:hidden"
           >
             <table
-              style="table-layout:fixed"
+              style="width:903px;min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
@@ -383,6 +400,18 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
               <tbody
                 class="ant-table-tbody"
               >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
@@ -600,16 +629,17 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-has-fix-left"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
       >
         <div
           class="ant-table-container"
         >
           <div
             class="ant-table-content"
+            style="overflow-x:scroll;overflow-y:hidden"
           >
             <table
-              style="table-layout:fixed"
+              style="width:903px;min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
@@ -655,6 +685,18 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
               <tbody
                 class="ant-table-tbody"
               >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
