@@ -42,6 +42,8 @@ const Space: React.FC<SpaceProps> = props => {
 
   const itemClassName = `${prefixCls}-item`;
 
+  const marginDirection = direction === 'rtl' ? 'marginLeft' : 'marginRight';
+
   return (
     <div className={cn} {...otherProps}>
       {items.map((child, i) => (
@@ -53,11 +55,8 @@ const Space: React.FC<SpaceProps> = props => {
             i === len - 1
               ? {}
               : {
-                  [layout === 'vertical'
-                    ? 'marginBottom'
-                    : direction === 'rtl'
-                    ? 'marginLeft'
-                    : 'marginRight']: typeof size === 'string' ? spaceSize[size] : size,
+                  [layout === 'vertical' ? 'marginBottom' : marginDirection]:
+                    typeof size === 'string' ? spaceSize[size] : size,
                 }
           }
         >
