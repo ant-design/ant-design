@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
@@ -128,6 +129,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
+      return null;
+    }
+
+    if (isEqual(mergedKeys, filterState?.filteredKeys)) {
       return null;
     }
 
