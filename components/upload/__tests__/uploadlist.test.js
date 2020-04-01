@@ -30,6 +30,9 @@ describe('Upload List', () => {
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
 
+  const open = jest.fn();
+  Object.defineProperty(window, 'open', open);
+
   // Mock dom
   let size = { width: 0, height: 0 };
   function setSize(width, height) {
@@ -118,11 +121,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper
-      .find('.ant-upload-list-item')
-      .at(0)
-      .find('.anticon-delete')
-      .simulate('click');
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
     await sleep(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
@@ -243,15 +242,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-eye')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-eye').at(0).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
-    wrapper
-      .find('.anticon-eye')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.anticon-eye').at(1).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
   });
 
@@ -268,15 +261,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-delete')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-    wrapper
-      .find('.anticon-delete')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.anticon-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
@@ -303,10 +290,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-download')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-download').at(0).simulate('click');
   });
 
   it('should support no onDownload', async () => {
@@ -328,10 +312,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-download')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-download').at(0).simulate('click');
   });
 
   describe('should generate thumbUrl from file', () => {
@@ -504,16 +485,10 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.custom-delete')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.custom-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
     expect(myClick).toHaveBeenCalled();
-    wrapper
-      .find('.custom-delete')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.custom-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     expect(myClick).toHaveBeenCalled();
     await sleep();
