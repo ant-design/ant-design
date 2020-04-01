@@ -192,6 +192,11 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    // https://blog.csdn.net/iefreer/article/details/50421025
+    span& {
+      vertical-align: bottom;
+    }
   }
 
   &-ellipsis-multiple-line {

@@ -63,6 +63,10 @@ class Demo extends React.Component {
             Hello World
           </Paragraph>
         )}
+
+        <p>
+          2333<Text ellipsis>2333</Text>2333
+        </p>
       </div>
     );
   }
