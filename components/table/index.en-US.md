@@ -92,14 +92,14 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 <Table
   onRow={(record, rowIndex) => {
     return {
-      onClick: (event) => {}, // click row
-      onDoubleClick: (event) => {}, // double click row
-      onContextMenu: (event) => {}, // right button click row
-      onMouseEnter: (event) => {}, // mouse enter row
-      onMouseLeave: (event) => {}, // mouse leave row
+      onClick: event => {}, // click row
+      onDoubleClick: event => {}, // double click row
+      onContextMenu: event => {}, // right button click row
+      onMouseEnter: event => {}, // mouse enter row
+      onMouseLeave: event => {}, // mouse leave row
     };
   }}
-  onHeaderRow={(column) => {
+  onHeaderRow={column => {
     return {
       onClick: () => {}, // click header row
     };
@@ -265,7 +265,7 @@ If `dataSource[i].key` is not provided, then you should specify the primary key 
 // primary key is uid
 return <Table rowKey="uid" />;
 // or
-return <Table rowKey={(record) => record.uid} />;
+return <Table rowKey={record => record.uid} />;
 ```
 
 ## Migrate to v4
@@ -276,6 +276,12 @@ Besides, the breaking change is changing `dataIndex` from nest string path like 
 
 ## FAQ
 
-### How to hide pagination when single page or not data
+### How to hide pagination when single page or not data?
 
 You can set `hideOnSinglePage` with `pagination` prop.
+
+### Table will return to first page when filter data.
+
+Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
+
+You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
