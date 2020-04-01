@@ -30,9 +30,6 @@ describe('Upload List', () => {
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
 
-  const open = jest.fn();
-  Object.defineProperty(window, 'open', open);
-
   // Mock dom
   let size = { width: 0, height: 0 };
   function setSize(width, height) {
@@ -76,10 +73,16 @@ describe('Upload List', () => {
     drawImageCallback = null;
   });
 
+  let open;
+  beforeAll(() => {
+    open = jest.spyOn(window, 'open').mockImplementation(() => {});
+  });
+
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
     imageSpy.mockRestore();
     canvasSpy.mockRestore();
+    open.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/4653
