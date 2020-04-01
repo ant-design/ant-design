@@ -95,16 +95,16 @@ const columns = [
 
 ```jsx
 <Table
-  onRow={(record) => {
+  onRow={record => {
     return {
-      onClick: (event) => {}, // 点击行
-      onDoubleClick: (event) => {},
-      onContextMenu: (event) => {},
-      onMouseEnter: (event) => {}, // 鼠标移入行
-      onMouseLeave: (event) => {},
+      onClick: event => {}, // 点击行
+      onDoubleClick: event => {},
+      onContextMenu: event => {},
+      onMouseEnter: event => {}, // 鼠标移入行
+      onMouseLeave: event => {},
     };
   }}
-  onHeaderRow={(column) => {
+  onHeaderRow={column => {
     return {
       onClick: () => {}, // 点击表头行
     };
@@ -269,7 +269,7 @@ class NameColumn extends Table.Column<User> {}
 // 比如你的数据主键是 uid
 return <Table rowKey="uid" />;
 // 或
-return <Table rowKey={(record) => record.uid} />;
+return <Table rowKey={record => record.uid} />;
 ```
 
 ## 从 v3 升级到 v4
@@ -283,3 +283,9 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 ### 如何在没有数据或只有一页数据时隐藏分页栏
 
 你可以设置 `pagination` 的 `hideOnSinglePage` 属性为 `true`。
+
+### 表格过滤时会回到第一页？
+
+ 前端过滤时通常条目总数会减少，从而导致总页数小于筛选前的当前页数，为了防止当前页面没有数据，我们默认会返回第一页。
+
+如果你在使用远程分页，很可能需要保持当前页面，你可以参照这个 [受控例子](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) 控制当前页面不变。
