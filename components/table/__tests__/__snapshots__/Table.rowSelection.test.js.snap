@@ -20,7 +20,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
             class="ant-table-content"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
@@ -338,7 +338,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
@@ -609,7 +609,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
             class="ant-table-content"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col

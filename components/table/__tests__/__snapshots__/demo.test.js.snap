@@ -13886,7 +13886,7 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-header ant-table-fixed-column"
+        class="ant-table ant-table-fixed-header"
       >
         <div
           class="ant-table-container"
