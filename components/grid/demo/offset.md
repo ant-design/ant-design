@@ -19,7 +19,7 @@ title:
 import { Row, Col } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Row>
       <Col span={8}>col-8</Col>
       <Col span={8} offset={8}>
@@ -39,7 +39,7 @@ ReactDOM.render(
         col-12 col-offset-6
       </Col>
     </Row>
-  </div>,
+  </>,
   mountNode,
 );
 ```

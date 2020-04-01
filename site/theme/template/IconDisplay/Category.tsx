@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { message } from 'antd';
-import { ThemeType } from '../../../../components/icon';
+import { injectIntl } from 'react-intl';
 import CopyableIcon from './CopyableIcon';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { ThemeType } from './index';
 import { CategoriesKeys } from './fields';
 
-interface CategoryProps extends InjectedIntlProps {
+interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
   theme: ThemeType;
   newIcons: string[];
+  intl: any;
 }
 
 interface CategoryState {
@@ -22,6 +23,10 @@ class Category extends React.Component<CategoryProps, CategoryState> {
   state = {
     justCopied: null,
   };
+
+  componentWillUnmount() {
+    window.clearTimeout(this.copyId);
+  }
 
   onCopied = (type: string, text: string) => {
     message.success(
@@ -36,23 +41,19 @@ class Category extends React.Component<CategoryProps, CategoryState> {
     });
   };
 
-  componentWillUnmount() {
-    window.clearTimeout(this.copyId);
-  }
-
   render() {
     const {
       icons,
       title,
-      theme,
       newIcons,
+      theme,
       intl: { messages },
     } = this.props;
     const items = icons.map(name => {
       return (
         <CopyableIcon
           key={name}
-          type={name}
+          name={name}
           theme={theme}
           isNew={newIcons.indexOf(name) >= 0}
           justCopied={this.state.justCopied}
@@ -60,10 +61,11 @@ class Category extends React.Component<CategoryProps, CategoryState> {
         />
       );
     });
+
     return (
       <div>
         <h3>{messages[`app.docs.components.icon.category.${title}`]}</h3>
-        <ul className={'anticons-list'}>{items}</ul>
+        <ul className="anticons-list">{items}</ul>
       </div>
     );
   }

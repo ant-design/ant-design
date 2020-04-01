@@ -1,41 +1,44 @@
+@import '../../style/themes/index';
+
 .@{list-prefix-cls}-bordered {
   border: 1px solid @border-color-base;
   border-radius: @border-radius-base;
   .@{list-prefix-cls}-header {
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-right: @padding-lg;
+    padding-left: @padding-lg;
   }
 
   .@{list-prefix-cls}-footer {
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-right: @padding-lg;
+    padding-left: @padding-lg;
   }
 
   .@{list-prefix-cls}-item {
-    padding-right: 24px;
-    padding-left: 24px;
-    border-bottom: 1px solid @border-color-split;
+    padding-right: @padding-lg;
+    padding-left: @padding-lg;
   }
 
   .@{list-prefix-cls}-pagination {
-    margin: 16px 24px;
+    margin: @margin-md @margin-lg;
   }
 
   &.@{list-prefix-cls}-sm {
     .@{list-prefix-cls}-item {
-      padding-right: 16px;
-      padding-left: 16px;
+      padding: @list-item-padding-sm;
     }
     .@{list-prefix-cls}-header,
     .@{list-prefix-cls}-footer {
-      padding: 8px 16px;
+      padding: @list-item-padding-sm;
     }
   }
 
   &.@{list-prefix-cls}-lg {
+    .@{list-prefix-cls}-item {
+      padding: @list-item-padding-lg;
+    }
     .@{list-prefix-cls}-header,
     .@{list-prefix-cls}-footer {
-      padding: 16px 24px;
+      padding: @list-item-padding-lg;
     }
   }
 }

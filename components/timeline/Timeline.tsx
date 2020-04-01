@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface TimelineProps {
@@ -16,13 +17,14 @@ export interface TimelineProps {
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item: React.SFC<TimeLineItemProps> = TimelineItem;
+  static Item: React.FC<TimeLineItemProps> = TimelineItem;
+
   static defaultProps = {
     reverse: false,
-    mode: '',
+    mode: '' as TimelineProps['mode'],
   };
 
-  renderTimeline = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTimeline = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       pending = null,
@@ -35,23 +37,14 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     } = this.props;
     const prefixCls = getPrefixCls('timeline', customizePrefixCls);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const classString = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-pending`]: !!pending,
-        [`${prefixCls}-reverse`]: !!reverse,
-        [`${prefixCls}-${mode}`]: !!mode,
-      },
-      className,
-    );
 
-    const pendingItem = !!pending ? (
-      <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
+    const pendingItem = pending ? (
+      <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
         {pendingNode}
       </TimelineItem>
     ) : null;
 
-    const timeLineItems = !!reverse
+    const timeLineItems = reverse
       ? [pendingItem, ...React.Children.toArray(children).reverse()]
       : [...React.Children.toArray(children), pendingItem];
 
@@ -71,20 +64,32 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     const truthyItems = timeLineItems.filter(item => !!item);
     const itemsCount = React.Children.count(truthyItems);
     const lastCls = `${prefixCls}-item-last`;
-    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) =>
-      React.cloneElement(ele, {
+    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
+      const pendingClass = idx === itemsCount - 2 ? lastCls : '';
+      const readyClass = idx === itemsCount - 1 ? lastCls : '';
+      return React.cloneElement(ele, {
         className: classNames([
           ele.props.className,
-          !reverse && !!pending
-            ? idx === itemsCount - 2
-              ? lastCls
-              : ''
-            : idx === itemsCount - 1
-            ? lastCls
-            : '',
+          !reverse && !!pending ? pendingClass : readyClass,
           getPositionCls(ele, idx),
         ]),
-      }),
+      });
+    });
+
+    const hasLabelItem = timeLineItems.some(
+      (item: React.ReactElement<any>) => !!item?.props?.label,
+    );
+
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-pending`]: !!pending,
+        [`${prefixCls}-reverse`]: !!reverse,
+        [`${prefixCls}-${mode}`]: !!mode && !hasLabelItem,
+        [`${prefixCls}-label`]: hasLabelItem,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
     );
 
     return (

@@ -93,6 +93,8 @@ export default function calculateNodeHeight(
 ) {
   if (!hiddenTextarea) {
     hiddenTextarea = document.createElement('textarea');
+    hiddenTextarea.setAttribute('tab-index', '-1');
+    hiddenTextarea.setAttribute('aria-hidden', 'true');
     document.body.appendChild(hiddenTextarea);
   }
 
@@ -124,10 +126,10 @@ export default function calculateNodeHeight(
 
   if (boxSizing === 'border-box') {
     // border-box: add border, since height = content + padding + border
-    height = height + borderSize;
+    height += borderSize;
   } else if (boxSizing === 'content-box') {
     // remove padding, since height = content
-    height = height - paddingSize;
+    height -= paddingSize;
   }
 
   if (minRows !== null || maxRows !== null) {

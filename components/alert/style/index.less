@@ -3,20 +3,16 @@
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
-@alert-message-color: @heading-color;
-@alert-text-color: @text-color;
-@alert-close-color: @text-color-secondary;
-@alert-close-hover-color: @icon-color-hover;
-
 .@{alert-prefix-cls} {
   .reset-component;
 
   position: relative;
   padding: 8px 15px 8px 37px;
+  word-wrap: break-word;
   border-radius: @border-radius-base;
 
   &&-no-icon {
-    padding: 8px 15px;
+    padding: @alert-no-icon-padding-vertical 15px;
   }
 
   &&-closable {
@@ -62,18 +58,28 @@
   &-error {
     background-color: @alert-error-bg-color;
     border: @border-width-base @border-style-base @alert-error-border-color;
+
     .@{alert-prefix-cls}-icon {
       color: @alert-error-icon-color;
+    }
+
+    .@{alert-prefix-cls}-description > pre {
+      margin: 0;
+      padding: 0;
     }
   }
 
   &-close-icon {
     position: absolute;
-    top: 8px;
+    top: @padding-xs;
     right: 16px;
+    padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
     line-height: 22px;
+    background-color: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
 
     .@{iconfont-css-prefix}-close {
@@ -86,8 +92,11 @@
   }
 
   &-close-text {
-    position: absolute;
-    right: 16px;
+    color: @alert-close-color;
+    transition: color 0.3s;
+    &:hover {
+      color: @alert-close-hover-color;
+    }
   }
 
   &-with-description {
@@ -99,7 +108,7 @@
   }
 
   &-with-description&-no-icon {
-    padding: 15px;
+    padding: @alert-with-description-no-icon-padding-vertical 15px;
   }
 
   &-with-description &-icon {
@@ -124,11 +133,15 @@
     font-size: @font-size-lg;
   }
 
+  &-message {
+    color: @alert-message-color;
+  }
+
   &-with-description &-description {
     display: block;
   }
 
-  &&-close {
+  &&-closing {
     height: 0 !important;
     margin: 0;
     padding-top: 0;
@@ -174,3 +187,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl.less';

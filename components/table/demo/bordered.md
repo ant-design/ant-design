@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 12
 title:
   en-US: border, title and footer
   zh-CN: 带边框
@@ -20,7 +20,7 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Cash Assets',

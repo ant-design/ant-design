@@ -2,6 +2,15 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
+function getAction(actions: React.ReactNode[]) {
+  if (!actions || !actions.length) {
+    return null;
+  }
+  // eslint-disable-next-line react/no-array-index-key
+  const actionList = actions.map((action, index) => <li key={`action-${index}`}>{action}</li>);
+  return actionList;
+}
+
 export interface CommentProps {
   /** List of action items rendered below the comment content */
   actions?: Array<React.ReactNode>;
@@ -24,19 +33,11 @@ export interface CommentProps {
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
-  getAction(actions: React.ReactNode[]) {
-    if (!actions || !actions.length) {
-      return null;
-    }
-    const actionList = actions.map((action, index) => <li key={`action-${index}`}>{action}</li>);
-    return actionList;
-  }
-
   renderNested = (prefixCls: string, children: any) => {
     return <div className={classNames(`${prefixCls}-nested`)}>{children}</div>;
   };
 
-  renderComment = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComment = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       actions,
       author,
@@ -54,13 +55,13 @@ export default class Comment extends React.Component<CommentProps, {}> {
 
     const avatarDom = (
       <div className={`${prefixCls}-avatar`}>
-        {typeof avatar === 'string' ? <img src={avatar} /> : avatar}
+        {typeof avatar === 'string' ? <img src={avatar} alt="comment-avatar" /> : avatar}
       </div>
     );
 
     const actionDom =
       actions && actions.length ? (
-        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+        <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
       ) : null;
 
     const authorContent = (
@@ -85,8 +86,11 @@ export default class Comment extends React.Component<CommentProps, {}> {
       </div>
     );
 
+    const cls = classNames(prefixCls, className, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
-      <div {...otherProps} className={classNames(prefixCls, className)} style={style}>
+      <div {...otherProps} className={cls} style={style}>
         {comment}
         {children ? this.renderNested(prefixCls, children) : null}
       </div>

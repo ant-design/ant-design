@@ -1,5 +1,5 @@
 ---
-category: Visual
+category: Global Styles
 order: 2
 title: Layout
 ---

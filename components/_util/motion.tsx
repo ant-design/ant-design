@@ -27,7 +27,7 @@ const getCollapsedHeight: MotionFunc = () => ({ height: 0, opacity: 0 });
 const getRealHeight: MotionFunc = node => ({ height: node.scrollHeight, opacity: 1 });
 const getCurrentHeight: MotionFunc = node => ({ height: node.offsetHeight });
 
-export const collapseMotion: Motion = {
+const collapseMotion: Motion = {
   motionName: 'ant-motion-collapse',
   onAppearStart: getCollapsedHeight,
   onEnterStart: getCollapsedHeight,
@@ -36,3 +36,5 @@ export const collapseMotion: Motion = {
   onLeaveStart: getCurrentHeight,
   onLeaveActive: getCollapsedHeight,
 };
+
+export default collapseMotion;

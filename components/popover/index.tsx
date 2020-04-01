@@ -1,18 +1,18 @@
 import * as React from 'react';
-import Tooltip, { AbstractTooltipProps, TooltipPlacement, TooltipTrigger } from '../tooltip';
+import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 
 export interface PopoverProps extends AbstractTooltipProps {
-  title?: React.ReactNode;
-  content?: React.ReactNode;
+  title?: React.ReactNode | RenderFunction;
+  content?: React.ReactNode | RenderFunction;
 }
 
 export default class Popover extends React.Component<PopoverProps, {}> {
   static defaultProps = {
     placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big',
-    trigger: 'hover' as TooltipTrigger,
+    trigger: 'hover',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     overlayStyle: {},
@@ -26,17 +26,11 @@ export default class Popover extends React.Component<PopoverProps, {}> {
 
   getOverlay(prefixCls: string) {
     const { title, content } = this.props;
-    warning(
-      !('overlay' in this.props),
-      'Popover',
-      '`overlay` is removed, please use `content` instead, ' +
-        'see: https://u.ant.design/popover-content',
-    );
     return (
-      <div>
-        {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        <div className={`${prefixCls}-inner-content`}>{content}</div>
-      </div>
+      <>
+        {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+        <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+      </>
     );
   }
 

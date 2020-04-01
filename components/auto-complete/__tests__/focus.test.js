@@ -1,11 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
-import focusTest from '../../../tests/shared/focusTest';
-
-describe('AutoComplete could be focus', () => {
-  focusTest(AutoComplete);
-});
 
 describe('AutoComplete children could be focus', () => {
   beforeAll(() => {
@@ -51,5 +46,30 @@ describe('AutoComplete children could be focus', () => {
       .blur();
     jest.runAllTimers();
     expect(handleBlur).toHaveBeenCalled();
+  });
+
+  it('child.ref should work', () => {
+    const mockRef = jest.fn();
+    mount(
+      <AutoComplete dataSource={[]}>
+        <input ref={mockRef} />
+      </AutoComplete>,
+    );
+    expect(mockRef).toHaveBeenCalled();
+  });
+
+  it('child.ref instance should support be focused and blured', () => {
+    let inputRef;
+    mount(
+      <AutoComplete dataSource={[]}>
+        <input
+          ref={node => {
+            inputRef = node;
+          }}
+        />
+      </AutoComplete>,
+    );
+    expect(typeof inputRef.focus).toBe('function');
+    expect(typeof inputRef.blur).toBe('function');
   });
 });

@@ -3,13 +3,18 @@ import { mount } from 'enzyme';
 import Tooltip from '..';
 import Button from '../../button';
 import Switch from '../../switch';
+import Checkbox from '../../checkbox';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tooltip', () => {
+  mountTest(Tooltip);
+  rtlTest(Tooltip);
+
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
 
@@ -107,6 +112,7 @@ describe('Tooltip', () => {
 
     testComponent('Button', Button);
     testComponent('Switch', Switch);
+    testComponent('Checkbox', Checkbox);
   });
 
   it('should render disabled Button style properly', () => {
@@ -200,15 +206,15 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
-    const picker = wrapper.find('span.ant-calendar-picker').at(0);
+    expect(wrapper.find('.ant-picker')).toHaveLength(1);
+    const picker = wrapper.find('.ant-picker').at(0);
     picker.simulate('mouseenter');
-    await delay(100);
+    await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
-    await delay(100);
+    await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
@@ -228,13 +234,80 @@ describe('Tooltip', () => {
     expect(wrapper.find('Group')).toHaveLength(1);
     const picker = wrapper.find('Group').at(0);
     picker.simulate('mouseenter');
-    await delay(100);
+    await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
-    await delay(100);
+    await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20891
+  it('should display zero', () => {
+    const wrapper = mount(
+      <Tooltip title={0} visible>
+        <div />
+      </Tooltip>,
+    );
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
+  });
+
+  it('autoAdjustOverflow should be object or undefined', () => {
+    expect(() => {
+      mount(
+        <Tooltip title={0} visible autoAdjustOverflow={{ adjustX: 0, adjustY: 0 }}>
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+
+    expect(() => {
+      mount(
+        <Tooltip title={0} visible autoAdjustOverflow={undefined}>
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+  });
+
+  it('support other placement', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="bottomLeft"
+        visible
+        transitionName=""
+        mouseEnterDelay={0}
+      >
+        <span>
+          Hello world!
+        </span>
+      </Tooltip>,
+    );
+    await sleep(1000);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
+  });
+
+  it('other placement when mouse enter', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="topRight"
+        transitionName=""
+        mouseEnterDelay={0}
+      >
+        <span>
+          Hello world!
+        </span>
+      </Tooltip>,
+    );
+
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(300);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
 });

@@ -1,5 +1,5 @@
 ---
-order: 26
+order: 27
 title:
   en-US: Resizable column
   zh-CN: 可伸缩列
@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-集成 react-resizable 来实现可伸缩列。
+集成 [react-resizable](https://github.com/STRML/react-resizable) 来实现可伸缩列。
 
 ## en-US
 
-Implement resizable column by integrate with react-resizable.
+Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable).
 
 ```jsx
 import { Table } from 'antd';
@@ -25,7 +25,20 @@ const ResizeableTitle = props => {
   }
 
   return (
-    <Resizable width={width} height={0} onResize={onResize}>
+    <Resizable
+      width={width}
+      height={0}
+      handle={resizeHandle => (
+        <span
+          className={`react-resizable-handle react-resizable-handle-${resizeHandle}`}
+          onClick={e => {
+            e.stopPropagation();
+          }}
+        />
+      )}
+      onResize={onResize}
+      draggableOpts={{ enableUserSelectHack: false }}
+    >
       <th {...restProps} />
     </Resizable>
   );
@@ -43,6 +56,7 @@ class Demo extends React.Component {
         title: 'Amount',
         dataIndex: 'amount',
         width: 100,
+        sorter: (a, b) => a.amount - b.amount,
       },
       {
         title: 'Type',
@@ -57,7 +71,7 @@ class Demo extends React.Component {
       {
         title: 'Action',
         key: 'action',
-        render: () => <a href="javascript:;">Delete</a>,
+        render: () => <a>Delete</a>,
       },
     ],
   };

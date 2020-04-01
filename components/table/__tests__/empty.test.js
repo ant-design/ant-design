@@ -61,7 +61,7 @@ describe('Table', () => {
         dataSource={[]}
         columns={columns}
         pagination={false}
-        locale={{ emptyText: 'custom empty text ' }}
+        locale={{ emptyText: 'custom empty text' }}
       />,
     );
     expect(wrapper).toMatchSnapshot();

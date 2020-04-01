@@ -5,32 +5,33 @@
 
 // card style
 .@{tab-prefix-cls} {
-  &&-card &-card-bar &-nav-container {
-    height: @tabs-card-height;
-  }
   &&-card &-card-bar &-ink-bar {
     visibility: hidden;
   }
   &&-card &-card-bar &-tab {
-    height: @tabs-card-height;
     margin: 0;
-    margin-right: 2px;
-    padding: 0 16px;
-    line-height: @tabs-card-height - 2px;
+    margin-right: @tabs-card-gutter;
+    padding: @tabs-card-horizontal-padding;
+    line-height: 22px;
     background: @tabs-card-head-background;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
     transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
-    height: @tabs-card-height;
     color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
     border-bottom: @border-width-base solid @component-background;
+
+    &::before {
+      border-top: @tabs-card-tab-active-border-top;
+    }
+  }
+  &&-small &-card-bar &-tab {
+    padding: @tabs-card-horizontal-padding-sm;
   }
   &&-card &-card-bar &-tab-disabled {
-    color: @tabs-card-active-color;
     color: @disabled-color;
   }
   &&-card &-card-bar &-tab-inactive {
@@ -41,7 +42,6 @@
   }
   &&-card &-card-bar &-tab &-close-x {
     width: 16px;
-    height: 16px;
     height: @font-size-base;
     margin-right: -5px;
     margin-left: 3px;
@@ -68,7 +68,8 @@
   }
 
   &-extra-content {
-    line-height: @tabs-card-height;
+    line-height: @tabs-title-font-size * @line-height-base + extract(@tabs-horizontal-padding, 1) *
+      2;
 
     .@{tab-prefix-cls}-new-tab {
       position: relative;
@@ -79,7 +80,7 @@
       line-height: 20px;
       text-align: center;
       border: @border-width-base @border-style-base @border-color-split;
-      border-radius: @border-radius-sm;
+      border-radius: @border-radius-base;
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
@@ -97,6 +98,23 @@
     }
   }
 
+  // https://github.com/ant-design/ant-design/issues/17865
+  &&-large &-extra-content {
+    line-height: @tabs-title-font-size-lg * @line-height-base +
+      extract(@tabs-horizontal-padding-lg, 1) * 2;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/17865
+  &&-small &-extra-content {
+    line-height: @tabs-title-font-size-sm * @line-height-base +
+      extract(@tabs-horizontal-padding-sm, 1) * 2;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/17865
+  &&-card &-extra-content {
+    line-height: @tabs-card-height;
+  }
+
   // https://github.com/ant-design/ant-design/issues/4669
   &-vertical&-card &-card-bar&-left-bar,
   &-vertical&-card &-card-bar&-right-bar {
@@ -104,13 +122,13 @@
       height: 100%;
     }
     .@{tab-prefix-cls}-tab {
-      margin-bottom: 8px;
+      margin-bottom: @margin-sm;
       border-bottom: @border-width-base @border-style-base @border-color-split;
       &-active {
         padding-bottom: 4px;
       }
       &:last-child {
-        margin-bottom: 8px;
+        margin-bottom: @margin-sm;
       }
     }
     .@{tab-prefix-cls}-new-tab {
@@ -128,7 +146,7 @@
       border-radius: @border-radius-base 0 0 @border-radius-base;
       &-active {
         margin-right: -1px;
-        padding-right: 18px;
+        padding-right: @padding-md + 2px;
       }
     }
   }
@@ -143,7 +161,7 @@
       border-radius: 0 @border-radius-base @border-radius-base 0;
       &-active {
         margin-left: -1px;
-        padding-left: 18px;
+        padding-left: @padding-md + 2px;
       }
     }
   }
@@ -162,3 +180,5 @@
     color: @primary-color;
   }
 }
+
+@import './card-style.rtl.less';

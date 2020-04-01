@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 7
 title: 定制主题
 ---
 
@@ -22,8 +22,8 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 @font-size-base: 14px; // 主字号
 @heading-color: rgba(0, 0, 0, 0.85); // 标题色
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
-@text-color-secondary : rgba(0, 0, 0, .45); // 次文本色
-@disabled-color : rgba(0, 0, 0, .25); // 失效色
+@text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
+@disabled-color: rgba(0, 0, 0, 0.25); // 失效色
 @border-radius-base: 4px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
@@ -69,9 +69,9 @@ module.exports = {
 
 注意 less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
 
-### 在 roadhog 或 Umi 里配置主题
+### 在 Umi 里配置主题
 
-如果你在使用 [roadhog](https://github.com/sorrycc/roadhog) 或者 [Umi](http://umijs.org/)，那么可以很方便地在项目根目录的 [.webpackrc](https://github.com/ant-design/ant-design-pro/blob/b7e7983661eb5e53dc807452e9653e93e74276d4/.webpackrc.js#L18)（roadhog）或 [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45)（Umi）文件中 `theme` 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
+如果你在使用 [Umi](http://umijs.org/zh/)，那么可以很方便地在项目根目录的 [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45)（Umi）文件中 [theme](https://umijs.org/zh/config/#theme) 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
 
 ```js
 "theme": {
@@ -106,6 +106,87 @@ module.exports = {
 
 - 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
 - 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
+
+## 官方主题 🌈
+
+我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
+
+- 🌑 暗黑主题（4.0.0+ 支持）
+- 📦 紧凑主题（4.1.0+ 支持）
+- ☁️ [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+
+### 使用暗黑主题和紧凑主题
+
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
+
+方式一：使用 Umi 3
+
+如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+
+1. 安装 `@umijs/plugin-antd` 插件;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. 配置 `dark` 和 `compact`。
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true, // 开启暗色主题
+       compact: true, // 开启紧凑主题
+     },
+   },
+   ```
+
+方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
+
+```less
+@import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
+@import '~antd/dist/antd.compact.less'; // 引入官方提供的紧凑 less 样式入口文件
+```
+
+如果项目不使用 Less，可在 CSS 文件中全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) 或 [antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css)。
+
+```css
+@import '~antd/dist/antd.dark.css';
+@import '~antd/dist/antd.compact.css';
+```
+
+> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。
+
+方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+
+```diff
+const darkTheme = require('antd/dist/dark-theme');
+const compactTheme = require('antd/dist/compact-theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: {
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
++          ...darkTheme,
++          ...compactTheme,
++       },
++       javascriptEnabled: true,
++     },
+    }],
+  }],
+};
+```
+
+同时开启暗黑和紧凑模式会导致 css 的加载体积增加一倍，这暂时受限于我们目前的主题实现方式，请知晓。
 
 ## 社区教程
 

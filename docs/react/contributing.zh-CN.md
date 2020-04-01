@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 12
 title: 贡献指南
 toc: false
 ---
@@ -53,7 +53,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
 5. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
-6. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行。
+6. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
 
 给 [react-component](https://github.com/react-component/) 发送 pull request：
 
@@ -68,3 +68,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 3. `npm test` 运行测试。
 4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
 5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
+
+## 加入社区
+
+如果你贡献度度足够活跃，希望和 Ant Design 团队一起参与维护工作，你可以[申请成为社区协作者](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)。

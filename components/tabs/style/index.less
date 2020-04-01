@@ -29,6 +29,7 @@
     left: 0;
     z-index: 1;
     box-sizing: border-box;
+    width: 0;
     height: 2px;
     background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
@@ -60,7 +61,7 @@
 
   // https://github.com/ant-design/ant-design/issues/9104
   &-bottom &-bottom-bar {
-    margin-top: 16px;
+    margin-top: @margin-md;
     margin-bottom: 0;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-bottom: none;
@@ -136,6 +137,7 @@
 
   &-tab-prev {
     left: 0;
+
     :root & {
       filter: none;
     }
@@ -181,6 +183,18 @@
       cursor: pointer;
       transition: color 0.3s @ease-in-out;
 
+      &::before {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        border-top: 2px solid transparent;
+        border-radius: @border-radius-base @border-radius-base 0 0;
+        transition: all 0.3s;
+        content: '';
+        pointer-events: none;
+      }
+
       &:last-child {
         margin-right: 0;
       }
@@ -194,12 +208,13 @@
       }
 
       .@{iconfont-css-prefix} {
-        margin-right: 8px;
+        margin-right: @margin-sm;
       }
 
       &-active {
         color: @tabs-highlight-color;
         font-weight: 500;
+        outline: none;
       }
 
       &-disabled {
@@ -228,6 +243,18 @@
     .@{tab-prefix-cls}-tab {
       padding: @tabs-horizontal-padding-sm;
     }
+  }
+
+  // Create an empty element to avoid margin collapsing
+  // https://github.com/ant-design/ant-design/issues/18103
+  &-content::before {
+    display: block;
+    overflow: hidden;
+    content: '';
+  }
+
+  .@{tab-prefix-cls}-tabpane {
+    outline: none;
   }
 
   // Horizontal Content
@@ -260,7 +287,6 @@
     height: 100%;
     border-bottom: 0;
 
-    .@{tab-prefix-cls}-tab-arrow-show,
     .@{tab-prefix-cls}-tab-arrow-show {
       width: 100%;
       height: @tabs-scrolling-size;
@@ -311,7 +337,7 @@
       bottom: auto;
       left: auto;
       width: 2px;
-      height: auto;
+      height: 0;
     }
 
     .@{tab-prefix-cls}-tab-next {
@@ -356,7 +382,7 @@
     }
   }
   .@{tab-prefix-cls}-left-content {
-    padding-left: 24px;
+    padding-left: @padding-lg;
     border-left: @border-width-base @border-style-base @border-color-split;
   }
 
@@ -377,19 +403,19 @@
     }
   }
   .@{tab-prefix-cls}-right-content {
-    padding-right: 24px;
+    padding-right: @padding-lg;
     border-right: @border-width-base @border-style-base @border-color-split;
   }
 }
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out, left 0.3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, width 0.2s @ease-in-out, left 0.3s @ease-in-out;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, height 0.3s @ease-in-out, top 0.3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, height 0.2s @ease-in-out, top 0.3s @ease-in-out;
 }
 
 // No animation
@@ -414,3 +440,5 @@
 .@{tab-prefix-cls}-right-content {
   .tabs-no-animation();
 }
+
+@import './rtl.less';

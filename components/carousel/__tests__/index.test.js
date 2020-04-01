@@ -1,8 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Carousel from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Carousel', () => {
+  mountTest(Carousel);
+  rtlTest(Carousel);
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -87,23 +92,9 @@ describe('Carousel', () => {
             <div />
           </Carousel>,
         );
-        jest.runAllTimers();
         expect(wrapper.render()).toMatchSnapshot();
       });
     });
-  });
-
-  it('warning', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Carousel vertical>
-        <div />
-      </Carousel>,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
-    );
-    warnSpy.mockRestore();
   });
 
   describe('should active when children change', () => {
@@ -117,6 +108,11 @@ describe('Carousel', () => {
     });
 
     it('should keep initialSlide', () => {
+      // react unsafe lifecycle don't works in React 15
+      // https://github.com/akiran/react-slick/commit/97988e897750e1d8f7b10a86b655f50d75d38298
+      if (process.env.REACT === '15') {
+        return;
+      }
       const wrapper = mount(<Carousel initialSlide={1} />);
       wrapper.setProps({
         children: [<div key="1" />, <div key="2" />, <div key="3" />],
@@ -128,6 +124,20 @@ describe('Carousel', () => {
           .at(1)
           .hasClass('slick-active'),
       ).toBeTruthy();
+    });
+  });
+
+  describe('dots precise control by plain object', () => {
+    it('use dots to provide dotsClasse', () => {
+      const wrapper = mount(
+        <Carousel dots={{ className: 'customDots' }}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      wrapper.update();
+      expect(wrapper.find('.slick-dots').hasClass('customDots')).toBeTruthy();
     });
   });
 });

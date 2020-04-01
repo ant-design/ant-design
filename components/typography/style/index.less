@@ -2,33 +2,6 @@
 @import '../../style/mixins/index';
 
 @typography-prefix-cls: ~'@{ant-prefix}-typography';
-@typography-title-margin-top: 1.2em;
-
-// =============== Common ===============
-.typography-paragraph() {
-  margin-bottom: 1em;
-}
-
-.typography-title(@fontSize; @lineHeight) {
-  margin-bottom: 0.5em;
-  color: @heading-color;
-  font-weight: 600;
-  font-size: @fontSize;
-  line-height: @lineHeight;
-}
-
-.typography-title-1() {
-  .typography-title(@heading-1-size, 1.23);
-}
-.typography-title-2() {
-  .typography-title(@heading-2-size, 1.35);
-}
-.typography-title-3() {
-  .typography-title(@heading-3-size, 1.35);
-}
-.typography-title-4() {
-  .typography-title(@heading-4-size, 1.4);
-}
 
 // =============== Basic ===============
 .@{typography-prefix-cls} {
@@ -172,6 +145,7 @@
     div& {
       left: -@input-padding-horizontal - 1px;
       margin-top: -@input-padding-vertical-base - 1px;
+      // stylelint-disable-next-line function-calc-no-invalid
       margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
     }
 
@@ -181,6 +155,11 @@
       bottom: 8px;
       color: @text-color-secondary;
       pointer-events: none;
+    }
+
+    // Fix Editable Textarea flash in Firefox
+    textarea {
+      -moz-transition: none;
     }
   }
 
@@ -196,15 +175,15 @@
     }
   }
 
-  ul li {
+  ul {
     list-style-type: circle;
 
-    li {
+    ul {
       list-style-type: disc;
     }
   }
 
-  ol li {
+  ol {
     list-style-type: decimal;
   }
 
@@ -223,3 +202,5 @@
     overflow: hidden;
   }
 }
+
+@import './rtl';

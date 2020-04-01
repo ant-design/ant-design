@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/ku_IQ';
+import CalendarLocale from 'rc-picker/lib/locale/ku_IQ';
 import TimePickerLocale from '../../time-picker/locale/ku_IQ';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Dîrok hilbijêre',
     rangePlaceholder: ['Dîroka destpêkê', 'Dîroka dawîn'],

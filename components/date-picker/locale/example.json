@@ -1,5 +1,6 @@
 {
   "lang": {
+    "locale": "en_US",
     "placeholder": "Select date",
     "rangePlaceholder": ["Start date", "End date"],
     "today": "Today",

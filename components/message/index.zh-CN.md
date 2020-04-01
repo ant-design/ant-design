@@ -24,11 +24,11 @@ title: Message
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数     | 说明                                          | 类型              | 默认值 | 版本 |
-| -------- | --------------------------------------------- | ----------------- | ------ | ---- |
-| content  | 提示内容                                      | string\|ReactNode | -      |      |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number            | 3      |      |
-| onClose  | 关闭时触发的回调函数                          | Function          | -      |      |
+| 参数     | 说明                                          | 类型                      | 默认值 |
+| -------- | --------------------------------------------- | ------------------------- | ------ |
+| content  | 提示内容                                      | string\|ReactNode\|config | -      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number                    | 3      |
+| onClose  | 关闭时触发的回调函数                          | Function                  | -      |
 
 组件同时提供 promise 接口。
 
@@ -37,14 +37,25 @@ title: Message
 
 其中`message[level]` 是组件已经提供的静态方法。`then` 接口返回值是 Promise。
 
-- `message.open(config)`
+也可以对象的形式传递参数：
 
-| 参数     | 说明                                          | 类型      | 默认值 | 版本  |
-| -------- | --------------------------------------------- | --------- | ------ | ----- |
-| content  | 提示内容                                      | ReactNode | -      |       |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number    | 3      |       |
-| onClose  | 关闭时触发的回调函数                          | Function  | -      |       |
-| icon     | 自定义图标                                    | ReactNode | -      | 3.9.0 |
+- `message.open(config)`
+- `message.success(config)`
+- `message.error(config)`
+- `message.info(config)`
+- `message.warning(config)`
+- `message.warn(config)` // alias of warning
+- `message.loading(config)`
+
+`config` 对象属性如下：
+
+| 参数     | 说明                                          | 类型           | 默认值 |
+| -------- | --------------------------------------------- | -------------- | ------ |
+| content  | 提示内容                                      | ReactNode      | -      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number         | 3      |
+| onClose  | 关闭时触发的回调函数                          | Function       | -      |
+| icon     | 自定义图标                                    | ReactNode      | -      |
+| key      | 当前提示的唯一标志                            | string\|number | -      |
 
 ### 全局方法
 
@@ -63,9 +74,9 @@ message.config({
 });
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| duration | 默认自动关闭延时，单位秒 | number | 3 | 3.9.0 |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body | 3.9.0 |
-| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - | 3.9.0 |
-| top | 消息距离顶部的位置 | number | 24 | 3.9.0 |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| duration | 默认自动关闭延时，单位秒 | number | 3 |
+| getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |
+| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |
+| top | 消息距离顶部的位置 | number | 24 |

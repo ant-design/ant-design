@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './customize.less';
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
 @notification-width: 384px;
@@ -33,15 +34,24 @@
     cursor: pointer;
   }
 
+  &-hook-holder,
   &-notice {
     position: relative;
     margin-bottom: @notification-margin-bottom;
-    padding: @notification-padding;
     overflow: hidden;
-    line-height: 1.5;
-    background: @component-background;
+    background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+  }
+
+  &-hook-holder > &-notice {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  &-notice {
+    padding: @notification-padding;
+    line-height: @line-height-base;
 
     &-message {
       display: inline-block;
@@ -116,7 +126,12 @@
       outline: none;
 
       &:hover {
-        color: shade(@text-color-secondary, 40%);
+        & when (@theme = dark) {
+          color: fade(@white, 85%);
+        }
+        & when not (@theme = dark) {
+          color: shade(@text-color-secondary, 40%);
+        }
       }
     }
 

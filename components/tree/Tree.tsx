@@ -1,10 +1,12 @@
 import * as React from 'react';
-import RcTree, { TreeNode } from 'rc-tree';
-import DirectoryTree from './DirectoryTree';
+import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
 import classNames from 'classnames';
-import Icon from '../icon';
+import { DataNode } from 'rc-tree/lib/interface';
+
+import DirectoryTree from './DirectoryTree';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { collapseMotion } from '../_util/motion';
+import collapseMotion from '../_util/motion';
+import renderSwitcherIcon from './utils/iconUtil';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -61,7 +63,7 @@ export interface AntTreeNodeCheckedEvent extends AntTreeNodeBaseEvent {
 export interface AntTreeNodeSelectedEvent extends AntTreeNodeBaseEvent {
   event: 'select';
   selected?: boolean;
-  selectedNodes?: AntTreeNode[];
+  selectedNodes?: DataNode[];
 }
 
 export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
@@ -70,7 +72,7 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEvent<HTMLElement>;
+  event: React.DragEvent<HTMLElement>;
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
@@ -86,24 +88,17 @@ export interface AntTreeNodeDropEvent {
   event: React.MouseEvent<HTMLElement>;
 }
 
-export interface TreeNodeNormal {
-  title?: React.ReactNode;
-  key: string;
-  isLeaf?: boolean;
-  disabled?: boolean;
-  disableCheckbox?: boolean;
-  selectable?: boolean;
-  children?: TreeNodeNormal[];
-}
+// [Legacy] Compatible for v3
+export type TreeNodeNormal = DataNode;
 
-export interface TreeProps {
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
   showLine?: boolean;
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
   /** 是否自动展开父节点 */
   autoExpandParent?: boolean;
-  /** checkable状态下节点选择完全受控（父子节点选中状态不再关联）*/
+  /** checkable状态下节点选择完全受控（父子节点选中状态不再关联） */
   checkStrictly?: boolean;
   /** 是否支持选中 */
   checkable?: boolean;
@@ -126,48 +121,23 @@ export interface TreeProps {
   /** 默认选中的树节点 */
   defaultSelectedKeys?: string[];
   selectable?: boolean;
-  /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<void>;
-  /** 点击复选框触发 */
-  onCheck?: (
-    checkedKeys: string[] | { checked: string[]; halfChecked: string[] },
-    e: AntTreeNodeCheckedEvent,
-  ) => void;
   /** 点击树节点触发 */
-  onSelect?: (selectedKeys: string[], e: AntTreeNodeSelectedEvent) => void;
-  /** 单击树节点触发 */
-  onClick?: (e: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
-  /** 双击树节点触发 */
-  onDoubleClick?: (e: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
-  /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
-  /** 异步加载数据 */
-  loadData?: (node: AntTreeNode) => PromiseLike<void>;
   loadedKeys?: string[];
-  onLoad?: (loadedKeys: string[], info: { event: 'load'; node: AntTreeNode }) => void;
-  /** 响应右键点击 */
-  onRightClick?: (options: AntTreeNodeMouseEvent) => void;
-  /** 设置节点可拖拽（IE>8）*/
+  /** 设置节点可拖拽（IE>8） */
   draggable?: boolean;
-  onDragStart?: (options: AntTreeNodeMouseEvent) => void;
-  onDragEnter?: (options: AntTreeNodeDragEnterEvent) => void;
-  onDragOver?: (options: AntTreeNodeMouseEvent) => void;
-  onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
-  onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
-  onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   switcherIcon?: React.ReactElement<any>;
   prefixCls?: string;
-  filterTreeNode?: (node: AntTreeNode) => boolean;
   children?: React.ReactNode;
   blockNode?: boolean;
-  treeData?: Array<TreeNodeNormal>;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode: React.ComponentClass<AntTreeNodeProps> = TreeNode;
+  static TreeNode = TreeNode;
+
   static DirectoryTree = DirectoryTree;
 
   static defaultProps = {
@@ -182,65 +152,40 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   tree: any;
 
-  renderSwitcherIcon = (
-    prefixCls: string,
-    switcherIcon: React.ReactElement<any> | undefined,
-    { isLeaf, expanded, loading }: AntTreeNodeProps,
-  ) => {
-    const { showLine } = this.props;
-    if (loading) {
-      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
-    }
-    if (showLine) {
-      if (isLeaf) {
-        return <Icon type="file" className={`${prefixCls}-switcher-line-icon`} />;
-      }
-      return (
-        <Icon
-          type={expanded ? 'minus-square' : 'plus-square'}
-          className={`${prefixCls}-switcher-line-icon`}
-          theme="outlined"
-        />
-      );
-    } else {
-      const switcherCls = `${prefixCls}-switcher-icon`;
-      if (isLeaf) {
-        return null;
-      } else if (switcherIcon) {
-        const switcherOriginCls = switcherIcon.props.className || '';
-        return React.cloneElement(switcherIcon, {
-          className: classNames(switcherOriginCls, switcherCls),
-        });
-      } else {
-        return <Icon type="caret-down" className={switcherCls} theme="filled" />;
-      }
-    }
-  };
-
   setTreeRef = (node: any) => {
     this.tree = node;
   };
 
-  renderTree = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props = this.props;
-    const { prefixCls: customizePrefixCls, className, showIcon, switcherIcon, blockNode } = props;
-    const checkable = props.checkable;
+  renderTree = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { props } = this;
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      showIcon,
+      showLine,
+      switcherIcon,
+      blockNode,
+      children,
+    } = props;
+    const { checkable } = props;
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
     return (
       <RcTree
+        itemHeight={20}
         ref={this.setTreeRef}
         {...props}
         prefixCls={prefixCls}
         className={classNames(className, {
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         })}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
         switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          this.renderSwitcherIcon(prefixCls, switcherIcon, nodeProps)
+          renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
         }
       >
-        {this.props.children}
+        {children}
       </RcTree>
     );
   };

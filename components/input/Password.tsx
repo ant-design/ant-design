@@ -1,7 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
@@ -19,9 +23,9 @@ const ActionMap: Record<string, string> = {
 };
 
 export default class Password extends React.Component<PasswordProps, PasswordState> {
+  input: HTMLInputElement;
+
   static defaultProps = {
-    inputPrefixCls: 'ant-input',
-    prefixCls: 'ant-input-password',
     action: 'click',
     visibilityToggle: true,
   };
@@ -30,19 +34,22 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     visible: false,
   };
 
-  onChange = () => {
-    this.setState({
-      visible: !this.state.visible,
-    });
+  onVisibleChange = () => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
+    this.setState(({ visible }) => ({ visible: !visible }));
   };
 
-  getIcon() {
-    const { prefixCls, action } = this.props;
+  getIcon = (prefixCls: string) => {
+    const { action } = this.props;
     const iconTrigger = ActionMap[action!] || '';
+    const icon = this.state.visible ? EyeOutlined : EyeInvisibleOutlined;
     const iconProps = {
-      [iconTrigger]: this.onChange,
+      [iconTrigger]: this.onVisibleChange,
       className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye' : 'eye-invisible',
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
         // Prevent focused state lost
@@ -50,32 +57,62 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         e.preventDefault();
       },
     };
-    return <Icon {...iconProps} />;
+    return React.createElement(icon, iconProps);
+  };
+
+  saveInput = (instance: Input) => {
+    if (instance && instance.input) {
+      this.input = instance.input;
+    }
+  };
+
+  focus() {
+    this.input.focus();
   }
 
-  render() {
+  blur() {
+    this.input.blur();
+  }
+
+  select() {
+    this.input.select();
+  }
+
+  renderPassword = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       className,
-      prefixCls,
-      inputPrefixCls,
+      prefixCls: customizePrefixCls,
+      inputPrefixCls: customizeInputPrefixCls,
       size,
-      suffix,
       visibilityToggle,
       ...restProps
     } = this.props;
-    const suffixIcon = visibilityToggle && this.getIcon();
+
+    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+    const prefixCls = getPrefixCls('input-password', customizePrefixCls);
+
+    const suffixIcon = visibilityToggle && this.getIcon(prefixCls);
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
-    return (
-      <Input
-        {...restProps}
-        type={this.state.visible ? 'text' : 'password'}
-        size={size}
-        className={inputClassName}
-        prefixCls={inputPrefixCls}
-        suffix={suffixIcon}
-      />
-    );
+
+    const props = {
+      ...omit(restProps, ['suffix']),
+      type: this.state.visible ? 'text' : 'password',
+      className: inputClassName,
+      prefixCls: inputPrefixCls,
+      suffix: suffixIcon,
+      ref: this.saveInput,
+    };
+
+    if (size) {
+      props.size = size;
+    }
+
+    return <Input {...props} />;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderPassword}</ConfigConsumer>;
   }
 }

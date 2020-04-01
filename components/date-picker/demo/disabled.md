@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-选择框的不可用状态。
+选择框的不可用状态。你也可以通过数组单独禁用 RangePicker 的其中一项。
 
 ## en-US
 
-A disabled state of the `DatePicker`.
+A disabled state of the `DatePicker`. You can also set as array to disable one of input.
 
 ```jsx
 import { DatePicker } from 'antd';
@@ -29,6 +29,11 @@ ReactDOM.render(
     <RangePicker
       defaultValue={[moment('2015-06-06', dateFormat), moment('2015-06-06', dateFormat)]}
       disabled
+    />
+    <br />
+    <RangePicker
+      defaultValue={[moment('2019-09-03', dateFormat), moment('2019-11-22', dateFormat)]}
+      disabled={[false, true]}
     />
   </div>,
   mountNode,

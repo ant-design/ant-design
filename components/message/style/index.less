@@ -24,7 +24,7 @@
   &-notice-content {
     display: inline-block;
     padding: @message-notice-content-padding;
-    background: @component-background;
+    background: @message-notice-content-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
     pointer-events: all;
@@ -55,7 +55,6 @@
   }
 
   &-notice.move-up-leave.move-up-leave-active {
-    overflow: hidden;
     animation-name: MessageMoveOut;
     animation-duration: 0.3s;
   }

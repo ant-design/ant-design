@@ -14,14 +14,14 @@ title:
 Simple table with actions.
 
 ```jsx
-import { Table, Divider, Tag } from 'antd';
+import { Table, Tag } from 'antd';
 
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -58,9 +58,8 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <span>
-        <a href="javascript:;">Invite {record.name}</a>
-        <Divider type="vertical" />
-        <a href="javascript:;">Delete</a>
+        <a style={{ marginRight: 16 }}>Invite {record.name}</a>
+        <a>Delete</a>
       </span>
     ),
   },

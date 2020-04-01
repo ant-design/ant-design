@@ -14,7 +14,8 @@ title:
 Submenus open as pop-ups.
 
 ```jsx
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -28,7 +29,7 @@ ReactDOM.render(
       key="sub1"
       title={
         <span>
-          <Icon type="mail" />
+          <MailOutlined />
           <span>Navigation One</span>
         </span>
       }
@@ -46,7 +47,7 @@ ReactDOM.render(
       key="sub2"
       title={
         <span>
-          <Icon type="appstore" />
+          <AppstoreOutlined />
           <span>Navigation Two</span>
         </span>
       }
@@ -62,7 +63,7 @@ ReactDOM.render(
       key="sub4"
       title={
         <span>
-          <Icon type="setting" />
+          <SettingOutlined />
           <span>Navigation Three</span>
         </span>
       }

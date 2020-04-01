@@ -13,7 +13,7 @@
   height: auto;
   padding: 0;
   overflow: hidden;
-  line-height: unset;
+  line-height: @line-height-base;
   white-space: pre-wrap;
   vertical-align: bottom;
 
@@ -31,10 +31,11 @@
   // ================= Input Area =================
   > textarea,
   &-measure {
+    min-height: @input-height-base - 2px;
     margin: 0;
     padding: @input-padding-vertical-base @input-padding-horizontal-base;
     overflow: inherit;
-    overflow-x: initial;
+    overflow-x: hidden;
     overflow-y: auto;
     font-weight: inherit;
     font-size: inherit;
@@ -59,6 +60,9 @@
     border: none;
     outline: none;
     resize: none;
+    & when (@theme = dark) {
+      background-color: transparent;
+    }
     .placeholder();
 
     &:read-only {
@@ -75,6 +79,11 @@
     z-index: -1;
     color: transparent;
     pointer-events: none;
+
+    > span {
+      display: inline-block;
+      min-height: 1em;
+    }
   }
 
   // ================== Dropdown ==================
@@ -89,7 +98,7 @@
     box-sizing: border-box;
     font-size: @font-size-base;
     font-variant: initial;
-    background-color: @component-background;
+    background-color: @mentions-dropdown-bg;
     border-radius: @border-radius-base;
     outline: none;
     box-shadow: @box-shadow-base;
@@ -138,7 +147,7 @@
 
           &:hover {
             color: @disabled-color;
-            background-color: @component-background;
+            background-color: @mentions-dropdown-menu-item-hover-bg;
             cursor: not-allowed;
           }
         }
@@ -150,7 +159,7 @@
         }
 
         &-active {
-          background-color: @item-active-bg;
+          background-color: @item-hover-bg;
         }
       }
     }

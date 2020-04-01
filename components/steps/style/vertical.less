@@ -1,5 +1,6 @@
 .steps-vertical() {
-  display: block;
+  display: flex;
+  flex-direction: column;
   .@{steps-prefix-cls}-item {
     display: block;
     overflow: visible;
@@ -20,24 +21,30 @@
     }
   }
 
-  > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
+  > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
-    left: 16px;
+    left: @steps-icon-size / 2;
     width: 1px;
     height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
+
     &::after {
       width: 1px;
       height: 100%;
     }
   }
 
-  > .@{steps-prefix-cls}-item:not(:last-child) > .@{steps-prefix-cls}-item-tail {
+  > .@{steps-prefix-cls}-item:not(:last-child)
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
     display: block;
   }
 
   > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
     > .@{steps-prefix-cls}-item-content
     > .@{steps-prefix-cls}-item-title {
     &::after {
@@ -45,7 +52,7 @@
     }
   }
 
-  &.@{steps-prefix-cls}-small {
+  &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item-container {
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;

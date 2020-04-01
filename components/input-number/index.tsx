@@ -1,9 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import Icon from '../icon';
+import UpOutlined from '@ant-design/icons/UpOutlined';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
 export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
@@ -19,7 +22,7 @@ export interface InputNumberProps
   tabIndex?: number;
   onChange?: (value: number | undefined) => void;
   disabled?: boolean;
-  size?: 'large' | 'small' | 'default';
+  size?: SizeType;
   formatter?: (value: number | string | undefined) => string;
   parser?: (displayValue: string | undefined) => number | string;
   decimalSeparator?: string;
@@ -29,6 +32,7 @@ export interface InputNumberProps
   name?: string;
   id?: string;
   precision?: number;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
@@ -50,28 +54,37 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     this.inputNumberRef.blur();
   }
 
-  renderInputNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { className, size, prefixCls: customizePrefixCls, ...others } = this.props;
+  renderInputNumber = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { className, size: customizeSize, prefixCls: customizePrefixCls, ...others } = this.props;
     const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-    const inputNumberClass = classNames(
-      {
-        [`${prefixCls}-lg`]: size === 'large',
-        [`${prefixCls}-sm`]: size === 'small',
-      },
-      className,
-    );
-    const upIcon = <Icon type="up" className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <Icon type="down" className={`${prefixCls}-handler-down-inner`} />;
+    const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
     return (
-      <RcInputNumber
-        ref={this.saveInputNumber}
-        className={inputNumberClass}
-        upHandler={upIcon}
-        downHandler={downIcon}
-        prefixCls={prefixCls}
-        {...others}
-      />
+      <SizeContext.Consumer>
+        {size => {
+          const mergeSize = customizeSize || size;
+          const inputNumberClass = classNames(
+            {
+              [`${prefixCls}-lg`]: mergeSize === 'large',
+              [`${prefixCls}-sm`]: mergeSize === 'small',
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+            },
+            className,
+          );
+
+          return (
+            <RcInputNumber
+              ref={this.saveInputNumber}
+              className={inputNumberClass}
+              upHandler={upIcon}
+              downHandler={downIcon}
+              prefixCls={prefixCls}
+              {...others}
+            />
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 

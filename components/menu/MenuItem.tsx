@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
+import toArray from 'rc-util/lib/Children/toArray';
+import classNames from 'classnames';
 import { ClickParam } from '.';
-import { MenuContext, MenuContextProps } from './';
+import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 
@@ -24,6 +26,7 @@ export interface MenuItemProps
 
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
+
   private menuItem: this;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
@@ -35,30 +38,42 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   };
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { level, children, rootPrefixCls } = this.props;
+    const { level, className, children, rootPrefixCls } = this.props;
     const { title, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
-        {({ inlineCollapsed }: MenuContextProps) => {
-          const tooltipProps: TooltipProps = {};
+        {({ inlineCollapsed, direction }: MenuContextProps) => {
+          let tooltipTitle = title;
+          if (typeof title === 'undefined') {
+            tooltipTitle = level === 1 ? children : '';
+          } else if (title === false) {
+            tooltipTitle = '';
+          }
+          const tooltipProps: TooltipProps = {
+            title: tooltipTitle,
+          };
 
-          let titleNode = title || (level === 1 ? children : '');
           if (!siderCollapsed && !inlineCollapsed) {
-            titleNode = null;
+            tooltipProps.title = null;
             // Reset `visible` to fix control mode tooltip display not correct
             // ref: https://github.com/ant-design/ant-design/issues/16742
             tooltipProps.visible = false;
           }
-
           return (
             <Tooltip
               {...tooltipProps}
-              title={titleNode}
-              placement="right"
+              placement={direction === 'rtl' ? 'left' : 'right'}
               overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
             >
-              <Item {...rest} title={title} ref={this.saveMenuItem} />
+              <Item
+                {...rest}
+                className={classNames(className, {
+                  [`${rootPrefixCls}-item-only-child`]: toArray(children).length === 1,
+                })}
+                title={title}
+                ref={this.saveMenuItem}
+              />
             </Tooltip>
           );
         }}

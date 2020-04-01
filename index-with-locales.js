@@ -1,6 +1,6 @@
 const antd = require('./components');
 
-const req = require.context('./components', true, /^\.\/locale-provider\/.+_.+\.tsx$/);
+const req = require.context('./components', true, /^\.\/locale\/.+_.+\.tsx$/);
 
 antd.locales = {};
 

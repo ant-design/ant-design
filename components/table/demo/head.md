@@ -19,6 +19,8 @@ title:
 
 Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
 
+Uses `defaultFilteredValue` to make a column filtered by default.
+
 Use `sorter` to make a column sortable. `sorter` can be a function of the type `function(a, b) { ... }` for sorting data locally.
 
 `sortDirections: ['ascend' | 'descend']` defines available sort methods for each columns, effective for all columns when set on table props.
@@ -117,8 +119,8 @@ const data = [
   },
 ];
 
-function onChange(pagination, filters, sorter) {
-  console.log('params', pagination, filters, sorter);
+function onChange(pagination, filters, sorter, extra) {
+  console.log('params', pagination, filters, sorter, extra);
 }
 
 ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />, mountNode);

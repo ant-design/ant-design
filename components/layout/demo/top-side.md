@@ -14,7 +14,8 @@ title:
 Both the top navigation and the sidebar, commonly used in documentation site.
 
 ```jsx
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
@@ -23,12 +24,7 @@ ReactDOM.render(
   <Layout>
     <Header className="header">
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
-      >
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>
         <Menu.Item key="3">nav 3</Menu.Item>
@@ -40,8 +36,8 @@ ReactDOM.render(
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb>
-      <Layout style={{ padding: '24px 0', background: '#fff' }}>
-        <Sider width={200} style={{ background: '#fff' }}>
+      <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
+        <Sider className="site-layout-background" width={200}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
@@ -52,7 +48,7 @@ ReactDOM.render(
               key="sub1"
               title={
                 <span>
-                  <Icon type="user" />
+                  <UserOutlined />
                   subnav 1
                 </span>
               }
@@ -66,7 +62,7 @@ ReactDOM.render(
               key="sub2"
               title={
                 <span>
-                  <Icon type="laptop" />
+                  <LaptopOutlined />
                   subnav 2
                 </span>
               }
@@ -80,7 +76,7 @@ ReactDOM.render(
               key="sub3"
               title={
                 <span>
-                  <Icon type="notification" />
+                  <NotificationOutlined />
                   subnav 3
                 </span>
               }
@@ -108,5 +104,9 @@ ReactDOM.render(
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 28px 16px 0;
   float: left;
+}
+
+.site-layout-background {
+  background: #fff;
 }
 ```

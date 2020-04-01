@@ -72,7 +72,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   context: any;
 
-  isItemContainsTextNode() {
+  isItemContainsTextNodeAndNotSingular() {
     const { children } = this.props;
     let result;
     React.Children.forEach(children, (element: React.ReactElement<any>) => {
@@ -80,7 +80,7 @@ export default class Item extends React.Component<ListItemProps, any> {
         result = true;
       }
     });
-    return result;
+    return result && React.Children.count(children) > 1;
   }
 
   isFlexMode() {
@@ -89,7 +89,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (itemLayout === 'vertical') {
       return !!extra;
     }
-    return !this.isItemContainsTextNode();
+    return !this.isItemContainsTextNodeAndNotSingular();
   }
 
   renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -106,6 +106,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     const actionsContent = actions && actions.length > 0 && (
       <ul className={`${prefixCls}-item-action`} key="actions">
         {actions.map((action: React.ReactNode, i: number) => (
+          // eslint-disable-next-line react/no-array-index-key
           <li key={`${prefixCls}-item-action-${i}`}>
             {action}
             {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}

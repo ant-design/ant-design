@@ -1,4 +1,4 @@
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 
 export interface ModalLocale {
   okText: string;
@@ -7,7 +7,7 @@ export interface ModalLocale {
 }
 
 let runtimeLocale: ModalLocale = {
-  ...defaultLocale.Modal,
+  ...(defaultLocale.Modal as ModalLocale),
 };
 
 export function changeConfirmLocale(newLocale?: ModalLocale) {
@@ -18,7 +18,7 @@ export function changeConfirmLocale(newLocale?: ModalLocale) {
     };
   } else {
     runtimeLocale = {
-      ...defaultLocale.Modal,
+      ...(defaultLocale.Modal as ModalLocale),
     };
   }
 }

@@ -10,7 +10,7 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  min-width: 44px;
+  min-width: @switch-min-width;
   height: @switch-height;
   line-height: @switch-height - 2px;
   vertical-align: middle;
@@ -36,7 +36,7 @@
     left: 1px;
     width: @switch-height - 4px;
     height: @switch-height - 4px;
-    background-color: @component-background;
+    background-color: @switch-bg;
     border-radius: 18px;
     cursor: pointer;
     transition: all @switch-duration @ease-in-out-circ;
@@ -88,7 +88,7 @@
   }
 
   &-small {
-    min-width: 28px;
+    min-width: @switch-sm-min-width;
     height: @switch-sm-height;
     line-height: @switch-sm-height - 2px;
 
@@ -176,3 +176,5 @@
     transform-origin: 50% 50%;
   }
 }
+
+@import './rtl';

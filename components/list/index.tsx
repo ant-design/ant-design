@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { SpinProps } from '../spin';
+import omit from 'omit.js';
+import Spin, { SpinProps } from '../spin';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
-import Spin from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 
@@ -160,7 +160,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     );
   };
 
-  renderList = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderList = ({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
     const { paginationCurrent, paginationSize } = this.state;
     const {
       prefixCls: customizePrefixCls,
@@ -174,12 +174,9 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
       grid,
       dataSource = [],
       size,
-      rowKey,
-      renderItem,
       header,
       footer,
       loading,
-      locale,
       ...rest
     } = this.props;
 
@@ -201,6 +198,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
         break;
       case 'small':
         sizeCls = 'sm';
+        break;
       default:
         break;
     }
@@ -213,6 +211,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
       [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: grid,
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastItem(),
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const paginationProps = {
@@ -273,7 +272,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     const paginationPosition = paginationProps.position || 'bottom';
 
     return (
-      <div className={classString} {...rest}>
+      <div className={classString} {...omit(rest, ['rowKey', 'renderItem', 'locale'])}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>

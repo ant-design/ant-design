@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider';
+import { withConfigConsumer } from '../config-provider/context';
 import StatisticNumber from './Number';
 import Countdown from './Countdown';
 import { valueType, FormatConfig } from './utils';
@@ -22,7 +23,7 @@ export interface StatisticProps extends FormatConfig {
   suffix?: React.ReactNode;
 }
 
-const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
+const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   const {
     prefixCls,
     className,
@@ -33,6 +34,7 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
     valueRender,
     prefix,
     suffix,
+    direction,
   } = props;
 
   let valueNode: React.ReactNode = <StatisticNumber {...props} value={value} />;
@@ -40,9 +42,11 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
   if (valueRender) {
     valueNode = valueRender(valueNode);
   }
-
+  const cls = classNames(prefixCls, className, {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
   return (
-    <div className={classNames(prefixCls, className)} style={style}>
+    <div className={cls} style={style}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <div style={valueStyle} className={`${prefixCls}-content`}>
         {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}

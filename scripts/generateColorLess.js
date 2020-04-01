@@ -1,6 +1,38 @@
 #!/usr/bin/env node
 const path = require('path');
 const { generateTheme } = require('antd-theme-generator');
+const genCss = require('antd-pro-merge-less');
+const dark = require('./dark-vars');
+const compact = require('./compact-vars');
+
+genCss(
+  path.join(__dirname, '..'),
+  [
+    {
+      theme: 'dark',
+      fileName: './_site/dark.css',
+      modifyVars: {
+        ...dark,
+        '@site-text-color': '@heading-color',
+        '@site-markdown-code-bg': '@input-bg',
+      },
+    },
+    {
+      theme: 'compact',
+      fileName: './_site/compact.css',
+      modifyVars: {
+        ...compact,
+      },
+    },
+  ],
+  {
+    ignoreAntd: true,
+    isModule: false,
+    cache: false,
+    loadAny: true,
+    ignoreProLayout: true,
+  },
+);
 
 const options = {
   stylesDir: path.join(__dirname, '../site/theme/static'),
