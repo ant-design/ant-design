@@ -40,7 +40,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | Function | - |  |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked | Function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject | Function(file): `boolean | Promise` | - |  |
-| onBeforeRenderItems |The event triggered before the Item's Icon is rendered, this method can be used to add Icon |Function(previewIcon, downloadIcon, removeIcon):(`JSX.Element`\| `null`)[] | -   |  |
+| onBeforeRenderItems | The event triggered before the Item's Icon is rendered, this method can be used to add Icon |Function(previewIcon, downloadIcon, removeIcon): (`JSX.Element`\| `null`)[] | -   |  |
 | onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB. | Function(file): void | Jump to new TAB |  |
 | transformFile   | Customize transform file before request | Function(file): `string | Blob | File | Promise<string | Blob | File>` | - | 3.21.0 |
 
