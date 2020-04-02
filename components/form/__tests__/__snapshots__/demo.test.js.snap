@@ -3552,10 +3552,9 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-range-separator"
             >
               <span
+                aria-label="to"
                 class="ant-picker-separator"
-              >
-                →
-              </span>
+              />
             </div>
             <div
               class="ant-picker-input"
@@ -3640,10 +3639,9 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-range-separator"
             >
               <span
+                aria-label="to"
                 class="ant-picker-separator"
-              >
-                →
-              </span>
+              />
             </div>
             <div
               class="ant-picker-input"

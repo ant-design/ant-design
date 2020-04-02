@@ -6088,10 +6088,9 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-range-separator"
     >
       <span
+        aria-label="to"
         class="config-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="config-picker-input"
@@ -6154,10 +6153,9 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-range-separator"
     >
       <span
+        aria-label="to"
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -6220,10 +6218,9 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-range-separator"
     >
       <span
+        aria-label="to"
         class="prefix-RangePicker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="prefix-RangePicker-input"

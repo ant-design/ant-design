@@ -320,7 +320,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
             return (
               <RCRangePicker<DateType>
-                separator={<span className={`${prefixCls}-separator`}>→</span>}
+                separator={<span aria-label="to" className={`${prefixCls}-separator`} />}
                 ref={this.pickerRef}
                 placeholder={getRangePlaceholder(picker, locale)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
