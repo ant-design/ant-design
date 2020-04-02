@@ -701,9 +701,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"

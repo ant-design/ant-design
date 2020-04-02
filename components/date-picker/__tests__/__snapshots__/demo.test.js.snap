@@ -384,9 +384,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -446,9 +444,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -508,9 +504,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -570,9 +564,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -675,9 +667,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -824,9 +814,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -887,9 +875,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1058,9 +1044,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1119,9 +1103,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1265,9 +1247,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1327,9 +1307,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1625,9 +1603,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1755,9 +1731,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1821,9 +1795,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1883,9 +1855,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -1949,9 +1919,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2011,9 +1979,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2073,9 +2039,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2135,9 +2099,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2197,9 +2159,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2262,9 +2222,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
   >
     <span
       class="ant-picker-separator"
-    >
-      →
-    </span>
+    />
   </div>
   <div
     class="ant-picker-input"
@@ -2471,9 +2429,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2740,9 +2696,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2884,9 +2838,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
@@ -2992,9 +2944,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
     >
       <span
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"
