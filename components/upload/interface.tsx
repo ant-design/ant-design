@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
+export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed' | 'selectd';
 
 export interface HttpRequestHeader {
   [key: string]: string;
@@ -69,6 +69,7 @@ export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
+type BeforeRenderItemsHandler = (previewIcon: JSX.Element | null, downloadIcon: JSX.Element | null, removeIcon: JSX.Element | null) => (JSX.Element| null)[];
 type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
@@ -93,6 +94,7 @@ export interface UploadProps {
   onPreview?: (file: UploadFile) => void;
   onDownload?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean | Promise<void | boolean>;
+  onBeforeRenderItems?: BeforeRenderItemsHandler;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -116,6 +118,7 @@ export interface UploadListProps {
   onPreview?: (file: UploadFile) => void;
   onDownload?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
+  onBeforeRenderItems?: BeforeRenderItemsHandler;
   items?: Array<UploadFile>;
   progressAttr?: Object;
   prefixCls?: string;

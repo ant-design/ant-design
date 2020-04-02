@@ -14,7 +14,7 @@ title:
 After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
 ```jsx
-import { Upload, Icon, Modal } from 'antd';
+import { Upload, Icon, Modal, message } from 'antd';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -51,7 +51,7 @@ class PicturesWall extends React.Component {
       {
         uid: '-4',
         name: 'image.png',
-        status: 'done',
+        status: 'selectd',
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       },
       {
@@ -93,6 +93,14 @@ class PicturesWall extends React.Component {
           fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
+          onBeforeRenderItems={(previewIcon, downloadIcon, removeIcon)=>{
+            return [
+              previewIcon,
+              downloadIcon,
+              removeIcon,
+              <Icon type="question" title="question" onClick={() => { message.info('question') }} />
+            ]
+          }}
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>

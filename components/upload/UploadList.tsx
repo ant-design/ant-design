@@ -83,6 +83,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showDownloadIcon,
       locale,
       progressAttr,
+      onBeforeRenderItems = (previewIcon, downloadIcon, removeIcon) => [previewIcon, downloadIcon, removeIcon],
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -215,9 +216,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
       const actions = listType === 'picture-card' && file.status !== 'uploading' && (
         <span className={`${prefixCls}-list-item-actions`}>
-          {previewIcon}
-          {file.status === 'done' && downloadIcon}
-          {removeIcon}
+          {onBeforeRenderItems(previewIcon, file.status === 'done' ? downloadIcon : null, removeIcon)}
         </span>
       );
       let message;

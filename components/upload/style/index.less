@@ -244,6 +244,19 @@
       opacity: 1;
     }
 
+    &-selectd,
+    &-selectd .@{iconfont-css-prefix}-paper-clip,
+    &-selectd &-name {
+      color: @primary-color;
+    }
+
+    &-selectd &-card-actions {
+      .anticon {
+        color: @primary-color;
+      }
+      opacity: 1;
+    }
+
     &-progress {
       position: absolute;
       bottom: -12px;
@@ -267,6 +280,9 @@
       }
       &-error {
         border-color: @error-color;
+      }
+      &-selectd {
+        border-color: @primary-color;
       }
     }
 
@@ -405,7 +421,8 @@
 
       .@{iconfont-css-prefix}-eye-o,
       .@{iconfont-css-prefix}-download,
-      .@{iconfont-css-prefix}-delete {
+      .@{iconfont-css-prefix}-delete,
+      >i{
         z-index: 10;
         width: 16px;
         margin: 0 4px;
