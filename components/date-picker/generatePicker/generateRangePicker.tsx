@@ -12,7 +12,9 @@ import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
 
-export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
+export default function generateRangePicker<DateType>(
+  generateConfig: GenerateConfig<DateType>,
+): React.ComponentClass<RangePickerProps<DateType>> {
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
     static contextType = ConfigContext;
 
