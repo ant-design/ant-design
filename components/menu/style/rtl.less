@@ -4,6 +4,10 @@
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 
 .@{menu-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
   &-item-group-title {
     .@{menu-prefix-cls}-rtl & {
       text-align: right;
