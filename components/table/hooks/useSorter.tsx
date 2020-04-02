@@ -167,7 +167,9 @@ function injectSorter<RecordType>(
             </div>
           );
           return showSorterTooltip ? (
-            <Tooltip title={sortTip}>{renderSortTitle}</Tooltip>
+            <Tooltip title={sortTip}>
+              <div className={`${prefixCls}-column-sorters-with-tooltip`}>{renderSortTitle}</div>
+            </Tooltip>
           ) : (
             renderSortTitle
           );

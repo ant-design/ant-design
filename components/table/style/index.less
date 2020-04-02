@@ -199,10 +199,14 @@
     background: @table-body-sort-bg;
   }
 
+  &-column-sorters-with-tooltip {
+    display: inline-block;
+    width: 100%;
+  }
+
   &-column-sorters {
     display: inline-flex;
     align-items: center;
-    width: 100%;
     padding: @table-padding-vertical @table-padding-horizontal;
   }
 
@@ -361,7 +365,7 @@
       top: 0;
       right: -10px;
       cursor: pointer;
-      transition: all .3s;
+      transition: all 0.3s;
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);
