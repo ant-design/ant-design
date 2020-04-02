@@ -144,6 +144,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
     class="ant-picker-range-separator"
   >
     <span
+      aria-label="to"
       class="ant-picker-separator"
     />
   </div>
