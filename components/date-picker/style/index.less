@@ -126,33 +126,33 @@
   }
 
   &-separator {
-    vertical-align: top;
+    position: relative;
     display: inline-block;
     width: 1em;
     height: @font-size-lg;
+    vertical-align: top;
     cursor: default;
-    position: relative;
 
     &::before,
     &::after {
-      content: '';
       position: absolute;
       border-top: 1px solid #979797;
+      content: '';
     }
 
     &::before {
-      width: 0.8em;
-      left: 0.1em;
       top: 50%;
+      left: 0.1em;
+      width: 0.8em;
     }
 
     &::after {
+      top: 50%;
+      right: 0.11em;
       width: 0.8em;
-      transform-origin: 100% 100%;
       width: 0.3em;
       transform: rotate(45deg);
-      right: 0.11em;
-      top: 50%;
+      transform-origin: 100% 100%;
     }
 
     .@{picker-prefix-cls}-range-separator & {
@@ -196,9 +196,9 @@
     }
 
     &-separator {
-      line-height: 1;
       align-items: center;
       padding: 0 @padding-xs;
+      line-height: 1;
     }
   }
 
