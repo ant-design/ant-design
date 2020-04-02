@@ -203,6 +203,8 @@ We have built-in dark theme and compact theme in antd, you can reference to [Use
 
 > You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
 
+> Note: It is recommended to use the latest version of `less`, or a minimum version greater than `3.1.0`.
+
 ## Replace momentjs to Day.js
 
 You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically.
