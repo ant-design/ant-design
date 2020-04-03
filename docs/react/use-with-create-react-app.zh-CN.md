@@ -201,6 +201,10 @@ module.exports = override(
 
 antd 内建了深色主题和紧凑主题，你可以参照 [使用暗色主题和紧凑主题](/docs/react/customize-theme#使用暗色主题和紧凑主题) 进行接入。
 
+> 同样，你可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来自定义 create-react-app 的 webpack 配置，类似于 customize-cra。
+
+> 注意：建议使用最新版本的 `less`，或不低于 `3.0.1`。
+
 ## 使用 Day.js 替换 momentjs 优化打包大小
 
 你可以使用 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) 插件用 Day.js 替换 momentjs 来大幅减小打包大小。
