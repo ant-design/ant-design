@@ -98,7 +98,7 @@ class PicturesWall extends React.Component {
               previewIcon,
               downloadIcon,
               removeIcon,
-              <Icon type="question" title="question" onClick={() => { message.info('question') }} />
+              <Icon key="0" type="question" title="question" onClick={() => { message.info('question') }} />,
             ]
           }}
         >
