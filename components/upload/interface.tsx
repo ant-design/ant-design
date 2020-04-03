@@ -69,7 +69,7 @@ export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
-type BeforeRenderItemsHandler = (previewIcon: JSX.Element | null, downloadIcon: JSX.Element | null, removeIcon: JSX.Element | null) => (JSX.Element| null)[];
+type BeforeRenderItemsHandler = (previewIcon: JSX.Element | null, downloadIcon: JSX.Element | null, removeIcon: JSX.Element | null, file: UploadFile) => (JSX.Element| null)[];
 type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;

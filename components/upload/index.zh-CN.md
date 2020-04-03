@@ -41,7 +41,7 @@ title: Upload
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | Function | 无 |  |
 | onPreview | 点击文件链接或预览图标时的回调 | Function(file) | 无 |  |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |  |
-| onBeforeRenderItems | 渲染Item的Icon之前触发的事件，可通过此方法来进行添加Icon | Function(previewIcon, downloadIcon,removeIcon): (`JSX.Element`\| `null`)[] | 无   |  |
+| onBeforeRenderItems | 渲染Item的Icon之前触发的事件，可通过此方法来进行添加Icon | Function(previewIcon, downloadIcon,removeIcon, file): (`JSX.Element`\| `null`)[] | 无   |  |
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页。 | Function(file): void | 跳转新标签页 |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | Function(file): `string | Blob | File | Promise<string | Blob | File>` | 无   | 3.21.0 |
 

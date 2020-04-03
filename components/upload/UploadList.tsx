@@ -216,7 +216,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
       const actions = listType === 'picture-card' && file.status !== 'uploading' && (
         <span className={`${prefixCls}-list-item-actions`}>
-          {onBeforeRenderItems(previewIcon, file.status === 'done' ? downloadIcon : null, removeIcon)}
+          {onBeforeRenderItems(previewIcon, file.status === 'done' ? downloadIcon : null, removeIcon, file)}
         </span>
       );
       let message;
