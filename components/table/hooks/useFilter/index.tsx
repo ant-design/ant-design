@@ -31,7 +31,7 @@ function collectFilterStates<RecordType>(
 
     if ('children' in column) {
       filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
-    } else if ('filters' in column || 'filterDropdown' in column || 'onFilter' in column) {
+    } else if (column.filters || 'filterDropdown' in column || 'onFilter' in column) {
       if ('filteredValue' in column) {
         // Controlled
         filterStates.push({
@@ -70,7 +70,7 @@ function injectFilter<RecordType>(
     const columnPos = getColumnPos(index, pos);
     const { filterMultiple = true } = column as ColumnType<RecordType>;
 
-    if ('filters' in column || 'filterDropdown' in column) {
+    if (column.filters || 'filterDropdown' in column) {
       const columnKey = getColumnKey(column, columnPos);
       const filterState = filterStates.find(({ key }) => columnKey === key);
 

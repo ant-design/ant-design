@@ -124,20 +124,22 @@
       }
 
       // ========================= Nest Table ===========================
-      .@{table-prefix-cls} {
-        margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-              ceil(@font-size-sm * 1.4));
+      .@{table-prefix-cls}-wrapper:only-child {
+        .@{table-prefix-cls} {
+          margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+                ceil(@font-size-sm * 1.4));
 
-        td {
-          background: transparent;
-        }
+          td {
+            background: transparent;
+          }
 
-        &-tbody > tr:last-child > td {
-          border-bottom: 0;
+          &-tbody > tr:last-child > td {
+            border-bottom: 0;
 
-          &:first-child,
-          &:last-child {
-            border-radius: 0;
+            &:first-child,
+            &:last-child {
+              border-radius: 0;
+            }
           }
         }
       }
@@ -199,10 +201,14 @@
     background: @table-body-sort-bg;
   }
 
+  &-column-sorters-with-tooltip {
+    display: inline-block;
+    width: 100%;
+  }
+
   &-column-sorters {
     display: inline-flex;
     align-items: center;
-    width: 100%;
     padding: @table-padding-vertical @table-padding-horizontal;
   }
 
@@ -247,6 +253,17 @@
   &-filter-column-title {
     flex: auto;
     padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
+  }
+
+  // Remove padding when sorter also provided
+  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
+    .@{table-prefix-cls}-filter-column {
+      margin: 0;
+    }
+
+    .@{table-prefix-cls}-filter-column-title {
+      padding: 0 2.3em 0 0;
+    }
   }
 
   &-filter-trigger-container {
@@ -361,7 +378,7 @@
       top: 0;
       right: -10px;
       cursor: pointer;
-      transition: all .3s;
+      transition: all 0.3s;
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);

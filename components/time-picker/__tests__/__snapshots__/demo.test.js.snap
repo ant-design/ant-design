@@ -401,10 +401,9 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-range-separator"
     >
       <span
+        aria-label="to"
         class="ant-picker-separator"
-      >
-        →
-      </span>
+      />
     </div>
     <div
       class="ant-picker-input"

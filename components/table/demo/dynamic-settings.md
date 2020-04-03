@@ -21,22 +21,33 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    key: 'age',
+    sorter: (a, b) => a.age - b.age,
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    key: 'address',
+    filters: [
+      {
+        text: 'London',
+        value: 'London',
+      },
+      {
+        text: 'New York',
+        value: 'New York',
+      },
+    ],
+    onFilter: (value, record) => record.address.indexOf(value) === 0,
   },
   {
     title: 'Action',
     key: 'action',
+    sorter: true,
+    filters: [],
+    onFilter: () => {},
     render: () => (
       <span>
         <a style={{ marginRight: 16 }}>Delete</a>

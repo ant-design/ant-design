@@ -11,12 +11,7 @@ import ConfigProvider from '../../config-provider';
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
 function getDropdownWrapper(wrapper) {
-  return mount(
-    wrapper
-      .find('Trigger')
-      .instance()
-      .getComponent(),
-  );
+  return mount(wrapper.find('Trigger').instance().getComponent());
 }
 
 describe('Table.filter', () => {
@@ -61,6 +56,18 @@ describe('Table.filter', () => {
   function renderedNames(wrapper) {
     return wrapper.find('BodyRow').map(row => row.props().record.name);
   }
+
+  it('not show filter icon when undefined', () => {
+    const noFilterColumn = { ...column, filters: undefined };
+    delete noFilterColumn.onFilter;
+    const wrapper = mount(
+      createTable({
+        columns: [noFilterColumn],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-column')).toHaveLength(0);
+  });
 
   it('renders filter correctly', () => {
     const wrapper = mount(createTable());
@@ -213,7 +220,10 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toBeFalsy();
     wrapper.find('FilterDropdown').find('input[type="checkbox"]').first().simulate('click');
-    wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    wrapper
+      .find('FilterDropdown')
+      .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
+      .simulate('click');
     expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(['boy']);
     wrapper.setProps({ dataSource: [...data, { key: 999, name: 'Chris' }] });
     expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(['boy']);
@@ -342,7 +352,10 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({ onChange: handleChange }));
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
-    wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    wrapper
+      .find('FilterDropdown')
+      .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
+      .simulate('click');
     expect(handleChange).toHaveBeenCalledWith(
       {},
       { name: ['boy'] },
@@ -358,17 +371,40 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({ pagination: { onChange: onPaginationChange } }));
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
-    wrapper.find('FilterDropdown').find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    wrapper
+      .find('FilterDropdown')
+      .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
+      .simulate('click');
 
     expect(onPaginationChange).toHaveBeenCalledWith(1, 10);
   });
 
-  it('should not fire change event on close filterDropdown without changing anything', () => {
+  it('should not fire change event when close filterDropdown without changing anything', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').simulate('click');
+
+    expect(handleChange).not.toHaveBeenCalled();
+  });
+
+  it('should not fire change event when close a filtered filterDropdown without changing anything', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange: handleChange,
+        columns: [
+          {
+            ...column,
+            defaultFilteredValue: ['boy', 'designer'],
+          },
+        ],
+      }),
+    );
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
 
     expect(handleChange).not.toHaveBeenCalled();
   });
@@ -410,29 +446,17 @@ describe('Table.filter', () => {
     let dropdownWrapper = getDropdownWrapper(wrapper);
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
     // select
-    dropdownWrapper
-      .find('.ant-dropdown-menu-submenu-title')
-      .at(0)
-      .simulate('mouseEnter');
+    dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
     jest.runAllTimers();
     dropdownWrapper = getDropdownWrapper(wrapper);
-    dropdownWrapper
-      .find('.ant-dropdown-menu-submenu-title')
-      .at(1)
-      .simulate('mouseEnter');
+    dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
     jest.runAllTimers();
     dropdownWrapper = getDropdownWrapper(wrapper);
-    dropdownWrapper
-      .find('MenuItem')
-      .last()
-      .simulate('click');
+    dropdownWrapper.find('MenuItem').last().simulate('click');
     dropdownWrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
-    dropdownWrapper
-      .find('MenuItem')
-      .last()
-      .simulate('click');
+    dropdownWrapper.find('MenuItem').last().simulate('click');
     jest.useRealTimers();
   });
 
@@ -1060,12 +1084,9 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').text()).toEqual(
       'Bamboo',
     );
-    expect(
-      wrapper
-        .find('.ant-table-filter-dropdown-btns .ant-btn-link')
-        .last()
-        .text(),
-    ).toEqual('Reset');
+    expect(wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').last().text()).toEqual(
+      'Reset',
+    );
   });
 
   it('filtered should work', () => {

@@ -70,7 +70,7 @@ title: 可视化
 
 ### 色板
 
-<img class="preview-img no-padding" align="right" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*58AFS77miwoAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img no-padding" align="right" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ" />
 
 AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
