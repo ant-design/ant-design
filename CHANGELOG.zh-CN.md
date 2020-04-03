@@ -34,6 +34,7 @@ timeline: true
 - 💄 调整 RangePicker 箭头样式。[#22847](https://github.com/ant-design/ant-design/pull/22847)
 - 🐞 修复 Text 使用 `ellipsis` 的对齐问题。[#22836](https://github.com/ant-design/ant-design/pull/22836)
 - 💄 优化 `@info-color` less 变量，默认为 `@primary-color`。[3f8db](https://github.com/ant-design/ant-design/commit/3f8dbc500fd31b631a10bbacceaee07bf61df02a)
+- 🐞 修复大号多选 Select 未选择时的高度问题。[#22904](https://github.com/ant-design/ant-design/pull/22904)
 - 🐞 修复 BackTop 在 iframe 里不生效并提升了组件性能。[#22788](https://github.com/ant-design/ant-design/pull/22788)
 - 🐞 修复 Radio less 变量名错误。[#22803](https://github.com/ant-design/ant-design/pull/22803) [@yoyo837](https://github.com/yoyo837)
 - 🐞 修复 Tabs 不支持小尺寸的问题。[#22666](https://github.com/ant-design/ant-design/pull/22666) [@MrHeer](https://github.com/MrHeer)
