@@ -43,7 +43,7 @@ function getModuleData(props) {
 }
 
 function fileNameToPath(filename) {
-  const snippets = filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
+  const snippets = filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').split('/');
   return snippets[snippets.length - 1];
 }
 
@@ -232,7 +232,7 @@ class MainContent extends Component {
           </span>,
         ];
     const { disabled } = item;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
     const child = !item.link ? (
       <Link
         to={utils.getLocalizedPathname(
