@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.1.1
 
-- 🐞 Fix Tabs remove tabpane outline. [#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix Tabs panel focus outline style. [#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)
 - 🐞 Fix Input affix with popup element can not get click focus. [#22887](https://github.com/ant-design/ant-design/pull/22887)
 - Table
   - 🆕 Table row selection dropdown support `getPopupContainer`. [#22787](https://github.com/ant-design/ant-design/pull/22787) [@mikeyshing88](https://github.com/mikeyshing88)
