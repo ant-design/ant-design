@@ -199,7 +199,6 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14298
   it('should not have id if upload children is null, avoid being triggered by label', () => {
-    // eslint-disable-next-line
     const Demo = ({ children }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
@@ -221,7 +220,6 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/16478
   it('should not have id if upload is disabled, avoid being triggered by label', () => {
-    // eslint-disable-next-line
     const Demo = ({ disabled }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">

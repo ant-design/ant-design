@@ -195,8 +195,10 @@ class MainContent extends Component {
     if (!document.querySelector('.markdown > h2, .code-box')) {
       return;
     }
-    require('intersection-observer'); // eslint-disable-line
-    const scrollama = require('scrollama'); // eslint-disable-line
+    // eslint-disable-next-line global-require
+    require('intersection-observer');
+    // eslint-disable-next-line global-require
+    const scrollama = require('scrollama');
     this.scroller = scrollama();
     this.scroller
       .setup({
@@ -205,7 +207,7 @@ class MainContent extends Component {
       })
       .onStepEnter(({ element }) => {
         [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-          node.className = ''; // eslint-disable-line
+          node.className = '';
         });
         const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
         if (currentNode) {

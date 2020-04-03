@@ -19,7 +19,7 @@ function finalizeCompile() {
         `{ version: '${packageInfo.version}' }`,
       ),
     );
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.log('Wrote version into lib/version/index.js');
 
     // Build package.json version to lib/version/index.d.ts
@@ -29,7 +29,7 @@ function finalizeCompile() {
       versionDefPath,
       `declare var _default: "${packageInfo.version}";\nexport default _default;\n`,
     );
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.log('Wrote version into lib/version/index.d.ts');
 
     // Build a entry less file to dist/antd.less
@@ -57,7 +57,7 @@ function buildThemeFile(theme, vars) {
     `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
   );
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-console
   console.log(`Built a entry less file to dist/antd.${theme}.less`);
 
   // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
@@ -67,7 +67,7 @@ function buildThemeFile(theme, vars) {
     `module.exports = ${JSON.stringify(vars, null, 2)};`,
   );
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-console
   console.log(`Built a ${theme} theme js file to dist/${theme}-theme.js`);
 }
 
@@ -78,7 +78,7 @@ function finalizeDist() {
       path.join(process.cwd(), 'dist', 'antd.less'),
       '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
     );
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-console
     console.log('Built a entry less file to dist/antd.less');
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);

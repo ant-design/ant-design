@@ -165,7 +165,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       const removedFileList = removeFileItem(file, fileList);
 
       if (removedFileList) {
-        file.status = 'removed'; // eslint-disable-line
+        file.status = 'removed';
 
         if (this.upload) {
           this.upload.abort(file);

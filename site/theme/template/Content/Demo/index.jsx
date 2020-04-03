@@ -92,7 +92,7 @@ class Demo extends React.Component {
     });
   };
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line class-methods-use-this
   track({ type, demo }) {
     if (!window.gtag) {
       return;
@@ -300,7 +300,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
           {style ? (
-            <style dangerouslySetInnerHTML={{ __html: style }} /> // eslint-disable-line
+            <style dangerouslySetInnerHTML={{ __html: style }} />
           ) : null}
         </section>
         <section className="code-box-meta markdown">

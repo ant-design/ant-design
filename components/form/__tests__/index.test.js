@@ -522,7 +522,7 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/21415
   it('Component.props.onChange is null', () => {
-    // eslint-disable-next-line
+    // eslint-disable-next-line react/prefer-stateless-function
     class CustomComponent extends Component {
       static defaultProps = {
         onChange: null,
