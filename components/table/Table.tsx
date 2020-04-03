@@ -252,7 +252,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     prefixCls,
     locale: tableLocale,
     dropdownPrefixCls,
-    columns: columns || [],
+    columns,
+    children,
     onFilterChange,
     getPopupContainer,
   });

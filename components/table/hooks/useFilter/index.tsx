@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import {
   TransformColumns,
   ColumnsType,
@@ -161,7 +162,8 @@ export function getFilterData<RecordType>(
 interface FilterConfig<RecordType> {
   prefixCls: string;
   dropdownPrefixCls: string;
-  columns: ColumnsType<RecordType>;
+  columns?: ColumnsType<RecordType>;
+  children?: React.ReactNode;
   locale: TableLocale;
   onFilterChange: (
     filters: Record<string, Key[] | null>,
@@ -174,6 +176,7 @@ function useFilter<RecordType>({
   prefixCls,
   dropdownPrefixCls,
   columns,
+  children,
   onFilterChange,
   getPopupContainer,
   locale: tableLocale,
@@ -182,12 +185,16 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   () => Record<string, Key[] | null>,
 ] {
+  const mergedColumns = React.useMemo(() => {
+    return columns || convertChildrenToColumns(children);
+  }, [children, columns]);
+
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
-    collectFilterStates(columns, true),
+    collectFilterStates(mergedColumns, true),
   );
 
   const mergedFilterStates = React.useMemo(() => {
-    const collectedStates = collectFilterStates(columns, false);
+    const collectedStates = collectFilterStates(mergedColumns, false);
 
     // Return if not controlled
     if (collectedStates.every(({ filteredKeys }) => filteredKeys === undefined)) {
@@ -195,7 +202,7 @@ function useFilter<RecordType>({
     }
 
     return collectedStates;
-  }, [columns, filterStates]);
+  }, [mergedColumns, filterStates]);
 
   const getFilters = React.useCallback(() => generateFilterInfo(mergedFilterStates), [
     mergedFilterStates,
