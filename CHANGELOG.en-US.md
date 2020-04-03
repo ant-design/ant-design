@@ -33,7 +33,7 @@ timeline: true
   - 🐞 Fix Table scroll shadow style in Safari. [#22794](https://github.com/ant-design/ant-design/pull/22794)
 - 💄 Adjust RangePicker arrow style. [#22847](https://github.com/ant-design/ant-design/pull/22847)
 - 🐞 Fix Text with `ellipsis` align issue. [#22836](https://github.com/ant-design/ant-design/pull/22836)
-- 💄 Tweak `@info-color` should be `@primary-color` defaultly. [3f8db](https://github.com/ant-design/ant-design/commit/3f8dbc500fd31b631a10bbacceaee07bf61df02a)
+- 💄 Tweak `@info-color` should be `@primary-color` defaultly. [#22723](https://github.com/ant-design/ant-design/pull/22723)
 - 🐞 Fix BackTop not working in iframe and improve it's perfermance. [#22788](https://github.com/ant-design/ant-design/pull/22788)
 - 🐞 Fix Select inconsistent height when `mode="multiple"` and `size="large" />`. [#22904](https://github.com/ant-design/ant-design/pull/22904)
 - 🐞 Fix Radio less variable. [#22803](https://github.com/ant-design/ant-design/pull/22803) [@yoyo837](https://github.com/yoyo837)
