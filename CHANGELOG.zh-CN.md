@@ -19,14 +19,9 @@ timeline: true
 
 `2020-04-03`
 
-- 🐞 修复 Descriptions 在小尺寸下无法自适应的问题。[#22407](https://github.com/ant-design/ant-design/pull/22407)
-- 🐞 修复 TextArea `autoSize` 时在 Firefox 下不会自动滚动到底的问题。[#22014](https://github.com/ant-design/ant-design/pull/22014)
-- 🐞 修复 TextArea 样式在 `react@16.13` 下会报警告的问题。[#21703](https://github.com/ant-design/ant-design/pull/21703)
-- 🐞 修复 Badge 组件数字动画错误。[#21887](https://github.com/ant-design/ant-design/pull/21887) [@wendellhu95](https://github.com/wendellhu95)
-- 🐞 修复 DatePicker 禁用后的鼠标样式。[#21655](https://github.com/ant-design/ant-design/pull/21655) [@jhoneybee](https://github.com/jhoneybee)
-- 🐞 修复 Result `status` 属性不能赋值 `string` 或者 `number` 类型的问题。[#21691](https://github.com/ant-design/ant-design/pull/21691)
-- 🐞 修复 Grid 使用垂直 `gutter` 时多行重叠问题。[#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
-- 🐞 修复 Table 筛选菜单高度溢出屏幕的问题。[#21602](https://github.com/ant-design/ant-design/pull/21602)
+- 🐞 修复 Affix 抛出 React state update on unmounted component 警告的问题。[#22790](https://github.com/ant-design/ant-design/pull/22790)
+- 🐞 修复 Table `column.filtered` 失效的问题。[#22597](https://github.com/ant-design/ant-design/pull/22597)
+- 🐞 修复 Select `multiple` 模式下，Input 在 Safari 浏览器的样式问题。[#22586](https://github.com/ant-design/ant-design/pull/22586) [@iicdii](https://github.com/iicdii)
 
 ## 3.26.14
 

@@ -19,14 +19,9 @@ timeline: true
 
 `2020-04-03`
 
-- 🐞 Fix Descriptions cannot fit to small container width. [#22407](https://github.com/ant-design/ant-design/pull/22407)
-- 🐞 Fix TextArea `autoSize` don't scroll bottom in Firefox. [#22014](https://github.com/ant-design/ant-design/pull/22014)
-- 🐞 Fix TextArea style get warning in `react@16.13`. [#21703](https://github.com/ant-design/ant-design/pull/21703)
-- 🐞 Fix number transition error of the Badge component. [#21887](https://github.com/ant-design/ant-design/pull/21887) [@wendellhu95](https://github.com/wendellhu95)
-- 🐞 Fix cursor style when DatePicker disabled. [#21655](https://github.com/ant-design/ant-design/pull/21655) [@jhoneybee](https://github.com/jhoneybee)
-- 🐞 Fix Result `status` cannot assigned to `string` or `number` type. [#21691](https://github.com/ant-design/ant-design/pull/21691)
-- 🐞 Fix Grid rows overlapping when using vertical `gutter`. [#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
-- 🐞 Table filter menu max height with many items. [#21602](https://github.com/ant-design/ant-design/pull/21602)
+- 🐞 Fix Affix throws React warning of state update on unmounted component. [#22790](https://github.com/ant-design/ant-design/pull/22790)
+- 🐞 Fix Table `column.filtered` not working. [#22597](https://github.com/ant-design/ant-design/pull/22597)
+- 🐞 Fix Select Input style with `multiple` mode in Safari. [#22586](https://github.com/ant-design/ant-design/pull/22586) [@iicdii](https://github.com/iicdii)
 
 ## 3.26.14
 
