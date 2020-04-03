@@ -24,7 +24,7 @@ timeline: true
 - 🐞 Fix TextArea style get warning in `react@16.13`. [#21703](https://github.com/ant-design/ant-design/pull/21703)
 - 🐞 Fix number transition error of the Badge component. [#21887](https://github.com/ant-design/ant-design/pull/21887) [@wendellhu95](https://github.com/wendellhu95)
 - 🐞 Fix cursor style when DatePicker disabled. [#21655](https://github.com/ant-design/ant-design/pull/21655) [@jhoneybee](https://github.com/jhoneybee)
-- 🐞 Fix Result `status` cannot assigned to string or number type. [#21691](https://github.com/ant-design/ant-design/pull/21691)
+- 🐞 Fix Result `status` cannot assigned to `string` or `number` type. [#21691](https://github.com/ant-design/ant-design/pull/21691)
 - 🐞 Fix Grid rows overlapping when using vertical `gutter`. [#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
 - 🐞 Table filter menu max height with many items. [#21602](https://github.com/ant-design/ant-design/pull/21602)
 
