@@ -255,6 +255,17 @@
     padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
   }
 
+  // Remove padding when sorter also provided
+  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
+    .@{table-prefix-cls}-filter-column {
+      margin: 0;
+    }
+
+    .@{table-prefix-cls}-filter-column-title {
+      padding: 0 2.3em 0 0;
+    }
+  }
+
   &-filter-trigger-container {
     position: absolute;
     top: 0;
