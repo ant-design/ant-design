@@ -52,7 +52,7 @@ const columns = [
       <span>
         <a style={{ marginRight: 16 }}>Delete</a>
         <a className="ant-dropdown-link">
-          More actions <DownOutlined /> 
+          More actions <DownOutlined />
         </a>
       </span>
     ),
