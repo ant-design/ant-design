@@ -274,7 +274,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     }
   };
 
-  renderAnchor = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderAnchor = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -298,7 +298,9 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       visible: activeLink,
     });
 
-    const wrapperClass = classNames(className, `${prefixCls}-wrapper`);
+    const wrapperClass = classNames(className, `${prefixCls}-wrapper`, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
 
     const anchorClass = classNames(prefixCls, {
       fixed: !affix && !showInkInFixed,
