@@ -45,10 +45,9 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   /** @private Do not use out of this class. We do not promise this is always keep. */
   private containerRef = React.createRef<HTMLSpanElement>();
 
-  onInputMouseDown: React.MouseEventHandler = e => {
+  onInputMouseUp: React.MouseEventHandler = e => {
     if (this.containerRef.current?.contains(e.target as Element)) {
       const { triggerFocus } = this.props;
-      e.preventDefault();
       triggerFocus();
     }
   };
@@ -120,7 +119,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         ref={this.containerRef}
         className={affixWrapperCls}
         style={style}
-        onMouseDown={this.onInputMouseDown}
+        onMouseUp={this.onInputMouseUp}
       >
         {prefixNode}
         {React.cloneElement(element, {

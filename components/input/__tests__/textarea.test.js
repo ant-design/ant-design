@@ -254,7 +254,7 @@ describe('TextArea allowClear', () => {
     it('click outside should also get focus', () => {
       const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
       const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
-      wrapper.find('.test-suffix').simulate('mouseDown');
+      wrapper.find('.test-suffix').simulate('mouseUp');
       expect(onFocus).toHaveBeenCalled();
     });
 
@@ -263,7 +263,7 @@ describe('TextArea allowClear', () => {
       const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
       const ele = document.createElement('span');
       document.body.appendChild(ele);
-      wrapper.find('.test-suffix').simulate('mouseDown', {
+      wrapper.find('.test-suffix').simulate('mouseUp', {
         target: ele,
       });
       expect(onFocus).not.toHaveBeenCalled();
