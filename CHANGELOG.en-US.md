@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.26.15
+
+`2020-04-03`
+
+- 🐞 Fix Affix throws `React warning of state update on unmounted component`. [#22790](https://github.com/ant-design/ant-design/pull/22790)
+- 🐞 Fix Table `column.filtered` not working. [#22597](https://github.com/ant-design/ant-design/pull/22597)
+- 🐞 Fix Select Input style with `multiple` mode in Safari. [#22586](https://github.com/ant-design/ant-design/pull/22586) [@iicdii](https://github.com/iicdii)
+
 ## 3.26.14
 
 `2020-03-23`

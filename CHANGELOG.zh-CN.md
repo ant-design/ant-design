@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.26.15
+
+`2020-04-03`
+
+- 🐞 修复 Affix 抛出 `React state update on unmounted component` 警告的问题。[#22790](https://github.com/ant-design/ant-design/pull/22790)
+- 🐞 修复 Table `column.filtered` 失效的问题。[#22597](https://github.com/ant-design/ant-design/pull/22597)
+- 🐞 修复 Select `multiple` 模式下，Input 在 Safari 浏览器的样式问题。[#22586](https://github.com/ant-design/ant-design/pull/22586) [@iicdii](https://github.com/iicdii)
+
 ## 3.26.14
 
 `2020-03-23`
