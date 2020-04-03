@@ -107,7 +107,6 @@ describe('Button', () => {
 
   it('have static property for type detecting', () => {
     const wrapper = mount(<Button>Button Text</Button>);
-    // eslint-disable-next-line
     expect(wrapper.type().__ANT_BUTTON).toBe(true);
   });
 
@@ -136,7 +135,6 @@ describe('Button', () => {
   });
 
   it('should change loading state with delay', () => {
-    // eslint-disable-next-line
     class DefaultButton extends Component {
       state = {
         loading: false,

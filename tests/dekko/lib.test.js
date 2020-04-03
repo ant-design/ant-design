@@ -56,5 +56,5 @@ function compare(originFiles, targetFiles, targetPath) {
 compare(localeFiles, localeProviderFiles, '/locale-provider');
 compare(localeProviderFiles, localeFiles, '/locale');
 
-// eslint-disable-next-line
+// eslint-disable-next-line no-console
 console.log(chalk.green('✨ `lib` directory is valid.'));

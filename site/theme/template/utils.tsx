@@ -144,7 +144,6 @@ export function getLocalizedPathname(
 }
 
 export function ping(callback: (status: string) => void) {
-  // eslint-disable-next-line
   const url =
     'https://private-a' +
     'lipay' +

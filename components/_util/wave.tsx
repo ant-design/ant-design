@@ -16,7 +16,7 @@ function isHidden(element: HTMLElement) {
 
 function isNotGrey(color: string) {
   // eslint-disable-next-line no-useless-escape
-  const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
+  const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\d.]*)?\)/);
   if (match && match[1] && match[2] && match[3]) {
     return !(match[1] === match[2] && match[2] === match[3]);
   }
@@ -76,7 +76,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       waveColor !== '#ffffff' &&
       waveColor !== 'rgb(255, 255, 255)' &&
       isNotGrey(waveColor) &&
-      !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) && // any transparent rgba color
+      !/rgba\((?:\d*, ){3}0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'
     ) {
       // Add nonce if CSP exist

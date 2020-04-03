@@ -20,7 +20,7 @@ const eslintrc = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks'],
+  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -91,6 +91,10 @@ const eslintrc = {
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
+    "unicorn/better-regex": 2,
+    "unicorn/prefer-trim-start-end": 2,
+    "unicorn/expiring-todo-comments": 2,
+    "unicorn/no-abusive-eslint-disable": 2,
   },
   globals: {
     gtag: true,

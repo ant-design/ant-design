@@ -115,7 +115,7 @@ class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line class-methods-use-this
   getSelectedKeysName(direction: TransferDirection) {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
