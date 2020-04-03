@@ -45,6 +45,9 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
+    sorter: true,
+    filters: [],
+    onFilter: () => {},
     render: () => (
       <span>
         <a style={{ marginRight: 16 }}>Delete</a>
