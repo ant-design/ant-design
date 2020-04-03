@@ -20,7 +20,7 @@ const eslintrc = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks'],
+  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
