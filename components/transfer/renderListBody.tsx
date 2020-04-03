@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Omit, tuple } from '../_util/type';
+import { ElementOf, Omit, tuple } from '../_util/type';
 import { TransferItem } from '.';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';
 
 export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
-export type OmitProp = typeof OmitProps[number];
+export type OmitProp = ElementOf<typeof OmitProps>;
 type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
 
 export interface TransferListBodyProps extends PartialTransferListProps {
