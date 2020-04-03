@@ -28,7 +28,6 @@ timeline: true
 - 🐞 修复 Grid 使用垂直 `gutter` 时多行重叠问题。[#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
 - 🐞 修复 Table 筛选菜单高度溢出屏幕的问题。[#21602](https://github.com/ant-design/ant-design/pull/21602)
 
-
 ## 3.26.14
 
 `2020-03-23`
