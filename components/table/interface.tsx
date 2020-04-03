@@ -59,7 +59,7 @@ export type ColumnTitle<RecordType> =
 
 export interface FilterDropdownProps {
   prefixCls: string;
-  setSelectedKeys: (selectedKeys: string[]) => void;
+  setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
   confirm: () => void;
   clearFilters?: () => void;
