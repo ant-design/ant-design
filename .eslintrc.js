@@ -93,7 +93,6 @@ const eslintrc = {
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
     "unicorn/better-regex": 2,
     "unicorn/prefer-trim-start-end": 2,
-    "unicorn/no-console-spaces": 2,
     "unicorn/expiring-todo-comments": 2,
     "unicorn/no-abusive-eslint-disable": 2,
   },
