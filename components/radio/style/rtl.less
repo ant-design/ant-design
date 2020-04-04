@@ -3,30 +3,31 @@
 
 @radio-prefix-cls: ~'@{ant-prefix}-radio';
 @radio-group-prefix-cls: ~'@{radio-prefix-cls}-group';
+@radio-prefix-cls-button-wrapper: ~'@{radio-prefix-cls}-button-wrapper';
 
 .@{radio-group-prefix-cls} {
-  &-rtl {
+  &&-rtl {
     direction: rtl;
   }
 }
 
 // 一般状态
 .@{radio-prefix-cls}-wrapper {
-  &-rtl {
+  &&-rtl {
     margin-right: 0;
     margin-left: 8px;
   }
 }
 
-.@{radio-prefix-cls}-button-wrapper {
-  &-rtl {
+.@{radio-prefix-cls-button-wrapper} {
+  &&-rtl {
     border-right-width: 0;
     border-left-width: @border-width-base;
   }
 
   &:not(:first-child) {
     &::before {
-      .@{radio-prefix-cls}-button-wrapper-rtl& {
+      .@{radio-prefix-cls-button-wrapper}.@{radio-prefix-cls-button-wrapper}-rtl& {
         right: -1px;
         left: 0;
       }
@@ -34,24 +35,24 @@
   }
 
   &:first-child {
-    .@{radio-prefix-cls}-button-wrapper-rtl& {
+    .@{radio-prefix-cls-button-wrapper}.@{radio-prefix-cls-button-wrapper}-rtl& {
       border-right: @border-width-base @border-style-base @border-color-base;
       border-radius: 0 @border-radius-base @border-radius-base 0;
     }
-    .@{radio-prefix-cls}-button-wrapper-checked:not([class*=~"' @{radio-prefix-cls}-button-wrapper-disabled'"])& {
+    .@{radio-prefix-cls-button-wrapper}-checked:not([class*=~"' @{radio-prefix-cls}-button-wrapper-disabled'"])& {
       border-right-color: @radio-button-hover-color;
     }
   }
 
   &:last-child {
-    .@{radio-prefix-cls}-button-wrapper-rtl& {
+    .@{radio-prefix-cls-button-wrapper}.@{radio-prefix-cls-button-wrapper}-rtl& {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
   }
 
   &-disabled {
     &:first-child {
-      .@{radio-prefix-cls}-button-wrapper-rtl& {
+      .@{radio-prefix-cls-button-wrapper}.@{radio-prefix-cls-button-wrapper}-rtl& {
         border-right-color: @border-color-base;
       }
     }
