@@ -27,11 +27,11 @@ timeline: true
 
 `2020-03-23`
 
-- 🐞 Fix Descriptions cannot fit to small container width. [#22407](https://github.com/ant-design/ant-design/pull/22407)
-- 🐞 Fix TextArea `autoSize` don't scroll bottom in Firefox. [#22014](https://github.com/ant-design/ant-design/pull/22014)
-- 🐞 Fix TextArea style get warning in `react@16.13`. [#21703](https://github.com/ant-design/ant-design/pull/21703)
+- 🐞 修复 Descriptions 在小尺寸下无法自适应的问题。[#22407](https://github.com/ant-design/ant-design/pull/22407)
+- 🐞 修复 TextArea `autoSize` 时在 Firefox 下不会自动滚动到底的问题。[#22014](https://github.com/ant-design/ant-design/pull/22014)
+- 🐞 修复 TextArea 样式在 `react@16.13` 下会报警告的问题。[#21703](https://github.com/ant-design/ant-design/pull/21703)
 - Typescript
-  - Adjust Popconfirm `onConfirm` `onCancel` event definition. [#22438](https://github.com/ant-design/ant-design/pull/22438) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
+  - 调整 Popconfirm `onConfirm` `onCancel` 事件类型定义。[#22438](https://github.com/ant-design/ant-design/pull/22438) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
 
 ## 3.26.13
 
