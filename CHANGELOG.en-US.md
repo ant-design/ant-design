@@ -37,7 +37,7 @@ timeline: true
 - 🐞 Fix BackTop not working in iframe and improve it's perfermance. [#22788](https://github.com/ant-design/ant-design/pull/22788)
 - 🐞 Fix Select inconsistent height when `mode="multiple"` and `size="large" />`. [#22904](https://github.com/ant-design/ant-design/pull/22904)
 - 🐞 Fix Radio less variable. [#22803](https://github.com/ant-design/ant-design/pull/22803) [@yoyo837](https://github.com/yoyo837)
-- 🐞 Fix Tabs do not support small size. [#22666](https://github.com/ant-design/ant-design/pull/22666) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix Card Tabs do not support small size. [#22666](https://github.com/ant-design/ant-design/pull/22666) [@MrHeer](https://github.com/MrHeer)
 - 🐞 Fix Affix throws `React warning of state update on unmounted component`. [#22790](https://github.com/ant-design/ant-design/pull/22790)
 - 🐞 Fix Textarea with `clearIcon` additional `margin` in Form.Item. [#22793](https://github.com/ant-design/ant-design/pull/22793)
 - 🐞 Fix List `footer` missing border when data is empty. [#22771](https://github.com/ant-design/ant-design/pull/22771)
