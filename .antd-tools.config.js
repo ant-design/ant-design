@@ -67,4 +67,5 @@ module.exports = {
   dist: {
     finalize: finalizeDist,
   },
+  tag: 'previous',
 };
