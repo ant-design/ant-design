@@ -65,6 +65,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
           project_token: '391f2538-cb86-4c3b-8e09-cf290b8d6809',
           upload: process.env.CI === 'true',
           fail_build: false,
+          prior_commit: 'git rev-parse HEAD~',
           exclude_assets: name => ![`antd.${theme}.min.js`, `antd.${theme}.min.css`].includes(name),
         }),
       );
