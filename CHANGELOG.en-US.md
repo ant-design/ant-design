@@ -45,6 +45,7 @@ timeline: true
 - 🛠 Refactor LocaleReceiver with new context api to avoid React strict mode warning. [#22762](https://github.com/ant-design/ant-design/pull/22762)
 - 🐞 Fix Radio and Checkbox required prop not passing to input. [#22761](https://github.com/ant-design/ant-design/pull/22761)
 - 🐞 Fix variable `--scroll-bar` is undefined. [#22754](https://github.com/ant-design/ant-design/pull/22754) [@mikeyshing88](https://github.com/mikeyshing88)
+- 🐞 Fix Menu and Spin style in compact mode. [#22908](https://github.com/ant-design/ant-design/pull/22908) [@AshoneA](https://github.com/AshoneA)
 - 🐞 Fix Space item duplicate key. [#22745](https://github.com/ant-design/ant-design/pull/22745)
 - 🐞 Fix Select cursor style. [#22743](https://github.com/ant-design/ant-design/pull/22743)
 - 🇫🇷 DatePicker and TimePicker update French locale. [#22769](https://github.com/ant-design/ant-design/pull/22769) [@PaulJln](https://github.com/PaulJln)
