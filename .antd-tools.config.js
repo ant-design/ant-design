@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const packageInfo = require('./package.json');
+const defaultVars = require('./scripts/default-vars');
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
@@ -80,6 +81,7 @@ function finalizeDist() {
     );
     // eslint-disable-next-line no-console
     console.log('Built a entry less file to dist/antd.less');
+    buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
   }
