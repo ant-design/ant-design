@@ -62,7 +62,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
       config.plugins.push(
         new PacktrackerPlugin({
-          project_token: '30c6a021-96c0-4d67-8bd2-0d2fcbd8962b',
+          project_token: '391f2538-cb86-4c3b-8e09-cf290b8d6809',
           upload: process.env.CI === 'true',
           fail_build: false,
           exclude_assets: name => ![`antd.${theme}.min.js`, `antd.${theme}.min.css`].includes(name),
