@@ -53,8 +53,8 @@ timeline: true
   - 💄 新增 Message RTL 样式。[#22513](https://github.com/ant-design/ant-design/pull/22513) [@xrkffgg](https://github.com/xrkffgg)
   - 🐞 修复 Radio RTL 样式。[#22926](https://github.com/ant-design/ant-design/pull/22926) [@AshoneA](https://github.com/AshoneA)
   - 🐞 修复 Menu RTL 样式问题。[#22841](https://github.com/ant-design/ant-design/pull/22841)
-  - 🐞 修复 Form RTL 下 label 样式问题。[#22621](https://github.com/ant-design/ant-design/pull/22621)
-  - 🐞 修复 Space RTL 样式问题。[#22809](https://github.com/ant-design/ant-design/pull/22809)
+  - 🐞 修复 Form RTL 下 label 样式问题。[#22621](https://github.com/ant-design/ant-design/pull/22621) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 修复 Space RTL 样式问题。[#22809](https://github.com/ant-design/ant-design/pull/22809) [@xrkffgg](https://github.com/xrkffgg)
 - TypeScript
   - 🐞 修复 Table `FilterDropdownProps` 类型定义。[#22895](https://github.com/ant-design/ant-design/pull/22895) [@zhangyu1818](https://github.com/zhangyu1818)
   - 🐞 修复 Form `Store` 和 `StoreValue` 类型定义。[#22755](https://github.com/ant-design/ant-design/pull/22755) [@shaodahong](https://github.com/shaodahong)

@@ -53,8 +53,8 @@ timeline: true
   - 💄 Add Message RTL style. [#22513](https://github.com/ant-design/ant-design/pull/22513) [@xrkffgg](https://github.com/xrkffgg)
   - 🐞 Fix Menu RTL style. [#22841](https://github.com/ant-design/ant-design/pull/22841)
   - 🐞 Fix Radio RTL style. [#22926](https://github.com/ant-design/ant-design/pull/22926) [@AshoneA](https://github.com/AshoneA)
-  - 🐞 Fix label display in Form RTL. [#22621](https://github.com/ant-design/ant-design/pull/22621)
-  - 🐞 Fix Space RTL style. [#22809](https://github.com/ant-design/ant-design/pull/22809)
+  - 🐞 Fix label display in Form RTL. [#22621](https://github.com/ant-design/ant-design/pull/22621) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 Fix Space RTL style. [#22809](https://github.com/ant-design/ant-design/pull/22809) [@xrkffgg](https://github.com/xrkffgg)
 - TypeScript
   - 🐞 Fix Table `FilterDropdownProps` TypeScript definition. [#22895](https://github.com/ant-design/ant-design/pull/22895) [@zhangyu1818](https://github.com/zhangyu1818)
   - 🐞 Fix Form `Store` and `StoreValue` TypeScript definition. [#22755](https://github.com/ant-design/ant-design/pull/22755) [@shaodahong](https://github.com/shaodahong)
