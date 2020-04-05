@@ -71,6 +71,7 @@ message.config({
   top: 100,
   duration: 2,
   maxCount: 3,
+  rtl: true,
 });
 ```
 
@@ -80,3 +81,4 @@ message.config({
 | getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |
 | maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |
 | top | 消息距离顶部的位置 | number | 24 |
+| rtl | 是否开启 RTL 模式 | boolean | `false` |

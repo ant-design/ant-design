@@ -1,7 +1,7 @@
 .@{menu-prefix-cls} {
   // dark theme
-  &-dark,
-  &-dark &-sub {
+  &&-dark,
+  &&-dark &-sub {
     color: @menu-dark-color;
     background: @menu-dark-bg;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
@@ -92,6 +92,10 @@
   }
   &-dark &-item:hover {
     background-color: @menu-dark-item-hover-bg;
+  }
+
+  &-dark&-dark:not(&-horizontal) &-item-selected {
+    background-color: @menu-dark-item-active-bg;
   }
 
   &-dark &-item-selected {
