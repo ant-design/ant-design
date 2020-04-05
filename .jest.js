@@ -10,6 +10,7 @@ const transformIgnorePatterns = [
 module.exports = {
   verbose: true,
   setupFiles: ['./tests/setup.js'],
+  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],
   moduleNameMapper: {
