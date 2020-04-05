@@ -73,14 +73,14 @@ type TransformFileHandler = (
   file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
 
-export interface UploadProps {
+export interface UploadProps<T = any> {
   type?: UploadType;
   name?: string;
-  defaultFileList?: Array<UploadFile>;
-  fileList?: Array<UploadFile>;
+  defaultFileList?: Array<UploadFile<T>>;
+  fileList?: Array<UploadFile<T>>;
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
-  data?: object | ((file: UploadFile) => object);
+  data?: object | ((file: UploadFile<T>) => object);
   method?: 'POST' | 'PUT' | 'post' | 'put';
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
@@ -90,9 +90,9 @@ export interface UploadProps {
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;
-  onPreview?: (file: UploadFile) => void;
-  onDownload?: (file: UploadFile) => void;
-  onRemove?: (file: UploadFile) => void | boolean | Promise<void | boolean>;
+  onPreview?: (file: UploadFile<T>) => void;
+  onDownload?: (file: UploadFile<T>) => void;
+  onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -104,20 +104,20 @@ export interface UploadProps {
   id?: string;
   previewFile?: PreviewFileHandler;
   transformFile?: TransformFileHandler;
-  iconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
+  iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
 }
 
-export interface UploadState {
-  fileList: UploadFile[];
+export interface UploadState<T = any> {
+  fileList: UploadFile<T>[];
   dragState: string;
 }
 
-export interface UploadListProps {
+export interface UploadListProps<T = any> {
   listType?: UploadListType;
-  onPreview?: (file: UploadFile) => void;
-  onDownload?: (file: UploadFile) => void;
-  onRemove?: (file: UploadFile) => void | boolean;
-  items?: Array<UploadFile>;
+  onPreview?: (file: UploadFile<T>) => void;
+  onDownload?: (file: UploadFile<T>) => void;
+  onRemove?: (file: UploadFile<T>) => void | boolean;
+  items?: Array<UploadFile<T>>;
   progressAttr?: Object;
   prefixCls?: string;
   showRemoveIcon?: boolean;
@@ -127,5 +127,5 @@ export interface UploadListProps {
   downloadIcon?: React.ReactNode;
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
-  iconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
+  iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
 }
