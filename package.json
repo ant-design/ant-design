@@ -65,7 +65,7 @@
     "lint:md": "remark components/",
     "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
     "lint:style": "stylelint '{site,components}/**/*.less' --syntax less",
-    "lint:tsc": "npm run tsc",
+    "lint:tsc": "npm run tsc -- --noEmit",
     "pre-publish": "npm run check-commit && npm run test-all",
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
