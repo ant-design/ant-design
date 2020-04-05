@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import UnreachableException from '../_util/unreachableException';
 
 export interface ButtonGroupProps {
   size?: SizeType;
@@ -26,8 +27,11 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => (
         case 'small':
           sizeCls = 'sm';
           break;
-        default:
+        case 'middle':
+        case undefined:
           break;
+        default:
+          console.warn(new UnreachableException(size));
       }
 
       const classes = classNames(

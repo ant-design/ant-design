@@ -15,6 +15,7 @@ describe('Button', () => {
   mountTest(Button.Group);
   mountTest(() => <Button.Group size="large" />);
   mountTest(() => <Button.Group size="small" />);
+  mountTest(() => <Button.Group size="middle" />);
 
   rtlTest(Button);
   rtlTest(() => <Button size="large" />);
@@ -22,6 +23,7 @@ describe('Button', () => {
   rtlTest(Button.Group);
   rtlTest(() => <Button.Group size="large" />);
   rtlTest(() => <Button.Group size="small" />);
+  rtlTest(() => <Button.Group size="middle" />);
 
   it('renders correctly', () => {
     const wrapper = render(<Button>Follow</Button>);
@@ -30,6 +32,16 @@ describe('Button', () => {
 
   it('mount correctly', () => {
     expect(() => renderer.create(<Button>Follow</Button>)).not.toThrow();
+  });
+
+  it('warns if size is wrong', () => {
+    const mockWarn = jest.fn();
+    jest.spyOn(console, 'warn').mockImplementation(mockWarn);
+    render(<Button.Group size="who am I" />);
+    expect(mockWarn).toHaveBeenCalledTimes(1);
+    expect(mockWarn.mock.calls[0][0]).toMatchObject({
+      message: 'unreachable case: "who am I"',
+    });
   });
 
   it('renders Chinese characters correctly', () => {
@@ -189,10 +201,7 @@ describe('Button', () => {
 
   it('should has click wave effect', async () => {
     const wrapper = mount(<Button type="primary">button</Button>);
-    wrapper
-      .find('.ant-btn')
-      .getDOMNode()
-      .click();
+    wrapper.find('.ant-btn').getDOMNode().click();
     await new Promise(resolve => setTimeout(resolve, 0));
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -265,9 +274,6 @@ describe('Button', () => {
         throw new Error('Should not called!!!');
       },
     });
-    wrapper
-      .find('Button')
-      .instance()
-      .forceUpdate();
+    wrapper.find('Button').instance().forceUpdate();
   });
 });
