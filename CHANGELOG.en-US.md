@@ -15,6 +15,50 @@ timeline: true
 
 ---
 
+## 4.1.1
+
+- 🐞 Fix Tabs panel focus outline style. [#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix Input affix with popup element can not get click focus. [#22887](https://github.com/ant-design/ant-design/pull/22887)
+- Table
+  - 🆕 Table row selection dropdown support `getPopupContainer`. [#22787](https://github.com/ant-design/ant-design/pull/22787) [@mikeyshing88](https://github.com/mikeyshing88)
+  - 🐞 Fix Table header size with filter or sorter when `size` is configured. [#22872](https://github.com/ant-design/ant-design/pull/22872)
+  - 💄 Adjust nest Table style, compact only when just one table element. [#22868](https://github.com/ant-design/ant-design/pull/22868)
+  - 🐞 Fix Table column `align` not working on head when `sorter` configured. [#22858](https://github.com/ant-design/ant-design/pull/22858)
+  - 🐞 Fix Table filter config not work on jsx structure. [#22888](https://github.com/ant-design/ant-design/pull/22888)
+  - 🐞 Adjust Table expanded row not fix width when scroll only. [#22832](https://github.com/ant-design/ant-design/pull/22832)
+  - 🐞 Fix the column can't show when the `column.children` is `undefined`. [#22832](https://github.com/ant-design/ant-design/pull/22832)
+  - 🐞 Fix Table still show filter icon when `filters` is `undefined`. [#22833](https://github.com/ant-design/ant-design/pull/22833)
+  - 🐞 Fix Table unchanged `filters` should not trigger `onChange`. [#22829](https://github.com/ant-design/ant-design/pull/22829)
+  - 🐞 Fix Table loading compatibility. [#22739](https://github.com/ant-design/ant-design/pull/22739)
+  - 🐞 Fix Table scroll shadow style in Safari. [#22794](https://github.com/ant-design/ant-design/pull/22794)
+- 💄 Adjust RangePicker arrow style. [#22847](https://github.com/ant-design/ant-design/pull/22847)
+- 🐞 Fix Text with `ellipsis` align issue. [#22836](https://github.com/ant-design/ant-design/pull/22836)
+- 💄 Tweak `@info-color` should be `@primary-color` defaultly. [#22723](https://github.com/ant-design/ant-design/pull/22723)
+- 🐞 Fix BackTop not working in iframe and improve it's perfermance. [#22788](https://github.com/ant-design/ant-design/pull/22788)
+- 🐞 Fix Select inconsistent height when `mode="multiple"` and `size="large" />`. [#22904](https://github.com/ant-design/ant-design/pull/22904)
+- 🐞 Fix Radio less variable. [#22803](https://github.com/ant-design/ant-design/pull/22803) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Card Tabs do not support small size. [#22666](https://github.com/ant-design/ant-design/pull/22666) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix Affix throws `React warning of state update on unmounted component`. [#22790](https://github.com/ant-design/ant-design/pull/22790)
+- 🐞 Fix Textarea with `clearIcon` additional `margin` in Form.Item. [#22793](https://github.com/ant-design/ant-design/pull/22793)
+- 🐞 Fix List `footer` missing border when data is empty. [#22771](https://github.com/ant-design/ant-design/pull/22771)
+- 🐞 Fix Slider `tooltipPlacement` option API is changed to be correct again. [#22772](https://github.com/ant-design/ant-design/pull/22772) [@phoenixeliot](https://github.com/phoenixeliot)
+- 🛠 Refactor LocaleReceiver with new context api to avoid React strict mode warning. [#22762](https://github.com/ant-design/ant-design/pull/22762)
+- 🐞 Fix Radio and Checkbox required prop not passing to input. [#22761](https://github.com/ant-design/ant-design/pull/22761)
+- 🐞 Fix variable `--scroll-bar` is undefined. [#22754](https://github.com/ant-design/ant-design/pull/22754) [@mikeyshing88](https://github.com/mikeyshing88)
+- 🐞 Fix Menu and Spin style in compact mode. [#22908](https://github.com/ant-design/ant-design/pull/22908) [@AshoneA](https://github.com/AshoneA)
+- 🐞 Fix Space item duplicate key. [#22745](https://github.com/ant-design/ant-design/pull/22745)
+- 🐞 Fix Select cursor style. [#22743](https://github.com/ant-design/ant-design/pull/22743)
+- 🇫🇷 DatePicker and TimePicker update French locale. [#22769](https://github.com/ant-design/ant-design/pull/22769) [@PaulJln](https://github.com/PaulJln)
+- RTL
+  - 💄 Add Message RTL style. [#22513](https://github.com/ant-design/ant-design/pull/22513) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 Fix Menu RTL style. [#22841](https://github.com/ant-design/ant-design/pull/22841)
+  - 🐞 Fix Radio RTL style. [#22926](https://github.com/ant-design/ant-design/pull/22926) [@AshoneA](https://github.com/AshoneA)
+  - 🐞 Fix label display in Form RTL. [#22621](https://github.com/ant-design/ant-design/pull/22621) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 Fix Space RTL style. [#22809](https://github.com/ant-design/ant-design/pull/22809) [@xrkffgg](https://github.com/xrkffgg)
+- TypeScript
+  - 🐞 Fix Table `FilterDropdownProps` TypeScript definition. [#22895](https://github.com/ant-design/ant-design/pull/22895) [@zhangyu1818](https://github.com/zhangyu1818)
+  - 🐞 Fix Form `Store` and `StoreValue` TypeScript definition. [#22755](https://github.com/ant-design/ant-design/pull/22755) [@shaodahong](https://github.com/shaodahong)
+
 ## 4.1.0
 
 `2020-03-29`
