@@ -3,6 +3,7 @@ const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
 // jest config for server render environment
 module.exports = {
   setupFiles: ['./tests/setup.js'],
+  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   transform: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'moment';
 import MockDate from 'mockdate';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import ConfigProvider from '../../components/config-provider';
 
 // eslint-disable-next-line jest/no-export
@@ -16,7 +16,7 @@ export default function rtlTest(Component, mockDate) {
           <Component />
         </ConfigProvider>,
       );
-      expect(render(wrapper)).toMatchSnapshot();
+      expect(wrapper).toMatchRenderedSnapshot();
       if (mockDate) {
         MockDate.reset();
       }

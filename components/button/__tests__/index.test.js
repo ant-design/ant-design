@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
@@ -26,8 +26,7 @@ describe('Button', () => {
   rtlTest(() => <Button.Group size="middle" />);
 
   it('renders correctly', () => {
-    const wrapper = render(<Button>Follow</Button>);
-    expect(wrapper).toMatchSnapshot();
+    expect(<Button>Follow</Button>).toMatchRenderedSnapshot();
   });
 
   it('mount correctly', () => {
@@ -45,40 +44,33 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly', () => {
-    const wrapper = render(<Button>按钮</Button>);
-    expect(wrapper).toMatchSnapshot();
+    expect(<Button>按钮</Button>).toMatchRenderedSnapshot();
     // should not insert space when there is icon
-    const wrapper1 = render(<Button icon={<SearchOutlined />}>按钮</Button>);
-    expect(wrapper1).toMatchSnapshot();
+    expect(<Button icon={<SearchOutlined />}>按钮</Button>).toMatchRenderedSnapshot();
     // should not insert space when there is icon
-    const wrapper2 = render(
+    expect(
       <Button>
         <SearchOutlined />
         按钮
       </Button>,
-    );
-    expect(wrapper2).toMatchSnapshot();
+    ).toMatchRenderedSnapshot();
     // should not insert space when there is icon
-    const wrapper3 = render(<Button icon={<SearchOutlined />}>按钮</Button>);
-    expect(wrapper3).toMatchSnapshot();
+    expect(<Button icon={<SearchOutlined />}>按钮</Button>).toMatchRenderedSnapshot();
     // should not insert space when there is icon while loading
-    const wrapper4 = render(
+    expect(
       <Button icon={<SearchOutlined />} loading>
         按钮
       </Button>,
-    );
-    expect(wrapper4).toMatchSnapshot();
+    ).toMatchRenderedSnapshot();
     // should insert space while loading
-    const wrapper5 = render(<Button loading>按钮</Button>);
-    expect(wrapper5).toMatchSnapshot();
+    expect(<Button loading>按钮</Button>).toMatchRenderedSnapshot();
 
     // should insert space while only one nested element
-    const wrapper6 = render(
+    expect(
       <Button>
         <span>按钮</span>
       </Button>,
-    );
-    expect(wrapper6).toMatchSnapshot();
+    ).toMatchRenderedSnapshot();
   });
 
   it('renders Chinese characters correctly in HOC', () => {
@@ -103,8 +95,7 @@ describe('Button', () => {
 
   // https://github.com/ant-design/ant-design/issues/18118
   it('should not insert space to link button', () => {
-    const wrapper = render(<Button type="link">按钮</Button>);
-    expect(wrapper).toMatchSnapshot();
+    expect(<Button type="link">按钮</Button>).toMatchRenderedSnapshot();
   });
 
   it('should render empty button without errors', () => {
@@ -191,12 +182,9 @@ describe('Button', () => {
   });
 
   it('fixbug renders {0} , 0 and {false}', () => {
-    const wrapper = render(<Button>{0}</Button>);
-    expect(wrapper).toMatchSnapshot();
-    const wrapper1 = render(<Button>0</Button>);
-    expect(wrapper1).toMatchSnapshot();
-    const wrapper2 = render(<Button>{false}</Button>);
-    expect(wrapper2).toMatchSnapshot();
+    expect(<Button>{0}</Button>).toMatchRenderedSnapshot();
+    expect(<Button>0</Button>).toMatchRenderedSnapshot();
+    expect(<Button>{false}</Button>).toMatchRenderedSnapshot();
   });
 
   it('should has click wave effect', async () => {
