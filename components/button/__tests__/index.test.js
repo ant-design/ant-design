@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';

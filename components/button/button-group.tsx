@@ -31,6 +31,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => (
         case undefined:
           break;
         default:
+          // eslint-disable-next-line no-console
           console.warn(new UnreachableException(size));
       }
 
