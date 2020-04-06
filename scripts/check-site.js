@@ -16,7 +16,7 @@ const components = uniq(
       cwd: join(process.cwd()),
       dot: false,
     })
-    .map(path => path.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '')),
+    .map(path => path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')),
 );
 
 describe('site test', () => {

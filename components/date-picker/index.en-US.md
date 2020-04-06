@@ -123,7 +123,7 @@ Added in `4.1.0`.
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - |  |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-MM" |  |
-| monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
+| monthCellRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |  |
 | value | to set date | [moment](http://momentjs.com/) | - |  |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |

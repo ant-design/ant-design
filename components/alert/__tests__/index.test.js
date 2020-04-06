@@ -60,7 +60,8 @@ describe('Alert', () => {
 
   const testIt = process.env.REACT === '15' ? it.skip : it;
   testIt('ErrorBoundary', () => {
-    const ThrowError = () => <NotExisted />; // eslint-disable-line
+    // eslint-disable-next-line react/jsx-no-undef
+    const ThrowError = () => <NotExisted />;
     const wrapper = mount(
       <ErrorBoundary>
         <ThrowError />

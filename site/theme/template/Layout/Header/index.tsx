@@ -23,7 +23,8 @@ const { Option } = Select;
 
 let docsearch: any;
 if (typeof window !== 'undefined') {
-  docsearch = require('docsearch.js'); // eslint-disable-line
+  // eslint-disable-next-line global-require
+  docsearch = require('docsearch.js');
 }
 
 function initDocSearch(locale: string) {
@@ -38,8 +39,8 @@ function initDocSearch(locale: string) {
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits: { url: string }[]) {
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
-        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
+        hit.url = hit.url.replace('ant.design', window.location.host);
+        hit.url = hit.url.replace('https:', window.location.protocol)
       });
       return hits;
     },

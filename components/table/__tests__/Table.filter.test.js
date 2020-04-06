@@ -1113,4 +1113,25 @@ describe('Table.filter', () => {
     expect(onFilter).toHaveBeenCalled();
     expect(wrapper.find('tbody tr')).toHaveLength(1);
   });
+
+  it('jsx work', () => {
+    const wrapper = mount(
+      <Table dataSource={data}>
+        <Table.Column
+          title="Name"
+          dataIndex="name"
+          filters={[
+            { text: 'Jack', value: 'Jack' },
+            { text: 'Lucy', value: 'Lucy' },
+          ]}
+          onFilter={(value, record) => record.name.includes(value)}
+          defaultFilteredValue={['Jack']}
+        />
+      </Table>,
+    );
+
+    expect(wrapper.find('tbody tr')).toHaveLength(1);
+    expect(wrapper.find('tbody tr td').text()).toEqual('Jack');
+    
+  });
 });

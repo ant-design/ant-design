@@ -254,6 +254,12 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
 />
 `;
 
+exports[`Button rtl render component should be rendered correctly in RTL direction 7`] = `
+<div
+  class="ant-btn-group ant-btn-group-rtl"
+/>
+`;
+
 exports[`Button should has click wave effect 1`] = `
 <button
   ant-click-animating-without-extra-node="true"

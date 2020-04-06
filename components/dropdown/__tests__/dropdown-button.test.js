@@ -40,7 +40,7 @@ describe('DropdownButton', () => {
     const dropdownProps = wrapper.find(Dropdown).props();
 
     Object.keys(props).forEach(key => {
-      expect(dropdownProps[key]).toBe(props[key]); // eslint-disable-line
+      expect(dropdownProps[key]).toBe(props[key]);
     });
   });
 

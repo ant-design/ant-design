@@ -43,7 +43,7 @@ function getModuleData(props) {
 }
 
 function fileNameToPath(filename) {
-  const snippets = filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
+  const snippets = filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').split('/');
   return snippets[snippets.length - 1];
 }
 
@@ -195,8 +195,10 @@ class MainContent extends Component {
     if (!document.querySelector('.markdown > h2, .code-box')) {
       return;
     }
-    require('intersection-observer'); // eslint-disable-line
-    const scrollama = require('scrollama'); // eslint-disable-line
+    // eslint-disable-next-line global-require
+    require('intersection-observer');
+    // eslint-disable-next-line global-require
+    const scrollama = require('scrollama');
     this.scroller = scrollama();
     this.scroller
       .setup({
@@ -205,7 +207,7 @@ class MainContent extends Component {
       })
       .onStepEnter(({ element }) => {
         [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-          node.className = ''; // eslint-disable-line
+          node.className = '';
         });
         const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
         if (currentNode) {
@@ -232,7 +234,7 @@ class MainContent extends Component {
           </span>,
         ];
     const { disabled } = item;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
     const child = !item.link ? (
       <Link
         to={utils.getLocalizedPathname(

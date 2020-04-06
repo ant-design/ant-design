@@ -92,7 +92,7 @@ class Demo extends React.Component {
     });
   };
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line class-methods-use-this
   track({ type, demo }) {
     if (!window.gtag) {
       return;
@@ -180,18 +180,18 @@ class Demo extends React.Component {
       title: `${localizedTitle} - Ant Design Demo`,
       html,
       js: sourceCode
-        .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'antd';/, 'const { $1 } = antd;')
+        .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(
-          /import\s+\{(\s+[^}]*\s+)\}\s+from\s+'@ant-design\/icons';/,
+          /import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/,
           'const { $1 } = icons;',
         )
         .replace("import moment from 'moment';", '')
-        .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
+        .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
-          /import\s+\{\s+(.*)\s+\}\s+from\s+'react-router-dom';/,
+          /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
           'const { $1 } = ReactRouterDOM;',
         )
-        .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
+        .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
       // eslint-disable-next-line no-undef
@@ -300,7 +300,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
           {style ? (
-            <style dangerouslySetInnerHTML={{ __html: style }} /> // eslint-disable-line
+            <style dangerouslySetInnerHTML={{ __html: style }} />
           ) : null}
         </section>
         <section className="code-box-meta markdown">

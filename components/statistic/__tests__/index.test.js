@@ -21,6 +21,11 @@ describe('Statistic', () => {
     MockDate.reset();
   });
 
+  it('`-` is not a number', () => {
+    const wrapper = mount(<Statistic value="-" />);
+    expect(wrapper.find('.ant-statistic-content').text()).toEqual('-');
+  });
+
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
     const wrapper = mount(<Statistic value={1128} formatter={formatter} />);
@@ -47,12 +52,7 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment()
-        .add(2, 'd')
-        .add(11, 'h')
-        .add(28, 'm')
-        .add(9, 's')
-        .add(3, 'ms');
+      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
 
       [
         ['H:m:s', '59:28:9'],
