@@ -82,7 +82,8 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false"
+    "site:test": "jest --config .jest.site.js --cache=false",
+    "storybook:start": "start-storybook --config-dir='storybook'"
   },
   "husky": {
     "hooks": {
@@ -148,6 +149,10 @@
     "@ant-design/tools": "^8.2.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
     "@types/classnames": "^2.2.8",
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.3",
@@ -211,6 +216,7 @@
     "logrocket": "^1.0.0",
     "logrocket-react": "^4.0.0",
     "lz-string": "^1.4.4",
+    "mini-css-extract-plugin": "^0.9.0",
     "mockdate": "^2.0.2",
     "node-fetch": "^2.6.0",
     "open": "^7.0.3",
