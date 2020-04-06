@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../button';
-import { ButtonType, NativeButtonProps } from '../button/button';
+import { ButtonType, ButtonProps } from '../button/button';
 
 export interface ActionButtonProps {
   type?: ButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
   closeModal: Function;
   autoFocus?: boolean;
-  buttonProps?: NativeButtonProps;
+  buttonProps?: ButtonProps;
 }
 
 export interface ActionButtonState {
