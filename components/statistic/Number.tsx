@@ -20,7 +20,7 @@ const StatisticNumber: React.FC<NumberProps> = props => {
     const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number
-    if (!cells) {
+    if (!cells || val === '-') {
       valueNode = val;
     } else {
       const negative = cells[1];
