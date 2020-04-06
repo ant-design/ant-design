@@ -28,8 +28,8 @@ An enterprise-class UI design language and React UI library.
 [david-dev-url]: https://david-dm.org/ant-design/ant-design?type=dev
 [david-dev-image]: https://david-dm.org/ant-design/ant-design/dev-status.svg?style=flat-square
 [david-url]: https://david-dm.org/ant-design/ant-design
-[download-image]: https://img.shields.io/npm/dm/rc-picker.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-picker
+[download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
+[download-url]: https://npmjs.org/package/antd
 [lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
 [lgtm-url]: https://lgtm.com/projects/g/ant-design/ant-design/alerts/
 [lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
