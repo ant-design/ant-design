@@ -9,8 +9,11 @@ import Wave from '../wave';
 import TransButton from '../transButton';
 import openAnimation from '../openAnimation';
 import { sleep } from '../../../tests/utils';
+import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
+  focusTest(TransButton);
+
   it('throttle function should work', async () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);
