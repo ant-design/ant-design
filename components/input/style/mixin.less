@@ -300,10 +300,14 @@
     }
 
     & > * {
-      display: inline-flex;
+      display: inline-block;
       float: none;
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       border-radius: 0;
+    }
+
+    & > .@{inputClass}-affix-wrapper {
+      display: inline-flex;
     }
 
     & > *:not(:last-child) {
