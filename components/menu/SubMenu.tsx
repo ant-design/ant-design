@@ -49,7 +49,11 @@ class SubMenu extends React.Component<SubMenuProps, any> {
           <RcSubMenu
             {...this.props}
             ref={this.saveSubMenu}
-            popupClassName={classNames(`${rootPrefixCls}-${antdMenuTheme}`, popupClassName)}
+            popupClassName={classNames(
+              rootPrefixCls,
+              `${rootPrefixCls}-${antdMenuTheme}`,
+              popupClassName,
+            )}
           />
         )}
       </MenuContext.Consumer>
