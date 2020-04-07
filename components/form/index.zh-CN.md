@@ -78,6 +78,7 @@ const validateMessages = {
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |  |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string\|ReactNode | - |  |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
+| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
 | label | `label` 标签的文本 | string\|ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
