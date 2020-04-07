@@ -5,15 +5,21 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
+import {
+  PresetColorTypes,
+  PresetStatusColorTypes,
+  PresetColorType,
+  PresetStatusColorType,
+} from '../_util/colors';
 import Wave from '../_util/wave';
+import { LiteralUnion } from '../_util/type';
 
 export { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
-  color?: string;
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
   visible?: boolean;
   onClose?: Function;
