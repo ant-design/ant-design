@@ -314,6 +314,15 @@ Before Modal open, children elements do not exist in the view. You can set `forc
 
 Components inside Form.Item with name property will turn into controlled mode, that makes `defaultValue` does not work anymore. Please try `initialValues` of Form to set default value.
 
+
+### Difference between Form initialValues and Item initialValue?
+
+In most case, we always recommend to use Form `initialValues`. Use Item `initialValue` only when dynamic field usage. Priority follow the rules:
+
+1. Form `initialValues` is the first priority
+2. Field `initialValue` is secondary
+    *. Not work when multiple Item with same `name` setting the `initialValue`
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);

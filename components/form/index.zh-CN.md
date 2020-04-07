@@ -315,6 +315,14 @@ validator(rule, value, callback) => {
 
 当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
 
+### Form 的 initialValues 与 Item 的 initialValue 区别？
+
+在大部分场景下，我们总是推荐优先使用 Form 的 `initialValues`。只有存在动态字段时你才应该使用 Item 的 `initialValue`。默认值遵循以下规则：
+
+1. Form 的 `initialValues` 拥有最高优先级
+2. Field 的 `initialValue` 次之
+    *. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
