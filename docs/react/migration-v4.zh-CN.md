@@ -9,8 +9,8 @@ title: 从 v3 到 v4
 
 1. 请先升级到 3.x 的最新版本，按照控制台 warning 信息移除/修改相关的 API。
 2. 升级项目 React 16.12.0 以上。
-   - 如果你仍在使用 React 15，请参考[React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)
-   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
+   - 如果你仍在使用 React 15，请参考 [React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)。
+   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)。
 
 ## 4.0 有哪些不兼容的变化
 
