@@ -105,7 +105,7 @@
   &-suffix {
     align-self: center;
     margin-left: @padding-xs / 2;
-    color: @disabled-color;
+    color: @text-color-secondary;
     pointer-events: none;
   }
 
@@ -113,7 +113,7 @@
     position: absolute;
     top: 50%;
     right: 0;
-    color: @disabled-color;
+    color: @text-color-secondary;
     background: @component-background;
     transform: translateY(-50%);
     cursor: pointer;
@@ -121,7 +121,7 @@
     transition: opacity @animation-duration-slow, color @animation-duration-slow;
 
     &:hover {
-      color: @text-color-secondary;
+      color: @disabled-color;
     }
   }
 
@@ -136,22 +136,38 @@
     &::before,
     &::after {
       position: absolute;
-      border-top: 1px solid #979797;
+      height: 1px;
+      background: mix(@black, @component-background, 25%);
+      border-radius: 0.5px;
       content: '';
+
+      & when (@theme = dark) {
+        background: mix(@white, @component-background, 25%);
+      }
+
+      .@{picker-prefix-cls}-focused & {
+        background: mix(@black, @component-background, 45%);
+
+        & when (@theme = dark) {
+          background: mix(@white, @component-background, 45%);
+        }
+      }
     }
+    // when (@theme = dark) {
 
     &::before {
       top: 50%;
-      left: 0.1em;
-      width: 0.8em;
+      left: 0.15em;
+      width: 0.7em;
+      transform: translateY(1px);
     }
 
     &::after {
       top: 50%;
-      right: 0.11em;
+      right: 0.13em;
       width: 0.8em;
-      width: 0.3em;
-      transform: rotate(45deg);
+      width: 0.35em;
+      transform: translateY(1.05px) rotate(45deg);
       transform-origin: 100% 100%;
     }
 
