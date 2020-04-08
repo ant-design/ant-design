@@ -424,9 +424,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     <div
       className={wrapperClassNames}
       style={style}
-      onTouchMove={e => {
-        e.preventDefault();
-      }}
     >
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
