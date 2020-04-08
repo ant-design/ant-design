@@ -37,7 +37,7 @@ We will use [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-mod
 
 ### Customize in webpack
 
-We take a typical `webpack.config.js` file as example to customize it's [less-loader](https://github.com/webpack-contrib/less-loader) options.
+We take a typical `webpack.config.js` file as example to customize its [less-loader](https://github.com/webpack-contrib/less-loader) options.
 
 ```diff
 // webpack.config.js
