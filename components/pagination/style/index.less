@@ -216,6 +216,14 @@
     margin-left: 16px;
     vertical-align: middle;
 
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        vertical-align: top;
+      }
+    }
+
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
       width: auto;
