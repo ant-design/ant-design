@@ -56,7 +56,7 @@ title: Select
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |  |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |  |
 | value | 指定当前选中的条目 | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
-| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(string\|number\|LabeledValue) | - |  |

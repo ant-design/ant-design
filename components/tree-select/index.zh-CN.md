@@ -51,7 +51,7 @@ title: TreeSelect
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | 'value' |  |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | 'title' |  |
 | value | 指定当前选中的条目 | string/string\[] | - |  |
-| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
