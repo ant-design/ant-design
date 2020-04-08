@@ -68,6 +68,14 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        flex: auto;
+      }
+    }
   }
 
   // ======================= Placeholder =======================
@@ -77,6 +85,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     opacity: 0.4;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        flex: auto;
+      }
+    }
   }
 
   // ========================== Arrow ==========================
