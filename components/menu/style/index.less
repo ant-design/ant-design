@@ -396,7 +396,7 @@
       height: @menu-item-height;
       margin-top: @menu-item-vertical-margin;
       margin-bottom: @menu-item-vertical-margin;
-      padding: 0 34px 0 16px;
+      padding: 0 16px;
       overflow: hidden;
       font-size: @menu-item-font-size;
       line-height: @menu-item-height;
@@ -416,6 +416,12 @@
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       height: @menu-inline-toplevel-item-height;
       line-height: @menu-inline-toplevel-item-height;
+    }
+  }
+
+  &-vertical {
+    .@{menu-prefix-cls}-submenu-title {
+      padding-right: 34px;
     }
   }
 
