@@ -65,8 +65,14 @@ class Demo extends React.Component {
     const dropPos = info.node.props.pos.split('-');
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
+    const newforEach = (arr, fn) => {
+      let i
+      for (i = 0; i < arr.length; i++) {
+        fn(arr[i], i, arr);
+      }
+    }
     const loop = (data, key, callback) => {
-      data.forEach((item, index, arr) => {
+      newforEach(data, (item, index, arr) => {
         if (item.key === key) {
           return callback(item, index, arr);
         }
