@@ -126,9 +126,9 @@ const Demo = () => (
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
 - Table rewrite.
-
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+- Pagination will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
 
 ```diff
 <Table
