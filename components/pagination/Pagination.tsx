@@ -56,7 +56,7 @@ export type PaginationPosition =
   | 'bottomRight';
 
 export interface PaginationConfig extends PaginationProps {
-  position?: [PaginationPosition] | PaginationPosition;
+  position?: PaginationPosition[] | PaginationPosition;
 }
 
 export type PaginationLocale = any;
