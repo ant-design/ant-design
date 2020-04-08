@@ -70,6 +70,14 @@
     text-overflow: ellipsis;
   }
 
+  // IE11 css hack. `*::-ms-backdrop,` is a must have
+  @media all and (-ms-high-contrast: none) {
+    *::-ms-backdrop,
+    .@{select-prefix-cls}-selection-item {
+      flex: auto;
+    }
+  }
+
   // ======================= Placeholder =======================
   &-selection-placeholder {
     flex: 1;
@@ -77,6 +85,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     opacity: 0.4;
+  }
+
+  // IE11 css hack. `*::-ms-backdrop,` is a must have
+  @media all and (-ms-high-contrast: none) {
+    *::-ms-backdrop,
+    .@{select-prefix-cls}-selection-placeholder {
+      flex: auto;
+    }
   }
 
   // ========================== Arrow ==========================
