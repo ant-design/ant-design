@@ -73,6 +73,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
     !!help,
   );
 
+  React.useEffect(
+    () => () => {
+      onDomErrorVisibleChange(false);
+    },
+    [],
+  );
+
   const memoErrors = useMemo(
     () => cacheErrors,
     visible,

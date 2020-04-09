@@ -322,14 +322,18 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 <div>
   <span
-    class="ant-tag"
+    class="ant-tag edit-tag"
   >
-    Unremovable
+    <span>
+      Unremovable
+    </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag edit-tag"
   >
-    Tag 2
+    <span>
+      Tag 2
+    </span>
     <span
       aria-label="close"
       class="anticon anticon-close"
@@ -353,9 +357,11 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag edit-tag"
   >
-    Tag 3
+    <span>
+      Tag 3
+    </span>
     <span
       aria-label="close"
       class="anticon anticon-close"

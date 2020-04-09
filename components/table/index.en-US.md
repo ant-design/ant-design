@@ -285,3 +285,7 @@ You can set `hideOnSinglePage` with `pagination` prop.
 Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
 
 You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
+
+### Why Table pagination show size changer?
+
+In order to improve user experience, Pagination show size changer by default when `total >= 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.

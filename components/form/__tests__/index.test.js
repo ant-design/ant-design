@@ -588,12 +588,7 @@ describe('Form', () => {
     await delay(50);
     wrapper.update();
 
-    expect(
-      wrapper
-        .find('.ant-form-item-explain')
-        .first()
-        .text(),
-    ).toEqual('Bamboo is good!');
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
   it('return same form instance', () => {
@@ -665,5 +660,38 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
     );
+  });
+
+  it('Remove Field should also reset error', async () => {
+    class Demo extends React.Component {
+      state = {
+        showA: true,
+      };
+
+      render() {
+        return (
+          <Form>
+            {this.state.showA ? (
+              <Form.Item name="a" help="error">
+                <input />
+              </Form.Item>
+            ) : (
+              <Form.Item name="b">
+                <input />
+              </Form.Item>
+            )}
+          </Form>
+        );
+      }
+    }
+
+    const wrapper = mount(<Demo />);
+    await Promise.resolve();
+    expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeTruthy();
+
+    wrapper.setState({ showA: false });
+    await Promise.resolve();
+    wrapper.update();
+    expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
   });
 });
