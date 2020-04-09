@@ -3,6 +3,7 @@ order: 4
 title:
   zh-CN: 加载中状态
   en-US: Loading
+only: true
 ---
 
 ## zh-CN
@@ -24,7 +25,7 @@ class App extends React.Component {
   };
 
   enterLoading = () => {
-    this.setState({ loading: true });
+    this.setState(({ loading }) => ({ loading: !loading }));
   };
 
   enterIconLoading = () => {
