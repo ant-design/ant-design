@@ -31,7 +31,7 @@ cols: 1
 | pageSizeOptions | 指定每页可以显示多少条 | string\[] | \['10', '20', '50', '100'] |  |
 | showLessItems | 是否显示较少页面内容 | boolean | false |  |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| `{ goButton: ReactNode }` | false |  |
-| showSizeChanger | 是否展示 `pageSize` 切换器，当 `total` 大于 `100` 时默认为 `true` | boolean | - |  |
+| showSizeChanger | 是否展示 `pageSize` 切换器，当 `total` 大于 `50` 时默认为 `true` | boolean | - |  |
 | showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - |  |
 | simple | 当添加该属性时，显示为简单分页 | boolean | - |  |
 | size | 当为「small」时，是小尺寸分页 | 'default' \| 'small' | "" |  |
