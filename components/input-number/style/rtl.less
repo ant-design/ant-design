@@ -5,6 +5,10 @@
 @input-number-prefix-cls: ~'@{ant-prefix}-input-number';
 
 .@{input-number-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
   &-handler-wrap {
     .@{input-number-prefix-cls}-rtl & {
       right: auto;
