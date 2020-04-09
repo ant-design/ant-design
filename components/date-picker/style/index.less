@@ -130,45 +130,13 @@
     display: inline-block;
     width: 1em;
     height: @font-size-lg;
+    color: @disabled-color;
+    font-size: @font-size-lg;
     vertical-align: top;
     cursor: default;
 
-    &::before,
-    &::after {
-      position: absolute;
-      height: 1px;
-      background: mix(@black, @component-background, 25%);
-      border-radius: 0.5px;
-      content: '';
-
-      & when (@theme = dark) {
-        background: mix(@white, @component-background, 25%);
-      }
-
-      .@{picker-prefix-cls}-focused & {
-        background: mix(@black, @component-background, 45%);
-
-        & when (@theme = dark) {
-          background: mix(@white, @component-background, 45%);
-        }
-      }
-    }
-    // when (@theme = dark) {
-
-    &::before {
-      top: 50%;
-      left: 0.15em;
-      width: 0.7em;
-      transform: translateY(1px);
-    }
-
-    &::after {
-      top: 50%;
-      right: 0.13em;
-      width: 0.8em;
-      width: 0.35em;
-      transform: translateY(1.05px) rotate(45deg);
-      transform-origin: 100% 100%;
+    .@{picker-prefix-cls}-focused & {
+      color: @text-color-secondary;
     }
 
     .@{picker-prefix-cls}-range-separator & {
