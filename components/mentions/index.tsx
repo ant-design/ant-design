@@ -156,6 +156,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         notFoundContent={this.getNotFoundContent(renderEmpty)}
         className={mergedClassName}
         disabled={disabled}
+        direction={direction}
         {...mentionsProps}
         filterOption={this.getFilterOption()}
         onFocus={this.onFocus}
