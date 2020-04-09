@@ -256,6 +256,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
             [`${prefixCls}-${sizeCls}`]: sizeCls,
             [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
             [`${prefixCls}-background-ghost`]: ghost,
+            [`${prefixCls}-loading`]: loading,
             [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
             [`${prefixCls}-block`]: block,
             [`${prefixCls}-dangerous`]: !!danger,
@@ -263,7 +264,11 @@ class Button extends React.Component<ButtonProps, ButtonState> {
           });
 
           const iconNode =
-            icon && !loading ? icon : <LoadingIcon prefixCls={prefixCls} loading={loading} />;
+            icon && !loading ? (
+              icon
+            ) : (
+              <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={loading} />
+            );
 
           const kids =
             children || children === 0

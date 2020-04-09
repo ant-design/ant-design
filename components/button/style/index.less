@@ -27,7 +27,6 @@
   > i,
   > span {
     display: inline-block;
-    transition: margin-left 0.3s @ease-in-out;
     pointer-events: none;
   }
 
@@ -149,9 +148,12 @@
     }
   }
 
-  &-loading-icon {
-    padding-right: @margin-xs;
-    margin-right: -@margin-xs;
+  & > &-loading-icon {
+    transition: all 0.3s linear;
+
+    .@{iconfont-css-prefix} {
+      padding-right: @margin-xs;
+    }
   }
 
   &-group {
