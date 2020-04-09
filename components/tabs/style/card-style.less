@@ -169,15 +169,14 @@
   // https://github.com/ant-design/ant-design/issues/9104
   & &-card-bar&-bottom-bar &-tab {
     height: auto;
-    border-top: 0;
+    border-top-color: @border-color-split;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
   }
 
   & &-card-bar&-bottom-bar &-tab-active {
-    padding-top: 1px;
-    padding-bottom: 0;
     color: @primary-color;
+    border-top-color: @component-background;
   }
 }
 
