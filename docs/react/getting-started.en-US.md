@@ -16,7 +16,7 @@ If you try in local environment, Please refer to [Install and Initialization](ht
 Here is a simple codesandbox example to show the usage of Ant Design React.
 
 <iframe
-  src="https://codesandbox.io/embed/antd-reproduction-template-6e93z?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/antd-reproduction-template-08g8k?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="antd reproduction template"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
