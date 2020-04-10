@@ -22,7 +22,6 @@
   }
 
   &-back {
-    margin: 8px 0;
     margin-right: @margin-md;
     font-size: 16px;
     line-height: 1;
@@ -112,14 +111,11 @@
     }
   }
 
-  @media (max-width: @screen-md) {
-    &-heading {
-      &-extra {
-        display: block;
-        clear: both;
-        width: 100%;
-        padding-top: @padding-sm;
-      }
+  &-compact &-heading {
+    flex-direction: column;
+
+    &-extra {
+      margin-top: @margin-xs;
     }
   }
 }

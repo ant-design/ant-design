@@ -2,7 +2,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
-
+import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Tag from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
@@ -113,45 +113,54 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
   return <div className={`${prefixCls}-content`}>{children}</div>;
 };
 
-const PageHeader: React.FC<PageHeaderProps> = props => (
-  <ConfigConsumer>
-    {({ getPrefixCls, pageHeader, direction }: ConfigConsumerProps) => {
-      const {
-        prefixCls: customizePrefixCls,
-        style,
-        footer,
-        children,
-        breadcrumb,
-        className: customizeClassName,
-      } = props;
-      let ghost: undefined | boolean = true;
+const PageHeader: React.FC<PageHeaderProps> = props => {
+  const [compact, updateCompact] = React.useState(false);
+  const onResize = ({ width }: { width: number }) => {
+    updateCompact(width < 540);
+  };
+  return (
+    <ConfigConsumer>
+      {({ getPrefixCls, pageHeader, direction }: ConfigConsumerProps) => {
+        const {
+          prefixCls: customizePrefixCls,
+          style,
+          footer,
+          children,
+          breadcrumb,
+          className: customizeClassName,
+        } = props;
+        let ghost: undefined | boolean = true;
 
-      // Use `ghost` from `props` or from `ConfigProvider` instead.
-      if ('ghost' in props) {
-        ghost = props.ghost;
-      } else if (pageHeader && 'ghost' in pageHeader) {
-        ghost = pageHeader.ghost;
-      }
+        // Use `ghost` from `props` or from `ConfigProvider` instead.
+        if ('ghost' in props) {
+          ghost = props.ghost;
+        } else if (pageHeader && 'ghost' in pageHeader) {
+          ghost = pageHeader.ghost;
+        }
 
-      const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-      const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
-      const className = classnames(prefixCls, customizeClassName, {
-        'has-breadcrumb': breadcrumbDom,
-        'has-footer': footer,
-        [`${prefixCls}-ghost`]: ghost,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      });
+        const prefixCls = getPrefixCls('page-header', customizePrefixCls);
+        const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
+        const className = classnames(prefixCls, customizeClassName, {
+          'has-breadcrumb': breadcrumbDom,
+          'has-footer': footer,
+          [`${prefixCls}-ghost`]: ghost,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-compact`]: compact,
+        });
 
-      return (
-        <div className={className} style={style}>
-          {breadcrumbDom}
-          {renderTitle(prefixCls, props, direction)}
-          {children && renderChildren(prefixCls, children)}
-          {renderFooter(prefixCls, footer)}
-        </div>
-      );
-    }}
-  </ConfigConsumer>
-);
+        return (
+          <ResizeObserver onResize={onResize}>
+            <div className={className} style={style}>
+              {breadcrumbDom}
+              {renderTitle(prefixCls, props, direction)}
+              {children && renderChildren(prefixCls, children)}
+              {renderFooter(prefixCls, footer)}
+            </div>
+          </ResizeObserver>
+        );
+      }}
+    </ConfigConsumer>
+  );
+};
 
 export default PageHeader;
