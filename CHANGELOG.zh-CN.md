@@ -25,7 +25,7 @@ timeline: true
 - Button
   - 🐞 修复带图标 Button 的 `loading` 动画效果。 [#23102](https://github.com/ant-design/ant-design/pull/23102)
   - ⚠️ 优化 Button 非法 `type` 的控制台提示。[#22933](https://github.com/ant-design/ant-design/pull/22933)
-- 🐞 修复 Statistic 在值为 - 时会展示成 -0 的问题。[@22950](https://github.com/ant-design/ant-design/pull/22950)
+- 🐞 修复 Statistic 在值为 `-` 时会展示成 `-0` 的问题。[@22950](https://github.com/ant-design/ant-design/pull/22950)
 - 🐞 修复 Modal.confirm `onOk` 可以被触发多次的问题。[#22963](https://github.com/ant-design/ant-design/pull/22963)
 - Input
   - 🐞 修复 Input.Group 中 Button 不能对齐的样式问题。[#22975](https://github.com/ant-design/ant-design/pull/22975)
