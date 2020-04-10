@@ -32,6 +32,7 @@ import defaultLocale from '../locale/en_US';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
+import warning from '../_util/warning';
 
 export { ColumnsType, TablePaginationConfig };
 
@@ -291,15 +292,25 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================= Data =============================
   const pageData = React.useMemo<RecordType[]>(() => {
-    if (
-      pagination === false ||
-      !mergedPagination.pageSize ||
-      mergedData.length < mergedPagination.total!
-    ) {
+    if (pagination === false || !mergedPagination.pageSize) {
       return mergedData;
     }
 
-    const { current = 1, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
+    const { current = 1, total, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
+
+    // Dynamic table data
+    if (mergedData.length < total!) {
+      if (mergedData.length > pageSize) {
+        warning(
+          false,
+          'Table',
+          '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
+        );
+        return mergedData.slice((current - 1) * pageSize, current * pageSize);
+      }
+      return mergedData;
+    }
+
     const currentPageData = mergedData.slice((current - 1) * pageSize, current * pageSize);
     return currentPageData;
   }, [
@@ -421,10 +432,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
   });
   return (
-    <div
-      className={wrapperClassNames}
-      style={style}
-    >
+    <div className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>
