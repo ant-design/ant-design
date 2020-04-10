@@ -332,7 +332,7 @@ exports[`Button should render empty button without errors 1`] = `
         prefixCls="ant-btn"
       >
         <ForwardRef
-          motionName="zoom"
+          motionName="ant-btn-loading-icon-motion"
           onAppearActive={[Function]}
           onAppearStart={[Function]}
           onEnterActive={[Function]}
@@ -347,7 +347,7 @@ exports[`Button should render empty button without errors 1`] = `
             motionAppear={true}
             motionEnter={true}
             motionLeave={true}
-            motionName="zoom"
+            motionName="ant-btn-loading-icon-motion"
             onAppearActive={[Function]}
             onAppearStart={[Function]}
             onEnterActive={[Function]}
