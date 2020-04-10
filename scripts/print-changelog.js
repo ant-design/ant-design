@@ -4,6 +4,8 @@ const chalk = require('chalk');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
 const fetch = require('node-fetch');
+const open = require('open');
+const fs = require('fs-extra');
 const simpleGit = require('simple-git/promise');
 
 const { JSDOM } = jsdom;
@@ -26,11 +28,7 @@ const cwd = process.cwd();
 const git = simpleGit(cwd);
 
 function getDescription(row = '') {
-  return row
-    .trim()
-    .replace('🇺🇸 English', '')
-    .replace('🇨🇳 Chinese', '')
-    .trim();
+  return row.trim().replace('🇺🇸 English', '').replace('🇨🇳 Chinese', '').trim();
 }
 
 async function printLog() {
@@ -74,23 +72,13 @@ async function printLog() {
 
       const $html = $(html);
 
-      const prTitle = $html
-        .find(QUERY_TITLE)
-        .text()
-        .trim();
-      const prAuthor = $html
-        .find(QUERY_AUTHOR)
-        .text()
-        .trim();
+      const prTitle = $html.find(QUERY_TITLE).text().trim();
+      const prAuthor = $html.find(QUERY_AUTHOR).text().trim();
       const prLines = $html.find(QUERY_DESCRIPTION_LINES);
 
       const lines = [];
       prLines.each(function getDesc() {
-        lines.push(
-          $(this)
-            .text()
-            .trim(),
-        );
+        lines.push($(this).text().trim());
       });
 
       const english = getDescription(lines.find(line => line.includes('🇺🇸 English')));
