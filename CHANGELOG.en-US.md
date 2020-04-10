@@ -18,7 +18,7 @@ timeline: true
 ## 4.1.2
 
 - Menu
-  - 🐞 Fix Menu submenu background in dark mode. [#22981](https://github.com/ant-design/ant-design/pull/22981) [@AshoneA](https://github.com/AshoneA)
+  - 🐞 Fix Menu SubMenu background in dark mode. [#22981](https://github.com/ant-design/ant-design/pull/22981) [@AshoneA](https://github.com/AshoneA)
   - 🐞 Fix long SubMenu title being overlayed by arrow icon. [#23028](https://github.com/ant-design/ant-design/pull/23028) [@wwyx778](https://github.com/wwyx778)
 - 🐞 Fix dark and compact theme cannot work together. [#22934](https://github.com/ant-design/ant-design/pull/22934) [@AshoneA](https://github.com/AshoneA)
 - 🐞 Fix Notification invalid `paddig-top` value. [#22941](https://github.com/ant-design/ant-design/pull/22941)
