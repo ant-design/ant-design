@@ -42,7 +42,7 @@ timeline: true
   - 🐞 Fix Select style in IE11. [#23020](https://github.com/ant-design/ant-design/pull/23020)
 - 🐞 Fix Calendar missing `style` prop support. [#23081](https://github.com/ant-design/ant-design/pull/23081)
 - 🐞 Fix Tabs bottom card active tab wrong height style. [#23087](https://github.com/ant-design/ant-design/pull/23087)
-- 🐞 Fix RTL support or Anchor, Select, DatePicker, Grid, Mentions. [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Fix RTL support of Anchor, Select, DatePicker, Grid, Mentions. [@xrkffgg](https://github.com/xrkffgg)
 - TypeScript
   - 🌟 Upload `UploadProps` support generic typing. [#22921](https://github.com/ant-design/ant-design/pull/22921) [@dpyzo0o](https://github.com/dpyzo0o)
   - 🐞 Fix Modal.confirm `okButtonProps` types. [#21165](https://github.com/ant-design/ant-design/pull/21165) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
