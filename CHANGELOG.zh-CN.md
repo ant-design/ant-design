@@ -28,7 +28,7 @@ timeline: true
 - 🐞 修复 Statistic 在值为 `-` 时会展示成 `-0` 的问题。[@22950](https://github.com/ant-design/ant-design/pull/22950)
 - 🐞 修复 Modal.confirm `onOk` 可以被触发多次的问题。[#22963](https://github.com/ant-design/ant-design/pull/22963)
 - Input
-  - 🐞 修复 Input.Group 中 Button 不能对齐的样式问题。[#22975](https://github.com/ant-design/ant-design/pull/22975)
+  - 🐞 修复 Input.Group 中 Button 不能对齐的问题。[#22975](https://github.com/ant-design/ant-design/pull/22975)
   - 🐞 修复 Input 在暗黑模式下使用 `affix` 的背景样式问题。[#23115](https://github.com/ant-design/ant-design/pull/23115)
 - 🐞 修复 Form.Item 在动态切换时没有正确重置错误样式的问题。[#23041](https://github.com/ant-design/ant-design/pull/23041)
 - 💄 微调 RangePicker 箭头和后缀的颜色样式。[#23025](https://github.com/ant-design/ant-design/pull/23025)
