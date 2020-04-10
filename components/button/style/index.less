@@ -146,10 +146,14 @@
     &:not([disabled]) {
       pointer-events: none;
     }
+
+    &::before {
+      display: block;
+    }
   }
 
   & > &-loading-icon {
-    transition: all 0.5s @ease-in-out;
+    transition: all 0.4s @ease-in-out;
 
     .@{iconfont-css-prefix} {
       padding-right: @margin-xs;
