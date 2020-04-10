@@ -312,6 +312,10 @@ Before Modal open, children elements do not exist in the view. You can set `forc
 
 Components inside Form.Item with name property will turn into controlled mode, that makes `defaultValue` does not work anymore. Please try `initialValues` of Form to set default value.
 
+### Why resetFields will re-mount component?
+
+`resetFields` will re-mount component under Field to clean up customize component side effect(like asyn data, cached state, etc.). It's by design.
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
