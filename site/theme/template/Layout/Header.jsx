@@ -114,7 +114,7 @@ class Header extends React.Component {
       intl: { locale },
     } = this.props;
     const docVersions = {
-      ...themeConfig.docNewVersion,
+      ...themeConfig.docNewVersions,
       [antdVersion]: antdVersion,
       ...themeConfig.docVersions,
     };
