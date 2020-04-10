@@ -57,7 +57,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         e.preventDefault();
       },
     };
-    return React.createElement(icon, iconProps);
+    return React.createElement(icon as React.ComponentType, iconProps);
   };
 
   saveInput = (instance: Input) => {
