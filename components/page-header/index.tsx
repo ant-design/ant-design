@@ -74,11 +74,13 @@ const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: strin
     const backIconDom = renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
-        {backIconDom}
-        {avatar && <Avatar {...avatar} />}
-        {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
-        {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
-        {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        <div className={`${headingPrefixCls}-left`}>
+          {backIconDom}
+          {avatar && <Avatar {...avatar} />}
+          {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
+          {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
+          {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        </div>
         {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
       </div>
     );
