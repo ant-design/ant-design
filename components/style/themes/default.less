@@ -233,6 +233,7 @@
 @descriptions-default-padding: @padding-md @padding-lg;
 @descriptions-middle-padding: @padding-sm @padding-lg;
 @descriptions-small-padding: @padding-xs @padding-md;
+@descriptions-item-padding-bottom: @padding-md;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
@@ -243,6 +244,7 @@
 
 // Radio
 @radio-size: 16px;
+@radio-top: 0px;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
 // solid text-color
@@ -439,6 +441,7 @@
 // ---
 @anchor-bg: @component-background;
 @anchor-border-color: @border-color-split;
+@anchor-link-padding: 7px 0 7px 16px;
 
 // Tooltip
 // ---
@@ -498,6 +501,7 @@
 @progress-text-color: @text-color;
 @progress-radius: 100px;
 @progress-steps-item-bg: #f3f3f3;
+@progress-circle-text-font-size: 1em;
 
 // Menu
 // ---
@@ -518,6 +522,8 @@
 @menu-item-vertical-margin: 4px;
 @menu-item-font-size: @font-size-base;
 @menu-item-boundary-margin: 8px;
+@menu-item-padding: 0 20px;
+@menu-horizontal-line-height: 46px;
 
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
@@ -572,6 +578,7 @@
 @tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
+@tag-line-height: 20px;
 
 // TimePicker
 // ---
@@ -584,6 +591,9 @@
 @picker-date-hover-range-border-color: lighten(@primary-color, 20%);
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
 @picker-time-panel-cell-height: 28px;
+@picker-panel-cell-height: 24px;
+@picker-panel-cell-width: 36px;
+@picker-text-height: 40px;
 
 // Calendar
 // ---
@@ -613,6 +623,7 @@
 // ---
 @rate-star-color: @yellow-6;
 @rate-star-bg: @border-color-split;
+@rate-star-size: 20px;
 
 // Card
 // ---
@@ -729,6 +740,7 @@
 @page-header-content-padding-vertical: @padding-sm;
 @page-header-back-color: #000;
 @page-header-ghost-bg: inherit;
+@page-header-heading-title: @heading-4-size;
 
 // Breadcrumb
 // ---
@@ -755,6 +767,8 @@
 @slider-handle-color-focus: tint(@primary-color, 20%);
 @slider-handle-color-focus-shadow: fade(@primary-color, 12%);
 @slider-handle-color-tooltip-open: @primary-color;
+@slider-handle-size: 14px;
+@slider-handle-margin-top: -5px;
 @slider-handle-shadow: 0;
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: tint(@primary-color, 50%);
@@ -785,6 +799,9 @@
 @skeleton-to-color: shade(@skeleton-color, 5%);
 @skeleton-paragraph-margin-top: 28px;
 @skeleton-paragraph-li-margin-top: @margin-md;
+@skeleton-paragraph-li-height: 16px;
+@skeleton-title-height: 16px;
+@skeleton-title-paragraph-margin-top: @margin-lg;
 
 // Transfer
 // ---
@@ -898,3 +915,12 @@
 // Notification
 // ---
 @notification-bg: @component-background;
+@notification-padding-vertical: 16px;
+@notification-padding-horizontal: 24px;
+
+//  Result
+// ---
+@result-title-font-size: 24px;
+@result-subtitle-font-size: @font-size-base;
+@result-icon-font-size: 72px;
+@result-extra-margin: 32px 0 0 0;

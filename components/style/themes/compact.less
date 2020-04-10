@@ -1,6 +1,8 @@
 @import './default.less';
 
 @mode: compact;
+@font-size-base: 12px;
+@font-size-lg: @font-size-base + 2px;
 
 // default paddings
 @default-padding-lg: 24px; // containers
@@ -41,12 +43,51 @@
 @btn-square-only-icon-size-sm: 14px;
 @btn-square-only-icon-size-lg: 16px;
 
+// Breadcrumb
+// ---
+@breadcrumb-font-size: @font-size-lg;
+@breadcrumb-icon-font-size: @font-size-lg;
+
 //Dropdown
 @dropdown-line-height: 18px;
+
+// Menu
+@menu-item-padding: 0 12px;
+@menu-horizontal-line-height: 38px;
+@menu-inline-toplevel-item-height: 32px;
+@menu-item-height: 32px;
+
+// Checkbox
+@checkbox-size: 14px;
+
+// picker
+@picker-panel-cell-height: 22px;
+@picker-panel-cell-width: 32px;
+@picker-text-height: 32px;
+@picker-time-panel-cell-height: 24px;
 
 // Form
 // ---
 @form-item-margin-bottom: 16px;
+
+// Rate
+// ---
+@rate-star-size: 16px;
+
+// Radio
+// ---
+@radio-size: 14px;
+@radio-top: -2px;
+
+// Switch
+// ---
+@switch-height: 20px;
+@switch-sm-height: 14px;
+
+// Slider
+// ---
+@slider-handle-size: 12px;
+@slider-handle-margin-top: -4px;
 
 // Input
 // ---
@@ -61,6 +102,7 @@
 // ---
 @page-header-padding: 16px;
 @page-header-padding-vertical: 8px;
+@page-header-heading-title: 16px;
 
 // Pagination
 // ---
@@ -107,6 +149,7 @@
 // Collapse
 // ---
 @collapse-header-padding-extra: 32px;
+@collapse-content-padding: @padding-md @padding-lg;
 
 // List
 // ---
@@ -126,6 +169,10 @@
 @modal-footer-padding-vertical: @padding-sm;
 @modal-header-close-size: 44px;
 @modal-confirm-body-padding: 24px 24px 16px;
+
+// Message
+// ---
+@message-notice-content-padding: 8px 16px;
 
 // popover
 // --
@@ -166,7 +213,44 @@
 // ---
 @skeleton-paragraph-margin-top: 20px;
 @skeleton-paragraph-li-margin-top: 12px;
+@skeleton-paragraph-li-height: 14px;
+@skeleton-title-height: 14px;
+@skeleton-title-paragraph-margin-top: 20px;
 
 // Descriptions
 @descriptions-title-margin-bottom: 8px;
 @descriptions-default-padding: 12px @padding-lg;
+@descriptions-item-padding-bottom: @padding-xs;
+
+// Avatar
+// ---
+@avatar-size-base: 28px;
+@avatar-size-lg: 32px;
+@avatar-size-sm: 22px;
+
+// Badge
+// ---
+@badge-height: 18px;
+
+// Tag
+// ---
+@tag-line-height: 18px;
+
+// Notification
+// ---
+@notification-padding-vertical: 12px;
+@notification-padding-horizontal: 16px;
+
+// Progress
+// --
+@progress-circle-text-font-size: 20px;
+
+//  Result
+// ---
+@result-title-font-size: 20px;
+@result-icon-font-size: 64px;
+@result-extra-margin: 24px 0 0 0;
+
+// Anchor
+// ---
+@anchor-link-padding: 4px 0 4px 16px;
