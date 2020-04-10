@@ -27,7 +27,6 @@
   > i,
   > span {
     display: inline-block;
-    transition: margin-left 0.3s @ease-in-out;
     pointer-events: none;
   }
 
@@ -147,25 +146,17 @@
     &:not([disabled]) {
       pointer-events: none;
     }
-  }
 
-  &&-loading::before {
-    display: block;
-  }
-
-  &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 29px;
-
-    .@{iconfont-css-prefix}:not(:last-child) {
-      margin-left: -14px;
+    &::before {
+      display: block;
     }
   }
 
-  &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 24px;
+  & > &-loading-icon {
+    transition: all 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
-      margin-left: -17px;
+      padding-right: @margin-xs;
     }
   }
 
