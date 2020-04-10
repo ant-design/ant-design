@@ -8345,11 +8345,16 @@ exports[`ConfigProvider components PageHeader configProvider 1`] = `
     <div
       class="config-page-header-heading"
     >
-      <span
-        class="config-page-header-heading-title"
+      <div
+        class="config-page-header-heading-left"
       >
-        pageHeader
-      </span>
+        <span
+          class="config-page-header-heading-title"
+          title="pageHeader"
+        >
+          pageHeader
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -8363,11 +8368,16 @@ exports[`ConfigProvider components PageHeader normal 1`] = `
     <div
       class="ant-page-header-heading"
     >
-      <span
-        class="ant-page-header-heading-title"
+      <div
+        class="ant-page-header-heading-left"
       >
-        pageHeader
-      </span>
+        <span
+          class="ant-page-header-heading-title"
+          title="pageHeader"
+        >
+          pageHeader
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -8381,11 +8391,16 @@ exports[`ConfigProvider components PageHeader prefixCls 1`] = `
     <div
       class="prefix-PageHeader-heading"
     >
-      <span
-        class="prefix-PageHeader-heading-title"
+      <div
+        class="prefix-PageHeader-heading-left"
       >
-        pageHeader
-      </span>
+        <span
+          class="prefix-PageHeader-heading-title"
+          title="pageHeader"
+        >
+          pageHeader
+        </span>
+      </div>
     </div>
   </div>
 </div>

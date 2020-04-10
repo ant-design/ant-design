@@ -9,47 +9,53 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       class="ant-page-header-heading"
     >
       <div
-        class="ant-page-header-back"
+        class="ant-page-header-heading-left"
       >
         <div
-          aria-label="Back"
-          class="ant-page-header-back-button"
-          role="button"
-          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-          tabindex="0"
+          class="ant-page-header-back"
         >
-          <span
-            aria-label="arrow-left"
-            class="anticon anticon-arrow-left"
-            role="img"
+          <div
+            aria-label="Back"
+            class="ant-page-header-back-button"
+            role="button"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            tabindex="0"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="arrow-left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="arrow-left"
+              class="anticon anticon-arrow-left"
+              role="img"
             >
-              <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="arrow-left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
+        <span
+          class="ant-page-header-heading-title"
+          title="Title"
+        >
+          Title
+        </span>
+        <span
+          class="ant-page-header-heading-sub-title"
+          title="This is a subtitle"
+        >
+          This is a subtitle
+        </span>
       </div>
-      <span
-        class="ant-page-header-heading-title"
-      >
-        Title
-      </span>
-      <span
-        class="ant-page-header-heading-sub-title"
-      >
-        This is a subtitle
-      </span>
       <span
         class="ant-page-header-heading-extra"
       >
@@ -189,56 +195,62 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       class="ant-page-header-heading"
     >
       <div
-        class="ant-page-header-back"
+        class="ant-page-header-heading-left"
       >
         <div
-          aria-label="Back"
-          class="ant-page-header-back-button"
-          role="button"
-          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-          tabindex="0"
+          class="ant-page-header-back"
+        >
+          <div
+            aria-label="Back"
+            class="ant-page-header-back-button"
+            role="button"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            tabindex="0"
+          >
+            <span
+              aria-label="arrow-left"
+              class="anticon anticon-arrow-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="arrow-left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <span
+          class="ant-page-header-heading-title"
+          title="Title"
+        >
+          Title
+        </span>
+        <span
+          class="ant-page-header-heading-sub-title"
+          title="This is a subtitle"
+        >
+          This is a subtitle
+        </span>
+        <span
+          class="ant-page-header-heading-tags"
         >
           <span
-            aria-label="arrow-left"
-            class="anticon anticon-arrow-left"
-            role="img"
+            class="ant-tag ant-tag-blue"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="arrow-left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
+            Running
           </span>
-        </div>
-      </div>
-      <span
-        class="ant-page-header-heading-title"
-      >
-        Title
-      </span>
-      <span
-        class="ant-page-header-heading-sub-title"
-      >
-        This is a subtitle
-      </span>
-      <span
-        class="ant-page-header-heading-tags"
-      >
-        <span
-          class="ant-tag ant-tag-blue"
-        >
-          Running
         </span>
-      </span>
+      </div>
       <span
         class="ant-page-header-heading-extra"
       >
@@ -371,47 +383,53 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     class="ant-page-header-heading"
   >
     <div
-      class="ant-page-header-back"
+      class="ant-page-header-heading-left"
     >
       <div
-        aria-label="Back"
-        class="ant-page-header-back-button"
-        role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-        tabindex="0"
+        class="ant-page-header-back"
       >
-        <span
-          aria-label="arrow-left"
-          class="anticon anticon-arrow-left"
-          role="img"
+        <div
+          aria-label="Back"
+          class="ant-page-header-back-button"
+          role="button"
+          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+          tabindex="0"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="arrow-left"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="arrow-left"
+            class="anticon anticon-arrow-left"
+            role="img"
           >
-            <path
-              d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-            />
-          </svg>
-        </span>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="arrow-left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
+      <span
+        class="ant-page-header-heading-title"
+        title="Title"
+      >
+        Title
+      </span>
+      <span
+        class="ant-page-header-heading-sub-title"
+        title="This is a subtitle"
+      >
+        This is a subtitle
+      </span>
     </div>
-    <span
-      class="ant-page-header-heading-title"
-    >
-      Title
-    </span>
-    <span
-      class="ant-page-header-heading-sub-title"
-    >
-      This is a subtitle
-    </span>
   </div>
 </div>
 `;
@@ -473,16 +491,22 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
   <div
     class="ant-page-header-heading"
   >
-    <span
-      class="ant-page-header-heading-title"
+    <div
+      class="ant-page-header-heading-left"
     >
-      Title
-    </span>
-    <span
-      class="ant-page-header-heading-sub-title"
-    >
-      This is a subtitle
-    </span>
+      <span
+        class="ant-page-header-heading-title"
+        title="Title"
+      >
+        Title
+      </span>
+      <span
+        class="ant-page-header-heading-sub-title"
+        title="This is a subtitle"
+      >
+        This is a subtitle
+      </span>
+    </div>
   </div>
 </div>
 `;
@@ -544,32 +568,38 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
   <div
     class="ant-page-header-heading"
   >
-    <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
-    >
-      <img
-        src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
-      />
-    </span>
-    <span
-      class="ant-page-header-heading-title"
-    >
-      Title
-    </span>
-    <span
-      class="ant-page-header-heading-sub-title"
-    >
-      This is a subtitle
-    </span>
-    <span
-      class="ant-page-header-heading-tags"
+    <div
+      class="ant-page-header-heading-left"
     >
       <span
-        class="ant-tag ant-tag-blue"
+        class="ant-avatar ant-avatar-circle ant-avatar-image"
       >
-        Running
+        <img
+          src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
+        />
       </span>
-    </span>
+      <span
+        class="ant-page-header-heading-title"
+        title="Title"
+      >
+        Title
+      </span>
+      <span
+        class="ant-page-header-heading-sub-title"
+        title="This is a subtitle"
+      >
+        This is a subtitle
+      </span>
+      <span
+        class="ant-page-header-heading-tags"
+      >
+        <span
+          class="ant-tag ant-tag-blue"
+        >
+          Running
+        </span>
+      </span>
+    </div>
     <span
       class="ant-page-header-heading-extra"
     >
@@ -703,47 +733,53 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
       class="ant-page-header-heading"
     >
       <div
-        class="ant-page-header-back"
+        class="ant-page-header-heading-left"
       >
         <div
-          aria-label="Back"
-          class="ant-page-header-back-button"
-          role="button"
-          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-          tabindex="0"
+          class="ant-page-header-back"
         >
-          <span
-            aria-label="arrow-left"
-            class="anticon anticon-arrow-left"
-            role="img"
+          <div
+            aria-label="Back"
+            class="ant-page-header-back-button"
+            role="button"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            tabindex="0"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="arrow-left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="arrow-left"
+              class="anticon anticon-arrow-left"
+              role="img"
             >
-              <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="arrow-left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
+        <span
+          class="ant-page-header-heading-title"
+          title="Title"
+        >
+          Title
+        </span>
+        <span
+          class="ant-page-header-heading-sub-title"
+          title="This is a subtitle"
+        >
+          This is a subtitle
+        </span>
       </div>
-      <span
-        class="ant-page-header-heading-title"
-      >
-        Title
-      </span>
-      <span
-        class="ant-page-header-heading-sub-title"
-      >
-        This is a subtitle
-      </span>
       <span
         class="ant-page-header-heading-extra"
       >
@@ -887,47 +923,53 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
       class="ant-page-header-heading"
     >
       <div
-        class="ant-page-header-back"
+        class="ant-page-header-heading-left"
       >
         <div
-          aria-label="Back"
-          class="ant-page-header-back-button"
-          role="button"
-          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-          tabindex="0"
+          class="ant-page-header-back"
         >
-          <span
-            aria-label="arrow-left"
-            class="anticon anticon-arrow-left"
-            role="img"
+          <div
+            aria-label="Back"
+            class="ant-page-header-back-button"
+            role="button"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            tabindex="0"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="arrow-left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="arrow-left"
+              class="anticon anticon-arrow-left"
+              role="img"
             >
-              <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="arrow-left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
+        <span
+          class="ant-page-header-heading-title"
+          title="Title"
+        >
+          Title
+        </span>
+        <span
+          class="ant-page-header-heading-sub-title"
+          title="This is a subtitle"
+        >
+          This is a subtitle
+        </span>
       </div>
-      <span
-        class="ant-page-header-heading-title"
-      >
-        Title
-      </span>
-      <span
-        class="ant-page-header-heading-sub-title"
-      >
-        This is a subtitle
-      </span>
       <span
         class="ant-page-header-heading-extra"
       >
