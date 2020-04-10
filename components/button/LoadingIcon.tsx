@@ -9,8 +9,12 @@ export interface LoadingIconProps {
   loading?: boolean | object;
 }
 
-const getCollapsedWidth = () => ({ width: 0, opacity: 0 });
-const getRealWidth = (node: HTMLElement) => ({ width: node.scrollWidth, opacity: 1 });
+const getCollapsedWidth = () => ({ width: 0, opacity: 0, transform: 'scale(0)' });
+const getRealWidth = (node: HTMLElement) => ({
+  width: node.scrollWidth,
+  opacity: 1,
+  transform: 'scale(1)',
+});
 
 export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIconProps) {
   const visible = !!loading;
@@ -26,7 +30,8 @@ export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIc
   return (
     <CSSMotion
       visible={visible}
-      motionName="zoom"
+      // We do not really use this motionName
+      motionName={`${prefixCls}-loading-icon-motion`}
       removeOnLeave
       onAppearStart={getCollapsedWidth}
       onAppearActive={getRealWidth}

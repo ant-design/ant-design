@@ -27,14 +27,14 @@ class App extends React.Component {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false });
-    }, 5000);
+    }, 8000);
   };
 
   enterIconLoading = () => {
     this.setState({ iconLoading: true });
     setTimeout(() => {
       this.setState({ iconLoading: false });
-    }, 5000);
+    }, 8000);
   };
 
   render() {
