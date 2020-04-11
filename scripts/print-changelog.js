@@ -161,6 +161,7 @@ async function printLog() {
   });
 
   // Preview editor generate
+  // Web source: https://github.com/ant-design/antd-changelog-editor
   let html = fs.readFileSync(path.join(__dirname, 'previewEditor', 'template.html'), 'utf8');
   html = html.replace('// [Replacement]', `window.changelog = ${JSON.stringify(prList)};`);
   fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
