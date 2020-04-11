@@ -93,6 +93,7 @@ export interface UploadProps<T = any> {
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
   onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
+  onClickItem?: (file: UploadFile) => void;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -105,6 +106,7 @@ export interface UploadProps<T = any> {
   previewFile?: PreviewFileHandler;
   transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
+  iconActionRender?: (file: UploadFile, icons: IconAction, events: IconActionEvents) => JSX.Element;
 }
 
 export interface UploadState<T = any> {
@@ -112,11 +114,25 @@ export interface UploadState<T = any> {
   dragState: string;
 }
 
+
+export interface IconAction {
+  previewIcon: JSX.Element | null;
+  downloadIcon: JSX.Element | null;
+  removeIcon: JSX.Element | null;
+}
+
+export interface IconActionEvents {
+  preview: Function;
+  download: Function;
+  remove: Function;
+}
+
 export interface UploadListProps<T = any> {
   listType?: UploadListType;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
   onRemove?: (file: UploadFile<T>) => void | boolean;
+  onClickItem?: (file: UploadFile) => void;
   items?: Array<UploadFile<T>>;
   progressAttr?: Object;
   prefixCls?: string;
@@ -128,4 +144,5 @@ export interface UploadListProps<T = any> {
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
+  iconActionRender?: (file: UploadFile, icons: IconAction, events: IconActionEvents) => JSX.Element;
 }

@@ -128,6 +128,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       downloadIcon: customDownloadIcon,
       locale,
       progressAttr,
+      iconActionRender,
+      onClickItem,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -276,13 +278,33 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         </a>
       ) : null;
 
-      const actions = listType === 'picture-card' && file.status !== 'uploading' && (
+      let actions = listType === 'picture-card' && file.status !== 'uploading' && (
         <span className={`${prefixCls}-list-item-actions`}>
           {previewIcon}
           {file.status === 'done' && downloadIcon}
           {removeIcon}
         </span>
       );
+
+      if(iconActionRender){
+        const iconAction = iconActionRender(file, {
+          previewIcon,
+          downloadIcon: file.status === 'done' ? downloadIcon : null ,
+          removeIcon,
+        },{
+          preview: this.handlePreview,
+          download: this.handleDownload,
+          remove: this.handleClose,
+        })
+        const { className , ...restProps } = iconAction.props
+        actions = React.cloneElement(iconAction,{
+          ...restProps,
+          className: classNames({
+            [`${prefixCls}-list-item-actions`]: true,
+            [className]: true,
+          }),
+        })
+      }
 
       let message;
       if (file.response && typeof file.response === 'string') {
@@ -309,7 +331,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-picture-card-container`]: listType === 'picture-card',
       });
       return (
-        <div key={file.uid} className={listContainerNameClass}>
+        <div
+          key={file.uid}
+          className={listContainerNameClass}
+          onClick={()=>{
+            if(onClickItem){
+              onClickItem(file)
+            }
+          }}
+        >
           {file.status === 'error' ? <Tooltip title={message}>{dom}</Tooltip> : <span>{dom}</span>}
         </div>
       );

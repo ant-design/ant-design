@@ -15,7 +15,7 @@ title:
 Displays the corresponding by default by type icon
 
 ```jsx
-import { Upload, Modal } from 'antd';
+import { Upload, Modal, message } from 'antd';
 import {
   LoadingOutlined,
   PaperClipOutlined,
@@ -66,6 +66,12 @@ class PicturesWall extends React.Component {
         uid: '-6',
         name: 'doc.doc',
         status: 'error',
+      },
+      {
+        uid: '-7',
+        name: 'doc.doc',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc',
       },
     ],
   };
@@ -127,7 +133,18 @@ class PicturesWall extends React.Component {
           fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
+          onClickItem={(file)=>{
+            message.info(JSON.stringify(file))
+          }}
           iconRender={this.handleIconRender}
+          iconActionRender={(file, icons, events) => {
+            return (
+              <span>
+                {file.uid === '-7' ? null : icons.previewIcon}
+                {icons.downloadIcon}
+                {icons.removeIcon}
+              </span>
+          )}}
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>
