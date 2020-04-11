@@ -26,6 +26,7 @@ export interface PaginationProps {
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
+  showTitle?: boolean;
   showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: 'default' | 'small';
   responsive?: boolean;
