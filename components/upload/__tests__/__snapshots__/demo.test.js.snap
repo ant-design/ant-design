@@ -1092,8 +1092,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
           </span>
         </div>
       </div>
-    </div>
-     <div
+      <div
         class="ant-upload-list-picture-card-container"
       >
         <div
@@ -2530,7 +2529,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   <span
                     title="Download file"
                   >
-                    download 
+                    download
                   </span>
                 </a>
                 <a
@@ -2618,7 +2617,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   <span
                     title="Download file"
                   >
-                    download 
+                    download
                   </span>
                 </a>
                 <a
