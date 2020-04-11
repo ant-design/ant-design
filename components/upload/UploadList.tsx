@@ -286,24 +286,28 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         </span>
       );
 
-      if(iconActionRender){
-        const iconAction = iconActionRender(file, {
-          previewIcon,
-          downloadIcon: file.status === 'done' ? downloadIcon : null ,
-          removeIcon,
-        },{
-          preview: this.handlePreview,
-          download: this.handleDownload,
-          remove: this.handleClose,
-        })
-        const { className , ...restProps } = iconAction.props
-        actions = React.cloneElement(iconAction,{
+      if (iconActionRender) {
+        const iconAction = iconActionRender(
+          file,
+          {
+            previewIcon,
+            downloadIcon: file.status === 'done' ? downloadIcon : null,
+            removeIcon,
+          },
+          {
+            preview: this.handlePreview,
+            download: this.handleDownload,
+            remove: this.handleClose,
+          },
+        );
+        const { className, ...restProps } = iconAction.props;
+        actions = React.cloneElement(iconAction, {
           ...restProps,
           className: classNames({
             [`${prefixCls}-list-item-actions`]: true,
-            [className]: true,
+            [className]: typeof className === 'string',
           }),
-        })
+        });
       }
 
       let message;
@@ -334,9 +338,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         <div
           key={file.uid}
           className={listContainerNameClass}
-          onClick={()=>{
-            if(onClickItem){
-              onClickItem(file)
+          onClick={() => {
+            if (onClickItem) {
+              onClickItem(file);
             }
           }}
         >
