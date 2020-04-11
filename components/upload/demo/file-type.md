@@ -133,18 +133,19 @@ class PicturesWall extends React.Component {
           fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
-          onClickItem={(file)=>{
-            message.info(JSON.stringify(file))
+          onClickItem={file => {
+            message.info(JSON.stringify(file));
           }}
           iconRender={this.handleIconRender}
-          iconActionRender={(file, icons, events) => {
+          iconActionRender={(file, icons) => {
             return (
               <span>
                 {file.uid === '-7' ? null : icons.previewIcon}
                 {icons.downloadIcon}
                 {icons.removeIcon}
               </span>
-          )}}
+            );
+          }}
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>
