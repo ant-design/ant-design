@@ -29,8 +29,11 @@ const toVersion = process.argv[process.argv.length - 1];
 const cwd = process.cwd();
 const git = simpleGit(cwd);
 
-function getDescription(row = '') {
-  return row.trim().replace('🇺🇸 English', '').replace('🇨🇳 Chinese', '').trim();
+function getDescription(entity) {
+  const descEle = entity.element.find('td:last');
+  let htmlContent = descEle.html();
+  htmlContent = htmlContent.replace(/<code>([^<]*)<\/code>/g, '`$1`');
+  return htmlContent.trim();
 }
 
 async function printLog() {
@@ -80,11 +83,14 @@ async function printLog() {
 
       const lines = [];
       prLines.each(function getDesc() {
-        lines.push($(this).text().trim());
+        lines.push({
+          text: $(this).text().trim(),
+          element: $(this),
+        });
       });
 
-      const english = getDescription(lines.find(line => line.includes('🇺🇸 English')));
-      const chinese = getDescription(lines.find(line => line.includes('🇨🇳 Chinese')));
+      const english = getDescription(lines.find(line => line.text.includes('🇺🇸 English')));
+      const chinese = getDescription(lines.find(line => line.text.includes('🇨🇳 Chinese')));
 
       validatePRs.push({
         pr,
@@ -160,7 +166,13 @@ async function printLog() {
   fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
 
   // Start preview
-  const ls = spawn('npx', ['http-server', path.join(__dirname, 'previewEditor'), '-c-1', '-p', '2893']);
+  const ls = spawn('npx', [
+    'http-server',
+    path.join(__dirname, 'previewEditor'),
+    '-c-1',
+    '-p',
+    '2893',
+  ]);
   ls.stdout.on('data', data => {
     console.log(data.toString());
   });
