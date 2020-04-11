@@ -628,6 +628,7 @@ mark {
     transform-origin: 0 0;
     opacity: 1;
   }
+
   to {
     transform: translateY(-100%);
     transform-origin: 0 0;
