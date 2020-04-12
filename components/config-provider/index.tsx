@@ -97,6 +97,12 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       childNode = (
         <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
       );
+    } else if (locale && locale.Form && locale.Form.defaultValidateMessages) {
+      childNode = (
+        <RcFormProvider validateMessages={locale.Form.defaultValidateMessages}>
+          {children}
+        </RcFormProvider>
+      );
     }
 
     return (

@@ -4,6 +4,8 @@ import TimePicker from '../time-picker/locale/zh_CN';
 import Calendar from '../calendar/locale/zh_CN';
 import { Locale } from '../locale-provider';
 
+const typeTemplate = "'${name}' 不是一个有效的 ${type}";
+
 const localeValues: Locale = {
   locale: 'zh-cn',
   Pagination,
@@ -63,6 +65,55 @@ const localeValues: Locale = {
   },
   PageHeader: {
     back: '返回',
+  },
+  Form: {
+    defaultValidateMessages: {
+      default: "字段验证错误 '${name}'",
+      required: "'${name}' 是必需的",
+      enum: "'${name}' 必须是其中一个 [${enum}]",
+      whitespace: "'${name}' 不能为空",
+      date: {
+        format: "'${name}' 日期格式无效",
+        parse: "'${name}' 不能转换为日期",
+        invalid: "'${name}' 是一个无效日期",
+      },
+      types: {
+        string: typeTemplate,
+        method: typeTemplate,
+        array: typeTemplate,
+        object: typeTemplate,
+        number: typeTemplate,
+        date: typeTemplate,
+        boolean: typeTemplate,
+        integer: typeTemplate,
+        float: typeTemplate,
+        regexp: typeTemplate,
+        email: typeTemplate,
+        url: typeTemplate,
+        hex: typeTemplate,
+      },
+      string: {
+        len: "'${name}' 长度必须等于 ${len} 字符",
+        min: "'${name}' 长度不能小于 ${min} 字符",
+        max: "'${name}' 长度不能超过 ${max} 字符",
+        range: "'${name}' 长度必须在 ${min} 和 ${max} 字符之间",
+      },
+      number: {
+        len: "'${name}' 必须等于 ${len}",
+        min: "'${name}' 不能小于 ${min}",
+        max: "'${name}' 不能大于 ${max}",
+        range: "'${name}' 必须在 ${min} 和 ${max} 之间",
+      },
+      array: {
+        len: "'${name}' 长度必须等于 ${len}",
+        min: "'${name}' 长度不能小于 ${min}",
+        max: "'${name}' 长度不能超过 ${max}",
+        range: "'${name}' 长度必须在 ${min} 和 ${max} 之间",
+      },
+      pattern: {
+        mismatch: "'${name}' 与模式不匹配 ${pattern}",
+      },
+    },
   },
 };
 

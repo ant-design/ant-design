@@ -10,6 +10,7 @@ import { UploadLocale } from '../upload/interface';
 import { TransferLocale } from '../transfer';
 import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import LocaleContext from './context';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 
 export const ANT_MARK = 'internalMark';
 
@@ -30,6 +31,9 @@ export interface Locale {
   PageHeader?: Object;
   Icon?: Object;
   Text?: Object;
+  Form?: {
+    defaultValidateMessages: ValidateMessages;
+  };
 }
 
 export interface LocaleProviderProps {
