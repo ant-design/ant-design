@@ -61,31 +61,11 @@ function buildThemeFile(theme, vars) {
   // eslint-disable-next-line no-console
   console.log(`Built a entry less file to dist/antd.${theme}.less`);
 
-  if (theme === 'default') {
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `default-theme.js`),
-      `module.exports = ${JSON.stringify(vars, null, 2)};\n`,
-    );
-    return;
-  }
-
   // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
 
   fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `getThemeVar.js`),
-    `const ${theme}ThemeSingle = ${JSON.stringify(vars, null, 2)};\n`,
-    {
-      flag: 'a',
-    },
-  );
-
-  fs.writeFileSync(
     path.join(process.cwd(), 'dist', `${theme}-theme.js`),
-    `const { ${theme}ThemeSingle } = require('./getThemeVar');\nconst defaultTheme = require('./defaultTheme');\n
-module.exports = {
-  ...${theme}ThemeSingle,
-  ...defaultTheme
-}`,
+    `module.exports = ${JSON.stringify(vars, null, 2)};`,
   );
 
   // eslint-disable-next-line no-console
@@ -100,46 +80,10 @@ function finalizeDist() {
       '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
     );
     // eslint-disable-next-line no-console
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'getThemeVar.js'),
-      `const defaultTheme = require('./default-theme.js');\n`,
-    );
     console.log('Built a entry less file to dist/antd.less');
     buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `getThemeVar.js`),
-      `
-function getThemeVar(options = {}) {
-  let themeVar = {
-    'hack': \`true;@import "\${require.resolve('antd/lib/style/color/colorPalette.less')}";\`,
-    ...defaultTheme
-  };
-  if(options.dark) {
-    themeVar = {
-      ...themeVar,
-      ...darkThemeSingle
-    }
-  }
-  if(options.compact){
-    themeVar = {
-      ...themeVar,
-      ...compactThemeSingle
-    }
-  }
-  return themeVar;
-}
-
-module.exports = {
-  darkThemeSingle,
-  compactThemeSingle,
-  getThemeVar
-}`,
-      {
-        flag: 'a',
-      },
-    );
   }
 }
 
