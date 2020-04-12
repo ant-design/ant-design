@@ -24,3 +24,5 @@ node_modules
 _site
 dist
 **/*.d.ts
+# Scripts
+scripts/previewEditor/**/*

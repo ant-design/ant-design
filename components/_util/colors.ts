@@ -1,4 +1,4 @@
-import { tuple } from './type';
+import { ElementOf, tuple } from './type';
 
 export const PresetStatusColorTypes = tuple('success', 'processing', 'error', 'default', 'warning');
 // eslint-disable-next-line import/prefer-default-export
@@ -18,5 +18,5 @@ export const PresetColorTypes = tuple(
   'lime',
 );
 
-export type PresetColorType = typeof PresetColorTypes[number];
-export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
+export type PresetColorType = ElementOf<typeof PresetColorTypes>;
+export type PresetStatusColorType = ElementOf<typeof PresetStatusColorTypes>;

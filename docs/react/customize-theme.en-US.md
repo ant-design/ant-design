@@ -182,8 +182,7 @@ If the project does not use Less, you can import [antd.dark.css](https://unpkg.c
 Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
 ```diff
-const darkTheme = require('antd/dist/dark-theme');
-const compactTheme = require('antd/dist/compact-theme');
+const { getThemeVariables } = require('antd/dist/theme');
 
 // webpack.config.js
 module.exports = {
@@ -196,11 +195,10 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
-+          ...darkTheme,
-+          ...compactTheme,
-+       },
++       modifyVars: getThemeVariables({
++         dark: true, // enable dark mode
++         compact: true, // enable compact mode
++       }),
 +       javascriptEnabled: true,
 +     },
     }],
