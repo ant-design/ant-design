@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import warning from '../_util/warning';
 
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
@@ -10,7 +11,6 @@ import { UploadLocale } from '../upload/interface';
 import { TransferLocale } from '../transfer';
 import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import LocaleContext from './context';
-import { ValidateMessages } from 'rc-field-form/lib/interface';
 
 export const ANT_MARK = 'internalMark';
 

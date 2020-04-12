@@ -4,6 +4,7 @@ import TimePicker from '../time-picker/locale/zh_CN';
 import Calendar from '../calendar/locale/zh_CN';
 import { Locale } from '../locale-provider';
 
+// eslint-disable-next-line no-template-curly-in-string
 const typeTemplate = "'${name}' 不是一个有效的 ${type}";
 
 const localeValues: Locale = {
