@@ -656,7 +656,8 @@
 @tabs-card-head-background: @background-color-light;
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
-@tabs-card-horizontal-padding: 8px @padding-md;
+@tabs-card-horizontal-padding: (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2 -
+  @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-title-font-size: @font-size-base;
 @tabs-title-font-size-lg: @font-size-lg;
