@@ -103,6 +103,11 @@ const App = () => (
     </Input.Group>
     <br />
     <Input.Group compact>
+      <Input style={{ width: '30%' }} defaultValue="input content" />
+      <DatePicker.RangePicker style={{ width: '70%' }} />
+    </Input.Group>
+    <br />
+    <Input.Group compact>
       <Select defaultValue="Option1-1">
         <Option value="Option1-1">Option1-1</Option>
         <Option value="Option1-2">Option1-2</Option>

@@ -40,7 +40,7 @@ subtitle: 树形控件
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |
 | showLine | 是否展示连接线 | boolean | false |  |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array\<{key, title, children, \[disabled, selectable]}> | - |  |
-| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |
 | onDragEnter | dragenter 触发时调用 | function({event, node, expandedKeys}) | - |  |

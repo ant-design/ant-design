@@ -1,9 +1,13 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 const chalk = require('chalk');
+const { spawn } = require('child_process');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
 const fetch = require('node-fetch');
+const open = require('open');
+const fs = require('fs-extra');
+const path = require('path');
 const simpleGit = require('simple-git/promise');
 
 const { JSDOM } = jsdom;
@@ -25,12 +29,11 @@ const toVersion = process.argv[process.argv.length - 1];
 const cwd = process.cwd();
 const git = simpleGit(cwd);
 
-function getDescription(row = '') {
-  return row
-    .trim()
-    .replace('🇺🇸 English', '')
-    .replace('🇨🇳 Chinese', '')
-    .trim();
+function getDescription(entity) {
+  const descEle = entity.element.find('td:last');
+  let htmlContent = descEle.html();
+  htmlContent = htmlContent.replace(/<code>([^<]*)<\/code>/g, '`$1`');
+  return htmlContent.trim();
 }
 
 async function printLog() {
@@ -74,27 +77,20 @@ async function printLog() {
 
       const $html = $(html);
 
-      const prTitle = $html
-        .find(QUERY_TITLE)
-        .text()
-        .trim();
-      const prAuthor = $html
-        .find(QUERY_AUTHOR)
-        .text()
-        .trim();
+      const prTitle = $html.find(QUERY_TITLE).text().trim();
+      const prAuthor = $html.find(QUERY_AUTHOR).text().trim();
       const prLines = $html.find(QUERY_DESCRIPTION_LINES);
 
       const lines = [];
       prLines.each(function getDesc() {
-        lines.push(
-          $(this)
-            .text()
-            .trim(),
-        );
+        lines.push({
+          text: $(this).text().trim(),
+          element: $(this),
+        });
       });
 
-      const english = getDescription(lines.find(line => line.includes('🇺🇸 English')));
-      const chinese = getDescription(lines.find(line => line.includes('🇨🇳 Chinese')));
+      const english = getDescription(lines.find(line => line.text.includes('🇺🇸 English')));
+      const chinese = getDescription(lines.find(line => line.text.includes('🇨🇳 Chinese')));
 
       validatePRs.push({
         pr,
@@ -163,6 +159,29 @@ async function printLog() {
     }
     return `${english} `;
   });
+
+  // Preview editor generate
+  // Web source: https://github.com/ant-design/antd-changelog-editor
+  let html = fs.readFileSync(path.join(__dirname, 'previewEditor', 'template.html'), 'utf8');
+  html = html.replace('// [Replacement]', `window.changelog = ${JSON.stringify(prList)};`);
+  fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
+
+  // Start preview
+  const ls = spawn('npx', [
+    'http-server',
+    path.join(__dirname, 'previewEditor'),
+    '-c-1',
+    '-p',
+    '2893',
+  ]);
+  ls.stdout.on('data', data => {
+    console.log(data.toString());
+  });
+
+  console.log(chalk.green('Start preview editor...'));
+  setTimeout(function openPreview() {
+    open('http://localhost:2893/');
+  }, 1000);
 }
 
 printLog();

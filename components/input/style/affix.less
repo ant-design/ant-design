@@ -8,6 +8,12 @@
     .input();
     display: inline-flex;
 
+    &-disabled {
+      .@{ant-prefix}-input[disabled] {
+        background: transparent;
+      }
+    }
+
     > input.@{ant-prefix}-input {
       padding: 0;
       border: none;

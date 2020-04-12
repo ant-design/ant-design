@@ -9,3 +9,8 @@ export const tupleNum = <T extends number[]>(...args: T) => args;
  * Extract the type of an element of an array/tuple without performing indexing
  */
 export type ElementOf<T> = T extends (infer E)[] ? E : T extends readonly (infer E)[] ? E : never;
+
+/**
+ * https://github.com/Microsoft/TypeScript/issues/29729
+ */
+export type LiteralUnion<T extends U, U> = T | (U & {});

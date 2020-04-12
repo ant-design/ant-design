@@ -419,6 +419,12 @@
     }
   }
 
+  &-vertical {
+    .@{menu-prefix-cls}-submenu-title {
+      padding-right: 34px;
+    }
+  }
+
   &-inline {
     width: 100%;
     .@{menu-prefix-cls}-selected,
@@ -452,7 +458,7 @@
       > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
-      padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2 !important;
+      padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2;
       text-overflow: clip;
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;

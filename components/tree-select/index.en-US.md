@@ -50,7 +50,7 @@ Tree selection control.
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value' |  |
 | treeNodeLabelProp | Will render as content of select | string | 'title' |  |
 | value | To set the current selected treeNode(s). | string\|string\[] | - |  |
-| virtual | Disable virtual scroll when set to `false` | boolean | - | 4.1.0 |
+| virtual | Disable virtual scroll when set to `false` | boolean | true | 4.1.0 |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
 | onSearch | A callback function, can be executed when the search input changes. | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode. | function(value, node, extra) | - |  |

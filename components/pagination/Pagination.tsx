@@ -26,6 +26,7 @@ export interface PaginationProps {
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
+  showTitle?: boolean;
   showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: 'default' | 'small';
   responsive?: boolean;
@@ -56,7 +57,7 @@ export type PaginationPosition =
   | 'bottomRight';
 
 export interface PaginationConfig extends PaginationProps {
-  position?: [PaginationPosition] | PaginationPosition;
+  position?: PaginationPosition[] | PaginationPosition;
 }
 
 export type PaginationLocale = any;

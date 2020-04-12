@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
@@ -74,7 +75,11 @@ export default function generateRangePicker<DateType>(
 
             return (
               <RCRangePicker<DateType>
-                separator={<span aria-label="to" className={`${prefixCls}-separator`} />}
+                separator={
+                  <span aria-label="to" className={`${prefixCls}-separator`}>
+                    <SwapRightOutlined />
+                  </span>
+                }
                 ref={this.pickerRef}
                 placeholder={getRangePlaceholder(picker, locale)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}

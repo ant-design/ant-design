@@ -1,11 +1,13 @@
 @import './index';
 
 .table-size(@size, @padding-vertical, @padding-horizontal) {
-  .@{table-prefix-cls}-@{size} {
+  .@{table-prefix-cls}.@{table-prefix-cls}-@{size} {
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
     .@{table-prefix-cls}-thead > tr > th,
-    .@{table-prefix-cls}-tbody > tr > td {
+    .@{table-prefix-cls}-tbody > tr > td,
+    tfoot > tr > th,
+    tfoot > tr > td {
       padding: @padding-vertical @padding-horizontal;
     }
 

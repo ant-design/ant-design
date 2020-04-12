@@ -105,7 +105,7 @@
   &-suffix {
     align-self: center;
     margin-left: @padding-xs / 2;
-    color: @disabled-color;
+    color: @text-color-secondary;
     pointer-events: none;
   }
 
@@ -113,7 +113,7 @@
     position: absolute;
     top: 50%;
     right: 0;
-    color: @disabled-color;
+    color: @text-color-secondary;
     background: @component-background;
     transform: translateY(-50%);
     cursor: pointer;
@@ -121,7 +121,7 @@
     transition: opacity @animation-duration-slow, color @animation-duration-slow;
 
     &:hover {
-      color: @text-color-secondary;
+      color: @disabled-color;
     }
   }
 
@@ -130,29 +130,13 @@
     display: inline-block;
     width: 1em;
     height: @font-size-lg;
+    color: @disabled-color;
+    font-size: @font-size-lg;
     vertical-align: top;
     cursor: default;
 
-    &::before,
-    &::after {
-      position: absolute;
-      border-top: 1px solid #979797;
-      content: '';
-    }
-
-    &::before {
-      top: 50%;
-      left: 0.1em;
-      width: 0.8em;
-    }
-
-    &::after {
-      top: 50%;
-      right: 0.11em;
-      width: 0.8em;
-      width: 0.3em;
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
+    .@{picker-prefix-cls}-focused & {
+      color: @text-color-secondary;
     }
 
     .@{picker-prefix-cls}-range-separator & {

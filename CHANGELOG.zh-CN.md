@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 4.1.2
+
+- Menu
+  - 🐞 修复暗色 Menu 弹出菜单背景色为白色的问题。[#22981](https://github.com/ant-design/ant-design/pull/22981) [@AshoneA](https://github.com/AshoneA)
+  - 🐞 修复 SubMenu 标题过长而导致被箭头图标部分覆盖的问题。[#23028](https://github.com/ant-design/ant-design/pull/23028) [@wwyx778](https://github.com/wwyx778)
+- 🐞 修复紧凑模式和暗黑模式无法同时开启的问题。[#22934](https://github.com/ant-design/ant-design/pull/22934) [@AshoneA](https://github.com/AshoneA)
+- 🐞 修复 Notification 非法的 `padding-top` 值。[#22941](https://github.com/ant-design/ant-design/pull/22941)
+- Button
+  - 🐞 修复带图标 Button 的 `loading` 动画效果。 [#23102](https://github.com/ant-design/ant-design/pull/23102)
+  - ⚠️ 优化 Button 非法 `type` 的控制台提示。[#22933](https://github.com/ant-design/ant-design/pull/22933)
+- 🐞 修复 Statistic 在值为 `-` 时会展示成 `-0` 的问题。[@22950](https://github.com/ant-design/ant-design/pull/22950)
+- 🐞 修复 Modal.confirm `onOk` 可以被触发多次的问题。[#22963](https://github.com/ant-design/ant-design/pull/22963)
+- Input
+  - 🐞 修复 Input.Group 中 Button 不能对齐的问题。[#22975](https://github.com/ant-design/ant-design/pull/22975)
+  - 🐞 修复 Input 在暗黑模式下使用 `affix` 的背景样式问题。[#23115](https://github.com/ant-design/ant-design/pull/23115)
+- 🐞 修复 Form.Item 在动态切换时没有正确重置错误样式的问题。[#23041](https://github.com/ant-design/ant-design/pull/23041)
+- 💄 微调 RangePicker 箭头和后缀的颜色样式。[#23025](https://github.com/ant-design/ant-design/pull/23025)
+- Table
+  - 🐞 修复 Table 选择行在 hover 时的背景样式问题。[#23110](https://github.com/ant-design/ant-design/pull/23110)
+  - 💄 微调 Table 行 hover 时的背景色。[#23113](https://github.com/ant-design/ant-design/pull/23113)
+  - ⚠️ Table 在异步数据下 `dataSource` 长度与 `pageSize` 不匹配时，添加警告信息。[#23118](https://github.com/ant-design/ant-design/pull/23118)
+- Select
+  - 💄 微调多选 Select 的光标位置使其与单选 Select 统一。[#22978](https://github.com/ant-design/ant-design/pull/22978)
+  - 🐞 修复 无边框 Select 在 Form.Item 设置 `validateStatus` 时会出现边框的问题。[#23004](https://github.com/ant-design/ant-design/pull/23004)
+  - 🐞 修复 Select 在 IE11 下的展示问题。[#23020](https://github.com/ant-design/ant-design/pull/23020)
+- 🐞 修复 Calendar 不支持 `style` 属性的问题。[#23081](https://github.com/ant-design/ant-design/pull/23081)
+- 🐞 修复 Tabs 下方卡片布局激活标签的高度问题。[#23087](https://github.com/ant-design/ant-design/pull/23087)
+- 🐞 修复 Anchor、Select、DatePicker、Grid、Mentions 组件的 RTL 支持。[@xrkffgg](https://github.com/xrkffgg)
+- TypeScript
+  - 🌟 Upload `UploadProps` 支持泛型定义。[#22921](https://github.com/ant-design/ant-design/pull/22921) [@dpyzo0o](https://github.com/dpyzo0o)
+  - 🐞 修复 Modal.confirm 的 `okButtonProps` 定义。[#21165](https://github.com/ant-design/ant-design/pull/21165) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
+  - 🌟 暴露 Form `Store` 接口。[#22755](https://github.com/ant-design/ant-design/pull/22755) [@shaodahong](https://github.com/shaodahong)
+  - 🌟 优化 Input、Tag、Badge 组件的枚举类型属性定义。[#23026](https://github.com/ant-design/ant-design/pull/23026) [#22999](https://github.com/ant-design/ant-design/pull/22999) [#23006](https://github.com/ant-design/ant-design/pull/23006) [@fjc0k](https://github.com/fjc0k)
+  - 🐞 修复 Pagination `position` 定义。 [#23048](https://github.com/ant-design/ant-design/pull/23048) [@Arttse](https://github.com/Arttse)
+
 ## 4.1.1
 
 - 🐞 移除 Tabs 的内容区域的 focus 蓝色轮廓线。[#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)

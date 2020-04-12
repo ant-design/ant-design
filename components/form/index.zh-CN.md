@@ -84,7 +84,7 @@ const validateMessages = {
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
-| normalize | 转换字段值给控件 | (value, prevValue, prevValues) => any | - |  |
+| normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
@@ -315,13 +315,16 @@ validator(rule, value, callback) => {
 
 当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
 
+### 为什么 resetFields 会重新 mount 组件？
+
+`resetFields` 会重置整个 Field，因而其子组件也会重新 mount 从而消除自定义组件可能存在的副作用（例如异步数据、状态等等）。
+
 ### Form 的 initialValues 与 Item 的 initialValue 区别？
 
 在大部分场景下，我们总是推荐优先使用 Form 的 `initialValues`。只有存在动态字段时你才应该使用 Item 的 `initialValue`。默认值遵循以下规则：
 
 1. Form 的 `initialValues` 拥有最高优先级
-2. Field 的 `initialValue` 次之
-    *. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
+2. Field 的 `initialValue` 次之 \*. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
 
 <style>
   .site-form-item-icon {

@@ -138,7 +138,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     this.rcMentions.blur();
   }
 
-  renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderMentions = ({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
     const { focused } = this.state;
     const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
     const prefixCls = getPrefixCls('mentions', customizePrefixCls);
@@ -147,6 +147,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     const mergedClassName = classNames(className, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-focused`]: focused,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     return (
@@ -155,6 +156,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         notFoundContent={this.getNotFoundContent(renderEmpty)}
         className={mergedClassName}
         disabled={disabled}
+        direction={direction}
         {...mentionsProps}
         filterOption={this.getFilterOption()}
         onFocus={this.onFocus}
