@@ -160,7 +160,7 @@ module.exports = {
 方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
 ```diff
-const { getThemeVar } = require('antd/dist/getThemeVar');
+const { getThemeVariables } = require('antd/dist/theme');
 
 // webpack.config.js
 module.exports = {
@@ -173,7 +173,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: getThemeVar({
++       modifyVars: getThemeVariables({
 +         dark: true, // 开启暗黑模式
 +         compact: true, // 开启紧凑模式
 +       }),

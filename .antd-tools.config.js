@@ -72,7 +72,7 @@ function buildThemeFile(theme, vars) {
   // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
 
   fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `getThemeVar.js`),
+    path.join(process.cwd(), 'dist', `theme.js`),
     `const ${theme}ThemeSingle = ${JSON.stringify(vars, null, 2)};\n`,
     {
       flag: 'a',
@@ -81,7 +81,7 @@ function buildThemeFile(theme, vars) {
 
   fs.writeFileSync(
     path.join(process.cwd(), 'dist', `${theme}-theme.js`),
-    `const { ${theme}ThemeSingle } = require('./getThemeVar');\nconst defaultTheme = require('./defaultTheme');\n
+    `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
 module.exports = {
   ...${theme}ThemeSingle,
   ...defaultTheme
@@ -101,7 +101,7 @@ function finalizeDist() {
     );
     // eslint-disable-next-line no-console
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'getThemeVar.js'),
+      path.join(process.cwd(), 'dist', 'theme.js'),
       `const defaultTheme = require('./default-theme.js');\n`,
     );
     console.log('Built a entry less file to dist/antd.less');
@@ -109,9 +109,9 @@ function finalizeDist() {
     buildThemeFile('dark', darkVars);
     buildThemeFile('compact', compactVars);
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `getThemeVar.js`),
+      path.join(process.cwd(), 'dist', `theme.js`),
       `
-function getThemeVar(options = {}) {
+function getThemeVariables(options = {}) {
   let themeVar = {
     'hack': \`true;@import "\${require.resolve('antd/lib/style/color/colorPalette.less')}";\`,
     ...defaultTheme
@@ -134,7 +134,7 @@ function getThemeVar(options = {}) {
 module.exports = {
   darkThemeSingle,
   compactThemeSingle,
-  getThemeVar
+  getThemeVariables
 }`,
       {
         flag: 'a',
@@ -151,3 +151,4 @@ module.exports = {
     finalize: finalizeDist,
   },
 };
+finalizeDist();
