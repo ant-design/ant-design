@@ -98,6 +98,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowClassName,
     columns,
     children,
+    childrenColumnName: legacyChildrenColumnName,
     onChange,
     getPopupContainer,
     loading,
@@ -127,6 +128,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
+    childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
   };

@@ -785,7 +785,7 @@ describe('Table.rowSelection', () => {
     const wrapper = mount(
       <Table
         dataSource={[{ name: 'light', sub: [{ name: 'bamboo' }] }]}
-        expandable={{ expandedRowKeys: ['light'] }}
+        expandable={{ expandedRowKeys: ['light'], childrenColumnName: 'sub' }}
         rowSelection={{ onChange }}
         rowKey="name"
       />,
