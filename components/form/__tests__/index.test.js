@@ -585,9 +585,9 @@ describe('Form', () => {
     );
 
     wrapper.find('form').simulate('submit');
-    await delay(50);
+    await delay(100);
     wrapper.update();
-
+    await delay(100);
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
