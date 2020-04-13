@@ -47,18 +47,31 @@ async function printLog() {
       choices: tags.all.reverse().slice(0, 10),
     },
   ]);
-  const { toVersion } = await inquirer.prompt([
+  let { toVersion } = await inquirer.prompt([
     {
       type: 'list',
       name: 'toVersion',
-      message: `🔀 Please choose branch to compare with ${fromVersion}:`,
-      choices: ['master', '3.x-stable', 'feature'],
+      message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
+      choices: ['master', '3.x-stable', 'feature', 'custom input ⌨️'],
     },
   ]);
 
+  if (toVersion.startsWith('custom input')) {
+    const result = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'toVersion',
+        message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
+          fromVersion,
+        )}:`,
+        default: 'master',
+      },
+    ]);
+    toVersion = result.toVersion;
+  }
+
   if (!/\d+\.\d+\.\d+/.test(fromVersion)) {
-    console.log(chalk.red('🤪 Not pass validate tags.'));
-    return;
+    console.log(chalk.red(`🤪 tag (${chalk.magenta(fromVersion)}) is not valid.`));
   }
 
   const logs = await git.log({ from: fromVersion, to: toVersion });
