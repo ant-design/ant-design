@@ -66,7 +66,7 @@ async function printLog() {
   let prList = [];
 
   for (let i = 0; i < logs.all.length; i += 1) {
-    const { message, body, hash } = logs.all[i];
+    const { message, body, hash, author_name } = logs.all[i];
 
     const text = `${message} ${body}`;
 
@@ -134,6 +134,9 @@ async function printLog() {
       prList.push({
         hash,
         title: message,
+        author: author_name,
+        english: message,
+        chinese: message,
       });
     }
   }
