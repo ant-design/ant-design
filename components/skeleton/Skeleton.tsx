@@ -4,7 +4,9 @@ import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Element from './Element';
-import  { AvatarProps } from './Avatar';
+import SkeletonAvatar, { AvatarProps } from './Avatar';
+import SkeletonButton from './Button';
+import SkeletonInput from './Input';
 
 /* This only for skeleton internal. */
 interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {
@@ -161,5 +163,9 @@ Skeleton.defaultProps = {
   title: true,
   paragraph: true,
 };
+
+Skeleton.Button = SkeletonButton;
+Skeleton.Avatar = SkeletonAvatar;
+Skeleton.Input = SkeletonInput;
 
 export default Skeleton;
