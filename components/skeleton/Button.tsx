@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
+export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
   size?: 'large' | 'small' | 'default';
 }
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-interface SkeletonInputProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
+export interface SkeletonInputProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
   size?: 'large' | 'small' | 'default';
 }
 
