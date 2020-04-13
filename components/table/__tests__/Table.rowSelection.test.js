@@ -779,4 +779,22 @@ describe('Table.rowSelection', () => {
     jest.runAllTimers();
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('Table selection should check', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Table
+        dataSource={[{ name: 'light', sub: [{ name: 'bamboo' }] }]}
+        expandable={{ expandedRowKeys: ['light'], childrenColumnName: 'sub' }}
+        rowSelection={{ onChange }}
+        rowKey="name"
+      />,
+    );
+
+    wrapper
+      .find('input')
+      .last()
+      .simulate('change', { target: { checked: true } });
+    expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
+  });
 });
