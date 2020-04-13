@@ -138,7 +138,7 @@
   padding: 0;
   overflow: auto;
   color: @site-text-color;
-  font-size: @font-size-base - 1px;
+  font-size: max(@font-size-base - 1px, 12px);
   background: #f5f5f5;
   border: none;
 }
@@ -250,7 +250,7 @@
   table {
     min-width: 720px;
     margin: 2em 0;
-    font-size: @font-size-base - 1px;
+    font-size: max(@font-size-base - 1px, 12px);
     font-family: @code-family;
     line-height: @line-height-base;
     border: 1px solid @border-color-split;
@@ -283,12 +283,12 @@
       &:nth-child(3) {
         width: 22%;
         color: @magenta-7;
-        font-size: @font-size-base - 1px;
+        font-size: max(@font-size-base - 1px, 12px);
         word-break: break-all;
       }
       &:nth-child(4) {
         width: 16%;
-        font-size: @font-size-base - 1px;
+        font-size: max(@font-size-base - 1px, 12px);
       }
     }
   }
