@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 4.1.3
+
+- 💄 Adjust Form.Item `label` height style in vertical layout. [#23192](https://github.com/ant-design/ant-design/pull/23192)
+- 🐞 Fix `Variable is undefined` when importing dark or compact theme and provide a `getThemeVariables` methold for getting theme variables easily. [#23171](https://github.com/ant-design/ant-design/pull/23171)
+- 🐞 Fix PageHeader style breaks when `title` is too long and improve it's responsive design. [#23133](https://github.com/ant-design/ant-design/pull/23133)
+- Tabs
+  - 🐞 Fix Tabs `@tabs-card-height` less variable not working. [#23168](https://github.com/ant-design/ant-design/pull/23168)
+  - 🐞 Fix Tabs cannot be displayed in Safari 13. [#23151](https://github.com/ant-design/ant-design/pull/23151) [@imhxc](https://github.com/imhxc)
+- Table
+  - 🐞 Fix Table fixed columns cannot pin in Safari 12. [#23161](https://github.com/ant-design/ant-design/pull/23161)
+  - 🐞 Fix Table `summary` padding in small size. [#23140](https://github.com/ant-design/ant-design/pull/23140) [@someyoungideas](https://github.com/someyoungideas)
+- 🐞 Fix Select align style with different size. [#23160](https://github.com/ant-design/ant-design/pull/23160)
+- 🐞 Fix RangePicker under Input.Group style issue. [#23149](https://github.com/ant-design/ant-design/pull/23149)
+- 🐞 Fix Pagination missing TypeScript definition of `showTitle`. [#23144](https://github.com/ant-design/ant-design/pull/23144) [@DongchengWang](https://github.com/DongchengWang)
+
 ## 4.1.2
 
 - Menu
