@@ -106,7 +106,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandedRowRender,
     expandIconColumnIndex,
     indentSize,
-    childrenColumnName = 'children',
     scroll,
     sortDirections,
     locale,
@@ -131,6 +130,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandIconColumnIndex,
     ...expandable,
   };
+  const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
     if (rawData.some(item => (item as any)[childrenColumnName])) {
