@@ -3,6 +3,8 @@ import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
+type CheerIO = ReturnType<typeof render>;
+type CheerIOElement = CheerIO[0];
 // We should avoid use it in 4.0. Reopen if can not handle this.
 const USE_REPLACEMENT = false;
 const testDist = process.env.LIB_DIR === 'dist';
@@ -13,12 +15,12 @@ const testDist = process.env.LIB_DIR === 'dist';
  * Or `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env.
  * So we need hack of this to modify the `aria-controls`.
  */
-function ariaConvert(wrapper) {
+function ariaConvert(wrapper: CheerIO) {
   if (!testDist || !USE_REPLACEMENT) return wrapper;
 
   const matches = new Map();
 
-  function process(entry) {
+  function process(entry: CheerIOElement) {
     const { attribs, children } = entry;
     if (matches.has(entry)) return;
     matches.set(entry, true);
@@ -33,15 +35,16 @@ function ariaConvert(wrapper) {
     (Array.isArray(children) ? children : [children]).forEach(process);
   }
 
-  Object.keys(wrapper).forEach(key => {
-    const entry = wrapper[key];
-    process(entry);
-  });
+  wrapper.each((_, entry) => process(entry));
 
   return wrapper;
 }
 
-export default function demoTest(component, options = {}) {
+type Options = {
+  skip?: boolean;
+};
+
+export default function demoTest(component: string, options: Options = {}) {
   const files = glob.sync(`./components/${component}/demo/*.md`);
 
   files.forEach(file => {
@@ -50,7 +53,7 @@ export default function demoTest(component, options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
-      MockDate.set(moment('2016-11-22'));
+      MockDate.set(moment('2016-11-22').toDate());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
 
