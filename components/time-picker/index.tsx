@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import * as React from 'react';
+import classNames from 'classnames';
 import DatePicker from '../date-picker';
 import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 import warning from '../_util/warning';
@@ -20,10 +21,11 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;
+  popupClassName?: string;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, popupClassName, dropdownClassName, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
@@ -42,6 +44,10 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
     return (
       <InternalTimePicker
         {...restProps}
+        dropdownClassName={classNames({
+          [`${dropdownClassName}`]: dropdownClassName,
+          [`${popupClassName}`]: popupClassName,
+        })}
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
@@ -51,6 +57,9 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
 );
 
 TimePicker.displayName = 'TimePicker';
+TimePicker.defaultProps = {
+  popupClassName: '',
+};
 
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;
