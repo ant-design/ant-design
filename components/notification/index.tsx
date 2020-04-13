@@ -2,6 +2,7 @@ import * as React from 'react';
 import Notification from 'rc-notification';
 import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
@@ -29,8 +30,10 @@ export interface ConfigProps {
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
+  rtl?: boolean;
 }
 
+let rtl = false;
 function setNotificationConfig(options: ConfigProps) {
   const { duration, placement, bottom, top, getContainer, closeIcon } = options;
   if (duration !== undefined) {
@@ -50,6 +53,9 @@ function setNotificationConfig(options: ConfigProps) {
   }
   if (closeIcon !== undefined) {
     defaultCloseIcon = closeIcon;
+  }
+  if (options.rtl !== undefined) {
+    rtl = options.rtl;
   }
 }
 
@@ -122,11 +128,15 @@ function getNotificationInstance(
     </span>
   );
 
+  const notificationClass = classNames(`${outerPrefixCls}-${placement}`, {
+    [`${outerPrefixCls}-rtl`]: rtl === true,
+  });
+
   notificationInstance[cacheKey] = new Promise(resolve => {
     Notification.newInstance(
       {
         prefixCls: outerPrefixCls,
-        className: `${outerPrefixCls}-${placement}`,
+        className: notificationClass,
         style: getPlacementStyle(placement, top, bottom),
         getContainer,
         closeIcon: closeIconToRender,
