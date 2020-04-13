@@ -98,6 +98,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowClassName,
     columns,
     children,
+    childrenColumnName: legacyChildrenColumnName,
     onChange,
     getPopupContainer,
     loading,
@@ -106,7 +107,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandedRowRender,
     expandIconColumnIndex,
     indentSize,
-    childrenColumnName = 'children',
     scroll,
     sortDirections,
     locale,
@@ -128,9 +128,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
+    childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
   };
+  const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
     if (rawData.some(item => (item as any)[childrenColumnName])) {
