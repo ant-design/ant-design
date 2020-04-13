@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import * as React from 'react';
 import Table from '../Table';
 import { ColumnProps } from '..';
@@ -44,4 +42,3 @@ describe('Table.typescript types', () => {
     expect(columns).toBeTruthy();
   });
 });
-/* eslint-enable */
