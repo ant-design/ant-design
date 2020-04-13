@@ -261,10 +261,10 @@
   .@{tab-prefix-cls}-top-content,
   .@{tab-prefix-cls}-bottom-content {
     width: 100%;
-
     > .@{tab-prefix-cls}-tabpane {
       flex-shrink: 0;
       width: 100%;
+      -webkit-backface-visibility: hidden;
       opacity: 1;
       transition: opacity 0.45s;
     }
