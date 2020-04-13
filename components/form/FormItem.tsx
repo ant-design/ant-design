@@ -28,7 +28,7 @@ interface MemoInputProps {
 }
 
 const MemoInput = React.memo(
-  ({ children }: MemoInputProps) => <>{children}</>,
+  ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) => {
     return prev.value === next.value && prev.update === next.update;
   },
@@ -221,7 +221,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   updateRef.current += 1;
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return <>{renderLayout(children)}</>;
+    return renderLayout(children) as JSX.Element;
   }
 
   const variables: Record<string, string> = {};
