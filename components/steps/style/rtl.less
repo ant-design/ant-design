@@ -174,3 +174,75 @@
     }
   }
 }
+
+// progress-dot
+.@{steps-prefix-cls}-dot,
+.@{steps-prefix-cls}-dot.@{steps-prefix-cls}-small {
+  .@{steps-prefix-cls}-item {
+    &-tail {
+      .@{steps-prefix-cls}-rtl& {
+        margin: 0 @steps-desciption-max-width / 2 0 0;
+      }
+
+      &::after {
+        .@{steps-prefix-cls}-rtl& {
+          margin-right: 12px;
+          margin-left: 0;
+        }
+      }
+    }
+    &:first-child .@{steps-prefix-cls}-icon-dot {
+      .@{steps-prefix-cls}-rtl& {
+        right: 2px;
+        left: auto;
+      }
+    }
+    &-icon {
+      .@{steps-prefix-cls}-rtl& {
+        margin-right: 67px;
+        margin-left: 0;
+      }
+
+      .@{steps-prefix-cls}-icon-dot {
+        .@{steps-prefix-cls}-rtl& {
+          float: right;
+        }
+        /* expand hover area */
+        &::after {
+          .@{steps-prefix-cls}-rtl& {
+            right: -26px;
+            left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+.@{steps-prefix-cls}-vertical.@{steps-prefix-cls}-dot {
+  .@{steps-prefix-cls}-item-icon {
+    .@{steps-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 16px;
+    }
+  }
+  // https://github.com/ant-design/ant-design/issues/18354
+  .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
+    .@{steps-prefix-cls}-rtl& {
+      right: -9px;
+      left: auto;
+    }
+  }
+  .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
+    .@{steps-prefix-cls}-rtl& {
+      right: 0;
+      left: auto;
+    }
+  }
+  .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
+    .@{steps-prefix-cls}-rtl& {
+      right: -2px;
+      left: auto;
+    }
+  }
+}
