@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { mount, render } from 'enzyme';
-import renderer from 'react-test-renderer';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+import { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {
   mountTest(Button);
@@ -30,13 +30,14 @@ describe('Button', () => {
   });
 
   it('mount correctly', () => {
-    expect(() => renderer.create(<Button>Follow</Button>)).not.toThrow();
+    expect(() => mount(<Button>Follow</Button>)).not.toThrow();
   });
 
   it('warns if size is wrong', () => {
     const mockWarn = jest.fn();
     jest.spyOn(console, 'warn').mockImplementation(mockWarn);
-    render(<Button.Group size="who am I" />);
+    const size = ('who am I' as any) as SizeType;
+    render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledTimes(1);
     expect(mockWarn.mock.calls[0][0]).toMatchObject({
       message: 'unreachable case: "who am I"',
@@ -74,7 +75,7 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly in HOC', () => {
-    const Text = ({ children }) => <span>{children}</span>;
+    const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
     const wrapper = mount(
       <Button>
         <Text>按钮</Text>
@@ -110,7 +111,7 @@ describe('Button', () => {
 
   it('have static property for type detecting', () => {
     const wrapper = mount(<Button>Button Text</Button>);
-    expect(wrapper.type().__ANT_BUTTON).toBe(true);
+    expect((wrapper.type() as any).__ANT_BUTTON).toBe(true);
   });
 
   it('should change loading state instantly by default', () => {
@@ -189,7 +190,7 @@ describe('Button', () => {
 
   it('should has click wave effect', async () => {
     const wrapper = mount(<Button type="primary">button</Button>);
-    wrapper.find('.ant-btn').getDOMNode().click();
+    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
     await new Promise(resolve => setTimeout(resolve, 0));
     expect(wrapper.render()).toMatchSnapshot();
   });
