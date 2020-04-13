@@ -24,22 +24,17 @@ type ChildrenType = RenderChildren | React.ReactNode;
 interface MemoInputProps {
   value: any;
   update: number;
-  children: any;
+  children: React.ReactNode;
 }
 
-const MemoInput = React.memo<MemoInputProps>(
-  ({ children }) => {
-    return children;
-  },
+const MemoInput = React.memo(
+  ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) => {
     return prev.value === next.value && prev.update === next.update;
   },
 );
 
-export interface FormItemProps
-  extends FormItemLabelProps,
-    FormItemInputProps,
-    Omit<RcFieldProps, 'children'> {
+export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
@@ -129,7 +124,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean,
-  ): any {
+  ): React.ReactNode {
     if (noStyle) {
       return baseChildren;
     }
@@ -226,7 +221,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   updateRef.current += 1;
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children);
+    return renderLayout(children) as JSX.Element;
   }
 
   const variables: Record<string, string> = {};
@@ -304,7 +299,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           );
         } else if (React.isValidElement(children)) {
           warning(
-            (children.props as any).defaultValue === undefined,
+            children.props.defaultValue === undefined,
             'Form.Item',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
           );
@@ -337,7 +332,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children as any;
+          childNode = children;
         }
 
         return renderLayout(childNode, fieldId, meta, isRequired);
