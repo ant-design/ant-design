@@ -11265,7 +11265,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     Date
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
-                      style="touch-action:none"
                     />
                   </th>
                   <th
@@ -11332,7 +11331,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     </div>
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
-                      style="touch-action:none"
                     />
                   </th>
                   <th
@@ -11341,7 +11339,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     Type
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
-                      style="touch-action:none"
                     />
                   </th>
                   <th
@@ -11350,7 +11347,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     Note
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
-                      style="touch-action:none"
                     />
                   </th>
                   <th

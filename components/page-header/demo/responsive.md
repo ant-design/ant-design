@@ -1,6 +1,6 @@
 ---
 order: 6
-iframe: 210
+iframe: 228
 title:
   zh-CN: 响应式
   en-US: responsive
@@ -89,16 +89,7 @@ ReactDOM.render(
 );
 ```
 
-```css
-.site-page-header-responsive {
-  border: 1px solid rgb(235, 237, 240);
-}
-```
-
 <style>
-[data-theme="dark"] .site-page-header-responsive {
-  border: 1px solid #303030;
-}
 tr:last-child td {
   padding-bottom: 0;
 }

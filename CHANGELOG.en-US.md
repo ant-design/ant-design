@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 4.1.2
+
+- Menu
+  - 🐞 Fix Menu SubMenu background in dark mode. [#22981](https://github.com/ant-design/ant-design/pull/22981) [@AshoneA](https://github.com/AshoneA)
+  - 🐞 Fix long SubMenu title being overlayed by arrow icon. [#23028](https://github.com/ant-design/ant-design/pull/23028) [@wwyx778](https://github.com/wwyx778)
+- 🐞 Fix dark and compact theme cannot work together. [#22934](https://github.com/ant-design/ant-design/pull/22934) [@AshoneA](https://github.com/AshoneA)
+- 🐞 Fix Notification invalid `paddig-top` value. [#22941](https://github.com/ant-design/ant-design/pull/22941)
+- Button
+  - 🐞 Fix Button `loading` animation with icon. [#23102](https://github.com/ant-design/ant-design/pull/23102)
+  - ⚠️ Improve Button invalid `type` warning. [#22933](https://github.com/ant-design/ant-design/pull/22933) [@fa93hws](https://github.com/fa93hws)
+- 🐞 Fix Statistic show `-0` when value is `-`. [@22950](https://github.com/ant-design/ant-design/pull/22950)
+- 🐞 Fix Modal.confirm `onOk` should not be triggered multiple times. [#22963](https://github.com/ant-design/ant-design/pull/22963)
+- Input
+  - 🐞 Fix Input.Group Button style not aligned center. [#22975](https://github.com/ant-design/ant-design/pull/22975)
+  - 🐞 Fix Input with `affix` background style in dark theme. [#23115](https://github.com/ant-design/ant-design/pull/23115)
+- 🐞 Fix Form.Item not correct reset error style when dynamic switch Form.Item. [#23041](https://github.com/ant-design/ant-design/pull/23041)
+- 💄 Adjust RangePicker arrow & suffix color style. [#23025](https://github.com/ant-design/ant-design/pull/23025)
+- Table
+  - 🐞 Fix Table selection row with hover background style. [#23110](https://github.com/ant-design/ant-design/pull/23110)
+  - 💄 Tweak Table hover background color. [#23113](https://github.com/ant-design/ant-design/pull/23113)
+  - ⚠️ Table add warning info when async mode `dataSource` length not match with `pageSize`. [#23118](https://github.com/ant-design/ant-design/pull/23118)
+- Select
+  - 💄 Match mulitiple Select cursor position to single Select. [#22978](https://github.com/ant-design/ant-design/pull/22978)
+  - 🐞 Fix borderless Select still show border when Form.Item set `validateStatus`. [#23004](https://github.com/ant-design/ant-design/pull/23004)
+  - 🐞 Fix Select style in IE11. [#23020](https://github.com/ant-design/ant-design/pull/23020)
+- 🐞 Fix Calendar missing `style` prop support. [#23081](https://github.com/ant-design/ant-design/pull/23081)
+- 🐞 Fix Tabs bottom card active tab wrong height style. [#23087](https://github.com/ant-design/ant-design/pull/23087)
+- 🐞 Fix RTL support of Anchor, Select, DatePicker, Grid, Mentions. [@xrkffgg](https://github.com/xrkffgg)
+- TypeScript
+  - 🌟 Upload `UploadProps` support generic typing. [#22921](https://github.com/ant-design/ant-design/pull/22921) [@dpyzo0o](https://github.com/dpyzo0o)
+  - 🐞 Fix Modal.confirm `okButtonProps` types. [#21165](https://github.com/ant-design/ant-design/pull/21165) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
+  - 🌟 Export Form `Store` interface. [#22755](https://github.com/ant-design/ant-design/pull/22755) [@shaodahong](https://github.com/shaodahong)
+  - 🌟 Improve enum types for Input, Tag, Badge. [#23026](https://github.com/ant-design/ant-design/pull/23026) [#22999](https://github.com/ant-design/ant-design/pull/22999) [#23006](https://github.com/ant-design/ant-design/pull/23006) [@fjc0k](https://github.com/fjc0k)
+  - 🐞 Fix Pagination `position` type. [#23048](https://github.com/ant-design/ant-design/pull/23048) [@Arttse](https://github.com/Arttse)
+
 ## 4.1.1
 
 - 🐞 Fix Tabs panel focus outline style. [#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)

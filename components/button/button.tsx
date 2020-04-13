@@ -1,7 +1,6 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import omit from 'omit.js';
 
 import Group from './button-group';
@@ -10,6 +9,7 @@ import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import LoadingIcon from './LoadingIcon';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -255,15 +255,21 @@ class Button extends React.Component<ButtonProps, ButtonState> {
             [`${prefixCls}-${shape}`]: shape,
             [`${prefixCls}-${sizeCls}`]: sizeCls,
             [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-            [`${prefixCls}-loading`]: !!loading,
             [`${prefixCls}-background-ghost`]: ghost,
+            [`${prefixCls}-loading`]: loading,
             [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
             [`${prefixCls}-block`]: block,
             [`${prefixCls}-dangerous`]: !!danger,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           });
 
-          const iconNode = loading ? <LoadingOutlined /> : icon || null;
+          const iconNode =
+            icon && !loading ? (
+              icon
+            ) : (
+              <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={loading} />
+            );
+
           const kids =
             children || children === 0
               ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)

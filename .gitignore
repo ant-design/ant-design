@@ -55,3 +55,4 @@ site/theme/template/Content/EditButton.jsx
 site/theme/template/Resources/*.jsx
 site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
+scripts/previewEditor/index.html
