@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import RCPicker from 'rc-picker';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -60,5 +61,42 @@ describe('TimePicker', () => {
       <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should pass popupClassName prop to RCPicker as dropdownClassName prop', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find(RCPicker).prop('dropdownClassName')).toEqual(popupClassName);
+  });
+
+  it('should pass dropdownClassName prop to RCPicker as dropdownClassName prop', () => {
+    const dropdownClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        dropdownClassName={dropdownClassName}
+      />,
+    );
+    expect(wrapper.find(RCPicker).prop('dropdownClassName')).toEqual(dropdownClassName);
+  });
+
+  it('should combine dropdownClassName and popupClassName props and pass it to RCPicker as dropdownClassName prop', () => {
+    const dropdownClassName = 'myCustomClassNameOne';
+    const popupClassName = 'myCustomClassNameTwo';
+    const wrapper = mount(
+      <TimePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        dropdownClassName={dropdownClassName}
+        popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find(RCPicker).prop('dropdownClassName')).toEqual(
+      `${dropdownClassName} ${popupClassName}`,
+    );
   });
 });
