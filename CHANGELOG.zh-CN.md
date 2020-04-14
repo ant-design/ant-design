@@ -17,6 +17,8 @@ timeline: true
 
 ## 4.1.3
 
+`2020-04-13`
+
 - 💄 调整 Form.Item `label` 在垂直布局下的高度样式。[#23192](https://github.com/ant-design/ant-design/pull/23192)
 - 🐞 修复引用暗黑或紧凑主题时提示 `Variable is undefined` 的问题，并提供 `getThemeVariables` 方便获取对应主题变量。[#23171](https://github.com/ant-design/ant-design/pull/23171)
 - 🐞 修复 PageHeader `title` 超长时布局被破坏的问题并优化响应式表现。[#23133](https://github.com/ant-design/ant-design/pull/23133)
@@ -31,6 +33,8 @@ timeline: true
 - 🐞 修复 Pagination 缺少 `showTitle` TypeScript 定义的问题。[#23144](https://github.com/ant-design/ant-design/pull/23144) [@DongchengWang](https://github.com/DongchengWang)
 
 ## 4.1.2
+
+`2020-04-10`
 
 - Menu
   - 🐞 修复暗色 Menu 弹出菜单背景色为白色的问题。[#22981](https://github.com/ant-design/ant-design/pull/22981) [@AshoneA](https://github.com/AshoneA)
@@ -66,6 +70,8 @@ timeline: true
   - 🐞 修复 Pagination `position` 定义。 [#23048](https://github.com/ant-design/ant-design/pull/23048) [@Arttse](https://github.com/Arttse)
 
 ## 4.1.1
+
+`2020-04-05`
 
 - 🐞 移除 Tabs 的内容区域的 focus 蓝色轮廓线。[#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)
 - 🐞 修复 Input 前后缀添加弹出元素不能点击获得焦点的问题。[#22887](https://github.com/ant-design/ant-design/pull/22887)
