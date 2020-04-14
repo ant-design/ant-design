@@ -7,7 +7,7 @@ title: 可视化
 
 同时，这是一份动态更新的设计文档，你的阅读和互动正是我们不断前进的动力，[GitHub 反馈地址](https://github.com/antvis/site/issues)。
 
-# 前端实现
+## 前端实现
 
 [AntV](https://antv.vision/zh) 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2，欢迎社区贡献其他框架的实现版本。
 
@@ -17,7 +17,7 @@ title: 可视化
 - [L7 地理空间数据可视分析引擎](https://l7.antv.vision/zh)
 - [F2 移动端可视化方案](https://f2.antv.vision/zh)
 
-# 如何设计
+## 如何设计
 
 ### 了解用户
 
@@ -141,7 +141,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 更多交互式图表内容请前往 [ AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
 
-# 设计资源
+## 设计资源
 
 - 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
 - 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。
