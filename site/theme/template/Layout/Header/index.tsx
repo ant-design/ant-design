@@ -131,7 +131,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return 'LTR';
   };
 
-  getDropdownStyle = () => {
+  getDropdownStyle = (): React.CSSProperties => {
     const { direction } = this.context;
     if (direction === 'rtl') {
       return {
