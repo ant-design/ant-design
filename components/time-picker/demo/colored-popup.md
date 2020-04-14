@@ -3,6 +3,7 @@ order: 9
 title:
   zh-CN: 色付きポップアップ
   en-US: Colored Popup
+debug: true
 ---
 
 ## zh-CN
