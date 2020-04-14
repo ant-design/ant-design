@@ -87,7 +87,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
       treeCheckable,
       multiple,
       listHeight = 256,
-      listItemHeight = 32,
+      listItemHeight = 26,
       notFoundContent,
       switcherIcon,
       treeLine,
