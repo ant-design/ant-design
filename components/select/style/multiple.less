@@ -102,6 +102,7 @@
 
     &-input {
       width: 100%;
+      min-width: 3px;
     }
 
     &-mirror {
@@ -169,7 +170,8 @@
       left: @input-padding-horizontal-sm;
     }
     // https://github.com/ant-design/ant-design/issues/22906
-    .@{select-prefix-cls}-selection-search:first-child .@{select-prefix-cls}-selection-search-input {
+    .@{select-prefix-cls}-selection-search:first-child
+      .@{select-prefix-cls}-selection-search-input {
       margin-left: 3px;
     }
   }
