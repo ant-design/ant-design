@@ -64,7 +64,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     warning(
       'fileList' in props || !('value' in props),
       'Upload',
-      '`value` is not validate prop, do you mean `fileList`?',
+      '`value` is not a valid prop, do you mean `fileList`?',
     );
   }
 
