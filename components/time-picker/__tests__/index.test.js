@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
-import RCPicker from 'rc-picker';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -63,7 +62,7 @@ describe('TimePicker', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('should pass popupClassName prop to RCPicker as dropdownClassName prop', () => {
+  it('should pass popupClassName prop to Picker as dropdownClassName prop', () => {
     const popupClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker
@@ -71,10 +70,10 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find(RCPicker).prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
   });
 
-  it('should pass dropdownClassName prop to RCPicker as dropdownClassName prop', () => {
+  it('should pass dropdownClassName prop to Picker as dropdownClassName prop', () => {
     const dropdownClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker
@@ -82,10 +81,10 @@ describe('TimePicker', () => {
         dropdownClassName={dropdownClassName}
       />,
     );
-    expect(wrapper.find(RCPicker).prop('dropdownClassName')).toEqual(dropdownClassName);
+    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(dropdownClassName);
   });
 
-  it('should combine dropdownClassName and popupClassName props and pass it to RCPicker as dropdownClassName prop', () => {
+  it('should combine dropdownClassName and popupClassName props and pass it to Picker as dropdownClassName prop', () => {
     const dropdownClassName = 'myCustomClassNameOne';
     const popupClassName = 'myCustomClassNameTwo';
     const wrapper = mount(
@@ -95,7 +94,7 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find(RCPicker).prop('dropdownClassName')).toEqual(
+    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(
       `${dropdownClassName} ${popupClassName}`,
     );
   });

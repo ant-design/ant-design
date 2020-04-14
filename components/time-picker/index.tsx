@@ -57,9 +57,6 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
 );
 
 TimePicker.displayName = 'TimePicker';
-TimePicker.defaultProps = {
-  popupClassName: '',
-};
 
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;
