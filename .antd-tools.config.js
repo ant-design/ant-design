@@ -104,6 +104,7 @@ function finalizeDist() {
       path.join(process.cwd(), 'dist', 'theme.js'),
       `const defaultTheme = require('./default-theme.js');\n`,
     );
+    // eslint-disable-next-line no-console
     console.log('Built a entry less file to dist/antd.less');
     buildThemeFile('default', defaultVars);
     buildThemeFile('dark', darkVars);
