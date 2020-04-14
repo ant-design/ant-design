@@ -72,30 +72,4 @@ describe('TimePicker', () => {
     );
     expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
   });
-
-  it('should pass dropdownClassName prop to Picker as dropdownClassName prop', () => {
-    const dropdownClassName = 'myCustomClassName';
-    const wrapper = mount(
-      <TimePicker
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
-        dropdownClassName={dropdownClassName}
-      />,
-    );
-    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(dropdownClassName);
-  });
-
-  it('should combine dropdownClassName and popupClassName props and pass it to Picker as dropdownClassName prop', () => {
-    const dropdownClassName = 'myCustomClassNameOne';
-    const popupClassName = 'myCustomClassNameTwo';
-    const wrapper = mount(
-      <TimePicker
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
-        dropdownClassName={dropdownClassName}
-        popupClassName={popupClassName}
-      />,
-    );
-    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(
-      `${dropdownClassName} ${popupClassName}`,
-    );
-  });
 });

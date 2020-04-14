@@ -1,6 +1,5 @@
 import { Moment } from 'moment';
 import * as React from 'react';
-import classNames from 'classnames';
 import DatePicker from '../date-picker';
 import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 import warning from '../_util/warning';
@@ -25,7 +24,7 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'>
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, popupClassName, dropdownClassName, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
@@ -44,10 +43,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
     return (
       <InternalTimePicker
         {...restProps}
-        dropdownClassName={classNames({
-          [`${dropdownClassName}`]: dropdownClassName,
-          [`${popupClassName}`]: popupClassName,
-        })}
+        dropdownClassName={popupClassName}
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
