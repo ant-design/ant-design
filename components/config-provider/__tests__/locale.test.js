@@ -133,7 +133,7 @@ describe('ConfigProvider.Locale', () => {
       await delay(50);
       wrapper.update();
 
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入 姓名');
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入姓名');
     });
 
     it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
@@ -144,7 +144,7 @@ describe('ConfigProvider.Locale', () => {
       wrapper.update();
 
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
-      expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄 必须等于 17');
+      expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄必须等于17');
     });
   });
 });
