@@ -83,8 +83,8 @@ function buildThemeFile(theme, vars) {
     path.join(process.cwd(), 'dist', `${theme}-theme.js`),
     `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
 module.exports = {
-  ...${theme}ThemeSingle,
-  ...defaultTheme
+  ...defaultTheme,
+  ...${theme}ThemeSingle
 }`,
   );
 
