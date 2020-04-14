@@ -183,7 +183,7 @@ describe('TextArea allowClear', () => {
     const wrappers = [null, undefined, ''].map(val => mount(<TextArea allowClear value={val} />));
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-textarea-clear-icon').exists()).toEqual(false);
+      expect(wrapper.find('.ant-input-textarea-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -236,7 +236,7 @@ describe('TextArea allowClear', () => {
 
   it('should not support allowClear when it is disabled', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" disabled />);
-    expect(wrapper.find('.ant-input-textarea-clear-icon').length).toBe(0);
+    expect(wrapper.find('.ant-input-textarea-clear-icon-hidden').exists()).toBeTruthy();
   });
 
   it('not block input when `value` is undefined', () => {
