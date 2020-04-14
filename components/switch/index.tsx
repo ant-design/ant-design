@@ -41,7 +41,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     warning(
       'checked' in props || !('value' in props),
       'Switch',
-      '`value` is not validate prop, do you mean `checked`?',
+      '`value` is not a valid prop, do you mean `checked`?',
     );
   }
 
