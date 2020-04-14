@@ -130,6 +130,9 @@
       .@{input-number-prefix-cls}-handler-down-inner {
         .iconfont-size-under-12px(7px);
 
+        height: 7px;
+        line-height: 7px;
+        overflow: hidden;
         min-width: auto;
         margin-right: 0;
       }
@@ -149,8 +152,9 @@
     cursor: pointer;
     &-inner {
       top: 50%;
-      margin-top: -5px;
+      margin-top: 0;
       text-align: center;
+      transform: translateY(-50%);
     }
     &:hover {
       height: 60% !important;
@@ -164,8 +168,9 @@
     cursor: pointer;
     &-inner {
       top: 50%;
-      margin-top: -6px;
+      margin-top: -0.5px;
       text-align: center;
+      transform: translateY(-50%);
     }
     &:hover {
       height: 60% !important;
