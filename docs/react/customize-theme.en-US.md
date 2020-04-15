@@ -143,7 +143,7 @@ We have some official themes, try them out and give us some feedback!
 
 #### Method 1
 
-using Umi 3
+Using Umi 3.
 
 If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
 
@@ -181,7 +181,7 @@ If the project does not use Less, you can import [antd.dark.css](https://unpkg.c
 @import '~antd/dist/antd.compact.css';
 ```
 
-> Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too.
+> Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too. You can't enable two or more theme at the same time by this method.
 
 #### Method 3
 
@@ -211,8 +211,6 @@ module.exports = {
   }],
 };
 ```
-
-Use dark theme and compact theme at the same time by [method 2](#Method-2) will cause double css bundle size. If you want keep css bundle size, you should use [method 1](#Method-1) or [method 3](#Method-3).
 
 ## Related Articles
 
