@@ -122,6 +122,7 @@ const Demo = () => (
   - `onBlur` no longer trigger value change.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
   - Select remove `dropdownMenuStyle` prop.
+  - Use `listHeight` to config popup height instead of `dropdownStyle`.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
