@@ -56,6 +56,7 @@
     &-left {
       display: flex;
       align-items: center;
+      margin: (@margin-xs / 2) 0;
       overflow: hidden;
     }
 
@@ -82,7 +83,9 @@
     }
 
     &-extra {
+      margin: (@margin-xs / 2) 0;
       white-space: nowrap;
+
       > * {
         margin-left: @margin-sm;
         white-space: unset;
@@ -112,11 +115,7 @@
   }
 
   &-compact &-heading {
-    flex-direction: column;
-
-    &-extra {
-      margin-top: @margin-xs;
-    }
+    flex-wrap: wrap;
   }
 }
 

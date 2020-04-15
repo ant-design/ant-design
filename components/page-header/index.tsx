@@ -116,7 +116,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 const PageHeader: React.FC<PageHeaderProps> = props => {
   const [compact, updateCompact] = React.useState(false);
   const onResize = ({ width }: { width: number }) => {
-    updateCompact(width < 540);
+    updateCompact(width < 768);
   };
   return (
     <ConfigConsumer>
