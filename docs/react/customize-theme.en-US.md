@@ -141,9 +141,7 @@ We have some official themes, try them out and give us some feedback!
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
-#### Method 1
-
-Using Umi 3.
+Method 1: using Umi 3
 
 If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
 
@@ -165,9 +163,7 @@ If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
    },
    ```
 
-#### Method 2
-
-Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
+Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
 
 ```less
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
@@ -183,9 +179,7 @@ If the project does not use Less, you can import [antd.dark.css](https://unpkg.c
 
 > Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too. You can't enable two or more theme at the same time by this method.
 
-#### Method 3
-
-using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
+Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
 ```diff
 const { getThemeVariables } = require('antd/dist/theme');
