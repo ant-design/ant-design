@@ -116,8 +116,10 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 const PageHeader: React.FC<PageHeaderProps> = props => {
   const [compact, updateCompact] = React.useState(false);
   const onResize = ({ width }: { width: number }) => {
+    console.log('onResize', width);
     updateCompact(width < 768);
   };
+  console.log('compact', compact);
   return (
     <ConfigConsumer>
       {({ getPrefixCls, pageHeader, direction }: ConfigConsumerProps) => {
