@@ -6,6 +6,14 @@ const defaultVars = require('./scripts/default-vars');
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
+function generateThemeFileContent(theme) {
+  return `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
+module.exports = {
+  ...defaultTheme,
+  ...${theme}ThemeSingle
+}`;
+}
+
 // We need compile additional content for antd user
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './lib'))) {
@@ -81,11 +89,7 @@ function buildThemeFile(theme, vars) {
 
   fs.writeFileSync(
     path.join(process.cwd(), 'dist', `${theme}-theme.js`),
-    `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
-module.exports = {
-  ...${theme}ThemeSingle,
-  ...defaultTheme
-}`,
+    generateThemeFileContent(theme),
   );
 
   // eslint-disable-next-line no-console
@@ -151,5 +155,6 @@ module.exports = {
   dist: {
     finalize: finalizeDist,
   },
+  generateThemeFileContent,
 };
 finalizeDist();

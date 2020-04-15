@@ -155,7 +155,7 @@ module.exports = {
 @import '~antd/dist/antd.compact.css';
 ```
 
-> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。
+> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。通过此方式不能同时配置两种及以上主题。
 
 方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
@@ -183,8 +183,6 @@ module.exports = {
   }],
 };
 ```
-
-同时开启暗黑和紧凑模式会导致 css 的加载体积增加一倍，这暂时受限于我们目前的主题实现方式，请知晓。
 
 ## 社区教程
 
