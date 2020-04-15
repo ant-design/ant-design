@@ -119,7 +119,9 @@ module.exports = {
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
-方式一：使用 Umi 3
+#### 方式一
+
+使用 Umi 3
 
 如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
 
@@ -141,7 +143,9 @@ module.exports = {
    },
    ```
 
-方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
+#### 方式二
+
+是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
 
 ```less
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
@@ -157,7 +161,9 @@ module.exports = {
 
 > 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。
 
-方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+#### 方式三
+
+是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
 ```diff
 const { getThemeVariables } = require('antd/dist/theme');
@@ -184,7 +190,7 @@ module.exports = {
 };
 ```
 
-同时开启暗黑和紧凑模式会导致 css 的加载体积增加一倍，这暂时受限于我们目前的主题实现方式，请知晓。
+使用 [方式二](#方式二) 同时开启暗黑和紧凑模式会导致 css 的加载体积增加一倍。如果希望体积不变请使用 [方式一](#方式一) 或者 [方式三](#方式三) 引入。
 
 ## 社区教程
 
