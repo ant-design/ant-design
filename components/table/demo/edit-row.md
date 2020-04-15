@@ -85,7 +85,7 @@ const EditableTable = () => {
   const isEditing = (record: Item) => record.key === editingKey;
 
   const edit = (record: Item) => {
-    form.setFieldsValue({ ...record });
+    form.setFieldsValue({ name: '', age: '', address: '', ...record });
     setEditingKey(record.key);
   };
 
