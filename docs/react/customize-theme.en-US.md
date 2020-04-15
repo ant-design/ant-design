@@ -177,7 +177,7 @@ If the project does not use Less, you can import [antd.dark.css](https://unpkg.c
 @import '~antd/dist/antd.compact.css';
 ```
 
-> Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too.
+> Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too. You can't enable two or more theme at the same time by this method.
 
 Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
@@ -205,8 +205,6 @@ module.exports = {
   }],
 };
 ```
-
-Use dark theme and compact theme at the same time will cause double css bundle size in current implementation, please be aware of this.
 
 ## Related Articles
 
