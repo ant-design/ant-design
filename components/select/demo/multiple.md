@@ -3,6 +3,7 @@ order: 2
 title:
   zh-CN: 多选
   en-US: multiple selection
+only: true
 ---
 
 ## zh-CN
@@ -29,6 +30,7 @@ function handleChange(value) {
 
 ReactDOM.render(
   <Select
+    disabled
     mode="multiple"
     style={{ width: '100%' }}
     placeholder="Please select"
