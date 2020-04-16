@@ -10,7 +10,7 @@ export interface SpaceProps {
   style?: React.CSSProperties;
   size?: SizeType | number;
   direction?: 'horizontal' | 'vertical';
-  align?: 'start' | 'end' | 'center' | 'stretch' | 'baseline';
+  align?: 'start' | 'end' | 'center' | 'baseline';
 }
 
 const spaceSize = {
