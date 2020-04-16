@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自定义间距大小。
+设置对齐模式。
 
 ## en-US
 
-Custom spacing size.
+Config item align.
 
 ```jsx
 import { Space, Button } from 'antd';
