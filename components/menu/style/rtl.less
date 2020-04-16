@@ -22,6 +22,15 @@
     }
   }
 
+  &-dark {
+    .@{menu-prefix-cls}-inline,
+    .@{menu-prefix-cls}-vertical {
+      .@{menu-prefix-cls}-rtl& {
+        border-left: none;
+      }
+    }
+  }
+
   &-vertical&-sub,
   &-vertical-left&-sub,
   &-vertical-right&-sub {
@@ -121,6 +130,14 @@
       .@{menu-prefix-cls}-rtl& {
         padding-right: 16px;
         padding-left: 34px;
+      }
+    }
+  }
+
+  &-inline-collapsed&-vertical {
+    .@{menu-prefix-cls}-submenu-title {
+      .@{menu-prefix-cls}-rtl& {
+        padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2;
       }
     }
   }
