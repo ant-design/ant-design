@@ -69,6 +69,7 @@ export default class Rate extends React.Component<RateProps, any> {
         {...rateProps}
         prefixCls={ratePrefixCls}
         className={rateClassNames}
+        direction={direction}
       />
     );
   };
