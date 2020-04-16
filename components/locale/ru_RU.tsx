@@ -10,6 +10,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Пожалуйста выберите',
+  },
   Table: {
     filterTitle: 'Фильтр',
     filterConfirm: 'OK',
@@ -17,6 +20,11 @@ const localeValues: Locale = {
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
     sortTitle: 'Сортировка',
+    expand: 'Развернуть строку',
+    collapse: 'Свернуть строку',
+    triggerDesc: 'Нажмите для сортировки по убыванию',
+    triggerAsc: 'Нажмите для сортировки по возрастанию',
+    cancelSort: 'Нажмите, чтобы отменить сортировку',
   },
   Modal: {
     okText: 'OK',
@@ -41,6 +49,9 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Нет данных',
+  },
+  Icon: {
+    icon: 'иконка',
   },
   Text: {
     edit: 'редактировать',
