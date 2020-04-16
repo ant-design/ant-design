@@ -122,7 +122,7 @@
     "rc-pagination": "~2.2.0",
     "rc-picker": "~1.4.0",
     "rc-progress": "~2.5.0",
-    "rc-rate": "~2.5.1",
+    "rc-rate": "~2.6.0",
     "rc-resize-observer": "^0.2.0",
     "rc-select": "~10.2.0",
     "rc-slider": "~9.2.3",
