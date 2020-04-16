@@ -4,6 +4,7 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Input, { InputProps } from './Input';
 import Button from '../button';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SearchProps extends InputProps {
@@ -165,9 +166,9 @@ export default class Search extends React.Component<SearchProps, any> {
     const {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
-      size,
       enterButton,
       className,
+      size: customizeSize,
       ...restProps
     } = this.props;
 
@@ -177,32 +178,39 @@ export default class Search extends React.Component<SearchProps, any> {
     const prefixCls = getPrefixCls('input-search', customizePrefixCls);
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
-    let inputClassName;
-
-    if (enterButton) {
-      inputClassName = classNames(prefixCls, className, {
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-enter-button`]: !!enterButton,
-        [`${prefixCls}-${size}`]: !!size,
-      });
-    } else {
-      inputClassName = classNames(prefixCls, className, {
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      });
-    }
+    const getClassName = (size: SizeType) => {
+      let inputClassName;
+      console.log(size);
+      if (enterButton) {
+        inputClassName = classNames(prefixCls, className, {
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-enter-button`]: !!enterButton,
+          [`${prefixCls}-${size}`]: !!size,
+        });
+      } else {
+        inputClassName = classNames(prefixCls, className, {
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        });
+      }
+      return inputClassName;
+    };
 
     return (
-      <Input
-        onPressEnter={this.onSearch}
-        {...restProps}
-        size={size}
-        prefixCls={inputPrefixCls}
-        addonAfter={this.renderAddonAfter(prefixCls)}
-        suffix={this.renderSuffix(prefixCls)}
-        onChange={this.onChange}
-        ref={this.saveInput}
-        className={inputClassName}
-      />
+      <SizeContext.Consumer>
+        {size => (
+          <Input
+            onPressEnter={this.onSearch}
+            {...restProps}
+            size={customizeSize || size}
+            prefixCls={inputPrefixCls}
+            addonAfter={this.renderAddonAfter(prefixCls)}
+            suffix={this.renderSuffix(prefixCls)}
+            onChange={this.onChange}
+            ref={this.saveInput}
+            className={getClassName(customizeSize || size)}
+          />
+        )}
+      </SizeContext.Consumer>
     );
   };
 
