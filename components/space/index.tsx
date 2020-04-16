@@ -10,6 +10,7 @@ export interface SpaceProps {
   style?: React.CSSProperties;
   size?: SizeType | number;
   direction?: 'horizontal' | 'vertical';
+  align?: 'start' | 'end' | 'center' | 'stretch' | 'baseline';
 }
 
 const spaceSize = {
@@ -25,6 +26,7 @@ const Space: React.FC<SpaceProps> = props => {
 
   const {
     size = space?.size || 'small',
+    align,
     className,
     children,
     direction = 'horizontal',
@@ -39,11 +41,15 @@ const Space: React.FC<SpaceProps> = props => {
     return null;
   }
 
+  const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const cn = classNames(
     prefixCls,
     `${prefixCls}-${direction}`,
-    { [`${prefixCls}-rtl`]: directionConfig === 'rtl' },
+    {
+      [`${prefixCls}-rtl`]: directionConfig === 'rtl',
+      [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
+    },
     className,
   );
 

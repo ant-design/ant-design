@@ -5,11 +5,26 @@
 
 .@{space-prefix-cls} {
   display: inline-flex;
-  &-horizontal {
-    align-items: center;
-  }
   &-vertical {
     flex-direction: column;
+  }
+
+  &-align {
+    &-center {
+      align-items: center;
+    }
+    &-start {
+      align-items: flex-start;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+    &-stretch {
+      align-items: stretch;
+    }
+    &-baseline {
+      align-items: baseline;
+    }
   }
 }
 
