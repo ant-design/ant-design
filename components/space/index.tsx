@@ -10,6 +10,7 @@ export interface SpaceProps {
   style?: React.CSSProperties;
   size?: SizeType | number;
   direction?: 'horizontal' | 'vertical';
+  // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
 }
 
