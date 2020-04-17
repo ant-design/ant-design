@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
-import { EventDataNode, DataNode } from 'rc-tree/lib/interface';
+import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
@@ -20,8 +20,8 @@ export interface DirectoryTreeProps extends TreeProps {
 }
 
 export interface DirectoryTreeState {
-  expandedKeys?: string[];
-  selectedKeys?: string[];
+  expandedKeys?: Key[];
+  selectedKeys?: Key[];
 }
 
 function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
@@ -60,9 +60,9 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => void;
 
   // Shift click usage
-  lastSelectedKey?: string;
+  lastSelectedKey?: Key;
 
-  cachedSelectedKeys?: string[];
+  cachedSelectedKeys?: Key[];
 
   constructor(props: DirectoryTreeProps) {
     super(props);
@@ -93,7 +93,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   }
 
   onExpand = (
-    expandedKeys: string[],
+    expandedKeys: Key[],
     info: {
       node: EventDataNode;
       expanded: boolean;
@@ -139,7 +139,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   };
 
   onSelect = (
-    keys: string[],
+    keys: Key[],
     event: {
       event: 'select';
       selected: boolean;
@@ -167,7 +167,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const shiftPick: boolean = nativeEvent.shiftKey;
 
     // Generate new selected keys
-    let newSelectedKeys: string[];
+    let newSelectedKeys: Key[];
     if (multiple && ctrlPick) {
       // Control click
       newSelectedKeys = keys;
