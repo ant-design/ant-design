@@ -19,7 +19,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 | content | Content of the card | string\|ReactNode\|() => ReactNode | -             |         |
 | title   | Title of the card   | string\|ReactNode\|() => ReactNode | -             |         |
 
-Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
+Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
 
 ## Note
 
