@@ -66,13 +66,22 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   renderLoading = (prefixCls: string) => {
-    const { enterButton, size } = this.props;
+    const { enterButton, size: customizeSize } = this.props;
 
     if (enterButton) {
       return (
-        <Button className={`${prefixCls}-button`} type="primary" size={size} key="enterButton">
-          <LoadingOutlined />
-        </Button>
+        <SizeContext.Consumer>
+          {size => (
+            <Button
+              className={`${prefixCls}-button`}
+              type="primary"
+              size={customizeSize || size}
+              key="enterButton"
+            >
+              <LoadingOutlined />
+            </Button>
+          )}
+        </SizeContext.Consumer>
       );
     }
     return <LoadingOutlined className={`${prefixCls}-icon`} key="loadingIcon" />;
@@ -105,8 +114,8 @@ export default class Search extends React.Component<SearchProps, any> {
     return icon;
   };
 
-  renderAddonAfter = (prefixCls: string) => {
-    const { enterButton, size, disabled, addonAfter, loading } = this.props;
+  renderAddonAfter = (prefixCls: string, size: SizeType) => {
+    const { enterButton, disabled, addonAfter, loading } = this.props;
     const btnClassName = `${prefixCls}-button`;
 
     if (loading && enterButton) {
@@ -180,7 +189,6 @@ export default class Search extends React.Component<SearchProps, any> {
 
     const getClassName = (size: SizeType) => {
       let inputClassName;
-      console.log(size);
       if (enterButton) {
         inputClassName = classNames(prefixCls, className, {
           [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -203,7 +211,7 @@ export default class Search extends React.Component<SearchProps, any> {
             {...restProps}
             size={customizeSize || size}
             prefixCls={inputPrefixCls}
-            addonAfter={this.renderAddonAfter(prefixCls)}
+            addonAfter={this.renderAddonAfter(prefixCls, customizeSize || size)}
             suffix={this.renderSuffix(prefixCls)}
             onChange={this.onChange}
             ref={this.saveInput}
