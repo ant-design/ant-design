@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
 import classNames from 'classnames';
-import { DataNode } from 'rc-tree/lib/interface';
+import { DataNode, Key } from 'rc-tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -34,7 +34,7 @@ export interface AntTreeNodeProps {
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: string | React.ReactNode;
-  key?: string;
+  key?: Key;
   eventKey?: string;
   isLeaf?: boolean;
   checked?: boolean;
@@ -76,13 +76,13 @@ export interface AntTreeNodeMouseEvent {
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
-  expandedKeys: string[];
+  expandedKeys: Key[];
 }
 
 export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
-  dragNodesKeys: string[];
+  dragNodesKeys: Key[];
   dropPosition: number;
   dropToGap?: boolean;
   event: React.MouseEvent<HTMLElement>;
@@ -109,21 +109,21 @@ export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
   /** 默认展开对应树节点 */
   defaultExpandParent?: boolean;
   /** 默认展开指定的树节点 */
-  defaultExpandedKeys?: string[];
+  defaultExpandedKeys?: Key[];
   /** （受控）展开指定的树节点 */
-  expandedKeys?: string[];
+  expandedKeys?: Key[];
   /** （受控）选中复选框的树节点 */
-  checkedKeys?: string[] | { checked: string[]; halfChecked: string[] };
+  checkedKeys?: Key[] | { checked: Key[]; halfChecked: Key[] };
   /** 默认选中复选框的树节点 */
-  defaultCheckedKeys?: string[];
+  defaultCheckedKeys?: Key[];
   /** （受控）设置选中的树节点 */
-  selectedKeys?: string[];
+  selectedKeys?: Key[];
   /** 默认选中的树节点 */
-  defaultSelectedKeys?: string[];
+  defaultSelectedKeys?: Key[];
   selectable?: boolean;
   /** 点击树节点触发 */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
-  loadedKeys?: string[];
+  loadedKeys?: Key[];
   /** 设置节点可拖拽（IE>8） */
   draggable?: boolean;
   style?: React.CSSProperties;
