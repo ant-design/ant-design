@@ -35,7 +35,7 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
     clearTimeout(this.timeoutId);
   }
 
-  handlePromiseOnOk(returnValueOfOnOk?: Promise<any>) {
+  handlePromiseOnOk(returnValueOfOnOk?: PromiseLike<any>) {
     const { closeModal } = this.props;
     if (!returnValueOfOnOk || !returnValueOfOnOk.then) {
       return;
@@ -71,12 +71,14 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
     let returnValueOfOnOk;
     if (actionFn.length) {
       returnValueOfOnOk = actionFn(closeModal);
+      // https://github.com/ant-design/ant-design/issues/23358
+      this.clicked = false;
     } else {
       returnValueOfOnOk = actionFn();
-    }
-    if (!returnValueOfOnOk) {
-      closeModal();
-      return;
+      if (!returnValueOfOnOk) {
+        closeModal();
+        return;
+      }
     }
     this.handlePromiseOnOk(returnValueOfOnOk);
   };

@@ -9,6 +9,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   afterEach(() => {
     errorSpy.mockReset();
     document.body.innerHTML = '';
+    Modal.destroyAll();
   });
 
   afterAll(() => {
@@ -121,6 +122,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       $$('.ant-btn')[0].click();
       jest.runAllTimers();
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
+
+  it('should not close modals when click confirm button when onOk has argument', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+        onOk: close => null, // eslint-disable-line no-unused-vars
+      });
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      $$('.ant-btn')[0].click();
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
     });
     jest.useRealTimers();
   });
@@ -238,5 +255,20 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn-primary')[0].click();
     $$('.ant-btn-primary')[0].click();
     expect(onOk).toHaveBeenCalledTimes(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/23358
+  it('ok button should trigger onOk multiple times when onOk has close argument', () => {
+    const onOk = jest.fn();
+    open({
+      onOk: close => {
+        onOk();
+        (() => {})(close); // do nothing
+      },
+    });
+    $$('.ant-btn-primary')[0].click();
+    $$('.ant-btn-primary')[0].click();
+    $$('.ant-btn-primary')[0].click();
+    expect(onOk).toHaveBeenCalledTimes(3);
   });
 });
