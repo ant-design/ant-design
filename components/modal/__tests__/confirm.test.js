@@ -1,6 +1,5 @@
 import Modal from '..';
 import { destroyFns } from '../Modal';
-import { sleep } from '../../../tests/utils';
 
 const { confirm } = Modal;
 
