@@ -235,7 +235,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('ok button should trigger onOk once when click it many times quickly', () => {
     const onOk = jest.fn();
     open({ onOk });
-    // Fifth Modal
     $$('.ant-btn-primary')[0].click();
     $$('.ant-btn-primary')[0].click();
     expect(onOk).toHaveBeenCalledTimes(1);
