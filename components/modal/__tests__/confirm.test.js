@@ -1,5 +1,6 @@
 import Modal from '..';
 import { destroyFns } from '../Modal';
+import { sleep } from '../../../tests/utils';
 
 const { confirm } = Modal;
 
@@ -75,12 +76,19 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('should not hide confirm when onOk return Promise.resolve', () => {
+    open({
+      onOk: () => Promise.resolve(''),
+    });
+    $$('.ant-btn-primary')[0].click();
+    expect($$('.ant-modal-confirm')).toHaveLength(1);
+  });
+
   it('should emit error when onOk return Promise.reject', () => {
     const error = new Error('something wrong');
     open({
       onOk: () => Promise.reject(error),
     });
-    // Fifth Modal
     $$('.ant-btn-primary')[0].click();
     // wait promise
     return Promise.resolve().then(() => {
