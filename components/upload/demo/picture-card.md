@@ -74,7 +74,7 @@ class PicturesWall extends React.Component {
     this.setState({
       previewImage: file.url || file.preview,
       previewVisible: true,
-      previewTitle: file.name,
+      previewTitle: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
     });
   };
 
