@@ -40,7 +40,7 @@ function initDocSearch(locale: string) {
     transformData(hits: { url: string }[]) {
       hits.forEach(hit => {
         hit.url = hit.url.replace('ant.design', window.location.host);
-        hit.url = hit.url.replace('https:', window.location.protocol)
+        hit.url = hit.url.replace('https:', window.location.protocol);
       });
       return hits;
     },
@@ -129,6 +129,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       return 'RTL';
     }
     return 'LTR';
+  };
+
+  getDropdownStyle = (): React.CSSProperties => {
+    const { direction } = this.context;
+    if (direction === 'rtl') {
+      return {
+        direction: 'ltr',
+        textAlign: 'right',
+      };
+    }
+    return {};
   };
 
   onMenuVisibleChange = (visible: boolean) => {
@@ -233,6 +244,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               size="small"
               defaultValue={antdVersion}
               onChange={this.handleVersionChange}
+              dropdownStyle={this.getDropdownStyle()}
               getPopupContainer={trigger => trigger.parentNode}
             >
               {versionOptions}

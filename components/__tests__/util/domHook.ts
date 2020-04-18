@@ -1,6 +1,10 @@
 const __NULL__ = { notExist: true };
 
-export function spyElementPrototypes(Element, properties) {
+type ElementType<P> = {
+  prototype: P;
+};
+
+export function spyElementPrototypes<P extends {}>(Element: ElementType<P>, properties: P) {
   const propNames = Object.keys(properties);
   const originDescriptors = {};
 
@@ -51,7 +55,16 @@ export function spyElementPrototypes(Element, properties) {
   };
 }
 
-export function spyElementPrototype(Element, propName, property) {
+type FunctionPropertyNames<T> = {
+  [K in keyof T]: T[K] extends (...args: any[]) => any ? K : never;
+}[keyof T] &
+  string;
+
+export function spyElementPrototype<P extends {}, K extends FunctionPropertyNames<P>>(
+  Element: ElementType<P>,
+  propName: K,
+  property: P[K],
+) {
   return spyElementPrototypes(Element, {
     [propName]: property,
   });

@@ -27,6 +27,7 @@ Tree selection control.
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |  |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{value: string, label: ReactNode, halfChecked: string[]}` | boolean | false |  |
+| listHeight | Config popup height | number | 256 |  |
 | loadData | Load data asynchronously. | function(node) | - |  |
 | maxTagCount | Max tag count to show | number | - |  |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |

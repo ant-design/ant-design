@@ -53,7 +53,7 @@ toc: false
 - 全新 Chart 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - 桌面组件 Chart 模板包
-  - https://gw.alipayobjects.com/os/basement_prod/862ee74f-4ac5-482c-b1ae-3165684cedbe.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
 
 ## 文章
 

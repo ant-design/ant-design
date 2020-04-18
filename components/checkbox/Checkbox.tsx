@@ -63,7 +63,7 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     warning(
       'checked' in this.props || this.context || !('value' in this.props),
       'Checkbox',
-      '`value` is not validate prop, do you mean `checked`?',
+      '`value` is not a valid prop, do you mean `checked`?',
     );
   }
 

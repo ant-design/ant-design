@@ -41,7 +41,7 @@ import moment from 'moment';
 | minuteStep | interval between minutes in picker | number | 1 |  |
 | open | whether to popup panel | boolean | false |  |
 | placeholder | display when there's no value | string | "Select a time" |  |
-| popupClassName | className of panel | string | '' |  |
+| popupClassName | className of panel | string | - |  |
 | popupStyle | style of panel | object | - |  |
 | secondStep | interval between seconds in picker | number | 1 |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |

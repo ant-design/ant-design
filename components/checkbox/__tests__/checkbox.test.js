@@ -30,7 +30,7 @@ describe('Checkbox', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Checkbox value />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Checkbox] `value` is not validate prop, do you mean `checked`?',
+      'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',
     );
     errorSpy.mockRestore();
   });

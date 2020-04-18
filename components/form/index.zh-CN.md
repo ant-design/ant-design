@@ -26,13 +26,13 @@ title: Form
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |
-| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | - |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | false | - |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) | - |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid/#Col) | - |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | Function({ values, errorFields, outOfDate }) | - |
 | onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
@@ -85,7 +85,7 @@ const validateMessages = {
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
 | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
-| required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |  |
+| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | trigger | 设置收集字段值变更的时机 | string | onChange |  |

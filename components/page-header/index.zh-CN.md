@@ -21,9 +21,9 @@ subtitle: 页头
 | ghost | pageHeader 的类型，将会改变背景颜色 | boolean | true |  |
 | avatar | 标题栏旁的头像 | [avatar props](/components/avatar/) | - |  |
 | backIcon | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode \| boolean | `<ArrowLeft />` |  |
-| tags | title 旁的 tag 列表 | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |  |
+| tags | title 旁的 tag 列表 | [Tag](/components/tag/)[] \| [Tag](/components/tag/) | - |  |
 | extra | 操作区，位于 title 行的行尾 | ReactNode | - |  |
-| breadcrumb | 面包屑的配置 | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |  |
+| breadcrumb | 面包屑的配置 | [breadcrumb](/components/breadcrumb/) | - |  |
 | footer | PageHeader 的页脚，一般用于渲染 TabBar | ReactNode | - |  |
 | onBack | 返回按钮的点击事件 | `()=>void` | `()=>history.back()` |  |
 

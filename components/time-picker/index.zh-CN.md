@@ -42,7 +42,7 @@ import moment from 'moment';
 | minuteStep | 分钟选项间隔 | number | 1 |  |
 | open | 面板是否打开 | boolean | false |  |
 | placeholder | 没有值的时候显示的内容 | string | "请选择时间" |  |
-| popupClassName | 弹出层类名 | string | '' |  |
+| popupClassName | 弹出层类名 | string | - |  |
 | popupStyle | 弹出层样式对象 | object | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |

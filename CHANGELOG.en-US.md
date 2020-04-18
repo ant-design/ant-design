@@ -15,7 +15,57 @@ timeline: true
 
 ---
 
+## 4.1.4
+
+`2020-04-18`
+
+- 🐞 Fix dark theme and compact theme not working. [#23243](https://github.com/ant-design/ant-design/pull/23243)
+- 🐞 Fix Modal.info executed only once when has argument. [#23360](https://github.com/ant-design/ant-design/pull/23360)
+- 🐞 Fix Dropdown submenu background missing. [#23296](https://github.com/ant-design/ant-design/pull/23296)
+- 💄 Optimize PageHeader responsive behavior. [#23277](https://github.com/ant-design/ant-design/pull/23277)
+- 🐞 Fix TreeSelect render blank in compact mode. [#23231](https://github.com/ant-design/ant-design/pull/23231)
+- 🛎 Fix Checkbox and Switch console warning typo (validate -> a valid). [#23240](https://github.com/ant-design/ant-design/pull/23240) [@evancharlton](https://github.com/evancharlton)
+- 🐞 Fix Table `rowSelection` params issue when `childrenColumnName` configured. [#23205](https://github.com/ant-design/ant-design/pull/23205)
+- Input
+  - 🐞 Fix Input `type="color"` height issue. [#23351](https://github.com/ant-design/ant-design/pull/23351)
+  - 🐞 Fix Input width shaking when trigger clear icon. [#23259](https://github.com/ant-design/ant-design/pull/23259)
+  - 🐞 Fix Input.Search `size` not affected by ConfigProvider `componentSize`. [#23331](https://github.com/ant-design/ant-design/pull/23331)
+- Select
+  - 🐞 Fix multiple Select show remove icon when `disabled`. [#23295](https://github.com/ant-design/ant-design/pull/23295)
+  - 🐞 Fix Select custom `suffixIcon` cannot be access. [#23274](https://github.com/ant-design/ant-design/pull/23274)
+  - 🐞 Fix Select search input caret missing in Collapse. [#23250](https://github.com/ant-design/ant-design/pull/23250)
+- Globalization
+  - 🇨🇳 Form validation messages support internalization and add zh_CN locale. [#23165](https://github.com/ant-design/ant-design/pull/23165) [@hengkx](https://github.com/hengkx)
+  - 🌐 Add missing translations in he_IL. [#23302](https://github.com/ant-design/ant-design/pull/23302) [@MishaKav](https://github.com/MishaKav)
+  - 🌐 Add missing translations in ru_RU. [#23303](https://github.com/ant-design/ant-design/pull/23303) [@MishaKav](https://github.com/MishaKav)
+- TypeScript
+  - 🔷 Form.Item type upgrade. [#22962](https://github.com/ant-design/ant-design/pull/22962) [@fa93hws](https://github.com/fa93hws)
+  - 🔷 Tree type upgrade. [#23348](https://github.com/ant-design/ant-design/pull/23348) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Pass `popupClassName` prop to `rc-picker`. [#23214](https://github.com/ant-design/ant-design/pull/23214) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
+- RTL
+  - 💄 Fix Select RTL style. [#23235](https://github.com/ant-design/ant-design/pull/23235)
+  - 💄 Fix Menu RTL style. [#23319](https://github.com/ant-design/ant-design/pull/23319)
+
+## 4.1.3
+
+`2020-04-13`
+
+- 💄 Adjust Form.Item `label` height style in vertical layout. [#23192](https://github.com/ant-design/ant-design/pull/23192)
+- 🐞 Fix `Variable is undefined` when importing dark or compact theme and provide a `getThemeVariables` methold for getting theme variables easily. [#23171](https://github.com/ant-design/ant-design/pull/23171)
+- 🐞 Fix PageHeader style breaks when `title` is too long and improve it's responsive design. [#23133](https://github.com/ant-design/ant-design/pull/23133)
+- Tabs
+  - 🐞 Fix Tabs `@tabs-card-height` less variable not working. [#23168](https://github.com/ant-design/ant-design/pull/23168)
+  - 🐞 Fix Tabs cannot be displayed in Safari 13. [#23151](https://github.com/ant-design/ant-design/pull/23151) [@imhxc](https://github.com/imhxc)
+- Table
+  - 🐞 Fix Table fixed columns cannot pin in Safari 12. [#23161](https://github.com/ant-design/ant-design/pull/23161)
+  - 🐞 Fix Table `summary` padding in small size. [#23140](https://github.com/ant-design/ant-design/pull/23140) [@someyoungideas](https://github.com/someyoungideas)
+- 🐞 Fix Select align style with different size. [#23160](https://github.com/ant-design/ant-design/pull/23160)
+- 🐞 Fix RangePicker under Input.Group style issue. [#23149](https://github.com/ant-design/ant-design/pull/23149)
+- 🐞 Fix Pagination missing TypeScript definition of `showTitle`. [#23144](https://github.com/ant-design/ant-design/pull/23144) [@DongchengWang](https://github.com/DongchengWang)
+
 ## 4.1.2
+
+`2020-04-10`
 
 - Menu
   - 🐞 Fix Menu SubMenu background in dark mode. [#22981](https://github.com/ant-design/ant-design/pull/22981) [@AshoneA](https://github.com/AshoneA)
@@ -51,6 +101,8 @@ timeline: true
   - 🐞 Fix Pagination `position` type. [#23048](https://github.com/ant-design/ant-design/pull/23048) [@Arttse](https://github.com/Arttse)
 
 ## 4.1.1
+
+`2020-04-05`
 
 - 🐞 Fix Tabs panel focus outline style. [#22752](https://github.com/ant-design/ant-design/pull/22752) [@MrHeer](https://github.com/MrHeer)
 - 🐞 Fix Input affix with popup element can not get click focus. [#22887](https://github.com/ant-design/ant-design/pull/22887)
