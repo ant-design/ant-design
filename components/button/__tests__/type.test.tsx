@@ -263,6 +263,7 @@ describe('Button', () => {
         throw new Error('Should not called!!!');
       },
     });
-    wrapper.find('Button').instance().forceUpdate();
+
+    expect(wrapper.find('Button').instance()).toBe(null);
   });
 });
