@@ -41,7 +41,6 @@ timeline: true
 - TypeScript
   - 🔷 Form.Item type upgrade. [#22962](https://github.com/ant-design/ant-design/pull/22962) [@fa93hws](https://github.com/fa93hws)
   - 🔷 Tree type upgrade. [#23348](https://github.com/ant-design/ant-design/pull/23348) [@yoyo837](https://github.com/yoyo837)
-  - 🐞 Fix docs of Slider `value` and `defaultValue` not consistent with TypeScript definition. [#23252](https://github.com/ant-design/ant-design/pull/23252) [@DongchengWang](https://github.com/DongchengWang)
   - 🐞 Pass `popupClassName` prop to `rc-picker`. [#23214](https://github.com/ant-design/ant-design/pull/23214) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
 - RTL
   - 💄 Fix Select RTL style. [#23235](https://github.com/ant-design/ant-design/pull/23235)
