@@ -119,7 +119,7 @@ const Demo = () => (
   - [Date cell className of Custom style demo](/components/date-picker/#components-date-picker-demo-date-render) changed from `ant-calendar-date` to `ant-picker-cell-inner`.
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
-  - `onBlur` no longer trigger value change.
+  - `onBlur` no longer trigger value change and return React origin `event` object instead.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
