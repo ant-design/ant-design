@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 4.1.4
+
+`2020-04-18`
+
+- 🐞 修复暗黑主题和紧凑主题不生效的问题。[#23243](https://github.com/ant-design/ant-design/pull/23243)
+- 🐞 修复 Modal.info 等方法的 `onOk` 函数有参数时只触发一次的问题。[#23360](https://github.com/ant-design/ant-design/pull/23360)
+- 🐞 修复 Dropdown 弹出菜单背景样式问题。[#23296](https://github.com/ant-design/ant-design/pull/23296)
+- 💄 优化 PageHeader 的响应式表现。[#23277](https://github.com/ant-design/ant-design/pull/23277)
+- 🐞 修复紧凑模式下树选择出现空白。[#23231](https://github.com/ant-design/ant-design/pull/23231)
+- 🛎 修改 Checkbox 和 Switch 中控制台输出的错别字 (validate -> a valid)。[#23240](https://github.com/ant-design/ant-design/pull/23240) [@evancharlton](https://github.com/evancharlton)
+- 🐞 修复 Table `rowSelection` 在设置 `childrenColumnName` 时事件参数不正确的问题。[#23205](https://github.com/ant-design/ant-design/pull/23205)
+- Input
+  - 🐞 修复 Input `type="color"` 的高度问题。[#23351](https://github.com/ant-design/ant-design/pull/23351)
+  - 🐞 修复 Input 设置 `allowClear` 内联展示时，触发清除按钮样式抖动的问题。[#23259](https://github.com/ant-design/ant-design/pull/23259)
+  - 🐞 修复 Input.Search 全局设置 `size` 不生效问题。[#23331](https://github.com/ant-design/ant-design/pull/23331)
+- Select
+  - 🐞 修复 Select 多选时设置 `disabled` 选项仍然会展示移除按钮的问题。[#23295](https://github.com/ant-design/ant-design/pull/23295)
+  - 🐞 修复 Select 自定义 `suffixIcon` 无法交互的问题。[#23274](https://github.com/ant-design/ant-design/pull/23274)
+  - 🐞 修复 Select 输入光标在 Collapse 内不显示的问题。[#23250](https://github.com/ant-design/ant-design/pull/23250)
+- 国际化
+  - 🌐 Form 校验信息支持国际化并增加中文文案。[#23165](https://github.com/ant-design/ant-design/pull/23165) [@hengkx](https://github.com/hengkx)
+  - 🌐 完善希伯来语(以色列) 国际化。[#23302](https://github.com/ant-design/ant-design/pull/23302) [@MishaKav](https://github.com/MishaKav)
+  - 🌐 完善俄语国际化。[#23303](https://github.com/ant-design/ant-design/pull/23303) [@MishaKav](https://github.com/MishaKav)
+- TypeScript
+  - 🔷 更新 Tree 的类型定义。[#23348](https://github.com/ant-design/ant-design/pull/23348) [@yoyo837](https://github.com/yoyo837)
+  - 🔷 更新 Form Item 的类型定义。[#22962](https://github.com/ant-design/ant-design/pull/22962) [@fa93hws](https://github.com/fa93hws)
+  - 🐞 修复 Slider 组件 `value` 和 `defaultValue` 文档与 TypeScript 定义不一致的问题。[#23252](https://github.com/ant-design/ant-design/pull/23252) [@DongchengWang](https://github.com/DongchengWang)
+- RTL
+  - 🐞 修复 Menu RTL 样式。[#23319](https://github.com/ant-design/ant-design/pull/23319)
+  - 💄 修复 Select 的 RTL 样式。[#23235](https://github.com/ant-design/ant-design/pull/23235)
+
 ## 4.1.3
 
 `2020-04-13`
