@@ -24,12 +24,12 @@ timeline: true
 - 🐞 Fix Dropdown submenu background missing. [#23296](https://github.com/ant-design/ant-design/pull/23296)
 - 💄 Optimize PageHeader responsive behavior. [#23277](https://github.com/ant-design/ant-design/pull/23277)
 - 🐞 Fix TreeSelect render blank in compact mode. [#23231](https://github.com/ant-design/ant-design/pull/23231)
-- 🐞 Pass `popupClassName` prop to `rc-picker`. [#23214](https://github.com/ant-design/ant-design/pull/23214) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
 - 🛎 Fix Checkbox and Switch console warning typo (validate -> a valid). [#23240](https://github.com/ant-design/ant-design/pull/23240) [@evancharlton](https://github.com/evancharlton)
 - 🐞 Fix Table `rowSelection` params issue when `childrenColumnName` configured. [#23205](https://github.com/ant-design/ant-design/pull/23205)
 - Input
   - 🐞 Fix Input `type="color"` height issue. [#23351](https://github.com/ant-design/ant-design/pull/23351)
   - 🐞 Fix Input inline with `allowClear` shaking when trigger clear icon. [#23259](https://github.com/ant-design/ant-design/pull/23259)
+  - 🐞 Fix Input.Search ConfigProvider `size` no work problem. [#23331](https://github.com/ant-design/ant-design/pull/23331)
 - Select
   - 🐞 Fix multiple Select show remove icon when `disabled`. [#23295](https://github.com/ant-design/ant-design/pull/23295)
   - 🐞 Fix Select custom `suffixIcon` cannot be access. [#23274](https://github.com/ant-design/ant-design/pull/23274)
@@ -42,6 +42,7 @@ timeline: true
   - 🔷 FormItem type upgrade. [#22962](https://github.com/ant-design/ant-design/pull/22962) [@fa93hws](https://github.com/fa93hws)
   - 🔷 Tree type upgrade. [#23348](https://github.com/ant-design/ant-design/pull/23348) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fix docs of Slider `value` and `defaultValue` not consistent with TypeScript definition. [#23252](https://github.com/ant-design/ant-design/pull/23252) [@DongchengWang](https://github.com/DongchengWang)
+  - 🐞 Pass `popupClassName` prop to `rc-picker`. [#23214](https://github.com/ant-design/ant-design/pull/23214) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
 - RTL
   - 💄 Fix Select rtl style. [#23235](https://github.com/ant-design/ant-design/pull/23235)
   - 💄 Fix Menu RTL style. [#23319](https://github.com/ant-design/ant-design/pull/23319)

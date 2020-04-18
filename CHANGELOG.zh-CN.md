@@ -29,6 +29,7 @@ timeline: true
 - Input
   - 🐞 修复 Input `type="color"` 的高度问题。[#23351](https://github.com/ant-design/ant-design/pull/23351)
   - 🐞 修复 Input 设置 `allowClear` 内联展示时，触发清除按钮样式抖动的问题。[#23259](https://github.com/ant-design/ant-design/pull/23259)
+  - 🐞 修复 Input.Search 全局设置 `size` 不生效问题。[#23331](https://github.com/ant-design/ant-design/pull/23331)
 - Select
   - 🐞 修复 Select 多选时设置 `disabled` 选项仍然会展示移除按钮的问题。[#23295](https://github.com/ant-design/ant-design/pull/23295)
   - 🐞 修复 Select 自定义 `suffixIcon` 无法交互的问题。[#23274](https://github.com/ant-design/ant-design/pull/23274)
@@ -40,7 +41,7 @@ timeline: true
 - TypeScript
   - 🔷 更新 Tree 的类型定义。[#23348](https://github.com/ant-design/ant-design/pull/23348) [@yoyo837](https://github.com/yoyo837)
   - 🔷 更新 Form Item 的类型定义。[#22962](https://github.com/ant-design/ant-design/pull/22962) [@fa93hws](https://github.com/fa93hws)
-  - 🐞 修复 `time-picker` 自 `4.0-alpha-0` 以来 `popupClassName` 的支持。[#23214](https://github.com/ant-design/ant-design/pull/23214) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
+  - 🐞 修复 TimePicker 自 `4.0-alpha-0` 以来未支持 `popupClassName` 的问题。[#23214](https://github.com/ant-design/ant-design/pull/23214) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
   - 🐞 修复 Slider 组件 `value` 和 `defaultValue` 文档与 TypeScript 定义不一致的问题。[#23252](https://github.com/ant-design/ant-design/pull/23252) [@DongchengWang](https://github.com/DongchengWang)
 - RTL
   - 🐞 修复 Menu RTL 样式。[#23319](https://github.com/ant-design/ant-design/pull/23319)
