@@ -2,7 +2,7 @@
 
 @mode: compact;
 @font-size-base: 12px;
-@font-size-lg: @font-size-base + 2px;
+@font-size-lg: @font-size-base;
 
 // default paddings
 @default-padding-lg: 24px; // containers
@@ -45,8 +45,8 @@
 
 // Breadcrumb
 // ---
-@breadcrumb-font-size: @font-size-lg;
-@breadcrumb-icon-font-size: @font-size-lg;
+@breadcrumb-font-size: @font-size-base;
+@breadcrumb-icon-font-size: @font-size-base;
 
 //Dropdown
 @dropdown-line-height: 18px;
@@ -56,6 +56,8 @@
 @menu-horizontal-line-height: 38px;
 @menu-inline-toplevel-item-height: 32px;
 @menu-item-height: 32px;
+@menu-item-vertical-margin: 0px;
+@menu-item-boundary-margin: 0px;
 
 // Checkbox
 @checkbox-size: 14px;
@@ -70,6 +72,7 @@
 // Form
 // ---
 @form-item-margin-bottom: 16px;
+@form-vertical-label-padding: 0 0 4px;
 
 // Rate
 // ---
@@ -85,6 +88,8 @@
 // ---
 @switch-height: 20px;
 @switch-sm-height: 14px;
+@switch-min-width: 42px;
+@switch-sm-min-width: 26px;
 
 // Slider
 // ---
@@ -149,10 +154,11 @@
 @steps-icon-font-size: @font-size-base;
 @steps-dot-top: 4px;
 @steps-icon-top: 0px;
+@steps-small-icon-size: 20px;
 
 // Collapse
 // ---
-@collapse-header-padding-extra: 32px;
+//@collapse-header-padding-extra: 32px;
 @collapse-content-padding: @padding-md @padding-lg;
 
 // List
@@ -192,7 +198,7 @@
 @card-padding-base: 12px;
 @card-padding-base-sm: @card-padding-base;
 @card-head-height-sm: 30px;
-@card-head-padding-sm: 4px;
+@card-head-padding-sm: 6px;
 @card-actions-li-margin: 4px 0;
 @card-head-tabs-margin-bottom: -9px;
 
@@ -204,6 +210,8 @@
 @table-padding-horizontal-md: 8px;
 @table-padding-vertical-sm: 4px;
 @table-padding-horizontal-sm: 4px;
+@table-selection-column-width: 54px;
+@table-selection-extra-right: -4px;
 
 // Statistic
 // ---
@@ -211,7 +219,7 @@
 
 // Alert
 // ---
-@alert-with-description-no-icon-padding-vertical: 11px;
+@alert-with-description-no-icon-padding-vertical: 7px;
 
 // Skeleton
 // ---
@@ -228,9 +236,10 @@
 
 // Avatar
 // ---
-@avatar-size-base: 28px;
-@avatar-size-lg: 32px;
-@avatar-size-sm: 22px;
+@avatar-size-base: 20px;
+@avatar-size-lg: 28px;
+@avatar-size-sm: 16px;
+@avatar-font-size-sm: 12px;
 
 // Badge
 // ---
@@ -254,3 +263,7 @@
 // Anchor
 // ---
 @anchor-link-padding: 4px 0 4px 16px;
+
+// Tabs
+// ---
+@tabs-card-horizontal-padding: 4px @padding-md;
