@@ -31,7 +31,7 @@ const LIST_CN: Recommend[] = [
     href: 'https://zhuanlan.zhihu.com/p/113888415',
   },
   {
-    title: 'Ant Design暗黑模式设计解析',
+    title: 'Ant Design 暗黑模式设计解析',
     description: '让我们一起来看下，Ant Design 这一针对企业级的设计体系是如何设计暗黑模式的？',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/112470365',
