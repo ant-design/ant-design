@@ -1,5 +1,4 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-console */
+/* eslint-disable no-await-in-loop, no-console */
 const chalk = require('chalk');
 const { spawn } = require('child_process');
 const jsdom = require('jsdom');
@@ -9,6 +8,7 @@ const open = require('open');
 const fs = require('fs-extra');
 const path = require('path');
 const simpleGit = require('simple-git/promise');
+const inquirer = require('inquirer');
 
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
@@ -24,12 +24,13 @@ const MAINTAINERS = ['zombiej', 'afc163', 'chenshuai2144', 'shaodahong', 'xrkffg
   author.toLowerCase(),
 );
 
-const fromVersion = process.argv[process.argv.length - 2];
-const toVersion = process.argv[process.argv.length - 1];
 const cwd = process.cwd();
 const git = simpleGit(cwd);
 
 function getDescription(entity) {
+  if (!entity) {
+    return '';
+  }
   const descEle = entity.element.find('td:last');
   let htmlContent = descEle.html();
   htmlContent = htmlContent.replace(/<code>([^<]*)<\/code>/g, '`$1`');
@@ -37,12 +38,40 @@ function getDescription(entity) {
 }
 
 async function printLog() {
+  const tags = await git.tags();
+  const { fromVersion } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'fromVersion',
+      message: '🏷  Please choose tag to compare with current branch:',
+      choices: tags.all.reverse().slice(0, 10),
+    },
+  ]);
+  let { toVersion } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'toVersion',
+      message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
+      choices: ['master', '3.x-stable', 'feature', 'custom input ⌨️'],
+    },
+  ]);
+
+  if (toVersion.startsWith('custom input')) {
+    const result = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'toVersion',
+        message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
+          fromVersion,
+        )}:`,
+        default: 'master',
+      },
+    ]);
+    toVersion = result.toVersion;
+  }
+
   if (!/\d+\.\d+\.\d+/.test(fromVersion)) {
-    console.log(
-      chalk.red(
-        '🤪 Not pass validate tags. Please execute like `print-changelog.js 3.26.0 master` instead.',
-      ),
-    );
+    console.log(chalk.red(`🤪 tag (${chalk.magenta(fromVersion)}) is not valid.`));
   }
 
   const logs = await git.log({ from: fromVersion, to: toVersion });
@@ -50,7 +79,7 @@ async function printLog() {
   let prList = [];
 
   for (let i = 0; i < logs.all.length; i += 1) {
-    const { message, body, hash } = logs.all[i];
+    const { message, body, hash, author_name } = logs.all[i];
 
     const text = `${message} ${body}`;
 
@@ -91,6 +120,12 @@ async function printLog() {
 
       const english = getDescription(lines.find(line => line.text.includes('🇺🇸 English')));
       const chinese = getDescription(lines.find(line => line.text.includes('🇨🇳 Chinese')));
+      if (english) {
+        console.log(`  🇨🇳  ${english}`);
+      }
+      if (chinese) {
+        console.log(`  🇺🇸  ${chinese}`);
+      }
 
       validatePRs.push({
         pr,
@@ -112,6 +147,9 @@ async function printLog() {
       prList.push({
         hash,
         title: message,
+        author: author_name,
+        english: message,
+        chinese: message,
       });
     }
   }
@@ -145,19 +183,27 @@ async function printLog() {
   }
 
   // Chinese
-  console.log(chalk.yellow('Chinese changelog:'));
-  printPR('chinese', chinese => (chinese[chinese.length - 1] === '。' ? chinese : `${chinese}。`));
+  console.log('\n');
+  console.log(chalk.yellow('🇨🇳 Chinese changelog:'));
+  console.log('\n');
+  printPR('chinese', chinese => {
+    return chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`;
+  });
 
   console.log('\n-----\n');
 
   // English
-  console.log(chalk.yellow('English changelog:'));
+  console.log(chalk.yellow('🇺🇸 English changelog:'));
+  console.log('\n');
   printPR('english', english => {
     english = english.trim();
-    if (english[english.length - 1] !== '.') {
+    if (english[english.length - 1] !== '.' || !english) {
       english = `${english}.`;
     }
-    return `${english} `;
+    if (english) {
+      return `${english} `;
+    }
+    return '';
   });
 
   // Preview editor generate
@@ -178,11 +224,10 @@ async function printLog() {
     console.log(data.toString());
   });
 
-  console.log(chalk.green('Start preview editor...'));
-  setTimeout(function openPreview() {
+  console.log(chalk.green('Start changelog preview editor...'));
+  setTimeout(() => {
     open('http://localhost:2893/');
   }, 1000);
 }
 
 printLog();
-/* eslint-enable */

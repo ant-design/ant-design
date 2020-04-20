@@ -119,9 +119,10 @@ const Demo = () => (
   - [自定义单元格样式](/components/date-picker-cn/#components-date-picker-demo-date-render)的类名从 `ant-calendar-date` 改为 `ant-picker-cell-inner`。
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
-  - `onBlur` 时不再修改选中值。
+  - `onBlur` 时不再修改选中值，且返回 React 原生的 `event` 对象。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
   - Select 移除 `dropdownMenuStyle` 属性。
+  - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。

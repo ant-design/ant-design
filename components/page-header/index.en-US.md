@@ -21,9 +21,9 @@ PageHeader can be used to highlight the page topic, display important informatio
 | ghost | PageHeader type, will change background color | boolean | true |  |
 | avatar | Avatar next to the title bar | [avatar props](/components/avatar/) | - |  |
 | backIcon | Custom back icon, if false the back icon will not be displayed | ReactNode \| boolean | `<ArrowLeft />` |  |
-| tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |  |
+| tags | Tag list next to title | [Tag](/components/tag/)[] \| [Tag](/components/tag/) | - |  |
 | extra | Operating area, at the end of the line of the title line | ReactNode | - |  |
-| breadcrumb | Breadcrumb configuration | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |  |
+| breadcrumb | Breadcrumb configuration | [breadcrumb](/components/breadcrumb/) | - |  |
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |  |
 | onBack | Back icon click event | `()=>void` | `()=>history.back()` |  |
 

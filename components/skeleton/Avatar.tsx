@@ -8,17 +8,11 @@ export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   shape?: 'circle' | 'square';
 }
 
-// eslint-disable-next-line react/prefer-stateless-function
-class SkeletonAvatar extends React.Component<AvatarProps, any> {
-  static defaultProps: Partial<AvatarProps> = {
-    size: 'default',
-    shape: 'circle',
-  };
-
-  renderSkeletonAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, active } = this.props;
+const SkeletonAvatar = (props: AvatarProps) => {
+  const renderSkeletonAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, active } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-    const otherProps = omit(this.props, ['prefixCls']);
+    const otherProps = omit(props, ['prefixCls']);
     const cls = classNames(prefixCls, className, `${prefixCls}-element`, {
       [`${prefixCls}-active`]: active,
     });
@@ -28,10 +22,12 @@ class SkeletonAvatar extends React.Component<AvatarProps, any> {
       </div>
     );
   };
-
-  render() {
-    return <ConfigConsumer>{this.renderSkeletonAvatar}</ConfigConsumer>;
-  }
+  return <ConfigConsumer>{renderSkeletonAvatar}</ConfigConsumer>;
 }
+
+SkeletonAvatar.defaultProps = {
+  size: 'default',
+  shape: 'circle',
+};
 
 export default SkeletonAvatar;

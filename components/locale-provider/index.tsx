@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import warning from '../_util/warning';
 
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
@@ -30,6 +31,9 @@ export interface Locale {
   PageHeader?: Object;
   Icon?: Object;
   Text?: Object;
+  Form?: {
+    defaultValidateMessages: ValidateMessages;
+  };
 }
 
 export interface LocaleProviderProps {

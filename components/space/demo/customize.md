@@ -17,7 +17,7 @@ Custom spacing size.
 import React, { useState } from 'react';
 import { Space, Slider, Button } from 'antd';
 
-function SpaceCutomizeSize() {
+function SpaceCustomizeSize() {
   const [size, setSize] = useState(8);
 
   return (
@@ -35,5 +35,5 @@ function SpaceCutomizeSize() {
   );
 }
 
-ReactDOM.render(<SpaceCutomizeSize />, mountNode);
+ReactDOM.render(<SpaceCustomizeSize />, mountNode);
 ```

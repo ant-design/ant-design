@@ -8,27 +8,40 @@
 .@{ant-prefix}-input {
   .reset-component;
   .input;
-}
 
-//== Style for input-group: input with label, with button or dropdown...
-.@{ant-prefix}-input-group {
-  .reset-component;
-  .input-group(~'@{ant-prefix}-input');
-  &-wrapper {
-    display: inline-block;
-    width: 100%;
-    text-align: start;
-    vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+  //== Style for input-group: input with label, with button or dropdown...
+  &-group {
+    .reset-component;
+    .input-group(~'@{ant-prefix}-input');
+    &-wrapper {
+      display: inline-block;
+      width: 100%;
+      text-align: start;
+      vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+    }
   }
-}
 
-.@{ant-prefix}-input-password-icon {
-  color: @text-color-secondary;
-  cursor: pointer;
-  transition: all 0.3s;
+  &-password-icon {
+    color: @text-color-secondary;
+    cursor: pointer;
+    transition: all 0.3s;
 
-  &:hover {
-    color: @input-icon-hover-color;
+    &:hover {
+      color: @input-icon-hover-color;
+    }
+  }
+
+  &[type='color'] {
+    height: @input-height-base;
+
+    &.@{ant-prefix}-input-lg {
+      height: @input-height-lg;
+    }
+    &.@{ant-prefix}-input-sm {
+      height: @input-height-sm;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
   }
 }
 

@@ -45,10 +45,10 @@ class App extends React.Component {
         <SubMenu
           key="submenu"
           title={
-            <span className="submenu-title-wrapper">
+            <>
               <SettingOutlined />
               Navigation Three - Submenu
-            </span>
+            </>
           }
         >
           <Menu.ItemGroup title="Item 1">

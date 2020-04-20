@@ -30,6 +30,7 @@ class PicturesWall extends React.Component {
   state = {
     previewVisible: false,
     previewImage: '',
+    previewTitle: '',
     fileList: [
       {
         uid: '-1',
@@ -73,13 +74,14 @@ class PicturesWall extends React.Component {
     this.setState({
       previewImage: file.url || file.preview,
       previewVisible: true,
+      previewTitle: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
     });
   };
 
   handleChange = ({ fileList }) => this.setState({ fileList });
 
   render() {
-    const { previewVisible, previewImage, fileList } = this.state;
+    const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
       <div>
         <PlusOutlined />
@@ -97,7 +99,12 @@ class PicturesWall extends React.Component {
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+        <Modal
+          visible={previewVisible}
+          title={previewTitle}
+          footer={null}
+          onCancel={this.handleCancel}
+        >
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
       </div>

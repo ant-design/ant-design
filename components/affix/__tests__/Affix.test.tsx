@@ -7,9 +7,17 @@ import { spyElementPrototype } from '../../__tests__/util/domHook';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 
-const events = {};
+const events: any = {};
 
-class AffixMounter extends React.Component {
+class AffixMounter extends React.Component<{
+  offsetBottom?: number;
+  offsetTop?: number;
+  onTestUpdatePosition?(): void;
+}> {
+  private container: HTMLDivElement;
+
+  private affix: Affix;
+
   componentDidMount() {
     this.container.addEventListener = jest.fn().mockImplementation((event, cb) => {
       events[event] = cb;
@@ -47,7 +55,7 @@ describe('Affix Render', () => {
   let wrapper;
   let domMock;
 
-  const classRect = {
+  const classRect: any = {
     container: {
       top: 0,
       bottom: 100,
@@ -135,9 +143,9 @@ describe('Affix Render', () => {
   describe('updatePosition when target changed', () => {
     it('function change', () => {
       document.body.innerHTML = '<div id="mounter" />';
-      const container = document.querySelector('#id');
+      const container = document.querySelector('#id') as HTMLDivElement;
       const getTarget = () => container;
-      wrapper = mount(<Affix target={getTarget} />);
+      wrapper = mount(<Affix target={getTarget}>{null}</Affix>);
       wrapper.setProps({ target: null });
       expect(wrapper.instance().state.status).toBe(0);
       expect(wrapper.instance().state.affixStyle).toBe(undefined);
@@ -153,7 +161,7 @@ describe('Affix Render', () => {
 
       const originLength = getObserverLength();
       const getTarget = () => target;
-      wrapper = mount(<Affix target={getTarget} />);
+      wrapper = mount(<Affix target={getTarget}>{null}</Affix>);
       await sleep(50);
 
       expect(getObserverLength()).toBe(originLength + 1);

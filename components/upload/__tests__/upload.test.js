@@ -495,7 +495,7 @@ describe('Upload', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Upload value={[]} />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Upload] `value` is not validate prop, do you mean `fileList`?',
+      'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',
     );
     errorSpy.mockRestore();
   });
