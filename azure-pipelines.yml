@@ -37,6 +37,7 @@ stages:
             export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
             echo "Deploy to $DEPLOY_DOMAIN"
             npx surge --project ./_site --domain $DEPLOY_DOMAIN
+            echo "Bazinga!"
           displayName: 'Deploy Site'
         - script: |
             export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
