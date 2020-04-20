@@ -158,6 +158,10 @@ ReactDOM.render(
   align-items: center;
 }
 
+#components-page-header-demo-content .ant-page-header-rtl .image {
+  margin: 0 60px 0 0;
+}
+
 #components-page-header-demo-content .example-link {
   margin-right: 16px;
 }
