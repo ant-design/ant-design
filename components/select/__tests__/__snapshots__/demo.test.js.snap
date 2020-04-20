@@ -394,7 +394,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider ant-divider-horizontal ant-divider-heading"
     role="separator"
   />,
   <h3

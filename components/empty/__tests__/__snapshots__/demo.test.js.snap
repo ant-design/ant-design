@@ -90,7 +90,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     </span>
   </button>
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider ant-divider-horizontal ant-divider-heading"
     role="separator"
   />
   <div

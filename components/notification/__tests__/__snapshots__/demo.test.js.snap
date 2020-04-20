@@ -103,7 +103,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider ant-divider-horizontal ant-divider-heading"
     role="separator"
   />,
   <button
@@ -224,7 +224,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
     </span>
   </button>
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider ant-divider-horizontal ant-divider-heading"
     role="separator"
   />
   <button

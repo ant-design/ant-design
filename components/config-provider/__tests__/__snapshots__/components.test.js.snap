@@ -10767,35 +10767,35 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
 
 exports[`ConfigProvider components Divider configProvider 1`] = `
 <div
-  class="config-divider config-divider-horizontal"
+  class="config-divider config-divider-horizontal config-divider-heading"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize large 1`] = `
 <div
-  class="config-divider config-divider-horizontal"
+  class="config-divider config-divider-horizontal config-divider-heading"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
-  class="config-divider config-divider-horizontal"
+  class="config-divider config-divider-horizontal config-divider-heading"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider normal 1`] = `
 <div
-  class="ant-divider ant-divider-horizontal"
+  class="ant-divider ant-divider-horizontal ant-divider-heading"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider prefixCls 1`] = `
 <div
-  class="prefix-Divider prefix-Divider-horizontal"
+  class="prefix-Divider prefix-Divider-horizontal prefix-Divider-heading"
   role="separator"
 />
 `;
