@@ -63,7 +63,7 @@ export default (props: SharedProps) => {
         <DownOutlined
           style={{
             fontSize: '9px',
-            marginLeft: 2,
+            margin: '0 2px',
             verticalAlign: 'middle',
             marginTop: -1,
           }}
