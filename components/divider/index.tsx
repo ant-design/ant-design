@@ -10,7 +10,7 @@ export interface DividerProps {
   children?: React.ReactNode;
   dashed?: boolean;
   style?: React.CSSProperties;
-  heading?: boolean;
+  asHeading?: boolean;
 }
 
 const Divider: React.FC<DividerProps> = props => (
