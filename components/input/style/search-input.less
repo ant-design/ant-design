@@ -5,14 +5,49 @@
 
 @search-prefix: ~'@{ant-prefix}-input-search';
 
+.searchInputIcon(@input-height, @font-size) {
+  .@{search-prefix}-icon {
+    padding: 0 (@input-height - @font-size) / 2;
+
+    &::after {
+      border-left: @border-width-base @border-style-base @input-border-color;
+      top: -(@input-height - @font-size) / 2 + @border-width-base;
+      bottom: -(@input-height - @font-size) / 2 + @border-width-base;
+    }
+  }
+}
+
+.searchInputIcon(@input-height-base, @font-size-base);
+
+.@{ant-prefix}-input-affix-wrapper-lg {
+  .searchInputIcon(@input-height-lg, @font-size-lg);
+}
+.@{ant-prefix}-input-affix-wrapper-sm {
+  .searchInputIcon(@input-height-sm, @font-size-sm);
+}
+
 .@{search-prefix} {
   &-icon {
     color: @text-color-secondary;
     cursor: pointer;
+    position: relative;
     transition: all 0.3s;
+    margin-left: 0.5em;
     &:hover {
       color: @input-icon-hover-color;
     }
+
+    &::after {
+      content: '';
+      border-left: @border-width-base @border-style-base @input-border-color;
+      position: absolute;
+      left: -@border-width-base;
+      transition: all 0.3s;
+    }
+  }
+
+  &:not(&-enter-button) {
+    padding-right: 0;
   }
 
   &-enter-button {
