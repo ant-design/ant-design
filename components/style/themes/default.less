@@ -504,8 +504,7 @@
 @progress-radius: 100px;
 @progress-steps-item-bg: #f3f3f3;
 @progress-text-font-size: 1em;
-@progress-circle-text-font-size: 0.833333em;
-
+@progress-circle-text-font-size: 1em;
 // Menu
 // ---
 @menu-inline-toplevel-item-height: 40px;
@@ -527,6 +526,7 @@
 @menu-item-boundary-margin: 8px;
 @menu-item-padding: 0 20px;
 @menu-horizontal-line-height: 46px;
+@menu-item-icon-margin-right: 10px;
 
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
@@ -599,6 +599,7 @@
 @picker-panel-cell-height: 24px;
 @picker-panel-cell-width: 36px;
 @picker-text-height: 40px;
+@picker-panel-without-time-cell-height: 66px;
 
 // Calendar
 // ---
@@ -723,6 +724,7 @@
 @switch-color: @primary-color;
 @switch-bg: @component-background;
 @switch-shadow-color: fade(#00230b, 20%);
+@switch-inner-margin: 0 24px 0 6px;
 
 // Pagination
 // ---
@@ -850,6 +852,12 @@
 @alert-close-hover-color: @icon-color-hover;
 @alert-no-icon-padding-vertical: @padding-xs;
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
+@alert-with-description-padding-vertical: @padding-md - 1px;
+@alert-with-description-padding: @alert-with-description-padding-vertical 15px
+  @alert-with-description-no-icon-padding-vertical - 1px 64px;
+@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+@alert-with-description-icon-size: 24px;
+@alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
 // List
 // ---
@@ -920,6 +928,7 @@
 @steps-current-dot-size: 10px;
 @steps-desciption-max-width: 140px;
 @steps-nav-content-max-width: auto;
+@steps-vertical-icon-margin: 0 16px 0 0;
 
 // Notification
 // ---

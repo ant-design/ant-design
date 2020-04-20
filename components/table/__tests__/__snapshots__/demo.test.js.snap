@@ -2271,9 +2271,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-expand-icon-col"
                   />
-                  <col
-                    style="width:60px;min-width:60px"
-                  />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
@@ -4828,9 +4825,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               style="table-layout:auto"
             >
               <colgroup>
-                <col
-                  style="width:60px;min-width:60px"
-                />
+                <col />
                 <col />
                 <col
                   style="width:12%;min-width:12%"
@@ -11611,11 +11606,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup>
-                  <col
-                    style="width:60px;min-width:60px"
-                  />
-                </colgroup>
+                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -11958,11 +11949,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               <table
                 style="table-layout:auto"
               >
-                <colgroup>
-                  <col
-                    style="width:60px;min-width:60px"
-                  />
-                </colgroup>
+                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -12545,11 +12532,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col
-                  style="width:60px;min-width:60px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -13159,11 +13142,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col
-                  style="width:60px;min-width:60px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
