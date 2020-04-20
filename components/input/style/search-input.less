@@ -7,10 +7,15 @@
 
 .searchInputIcon(@input-height, @font-size) {
   .@{search-prefix}-icon {
-    padding: 0 (@input-height - @font-size) / 2;
+    @horizontal-padding: (@input-height - @font-size) / 2;
+    padding: 0 @horizontal-padding;
+
+    &::before {
+      transform: translateX(-@horizontal-padding - @border-width-base);
+    }
 
     &::after {
-      transform: translateX(-(@input-height + @font-size) / 2 - @border-width-base);
+      width: @input-height - @border-width-base * 2;
     }
   }
 }
@@ -34,12 +39,21 @@
       color: @input-icon-hover-color;
     }
 
-    &::after {
+    &::before {
       position: absolute;
       top: 0;
       bottom: 0;
+      display: block;
       border-left: @border-width-base @border-style-base @input-border-color;
       transition: all 0.3s;
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
       content: '';
     }
   }
