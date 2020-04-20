@@ -22,3 +22,4 @@ A divider line separates different content.
 | orientation | position of title inside divider | `left` \| `right` \| `center` | `center` |  |
 | style | style object of container | object | - |  |
 | type | direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+| asHeading | divider text show as heading style | boolean | true | 4.2.0 |
