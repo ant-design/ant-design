@@ -10,9 +10,7 @@
     padding: 0 (@input-height - @font-size) / 2;
 
     &::after {
-      top: -(@input-height - @font-size) / 2 + @border-width-base;
-      bottom: -(@input-height - @font-size) / 2 + @border-width-base;
-      border-left: @border-width-base @border-style-base @input-border-color;
+      transform: translateX(-(@input-height + @font-size) / 2 - @border-width-base);
     }
   }
 }
@@ -28,7 +26,6 @@
 
 .@{search-prefix} {
   &-icon {
-    position: relative;
     margin-left: 0.5em;
     color: @text-color-secondary;
     cursor: pointer;
@@ -39,7 +36,8 @@
 
     &::after {
       position: absolute;
-      left: -@border-width-base;
+      top: 0;
+      bottom: 0;
       border-left: @border-width-base @border-style-base @input-border-color;
       transition: all 0.3s;
       content: '';
