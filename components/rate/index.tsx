@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
-import classNames from 'classnames';
 import StarFilled from '@ant-design/icons/StarFilled';
 
 import Tooltip from '../tooltip';
@@ -54,11 +53,10 @@ export default class Rate extends React.Component<RateProps, any> {
   }
 
   renderRate = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { prefixCls, className, ...restProps } = this.props;
+    const { prefixCls, ...restProps } = this.props;
 
     const rateProps = omit(restProps, ['tooltips']);
     const ratePrefixCls = getPrefixCls('rate', prefixCls);
-    const rateClassNames = classNames(className);
 
     return (
       <RcRate
@@ -66,7 +64,6 @@ export default class Rate extends React.Component<RateProps, any> {
         characterRender={this.characterRender}
         {...rateProps}
         prefixCls={ratePrefixCls}
-        className={rateClassNames}
         direction={direction}
       />
     );
