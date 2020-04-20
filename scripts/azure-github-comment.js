@@ -40,13 +40,13 @@ async function withGithub(url, json, method) {
   let res;
   if (!updateComment) {
     res = await withGithub(`https://api.github.com/repos/${REPO}/issues/${PR}/comments`, {
-      body: wrappedComment,
+      body: 'Bazinga!',
     });
   } else {
     res = await withGithub(
       `https://api.github.com/repos/${REPO}/issues/comments/${updateComment.id}`,
       {
-        body: wrappedComment,
+        body: 'Bazinga!',
       },
       'PATCH',
     );
