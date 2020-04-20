@@ -2,7 +2,6 @@
 category: Components
 type: Other
 title: Divider
-cols: 1
 ---
 
 A divider line separates different content.
