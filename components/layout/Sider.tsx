@@ -50,7 +50,6 @@ type InternalSideProps = SiderProps & LayoutContextProps;
 export interface SiderState {
   collapsed?: boolean;
   below: boolean;
-  belowShow?: boolean;
 }
 
 const generateId = (() => {
@@ -124,6 +123,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     }
 
     if (this.props.siderHook) {
+      console.log('removeSider');
       this.props.siderHook.removeSider(this.uniqueId);
     }
   }
@@ -154,10 +154,6 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
   toggle = () => {
     const collapsed = !this.state.collapsed;
     this.setCollapsed(collapsed, 'clickTrigger');
-  };
-
-  belowShowChange = () => {
-    this.setState(({ belowShow }) => ({ belowShow: !belowShow }));
   };
 
   renderSider = ({ getPrefixCls }: ConfigConsumerProps) => {
