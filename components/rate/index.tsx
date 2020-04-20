@@ -58,9 +58,7 @@ export default class Rate extends React.Component<RateProps, any> {
 
     const rateProps = omit(restProps, ['tooltips']);
     const ratePrefixCls = getPrefixCls('rate', prefixCls);
-    const rateClassNames = classNames(className, {
-      [`${ratePrefixCls}-rtl`]: direction === 'rtl',
-    });
+    const rateClassNames = classNames(className);
 
     return (
       <RcRate
