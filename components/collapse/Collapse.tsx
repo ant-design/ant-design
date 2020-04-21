@@ -7,7 +7,7 @@ import CollapsePanel from './CollapsePanel';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 
-export type ExpandIconPosition = 'left' | 'right';
+export type ExpandIconPosition = 'left' | 'right' | undefined;
 
 export interface CollapseProps {
   activeKey?: Array<string | number> | string | number;
@@ -40,8 +40,15 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    expandIconPosition: 'left' as CollapseProps['expandIconPosition'],
   };
+
+  getIconPosition(direction: string = 'ltr') {
+    const { expandIconPosition } = this.props;
+    if (expandIconPosition !== undefined) {
+      return expandIconPosition;
+    }
+    return direction === 'rtl' ? 'right' : 'left';
+  }
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
     const { expandIcon } = this.props;
@@ -59,17 +66,13 @@ export default class Collapse extends React.Component<CollapseProps, any> {
   };
 
   renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      className = '',
-      bordered,
-      expandIconPosition,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+    const iconPosition = this.getIconPosition(direction);
     const collapseClassName = classNames(
       {
         [`${prefixCls}-borderless`]: !bordered,
-        [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+        [`${prefixCls}-icon-position-${iconPosition}`]: true,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
