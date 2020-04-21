@@ -2,7 +2,6 @@
 category: Components
 type: Other
 title: Divider
-cols: 1
 ---
 
 A divider line separates different content.
@@ -23,3 +22,4 @@ A divider line separates different content.
 | orientation | position of title inside divider | `left` \| `right` \| `center` | `center` |  |
 | style | style object of container | object | - |  |
 | type | direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+| plain | divider text show as plain style | boolean | true | 4.2.0 |
