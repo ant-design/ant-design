@@ -194,7 +194,7 @@ module.exports = override(
 你也可以使用 [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd)，其中包括了 ts-import-plugin，react-app-rewired，scss，less 等插件。你可以通过只运行一个命令来创建一个没有任何配置的新项目。
 
 - [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
-- [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
+- [react-app-rewire-typescript](https://github.com/lwd-technology/react-app-rewire-typescript)
 - [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
 - [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
 - [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
