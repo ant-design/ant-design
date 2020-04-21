@@ -47,7 +47,7 @@ const FormSizeDemo = () => {
           <Input />
         </div>
         <div className="example">
-          <Input.Search />
+          <Input.Search allowClear />
         </div>
         <div className="example">
           <Select defaultValue="demo" options={[{ value: 'demo' }]} />
