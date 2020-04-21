@@ -32,8 +32,6 @@ An enterprise-class UI design language and React UI library.
 [download-url]: https://npmjs.org/package/antd
 [lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
 [lgtm-url]: https://lgtm.com/projects/g/ant-design/ant-design/alerts/
-[lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
-[lgtm-url]: https://lgtm.com/projects/g/ant-design/ant-design/alerts/
 [fossa-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield
 [fossa-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fant-design%2Fant-design?ref=badge_shield
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/ant-design/ant-design/help%20wanted/open
