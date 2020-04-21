@@ -33,6 +33,9 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
   };
+  input?: {
+    autoComplete?: string;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -65,6 +68,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       form,
+      input,
       locale,
       pageHeader,
       componentSize,
@@ -92,6 +96,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     if (pageHeader) {
       config.pageHeader = pageHeader;
+    }
+
+    if (input) {
+      config.input = input;
     }
 
     let childNode = children;

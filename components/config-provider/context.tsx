@@ -14,6 +14,9 @@ export interface ConfigConsumerProps {
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  input?: {
+    autoComplete?: string;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
