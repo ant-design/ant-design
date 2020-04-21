@@ -81,7 +81,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
     </ul>
   </div>
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-heading"
+    class="ant-divider ant-divider-horizontal"
     role="separator"
   />
   <h1

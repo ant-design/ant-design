@@ -115,7 +115,7 @@ exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-heading"
+    class="ant-divider ant-divider-horizontal"
     role="separator"
   />
   <div
@@ -1310,7 +1310,7 @@ exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-heading"
+    class="ant-divider ant-divider-horizontal"
     role="separator"
   />
   <div

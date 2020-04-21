@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-`asHeading={false}` 可以设置为更轻量的分割文字样式。
+使用 `plain` 可以设置为更轻量的分割文字样式。
 
 ## en-US
 
-You can use lighter non-heading style of divider text by setting `asHeading={false}`.
+You can use non-heading style of divider text by setting `plain`.
 
 ```jsx
 import { Divider } from 'antd';
@@ -22,19 +22,19 @@ ReactDOM.render(
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider asHeading={false}>Text</Divider>
+    <Divider plain>Text</Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider orientation="left" asHeading={false}>
+    <Divider orientation="left" plain>
       Left Text
     </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider orientation="right" asHeading={false}>
+    <Divider orientation="right" plain>
       Right Text
     </Divider>
     <p>

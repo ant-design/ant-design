@@ -10,7 +10,7 @@ export interface DividerProps {
   children?: React.ReactNode;
   dashed?: boolean;
   style?: React.CSSProperties;
-  asHeading?: boolean;
+  plain?: boolean;
 }
 
 const Divider: React.FC<DividerProps> = props => (
@@ -23,7 +23,7 @@ const Divider: React.FC<DividerProps> = props => (
         className,
         children,
         dashed,
-        asHeading,
+        plain,
         ...restProps
       } = props;
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
@@ -33,7 +33,7 @@ const Divider: React.FC<DividerProps> = props => (
         [`${prefixCls}-with-text`]: hasChildren,
         [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
         [`${prefixCls}-dashed`]: !!dashed,
-        [`${prefixCls}-heading`]: asHeading,
+        [`${prefixCls}-plain`]: !!plain,
       });
       return (
         <div className={classString} {...restProps} role="separator">
@@ -43,9 +43,5 @@ const Divider: React.FC<DividerProps> = props => (
     }}
   </ConfigConsumer>
 );
-
-Divider.defaultProps = {
-  asHeading: true,
-};
 
 export default Divider;
