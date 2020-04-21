@@ -72,13 +72,11 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       expandIconPosition,
     } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+    const iconPosition = this.getIconPosition(direction === 'rtl', expandIconPosition);
     const collapseClassName = classNames(
       {
         [`${prefixCls}-borderless`]: !bordered,
-        [`${prefixCls}-icon-position-${this.getIconPosition(
-          direction === 'rtl',
-          expandIconPosition,
-        )}`]: true,
+        [`${prefixCls}-icon-position-${iconPosition}`]: true,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
