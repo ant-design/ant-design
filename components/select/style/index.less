@@ -108,8 +108,9 @@
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
+    pointer-events: none;
 
-    .anticon {
+    .@{iconfont-css-prefix} {
       vertical-align: top;
       transition: transform 0.3s;
 
@@ -120,10 +121,10 @@
       .@{select-prefix-cls}-open &.anticon-down {
         transform: rotate(180deg);
       }
-    }
 
-    &.anticon-down {
-      pointer-events: none;
+      &:not(.@{iconfont-css-prefix}-down) {
+        pointer-events: auto;
+      }
     }
   }
 
