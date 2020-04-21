@@ -151,7 +151,7 @@ A. 动态增减：建议条目表单数 <=3 项，并且每个输入框不需要
 
 #### 前期准备
 
-- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](https://yuque.antfin-inc.com/ui-assets/bgt2gr/qhm36a)；
+- 表单页的核心由表单项组成，设计前建议先熟悉表单基础规则；
 - 梳理用户当前信息录入任务中所涉及的信息类型，并根据 [antd 数据录入规则](https://ant.design/docs/spec/data-entry-cn#header) 确定所使用的组件；
 
 #### 布局方式
@@ -196,10 +196,6 @@ A. 动态增减：建议条目表单数 <=3 项，并且每个输入框不需要
 
 ## 4. 扩展阅读
 
-### 会用到哪些全局规则
-
-- [表单](https://yuque.antfin-inc.com/ui-assets/bgt2gr/qhm36a)
-
 ### 会用到哪些模块或组件
 
 - [数据录入组件](https://ant.design/components/form-cn/#header)
@@ -207,6 +203,6 @@ A. 动态增减：建议条目表单数 <=3 项，并且每个输入框不需要
 
 ### 相关页面
 
-- [列表页](https://yuque.antfin-inc.com/ui-assets/bgt2gr/akzstg)
-- [结果页](https://yuque.antfin-inc.com/ui-assets/bgt2gr/mome0a)
-- [详情页](https://yuque.antfin-inc.com/ui-assets/bgt2gr/gbucb9)
+- [列表页](/docs/spec/research-list)
+- [结果页](/docs/spec/research-result)
+- [详情页](/docs/spec/detail-page)
