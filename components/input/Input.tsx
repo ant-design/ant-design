@@ -217,7 +217,11 @@ class Input extends React.Component<InputProps, InputState> {
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (prefixCls: string, size?: SizeType, input?: ConfigConsumerProps['input'] = {}) => {
+  renderInput = (
+    prefixCls: string,
+    size: SizeType | undefined,
+    input: ConfigConsumerProps['input'] = {},
+  ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
