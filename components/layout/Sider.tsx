@@ -123,7 +123,6 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     }
 
     if (this.props.siderHook) {
-      console.log('removeSider');
       this.props.siderHook.removeSider(this.uniqueId);
     }
   }
