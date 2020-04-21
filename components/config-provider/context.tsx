@@ -29,7 +29,7 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
 
-    return `ant-${suffixCls}`;
+    return suffixCls ? `ant-${suffixCls}` : 'ant';
   },
 
   renderEmpty: defaultRenderEmpty,

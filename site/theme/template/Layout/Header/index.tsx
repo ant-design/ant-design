@@ -180,6 +180,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <SiteContext.Consumer>
         {({ isMobile }) => {
           const { menuVisible, windowWidth, searching } = this.state;
+          const { direction } = this.context;
           const {
             location,
             themeConfig,
@@ -197,6 +198,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
           const isZhCN = locale === 'zh-CN';
+          const isRTL = direction === 'rtl';
           let responsive: null | 'narrow' | 'crowded' = null;
           if (windowWidth < RESPONSIVE_XS) {
             responsive = 'crowded';
@@ -211,6 +213,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
           const sharedProps = {
             isZhCN,
+            isRTL,
           };
 
           const searchBox = (

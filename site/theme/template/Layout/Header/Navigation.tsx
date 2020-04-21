@@ -12,6 +12,7 @@ import './Navigation.less';
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
+  isRTL: boolean;
   pathname: string;
   responsive: null | 'narrow' | 'crowded';
   location: { pathname: string };
@@ -22,6 +23,7 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
+  isRTL,
   isMobile,
   pathname,
   responsive,
@@ -32,10 +34,7 @@ export default ({
 }: NavigationProps) => {
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
-  const module = pathname
-    .split('/')
-    .slice(0, -1)
-    .join('/');
+  const module = pathname.split('/').slice(0, -1).join('/');
   let activeMenuItem = module || 'home';
   if (location.pathname === 'changelog' || location.pathname === 'changelog-cn') {
     activeMenuItem = 'docs/react';
@@ -56,7 +55,7 @@ export default ({
     <Menu.Item key="switch-direction" onClick={onDirectionChange}>
       {directionText}
     </Menu.Item>,
-    getEcosystemGroup({ isZhCN }),
+    getEcosystemGroup({ isZhCN, isRTL }),
   ];
 
   if (isMobile) {
