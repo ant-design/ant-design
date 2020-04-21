@@ -61,7 +61,7 @@
     "lint-fix:demo": "eslint-tinker ./components/*/demo/*.md",
     "lint-fix:script": "npm run lint:script -- --fix",
     "lint-fix:style": "npm run lint:style -- --fix",
-    "lint:demo": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
+    "lint:demo": "eslint components/*/demo/*.md",
     "lint:deps": "antd-tools run deps-lint",
     "lint:md": "remark components/",
     "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
