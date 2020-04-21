@@ -45,12 +45,16 @@ export interface ConfigProviderProps {
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
-  getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
-    const { prefixCls = 'ant' } = this.props;
+  getPrefixClsWrapper = (context: ConfigConsumerProps) => {
+    return (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = this.props;
 
-    if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) return customizePrefixCls;
 
-    return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    };
   };
 
   renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
@@ -70,7 +74,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     const config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: this.getPrefixCls,
+      getPrefixCls: this.getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
