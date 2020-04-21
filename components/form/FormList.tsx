@@ -15,7 +15,7 @@ interface Operation {
   move: (from: number, to: number) => void;
 }
 
-interface FormListProps {
+export interface FormListProps {
   name: string | number | (string | number)[];
   children: (fields: FieldData[], operation: Operation) => React.ReactNode;
 }
@@ -26,7 +26,10 @@ const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
   return (
     <List {...props}>
       {(fields, operation) => {
-        return children(fields.map(field => ({ ...field, fieldKey: field.key })), operation);
+        return children(
+          fields.map(field => ({ ...field, fieldKey: field.key })),
+          operation,
+        );
       }}
     </List>
   );
