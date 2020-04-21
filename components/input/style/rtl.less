@@ -134,6 +134,35 @@
     direction: rtl;
   }
 
+  &-icon {
+    .@{search-rtl-cls} & {
+      margin-right: 0.5em;
+      margin-left: 0;
+    }
+
+    &::before {
+      .@{search-rtl-cls} & {
+        border-left: none;
+      }
+    }
+
+    &::after {
+      .@{search-rtl-cls} & {
+        right: auto;
+        left: 0;
+        border-right: @border-width-base @border-style-base @input-border-color;
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  &:not(&-enter-button) {
+    .@{search-rtl-cls}& {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: 0;
+    }
+  }
+
   &-enter-button {
     input {
       .@{search-rtl-cls}& {
