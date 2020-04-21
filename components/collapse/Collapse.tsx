@@ -40,7 +40,6 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    expandIconPosition: 'left' as CollapseProps['expandIconPosition'],
   };
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
@@ -66,10 +65,16 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       expandIconPosition,
     } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+    let iconPosition;
+    if (expandIconPosition !== undefined) {
+      iconPosition = expandIconPosition;
+    } else {
+      iconPosition = direction === 'rtl' ? 'right' : 'left';
+    }
     const collapseClassName = classNames(
       {
         [`${prefixCls}-borderless`]: !bordered,
-        [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+        [`${prefixCls}-icon-position-${iconPosition}`]: true,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
