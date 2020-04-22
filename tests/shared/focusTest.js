@@ -1,24 +1,23 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
 export default function focusTest(Component, refFocus = false) {
   describe('focus and blur', () => {
-    let domSpy;
+    // let domSpy;
     let focused = false;
     let blurred = false;
+    const mockFocus = jest.spyOn(HTMLElement.prototype, 'focus');
+    const mockBlur = jest.spyOn(HTMLElement.prototype, 'blur');
 
     beforeAll(() => {
       if (refFocus) {
-        domSpy = spyElementPrototypes(HTMLElement, {
-          focus() {
-            focused = true;
-          },
-          blur() {
-            blurred = true;
-          },
+        mockFocus.mockImplementation(() => {
+          focused = true;
+        });
+        mockBlur.mockImplementation(() => {
+          blurred = true;
         });
       }
     });
@@ -32,9 +31,8 @@ export default function focusTest(Component, refFocus = false) {
     });
 
     afterAll(() => {
-      if (domSpy) {
-        domSpy.mockRestore();
-      }
+      mockFocus.mockRestore();
+      mockBlur.mockRestore();
     });
 
     afterEach(() => {
@@ -53,10 +51,7 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        wrapper
-          .find('input')
-          .first()
-          .simulate('focus');
+        wrapper.find('input').first().simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
 
@@ -71,10 +66,7 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        wrapper
-          .find('input')
-          .first()
-          .simulate('blur');
+        wrapper.find('input').first().simulate('blur');
         expect(onBlur).toHaveBeenCalled();
       });
 
@@ -84,10 +76,7 @@ export default function focusTest(Component, refFocus = false) {
 
         expect(focused).toBeTruthy();
 
-        wrapper
-          .find('input')
-          .first()
-          .simulate('focus');
+        wrapper.find('input').first().simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
     } else {
