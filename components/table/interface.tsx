@@ -72,13 +72,13 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
 
   // Sorter
   sorter?:
-    | boolean
-    | CompareFn<RecordType>
-    | {
-        compare: CompareFn<RecordType>;
-        /** Config multiple sorter order priority */
-        multiple: number;
-      };
+  | boolean
+  | CompareFn<RecordType>
+  | {
+    compare: CompareFn<RecordType>;
+    /** Config multiple sorter order priority */
+    multiple: number;
+  };
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
@@ -130,7 +130,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  selections?: SelectionItem[] | boolean;
+  selections?: SelectionItem[] | boolean | string;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
