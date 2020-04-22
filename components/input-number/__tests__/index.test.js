@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('InputNumber', () => {
-  focusTest(InputNumber, true);
+  focusTest(InputNumber, { refFocus: true });
   mountTest(InputNumber);
   rtlTest(InputNumber);
 

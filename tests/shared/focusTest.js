@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component, refFocus = false) {
+export default function focusTest(Component, { refFocus = false } = {}) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -38,6 +38,14 @@ export default function focusTest(Component, refFocus = false) {
       document.body.removeChild(container);
     });
 
+    const getElement = wrapper => {
+      let ele = wrapper.find('input').first();
+      if (ele.length === 0) {
+        ele = wrapper.find('div[tabIndex]').first();
+      }
+      return ele;
+    };
+
     if (refFocus) {
       it('Ref: focus() and onFocus', () => {
         const onFocus = jest.fn();
@@ -50,7 +58,7 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        wrapper.find('input').first().simulate('focus');
+        getElement(wrapper).simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
 
@@ -65,7 +73,7 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        wrapper.find('input').first().simulate('blur');
+        getElement(wrapper).simulate('blur');
         expect(onBlur).toHaveBeenCalled();
       });
 
@@ -75,7 +83,7 @@ export default function focusTest(Component, refFocus = false) {
 
         expect(focused).toBeTruthy();
 
-        wrapper.find('input').first().simulate('focus');
+        getElement(wrapper).simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
     } else {
