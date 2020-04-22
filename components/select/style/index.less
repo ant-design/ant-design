@@ -99,7 +99,7 @@
   &-arrow {
     .iconfont-mixin();
     position: absolute;
-    top: 53%;
+    top: 50%;
     right: @control-padding-horizontal - 1px;
     width: @font-size-sm;
     height: @font-size-sm;
@@ -116,10 +116,6 @@
 
       > svg {
         vertical-align: top;
-      }
-
-      .@{select-prefix-cls}-open &.anticon-down {
-        transform: rotate(180deg);
       }
 
       &:not(.@{iconfont-css-prefix}-down) {
