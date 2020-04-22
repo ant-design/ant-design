@@ -6,6 +6,7 @@ import {
 } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -72,13 +73,13 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
 
   // Sorter
   sorter?:
-  | boolean
-  | CompareFn<RecordType>
-  | {
-    compare: CompareFn<RecordType>;
-    /** Config multiple sorter order priority */
-    multiple: number;
-  };
+    | boolean
+    | CompareFn<RecordType>
+    | {
+        compare: CompareFn<RecordType>;
+        /** Config multiple sorter order priority */
+        multiple: number;
+      };
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
@@ -130,7 +131,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  selections?: SelectionItem[] | boolean | string[];
+  selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;

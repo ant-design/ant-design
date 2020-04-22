@@ -41,7 +41,10 @@ interface UseSelectionConfig<RecordType> {
   getPopupContainer?: GetPopupContainer;
 }
 
-type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
+export type INTERNAL_SELECTION_ITEM =
+  | SelectionItem
+  | typeof SELECTION_ALL
+  | typeof SELECTION_INVERT;
 
 function flattenData<RecordType>(
   data: RecordType[] | undefined,
