@@ -130,7 +130,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  selections?: SelectionItem[] | boolean | string;
+  selections?: SelectionItem[] | boolean | string[];
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
