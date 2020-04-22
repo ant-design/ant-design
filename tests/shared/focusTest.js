@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component, refFocus = false, needInput = true) {
+export default function focusTest(Component, refFocus = false) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -38,6 +38,14 @@ export default function focusTest(Component, refFocus = false, needInput = true)
       document.body.removeChild(container);
     });
 
+    const getElement = wrapper => {
+      let ele = wrapper.find('input').first();
+      if (ele.length === 0) {
+        ele = wrapper.find('div[tabIndex]').first();
+      }
+      return ele;
+    };
+
     if (refFocus) {
       it('Ref: focus() and onFocus', () => {
         const onFocus = jest.fn();
@@ -50,10 +58,8 @@ export default function focusTest(Component, refFocus = false, needInput = true)
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        if (needInput) {
-          wrapper.find('input').first().simulate('focus');
-          expect(onFocus).toHaveBeenCalled();
-        }
+        getElement(wrapper).simulate('focus');
+        expect(onFocus).toHaveBeenCalled();
       });
 
       it('Ref: blur() and onBlur', () => {
@@ -67,10 +73,8 @@ export default function focusTest(Component, refFocus = false, needInput = true)
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        if (needInput) {
-          wrapper.find('input').first().simulate('blur');
-          expect(onBlur).toHaveBeenCalled();
-        }
+        getElement(wrapper).simulate('blur');
+        expect(onBlur).toHaveBeenCalled();
       });
 
       it('Ref: autoFocus', () => {
@@ -79,10 +83,8 @@ export default function focusTest(Component, refFocus = false, needInput = true)
 
         expect(focused).toBeTruthy();
 
-        if (needInput) {
-          wrapper.find('input').first().simulate('focus');
-          expect(onFocus).toHaveBeenCalled();
-        }
+        getElement(wrapper).simulate('focus');
+        expect(onFocus).toHaveBeenCalled();
       });
     } else {
       it('focus() and onFocus', () => {
