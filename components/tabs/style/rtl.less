@@ -44,4 +44,40 @@
       }
     }
   }
+
+  .@{tab-prefix-cls}-left-bar,
+  .@{tab-prefix-cls}-right-bar {
+    .@{tab-prefix-cls}-tab {
+      .@{tab-prefix-cls}-rtl& {
+        margin: @tabs-vertical-margin;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .@{tab-prefix-cls}-right-bar {
+    .@{tab-prefix-cls}-ink-bar {
+      .@{tab-prefix-cls}-rtl& {
+        right: auto;
+        left: 1px;
+      }
+    }
+  }
+
+  // card
+  &&-card &-card-bar &-tab &-close-x {
+    .@{tab-prefix-cls}-rtl& {
+      margin-right: 3px;
+      margin-left: -5px;
+    }
+  }
+
+  &-extra-content {
+    .@{tab-prefix-cls}-rtl & {
+      float: left !important;
+    }
+  }
 }
