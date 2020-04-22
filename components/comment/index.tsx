@@ -32,12 +32,12 @@ export interface CommentProps {
   datetime?: React.ReactNode;
 }
 
-export default class Comment extends React.Component<CommentProps, {}> {
-  renderNested = (prefixCls: string, children: any) => {
+const Comment: React.FC<CommentProps> = props => {
+  const renderNested = (prefixCls: string, children: any) => {
     return <div className={classNames(`${prefixCls}-nested`)}>{children}</div>;
   };
 
-  renderComment = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  const renderComment = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       actions,
       author,
@@ -49,7 +49,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       style,
       datetime,
       ...otherProps
-    } = this.props;
+    } = props;
 
     const prefixCls = getPrefixCls('comment', customizePrefixCls);
 
@@ -92,12 +92,12 @@ export default class Comment extends React.Component<CommentProps, {}> {
     return (
       <div {...otherProps} className={cls} style={style}>
         {comment}
-        {children ? this.renderNested(prefixCls, children) : null}
+        {children ? renderNested(prefixCls, children) : null}
       </div>
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderComment}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderComment}</ConfigConsumer>;
+};
+
+export default Comment;
