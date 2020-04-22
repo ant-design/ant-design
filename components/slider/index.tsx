@@ -57,36 +57,18 @@ export interface SliderProps {
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
-export interface SliderState {
-  visibles: { [index: number]: boolean };
-}
+export type Visibles = { [index: number]: boolean };
 
-export default class Slider extends React.Component<SliderProps, SliderState> {
-  static defaultProps = {
-    tipFormatter(value: number) {
-      return typeof value === 'number' ? value.toString() : '';
-    },
+const Slider = React.forwardRef<unknown, SliderProps>((props, ref) => {
+  const [visibles, setVisibles] = React.useState<Visibles>({});
+
+  const toggleTooltipVisible = (index: number, visible: boolean) => {
+    const temp = { ...visibles };
+    temp[index] = visible;
+    setVisibles(temp);
   };
 
-  rcSlider: any;
-
-  constructor(props: SliderProps) {
-    super(props);
-    this.state = {
-      visibles: {},
-    };
-  }
-
-  toggleTooltipVisible = (index: number, visible: boolean) => {
-    this.setState(({ visibles }) => ({
-      visibles: {
-        ...visibles,
-        [index]: visible,
-      },
-    }));
-  };
-
-  handleWithTooltip: HandleGeneratorFn = ({
+  const handleWithTooltip: HandleGeneratorFn = ({
     tooltipPrefixCls,
     prefixCls,
     info: { value, dragging, index, ...restProps },
@@ -97,8 +79,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
       tooltipPlacement,
       getTooltipPopupContainer,
       vertical,
-    } = this.props;
-    const { visibles } = this.state;
+    } = props;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
     return (
@@ -115,33 +96,21 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         <RcHandle
           {...restProps}
           value={value}
-          onMouseEnter={() => this.toggleTooltipVisible(index, true)}
-          onMouseLeave={() => this.toggleTooltipVisible(index, false)}
+          onMouseEnter={() => toggleTooltipVisible(index, true)}
+          onMouseLeave={() => toggleTooltipVisible(index, false)}
         />
       </SliderTooltip>
     );
   };
 
-  saveSlider = (node: any) => {
-    this.rcSlider = node;
-  };
-
-  focus() {
-    this.rcSlider.focus();
-  }
-
-  blur() {
-    this.rcSlider.blur();
-  }
-
-  renderSlider = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  const renderSlider = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       tooltipPrefixCls: customizeTooltipPrefixCls,
       range,
       className,
       ...restProps
-    } = this.props;
+    } = props;
     const prefixCls = getPrefixCls('slider', customizePrefixCls);
     const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
     const cls = classNames(className, {
@@ -156,9 +125,9 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         <RcRange
           {...restProps}
           className={cls}
-          ref={this.saveSlider}
+          ref={ref}
           handle={(info: HandleGeneratorInfo) =>
-            this.handleWithTooltip({
+            handleWithTooltip({
               tooltipPrefixCls,
               prefixCls,
               info,
@@ -173,9 +142,9 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
       <RcSlider
         {...restProps}
         className={cls}
-        ref={this.saveSlider}
+        ref={ref}
         handle={(info: HandleGeneratorInfo) =>
-          this.handleWithTooltip({
+          handleWithTooltip({
             tooltipPrefixCls,
             prefixCls,
             info,
@@ -187,7 +156,13 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderSlider}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderSlider}</ConfigConsumer>;
+});
+
+Slider.defaultProps = {
+  tipFormatter(value: number) {
+    return typeof value === 'number' ? value.toString() : '';
+  },
+};
+
+export default Slider;

@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component, refFocus = false) {
+export default function focusTest(Component, refFocus = false, needInput = true) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -50,8 +50,10 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        wrapper.find('input').first().simulate('focus');
-        expect(onFocus).toHaveBeenCalled();
+        if (needInput) {
+          wrapper.find('input').first().simulate('focus');
+          expect(onFocus).toHaveBeenCalled();
+        }
       });
 
       it('Ref: blur() and onBlur', () => {
@@ -65,8 +67,10 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        wrapper.find('input').first().simulate('blur');
-        expect(onBlur).toHaveBeenCalled();
+        if (needInput) {
+          wrapper.find('input').first().simulate('blur');
+          expect(onBlur).toHaveBeenCalled();
+        }
       });
 
       it('Ref: autoFocus', () => {
@@ -75,8 +79,10 @@ export default function focusTest(Component, refFocus = false) {
 
         expect(focused).toBeTruthy();
 
-        wrapper.find('input').first().simulate('focus');
-        expect(onFocus).toHaveBeenCalled();
+        if (needInput) {
+          wrapper.find('input').first().simulate('focus');
+          expect(onFocus).toHaveBeenCalled();
+        }
       });
     } else {
       it('focus() and onFocus', () => {
