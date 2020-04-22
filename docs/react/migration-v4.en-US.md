@@ -123,6 +123,7 @@ const Demo = () => (
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
+  - `filterOption` return origin data with second params instead. No need to use `option.props.children` for matching.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
