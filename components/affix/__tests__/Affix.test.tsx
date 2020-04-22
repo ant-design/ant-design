@@ -1,12 +1,13 @@
 import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
+import ResizeObserverImpl from 'rc-resize-observer';
 import Affix, { AffixProps, AffixState } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 
-const events: any = {};
+const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
 class AffixMounter extends React.Component<{
   offsetBottom?: number;
@@ -18,9 +19,11 @@ class AffixMounter extends React.Component<{
   public affix: Affix;
 
   componentDidMount() {
-    this.container.addEventListener = jest.fn().mockImplementation((event, cb) => {
-      events[event] = cb;
-    });
+    this.container.addEventListener = jest
+      .fn()
+      .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Partial<Event>) => void) => {
+        events[event] = cb;
+      });
   }
 
   getTarget = () => this.container;
@@ -55,11 +58,11 @@ describe('Affix Render', () => {
   let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
   let affixWrapper: ReactWrapper<AffixProps, AffixState, Affix>;
 
-  const classRect: any = {
+  const classRect: Record<string, DOMRect> = {
     container: {
       top: 0,
       bottom: 100,
-    },
+    } as DOMRect,
   };
 
   beforeAll(() => {
@@ -81,7 +84,10 @@ describe('Affix Render', () => {
     classRect.fixed = {
       top,
       bottom: top,
-    };
+    } as DOMRect;
+    if (events.scroll == null) {
+      throw new Error('scroll should be set');
+    }
     events.scroll({
       type: 'scroll',
     });
@@ -174,37 +180,51 @@ describe('Affix Render', () => {
   });
 
   describe('updatePosition when size changed', () => {
-    function test(name: string, index: number) {
-      it(name, async () => {
-        document.body.innerHTML = '<div id="mounter" />';
+    it.each([
+      { name: 'inner', index: 0 },
+      { name: 'outer', index: 1 },
+    ])(name, async ({ index }) => {
+      document.body.innerHTML = '<div id="mounter" />';
 
-        const updateCalled = jest.fn();
-        affixMounterWrapper = mount(
-          <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
-          {
-            attachTo: document.getElementById('mounter'),
-          },
+      const updateCalled = jest.fn();
+      affixMounterWrapper = mount(
+        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+        {
+          attachTo: document.getElementById('mounter'),
+        },
+      );
+
+      await sleep(20);
+
+      await movePlaceholder(300);
+      expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeTruthy();
+      await sleep(20);
+      affixMounterWrapper.update();
+
+      // Mock trigger resize
+      updateCalled.mockReset();
+      const resizeObserverInstance: ReactWrapper<
+        HTMLAttributes,
+        unknown,
+        ResizeObserverImpl
+      > = affixMounterWrapper.find('ResizeObserver') as any;
+      resizeObserverInstance
+        .at(index)
+        .instance()
+        .onResize(
+          [
+            {
+              target: {
+                getBoundingClientRect: () => ({ width: 99, height: 99 }),
+              } as Element,
+              contentRect: {} as DOMRect,
+            },
+          ],
+          ({} as unknown) as ResizeObserver,
         );
+      await sleep(20);
 
-        await sleep(20);
-
-        await movePlaceholder(300);
-        expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeTruthy();
-        await sleep(20);
-        affixMounterWrapper.update();
-
-        // Mock trigger resize
-        updateCalled.mockReset();
-        (affixMounterWrapper.find('ResizeObserver').at(index).instance() as any).onResize([
-          { target: { getBoundingClientRect: () => ({ width: 99, height: 99 }) } },
-        ]);
-        await sleep(20);
-
-        expect(updateCalled).toHaveBeenCalled();
-      });
-    }
-
-    test('inner', 0);
-    test('outer', 1);
+      expect(updateCalled).toHaveBeenCalled();
+    });
   });
 });
