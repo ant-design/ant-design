@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component, refFocus = false) {
+export default function focusTest(Component, { refFocus = false } = {}) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
