@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component, { refFocus = false, inputFocus = true } = {}) {
+export default function focusTest(Component, refFocus = false, needInput = true) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -50,7 +50,7 @@ export default function focusTest(Component, { refFocus = false, inputFocus = tr
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        if (inputFocus) {
+        if (needInput) {
           wrapper.find('input').first().simulate('focus');
           expect(onFocus).toHaveBeenCalled();
         }
@@ -67,7 +67,7 @@ export default function focusTest(Component, { refFocus = false, inputFocus = tr
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        if (inputFocus) {
+        if (needInput) {
           wrapper.find('input').first().simulate('blur');
           expect(onBlur).toHaveBeenCalled();
         }
@@ -79,7 +79,7 @@ export default function focusTest(Component, { refFocus = false, inputFocus = tr
 
         expect(focused).toBeTruthy();
 
-        if (inputFocus) {
+        if (needInput) {
           wrapper.find('input').first().simulate('focus');
           expect(onFocus).toHaveBeenCalled();
         }
