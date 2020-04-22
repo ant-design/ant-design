@@ -77,9 +77,10 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 #### Input.Password (3.12.0 中新增)
 
-| 参数             | 说明             | 类型    | 默认值 | 版本   |
-| ---------------- | ---------------- | ------- | ------ | ------ |
-| visibilityToggle | 是否显示切换按钮 | boolean | true   | 3.12.2 |
+| 参数             | 说明             | 类型    | 默认值 | 版本    |
+| ---------------- | ---------------- | ------- | ------ | ------- |
+| visibilityToggle | 是否显示切换按钮 | boolean | true   | 3.12.2  |
+| reverseIcon      | 是否反转图标     | boolean | true   | 3.26.16 |
 
 ## FAQ
 

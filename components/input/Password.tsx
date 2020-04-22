@@ -8,6 +8,7 @@ export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
   visibilityToggle?: boolean;
+  reverseIcon?: boolean;
 }
 
 export interface PasswordState {
@@ -43,12 +44,19 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   getIcon() {
-    const { prefixCls, action } = this.props;
+    const { prefixCls, action, reverseIcon } = this.props;
+    const { visible } = this.state;
+    let type;
+    if (reverseIcon) {
+      type = visible ? 'eye-invisible' : 'eye';
+    } else {
+      type = visible ? 'eye' : 'eye-invisible';
+    }
     const iconTrigger = ActionMap[action!] || '';
     const iconProps = {
       [iconTrigger]: this.onVisibleChange,
       className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye' : 'eye-invisible',
+      type,
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
         // Prevent focused state lost

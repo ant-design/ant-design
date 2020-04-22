@@ -81,6 +81,7 @@ Supports all props of `Input`.
 | Property         | Description                | Type    | Default | Version |
 | ---------------- | -------------------------- | ------- | ------- | ------- |
 | visibilityToggle | Whether show toggle button | boolean | true    | 3.12.2  |
+| reverseIcon      | reverse suffix icon        | boolean | true    | 3.26.16 |
 
 ## FAQ
 
