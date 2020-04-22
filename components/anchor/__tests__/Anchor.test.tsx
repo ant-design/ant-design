@@ -6,23 +6,20 @@ import { sleep } from '../../../tests/utils';
 const { Link } = Anchor;
 
 function createGetContainer(id: string) {
-  return () => {
-    const container = document.getElementById(id);
-    if (container == null) {
-      throw new Error();
-    }
-    return container;
-  };
+  // This may return null, but it's expected... for some reason...
+  // ¯\_(ツ)_/¯
+  return () => document.getElementById(id)!;
 }
 
-function createDiv() {
-  const root = document.createElement('div');
-  document.body.appendChild(root);
+function createRootElementIfNotExisted() {
+  let root = document.getElementById('root');
+  if (!root) {
+    root = document.createElement('div');
+    root.setAttribute('id', 'root');
+    document.body.appendChild(root);
+  }
   return root;
 }
-
-let idCounter = 0;
-const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
@@ -46,35 +43,38 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor render perfectly', () => {
-    const hash = getHashUrl();
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`#${hash}`} title={hash} />
+        <Link href="#API" title="API" />
       </Anchor>,
     );
 
-    wrapper.find(`a[href="#${hash}"]`).simulate('click');
+    wrapper.find('a[href="#API"]').simulate('click');
 
     wrapper.instance().handleScroll();
     expect(wrapper.instance().state).not.toBe(null);
   });
 
   it('Anchor render perfectly for complete href - click', () => {
-    const hash = getHashUrl();
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`http://www.example.com/#${hash}`} title={hash} />
+        <Link href="http://www.example.com/#API" title="API" />
       </Anchor>,
     );
-    wrapper.find(`a[href="http://www.example.com/#${hash}"]`).simulate('click');
-    expect(wrapper.instance().state.activeLink).toBe(`http://www.example.com/#${hash}`);
+    wrapper.find('a[href="http://www.example.com/#API"]').simulate('click');
+    expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
   });
 
   it('Anchor render perfectly for complete href - hash router', async () => {
-    const root = createDiv();
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    let root = document.getElementById('root');
+    if (!root) {
+      root = document.createElement('div', { id: 'root' });
+      root.id = 'root';
+      document.body.appendChild(root);
+    }
     mount(<div id="/faq?locale=en#Q1">Q1</div>, { attachTo: root });
-    const wrapper = mount<Anchor>(
+    const wrapper = mount(
       <Anchor>
         <Link href="/#/faq?locale=en#Q1" title="Q1" />
       </Anchor>,
@@ -88,40 +88,37 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor render perfectly for complete href - scroll', () => {
-    const hash = getHashUrl();
-    const root = createDiv();
-    mount(<div id={hash}>Hello</div>, { attachTo: root });
+    const root = createRootElementIfNotExisted();
+    mount(<div id="API">Hello</div>, { attachTo: root });
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`http://www.example.com/#${hash}`} title={hash} />
+        <Link href="http://www.example.com/#API" title="API" />
       </Anchor>,
     );
     wrapper.instance().handleScroll();
-    expect(wrapper.instance().state.activeLink).toBe(`http://www.example.com/#${hash}`);
+    expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
   });
 
   it('Anchor render perfectly for complete href - scrollTo', async () => {
-    const hash = getHashUrl();
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createDiv();
-    mount(<div id={`#${hash}`}>Hello</div>, { attachTo: root });
+    const root = createRootElementIfNotExisted();
+    mount(<div id="#API">Hello</div>, { attachTo: root });
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`##${hash}`} title={hash} />
+        <Link href="##API" title="API" />
       </Anchor>,
     );
-    wrapper.instance().handleScrollTo(`##${hash}`);
-    expect(wrapper.instance().state.activeLink).toBe(`##${hash}`);
+    wrapper.instance().handleScrollTo('##API');
+    expect(wrapper.instance().state.activeLink).toBe('##API');
     const calls = scrollToSpy.mock.calls.length;
     await sleep(1000);
     expect(scrollToSpy.mock.calls.length).toBeGreaterThan(calls);
   });
 
   it('should remove listener when unmount', async () => {
-    const hash = getHashUrl();
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`#${hash}`} title={hash} />
+        <Link href="#API" title="API" />
       </Anchor>,
     );
     const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
@@ -130,20 +127,18 @@ describe('Anchor Render', () => {
   });
 
   it('should unregister link when unmount children', async () => {
-    const hash = getHashUrl();
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`#${hash}`} title={hash} />
+        <Link href="#API" title="API" />
       </Anchor>,
     );
-    expect((wrapper.instance() as any).links).toEqual([`#${hash}`]);
+    expect((wrapper.instance() as any).links).toEqual(['#API']);
     wrapper.setProps({ children: null });
     expect((wrapper.instance() as any).links).toEqual([]);
   });
 
   it('should update links when link href update', async () => {
-    const hash = getHashUrl();
-    let anchorInstance: Anchor | null = null;
+    let anchorInstance: null | Anchor = null;
     function AnchorUpdate({ href }: { href: string }) {
       return (
         <Anchor
@@ -151,22 +146,21 @@ describe('Anchor Render', () => {
             anchorInstance = c;
           }}
         >
-          <Link href={href} title={hash} />
+          <Link href={href} title="API" />
         </Anchor>
       );
     }
-    const wrapper = mount(<AnchorUpdate href={`#${hash}`} />);
+    const wrapper = mount(<AnchorUpdate href="#API" />);
 
     if (anchorInstance == null) {
       throw new Error('anchorInstance should not be null');
     }
-    expect((anchorInstance as any).links).toEqual([`#${hash}`]);
-    wrapper.setProps({ href: `#${hash}_1` });
-    expect((anchorInstance as any).links).toEqual([`#${hash}_1`]);
+    expect((anchorInstance as any).links).toEqual(['#API']);
+    wrapper.setProps({ href: '#API_1' });
+    expect((anchorInstance as any).links).toEqual(['#API_1']);
   });
 
   it('Anchor onClick event', () => {
-    const hash = getHashUrl();
     let event;
     let link;
     const handleClick = (
@@ -177,8 +171,8 @@ describe('Anchor Render', () => {
       link = _link;
     };
 
-    const href = `#${hash}`;
-    const title = hash;
+    const href = '#API';
+    const title = 'API';
 
     const wrapper = mount<Anchor>(
       <Anchor onClick={handleClick}>
@@ -194,15 +188,14 @@ describe('Anchor Render', () => {
   });
 
   it('Different function returns the same DOM', async () => {
-    const hash = getHashUrl();
-    const root = createDiv();
-    mount(<div id={hash}>Hello</div>, { attachTo: root });
-    const getContainerA = createGetContainer(hash);
-    const getContainerB = createGetContainer(hash);
+    const root = createRootElementIfNotExisted();
+    mount(<div id="API">Hello</div>, { attachTo: root });
+    const getContainerA = createGetContainer('API');
+    const getContainerB = createGetContainer('API');
 
     const wrapper = mount<Anchor>(
       <Anchor getContainer={getContainerA}>
-        <Link href={`#${hash}`} title={hash} />
+        <Link href="#API" title="API" />
       </Anchor>,
     );
     const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
@@ -212,22 +205,20 @@ describe('Anchor Render', () => {
   });
 
   it('Different function returns different DOM', async () => {
-    const hash1 = getHashUrl();
-    const hash2 = getHashUrl();
-    const root = createDiv();
+    const root = createRootElementIfNotExisted();
     mount(
       <div>
-        <div id={hash1}>Hello</div>
-        <div id={hash2}>World</div>
+        <div id="API1">Hello</div>
+        <div id="API2">World</div>
       </div>,
       { attachTo: root },
     );
-    const getContainerA = createGetContainer(hash1);
-    const getContainerB = createGetContainer(hash2);
+    const getContainerA = createGetContainer('API1');
+    const getContainerB = createGetContainer('API2');
     const wrapper = mount<Anchor>(
       <Anchor getContainer={getContainerA}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
       </Anchor>,
     );
     const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
@@ -238,69 +229,60 @@ describe('Anchor Render', () => {
   });
 
   it('Same function returns the same DOM', () => {
-    const hash = getHashUrl();
-    const root = createDiv();
-    mount(<div id={hash}>Hello</div>, { attachTo: root });
-    const getContainer = createGetContainer(hash);
+    const root = createRootElementIfNotExisted();
+    mount(<div id="API">Hello</div>, { attachTo: root });
+    const getContainer = createGetContainer('API');
     const wrapper = mount(
       <Anchor getContainer={getContainer}>
-        <Link href={`#${hash}`} title={hash} />
+        <Link href="#API" title="API" />
       </Anchor>,
     );
-    wrapper.find(`a[href="#${hash}"]`).simulate('click');
+    wrapper.find('a[href="#API"]').simulate('click');
     (wrapper.instance() as any).handleScroll();
     expect(wrapper.instance().state).not.toBe(null);
   });
 
   it('Same function returns different DOM', async () => {
-    const hash1 = getHashUrl();
-    const hash2 = getHashUrl();
-    const root = createDiv();
+    const root = createRootElementIfNotExisted();
     mount(
       <div>
-        <div id={hash1}>Hello</div>
-        <div id={hash2}>World</div>
+        <div id="API1">Hello</div>
+        <div id="API2">World</div>
       </div>,
       { attachTo: root },
     );
     const holdContainer = {
-      container: document.getElementById(hash1),
+      container: document.getElementById('API1')!,
     };
     const getContainer = () => {
-      if (holdContainer.container == null) {
-        throw new Error('container should not be null');
-      }
       return holdContainer.container;
     };
     const wrapper = mount(
       <Anchor getContainer={getContainer}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
       </Anchor>,
     );
     const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
     await sleep(1000);
-    holdContainer.container = document.getElementById(hash2);
+    holdContainer.container = document.getElementById('API2')!;
     wrapper.setProps({ 'data-only-trigger-re-render': true });
     expect(removeListenerSpy).toHaveBeenCalled();
   });
 
   it('Anchor getCurrentAnchor prop', () => {
-    const hash1 = getHashUrl();
-    const hash2 = getHashUrl();
-    const getCurrentAnchor = () => `#${hash2}`;
+    const getCurrentAnchor = () => '#API2';
     const wrapper = mount<Anchor>(
       <Anchor getCurrentAnchor={getCurrentAnchor}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
       </Anchor>,
     );
-    expect(wrapper.instance().state.activeLink).toBe(`#${hash2}`);
+    expect(wrapper.instance().state.activeLink).toBe('#API2');
   });
 
   it('Anchor targetOffset prop', async () => {
-    const hash = getHashUrl();
     let dateNowMock;
 
     function dataNowMockFn() {
@@ -316,26 +298,26 @@ describe('Anchor Render', () => {
     dateNowMock = dataNowMockFn();
 
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createDiv();
-    mount(<h1 id={hash}>Hello</h1>, { attachTo: root });
+    const root = createRootElementIfNotExisted();
+    mount(<h1 id="API">Hello</h1>, { attachTo: root });
     const wrapper = mount<Anchor>(
       <Anchor>
-        <Link href={`#${hash}`} title={hash} />
+        <Link href="#API" title="API" />
       </Anchor>,
     );
-    wrapper.instance().handleScrollTo(`#${hash}`);
+    wrapper.instance().handleScrollTo('#API');
     await sleep(30);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ offsetTop: 100 });
-    wrapper.instance().handleScrollTo(`#${hash}`);
+    wrapper.instance().handleScrollTo('#API');
     await sleep(30);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ targetOffset: 200 });
-    wrapper.instance().handleScrollTo(`#${hash}`);
+    wrapper.instance().handleScrollTo('#API');
     await sleep(30);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
@@ -343,18 +325,16 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor onChange prop', async () => {
-    const hash1 = getHashUrl();
-    const hash2 = getHashUrl();
     const onChange = jest.fn();
     const wrapper = mount<Anchor>(
       <Anchor onChange={onChange}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
       </Anchor>,
     );
     expect(onChange).toHaveBeenCalledTimes(1);
-    wrapper.instance().handleScrollTo(hash2);
+    wrapper.instance().handleScrollTo('#API2');
     expect(onChange).toHaveBeenCalledTimes(2);
-    expect(onChange).toHaveBeenCalledWith(hash2);
+    expect(onChange).toHaveBeenCalledWith('#API2');
   });
 });
