@@ -39,20 +39,20 @@ describe('Alert', () => {
 
   describe('data and aria props', () => {
     it('sets data attributes on input', () => {
-      const wrapper = mount(<Alert data-test="test-id" data-id="12345" />);
+      const wrapper = mount(<Alert data-test="test-id" data-id="12345" message={null} />);
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('data-test')).toBe('test-id');
       expect(input.getAttribute('data-id')).toBe('12345');
     });
 
     it('sets aria attributes on input', () => {
-      const wrapper = mount(<Alert aria-describedby="some-label" />);
+      const wrapper = mount(<Alert aria-describedby="some-label" message={null} />);
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('aria-describedby')).toBe('some-label');
     });
 
     it('sets role attribute on input', () => {
-      const wrapper = mount(<Alert role="status" />);
+      const wrapper = mount(<Alert role="status" message={null} />);
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('role')).toBe('status');
     });
@@ -60,6 +60,8 @@ describe('Alert', () => {
 
   const testIt = process.env.REACT === '15' ? it.skip : it;
   testIt('ErrorBoundary', () => {
+    // TODO: Change to @ts-expect-error once typescript is at 3.9
+    // @ts-ignore
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     const wrapper = mount(
@@ -83,12 +85,7 @@ describe('Alert', () => {
     );
     wrapper.find('.ant-alert').simulate('mouseenter');
     await sleep(0);
-    expect(
-      wrapper
-        .find(Tooltip)
-        .instance()
-        .getPopupDomNode(),
-    ).toBeTruthy();
+    expect(wrapper.find<Tooltip>(Tooltip).instance().getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
   });
 
@@ -104,12 +101,7 @@ describe('Alert', () => {
     );
     wrapper.find('.ant-alert').simulate('click');
     await sleep(0);
-    expect(
-      wrapper
-        .find(Popconfirm)
-        .instance()
-        .getPopupDomNode(),
-    ).toBeTruthy();
+    expect(wrapper.find<Popconfirm>(Popconfirm).instance().getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
   });
 });
