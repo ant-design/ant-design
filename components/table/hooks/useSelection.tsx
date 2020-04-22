@@ -21,8 +21,8 @@ import {
 const EMPTY_LIST: any[] = [];
 
 // TODO: warning if use ajax!!!
-export const SELECTION_ALL = 'SELECT_ALL';
-export const SELECTION_INVERT = 'SELECT_INVERT';
+export const SELECTION_ALL = 'SELECT_ALL' as const;
+export const SELECTION_INVERT = 'SELECT_INVERT' as const;
 
 function getFixedType<RecordType>(column: ColumnsType<RecordType>[number]): FixedType | undefined {
   return column && column.fixed;
@@ -41,7 +41,10 @@ interface UseSelectionConfig<RecordType> {
   getPopupContainer?: GetPopupContainer;
 }
 
-type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
+export type INTERNAL_SELECTION_ITEM =
+  | SelectionItem
+  | typeof SELECTION_ALL
+  | typeof SELECTION_INVERT;
 
 function flattenData<RecordType>(
   data: RecordType[] | undefined,

@@ -6,6 +6,7 @@ import {
 } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -130,7 +131,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  selections?: SelectionItem[] | boolean;
+  selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
