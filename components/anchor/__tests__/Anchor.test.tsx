@@ -5,6 +5,22 @@ import { sleep } from '../../../tests/utils';
 
 const { Link } = Anchor;
 
+function createGetContainer(id: string) {
+  // This may return null, but it's expected... for some reason...
+  // ¯\_(ツ)_/¯
+  return () => document.getElementById(id)!;
+}
+
+function createRootElementIfNotExisted() {
+  let root = document.getElementById('root');
+  if (!root) {
+    root = document.createElement('div');
+    root.setAttribute('id', 'root');
+    document.body.appendChild(root);
+  }
+  return root;
+}
+
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
     HTMLHeadingElement.prototype,
@@ -17,8 +33,8 @@ describe('Anchor Render', () => {
       width: 100,
       height: 100,
       top: 1000,
-    });
-    getClientRectsMock.mockReturnValue({ length: 1 });
+    } as DOMRect);
+    getClientRectsMock.mockReturnValue({ length: 1 } as DOMRectList);
   });
 
   afterAll(() => {
@@ -27,7 +43,7 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor render perfectly', () => {
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="#API" title="API" />
       </Anchor>,
@@ -40,7 +56,7 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor render perfectly for complete href - click', () => {
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="http://www.example.com/#API" title="API" />
       </Anchor>,
@@ -72,14 +88,9 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor render perfectly for complete href - scroll', () => {
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(<div id="API">Hello</div>, { attachTo: root });
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="http://www.example.com/#API" title="API" />
       </Anchor>,
@@ -90,14 +101,9 @@ describe('Anchor Render', () => {
 
   it('Anchor render perfectly for complete href - scrollTo', async () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(<div id="#API">Hello</div>, { attachTo: root });
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="##API" title="API" />
       </Anchor>,
@@ -110,30 +116,30 @@ describe('Anchor Render', () => {
   });
 
   it('should remove listener when unmount', async () => {
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="#API" title="API" />
       </Anchor>,
     );
-    const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
+    const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
     wrapper.unmount();
     expect(removeListenerSpy).toHaveBeenCalled();
   });
 
   it('should unregister link when unmount children', async () => {
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="#API" title="API" />
       </Anchor>,
     );
-    expect(wrapper.instance().links).toEqual(['#API']);
+    expect((wrapper.instance() as any).links).toEqual(['#API']);
     wrapper.setProps({ children: null });
-    expect(wrapper.instance().links).toEqual([]);
+    expect((wrapper.instance() as any).links).toEqual([]);
   });
 
   it('should update links when link href update', async () => {
-    let anchorInstance = null;
-    function AnchorUpdate({ href }) {
+    let anchorInstance: null | Anchor = null;
+    function AnchorUpdate({ href }: { href: string }) {
       return (
         <Anchor
           ref={c => {
@@ -146,22 +152,29 @@ describe('Anchor Render', () => {
     }
     const wrapper = mount(<AnchorUpdate href="#API" />);
 
-    expect(anchorInstance.links).toEqual(['#API']);
+    if (anchorInstance == null) {
+      throw new Error('anchorInstance should not be null');
+    }
+    expect((anchorInstance as any).links).toEqual(['#API']);
     wrapper.setProps({ href: '#API_1' });
-    expect(anchorInstance.links).toEqual(['#API_1']);
+    expect((anchorInstance as any).links).toEqual(['#API_1']);
   });
 
   it('Anchor onClick event', () => {
     let event;
     let link;
-    const handleClick = (...arg) => {
-      [event, link] = arg;
+    const handleClick = (
+      e: React.MouseEvent<HTMLElement>,
+      _link: { title: React.ReactNode; href: string },
+    ) => {
+      event = e;
+      link = _link;
     };
 
     const href = '#API';
     const title = 'API';
 
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor onClick={handleClick}>
         <Link href={href} title={title} />
       </Anchor>,
@@ -175,38 +188,24 @@ describe('Anchor Render', () => {
   });
 
   it('Different function returns the same DOM', async () => {
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(<div id="API">Hello</div>, { attachTo: root });
-    const getContainerA = () => {
-      return document.getElementById('API');
-    };
-    const getContainerB = () => {
-      return document.getElementById('API');
-    };
+    const getContainerA = createGetContainer('API');
+    const getContainerB = createGetContainer('API');
 
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor getContainer={getContainerA}>
         <Link href="#API" title="API" />
       </Anchor>,
     );
-    const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
+    const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
     await sleep(1000);
     wrapper.setProps({ getContainer: getContainerB });
     expect(removeListenerSpy).not.toHaveBeenCalled();
   });
 
   it('Different function returns different DOM', async () => {
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(
       <div>
         <div id="API1">Hello</div>
@@ -214,19 +213,15 @@ describe('Anchor Render', () => {
       </div>,
       { attachTo: root },
     );
-    const getContainerA = () => {
-      return document.getElementById('API1');
-    };
-    const getContainerB = () => {
-      return document.getElementById('API2');
-    };
-    const wrapper = mount(
+    const getContainerA = createGetContainer('API1');
+    const getContainerB = createGetContainer('API2');
+    const wrapper = mount<Anchor>(
       <Anchor getContainer={getContainerA}>
         <Link href="#API1" title="API1" />
         <Link href="#API2" title="API2" />
       </Anchor>,
     );
-    const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
+    const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
     await sleep(1000);
     wrapper.setProps({ getContainer: getContainerB });
@@ -234,31 +229,21 @@ describe('Anchor Render', () => {
   });
 
   it('Same function returns the same DOM', () => {
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(<div id="API">Hello</div>, { attachTo: root });
-    const getContainer = () => document.getElementById('API');
+    const getContainer = createGetContainer('API');
     const wrapper = mount(
       <Anchor getContainer={getContainer}>
         <Link href="#API" title="API" />
       </Anchor>,
     );
     wrapper.find('a[href="#API"]').simulate('click');
-    wrapper.instance().handleScroll();
+    (wrapper.instance() as any).handleScroll();
     expect(wrapper.instance().state).not.toBe(null);
   });
 
   it('Same function returns different DOM', async () => {
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(
       <div>
         <div id="API1">Hello</div>
@@ -267,7 +252,7 @@ describe('Anchor Render', () => {
       { attachTo: root },
     );
     const holdContainer = {
-      container: document.getElementById('API1'),
+      container: document.getElementById('API1')!,
     };
     const getContainer = () => {
       return holdContainer.container;
@@ -278,17 +263,17 @@ describe('Anchor Render', () => {
         <Link href="#API2" title="API2" />
       </Anchor>,
     );
-    const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
+    const removeListenerSpy = jest.spyOn((wrapper.instance() as any).scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
     await sleep(1000);
-    holdContainer.container = document.getElementById('API2');
+    holdContainer.container = document.getElementById('API2')!;
     wrapper.setProps({ 'data-only-trigger-re-render': true });
     expect(removeListenerSpy).toHaveBeenCalled();
   });
 
   it('Anchor getCurrentAnchor prop', () => {
     const getCurrentAnchor = () => '#API2';
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor getCurrentAnchor={getCurrentAnchor}>
         <Link href="#API1" title="API1" />
         <Link href="#API2" title="API2" />
@@ -313,14 +298,9 @@ describe('Anchor Render', () => {
     dateNowMock = dataNowMockFn();
 
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
+    const root = createRootElementIfNotExisted();
     mount(<h1 id="API">Hello</h1>, { attachTo: root });
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="#API" title="API" />
       </Anchor>,
@@ -346,7 +326,7 @@ describe('Anchor Render', () => {
 
   it('Anchor onChange prop', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor onChange={onChange}>
         <Link href="#API1" title="API1" />
         <Link href="#API2" title="API2" />
