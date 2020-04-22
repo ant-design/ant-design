@@ -37,7 +37,7 @@ We will use [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-mod
 
 ### Customize in webpack
 
-We take a typical `webpack.config.js` file as example to customize it's [less-loader](https://github.com/webpack-contrib/less-loader) options.
+We take a typical `webpack.config.js` file as example to customize its [less-loader](https://github.com/webpack-contrib/less-loader) options.
 
 ```diff
 // webpack.config.js
@@ -100,50 +100,6 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
-### Use dark theme
-
-![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
-
-Method 1: include `antd/dist/antd.dark.less` in the style file:
-
-```less
-@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
-```
-
-Method 2: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
-
-```diff
-const darkThemeVars = require('antd/dist/dark-theme');
-
-// webpack.config.js
-module.exports = {
-  rules: [{
-    test: /\.less$/,
-    use: [{
-      loader: 'style-loader',
-    }, {
-      loader: 'css-loader', // translates CSS into CommonJS
-    }, {
-      loader: 'less-loader', // compiles Less to CSS
-+     options: {
-+       modifyVars: {
-+          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`
-+          ...darkThemeVars,
-+       },
-+       javascriptEnabled: true,
-+     },
-    }],
-    // ...other rules
-  }],
-  // ...other config
-```
-
-Method 3: If the project does not use Less, you can include `antd.dark.css` in the CSS file in full:
-
-```css
-@import '~antd/dist/antd.dark.css';
-```
-
 ## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc). If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
@@ -177,7 +133,78 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+- 🌑 Dark Theme (supported in 4.0.0+)
+- 📦 Compact Theme (supported in 4.1.0+)
+- ☁️ [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+
+### Use dark or compact theme
+
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
+
+Method 1: using Umi 3
+
+If you're using [Umi 3](http://umijs.org/zh/), which only need two steps:
+
+1. Install `@umijs/plugin-antd` plugin;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. set `dark` or `compact` to `true`.
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true, // active dark theme
+       compact: true, // active compact theme
+     },
+   },
+   ```
+
+Method 2: Import [antd/dist/antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) or [antd/dist/antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less) in the style file:
+
+```less
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+@import '~antd/dist/antd.compact.less'; // Introduce the official compact less style entry file
+```
+
+If the project does not use Less, you can import [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) or [antd/dist/antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css) in the CSS file:
+
+```css
+@import '~antd/dist/antd.dark.css';
+@import '~antd/dist/antd.compact.css';
+```
+
+> Note that you don't need to import `antd/dist/antd.less` or `antd/dist/antd.css` anymore, please remove it, and remove babel-plugin-import `style` config too. You can't enable two or more theme at the same time by this method.
+
+Method 3: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
+
+```diff
+const { getThemeVariables } = require('antd/dist/theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: getThemeVariables({
++         dark: true, // enable dark mode
++         compact: true, // enable compact mode
++       }),
++       javascriptEnabled: true,
++     },
+    }],
+  }],
+};
+```
 
 ## Related Articles
 

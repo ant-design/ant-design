@@ -1,7 +1,8 @@
 import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
+import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
-import { AlignType, ActionType, BuildInPlacements } from 'rc-trigger/lib/interface';
+import { BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -33,32 +34,15 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 
-export interface AbstractTooltipProps {
-  prefixCls?: string;
-  overlayClassName?: string;
+export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
   style?: React.CSSProperties;
   className?: string;
-  overlayStyle?: React.CSSProperties;
   placement?: TooltipPlacement;
   builtinPlacements?: BuildInPlacements;
-  defaultVisible?: boolean;
-  visible?: boolean;
-  onVisibleChange?: (visible: boolean) => void;
-  mouseEnterDelay?: number;
-  mouseLeaveDelay?: number;
-  transitionName?: string;
-  trigger?: ActionType;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
-  // getTooltipContainer had been rename to getPopupContainer
-  getTooltipContainer?: (triggerNode: HTMLElement) => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  children?: React.ReactNode;
-  // align is a more higher api
-  align?: AlignType;
-  /** Internal. Hide tooltip when hidden. This will be renamed in future. */
-  destroyTooltipOnHide?: boolean;
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -90,7 +74,7 @@ const splitObject = (obj: any, keys: string[]) => {
 // Fix Tooltip won't hide at disabled button
 // mouse events don't trigger at disabled button in Chrome
 // https://github.com/react-component/tooltip/issues/18
-function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
   const elementType = element.type as any;
   if (
     (elementType.__ANT_BUTTON === true ||
@@ -126,7 +110,10 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
       className: null,
     });
     return (
-      <span style={spanStyle} className={element.props.className}>
+      <span
+        style={spanStyle}
+        className={classNames(element.props.className, `${prefixCls}-disabled-compatible-wrapper`)}
+      >
         {child}
       </span>
     );
@@ -254,6 +241,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
 
     const child = getDisabledCompatibleChildren(
       React.isValidElement(children) ? children : <span>{children}</span>,
+      prefixCls,
     );
 
     const childProps = child.props;

@@ -204,9 +204,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2016-10-30"
@@ -327,9 +325,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-06"
@@ -450,9 +446,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-13"
@@ -573,9 +567,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-20"
@@ -696,9 +688,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-27"
@@ -819,9 +809,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2016-12-04"
@@ -1157,9 +1145,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2016-10-30"
@@ -1280,9 +1266,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-06"
@@ -1403,9 +1387,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-13"
@@ -1526,9 +1508,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-20"
@@ -1649,9 +1629,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-27"
@@ -1772,9 +1750,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2016-12-04"
@@ -1912,20 +1888,20 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
     class="ant-picker-calendar ant-picker-calendar-mini"
   >
     <div
-      style="padding:10px"
+      style="padding:8px"
     >
-      <div
-        style="margin-bottom:10px"
+      <h4
+        class="ant-typography"
       >
-        Custom header 
-      </div>
+        Custom header
+      </h4>
       <div
         class="ant-row"
-        style="margin-left:-4px;margin-right:-4px;flex-wrap:nowrap"
+        style="margin-left:-4px;margin-right:-4px"
       >
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px;flex:none"
+          style="padding-left:4px;padding-right:4px"
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
@@ -1973,7 +1949,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px;flex:auto"
+          style="padding-left:4px;padding-right:4px"
         >
           <div
             class="ant-select my-year-select ant-select-sm ant-select-single ant-select-show-arrow"
@@ -2035,7 +2011,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px;flex:auto"
+          style="padding-left:4px;padding-right:4px"
         >
           <div
             class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
@@ -2136,9 +2112,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2016-10-30"
@@ -2259,9 +2233,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-06"
@@ -2382,9 +2354,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-13"
@@ -2505,9 +2475,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-20"
@@ -2628,9 +2596,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-27"
@@ -2751,9 +2717,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2016-12-04"
@@ -3087,9 +3051,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2016-10-30"
@@ -3238,9 +3200,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-06"
@@ -3461,9 +3421,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-13"
@@ -3697,9 +3655,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-20"
@@ -3848,9 +3804,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-27"
@@ -3999,9 +3953,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                 </div>
               </td>
             </tr>
-            <tr
-              class=""
-            >
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2016-12-04"
@@ -4448,9 +4400,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-01"
@@ -4571,9 +4521,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-08"
@@ -4694,9 +4642,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-15"
@@ -4817,9 +4763,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-22"
@@ -4940,9 +4884,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-29"
@@ -5063,9 +5005,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2017-02-05"

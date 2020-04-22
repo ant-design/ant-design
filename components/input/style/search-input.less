@@ -4,12 +4,8 @@
 @import './mixin';
 
 @search-prefix: ~'@{ant-prefix}-input-search';
-@search-rtl-cls: ~'@{search-prefix}-rtl';
 
 .@{search-prefix} {
-  &-rtl {
-    direction: rtl;
-  }
   &-icon {
     color: @text-color-secondary;
     cursor: pointer;
@@ -22,11 +18,6 @@
   &-enter-button {
     input {
       border-right: 0;
-
-      .@{search-rtl-cls}& {
-        border: @border-width-base @border-style-base @input-border-color;
-        border-left: 0;
-      }
 
       &:hover,
       &:focus {
@@ -46,16 +37,6 @@
       .@{search-prefix}-button {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-      }
-
-      .@{search-rtl-cls}& {
-        .@{search-prefix}-button {
-          width: 100%;
-          border-top-left-radius: @border-radius-base;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-          border-bottom-left-radius: @border-radius-base;
-        }
       }
     }
   }

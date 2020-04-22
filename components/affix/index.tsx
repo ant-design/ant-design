@@ -32,7 +32,7 @@ export interface AffixProps {
   target?: () => Window | HTMLElement | null;
   prefixCls?: string;
   className?: string;
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 enum AffixStatus {
@@ -113,6 +113,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
     clearTimeout(this.timeout);
     removeObserveTarget(this);
     (this.updatePosition as any).cancel();
+    // https://github.com/ant-design/ant-design/issues/22683
+    (this.lazyUpdatePosition as any).cancel();
   }
 
   getOffsetTop = () => {

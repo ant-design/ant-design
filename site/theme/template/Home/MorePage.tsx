@@ -18,39 +18,39 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: 'Ant Design 4.0：创造快乐工作',
-    description: '本篇文章将和大家一起聊聊 Ant Design 4.0，以及穿插一些 4.0 背后的故事。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yQqmQ514NNIAAAAAAAAAAABkARQnAQ',
-    date: '2020-01-16',
+    title: '揭密可视化专家配色秘笈',
+    description: '颜色搭配不仅可以传递出美感，颜色还可以通过不同的组合排序，形成一门新的界面语言，讲述数据的故事。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*M7rLR5follIAAAAAAAAAAABkARQnAQ',
+    date: '2020-04-02',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/103016912',
+    href: 'https://zhuanlan.zhihu.com/p/112540818',
   },
   {
-    title: '设计体系的响应式设计',
+    title: 'HiTu 插画资产设计分享',
     description:
-      'Ant Design 在很多组件中提供了响应式设计，但拥有更加完备的环境适应性应该是设计体系长期的目标之一。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C6uMRqtw90AAAAAAAAAAAABkARQnAQ',
-    date: '2020-02-29',
+      '分享一下我们在做 HiTu 插画设计的一些过程和方法，希望能给同样做插画资产的同学带来帮助与启发。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cJdyS4KVDlgAAAAAAAAAAABkARQnAQ',
+    date: '2020-03-16',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/109781992',
+    href: 'https://zhuanlan.zhihu.com/p/112541651',
   },
   {
-    title: '“表里不一”的设计资产',
+    title: '从常用图表到 DashBoard 页面模板，懒人套餐请享用吧！',
     description:
-      '随着企业级产品复杂业务场景的增加，Ant Design 的列表覆盖度也受到了很大的挑战，因此我们决定一探究竟。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z-BPSqBKK_cAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-01',
+      'Ant Design 4.0 和 AntV 的重磅产品 G2 4.0 发布之际，图表的样式也跟着大升级了哦。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d_D0TLmwFLoAAAAAAAAAAABkARQnAQ',
+    date: '2020-03-11',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/110071209',
+    href: 'https://zhuanlan.zhihu.com/p/111373360',
   },
   {
-    title: '整齐划一？不如错落有致',
+    title: '言之有序',
     description:
-      '今天我们从中来讨论一个更被大家忽视但实则举重若轻的问题——「我们应怎样去考虑表单的宽度」',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1HQFQKoRUCQAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-01',
+      '大到一个系统，小到一个按钮，背后的每一条规则既要思考设计的易用性，同时也要去推敲组织的合理性。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1SBR47PngwAAAAAAAAAAABkARQnAQ',
+    date: '2020-03-03',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/110096160',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
 ];
 

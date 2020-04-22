@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Collapse', () => {
   // Fix css-animation deps on these
@@ -55,8 +56,7 @@ describe('Collapse', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('could be expand and collapse', () => {
-    jest.useFakeTimers();
+  it('could be expand and collapse', async () => {
     const wrapper = mount(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -69,9 +69,22 @@ describe('Collapse', () => {
       .find('.ant-collapse-header')
       .at(0)
       .simulate('click');
+    await sleep(400);
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
-    jest.runAllTimers();
-    expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
-    jest.useRealTimers();
+  });
+
+  it('could override default openAnimation', () => {
+    const wrapper = mount(
+      <Collapse openAnimation={{}}>
+        <Collapse.Panel header="This is panel header 1" key="1">
+          content
+        </Collapse.Panel>
+      </Collapse>,
+    );
+    wrapper
+      .find('.ant-collapse-header')
+      .at(0)
+      .simulate('click');
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

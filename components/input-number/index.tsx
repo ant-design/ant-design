@@ -35,27 +35,9 @@ export interface InputNumberProps
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
-export default class InputNumber extends React.Component<InputNumberProps, any> {
-  static defaultProps = {
-    step: 1,
-  };
-
-  private inputNumberRef: any;
-
-  saveInputNumber = (inputNumberRef: any) => {
-    this.inputNumberRef = inputNumberRef;
-  };
-
-  focus() {
-    this.inputNumberRef.focus();
-  }
-
-  blur() {
-    this.inputNumberRef.blur();
-  }
-
-  renderInputNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { className, size: customizeSize, prefixCls: customizePrefixCls, ...others } = this.props;
+const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
+  const renderInputNumber = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { className, size: customizeSize, prefixCls: customizePrefixCls, ...others } = props;
     const prefixCls = getPrefixCls('input-number', customizePrefixCls);
     const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
     const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
@@ -68,13 +50,14 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
             {
               [`${prefixCls}-lg`]: mergeSize === 'large',
               [`${prefixCls}-sm`]: mergeSize === 'small',
+              [`${prefixCls}-rtl`]: direction === 'rtl',
             },
             className,
           );
 
           return (
             <RcInputNumber
-              ref={this.saveInputNumber}
+              ref={ref}
               className={inputNumberClass}
               upHandler={upIcon}
               downHandler={downIcon}
@@ -87,7 +70,11 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderInputNumber}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderInputNumber}</ConfigConsumer>;
+});
+
+InputNumber.defaultProps = {
+  step: 1,
+};
+
+export default InputNumber;

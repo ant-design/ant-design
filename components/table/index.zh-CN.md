@@ -71,7 +71,7 @@ const columns = [
 | dataSource | 数据数组 | any\[] | - |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |
 | footer | 表格尾部 | Function(currentPageData) | - |
-| loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
+| loading | 页面是否加载中 | boolean\|[object](/components/spin/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
@@ -87,6 +87,7 @@ const columns = [
 | onRow | 设置行属性 | Function(record, index) | - |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |
+| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | `true` |
 
 #### onRow 用法
 
@@ -143,6 +144,7 @@ const columns = [
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | onHeaderCell | 设置头部单元格属性 | Function(column) | - |
+| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中`showSorterTooltip` | boolean | `true` |
 
 ### ColumnGroup
 
@@ -154,9 +156,9 @@ const columns = [
 
 分页的配置项。
 
-| 参数     | 说明               | 类型                        | 默认值   |
-| -------- | ------------------ | --------------------------- | -------- |
-| position | 指定分页显示的位置 | `top` \| `bottom` \| `both` | `bottom` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| position | 指定分页显示的位置， 取值为`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` | Array | `['bottomRight']` |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
 
@@ -183,20 +185,21 @@ const columns = [
 
 选择功能的配置。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |
-| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |
-| fixed | 把选择框列固定在左边 | boolean | - |
-| getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
-| hideDefaultSelections | [自定义选择项](#components-table-demo-row-selection-custom)时去掉『全选』『反选』两个默认选项 | boolean | false |
-| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
-| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
-| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |
-| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |
-| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |
-| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` | 4.0 |
+| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - | 4.0 |
+| fixed | 把选择框列固定在左边 | boolean | - | 4.0 |
+| getCheckboxProps | 选择框的默认属性配置 | Function(record) | - | 4.0 |
+| hideDefaultSelections | [自定义选择项](#components-table-demo-row-selection-custom)时去掉『全选』『反选』两个默认选项 | boolean | false | 4.0 |
+| renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | Function(checked, record, index, originNode) {} | - | 4.1 |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] | 4.0 |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true | 4.0 |
+| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` | 4.0 |
+| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - | 4.0 |
+| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
+| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - | 4.0 |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRowKeys) | - | 4.0 |
 
 ### scroll
 
@@ -280,3 +283,13 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 ### 如何在没有数据或只有一页数据时隐藏分页栏
 
 你可以设置 `pagination` 的 `hideOnSinglePage` 属性为 `true`。
+
+### 表格过滤时会回到第一页？
+
+前端过滤时通常条目总数会减少，从而导致总页数小于筛选前的当前页数，为了防止当前页面没有数据，我们默认会返回第一页。
+
+如果你在使用远程分页，很可能需要保持当前页面，你可以参照这个 [受控例子](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) 控制当前页面不变。
+
+### 表格分页为何会出现 size 切换器？
+
+自 `4.1.0` 起，Pagination 在 `total` 大于 50 条时会默认显示 size 切换器以提升用户交互体验。如果你不需要该功能，可以通过设置 `showSizeChanger` 为 `false` 来关闭。

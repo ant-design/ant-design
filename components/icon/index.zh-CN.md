@@ -6,7 +6,11 @@ title: Icon
 toc: false
 ---
 
-语义化的矢量图形。
+语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+
+```bash
+npm install --save @ant-design/icons
+```
 
 ## 设计师专属
 
@@ -27,6 +31,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| className | 设置图标的样式名 | `string` | - |  |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 | spin | 是否有旋转动画 | boolean | false |  |
 | rotate | 图标旋转角度（IE9 无效） | number | - |  |

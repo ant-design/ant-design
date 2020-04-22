@@ -77,7 +77,7 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
   extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
-export interface ResultType extends React.SFC<ResultProps> {
+export interface ResultType extends React.FC<ResultProps> {
   PRESENTED_IMAGE_404: React.ReactNode;
   PRESENTED_IMAGE_403: React.ReactNode;
   PRESENTED_IMAGE_500: React.ReactNode;

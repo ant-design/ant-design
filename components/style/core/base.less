@@ -245,6 +245,12 @@ a {
     outline: 0;
   }
 
+  // https://github.com/ant-design/ant-design/issues/22503
+  &:focus {
+    text-decoration: @link-focus-decoration;
+    outline: @link-focus-outline;
+  }
+
   &[disabled] {
     color: @disabled-color;
     cursor: not-allowed;

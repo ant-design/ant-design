@@ -22,10 +22,10 @@ exports[`Table.expand click to expand 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -57,7 +57,7 @@ exports[`Table.expand click to expand 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-1"
-                  data-row-key="1"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-with-append"
@@ -79,7 +79,7 @@ exports[`Table.expand click to expand 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li

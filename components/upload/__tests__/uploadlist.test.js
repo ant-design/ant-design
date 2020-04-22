@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
 import Form from '../../form';
-import { spyElementPrototypes } from '../../__tests__/util/domHook';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
 import { sleep } from '../../../tests/utils';
@@ -35,35 +34,16 @@ describe('Upload List', () => {
   function setSize(width, height) {
     size = { width, height };
   }
-  const imageSpy = spyElementPrototypes(Image, {
-    src: {
-      set() {
-        if (this.onload) {
-          this.onload();
-        }
-      },
-    },
-    width: {
-      get: () => size.width,
-    },
-    height: {
-      get: () => size.height,
-    },
-  });
+  const mockWidthGet = jest.spyOn(Image.prototype, 'width', 'get');
+  const mockHeightGet = jest.spyOn(Image.prototype, 'height', 'get');
+  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
 
   let drawImageCallback = null;
   function hookDrawImageCall(callback) {
     drawImageCallback = callback;
   }
-  const canvasSpy = spyElementPrototypes(HTMLCanvasElement, {
-    getContext: () => ({
-      drawImage: (...args) => {
-        if (drawImageCallback) drawImageCallback(...args);
-      },
-    }),
-
-    toDataURL: () => 'data:image/png;base64,',
-  });
+  const mockGetCanvasContext = jest.spyOn(HTMLCanvasElement.prototype, 'getContext');
+  const mockToDataURL = jest.spyOn(HTMLCanvasElement.prototype, 'toDataURL');
 
   // HTMLCanvasElement.prototype
 
@@ -73,10 +53,33 @@ describe('Upload List', () => {
     drawImageCallback = null;
   });
 
+  let open;
+  beforeAll(() => {
+    open = jest.spyOn(window, 'open').mockImplementation(() => {});
+    mockWidthGet.mockImplementation(() => size.width);
+    mockHeightGet.mockImplementation(() => size.height);
+    mockSrcSet.mockImplementation(function fn() {
+      if (this.onload) {
+        this.onload();
+      }
+    });
+
+    mockGetCanvasContext.mockReturnValue({
+      drawImage: (...args) => {
+        if (drawImageCallback) drawImageCallback(...args);
+      },
+    });
+    mockToDataURL.mockReturnValue('data:image/png;base64,');
+  });
+
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
-    imageSpy.mockRestore();
-    canvasSpy.mockRestore();
+    mockWidthGet.mockRestore();
+    mockHeightGet.mockRestore();
+    mockSrcSet.mockRestore();
+    mockGetCanvasContext.mockRestore();
+    mockToDataURL.mockRestore();
+    open.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/4653
@@ -118,11 +121,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper
-      .find('.ant-upload-list-item')
-      .at(0)
-      .find('.anticon-delete')
-      .simulate('click');
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
     await sleep(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
@@ -130,7 +129,9 @@ describe('Upload List', () => {
 
   it('should be uploading when upload a file', done => {
     let wrapper;
-    const onChange = ({ file }) => {
+    let latestFileList = null;
+    const onChange = ({ file, fileList: eventFileList }) => {
+      expect(eventFileList === latestFileList).toBeFalsy();
       if (file.status === 'uploading') {
         expect(wrapper.render()).toMatchSnapshot();
       }
@@ -138,6 +139,8 @@ describe('Upload List', () => {
         expect(wrapper.render()).toMatchSnapshot();
         done();
       }
+
+      latestFileList = eventFileList;
     };
     wrapper = mount(
       <Upload
@@ -239,15 +242,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-eye')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-eye').at(0).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
-    wrapper
-      .find('.anticon-eye')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.anticon-eye').at(1).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
   });
 
@@ -264,15 +261,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-delete')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-    wrapper
-      .find('.anticon-delete')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.anticon-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
@@ -299,10 +290,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-download')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-download').at(0).simulate('click');
   });
 
   it('should support no onDownload', async () => {
@@ -324,10 +312,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.anticon-download')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.anticon-download').at(0).simulate('click');
   });
 
   describe('should generate thumbUrl from file', () => {
@@ -500,16 +485,10 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper
-      .find('.custom-delete')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.custom-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
     expect(myClick).toHaveBeenCalled();
-    wrapper
-      .find('.custom-delete')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.custom-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     expect(myClick).toHaveBeenCalled();
     await sleep();

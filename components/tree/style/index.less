@@ -17,10 +17,6 @@
     border-radius: @border-radius-base;
     transition: background-color 0.3s;
 
-    &-rtl {
-      direction: rtl;
-    }
-
     &-focused:not(:hover):not(&-active-focused) {
       background: @primary-1;
     }
@@ -47,10 +43,6 @@
       align-items: flex-start;
       padding: 0 0 (@padding-xs / 2) 0;
       outline: none;
-
-      &-rtl {
-        direction: rtl;
-      }
       // Disabled
       &-disabled {
         // >>> Title
@@ -101,10 +93,6 @@
         .@{tree-prefix-cls}-switcher-icon {
           svg {
             transform: rotate(-90deg);
-
-            .@{tree-prefix-cls}-rtl& {
-              transform: rotate(90deg);
-            }
           }
         }
       }
@@ -198,12 +186,6 @@
             bottom: -@tree-title-height - 4px;
             border-right: 1px solid @border-color-base;
             content: '';
-            .@{tree-prefix-cls}-rtl& {
-              right: auto;
-              left: -@tree-title-height / 2;
-              border-right: none;
-              border-left: 1px solid @border-color-base;
-            }
           }
 
           &-end {
@@ -233,3 +215,5 @@
 }
 
 .antTreeFn(@tree-prefix-cls);
+
+@import './rtl';

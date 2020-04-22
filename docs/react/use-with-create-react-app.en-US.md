@@ -84,7 +84,7 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 We are successfully running antd components now, go build your own application!
 
@@ -197,9 +197,13 @@ module.exports = override(
 );
 ```
 
-We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
+We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here. If you see a green button rendered on the page after rebooting the server, then the configuration was successful.
+
+We have built-in dark theme and compact theme in antd, you can reference to [Use dark or compact theme](/docs/react/customize-theme#Use-dark-or-compact-theme).
 
 > You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+
+> Note: It is recommended to use the latest version of `less`, or a minimum version greater than `3.0.1`.
 
 ## Replace momentjs to Day.js
 

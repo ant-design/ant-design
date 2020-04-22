@@ -20,7 +20,6 @@ a {
   position: relative;
   min-height: 500px;
   padding: 0 170px 32px 64px;
-  overflow: hidden;
   background: @component-background;
 
   .ant-row-rtl & {
@@ -207,6 +206,8 @@ a {
   right: 32px;
   bottom: 102px;
   z-index: 2147483640;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   &-tooltip {
     .ant-tooltip-inner {
@@ -216,8 +217,47 @@ a {
   & > div {
     display: block;
   }
+  &-active {
+    color: @primary-color;
+  }
   & &-avatar {
+    color: #000;
     background-color: #fff;
     box-shadow: @shadow-2;
+    transition: color .3s;
+    &:hover {
+      color: @primary-color;
+    }
   }
+}
+
+// keep transition consistent to make mode toggle animation be more smooth, include:
+// nav bar background
+// nav search border
+// nav menu background
+// wrapper content
+// sidemenu background
+// sidemenu active background
+// content background
+// affix toc
+#header,
+#header #search-box,
+#header #nav.ant-menu,
+.main-wrapper,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu,
+.main-wrapper
+  > .ant-row
+  > .main-menu
+  .main-menu-inner
+  > .ant-menu.aside-container.ant-menu-inline
+  > .ant-menu-item-group
+  > .ant-menu-item-group-title::after,
+.main-wrapper .main-container,
+#demo-toc.toc {
+  transition: all 0.3s @ease-in-out-circ;
+}
+
+// remove margin-bottom from dark theme (why need margin-bottom in dark theme?)
+#header > .ant-row > .ant-col h1 {
+  margin-bottom: 0;
 }

@@ -1,8 +1,6 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import uniqBy from 'lodash/uniqBy';
-import findIndex from 'lodash/findIndex';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -66,7 +64,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     warning(
       'fileList' in props || !('value' in props),
       'Upload',
-      '`value` is not validate prop, do you mean `fileList`?',
+      '`value` is not a valid prop, do you mean `fileList`?',
     );
   }
 
@@ -85,7 +83,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const nextFileList = fileList.concat();
 
-    const fileIndex = findIndex(nextFileList, ({ uid }: UploadFile) => uid === targetItem.uid);
+    const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === targetItem.uid);
     if (fileIndex === -1) {
       nextFileList.push(targetItem);
     } else {
@@ -167,7 +165,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       const removedFileList = removeFileItem(file, fileList);
 
       if (removedFileList) {
-        file.status = 'removed'; // eslint-disable-line
+        file.status = 'removed';
 
         if (this.upload) {
           this.upload.abort(file);
@@ -188,7 +186,10 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const { onChange } = this.props;
     if (onChange) {
-      onChange(info);
+      onChange({
+        ...info,
+        fileList: [...info.fileList],
+      });
     }
   };
 
@@ -206,12 +207,17 @@ class Upload extends React.Component<UploadProps, UploadState> {
     }
     const result = beforeUpload(file, fileList);
     if (result === false) {
+      // Get unique file list
+      const uniqueList: UploadFile<any>[] = [];
+      stateFileList.concat(fileList.map(fileToObject)).forEach(f => {
+        if (uniqueList.every(uf => uf.uid !== f.uid)) {
+          uniqueList.push(f);
+        }
+      });
+
       this.onChange({
         file,
-        fileList: uniqBy(
-          stateFileList.concat(fileList.map(fileToObject)),
-          (item: UploadFile) => item.uid,
-        ),
+        fileList: uniqueList,
       });
       return false;
     }

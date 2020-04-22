@@ -68,7 +68,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 3. Explore more components
 
-You can look up components in the side menu like the [Alert](/components/alert) component. Plenty of examples are provided in the component pages and API documentation.
+You can look up components in the side menu of the Components page like the [Alert](/components/alert) component. Plenty of examples are provided in the component pages and API documentation.
 
 Click the "Open in Editor" icon in the first example to open an editor with source code to use out-of-the-box. Now you can import the `Alert` component into the codesandbox:
 

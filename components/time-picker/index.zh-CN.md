@@ -42,7 +42,7 @@ import moment from 'moment';
 | minuteStep | 分钟选项间隔 | number | 1 |  |
 | open | 面板是否打开 | boolean | false |  |
 | placeholder | 没有值的时候显示的内容 | string | "请选择时间" |  |
-| popupClassName | 弹出层类名 | string | '' |  |
+| popupClassName | 弹出层类名 | string | - |  |
 | popupStyle | 弹出层样式对象 | object | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
@@ -59,6 +59,14 @@ import moment from 'moment';
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
+
+### RangePicker
+
+属性与 DatePicker 的 [RangePicker](/components/date-picker/#RangePicker) 相同。还包含以下属性：
+
+| 参数  | 说明                 | 类型    | 默认值 | 版本  |
+| ----- | -------------------- | ------- | ------ | ----- |
+| order | 始末时间是否自动排序 | boolean | true   | 4.1.0 |
 
 <style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>
 

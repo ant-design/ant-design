@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ta_IN';
 import DatePicker from '../date-picker/locale/ta_IN';
 import TimePicker from '../time-picker/locale/ta_IN';
 import Calendar from '../calendar/locale/ta_IN';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ta',
   Pagination,
   DatePicker,
@@ -61,3 +62,5 @@ export default {
     back: 'பின் செல்லவும்',
   },
 };
+
+export default localeValues;

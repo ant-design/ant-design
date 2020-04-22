@@ -18,7 +18,7 @@ describe('TimePicker', () => {
     errorSpy.mockRestore();
   });
 
-  focusTest(TimePicker, true);
+  focusTest(TimePicker, { refFocus: true });
   mountTest(TimePicker);
   rtlTest(TimePicker);
 
@@ -60,5 +60,16 @@ describe('TimePicker', () => {
       <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should pass popupClassName prop to Picker as dropdownClassName prop', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
   });
 });

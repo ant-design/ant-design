@@ -16,7 +16,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 - 卡片式的页签，提供可关闭的样式，常用于容器顶部。
 - 既可用于容器顶部，也可用于容器内部，是最通用的 Tabs。
-- [RadioButton](/components/radio/#components-radio-demo-radiobutton) 可作为更次级的页签来使用。
+- [Radio.Button](/components/radio/#components-radio-demo-radiobutton) 可作为更次级的页签来使用。
 
 ## API
 
@@ -40,6 +40,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onNextClick | next 按钮被点击的回调 | Function | 无 |
 | onPrevClick | prev 按钮被点击的回调 | Function | 无 |
 | onTabClick | tab 被点击的回调 | Function | 无 |
+| keyboard | 开启键盘切换功能 | boolean | true |
 
 ### Tabs.TabPane
 

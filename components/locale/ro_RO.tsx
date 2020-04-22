@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ro_RO';
 import DatePicker from '../date-picker/locale/ro_RO';
 import TimePicker from '../time-picker/locale/ro_RO';
 import Calendar from '../calendar/locale/ro_RO';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ro',
   Pagination,
   DatePicker,
@@ -60,3 +61,5 @@ export default {
     back: 'înapoi',
   },
 };
+
+export default localeValues;

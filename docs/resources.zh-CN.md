@@ -25,7 +25,7 @@ toc: false
 - Ant Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - 典型页面 + 通用业务模板
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/e9882e0c-a85c-428a-b8a8-656f1aa83036.sketch
 - Ant Design Library
   - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
   - 一套强大的 Axure 部件库
@@ -53,7 +53,7 @@ toc: false
 - 全新 Chart 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - 桌面组件 Chart 模板包
-  - https://gw.alipayobjects.com/os/basement_prod/862ee74f-4ac5-482c-b1ae-3165684cedbe.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
 
 ## 文章
 

@@ -1,0 +1,28 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@input-number-prefix-cls: ~'@{ant-prefix}-input-number';
+
+.@{input-number-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-handler-wrap {
+    .@{input-number-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+      border-right: @border-width-base @border-style-base @input-number-handler-border-color;
+      border-left: 0;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
+  }
+
+  &-input {
+    .@{input-number-prefix-cls}-rtl & {
+      direction: rtl;
+      text-align: right;
+    }
+  }
+}

@@ -17,11 +17,11 @@ export interface TimelineProps {
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item: React.SFC<TimeLineItemProps> = TimelineItem;
+  static Item: React.FC<TimeLineItemProps> = TimelineItem;
 
   static defaultProps = {
     reverse: false,
-    mode: '',
+    mode: '' as TimelineProps['mode'],
   };
 
   renderTimeline = ({ getPrefixCls, direction }: ConfigConsumerProps) => {

@@ -38,7 +38,7 @@ export default class Rate extends React.Component<RateProps, any> {
     this.rcRate = node;
   };
 
-  characterRender = (node: React.ReactNode, { index }: RateNodeProps) => {
+  characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
     const { tooltips } = this.props;
     if (!tooltips) return node;
 

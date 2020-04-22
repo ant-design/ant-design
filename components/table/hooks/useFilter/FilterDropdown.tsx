@@ -1,6 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import Button from '../../../button';
 import Menu from '../../../menu';
 import Checkbox from '../../../checkbox';
 import Radio from '../../../radio';
@@ -23,10 +25,12 @@ function renderFilterItems(
   multiple: boolean,
 ) {
   return filters.map((filter, index) => {
+    const key = String(filter.value);
+
     if (filter.children) {
       return (
         <SubMenu
-          key={filter.value || index}
+          key={key || index}
           title={filter.text}
           popupClassName={`${prefixCls}-dropdown-submenu`}
         >
@@ -38,8 +42,8 @@ function renderFilterItems(
     const Component = multiple ? Checkbox : Radio;
 
     return (
-      <MenuItem key={filter.value !== undefined ? filter.value : index}>
-        <Component checked={filteredKeys.includes(String(filter.value))} />
+      <MenuItem key={filter.value !== undefined ? key : index}>
+        <Component checked={filteredKeys.includes(key)} />
         <span>{filter.text}</span>
       </MenuItem>
     );
@@ -128,6 +132,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       return null;
     }
 
+    if (isEqual(mergedKeys, filterState?.filteredKeys)) {
+      return null;
+    }
+
     triggerFilter({
       column,
       key: columnKey,
@@ -140,6 +148,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onReset = () => {
+    setFilteredKeysSync([]);
     internalTriggerFilter([]);
   };
 
@@ -172,6 +181,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
   } else {
+    const selectedKeys = (getFilteredKeysSync() || []) as any;
     dropdownContent = (
       <>
         <Menu
@@ -181,20 +191,25 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onClick={onMenuClick}
           onSelect={onSelectKeys}
           onDeselect={onSelectKeys}
-          selectedKeys={(getFilteredKeysSync() || []) as any}
+          selectedKeys={selectedKeys}
           getPopupContainer={getPopupContainer}
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {renderFilterItems(column.filters!, prefixCls, getFilteredKeysSync(), filterMultiple)}
+          {renderFilterItems(
+            column.filters || [],
+            prefixCls,
+            getFilteredKeysSync(),
+            filterMultiple,
+          )}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
-          <a className={`${prefixCls}-dropdown-link confirm`} onClick={onConfirm}>
-            {locale.filterConfirm}
-          </a>
-          <a className={`${prefixCls}-dropdown-link clear`} onClick={onReset}>
+          <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
             {locale.filterReset}
-          </a>
+          </Button>
+          <Button type="primary" size="small" onClick={onConfirm}>
+            {locale.filterConfirm}
+          </Button>
         </div>
       </>
     );

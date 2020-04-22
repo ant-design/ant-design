@@ -7,7 +7,7 @@ title: 可视化
 
 同时，这是一份动态更新的设计文档，你的阅读和互动正是我们不断前进的动力，[GitHub 反馈地址](https://github.com/antvis/site/issues)。
 
-# 前端实现
+## 前端实现
 
 [AntV](https://antv.vision/zh) 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2，欢迎社区贡献其他框架的实现版本。
 
@@ -17,7 +17,7 @@ title: 可视化
 - [L7 地理空间数据可视分析引擎](https://l7.antv.vision/zh)
 - [F2 移动端可视化方案](https://f2.antv.vision/zh)
 
-# 如何设计
+## 如何设计
 
 ### 了解用户
 
@@ -70,7 +70,7 @@ title: 可视化
 
 ### 色板
 
-<img class="preview-img no-padding" align="right" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*58AFS77miwoAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img no-padding" align="right" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ" />
 
 AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
@@ -103,7 +103,6 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 <img class="preview-img no-padding" align="right" description="标签的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j2gNQ4E-wAoAAAAAAAAAAABkARQnAQ" />
 
 对当前的一组数据进行的内容标注。
-
 
 #### 提示信息
 
@@ -139,9 +138,9 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 在数据可视化中，我们根据用户的意识层次及每层次对应的目标，将交互动作拆解成“数据获取、信息加工、知识流转”三层。其匹配“概览第一，聚焦过滤，再按需查看详情”的可视化信息检索箴言。亦符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。
 
-更多交互式图表内容请前往 [ AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
+更多交互式图表内容请前往 [AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
 
-# 设计资源
+## 设计资源
 
 - 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
-- 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。
+- 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈 图表生成器」，用保真数据动态生成图表。

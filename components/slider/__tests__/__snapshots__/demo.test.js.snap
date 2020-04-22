@@ -264,7 +264,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     >
       <div
         class="ant-input-number"
-        style="margin-left:16px"
+        style="margin:0 16px"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -384,7 +384,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     >
       <div
         class="ant-input-number"
-        style="margin-left:16px"
+        style="margin:0 16px"
       >
         <div
           class="ant-input-number-handler-wrap"

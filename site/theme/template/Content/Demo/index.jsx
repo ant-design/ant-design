@@ -92,7 +92,7 @@ class Demo extends React.Component {
     });
   };
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line class-methods-use-this
   track({ type, demo }) {
     if (!window.gtag) {
       return;
@@ -161,10 +161,18 @@ class Demo extends React.Component {
       new RegExp(`#${meta.id}\\s*`, 'g'),
       '',
     );
-    const html = `<div id="container" style="padding: 24px"></div>
-<script>
-  var mountNode = document.getElementById('container');
-</script>`;
+    const html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+  </head>
+  <body>
+    <div id="container" style="padding: 24px" />
+    <script>var mountNode = document.getElementById('container');</script>
+  </body>
+</html>`;
 
     const sourceCode = this.getSourceCode();
 
@@ -172,15 +180,18 @@ class Demo extends React.Component {
       title: `${localizedTitle} - Ant Design Demo`,
       html,
       js: sourceCode
-        .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'antd';/, 'const { $1 } = antd;')
-        .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
-        .replace("import moment from 'moment';", '')
-        .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
+        .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(
-          /import\s+\{\s+(.*)\s+\}\s+from\s+'react-router-dom';/,
+          /import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/,
+          'const { $1 } = icons;',
+        )
+        .replace("import moment from 'moment';", '')
+        .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
+        .replace(
+          /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
           'const { $1 } = ReactRouterDOM;',
         )
-        .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
+        .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
       // eslint-disable-next-line no-undef
@@ -218,7 +229,7 @@ class Demo extends React.Component {
         return acc;
       },
       // eslint-disable-next-line no-undef
-      { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
+      { antd: antdReproduceVersion },
     );
 
     dependencies['@ant-design/icons'] = 'latest';
@@ -242,9 +253,31 @@ import './index.css';
 ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
 `.trim();
     const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+
+    const codesandboxPackage = {
+      name: `${localizedTitle} - Ant Design Demo`,
+      version: '1.0.0',
+      main: 'index.js',
+      dependencies: {
+        ...dependencies,
+        react: '^16.12.0',
+        'react-dom': '^16.12.0',
+        'react-scripts': '^3.0.1',
+      },
+      devDependencies: {
+        typescript: '^3.8.2',
+      },
+      scripts: {
+        start: 'react-scripts start',
+        build: 'react-scripts build',
+        test: 'react-scripts test --env=jsdom',
+        eject: 'react-scripts eject',
+      },
+      browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
+    };
     const codesanboxPrefillConfig = {
       files: {
-        'package.json': { content: { dependencies } },
+        'package.json': { content: codesandboxPackage },
         'index.css': { content: indexCssContent },
         'index.js': { content: indexJsContent },
         'index.html': {
@@ -267,7 +300,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
           {style ? (
-            <style dangerouslySetInnerHTML={{ __html: style }} /> // eslint-disable-line
+            <style dangerouslySetInnerHTML={{ __html: style }} />
           ) : null}
         </section>
         <section className="code-box-meta markdown">
@@ -300,21 +333,6 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
               </Tooltip>
             </form>
             <form
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <input
-                  type="submit"
-                  value="Create New Pen with Prefilled Data"
-                  className="code-box-codepen"
-                />
-              </Tooltip>
-            </form>
-            <form
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
@@ -330,6 +348,24 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                   type="submit"
                   value="Create New Sandbox with Prefilled Data"
                   className="code-box-codesandbox"
+                />
+              </Tooltip>
+            </form>
+            <form
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+              style={{
+                display: sourceCode ? '' : 'none',
+              }}
+            >
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <input
+                  type="submit"
+                  value="Create New Pen with Prefilled Data"
+                  className="code-box-codepen"
                 />
               </Tooltip>
             </form>

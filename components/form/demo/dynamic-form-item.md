@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-动态增加、减少表单项。
+动态增加、减少表单项。如果需要动态支持多项字段时，可以参考[此处](https://codesandbox.io/s/wonderful-lichterman-br63z)。
 
 ## en-US
 
-Add or remove form items dynamically.
+Add or remove form items dynamically. You can ref [this example](https://codesandbox.io/s/wonderful-lichterman-br63z) if you want to support mutiple fields.
 
 ```jsx
 import { Form, Input, Button } from 'antd';
@@ -64,11 +64,12 @@ const DynamicFieldSet = () => {
                     ]}
                     noStyle
                   >
-                    <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
+                    <Input placeholder="passenger name" style={{ width: '60%' }} />
                   </Form.Item>
                   {fields.length > 1 ? (
                     <MinusCircleOutlined
                       className="dynamic-delete-button"
+                      style={{ margin: '0 8px' }}
                       onClick={() => {
                         remove(field.name);
                       }}

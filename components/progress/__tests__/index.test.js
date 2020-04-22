@@ -30,12 +30,12 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render negetive progress', () => {
+  it('render negative progress', () => {
     const wrapper = mount(<Progress percent={-20} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render negetive successPercent', () => {
+  it('render negative successPercent', () => {
     const wrapper = mount(<Progress percent={50} successPercent={-20} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -78,6 +78,21 @@ describe('Progress', () => {
 
   it('render trailColor progress', () => {
     const wrapper = mount(<Progress status="normal" trailColor="#ffffff" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render dashboard zero gapDegree', () => {
+    const wrapper = mount(<Progress type="dashboard" gapDegree={0} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render dashboard 295 gapDegree', () => {
+    const wrapper = mount(<Progress type="dashboard" gapDegree={295} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render dashboard 296 gapDegree', () => {
+    const wrapper = mount(<Progress type="dashboard" gapDegree={296} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 

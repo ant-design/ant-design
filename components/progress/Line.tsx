@@ -57,7 +57,7 @@ export const handleGradient = (strokeColor: ProgressGradient) => {
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
-const Line: React.SFC<LineProps> = props => {
+const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
     percent,

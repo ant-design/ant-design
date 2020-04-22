@@ -11,10 +11,6 @@
 
   outline: 0;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   p {
     margin: 0;
   }
@@ -52,16 +48,11 @@
     cursor: pointer;
     transition: border-color 0.3s ease;
 
-    .@{upload-prefix-cls}-rtl& {
-      float: right;
-      margin-right: 0;
-      margin-left: 8px;
-    }
     > .@{upload-prefix-cls} {
       display: table-cell;
       width: 100%;
       height: 100%;
-      padding: 8px;
+      padding: @padding-xs;
       text-align: center;
       vertical-align: middle;
     }
@@ -83,7 +74,7 @@
     transition: border-color 0.3s;
 
     .@{upload-prefix-cls} {
-      padding: 16px 0;
+      padding: @padding-md 0;
     }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
@@ -149,62 +140,40 @@
 .@{upload-prefix-cls}-list {
   .reset-component;
   .clearfix;
+  line-height: 22px;
   &-item-list-type-text {
     &:hover {
       .@{upload-prefix-cls}-list-item-name-icon-count-1 {
         padding-right: 14px;
-
-        .@{upload-prefix-cls}-list-rtl & {
-          padding-right: 22px;
-          padding-left: 14px;
-        }
       }
       .@{upload-prefix-cls}-list-item-name-icon-count-2 {
         padding-right: 28px;
-
-        .@{upload-prefix-cls}-list-rtl & {
-          padding-right: 22px;
-          padding-left: 28px;
-        }
       }
     }
   }
   &-item {
     position: relative;
     height: 22px;
-    margin-top: 8px;
+    margin-top: @margin-xs;
     font-size: @font-size-base;
     &-name {
       display: inline-block;
       width: 100%;
       padding-left: @font-size-base + 8px;
       overflow: hidden;
+      line-height: 22px;
       white-space: nowrap;
       text-overflow: ellipsis;
-
-      .@{upload-prefix-cls}-list-rtl & {
-        padding-right: @font-size-base + 8px;
-        padding-left: 0;
-      }
     }
 
     &-name-icon-count-1 {
       padding-right: 14px;
-
-      .@{upload-prefix-cls}-list-rtl & {
-        padding-left: 14px;
-      }
     }
 
     &-card-actions {
       position: absolute;
       right: 0;
       opacity: 0;
-
-      .@{upload-prefix-cls}-list-rtl & {
-        right: auto;
-        left: 0;
-      }
 
       &.picture {
         top: 25px;
@@ -214,11 +183,6 @@
       .@{iconfont-css-prefix} {
         padding-right: 6px;
         color: @upload-actions-color;
-
-        .@{upload-prefix-cls}-list-rtl & {
-          padding-right: 0;
-          padding-left: 5px;
-        }
       }
     }
 
@@ -226,10 +190,6 @@
       height: 100%;
       padding: 0 12px 0 4px;
       transition: background-color 0.3s;
-
-      .@{upload-prefix-cls}-list-rtl & {
-        padding: 0 4px 0 12px;
-      }
 
       > span {
         display: block;
@@ -260,11 +220,6 @@
       opacity: 0;
       transition: all 0.3s;
 
-      .@{upload-prefix-cls}-list-rtl & {
-        right: auto;
-        left: 4px;
-      }
-
       &:hover {
         color: @text-color;
       }
@@ -291,11 +246,6 @@
     &-error &-card-actions {
       .@{iconfont-css-prefix} {
         color: @error-color;
-
-        .@{upload-prefix-cls}-list-rtl & {
-          padding-right: 0;
-          padding-left: 5px;
-        }
       }
       opacity: 1;
     }
@@ -307,11 +257,6 @@
       padding-left: @font-size-base + 12px;
       font-size: @font-size-base;
       line-height: 0;
-
-      .@{upload-prefix-cls}-list-rtl & {
-        padding-right: @font-size-base + 12px;
-        padding-left: 0;
-      }
     }
   }
 
@@ -320,7 +265,7 @@
     .@{upload-item} {
       position: relative;
       height: 66px;
-      padding: 8px;
+      padding: @padding-xs;
       border: @border-width-base @upload-picture-card-border-style @border-color-base;
       border-radius: @border-radius-base;
       &:hover {
@@ -356,11 +301,6 @@
       .@{iconfont-css-prefix} {
         font-size: 26px;
       }
-
-      .@{upload-prefix-cls}-list-rtl& {
-        right: 8px;
-        left: auto;
-      }
     }
 
     .@{upload-item}-icon {
@@ -372,12 +312,6 @@
 
       .@{iconfont-css-prefix} {
         font-size: 26px;
-      }
-
-      .@{upload-prefix-cls}-list-rtl& {
-        right: 50%;
-        left: auto;
-        transform: translate(50%, -50%);
       }
     }
 
@@ -404,30 +338,14 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       transition: all 0.3s;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        margin: 0 8px 0 0;
-        padding-right: 48px;
-        padding-left: 8px;
-      }
     }
 
     .@{upload-item}-name-icon-count-1 {
       padding-right: 18px;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        padding-right: 48px;
-        padding-left: 18px;
-      }
     }
 
     .@{upload-item}-name-icon-count-2 {
       padding-right: 36px;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        padding-right: 48px;
-        padding-left: 36px;
-      }
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {
@@ -439,11 +357,6 @@
       width: ~'calc(100% - 24px)';
       margin-top: 0;
       padding-left: 56px;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        padding-right: 56px;
-        padding-left: 0;
-      }
     }
 
     .@{iconfont-css-prefix}-close {
@@ -452,11 +365,6 @@
       right: 8px;
       line-height: 1;
       opacity: 1;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        right: auto;
-        left: 8px;
-      }
     }
   }
 
@@ -468,18 +376,13 @@
       float: left;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
-      margin: 0 8px 8px 0;
+      margin: 0 @margin-xs @margin-xs 0;
     }
     .@{upload-item} {
       float: left;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
-      margin: 0 8px 8px 0;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        float: right;
-        margin: 0 0 8px 8px;
-      }
+      margin: 0 @margin-xs @margin-xs 0;
     }
 
     .@{upload-item}-info {
@@ -512,12 +415,6 @@
       transform: translate(-50%, -50%);
       opacity: 0;
       transition: all 0.3s;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        right: 50%;
-        left: auto;
-        transform: translate(50%, -50%);
-      }
 
       .@{iconfont-css-prefix}-eye,
       .@{iconfont-css-prefix}-download,
@@ -561,11 +458,6 @@
       position: absolute;
       bottom: 10px;
       display: block;
-
-      .@{upload-prefix-cls}-list-rtl& {
-        margin: 8px 0 0;
-        padding: 0;
-      }
     }
 
     .@{upload-item}-uploading {
@@ -656,3 +548,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl';

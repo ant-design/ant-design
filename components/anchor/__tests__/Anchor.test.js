@@ -1,27 +1,29 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
-import { spyElementPrototypes } from '../../__tests__/util/domHook';
 import { sleep } from '../../../tests/utils';
 
 const { Link } = Anchor;
 
 describe('Anchor Render', () => {
-  const getBoundingClientRectMock = jest.fn(() => ({
-    width: 100,
-    height: 100,
-    top: 1000,
-  }));
-  const getClientRectsMock = jest.fn(() => ({
-    length: 1,
-  }));
-  const headingSpy = spyElementPrototypes(HTMLHeadingElement, {
-    getBoundingClientRect: getBoundingClientRectMock,
-    getClientRects: getClientRectsMock,
+  const getBoundingClientRectMock = jest.spyOn(
+    HTMLHeadingElement.prototype,
+    'getBoundingClientRect',
+  );
+  const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
+
+  beforeAll(() => {
+    getBoundingClientRectMock.mockReturnValue({
+      width: 100,
+      height: 100,
+      top: 1000,
+    });
+    getClientRectsMock.mockReturnValue({ length: 1 });
   });
 
   afterAll(() => {
-    headingSpy.mockRestore();
+    getBoundingClientRectMock.mockRestore();
+    getClientRectsMock.mockRestore();
   });
 
   it('Anchor render perfectly', () => {
@@ -273,9 +275,7 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('#API2');
   });
 
-  it('Anchor targetOffset prop', () => {
-    jest.useFakeTimers();
-
+  it('Anchor targetOffset prop', async () => {
     let dateNowMock;
 
     function dataNowMockFn() {
@@ -304,23 +304,22 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     wrapper.instance().handleScrollTo('#API');
-    jest.runAllTimers();
+    await sleep(20);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ offsetTop: 100 });
     wrapper.instance().handleScrollTo('#API');
-    jest.runAllTimers();
+    await sleep(20);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ targetOffset: 200 });
     wrapper.instance().handleScrollTo('#API');
-    jest.runAllTimers();
+    await sleep(20);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
-    jest.useRealTimers();
   });
 
   it('Anchor onChange prop', async () => {

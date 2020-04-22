@@ -41,7 +41,7 @@ import moment from 'moment';
 | minuteStep | interval between minutes in picker | number | 1 |  |
 | open | whether to popup panel | boolean | false |  |
 | placeholder | display when there's no value | string | "Select a time" |  |
-| popupClassName | className of panel | string | '' |  |
+| popupClassName | className of panel | string | - |  |
 | popupStyle | style of panel | object | - |  |
 | secondStep | interval between seconds in picker | number | 1 |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
@@ -58,6 +58,14 @@ import moment from 'moment';
 | ------- | ------------ | ------- |
 | blur()  | remove focus |         |
 | focus() | get focus    |         |
+
+### RangePicker
+
+Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
+
+| Property | Description              | Type    | Default | Version |
+| -------- | ------------------------ | ------- | ------- | ------- |
+| order    | Order start and end time | boolean | true    | 4.1.0   |
 
 <style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>
 

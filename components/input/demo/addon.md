@@ -20,13 +20,13 @@ import { SettingOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const selectBefore = (
-  <Select defaultValue="http://" style={{ width: 90 }}>
+  <Select defaultValue="http://" className="select-before">
     <Option value="http://">http://</Option>
     <Option value="https://">https://</Option>
   </Select>
 );
 const selectAfter = (
-  <Select defaultValue=".com" style={{ width: 80 }}>
+  <Select defaultValue=".com" className="select-after">
     <Option value=".com">.com</Option>
     <Option value=".jp">.jp</Option>
     <Option value=".cn">.cn</Option>
@@ -51,4 +51,22 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
+```
+
+```css
+.select-before {
+  width: 90px;
+}
+
+.select-after {
+  width: 80px;
+}
+
+[data-theme='compact'] .select-before {
+  width: 71px;
+}
+
+[data-theme='compact'] .select-after {
+  width: 65px;
+}
 ```

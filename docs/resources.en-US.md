@@ -25,7 +25,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Ant Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - Common Templates and Pages
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch
+  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.3.0.sketch
 - Ant Design Library
   - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
   - A powerful Axure library
@@ -53,7 +53,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Ant Design Chart
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - Sketch Symbols for Chart
-  - https://gw.alipayobjects.com/os/basement_prod/862ee74f-4ac5-482c-b1ae-3165684cedbe.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
 
 ## Articles
 
@@ -85,7 +85,7 @@ Do you want to know the story behind the Ant Design design system? How can I bet
 
 ## Reference
 
-Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
+Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
 
 <div class="next-block-use-cards"></div>
 

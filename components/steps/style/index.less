@@ -20,22 +20,12 @@
 @error-tail-color: @wait-tail-color;
 @steps-nav-active-color: @primary-color;
 
-@steps-icon-size: 32px;
-@steps-small-icon-size: 24px;
-@steps-dot-size: 8px;
-@steps-current-dot-size: 10px;
-@steps-desciption-max-width: 140px;
-@steps-nav-content-max-width: auto;
-
 .@{steps-prefix-cls} {
   .reset-component;
 
   display: flex;
   width: 100%;
   font-size: 0;
-  &-rtl {
-    direction: rtl;
-  }
 }
 
 .@{steps-prefix-cls}-item {
@@ -67,8 +57,8 @@
   &-icon {
     width: @steps-icon-size;
     height: @steps-icon-size;
-    margin-right: 8px;
-    font-size: @font-size-lg;
+    margin: @steps-icon-margin;
+    font-size: @steps-icon-font-size;
     font-family: @font-family;
     line-height: @steps-icon-size;
     text-align: center;
@@ -76,14 +66,9 @@
     border-radius: @steps-icon-size;
     transition: background-color 0.3s, border-color 0.3s;
 
-    .@{steps-prefix-cls}-rtl & {
-      margin-right: 0;
-      margin-left: 8px;
-    }
-
     > .@{steps-prefix-cls}-icon {
       position: relative;
-      top: -1px;
+      top: @steps-icon-top;
       color: @primary-color;
       line-height: 1;
     }
@@ -95,10 +80,6 @@
     width: 100%;
     padding: 0 10px;
 
-    .@{steps-prefix-cls}-rtl & {
-      right: 0;
-      left: auto;
-    }
     &::after {
       display: inline-block;
       width: 100%;
@@ -115,27 +96,17 @@
     padding-right: 16px;
     color: @text-color;
     font-size: @font-size-lg;
-    line-height: @steps-icon-size;
-
-    .@{steps-prefix-cls}-rtl & {
-      padding-right: 0;
-      padding-left: 16px;
-    }
+    line-height: @steps-title-line-height;
 
     &::after {
       position: absolute;
-      top: @steps-icon-size / 2;
+      top: @steps-title-line-height / 2;
       left: 100%;
       display: block;
       width: 9999px;
       height: 1px;
       background: @wait-tail-color;
       content: '';
-
-      .@{steps-prefix-cls}-rtl & {
-        right: 100%;
-        left: auto;
-      }
     }
   }
   &-subtitle {
@@ -144,11 +115,6 @@
     color: @text-color-secondary;
     font-weight: normal;
     font-size: @font-size-base;
-
-    .@{steps-prefix-cls}-rtl & {
-      margin-right: 8px;
-      margin-left: 0;
-    }
   }
   &-description {
     color: @text-color-secondary;
@@ -170,6 +136,10 @@
 
   &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title::after {
     background: @error-icon-color;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
   }
 }
 
@@ -219,24 +189,11 @@
     margin-right: 16px;
     white-space: nowrap;
 
-    .@{steps-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: 16px;
-    }
-
     &:last-child {
       margin-right: 0;
-
-      .@{steps-prefix-cls}-rtl& {
-        margin-left: 0;
-      }
     }
     &:last-child .@{steps-prefix-cls}-item-title {
       padding-right: 0;
-
-      .@{steps-prefix-cls}-rtl& {
-        padding-left: 0;
-      }
     }
     &-tail {
       display: none;
@@ -283,3 +240,4 @@
 @import 'label-placement';
 @import 'progress-dot';
 @import 'nav';
+@import './rtl';

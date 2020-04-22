@@ -82,6 +82,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const {
       prefixCls: customizePrefixCls,
       className,
+      style,
       dateFullCellRender,
       dateCellRender,
       monthFullCellRender,
@@ -239,6 +240,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 [`${calendarPrefixCls}-full`]: fullscreen,
                 [`${calendarPrefixCls}-mini`]: !fullscreen,
               })}
+              style={style}
             >
               {headerRender ? (
                 headerRender({

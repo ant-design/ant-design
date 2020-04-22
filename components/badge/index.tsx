@@ -3,8 +3,9 @@ import Animate from 'rc-animate';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import ScrollNumber from './ScrollNumber';
-import { PresetColorTypes } from '../_util/colors';
+import { PresetColorTypes, PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { LiteralUnion } from '../_util/type';
 
 export { ScrollNumberProps } from './ScrollNumber';
 
@@ -20,8 +21,8 @@ export interface BadgeProps {
   prefixCls?: string;
   scrollNumberPrefixCls?: string;
   className?: string;
-  status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
-  color?: string;
+  status?: PresetStatusColorType;
+  color?: LiteralUnion<PresetColorType, string>;
   text?: React.ReactNode;
   offset?: [number | string, number | string];
   title?: string;

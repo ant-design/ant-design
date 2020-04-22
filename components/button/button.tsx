@@ -1,15 +1,15 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import omit from 'omit.js';
 
 import Group from './button-group';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import LoadingIcon from './LoadingIcon';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -104,72 +104,57 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-interface ButtonState {
-  loading?: boolean | { delay?: number };
-  hasTwoCNChar: boolean;
+interface ButtonTypeProps extends React.FC<ButtonProps> {
+  Group: typeof Group;
+  __ANT_BUTTON: boolean;
 }
 
-class Button extends React.Component<ButtonProps, ButtonState> {
-  static Group: typeof Group;
+const Button: ButtonTypeProps = ({ ...props }) => {
+  const [loading, setLoading] = React.useState(props.loading);
+  const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
+  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
+  const buttonRef = React.createRef<HTMLButtonElement>();
+  let delayTimeout: number;
 
-  static __ANT_BUTTON = true;
-
-  static contextType = ConfigContext;
-
-  static defaultProps = {
-    loading: false,
-    ghost: false,
-    block: false,
-    htmlType: 'button',
+  const isNeedInserted = () => {
+    const { icon, children, type } = props;
+    return React.Children.count(children) === 1 && !icon && type !== 'link';
   };
 
-  private delayTimeout: number;
-
-  private buttonNode: HTMLElement | null;
-
-  constructor(props: ButtonProps) {
-    super(props);
-    this.state = {
-      loading: props.loading,
-      hasTwoCNChar: false,
-    };
-  }
-
-  componentDidMount() {
-    this.fixTwoCNChar();
-  }
-
-  componentDidUpdate(prevProps: ButtonProps) {
-    this.fixTwoCNChar();
-
-    if (prevProps.loading && typeof prevProps.loading !== 'boolean') {
-      clearTimeout(this.delayTimeout);
+  const fixTwoCNChar = () => {
+    // Fix for HOC usage like <FormatMessage />
+    if (!buttonRef || !buttonRef.current || autoInsertSpaceInButton === false) {
+      return;
     }
-
-    const { loading } = this.props;
-    if (loading && typeof loading !== 'boolean' && loading.delay) {
-      this.delayTimeout = window.setTimeout(() => {
-        this.setState({ loading });
-      }, loading.delay);
-    } else if (prevProps.loading !== loading) {
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ loading });
+    const buttonText = buttonRef.current.textContent;
+    if (isNeedInserted() && isTwoCNChar(buttonText)) {
+      if (!hasTwoCNChar) {
+        setHasTwoCNChar(true);
+      }
+    } else if (hasTwoCNChar) {
+      setHasTwoCNChar(false);
     }
-  }
-
-  componentWillUnmount() {
-    if (this.delayTimeout) {
-      clearTimeout(this.delayTimeout);
-    }
-  }
-
-  saveButtonRef = (node: HTMLElement | null) => {
-    this.buttonNode = node;
   };
 
-  handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
-    const { loading } = this.state;
-    const { onClick } = this.props;
+  React.useEffect(() => {
+    if (props.loading && typeof props.loading !== 'boolean') {
+      clearTimeout(delayTimeout);
+    }
+    if (props.loading && typeof props.loading !== 'boolean' && props.loading.delay) {
+      delayTimeout = window.setTimeout(() => {
+        setLoading(props.loading);
+      }, props.loading.delay);
+    } else if (props.loading !== loading) {
+      setLoading(props.loading);
+    }
+  }, [props.loading]);
+
+  React.useEffect(() => {
+    fixTwoCNChar();
+  }, [buttonRef]);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+    const { onClick } = props;
     if (loading) {
       return;
     }
@@ -178,137 +163,117 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     }
   };
 
-  fixTwoCNChar() {
-    const { autoInsertSpaceInButton }: ConfigConsumerProps = this.context;
+  return (
+    <SizeContext.Consumer>
+      {size => {
+        const {
+          prefixCls: customizePrefixCls,
+          type,
+          danger,
+          shape,
+          size: customizeSize,
+          className,
+          children,
+          icon,
+          ghost,
+          block,
+          ...rest
+        } = props;
 
-    // Fix for HOC usage like <FormatMessage />
-    if (!this.buttonNode || autoInsertSpaceInButton === false) {
-      return;
-    }
-    const buttonText = this.buttonNode.textContent;
-    if (this.isNeedInserted() && isTwoCNChar(buttonText)) {
-      if (!this.state.hasTwoCNChar) {
-        this.setState({
-          hasTwoCNChar: true,
+        warning(
+          !(typeof icon === 'string' && icon.length > 2),
+          'Button',
+          `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+        );
+
+        const prefixCls = getPrefixCls('btn', customizePrefixCls);
+        const autoInsertSpace = autoInsertSpaceInButton !== false;
+
+        // large => lg
+        // small => sm
+        let sizeCls = '';
+        switch (customizeSize || size) {
+          case 'large':
+            sizeCls = 'lg';
+            break;
+          case 'small':
+            sizeCls = 'sm';
+            break;
+          default:
+            break;
+        }
+
+        const iconType = loading ? 'loading' : icon;
+
+        const classes = classNames(prefixCls, className, {
+          [`${prefixCls}-${type}`]: type,
+          [`${prefixCls}-${shape}`]: shape,
+          [`${prefixCls}-${sizeCls}`]: sizeCls,
+          [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+          [`${prefixCls}-background-ghost`]: ghost,
+          [`${prefixCls}-loading`]: loading,
+          [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
+          [`${prefixCls}-block`]: block,
+          [`${prefixCls}-dangerous`]: !!danger,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         });
-      }
-    } else if (this.state.hasTwoCNChar) {
-      this.setState({
-        hasTwoCNChar: false,
-      });
-    }
-  }
 
-  isNeedInserted() {
-    const { icon, children, type } = this.props;
-    return React.Children.count(children) === 1 && !icon && type !== 'link';
-  }
-
-  render() {
-    const { getPrefixCls, autoInsertSpaceInButton, direction }: ConfigConsumerProps = this.context;
-
-    return (
-      <SizeContext.Consumer>
-        {size => {
-          const {
-            prefixCls: customizePrefixCls,
-            type,
-            danger,
-            shape,
-            size: customizeSize,
-            className,
-            children,
-            icon,
-            ghost,
-            block,
-            ...rest
-          } = this.props;
-          const { loading, hasTwoCNChar } = this.state;
-
-          warning(
-            !(typeof icon === 'string' && icon.length > 2),
-            'Button',
-            `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+        const iconNode =
+          icon && !loading ? (
+            icon
+          ) : (
+            <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={loading} />
           );
 
-          const prefixCls = getPrefixCls('btn', customizePrefixCls);
-          const autoInsertSpace = autoInsertSpaceInButton !== false;
+        const kids =
+          children || children === 0
+            ? spaceChildren(children, isNeedInserted() && autoInsertSpace)
+            : null;
 
-          // large => lg
-          // small => sm
-          let sizeCls = '';
-          switch (customizeSize || size) {
-            case 'large':
-              sizeCls = 'lg';
-              break;
-            case 'small':
-              sizeCls = 'sm';
-              break;
-            default:
-              break;
-          }
-
-          const iconType = loading ? 'loading' : icon;
-
-          const classes = classNames(prefixCls, className, {
-            [`${prefixCls}-${type}`]: type,
-            [`${prefixCls}-${shape}`]: shape,
-            [`${prefixCls}-${sizeCls}`]: sizeCls,
-            [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-            [`${prefixCls}-loading`]: !!loading,
-            [`${prefixCls}-background-ghost`]: ghost,
-            [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
-            [`${prefixCls}-block`]: block,
-            [`${prefixCls}-dangerous`]: !!danger,
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-          });
-
-          const iconNode = loading ? <LoadingOutlined /> : icon || null;
-          const kids =
-            children || children === 0
-              ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
-              : null;
-
-          const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
-          if (linkButtonRestProps.href !== undefined) {
-            return (
-              <a
-                {...linkButtonRestProps}
-                className={classes}
-                onClick={this.handleClick}
-                ref={this.saveButtonRef}
-              >
-                {iconNode}
-                {kids}
-              </a>
-            );
-          }
-
-          // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-          const { htmlType, ...otherProps } = rest as NativeButtonProps;
-
-          const buttonNode = (
-            <button
-              {...(omit(otherProps, ['loading']) as NativeButtonProps)}
-              type={htmlType}
-              className={classes}
-              onClick={this.handleClick}
-              ref={this.saveButtonRef}
-            >
+        const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
+        if (linkButtonRestProps.href !== undefined) {
+          return (
+            <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
               {iconNode}
               {kids}
-            </button>
+            </a>
           );
+        }
 
-          if (type === 'link') {
-            return buttonNode;
-          }
+        // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
+        const { htmlType, ...otherProps } = rest as NativeButtonProps;
 
-          return <Wave>{buttonNode}</Wave>;
-        }}
-      </SizeContext.Consumer>
-    );
-  }
-}
+        const buttonNode = (
+          <button
+            {...(omit(otherProps, ['loading']) as NativeButtonProps)}
+            type={htmlType}
+            className={classes}
+            onClick={handleClick}
+            ref={buttonRef}
+          >
+            {iconNode}
+            {kids}
+          </button>
+        );
+
+        if (type === 'link') {
+          return buttonNode;
+        }
+
+        return <Wave>{buttonNode}</Wave>;
+      }}
+    </SizeContext.Consumer>
+  );
+};
+
+Button.defaultProps = {
+  loading: false,
+  ghost: false,
+  block: false,
+  htmlType: 'button' as ButtonProps['htmlType'],
+};
+
+Button.Group = Group;
+Button.__ANT_BUTTON = true;
 
 export default Button;

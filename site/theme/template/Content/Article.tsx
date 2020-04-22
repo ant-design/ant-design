@@ -109,7 +109,6 @@ class Article extends React.Component<ArticleProps> {
     const metaDesc = helmetDesc || contentChild;
 
     return (
-      /* eslint-disable-next-line */
       <article className="markdown" onClick={this.onResourceClick}>
         <Helmet encodeSpecialCharacters={false}>
           {helmetTitle && <title>{helmetTitle}</title>}

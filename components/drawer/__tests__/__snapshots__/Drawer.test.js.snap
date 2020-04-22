@@ -28,6 +28,7 @@ exports[`Drawer className is test_drawer 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -124,6 +125,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -186,6 +188,7 @@ exports[`Drawer have a footer 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -258,6 +261,7 @@ exports[`Drawer have a title 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -320,6 +324,7 @@ exports[`Drawer render correctly 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -382,6 +387,7 @@ exports[`Drawer render top drawer 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"
@@ -449,6 +455,7 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
             <button
               aria-label="Close"
               class="ant-drawer-close"
+              style="--scroll-bar:0px"
             >
               <span
                 aria-label="close"

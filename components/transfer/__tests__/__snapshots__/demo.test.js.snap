@@ -2247,11 +2247,10 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           <col
                             style="width:60px;min-width:60px"
                           />
-                          <col />
-                          <col />
-                          <col />
                         </colgroup>
-                        <thead>
+                        <thead
+                          class="ant-table-thead"
+                        >
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
@@ -2735,7 +2734,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination mini"
+                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
                   unselectable="unselectable"
                 >
                   <li
@@ -2929,9 +2928,10 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           <col
                             style="width:60px;min-width:60px"
                           />
-                          <col />
                         </colgroup>
-                        <thead>
+                        <thead
+                          class="ant-table-thead"
+                        >
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
@@ -3147,7 +3147,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination mini"
+                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
                   unselectable="unselectable"
                 >
                   <li

@@ -23,7 +23,7 @@ export interface StatisticProps extends FormatConfig {
   suffix?: React.ReactNode;
 }
 
-const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
+const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   const {
     prefixCls,
     className,

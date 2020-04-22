@@ -16,32 +16,33 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: 'Ant Design 4.0 正式版来了！',
+    title: 'Kitchen「设计资产」重磅更新！',
     description:
-      'Ant Design 4.0 正式版于 2 月 28 日提前发布！设计资产不断丰富，设计工具层出不穷，为百万设计者和开发者创造快乐工作。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/109633620',
+      '作为 Ant Design 的好伙伴，Kitchen 已第一时间上架 Ant Design 4.0 最新 Sketch 组件包。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bBKkQILVF2AAAAAAAAAAAABkARQnAQ',
+    href: 'https://kitchen.alipay.com/',
     popularize: true,
   },
   {
-    title: '我的按钮究竟该放哪儿！？',
+    title: '图表库 G2Plot 1.0 发布了！',
     description:
-      '按钮是一种使用广泛的基础界面元素，我们需要并一直在探索建立按钮设计规范。Ant Design 提供了丰富的按钮类型以覆盖各种场景。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wXuKQ6-ssWMAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/109644406',
+      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/113888415',
   },
   {
-    title: 'HiTu·让人人都是插画师',
-    description: '图形化设计资产「海兔」帮助大家解决通用层面的需求，把设计师从重复劳动中解放出来。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sybfTLM-CA8AAAAAAAAAAABkARQnAQ',
-    href: 'https://ant.design/docs/spec/illustration-cn',
+    title: 'Ant Design 暗黑模式设计解析',
+    description: '让我们一起来看下，Ant Design 这一针对企业级的设计体系是如何设计暗黑模式的？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/112470365',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
     title: 'Ant Design 4.0 is out!',
-    description: '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
+    description:
+      '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
     href: 'https://github.com/ant-design/ant-design/issues/21656',
     popularize: true,
@@ -49,13 +50,16 @@ const LIST_EN: Recommend[] = [
   {
     title: 'Introduce AntV',
     description: '✨ New player of front-end data visualization',
-    img: 'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
-    href: 'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
+    img:
+      'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
+    href:
+      'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
   },
   {
     title: 'G2Plot: a charting library',
     description: '📊 A charting library based on the grammar of graphics',
-    img: 'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
+    img:
+      'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
     href: 'https://github.com/antvis/G2Plot',
   },
 ];
@@ -80,6 +84,14 @@ const RecommendBlock = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        if (window.gtag) {
+          window.gtag('event', '点击', {
+            event_category: '首页推广',
+            event_label: href,
+          });
+        }
+      }}
     >
       <img src={img} alt={title} />
       {popularize && (

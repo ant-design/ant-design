@@ -7,10 +7,6 @@
   position: relative;
   background-color: @comment-bg;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-inner {
     display: flex;
     padding: @comment-padding-base;
@@ -19,13 +15,9 @@
   &-avatar {
     position: relative;
     flex-shrink: 0;
-    margin-right: 12px;
+    margin-right: @margin-sm;
     cursor: pointer;
 
-    .@{comment-prefix-cls}-rtl & {
-      margin-right: 0;
-      margin-left: 12px;
-    }
     img {
       width: 32px;
       height: 32px;
@@ -44,18 +36,13 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      margin-bottom: 4px;
+      margin-bottom: @margin-xss;
       font-size: @comment-font-size-base;
       & > a,
       & > span {
-        padding-right: 8px;
+        padding-right: @padding-xs;
         font-size: @comment-font-size-sm;
         line-height: 18px;
-
-        .@{comment-prefix-cls}-rtl & {
-          padding-right: 0;
-          padding-left: 8px;
-        }
       }
 
       &-name {
@@ -78,17 +65,16 @@
     }
 
     &-detail p {
+      margin-bottom: @comment-content-detail-p-margin-bottom;
       white-space: pre-wrap;
     }
   }
 
   &-actions {
-    margin-top: 12px;
+    margin-top: @comment-actions-margin-top;
+    margin-bottom: @comment-actions-margin-bottom;
     padding-left: 0;
 
-    .@{comment-prefix-cls}-rtl & {
-      padding-right: 0;
-    }
     > li {
       display: inline-block;
       color: @comment-action-color;
@@ -100,11 +86,6 @@
         transition: color 0.3s;
         user-select: none;
 
-        .@{comment-prefix-cls}-rtl & {
-          padding-right: 0;
-          padding-left: 10px;
-        }
-
         &:hover {
           color: @comment-action-hover-color;
         }
@@ -114,10 +95,7 @@
 
   &-nested {
     margin-left: @comment-nest-indent;
-
-    .@{comment-prefix-cls}-rtl & {
-      margin-right: @comment-nest-indent;
-      margin-left: 0;
-    }
   }
 }
+
+@import './rtl';

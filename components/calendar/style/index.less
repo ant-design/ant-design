@@ -14,7 +14,13 @@
     justify-content: flex-end;
     padding: @padding-sm 0;
 
+
+    .@{calendar-prefix-cls}-year-select {
+      min-width: 80px;
+    }
+
     .@{calendar-prefix-cls}-month-select {
+      min-width: 70px;
       margin-left: @padding-xs;
     }
 
@@ -45,6 +51,17 @@
 
   // ========================== Mini ==========================
   &-mini {
+    border-radius: @border-radius-base;
+
+    .@{calendar-picker-prefix-cls}-calendar-header {
+      padding-right: @padding-xs;
+      padding-left: @padding-xs;
+    }
+
+    .@{calendar-picker-prefix-cls}-panel {
+      border-radius: 0 0 @border-radius-base @border-radius-base;
+    }
+
     .@{calendar-picker-prefix-cls}-content {
       height: 256px;
 
@@ -154,7 +171,7 @@
       .@{calendar-prefix-cls}-year-select {
         width: 50%;
       }
-  
+
       .@{calendar-prefix-cls}-month-select {
         width: ~'calc(50% - @{padding-xs})';
       }

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
-import { EventDataNode, DataNode } from 'rc-tree/lib/interface';
+import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
@@ -20,8 +20,8 @@ export interface DirectoryTreeProps extends TreeProps {
 }
 
 export interface DirectoryTreeState {
-  expandedKeys?: string[];
-  selectedKeys?: string[];
+  expandedKeys?: Key[];
+  selectedKeys?: Key[];
 }
 
 function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
@@ -39,7 +39,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
 class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
   static defaultProps = {
     showIcon: true,
-    expandAction: 'click',
+    expandAction: 'click' as DirectoryTreeProps['expandAction'],
   };
 
   static getDerivedStateFromProps(nextProps: DirectoryTreeProps) {
@@ -60,9 +60,9 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => void;
 
   // Shift click usage
-  lastSelectedKey?: string;
+  lastSelectedKey?: Key;
 
-  cachedSelectedKeys?: string[];
+  cachedSelectedKeys?: Key[];
 
   constructor(props: DirectoryTreeProps) {
     super(props);
@@ -93,7 +93,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   }
 
   onExpand = (
-    expandedKeys: string[],
+    expandedKeys: Key[],
     info: {
       node: EventDataNode;
       expanded: boolean;
@@ -139,7 +139,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   };
 
   onSelect = (
-    keys: string[],
+    keys: Key[],
     event: {
       event: 'select';
       selected: boolean;
@@ -151,7 +151,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const { onSelect, multiple } = this.props;
     const { expandedKeys = [] } = this.state;
     const { node, nativeEvent } = event;
-    const { eventKey = '' } = node.props;
+    const { key = '' } = node;
 
     const treeData = getTreeData(this.props);
     const newState: DirectoryTreeState = {};
@@ -167,11 +167,11 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const shiftPick: boolean = nativeEvent.shiftKey;
 
     // Generate new selected keys
-    let newSelectedKeys: string[];
+    let newSelectedKeys: Key[];
     if (multiple && ctrlPick) {
       // Control click
       newSelectedKeys = keys;
-      this.lastSelectedKey = eventKey;
+      this.lastSelectedKey = key;
       this.cachedSelectedKeys = newSelectedKeys;
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     } else if (multiple && shiftPick) {
@@ -179,16 +179,16 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       newSelectedKeys = Array.from(
         new Set([
           ...(this.cachedSelectedKeys || []),
-          ...calcRangeKeys(treeData, expandedKeys, eventKey, this.lastSelectedKey),
+          ...calcRangeKeys(treeData, expandedKeys, key, this.lastSelectedKey),
         ]),
       );
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     } else {
       // Single click
-      newSelectedKeys = [eventKey];
-      this.lastSelectedKey = eventKey;
+      newSelectedKeys = [key];
+      this.lastSelectedKey = key;
       this.cachedSelectedKeys = newSelectedKeys;
-      newEvent.selectedNodes = [event.node.props.data];
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     }
     newState.selectedKeys = newSelectedKeys;
 

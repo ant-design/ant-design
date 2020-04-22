@@ -67,4 +67,22 @@ describe('Card', () => {
     );
     expect(wrapper.find('.ant-card-actions').length).toBe(0);
   });
+
+  it('with tab props', () => {
+    const wrapper = mount(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        tabProps={{ size: 'small' }}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('Tabs').get(0).props.size).toBe('small');
+  });
 });

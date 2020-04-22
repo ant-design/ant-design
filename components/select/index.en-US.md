@@ -30,14 +30,13 @@ Select component to select value from options.
 | defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
-| dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |  |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (menuNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | style of dropdown menu | object | - |  |
-| dropdownMenuStyle | additional style applied to dropdown menu | object | - |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |  |
-| firstActiveValue | Value of action option by default | string\|string\[] | - |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |  |
+| listHeight | Config popup height | number | 256 |  |
 | maxTagCount | Max tag count to show | number | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |
@@ -55,7 +54,8 @@ Select component to select value from options.
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |  |
-| value | Current selected option. | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
+| value | Current selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
+| virtual | Disable virtual scroll when set to `false` | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | Called when a option is deselected, param is the selected option's value. Only called for multiple or tags, effective in multiple or tags mode only. | function(string\|number\|LabeledValue) | - |  |
@@ -81,12 +81,12 @@ Select component to select value from options.
 
 ### Option props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| disabled | Disable this option | boolean | false |  |
-| title | `title` of Select after select this Option | string | - |  |
-| value | default to filter with this property | string\|number | - |  |
-| className | additional class to option | string | - |  |
+| Property  | Description                                | Type           | Default | Version |
+| --------- | ------------------------------------------ | -------------- | ------- | ------- |
+| disabled  | Disable this option                        | boolean        | false   |         |
+| title     | `title` of Select after select this Option | string         | -       |         |
+| value     | default to filter with this property       | string\|number | -       |         |
+| className | additional class to option                 | string         | -       |         |
 
 ### OptGroup props
 

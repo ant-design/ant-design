@@ -12,19 +12,29 @@ import warning from '../_util/warning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
-import { toArray, getFieldId } from './util';
+import { toArray, getFieldId, useFrameState } from './util';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren = (form: FormInstance) => React.ReactNode;
 type RcFieldProps = Omit<FieldProps, 'children'>;
-type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] | null;
+type ChildrenType = RenderChildren | React.ReactNode;
 
-export interface FormItemProps
-  extends FormItemLabelProps,
-    FormItemInputProps,
-    Omit<RcFieldProps, 'children'> {
+interface MemoInputProps {
+  value: any;
+  update: number;
+  children: React.ReactNode;
+}
+
+const MemoInput = React.memo(
+  ({ children }: MemoInputProps) => children as JSX.Element,
+  (prev, next) => {
+    return prev.value === next.value && prev.update === next.update;
+  },
+);
+
+export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
@@ -62,6 +72,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     validateStatus,
     children,
     required,
+    label,
     trigger = 'onChange',
     validateTrigger = 'onChange',
     ...restProps
@@ -71,16 +82,11 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  const [inlineErrors, innerSetInlineErrors] = React.useState<Record<string, string[]>>({});
+  const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   function setDomErrorVisible(visible: boolean) {
     if (!destroyRef.current) {
       innerSetDomErrorVisible(visible);
-    }
-  }
-  function setInlineErrors(errors: Record<string, string[]>) {
-    if (!destroyRef.current) {
-      innerSetInlineErrors(errors);
     }
   }
 
@@ -106,12 +112,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
     ? updateItemErrors
     : (subName: string, subErrors: string[]) => {
         if (!isEqual(inlineErrors[subName], subErrors)) {
-          Promise.resolve().then(() => {
-            setInlineErrors({
-              ...inlineErrors,
-              [subName]: subErrors,
-            });
-          });
+          setInlineErrors(prevInlineErrors => ({
+            ...prevInlineErrors,
+            [subName]: subErrors,
+          }));
         }
       };
 
@@ -120,7 +124,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean,
-  ): any {
+  ): React.ReactNode {
     if (noStyle) {
       return baseChildren;
     }
@@ -212,13 +216,23 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
   const isRenderProps = typeof children === 'function';
 
+  // Record for real component render
+  const updateRef = React.useRef(0);
+  updateRef.current += 1;
+
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children);
+    return renderLayout(children) as JSX.Element;
+  }
+
+  const variables: Record<string, string> = {};
+  if (typeof label === 'string') {
+    variables.label = label;
   }
 
   return (
     <Field
       {...props}
+      messageVariables={variables}
       trigger={trigger}
       validateTrigger={validateTrigger}
       onReset={() => {
@@ -284,13 +298,16 @@ function FormItem(props: FormItemProps): React.ReactElement {
             'Must set `name` or use render props when `dependencies` is set.',
           );
         } else if (React.isValidElement(children)) {
+          warning(
+            children.props.defaultValue === undefined,
+            'Form.Item',
+            '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
+          );
+
           const childProps = { ...children.props, ...mergedControl };
 
           // We should keep user origin event handler
-          const triggers = new Set<string>();
-          [...toArray(trigger), ...toArray(validateTrigger)].forEach(eventName => {
-            triggers.add(eventName);
-          });
+          const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
 
           triggers.forEach(eventName => {
             childProps[eventName] = (...args: any[]) => {
@@ -299,7 +316,14 @@ function FormItem(props: FormItemProps): React.ReactElement {
             };
           });
 
-          childNode = React.cloneElement(children, childProps);
+          childNode = (
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={updateRef.current}
+            >
+              {React.cloneElement(children, childProps)}
+            </MemoInput>
+          );
         } else if (isRenderProps && shouldUpdate && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
@@ -308,7 +332,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children as any;
+          childNode = children;
         }
 
         return renderLayout(childNode, fieldId, meta, isRequired);

@@ -1,0 +1,208 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
+@picker-cell-inner-cls: ~'@{picker-prefix-cls}-cell-inner';
+
+.@{picker-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-suffix {
+    .@{picker-prefix-cls}-rtl & {
+      margin-right: @padding-xs / 2;
+      margin-left: 0;
+    }
+  }
+
+  &-clear {
+    .@{picker-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  &-separator {
+    .@{picker-prefix-cls}-rtl & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-header {
+    &-view {
+      button {
+        &:not(:first-child) {
+          .@{picker-prefix-cls}-panel-rtl & {
+            margin-right: @padding-xs;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // ======================== Range =========================
+  &-range {
+    // Clear
+    .@{picker-prefix-cls}-clear {
+      .@{picker-prefix-cls}-rtl& {
+        right: auto;
+        left: @input-padding-horizontal-base;
+      }
+    }
+  }
+
+  // ======================== Ranges ========================
+  &-ranges {
+    .@{picker-prefix-cls}-dropdown-rtl & {
+      text-align: right;
+    }
+
+    .@{picker-prefix-cls}-ok {
+      .@{picker-prefix-cls}-dropdown-rtl & {
+        float: left;
+        margin-right: @padding-xs;
+        margin-left: 0;
+      }
+    }
+  }
+
+  // ======================== Panel ========================
+  &-panel {
+    &-rtl {
+      direction: rtl;
+    }
+  }
+
+  &-prev-icon,
+  &-super-prev-icon {
+    .@{picker-prefix-cls}-panel-rtl & {
+      transform: rotate(135deg);
+    }
+  }
+
+  &-next-icon,
+  &-super-next-icon {
+    .@{picker-prefix-cls}-panel-rtl & {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-cell {
+    .picker-cell-inner(~'@{picker-cell-inner-cls}');
+  }
+
+  .picker-cell-inner(@cellClassName) {
+    .@{cellClassName} {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      min-width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: @border-radius-base;
+      transition: background @animation-duration-slow, border @animation-duration-slow;
+    }
+
+    &-in-view&-range-start::before {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 0;
+      }
+    }
+    &-in-view&-range-end::before {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 50%;
+      }
+    }
+    .@{picker-prefix-cls}-date-panel
+      &-in-view&-in-range&-range-hover-start
+      .@{cellClassName}::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: -6px - @border-width-base;
+      }
+    }
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: -6px - @border-width-base;
+        left: 0;
+      }
+    }
+    // Hover with range start & end
+    &-range-hover&-range-start::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 50%;
+      }
+    }
+    &-range-hover&-range-end::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 0;
+      }
+    }
+
+    // Edge start
+    tr > &-in-view&-range-hover:first-child::after,
+    tr > &-in-view&-range-hover-end:first-child::after,
+    &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
+    &-in-view&-range-hover-start::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 6px;
+        left: 0;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-left: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    // Edge end
+    tr > &-in-view&-range-hover:last-child::after,
+    tr > &-in-view&-range-hover-start:last-child::after,
+    &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
+    &-in-view&-range-hover-end::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 6px;
+        border-right: none;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-top-left-radius: @border-radius-base;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: @border-radius-base;
+      }
+    }
+
+    tr > &-in-view&-range-hover-start:last-child::after,
+    &-in-view&-range-hover-start&-in-view&-range-hover-end::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 6px;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-top-right-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+      }
+    }
+
+    tr > &-in-view&-range-hover-end:first-child::after {
+      .@{picker-prefix-cls}-panel-rtl & {
+        left: 6px;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-top-left-radius: @border-radius-base;
+        border-bottom-left-radius: @border-radius-base;
+      }
+    }
+  }
+
+  &-time-panel {
+    .@{picker-prefix-cls}-panel-rtl & {
+      direction: ltr;
+    }
+  }
+}

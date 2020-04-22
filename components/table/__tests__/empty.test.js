@@ -51,7 +51,9 @@ describe('Table', () => {
   });
 
   it('renders empty table with fixed columns', () => {
-    const wrapper = render(<Table dataSource={[]} columns={columnsFixed} pagination={false} />);
+    const wrapper = render(
+      <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 

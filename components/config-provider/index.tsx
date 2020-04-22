@@ -39,15 +39,22 @@ export interface ConfigProviderProps {
   };
   componentSize?: SizeType;
   direction?: 'ltr' | 'rtl';
+  space?: {
+    size?: SizeType | number;
+  };
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
-  getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
-    const { prefixCls = 'ant' } = this.props;
+  getPrefixClsWrapper = (context: ConfigConsumerProps) => {
+    return (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = this.props;
 
-    if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) return customizePrefixCls;
 
-    return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    };
   };
 
   renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
@@ -62,15 +69,17 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       pageHeader,
       componentSize,
       direction,
+      space,
     } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: this.getPrefixCls,
+      getPrefixCls: this.getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
       direction,
+      space,
     };
 
     if (getPopupContainer) {
@@ -88,10 +97,17 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     let childNode = children;
 
     // Additional Form provider
+    let validateMessages: ValidateMessages = {};
+
+    if (locale && locale.Form && locale.Form.defaultValidateMessages) {
+      validateMessages = locale.Form.defaultValidateMessages;
+    }
     if (form && form.validateMessages) {
-      childNode = (
-        <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
-      );
+      validateMessages = { ...validateMessages, ...form.validateMessages };
+    }
+
+    if (Object.keys(validateMessages).length > 0) {
+      childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
     }
 
     return (

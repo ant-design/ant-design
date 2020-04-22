@@ -1,0 +1,163 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+//== Style for input-group: input with label, with button or dropdown...
+.@{ant-prefix}-input-group {
+  &-wrapper {
+    &-rtl {
+      direction: rtl;
+    }
+  }
+  &-rtl {
+    direction: rtl;
+  }
+}
+
+// affix
+@input-affix-margin: 4px;
+
+.@{ant-prefix}-input {
+  &-affix-wrapper-rtl {
+    .@{ant-prefix}-input-prefix {
+      margin: 0 0 0 @input-affix-margin;
+    }
+
+    .@{ant-prefix}-input-suffix {
+      margin: 0 @input-affix-margin 0 0;
+    }
+  }
+}
+
+// mixin
+@input-rtl-cls: ~'@{ant-prefix}-input-rtl';
+
+.active() {
+  .@{input-rtl-cls} & {
+    border-right-width: 0;
+    border-left-width: @border-width-base !important;
+  }
+}
+
+.hover() {
+  .@{input-rtl-cls} & {
+    border-right-width: 0;
+    border-left-width: @border-width-base !important;
+  }
+}
+
+.input() {
+  &-rtl {
+    direction: rtl;
+  }
+}
+
+// label input
+.input-group(@inputClass) {
+  > .@{inputClass}-rtl:first-child,
+  &-rtl &-addon:first-child {
+    border-radius: @border-radius-base;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &-addon:first-child {
+    .@{inputClass}-group-rtl & {
+      border-right: @border-width-base @border-style-base @input-border-color;
+      border-left: 0;
+    }
+  }
+
+  &-addon:last-child {
+    .@{inputClass}-group-rtl & {
+      border-right: 0;
+      border-left: @border-width-base @border-style-base @input-border-color;
+    }
+  }
+
+  > .@{inputClass}:last-child,
+  &-addon:last-child {
+    .@{inputClass}-group-rtl & {
+      border-radius: @border-radius-base;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &&-compact {
+    & > *:not(:last-child) {
+      .@{inputClass}-group-rtl& {
+        margin-right: 0;
+        margin-left: -@border-width-base;
+        border-left-width: @border-width-base;
+      }
+    }
+
+    & > *:first-child,
+    & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
+    & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-mention-wrapper:first-child .@{ant-prefix}-mention-editor,
+    & > .@{ant-prefix}-time-picker:first-child .@{ant-prefix}-time-picker-input {
+      .@{inputClass}-group-rtl& {
+        border-top-left-radius: 0;
+        border-top-right-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    & > *:last-child,
+    & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selector,
+    & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-select-auto-complete:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-mention-wrapper:last-child .@{ant-prefix}-mention-editor,
+    & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
+      .@{inputClass}-group-rtl& {
+        border-left-width: @border-width-base;
+        border-top-left-radius: @border-radius-base;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: @border-radius-base;
+      }
+    }
+  }
+}
+
+// search-input
+@search-rtl-cls: ~'@{search-prefix}-rtl';
+
+.@{search-prefix} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-enter-button {
+    input {
+      .@{search-rtl-cls}& {
+        border: @border-width-base @border-style-base @input-border-color;
+        border-left: 0;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: @input-hover-border-color;
+      }
+    }
+
+    & + .@{ant-prefix}-input-group-addon,
+    input + .@{ant-prefix}-input-group-addon {
+      .@{search-rtl-cls}& {
+        .@{search-prefix}-button {
+          width: 100%;
+          border-top-left-radius: @border-radius-base;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: @border-radius-base;
+        }
+      }
+    }
+  }
+}

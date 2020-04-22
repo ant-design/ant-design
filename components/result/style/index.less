@@ -22,10 +22,6 @@
     color: @warning-color;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   // Exception Status image
   &-image {
     width: 250px;
@@ -62,16 +58,8 @@
     > * {
       margin-right: 8px;
 
-      .@{result-prefix-cls}-rtl & {
-        margin-right: 0;
-        margin-left: 8px;
-      }
-
       &:last-child {
         margin-right: 0;
-        .@{result-prefix-cls}-rtl & {
-          margin-left: 8px;
-        }
       }
     }
   }
@@ -82,3 +70,5 @@
     background-color: @background-color-light;
   }
 }
+
+@import './rtl';

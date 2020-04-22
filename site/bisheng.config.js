@@ -14,7 +14,6 @@ function alertBabelConfig(rules) {
       if (rule.options.plugins.indexOf(replaceLib) === -1) {
         rule.options.plugins.push(replaceLib);
       }
-      // eslint-disable-next-line
       rule.options.plugins = rule.options.plugins.filter(
         plugin => !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1,
       );
@@ -106,7 +105,6 @@ module.exports = {
     javascriptEnabled: true,
   },
   webpackConfig(config) {
-    // eslint-disable-next-line
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
@@ -116,24 +114,26 @@ module.exports = {
       'react-intl': 'react-intl/dist',
     };
 
-    // eslint-disable-next-line
     config.externals = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
     if (usePreact) {
-      // eslint-disable-next-line
-      config.resolve.alias = Object.assign({}, config.resolve.alias, {
+      config.resolve.alias = {
+        ...config.resolve.alias,
         react: 'preact-compat',
         'react-dom': 'preact-compat',
         'create-react-class': 'preact-compat/lib/create-react-class',
         'react-router': 'react-router',
-      });
+      };
     }
 
     if (isDev) {
-      // eslint-disable-next-line
       config.devtool = 'source-map';
+
+      // Resolve use react hook fail when yarn link or npm link
+      // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
+      config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
     }
 
     alertBabelConfig(config.module.rules);

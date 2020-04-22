@@ -11,7 +11,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-checkbox-rtl"
       >
         <span
           class="ant-checkbox"
@@ -154,7 +154,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-checkbox-rtl"
       >
         <span
           class="ant-checkbox"
@@ -951,7 +951,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 type="button"
               >
                 <ForwardRef(RightOutlined)>
-                  <ForwardRef(AntdIcon)
+                  <AntdIcon
                     icon={
                       Object {
                         "icon": Object {
@@ -1021,7 +1021,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </ForwardRef(AntdIcon)>
+                  </AntdIcon>
                 </ForwardRef(RightOutlined)>
               </button>
             </Wave>
@@ -1045,7 +1045,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 type="button"
               >
                 <ForwardRef(LeftOutlined)>
-                  <ForwardRef(AntdIcon)
+                  <AntdIcon
                     icon={
                       Object {
                         "icon": Object {
@@ -1115,7 +1115,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </ForwardRef(AntdIcon)>
+                  </AntdIcon>
                 </ForwardRef(LeftOutlined)>
               </button>
             </Wave>

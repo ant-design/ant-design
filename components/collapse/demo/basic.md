@@ -45,7 +45,7 @@ ReactDOM.render(
 ```
 
 <style>
-p {
+[data-theme="compact"] p, p {
   margin: 0;
 }
 </style>

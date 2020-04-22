@@ -88,6 +88,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
         this.setState({ resizeStatus: RESIZE_STATUS_RESIZED }, () => {
           this.resizeFrameId = raf(() => {
             this.setState({ resizeStatus: RESIZE_STATUS_NONE });
+            this.fixFirefoxAutoScroll();
           });
         });
       });
@@ -97,6 +98,21 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   componentWillUnmount() {
     raf.cancel(this.nextFrameActionId);
     raf.cancel(this.resizeFrameId);
+  }
+
+  // https://github.com/ant-design/ant-design/issues/21870
+  fixFirefoxAutoScroll() {
+    try {
+      if (document.activeElement === this.textArea) {
+        const currentStart = this.textArea.selectionStart;
+        const currentEnd = this.textArea.selectionEnd;
+        this.textArea.setSelectionRange(currentStart, currentEnd);
+      }
+    } catch (e) {
+      // Fix error in Chrome:
+      // Failed to read the 'selectionStart' property from 'HTMLInputElement'
+      // http://stackoverflow.com/q/21177489/3040605
+    }
   }
 
   renderTextArea = () => {

@@ -22,18 +22,6 @@
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
         right: 28px;
-
-        .@{form-prefix-cls}-rtl & {
-          right: auto;
-          left: 28px;
-        }
-      }
-    }
-
-    .@{ant-prefix}-input-password-icon {
-      .@{form-prefix-cls}-rtl & {
-        margin-right: 0;
-        margin-left: 18px;
       }
     }
 
@@ -52,41 +40,21 @@
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection__clear {
       right: 28px;
-
-      .@{form-prefix-cls}-rtl & {
-        right: auto;
-        left: 28px;
-      }
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
-
-      .@{form-prefix-cls}-rtl & {
-        padding-right: 0;
-        padding-left: 42px;
-      }
     }
 
     // ======================= Cascader ========================
     .@{ant-prefix}-cascader-picker {
       &-arrow {
         margin-right: 17px;
-
-        .@{form-prefix-cls}-rtl & {
-          margin-right: 0;
-          margin-left: 17px;
-        }
       }
       &-clear {
         right: 28px;
-
-        .@{form-prefix-cls}-rtl & {
-          right: auto;
-          left: 28px;
-        }
       }
     }
 
@@ -126,11 +94,6 @@
           animation: zoomIn 0.3s @ease-out-back;
           pointer-events: none;
 
-          .@{form-prefix-cls}-rtl & {
-            right: auto;
-            left: 0;
-          }
-
           & svg {
             position: absolute;
             top: 0;
@@ -162,7 +125,7 @@
     }
 
     //select
-    .@{ant-prefix}-select {
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
       .@{ant-prefix}-select-selector {
         border-color: @warning-color !important;
       }
@@ -200,7 +163,7 @@
     }
 
     //select
-    .@{ant-prefix}-select {
+    .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
       .@{ant-prefix}-select-selector {
         border-color: @error-color !important;
       }

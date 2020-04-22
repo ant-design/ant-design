@@ -4,6 +4,7 @@ exports[`Tooltip rtl render component should be rendered correctly in RTL direct
 
 exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <span
+  class="ant-tooltip-disabled-compatible-wrapper"
   style="display: inline-block; cursor: not-allowed;"
 >
   <button
@@ -17,6 +18,7 @@ exports[`Tooltip should hide when mouse leave antd disabled component Button 1`]
 
 exports[`Tooltip should hide when mouse leave antd disabled component Checkbox 1`] = `
 <span
+  class="ant-tooltip-disabled-compatible-wrapper"
   style="display: inline-block; cursor: not-allowed;"
 >
   <label
@@ -42,6 +44,7 @@ exports[`Tooltip should hide when mouse leave antd disabled component Checkbox 1
 
 exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
 <span
+  class="ant-tooltip-disabled-compatible-wrapper"
   style="display: inline-block; cursor: not-allowed;"
 >
   <button

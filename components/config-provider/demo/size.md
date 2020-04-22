@@ -47,10 +47,16 @@ const FormSizeDemo = () => {
           <Input />
         </div>
         <div className="example">
+          <Input.Search />
+        </div>
+        <div className="example">
           <Select defaultValue="demo" options={[{ value: 'demo' }]} />
         </div>
         <div className="example">
           <DatePicker />
+        </div>
+        <div className="example">
+          <DatePicker.RangePicker />
         </div>
         <div className="example">
           <Button>Button</Button>

@@ -2,7 +2,7 @@
 
 exports[`InputNumber rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-input-number"
+  class="ant-input-number ant-input-number-rtl"
 >
   <div
     class="ant-input-number-handler-wrap"

@@ -9,10 +9,6 @@
   padding: @page-header-padding-vertical @page-header-padding;
   background-color: @component-background;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-ghost {
     background-color: @page-header-ghost-bg;
   }
@@ -26,17 +22,9 @@
   }
 
   &-back {
-    float: left;
-    margin: 8px 0;
-    margin-right: 16px;
+    margin-right: @margin-md;
     font-size: 16px;
     line-height: 1;
-
-    .@{pageheader-prefix-cls}-rtl & {
-      float: right;
-      margin-right: 0;
-      margin-left: 16px;
-    }
 
     &-button {
       .operation-unit();
@@ -47,109 +35,77 @@
 
   .@{ant-prefix}-divider-vertical {
     height: 14px;
-    margin: 0 12px;
+    margin: 0 @margin-sm;
     vertical-align: middle;
   }
 
   .@{ant-prefix}-breadcrumb + &-heading {
-    margin-top: 8px;
+    margin-top: @margin-xs;
+  }
+
+  .text-overflow-ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &-heading {
-    width: 100%;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+
+    &-left {
+      display: flex;
+      align-items: center;
+      margin: (@margin-xs / 2) 0;
+      overflow: hidden;
+    }
+
     &-title {
-      display: block;
-      float: left;
+      margin-right: @margin-sm;
       margin-bottom: 0;
-      padding-right: 12px;
       color: @heading-color;
       font-weight: 600;
       font-size: @heading-4-size;
       line-height: 32px;
-
-      .@{pageheader-prefix-cls}-rtl & {
-        float: right;
-        padding-right: 0;
-        padding-left: 12px;
-      }
+      .text-overflow-ellipsis;
     }
 
     .@{ant-prefix}-avatar {
-      float: left;
-      margin-right: 12px;
-
-      .@{pageheader-prefix-cls}-rtl & {
-        float: right;
-        margin-right: 0;
-        margin-left: 12px;
-      }
+      margin-right: @margin-sm;
     }
 
     &-sub-title {
-      float: left;
-      margin: 5px 0;
-      margin-right: 12px;
+      margin-right: @margin-sm;
       color: @text-color-secondary;
       font-size: 14px;
       line-height: 22px;
-
-      .@{pageheader-prefix-cls}-rtl & {
-        float: right;
-        margin-right: 0;
-        margin-left: 12px;
-      }
-    }
-
-    &-tags {
-      float: left;
-      margin: 4px 0;
-
-      .@{pageheader-prefix-cls}-rtl & {
-        float: right;
-      }
+      .text-overflow-ellipsis;
     }
 
     &-extra {
-      float: right;
-
-      .@{pageheader-prefix-cls}-rtl & {
-        float: left;
-      }
+      margin: (@margin-xs / 2) 0;
+      white-space: nowrap;
 
       > * {
-        margin-left: 8px;
-
-        .@{pageheader-prefix-cls}-rtl & {
-          margin-right: 8px;
-          margin-left: 0;
-        }
+        margin-left: @margin-sm;
+        white-space: unset;
       }
       > *:first-child {
         margin-left: 0;
-
-        .@{pageheader-prefix-cls}-rtl & {
-          margin-right: 0;
-        }
       }
     }
   }
 
   &-content {
-    padding-top: 12px;
-    overflow: hidden;
+    padding-top: @page-header-content-padding-vertical;
   }
 
   &-footer {
-    margin-top: 16px;
+    margin-top: @margin-md;
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
       .@{ant-prefix}-tabs-nav {
-        .@{pageheader-prefix-cls}-rtl & {
-          float: right;
-        }
-
         .@{ant-prefix}-tabs-tab {
           padding: @tabs-horizontal-padding-sm;
           font-size: 16px;
@@ -158,15 +114,9 @@
     }
   }
 
-  @media (max-width: @screen-sm) {
-    &-heading {
-      &-extra {
-        display: block;
-        float: unset;
-        width: 100%;
-        padding-top: 12px;
-        overflow: hidden;
-      }
-    }
+  &-compact &-heading {
+    flex-wrap: wrap;
   }
 }
+
+@import './rtl';

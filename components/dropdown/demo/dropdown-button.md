@@ -80,4 +80,8 @@ ReactDOM.render(
 #components-dropdown-demo-dropdown-button .ant-dropdown-button {
   margin: 0 8px 8px 0;
 }
+
+#components-dropdown-demo-dropdown-button .ant-btn-group-rtl.ant-dropdown-button {
+  margin: 0 0 8px 8px;
+}
 ```

@@ -38,6 +38,7 @@ cols: 1
 | title | 卡片标题 | string\|ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |
+| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
 
 ### Card.Grid
 

@@ -13,7 +13,6 @@
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-font-height: ceil(@font-size-base * @line-height-base);
-@form-item-label-height: @input-height-base;
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -22,10 +21,6 @@
   .@{form-prefix-cls}-text {
     display: inline-block;
     padding-right: 8px;
-  }
-
-  &-rtl {
-    direction: rtl;
   }
 
   // ================================================================
@@ -49,11 +44,13 @@
   }
 }
 
-.explainAndExtraDistance(@num) when (@num>=0) {
+.explainAndExtraDistance(@num) when (@num >= 0) {
   padding-top: floor(@num);
 }
-.explainAndExtraDistance(@num) when (@num<0) {
+
+.explainAndExtraDistance(@num) when (@num < 0) {
   margin-top: floor(@num);
+  margin-bottom: floor(@num);
 }
 
 // ================================================================
@@ -74,6 +71,7 @@
   // ==============================================================
   &-label {
     display: inline-block;
+    flex-grow: 0;
     overflow: hidden;
     white-space: nowrap;
     text-align: right;
@@ -136,6 +134,7 @@
   &-control {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
     &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
@@ -226,3 +225,5 @@
     transform: scale(1);
   }
 }
+
+@import './rtl';

@@ -2,13 +2,17 @@ import Pagination from 'rc-pagination/lib/locale/ru_RU';
 import DatePicker from '../date-picker/locale/ru_RU';
 import TimePicker from '../time-picker/locale/ru_RU';
 import Calendar from '../calendar/locale/ru_RU';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ru',
   Pagination,
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Пожалуйста выберите',
+  },
   Table: {
     filterTitle: 'Фильтр',
     filterConfirm: 'OK',
@@ -16,6 +20,11 @@ export default {
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
     sortTitle: 'Сортировка',
+    expand: 'Развернуть строку',
+    collapse: 'Свернуть строку',
+    triggerDesc: 'Нажмите для сортировки по убыванию',
+    triggerAsc: 'Нажмите для сортировки по возрастанию',
+    cancelSort: 'Нажмите, чтобы отменить сортировку',
   },
   Modal: {
     okText: 'OK',
@@ -41,6 +50,9 @@ export default {
   Empty: {
     description: 'Нет данных',
   },
+  Icon: {
+    icon: 'иконка',
+  },
   Text: {
     edit: 'редактировать',
     copy: 'копировать',
@@ -51,3 +63,5 @@ export default {
     back: 'назад',
   },
 };
+
+export default localeValues;

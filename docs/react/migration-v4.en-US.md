@@ -3,7 +3,7 @@ order: 8
 title: V3 to V4
 ---
 
-This document will help you upgrade from antd `3.x` version to antd `4.x` version. If you are using `2.x` or older version, please refer to the previous [upgrade document] (https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.en-US.md#300) to 3.x.
+This document will help you upgrade from antd `3.x` version to antd `4.x` version. If you are using `2.x` or older version, please refer to the previous [upgrade document](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.en-US.md#300) to 3.x.
 
 ## Upgrade preparation
 
@@ -119,16 +119,17 @@ const Demo = () => (
   - [Date cell className of Custom style demo](/components/date-picker/#components-date-picker-demo-date-render) changed from `ant-calendar-date` to `ant-picker-cell-inner`.
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
-  - `onBlur` no longer trigger value change.
-  - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
+  - `onBlur` no longer trigger value change and return React origin `event` object instead.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
+  - Select remove `dropdownMenuStyle` prop.
+  - Use `listHeight` to config popup height instead of `dropdownStyle`.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
 - Table rewrite.
-
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+- Pagination will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
 
 ```diff
 <Table

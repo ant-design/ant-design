@@ -5,6 +5,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import scrollTo from '../../_util/scrollTo';
+import { resetWarned } from '../../_util/warning';
 
 describe('Table.pagination', () => {
   const columns = [
@@ -60,10 +61,7 @@ describe('Table.pagination', () => {
     const wrapper = mount(createTable());
 
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy']);
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -91,17 +89,11 @@ describe('Table.pagination', () => {
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
     expect(scrollTo).toHaveBeenCalledTimes(1);
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
-    wrapper
-      .find('.ant-select-item')
-      .last()
-      .simulate('click');
+    wrapper.find('.ant-select-item').last().simulate('click');
     expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
@@ -116,10 +108,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -196,36 +185,18 @@ describe('Table.pagination', () => {
   });
 
   it('specify the position of pagination', () => {
-    const wrapper = mount(createTable({ pagination: { position: 'top' } }));
+    const wrapper = mount(createTable({ pagination: { position: ['topLeft'] } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(0)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: 'bottom' } });
+    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: ['bottomRight'] } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(1)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: 'both' } });
+    expect(wrapper.find('.ant-spin-container').childAt(1).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: ['topLeft', 'bottomRight'] } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(3);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(0)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    expect(
-      wrapper
-        .find('.ant-spin-container')
-        .childAt(2)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
+    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: ['invalid'] } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 
   /**
@@ -240,12 +211,14 @@ describe('Table.pagination', () => {
 
   it('ajax render should keep display by the dataSource', () => {
     const onChange = jest.fn();
+    const onPaginationChange = jest.fn();
 
     const wrapper = mount(
       createTable({
         onChange,
         pagination: {
           total: 200,
+          onChange: onPaginationChange,
         },
       }),
     );
@@ -254,6 +227,20 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-pagination .ant-pagination-item-2').simulate('click');
     expect(onChange.mock.calls[0][0].current).toBe(2);
+    expect(onChange).toHaveBeenCalledWith(
+      { current: 2, pageSize: 10, total: 200 },
+      {},
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
+        ],
+      },
+    );
+    expect(onPaginationChange).toHaveBeenCalledWith(2, 10);
 
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
   });
@@ -274,17 +261,9 @@ describe('Table.pagination', () => {
     );
     wrapper.find('.ant-select-selector').simulate('mousedown');
     jest.runAllTimers();
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
-    dropdownWrapper
-      .find('.ant-select-item-option')
-      .at(3)
-      .simulate('click');
+    dropdownWrapper.find('.ant-select-item-option').at(3).simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();
     expect(onChange).toHaveBeenCalled();
     jest.useRealTimers();
@@ -319,5 +298,36 @@ describe('Table.pagination', () => {
   it('pagination should ignore invalidate total', () => {
     const wrapper = mount(createTable({ pagination: { total: null } }));
     expect(wrapper.find('.ant-pagination-item-1').length).toBeTruthy();
+  });
+
+  it('renders pagination topLeft and bottomRight', () => {
+    const wrapper = mount(createTable({ pagination: ['topLeft', 'bottomRight'] }));
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('dynamic warning', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const dynamicData = [];
+    for (let i = 0; i < 15; i += 1) {
+      dynamicData.push({
+        key: i,
+        name: i,
+      });
+    }
+
+    const wrapper = mount(
+      createTable({
+        dataSource: dynamicData,
+        pagination: { total: 100, pageSize: 10, current: 2 },
+      }),
+    );
+
+    expect(wrapper.find('tbody tr')).toHaveLength(5);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Table] `dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
+    );
   });
 });

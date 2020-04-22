@@ -10,37 +10,35 @@ export interface SkeletonElementProps {
   active?: boolean;
 }
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Element extends React.Component<SkeletonElementProps, any> {
-  render() {
-    const { prefixCls, className, style, size, shape } = this.props;
+const Element = (props: SkeletonElementProps) => {
+  const { prefixCls, className, style, size, shape } = props;
 
-    const sizeCls = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-    });
+  const sizeCls = classNames({
+    [`${prefixCls}-lg`]: size === 'large',
+    [`${prefixCls}-sm`]: size === 'small',
+  });
 
-    const shapeCls = classNames({
-      [`${prefixCls}-circle`]: shape === 'circle',
-      [`${prefixCls}-square`]: shape === 'square',
-      [`${prefixCls}-round`]: shape === 'round',
-    });
+  const shapeCls = classNames({
+    [`${prefixCls}-circle`]: shape === 'circle',
+    [`${prefixCls}-square`]: shape === 'square',
+    [`${prefixCls}-round`]: shape === 'round',
+  });
 
-    const sizeStyle: React.CSSProperties =
-      typeof size === 'number'
-        ? {
-            width: size,
-            height: size,
-            lineHeight: `${size}px`,
-          }
-        : {};
-    return (
-      <span
-        className={classNames(prefixCls, className, sizeCls, shapeCls)}
-        style={{ ...sizeStyle, ...style }}
-      />
-    );
-  }
-}
+  const sizeStyle: React.CSSProperties =
+    typeof size === 'number'
+      ? {
+        width: size,
+        height: size,
+        lineHeight: `${size}px`,
+      }
+      : {};
+  return (
+    <span
+      className={classNames(prefixCls, className, sizeCls, shapeCls)}
+      style={{ ...sizeStyle, ...style }}
+    />
+  );
+};
+
 
 export default Element;

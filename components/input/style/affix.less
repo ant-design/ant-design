@@ -8,6 +8,12 @@
     .input();
     display: inline-flex;
 
+    &-disabled {
+      .@{ant-prefix}-input[disabled] {
+        background: transparent;
+      }
+    }
+
     > input.@{ant-prefix}-input {
       padding: 0;
       border: none;
@@ -16,6 +22,12 @@
       &:focus {
         box-shadow: none;
       }
+    }
+
+    &::before {
+      width: 0;
+      visibility: hidden;
+      content: '\a0';
     }
   }
 
@@ -30,16 +42,5 @@
 
   &-suffix {
     margin-left: @input-affix-margin;
-  }
-
-  // ======================== RTL ========================
-  &-affix-wrapper-rtl {
-    .@{ant-prefix}-input-prefix {
-      margin: 0 0 0 @input-affix-margin;
-    }
-
-    .@{ant-prefix}-input-suffix {
-      margin: 0 @input-affix-margin 0 0;
-    }
   }
 }

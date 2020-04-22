@@ -1,6 +1,5 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@dialog-wrap-rtl-cls: ~'@{dialog-prefix-cls}-wrap-rtl';
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -22,10 +21,6 @@
     overflow: auto;
     outline: 0;
     -webkit-overflow-scrolling: touch;
-
-    &-rtl {
-      direction: rtl;
-    }
   }
 
   &-title {
@@ -63,18 +58,13 @@
     cursor: pointer;
     transition: color 0.3s;
 
-    .@{dialog-wrap-rtl-cls} & {
-      right: initial;
-      left: 0;
-    }
-
     &-x {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: @modal-header-close-size;
+      height: @modal-header-close-size;
       font-size: @font-size-lg;
       font-style: normal;
-      line-height: 56px;
+      line-height: @modal-header-close-size;
       text-align: center;
       text-transform: none;
       text-rendering: auto;
@@ -88,7 +78,7 @@
   }
 
   &-header {
-    padding: 16px 24px;
+    padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
     border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;
@@ -109,17 +99,9 @@
     border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
 
-    .@{dialog-wrap-rtl-cls} & {
-      text-align: left;
-    }
     button + button {
       margin-bottom: 0;
       margin-left: 8px;
-
-      .@{dialog-wrap-rtl-cls} & {
-        margin-right: 8px;
-        margin-left: 0;
-      }
     }
   }
 
@@ -166,10 +148,6 @@
     display: inline-block;
     text-align: left;
     vertical-align: middle;
-
-    .@{dialog-wrap-rtl-cls}& {
-      text-align: right;
-    }
   }
 }
 

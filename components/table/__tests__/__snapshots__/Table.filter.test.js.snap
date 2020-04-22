@@ -72,10 +72,10 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -194,10 +194,10 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -324,10 +324,10 @@ exports[`Table.filter renders filter correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -508,16 +508,23 @@ exports[`Table.filter renders menu correctly 1`] = `
       <div
         class="ant-table-filter-dropdown-btns"
       >
-        <a
-          class="ant-table-filter-dropdown-link confirm"
+        <button
+          class="ant-btn ant-btn-link ant-btn-sm"
+          disabled=""
+          type="button"
         >
-          OK
-        </a>
-        <a
-          class="ant-table-filter-dropdown-link clear"
+          <span>
+            Reset
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary ant-btn-sm"
+          type="button"
         >
-          Reset
-        </a>
+          <span>
+            OK
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -605,16 +612,23 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       <div
         class="ant-table-filter-dropdown-btns"
       >
-        <a
-          class="ant-table-filter-dropdown-link confirm"
+        <button
+          class="ant-btn ant-btn-link ant-btn-sm"
+          disabled=""
+          type="button"
         >
-          OK
-        </a>
-        <a
-          class="ant-table-filter-dropdown-link clear"
+          <span>
+            Reset
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary ant-btn-sm"
+          type="button"
         >
-          Reset
-        </a>
+          <span>
+            OK
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -643,10 +657,10 @@ exports[`Table.filter should support getPopupContainer 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -769,16 +783,23 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                               <div
                                 class="ant-table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="ant-table-filter-dropdown-link confirm"
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="ant-table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -869,10 +890,10 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-              </colgroup>
-              <thead>
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class="ant-table-cell"
@@ -995,16 +1016,23 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                               <div
                                 class="ant-table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="ant-table-filter-dropdown-link confirm"
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="ant-table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>

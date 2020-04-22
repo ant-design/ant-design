@@ -20,6 +20,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
 
 export interface RadioGroupState {
   value: any;
+  prevPropValue: any;
 }
 
 export interface RadioGroupContextProps {

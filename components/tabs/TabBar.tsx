@@ -12,7 +12,7 @@ import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
     animated: true,
-    type: 'line',
+    type: 'line' as TabsProps['type'],
   };
 
   renderTabBar = ({ direction }: ConfigConsumerProps) => {

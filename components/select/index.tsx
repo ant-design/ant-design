@@ -147,6 +147,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
               listItemHeight={listItemHeight}
               mode={mode}
               prefixCls={prefixCls}
+              direction={direction}
               inputIcon={suffixIcon}
               menuItemSelectedIcon={itemIcon}
               removeIcon={removeIcon}

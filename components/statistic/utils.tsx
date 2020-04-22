@@ -36,7 +36,7 @@ const timeUnits: [string, number][] = [
 export function formatTimeStr(duration: number, format: string) {
   let leftDuration: number = duration;
 
-  const escapeRegex = /\[[^\]]*\]/g;
+  const escapeRegex = /\[[^\]]*]/g;
   const keepList: string[] = (format.match(escapeRegex) || []).map(str => str.slice(1, -1));
   const templateText = format.replace(escapeRegex, '[]');
 

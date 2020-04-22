@@ -1,9 +1,10 @@
 // mixins for button
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
-  @padding-vertical: round((@height - @font-size * @line-height-base) / 2 * 10) / 10 -
-    @border-width-base;
-
+  @padding-vertical: max(
+    round((@height - @font-size * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+    0
+  );
   height: @height;
   padding: @padding-vertical @padding-horizontal;
   font-size: @font-size;
@@ -253,6 +254,7 @@
     .button-size(
       @btn-height-sm; @btn-padding-horizontal-sm; @btn-font-size-sm; @btn-border-radius-sm
     );
+    line-height: @btn-height-sm - 2px;
   }
 }
 // primary button style
@@ -369,14 +371,23 @@
 // square button: the content only contains icon
 .btn-square(@btnClassName: btn) {
   .square(@btn-square-size);
-  .button-size(@btn-square-size; 0; @font-size-base + 2px; @btn-border-radius-base);
+  .button-size(@btn-square-size; 0; @btn-square-only-icon-size; @btn-border-radius-base);
+  & > * {
+    font-size: @btn-square-only-icon-size;
+  }
   &.@{btnClassName}-lg {
     .square(@btn-square-size-lg);
-    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + 2px; @btn-border-radius-base);
+    .button-size(@btn-square-size-lg; 0; @btn-square-only-icon-size-lg; @btn-border-radius-base);
+    & > * {
+      font-size: @btn-square-only-icon-size-lg;
+    }
   }
   &.@{btnClassName}-sm {
     .square(@btn-square-size-sm);
-    .button-size(@btn-square-size-sm; 0; @font-size-base; @btn-border-radius-base);
+    .button-size(@btn-square-size-sm; 0; @btn-square-only-icon-size-sm; @btn-border-radius-base);
+    & > * {
+      font-size: @btn-square-only-icon-size-sm;
+    }
   }
 }
 // circle button: the content only contains icon
@@ -407,19 +418,12 @@
   & + .@{btnClassName},
   & + & {
     margin-left: -1px;
-    .@{btnClassName}-rtl& {
-      margin-right: -1px;
-      margin-left: auto;
-    }
   }
   .@{btnClassName}-primary + .@{btnClassName}:not(.@{btnClassName}-primary):not([disabled]) {
     border-left-color: transparent;
   }
   .@{btnClassName} {
     border-radius: 0;
-  }
-  &.@{btnClassName}-group-rtl {
-    direction: rtl;
   }
   > .@{btnClassName}:first-child,
   > span:first-child > .@{btnClassName} {
@@ -435,23 +439,11 @@
   > span:first-child:not(:last-child) > .@{btnClassName} {
     border-top-left-radius: @btn-border-radius-base;
     border-bottom-left-radius: @btn-border-radius-base;
-    .@{btnClassName}-group-rtl& {
-      border-top-left-radius: 0;
-      border-top-right-radius: @btn-border-radius-base;
-      border-bottom-right-radius: @btn-border-radius-base;
-      border-bottom-left-radius: 0;
-    }
   }
   > .@{btnClassName}:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .@{btnClassName} {
     border-top-right-radius: @btn-border-radius-base;
     border-bottom-right-radius: @btn-border-radius-base;
-    .@{btnClassName}-group-rtl& {
-      border-top-left-radius: @btn-border-radius-base;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: @btn-border-radius-base;
-    }
   }
   &-sm {
     > .@{btnClassName}:only-child {
@@ -464,23 +456,11 @@
     > span:first-child:not(:last-child) > .@{btnClassName} {
       border-top-left-radius: @btn-border-radius-sm;
       border-bottom-left-radius: @btn-border-radius-sm;
-      .@{btnClassName}-group-rtl& {
-        border-top-left-radius: 0;
-        border-top-right-radius: @btn-border-radius-sm;
-        border-bottom-right-radius: @btn-border-radius-sm;
-        border-bottom-left-radius: 0;
-      }
     }
     > .@{btnClassName}:last-child:not(:first-child),
     > span:last-child:not(:first-child) > .@{btnClassName} {
       border-top-right-radius: @btn-border-radius-sm;
       border-bottom-right-radius: @btn-border-radius-sm;
-      .@{btnClassName}-group-rtl& {
-        border-top-left-radius: @btn-border-radius-sm;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: @btn-border-radius-sm;
-      }
     }
   }
   & > & {
