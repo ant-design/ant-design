@@ -10,7 +10,7 @@ import { sleep } from '../../../tests/utils';
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider, true, false);
+  focusTest(Slider, { refFocus: true, inputFocus: false });
 
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
