@@ -1,27 +1,29 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
-import { spyElementPrototypes } from '../../__tests__/util/domHook';
 import { sleep } from '../../../tests/utils';
 
 const { Link } = Anchor;
 
 describe('Anchor Render', () => {
-  const getBoundingClientRectMock = jest.fn(() => ({
-    width: 100,
-    height: 100,
-    top: 1000,
-  }));
-  const getClientRectsMock = jest.fn(() => ({
-    length: 1,
-  }));
-  const headingSpy = spyElementPrototypes(HTMLHeadingElement, {
-    getBoundingClientRect: getBoundingClientRectMock,
-    getClientRects: getClientRectsMock,
+  const getBoundingClientRectMock = jest.spyOn(
+    HTMLHeadingElement.prototype,
+    'getBoundingClientRect',
+  );
+  const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
+
+  beforeAll(() => {
+    getBoundingClientRectMock.mockReturnValue({
+      width: 100,
+      height: 100,
+      top: 1000,
+    });
+    getClientRectsMock.mockReturnValue({ length: 1 });
   });
 
   afterAll(() => {
-    headingSpy.mockRestore();
+    getBoundingClientRectMock.mockRestore();
+    getClientRectsMock.mockRestore();
   });
 
   it('Anchor render perfectly', () => {

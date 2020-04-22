@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import Affix from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
-import { spyElementPrototype } from '../../__tests__/util/domHook';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 
@@ -53,7 +52,7 @@ describe('Affix Render', () => {
   rtlTest(Affix);
 
   let wrapper;
-  let domMock;
+  const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   const classRect: any = {
     container: {
@@ -63,7 +62,7 @@ describe('Affix Render', () => {
   };
 
   beforeAll(() => {
-    domMock = spyElementPrototype(HTMLElement, 'getBoundingClientRect', function mockBounding() {
+    domMock.mockImplementation(function fn(this: HTMLElement) {
       return (
         classRect[this.className] || {
           top: 0,
