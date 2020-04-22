@@ -12,7 +12,7 @@ describe('PageHeader', () => {
   const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   beforeAll(() => {
-    mockGetBoundingClientRect.mockImplementation(() => ({ width: 100 }));
+    mockGetBoundingClientRect.mockReturnValue({ width: 100 });
   });
 
   afterAll(() => {

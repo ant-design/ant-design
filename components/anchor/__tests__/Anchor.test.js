@@ -13,12 +13,12 @@ describe('Anchor Render', () => {
   const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
 
   beforeAll(() => {
-    getBoundingClientRectMock.mockImplementation(() => ({
+    getBoundingClientRectMock.mockReturnValue({
       width: 100,
       height: 100,
       top: 1000,
-    }));
-    getClientRectsMock.mockImplementation(() => ({ length: 1 }));
+    });
+    getClientRectsMock.mockReturnValue({ length: 1 });
   });
 
   afterAll(() => {
