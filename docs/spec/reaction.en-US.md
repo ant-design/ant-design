@@ -11,7 +11,7 @@ While we can't literally extend Newton's law to the world of user interfaces, we
 
 While there is a possibility of too much feedback (or, more accurately, too much of the wrong feedback—a concept we will discuss in the upcoming chapters), a system with little or no feedback feels sluggish and thickheaded.
 
-> ** Newton's Third Law of Motion **: For every action, there is an equal and opposite reaction, from Wikipedia.
+> **Newton's Third Law of Motion**: For every action, there is an equal and opposite reaction, from Wikipedia.
 
 ---
 

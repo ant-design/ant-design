@@ -33,13 +33,13 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*D-8wTbCA1REAAAAAAAAAAABkARQnAQ">
 
-兼顾浏览性与展示性。垂直排列，趋向于展示对象的基础概述，有层次地展示内容，适合快速扫读。特别当展示空间存在限制，如较小的弹窗、侧栏、下拉面板等容器中，使用列表。（[待开发的版本](https://yuque.antfin-inc.com/bigfish/fqm0ux/lgo878)）
+兼顾浏览性与展示性。垂直排列，趋向于展示对象的基础概述，有层次地展示内容，适合快速扫读。特别当展示空间存在限制，如较小的弹窗、侧栏、下拉面板等容器中，使用列表。
 
 ### 卡片列表 Card list
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fu2gQ6DQaGgAAAAAAAAAAABkARQnAQ">
 
-强调展示性。网格布局无特定浏览顺序，每个对象拥有更平等的展示机会，网格布局在页面中更具吸引力，适合突出对象时使用。（[待开发的版本](https://yuque.antfin-inc.com/bigfish/fqm0ux/cwtl6v)）
+强调展示性。网格布局无特定浏览顺序，每个对象拥有更平等的展示机会，网格布局在页面中更具吸引力，适合突出对象时使用。
 
 ## 操作行为
 
@@ -115,7 +115,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i6PJT6ArtcgAAAAAAAAAAABkARQnAQ">
 
-当用户勾选条目后，触发批量操作模式，列表工具栏呼出批量操作工具条。[更多模式](https://yuque.antfin-inc.com/bigfish/fqm0ux/hya8hw)
+当用户勾选条目后，触发批量操作模式，列表工具栏呼出批量操作工具条。
 
 ### 新建
 
@@ -129,7 +129,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2OsyRpOCCIYAAAAAAAAAAABkARQnAQ">
 
-点击新建，在按钮位置出现对象编辑区，完成新建后即在该位置展示该新建对象。虚线新建按钮位置放在列表首或尾（参考[虚线按钮用法](https://yuque.antfin-inc.com/ui-assets/bgt2gr/ars4mz#jws7v),[可编辑列表模板](https://yuque.antfin-inc.com/docs/share/9a86324a-8e0e-45fa-9e28-9d4949668456)）。
+点击新建，在按钮位置出现对象编辑区，完成新建后即在该位置展示该新建对象。虚线新建按钮位置放在列表首或尾。
 
 ### 删除
 
@@ -155,7 +155,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cPBwQ74TTFQAAAAAAAAAAABkARQnAQ">
 
-在较小的空间中集成列表所需的常用功能，非常推荐使用，详情可见 [列表工具栏](https://yuque.antfin-inc.com/ui-assets/bgt2gr/xr7z6k) 规则
+在较小的空间中集成列表所需的常用功能，非常推荐使用。
 
 ## 布局
 
@@ -167,4 +167,4 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8iBER4YJmdQAAAAAAAAAAABkARQnAQ">
 
-当列表无数据或无搜索结果时，应展示空状态，详见 [空状态](https://yuque.antfin-inc.com/ui-assets/bgt2gr/blx4ny) 规则。
+当列表无数据或无搜索结果时，应展示空状态。

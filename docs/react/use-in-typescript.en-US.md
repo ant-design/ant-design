@@ -76,7 +76,7 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Ok, reboot with `yarn start`, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Ok, reboot with `yarn start`, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at it's [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Advanced Guides
 
@@ -196,7 +196,7 @@ You can also follow instructions in [Use in create-react-app](/docs/react/use-wi
 And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc. You can create a new project that without any configurations by running just one command.
 
 - [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
-- [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
+- [react-app-rewire-typescript](https://github.com/lwd-technology/react-app-rewire-typescript)
 - [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
 - [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
 - [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
