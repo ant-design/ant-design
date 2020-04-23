@@ -48,6 +48,13 @@ describe('Input.Password', () => {
     expect(wrapper.find('.anticon-eye').length).toBe(0);
   });
 
+  it('reverseIcon should work', () => {
+    const wrapper = mount(<Input.Password reverseIcon />);
+    expect(wrapper.find('.anticon-eye').length).toBe(1);
+    wrapper.find('.anticon-eye').simulate('click');
+    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
+  });
+
   it('should keep focus state', () => {
     const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
     expect(document.activeElement).toBe(
