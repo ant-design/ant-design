@@ -60,9 +60,9 @@ subtitle: 导航菜单
 | title    | 设置收缩时展示的悬浮标题 | string    |        |       |
 | icon     | item 前面的 icon         | ReactNode |        | 4.2.0 |
 
-> 注意：icon 是 4.2.0 新增的属性，之前的版本请使用下面的方式定义图标。
+> 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >
-> ```js
+> ```jsx
 > <Menu.Item key="1">
 >   <PieChartOutlined />
 >   <span>Option 1</span>
