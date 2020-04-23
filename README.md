@@ -110,7 +110,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 ## 🔗 Links
 
 - [Home page](http://ant.design/)
-- [Components](http://ant.design/docs/react/introduce)
+- [Components](http://ant.design/docs/react/components/button)
 - [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
