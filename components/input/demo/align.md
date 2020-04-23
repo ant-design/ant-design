@@ -68,7 +68,7 @@ const options = [
 ];
 
 ReactDOM.render(
-  <div>
+  <>
     <Mentions style={{ width: 100 }} rows={1} />
     <Input.TextArea rows={1} style={{ width: 100 }} />
     <Button type="primary">Button</Button>
@@ -101,7 +101,7 @@ ReactDOM.render(
     <Input style={narrowStyle} suffix="Y" />
     <Input style={narrowStyle} />
     <Input style={narrowStyle} defaultValue="1" suffix="Y" />
-  </div>,
+  </>,
   mountNode,
 );
 ```

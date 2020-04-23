@@ -19,7 +19,7 @@ import { Input } from 'antd';
 const { Search } = Input;
 
 ReactDOM.render(
-  <div>
+  <>
     <Search
       placeholder="input search text"
       onSearch={value => console.log(value)}
@@ -36,7 +36,7 @@ ReactDOM.render(
       size="large"
       onSearch={value => console.log(value)}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

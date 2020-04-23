@@ -31,7 +31,7 @@ class Demo extends React.Component {
     const { value } = this.state;
 
     return (
-      <div>
+      <>
         <TextArea placeholder="Autosize height based on content lines" autoSize />
         <div style={{ margin: '24px 0' }} />
         <TextArea
@@ -45,7 +45,7 @@ class Demo extends React.Component {
           placeholder="Controlled autosize"
           autoSize={{ minRows: 3, maxRows: 5 }}
         />
-      </div>
+      </>
     );
   }
 }
