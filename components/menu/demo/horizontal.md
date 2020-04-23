@@ -37,8 +37,7 @@ class App extends React.Component {
         <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
-        <Menu.Item key="app" disabled>
-          <AppstoreOutlined />
+        <Menu.Item key="app" disabled icon={<AppstoreOutlined />}>
           Navigation Two
         </Menu.Item>
         <SubMenu

@@ -57,12 +57,10 @@ class Sider extends React.Component {
           mode={this.state.mode}
           theme={this.state.theme}
         >
-          <Menu.Item key="1">
-            <MailOutlined />
+          <Menu.Item key="1" icon={<MailOutlined />}>
             Navigation One
           </Menu.Item>
-          <Menu.Item key="2">
-            <CalendarOutlined />
+          <Menu.Item key="2" icon={<CalendarOutlined />}>
             Navigation Two
           </Menu.Item>
           <SubMenu
