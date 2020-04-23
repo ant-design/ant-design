@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ListGridType, ColumnType, ListContext } from './index';
 import { Col } from '../grid';
-import { ConfigConsumer, ConfigConsumerProps, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 
 export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
