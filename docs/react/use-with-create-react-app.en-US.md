@@ -97,7 +97,7 @@ Now we need to customize the default webpack config. We can achieve that by usin
 Import react-app-rewired and modify the `scripts` field in package.json. Due to new [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) issue, you shall need [customize-cra](https://github.com/arackaf/customize-cra) along with react-app-rewired.
 
 ```
-$ yarn add react-app-rewired customize-cra
+$ yarn add react-app-rewired customize-cra --dev
 ```
 
 ```diff
@@ -128,7 +128,7 @@ module.exports = function override(config, env) {
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
-$ yarn add babel-plugin-import
+$ yarn add babel-plugin-import --dev
 ```
 
 ```diff
@@ -176,7 +176,7 @@ Then reboot with `yarn start` and visit the demo page, you should not find any [
 According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
-$ yarn add less less-loader
+$ yarn add less less-loader --dev
 ```
 
 ```diff
@@ -210,7 +210,7 @@ We have built-in dark theme and compact theme in antd, you can reference to [Use
 You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically.
 
 ```bash
-$ yarn add antd-dayjs-webpack-plugin
+$ yarn add antd-dayjs-webpack-plugin --dev
 ```
 
 ```js
