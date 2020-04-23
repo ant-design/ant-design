@@ -58,12 +58,13 @@ function getGrid(grid: ListGridType, t: ColumnType) {
   return grid[t] && Math.floor(24 / grid[t]!);
 }
 
-interface ListItemTypeProps extends React.FC<ListItemProps> {
+export interface ListItemTypeProps extends React.FC<ListItemProps> {
   Meta: typeof Meta;
 }
 
 const Item: ListItemTypeProps = props => {
   const { grid, itemLayout } = React.useContext(ListContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const isItemContainsTextNodeAndNotSingular = () => {
     const { children } = props;
@@ -84,60 +85,56 @@ const Item: ListItemTypeProps = props => {
     return !isItemContainsTextNodeAndNotSingular();
   };
 
-  const renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, children, actions, extra, className, ...others } = props;
-    const prefixCls = getPrefixCls('list', customizePrefixCls);
-    const actionsContent = actions && actions.length > 0 && (
-      <ul className={`${prefixCls}-item-action`} key="actions">
-        {actions.map((action: React.ReactNode, i: number) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <li key={`${prefixCls}-item-action-${i}`}>
-            {action}
-            {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
-          </li>
-        ))}
-      </ul>
-    );
-    const Tag = grid ? 'div' : 'li';
-    const itemChildren = (
-      <Tag
-        {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
-        className={classNames(`${prefixCls}-item`, className, {
-          [`${prefixCls}-item-no-flex`]: !isFlexMode(),
-        })}
-      >
-        {itemLayout === 'vertical' && extra
-          ? [
-              <div className={`${prefixCls}-item-main`} key="content">
-                {children}
-                {actionsContent}
-              </div>,
-              <div className={`${prefixCls}-item-extra`} key="extra">
-                {extra}
-              </div>,
-            ]
-          : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
-      </Tag>
-    );
+  const { prefixCls: customizePrefixCls, children, actions, extra, className, ...others } = props;
+  const prefixCls = getPrefixCls('list', customizePrefixCls);
+  const actionsContent = actions && actions.length > 0 && (
+    <ul className={`${prefixCls}-item-action`} key="actions">
+      {actions.map((action: React.ReactNode, i: number) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <li key={`${prefixCls}-item-action-${i}`}>
+          {action}
+          {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
+        </li>
+      ))}
+    </ul>
+  );
+  const Tag = grid ? 'div' : 'li';
+  const itemChildren = (
+    <Tag
+      {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
+      className={classNames(`${prefixCls}-item`, className, {
+        [`${prefixCls}-item-no-flex`]: !isFlexMode(),
+      })}
+    >
+      {itemLayout === 'vertical' && extra
+        ? [
+            <div className={`${prefixCls}-item-main`} key="content">
+              {children}
+              {actionsContent}
+            </div>,
+            <div className={`${prefixCls}-item-extra`} key="extra">
+              {extra}
+            </div>,
+          ]
+        : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
+    </Tag>
+  );
 
-    return grid ? (
-      <Col
-        span={getGrid(grid, 'column')}
-        xs={getGrid(grid, 'xs')}
-        sm={getGrid(grid, 'sm')}
-        md={getGrid(grid, 'md')}
-        lg={getGrid(grid, 'lg')}
-        xl={getGrid(grid, 'xl')}
-        xxl={getGrid(grid, 'xxl')}
-      >
-        {itemChildren}
-      </Col>
-    ) : (
-      itemChildren
-    );
-  };
-
-  return <ConfigConsumer>{renderItem}</ConfigConsumer>;
+  return grid ? (
+    <Col
+      span={getGrid(grid, 'column')}
+      xs={getGrid(grid, 'xs')}
+      sm={getGrid(grid, 'sm')}
+      md={getGrid(grid, 'md')}
+      lg={getGrid(grid, 'lg')}
+      xl={getGrid(grid, 'xl')}
+      xxl={getGrid(grid, 'xxl')}
+    >
+      {itemChildren}
+    </Col>
+  ) : (
+    itemChildren
+  );
 };
 
 Item.Meta = Meta;
