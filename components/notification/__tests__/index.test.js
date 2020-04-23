@@ -88,6 +88,21 @@ describe('notification', () => {
     notification.destroy();
   });
 
+  it('should be able to config prefixCls', () => {
+    notification.config({
+      prefixCls: 'prefix-test',
+    });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
+    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    notification.config({
+      prefixCls: 'ant-notification',
+    });
+  });
+
   it('should be able to open with icon', async () => {
     const openNotificationWithIcon = async type => {
       const iconPrefix = '.ant-notification-notice-icon';
