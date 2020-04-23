@@ -197,16 +197,12 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     );
   }
 
-  renderClearableLabeledInput() {
+  render() {
     const { prefixCls, inputType, element } = this.props;
     if (inputType === ClearableInputType[0]) {
       return this.renderTextAreaWithClearIcon(prefixCls, element);
     }
     return this.renderInputWithLabel(prefixCls, this.renderLabeledIcon(prefixCls, element));
-  }
-
-  render() {
-    return this.renderClearableLabeledInput();
   }
 }
 

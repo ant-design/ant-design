@@ -18,19 +18,15 @@ import { Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div className="example-input">
+  <>
     <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
+    <br />
+    <br />
     <Input placeholder="default size" prefix={<UserOutlined />} />
+    <br />
+    <br />
     <Input size="small" placeholder="small size" prefix={<UserOutlined />} />
-    <Input.Password size="large" placeholder="large Password" />
-  </div>,
+  </>,
   mountNode,
 );
-```
-
-```css
-.example-input > span {
-  width: 200px;
-  margin: 0 8px 8px 0;
-}
 ```
