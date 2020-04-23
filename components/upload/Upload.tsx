@@ -311,6 +311,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
           [`${prefixCls}-drag-uploading`]: fileList.some(file => file.status === 'uploading'),
           [`${prefixCls}-drag-hover`]: dragState === 'dragover',
           [`${prefixCls}-disabled`]: disabled,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
       );
