@@ -11,6 +11,13 @@
 
   &&-closable {
     .@{alert-prefix-cls}-rtl& {
+      padding-right: 37px;
+      padding-left: 30px;
+    }
+  }
+
+  &&-no-icon&-closable {
+    .@{alert-prefix-cls}-rtl& {
       padding-right: 15px;
       padding-left: 30px;
     }
@@ -30,7 +37,8 @@
     }
   }
 
-  &-with-description {
+  &-with-description,
+  &-with-description&-closable {
     .@{alert-prefix-cls}-rtl& {
       padding: 15px 64px 15px 15px;
     }
