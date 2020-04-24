@@ -29,7 +29,7 @@ describe('Directory Tree', () => {
 
   function createTree(props) {
     return (
-      <DirectoryTree onDoubleClick={() => {}} {...props}>
+      <DirectoryTree {...props}>
         <TreeNode key="0-0">
           <TreeNode key="0-0-0" />
           <TreeNode key="0-0-1" />
@@ -189,5 +189,12 @@ describe('Directory Tree', () => {
     expect(onSelect.mock.calls[3][1].selectedNodes.length).toBe(5);
 
     delete nativeEventProto.shiftKey;
+  });
+
+  it('onDoubleClick', () => {
+    const onDoubleClick = jest.fn();
+    const wrapper = mount(createTree({ onDoubleClick }));
+    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('doubleclick');
+    expect(onDoubleClick).toBeCalled();
   });
 });
