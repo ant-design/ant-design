@@ -24,15 +24,17 @@ const BackTop: React.FC<BackTopProps> = props => {
   let scrollEvent: any;
   let node: HTMLDivElement;
 
-  React.useEffect(() => {
-    bindScrollEvent();
-    return () => {
-      if (scrollEvent) {
-        scrollEvent.remove();
-      }
-      (handleScroll as any).cancel();
-    };
-  }, [props.target]);
+  const getDefaultTarget = () => {
+    return node && node.ownerDocument ? node.ownerDocument : window;
+  };
+
+  const handleScroll = throttleByAnimationFrame(
+    (e: React.UIEvent<HTMLElement> | { target: any }) => {
+      const { visibilityHeight = 0 } = props;
+      const scrollTop = getScroll(e.target, true);
+      setVisible(scrollTop > visibilityHeight);
+    },
+  );
 
   const bindScrollEvent = () => {
     if (scrollEvent) {
@@ -49,15 +51,21 @@ const BackTop: React.FC<BackTopProps> = props => {
     });
   };
 
+  React.useEffect(() => {
+    bindScrollEvent();
+    return () => {
+      if (scrollEvent) {
+        scrollEvent.remove();
+      }
+      (handleScroll as any).cancel();
+    };
+  }, [props.target]);
+
   const getVisible = () => {
     if ('visible' in props) {
       return props.visible;
     }
     return visible;
-  };
-
-  const getDefaultTarget = () => {
-    return node && node.ownerDocument ? node.ownerDocument : window;
   };
 
   const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -69,14 +77,6 @@ const BackTop: React.FC<BackTopProps> = props => {
       onClick(e);
     }
   };
-
-  const handleScroll = throttleByAnimationFrame(
-    (e: React.UIEvent<HTMLElement> | { target: any }) => {
-      const { visibilityHeight = 0 } = props;
-      const scrollTop = getScroll(e.target, true);
-      setVisible(scrollTop > visibilityHeight);
-    },
-  );
 
   const renderChildren = ({ prefixCls }: { prefixCls: string }) => {
     const { children } = props;
