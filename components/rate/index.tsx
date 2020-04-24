@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import StarFilled from '@ant-design/icons/StarFilled';
 
 import Tooltip from '../tooltip';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface RateProps {
   prefixCls?: string;
