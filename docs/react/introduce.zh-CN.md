@@ -76,6 +76,7 @@ $ yarn add antd
 
 ```jsx
 import { DatePicker } from 'antd';
+
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
@@ -124,7 +125,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ## 链接
 
 - [首页](https://ant.design/)
-- [组件库](/docs/react/introduce)
+- [组件库](https://ant.design/components/button-cn/)
 - [Ant Design Pro](https://pro.ant.design/)
 - [更新日志](/changelog)
 - [React 底层基础组件](http://react-component.github.io/)
