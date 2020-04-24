@@ -1005,7 +1005,7 @@ exports[`renders ./components/result/demo/500.md correctly 1`] = `
   <div
     class="ant-result-subtitle"
   >
-    Sorry, the server is wrong.
+    Sorry, something went wrong.
   </div>
   <div
     class="ant-result-extra"
