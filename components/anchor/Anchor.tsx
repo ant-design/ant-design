@@ -70,7 +70,7 @@ export interface AnchorState {
   activeLink: null | string;
 }
 
-// Deprecate
+/** @deprecated Use AnchorProps */
 export type AnchorDefaultProps = AnchorProps;
 
 export interface AntAnchor {
