@@ -27,35 +27,15 @@ interface RateNodeProps {
   index: number;
 }
 
-export default class Rate extends React.Component<RateProps, any> {
-  static defaultProps = {
-    character: <StarFilled />,
-  };
-
-  private rcRate: any;
-
-  saveRate = (node: any) => {
-    this.rcRate = node;
-  };
-
-  characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
-    const { tooltips } = this.props;
+const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
+  const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
+    const { tooltips } = props;
     if (!tooltips) return node;
-
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
-  focus() {
-    this.rcRate.focus();
-  }
-
-  blur() {
-    this.rcRate.blur();
-  }
-
-  renderRate = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { prefixCls, className, ...restProps } = this.props;
-
+  const renderRate = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { prefixCls, className, ...restProps } = props;
     const rateProps = omit(restProps, ['tooltips']);
     const ratePrefixCls = getPrefixCls('rate', prefixCls);
     const rateClassNames = classNames(className, {
@@ -64,8 +44,8 @@ export default class Rate extends React.Component<RateProps, any> {
 
     return (
       <RcRate
-        ref={this.saveRate}
-        characterRender={this.characterRender}
+        ref={ref}
+        characterRender={characterRender}
         {...rateProps}
         prefixCls={ratePrefixCls}
         className={rateClassNames}
@@ -73,7 +53,11 @@ export default class Rate extends React.Component<RateProps, any> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderRate}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderRate}</ConfigConsumer>;
+});
+
+Rate.defaultProps = {
+  character: <StarFilled />,
+};
+
+export default Rate;
