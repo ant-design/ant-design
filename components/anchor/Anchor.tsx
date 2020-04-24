@@ -51,9 +51,9 @@ export interface AnchorProps {
   children?: React.ReactNode;
   offsetTop?: number;
   bounds?: number;
-  affix?: boolean;
-  showInkInFixed?: boolean;
-  getContainer?: () => AnchorContainer;
+  affix: boolean;
+  showInkInFixed: boolean;
+  getContainer: () => AnchorContainer;
   /** Return customize highlight anchor */
   getCurrentAnchor?: () => string;
   onClick?: (
@@ -70,12 +70,8 @@ export interface AnchorState {
   activeLink: null | string;
 }
 
-export interface AnchorDefaultProps extends AnchorProps {
-  prefixCls: string;
-  affix: boolean;
-  showInkInFixed: boolean;
-  getContainer: () => AnchorContainer;
-}
+// Deprecate
+export type AnchorDefaultProps = AnchorProps;
 
 export interface AntAnchor {
   registerLink: (link: string) => void;
@@ -139,7 +135,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   }
 
   componentDidMount() {
-    const { getContainer } = this.props as AnchorDefaultProps;
+    const { getContainer } = this.props;
     this.scrollContainer = getContainer();
     this.scrollEvent = addEventListener(this.scrollContainer, 'scroll', this.handleScroll);
     this.handleScroll();
@@ -147,7 +143,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
 
   componentDidUpdate() {
     if (this.scrollEvent) {
-      const { getContainer } = this.props as AnchorDefaultProps;
+      const { getContainer } = this.props;
       const currentContainer = getContainer();
       if (this.scrollContainer !== currentContainer) {
         this.scrollContainer = currentContainer;
@@ -178,7 +174,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     }
 
     const linkSections: Array<Section> = [];
-    const { getContainer } = this.props as AnchorDefaultProps;
+    const { getContainer } = this.props;
     const container = getContainer();
     this.links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
@@ -205,7 +201,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   }
 
   handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
+    const { offsetTop, getContainer, targetOffset } = this.props;
 
     this.setCurrentActiveLink(link);
     const container = getContainer();
