@@ -95,6 +95,11 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>
+      {isZhCN && (
+        <Menu.Item key="mirror">
+          <Link to="https://ant-design.gitee.io">国内镜像</Link>
+        </Menu.Item>
+      )}
       {additional}
     </Menu>
   );
