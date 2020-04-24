@@ -34,27 +34,23 @@ const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
-  const renderRate = () => {
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
-    const { prefixCls, className, ...restProps } = props;
-    const rateProps = omit(restProps, ['tooltips']);
-    const ratePrefixCls = getPrefixCls('rate', prefixCls);
-    const rateClassNames = classNames(className, {
-      [`${ratePrefixCls}-rtl`]: direction === 'rtl',
-    });
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { prefixCls, className, ...restProps } = props;
+  const rateProps = omit(restProps, ['tooltips']);
+  const ratePrefixCls = getPrefixCls('rate', prefixCls);
+  const rateClassNames = classNames(className, {
+    [`${ratePrefixCls}-rtl`]: direction === 'rtl',
+  });
 
-    return (
-      <RcRate
-        ref={ref}
-        characterRender={characterRender}
-        {...rateProps}
-        prefixCls={ratePrefixCls}
-        className={rateClassNames}
-      />
-    );
-  };
-
-  return <ConfigConsumer>{renderRate}</ConfigConsumer>;
+  return (
+    <RcRate
+      ref={ref}
+      characterRender={characterRender}
+      {...rateProps}
+      prefixCls={ratePrefixCls}
+      className={rateClassNames}
+    />
+  );
 });
 
 Rate.defaultProps = {
