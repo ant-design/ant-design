@@ -110,7 +110,7 @@ interface CompoundedComponent
   __ANT_BUTTON: boolean;
 }
 
-const Button = React.forwardRef<HTMLElement, ButtonProps>((props, ref) => {
+const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
   const size = React.useContext(SizeContext);
   const [loading, setLoading] = React.useState(props.loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
@@ -259,7 +259,9 @@ const Button = React.forwardRef<HTMLElement, ButtonProps>((props, ref) => {
   }
 
   return <Wave>{buttonNode}</Wave>;
-}) as CompoundedComponent;
+};
+
+const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
 
 Button.defaultProps = {
   loading: false,
