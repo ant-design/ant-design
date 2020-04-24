@@ -65,7 +65,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.fetch();
+    const { pagination } = this.state;
+    this.fetch({ pagination });
   }
 
   handleTableChange = (pagination, filters, sorter) => {
@@ -79,22 +80,18 @@ class App extends React.Component {
 
   fetch = (params = {}) => {
     this.setState({ loading: true });
-    const pagination = params.pagination || this.state.pagination;
     reqwest({
       url: 'https://randomuser.me/api',
       method: 'get',
       type: 'json',
-      data: getRandomuserParams({
-        ...params,
-        pagination,
-      }),
+      data: getRandomuserParams(params),
     }).then(data => {
       console.log(data);
       this.setState({
         loading: false,
         data: data.results,
         pagination: {
-          ...pagination,
+          ...params.pagination,
           total: 200,
           // 200 is mock data, you should read it from server
           // total: data.totalCount,
