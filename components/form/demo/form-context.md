@@ -104,6 +104,7 @@ const Demo = () => {
             <Input />
           </Form.Item>
           <Form.Item
+            name="users"
             label="User List"
             shouldUpdate={(prevValues, curValues) => prevValues.users !== curValues.users}
           >
