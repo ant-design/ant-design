@@ -97,7 +97,7 @@ export default ({
       </Menu.Item>
       {isZhCN && (
         <Menu.Item key="mirror">
-          <Link to="https://ant-design.gitee.io">国内镜像</Link>
+          <a href="https://ant-design.gitee.io">国内镜像</a>
         </Menu.Item>
       )}
       {additional}
