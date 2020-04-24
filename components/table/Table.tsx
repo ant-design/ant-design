@@ -302,7 +302,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
     // Dynamic table data
     if (mergedData.length < total!) {
-      console.log(mergedData, pageSize);
       if (mergedData.length > pageSize) {
         warning(
           false,
