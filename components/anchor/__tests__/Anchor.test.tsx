@@ -22,7 +22,7 @@ function createDiv() {
 }
 
 let idCounter = 0;
-const getHashUrl = () => `API-${idCounter++}`;
+const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
@@ -348,16 +348,18 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor onChange prop', async () => {
+    const hash1 = getHashUrl();
+    const hash2 = getHashUrl();
     const onChange = jest.fn();
     const wrapper = mount<Anchor>(
       <Anchor onChange={onChange}>
-        <Link href="#API1" title="API1" />
-        <Link href="#API2" title="API2" />
+        <Link href={`#${hash1}`} title={hash1} />
+        <Link href={`#${hash2}`} title={hash2} />
       </Anchor>,
     );
     expect(onChange).toHaveBeenCalledTimes(1);
-    wrapper.instance().handleScrollTo('#API2');
+    wrapper.instance().handleScrollTo(hash2);
     expect(onChange).toHaveBeenCalledTimes(2);
-    expect(onChange).toHaveBeenCalledWith('#API2');
+    expect(onChange).toHaveBeenCalledWith(hash2);
   });
 });
