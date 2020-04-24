@@ -7,7 +7,6 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
-import SizeContext from '../config-provider/SizeContext';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -45,34 +44,30 @@ const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
     disabled,
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, space } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('switch', customizePrefixCls);
   const loadingIcon = loading ? <LoadingOutlined className={`${prefixCls}-loading-icon`} /> : null;
 
-  return (
-    <SizeContext.Consumer>
-      {size => {
-        const classes = classNames(className, {
-          [`${prefixCls}-small`]: (customizeSize || size) === 'small',
-          [`${prefixCls}-loading`]: loading,
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        });
+  const classes = classNames(className, {
+    [`${prefixCls}-small`]: (customizeSize || (space && space.size)) === 'small',
+    [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
 
-        return (
-          <Wave insertExtraNode>
-            <RcSwitch
-              {...omit(props, ['loading'])}
-              prefixCls={prefixCls}
-              className={classes}
-              disabled={disabled || loading}
-              ref={ref}
-              loadingIcon={loadingIcon}
-            />
-          </Wave>
-        );
-      }}
-    </SizeContext.Consumer>
+  return (
+    <Wave insertExtraNode>
+      <RcSwitch
+        {...omit(props, ['loading'])}
+        prefixCls={prefixCls}
+        className={classes}
+        disabled={disabled || loading}
+        ref={ref}
+        loadingIcon={loadingIcon}
+      />
+    </Wave>
   );
 });
+
+Switch.__ANT_SWITCH = true;
 
 export default Switch;
