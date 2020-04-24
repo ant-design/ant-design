@@ -29,11 +29,7 @@ export interface SwitchProps {
   title?: string;
 }
 
-interface SwitchTypeProps extends React.FC<SwitchProps> {
-  __ANT_SWITCH: boolean;
-}
-
-const Switch: SwitchTypeProps = ({ ...props }) => {
+const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
   warning(
     'checked' in props || !('value' in props),
     'Switch',
@@ -48,7 +44,6 @@ const Switch: SwitchTypeProps = ({ ...props }) => {
     disabled,
   } = props;
 
-  const ref = React.createRef();
   const { getPrefixCls, direction, space } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('switch', customizePrefixCls);
   const loadingIcon = loading ? <LoadingOutlined className={`${prefixCls}-loading-icon`} /> : null;
@@ -71,7 +66,7 @@ const Switch: SwitchTypeProps = ({ ...props }) => {
       />
     </Wave>
   );
-};
+});
 
 Switch.__ANT_SWITCH = true;
 
