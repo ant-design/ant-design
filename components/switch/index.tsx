@@ -6,6 +6,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
+import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
 export type SwitchSize = 'small' | 'default';
@@ -49,12 +50,13 @@ const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
     disabled,
   } = props;
 
-  const { getPrefixCls, direction, space } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
   const prefixCls = getPrefixCls('switch', customizePrefixCls);
   const loadingIcon = loading ? <LoadingOutlined className={`${prefixCls}-loading-icon`} /> : null;
 
   const classes = classNames(className, {
-    [`${prefixCls}-small`]: (customizeSize || (space && space.size)) === 'small',
+    [`${prefixCls}-small`]: (customizeSize || size) === 'small',
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
