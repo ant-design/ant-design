@@ -46,6 +46,14 @@ const columns = [
   },
 ];
 
+const getRandomuserParams = params => {
+  return {
+    results: params.pagination.pageSize,
+    page: params.pagination.current,
+    ...params,
+  };
+};
+
 class App extends React.Component {
   state = {
     data: [],
@@ -61,44 +69,36 @@ class App extends React.Component {
   }
 
   handleTableChange = (pagination, filters, sorter) => {
-    this.setState(
-      {
-        pagination: {
-          ...this.state.pagination,
-          current: pagination.current,
-          pageSize: pagination.pageSize,
-        },
-      },
-      () => {
-        this.fetch({
-          sortField: sorter.field,
-          sortOrder: sorter.order,
-          ...filters,
-        });
-      },
-    );
+    this.fetch({
+      sortField: sorter.field,
+      sortOrder: sorter.order,
+      pagination,
+      ...filters,
+    });
   };
 
   fetch = (params = {}) => {
-    console.log('params', params);
-    const { pagination } = this.state;
     this.setState({ loading: true });
+    const pagination = params.pagination || this.state.pagination;
     reqwest({
       url: 'https://randomuser.me/api',
       method: 'get',
-      data: {
-        results: pagination.pageSize,
-        page: pagination.current,
-        ...params,
-      },
       type: 'json',
+      data: getRandomuserParams({
+        ...params,
+        pagination,
+      }),
     }).then(data => {
       console.log(data);
-      // This is mock data, you should read it from server
-      pagination.total = 200; // pagination.total = data.totalCount;
       this.setState({
         loading: false,
         data: data.results,
+        pagination: {
+          ...pagination,
+          total: 200,
+          // 200 is mock data, you should read it from server
+          // total: data.totalCount,
+        },
       });
     });
   };
