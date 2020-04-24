@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import StarFilled from '@ant-design/icons/StarFilled';
 
 import Tooltip from '../tooltip';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigContext } from '../config-provider';
 
 export interface RateProps {
   prefixCls?: string;
@@ -34,7 +34,8 @@ const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
-  const renderRate = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  const renderRate = () => {
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const { prefixCls, className, ...restProps } = props;
     const rateProps = omit(restProps, ['tooltips']);
     const ratePrefixCls = getPrefixCls('rate', prefixCls);
