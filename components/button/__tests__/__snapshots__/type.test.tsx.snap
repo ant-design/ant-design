@@ -314,7 +314,7 @@ exports[`Button should not render as link button when href is undefined 1`] = `
 `;
 
 exports[`Button should render empty button without errors 1`] = `
-<ForwardRef(InternalButton)
+<Button
   block={false}
   ghost={false}
   htmlType="button"
@@ -361,7 +361,7 @@ exports[`Button should render empty button without errors 1`] = `
       </LoadingIcon>
     </button>
   </Wave>
-</ForwardRef(InternalButton)>
+</Button>
 `;
 
 exports[`Button should support link button 1`] = `

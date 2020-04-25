@@ -263,6 +263,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
 
+Button.displayName = 'Button';
+
 Button.defaultProps = {
   loading: false,
   ghost: false,
