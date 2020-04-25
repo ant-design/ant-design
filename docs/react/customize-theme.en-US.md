@@ -195,11 +195,16 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: getThemeVariables({
-+         dark: true, // enable dark mode
-+         compact: true, // enable compact mode
-+       }),
-+       javascriptEnabled: true,
++       lessOptions: {
++         javascriptEnabled: true,
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++           // or
++           'hack': `true; @import "your-less-file-path.less";`, // Override with less file
++         },
++       },
 +     },
     }],
   }],
