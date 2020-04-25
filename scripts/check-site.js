@@ -6,8 +6,6 @@ const cheerio = require('cheerio');
 const glob = require('glob');
 const uniq = require('lodash/uniq');
 const { createServer } = require('http-server');
-const zhCN = require('../site/theme/zh-CN');
-const enUS = require('../site/theme/en-US');
 
 const components = uniq(
   glob
