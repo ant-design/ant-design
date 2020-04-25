@@ -74,7 +74,7 @@ describe('Anchor Render', () => {
       root.id = 'root';
       document.body.appendChild(root);
     }
-    mount(<div id="API">Hello</div>, { attachTo: root });
+    mount(<div id="#API">Hello</div>, { attachTo: root });
     const wrapper = mount(
       <Anchor>
         <Link href="##API" title="API" />
