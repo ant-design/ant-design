@@ -52,10 +52,7 @@ describe('Card', () => {
         xxx
       </Card>,
     );
-    wrapper
-      .find('.ant-tabs-tab')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
@@ -84,5 +81,23 @@ describe('Card', () => {
       </Card>,
     );
     expect(wrapper.find('Tabs').get(0).props.size).toBe('small');
+  });
+
+  it('with headClassName', () => {
+    const wrapper = mount(
+      <Card headClassName="head-test-class">
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('.ant-head').hasClass('head-test-class')).toBe(true);
+  });
+
+  it('with bodyClassName', () => {
+    const wrapper = mount(
+      <Card bodyClassName="body-test-class">
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('.ant-body').hasClass('body-test-class')).toBe(true);
   });
 });
