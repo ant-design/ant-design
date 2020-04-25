@@ -251,6 +251,12 @@ export default function DesignPage() {
                       <RightOutlined className="home-link-arrow" />
                     </a>
                   </li>
+                  <li>
+                    <a href="https://append-it.github.io/ant-design-blazor/" target="_blank" rel="noopener noreferrer">
+                      Ant Design of Blazor
+                      <RightOutlined className="home-link-arrow" />
+                    </a>
+                  </li>
                 </ul>
               </Col>
               <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>

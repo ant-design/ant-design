@@ -80,6 +80,11 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
+          title: 'Ant Design Blazor',
+          url: 'https://append-it.github.io/ant-design-blazor/',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Landing',
           description: <FormattedMessage id="app.footer.landing" />,
           url: 'https://landing.ant.design',
