@@ -24,7 +24,9 @@ A card can be used to display content related to a single subject. The content c
 | actions | The action list, shows at the bottom of the Card. | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
 | headStyle | Inline style to apply to the card head | object | - |  |
+| headClassName | className of card head | string | - |  |
 | bodyStyle | Inline style to apply to the card content | object | - |  |
+| bodyClassName | className of card body | string | - |  |
 | bordered | Toggles rendering of the border around the card | boolean | `true` |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set. | string | - |  |
