@@ -51,14 +51,14 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+         'primary-color': '#1DA57A',
-+         'link-color': '#1DA57A',
-+         'border-radius-base': '2px',
-+         // or
-+         'hack': `true; @import "your-less-file-path.less";`, // Override with less file
++       lessOptions: {
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++         },
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
@@ -67,7 +67,10 @@ module.exports = {
 }
 ```
 
-Note that do not exclude antd package in node_modules when using less-loader.
+Note:
+
+1. Don't exclude `node_modules/antd` when using less-loader.
+2. `lessOptions` usage is supported at [less-loader@6.0.0](https://github.com/webpack-contrib/less-loader/releases/tag/v6.0.0).
 
 ### Customize in Umi
 
@@ -195,16 +198,17 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: getThemeVariables({
-+         dark: true, // enable dark mode
-+         compact: true, // enable compact mode
-+       }),
-+       javascriptEnabled: true,
++       lessOptions: {
++         modifyVars: getThemeVariables({
++           dark: true, // 开启暗黑模式
++           compact: true, // 开启紧凑模式
++         }),
++         javascriptEnabled: true,
++       },
 +     },
     }],
   }],
 };
-```
 
 ## Related Articles
 
@@ -213,3 +217,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
+```
