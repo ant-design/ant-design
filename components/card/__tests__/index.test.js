@@ -85,11 +85,11 @@ describe('Card', () => {
 
   it('with headClassName', () => {
     const wrapper = mount(
-      <Card headClassName="head-test-class">
+      <Card title="Card Title" headClassName="head-test-class">
         <p>Card content</p>
       </Card>,
     );
-    expect(wrapper.find('.ant-head').hasClass('head-test-class')).toBe(true);
+    expect(wrapper.find('.ant-card-head').hasClass('head-test-class')).toBe(true);
   });
 
   it('with bodyClassName', () => {
@@ -98,6 +98,6 @@ describe('Card', () => {
         <p>Card content</p>
       </Card>,
     );
-    expect(wrapper.find('.ant-body').hasClass('body-test-class')).toBe(true);
+    expect(wrapper.find('.ant-card-body').hasClass('body-test-class')).toBe(true);
   });
 });
