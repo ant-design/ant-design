@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
+import { sharpMatcherRegx } from '../Anchor';
 import { sleep } from '../../../tests/utils';
 
 const { Link } = Anchor;
@@ -24,6 +25,16 @@ describe('Anchor Render', () => {
   afterAll(() => {
     getBoundingClientRectMock.mockRestore();
     getClientRectsMock.mockRestore();
+  });
+
+  it('Anchor sharp matcher regexp', () => {
+    const match1 = sharpMatcherRegx.exec('##API');
+    expect(match1).toHaveLength(2);
+    expect(match1[1]).toBe('#API');
+
+    const match2 = sharpMatcherRegx.exec('/#/faq?locale=en#Q1');
+    expect(match2).toHaveLength(2);
+    expect(match2[1]).toBe('/faq?locale=en#Q1');
   });
 
   it('Anchor render perfectly', () => {
