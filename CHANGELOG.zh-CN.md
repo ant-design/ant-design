@@ -15,6 +15,30 @@ timeline: true
 
 ---
 
+## 4.1.5
+
+`2020-04-25`
+
+- 🐞 修复 Button.Group 中按钮没有对齐的问题。[#23590](https://github.com/ant-design/ant-design/pull/23590)
+- 🐞 修复 Select 箭头图标点击无法触发下拉的问题。[#23448](https://github.com/ant-design/ant-design/pull/23448)
+- 🐞 修复 Form 自定义 `@form-item-margin-bottom` 变量时表单校验抖动的问题。[#23436](https://github.com/ant-design/ant-design/pull/23436) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复第一个 Divider 渲染时样式不一致的问题。[#23438](https://github.com/ant-design/ant-design/pull/23438)
+- 🐞 修复嵌套 ConfigProvider 会丢失 `prefixCls` 值的问题。[#23423](https://github.com/ant-design/ant-design/pull/23423)
+- 🐞 修复 Carousel 键盘切换到非活跃 slide 上的 Radio/Checkbox 的问题。[#23380](https://github.com/ant-design/ant-design/pull/23380)
+- 🐞 修复 Tree 使用虚拟滚动时会因为 `loadData` 更新过快而锁死的问题。[#23581](https://github.com/ant-design/ant-design/pull/23581)
+- 🐞 修复 Steps 组件竖直展示时在 IE11 下样式错误的问题[#23561](https://github.com/ant-design/ant-design/pull/23561) [@AdrianoRuberto](https://github.com/AdrianoRuberto)
+- 🐞 修复 Input.Search 高度被 `suffix` 撑高的问题和报 `react key` 重复警告的问题。[#23527](https://github.com/ant-design/ant-design/pull/23527)
+- 🐞 修复 Menu 鼠标移到缝隙处子菜单会消失的问题。[#23511](https://github.com/ant-design/ant-design/pull/23511)
+- 🐞 修复 Tree 自定义图标在加载状态下消失的问题。[#23494](https://github.com/ant-design/ant-design/pull/23494)
+- RTL
+  - 🐞 修复 Alert 在 `showIcon` 和 `closable` 都存在时的 RTL 样式问题[#23526](https://github.com/ant-design/ant-design/pull/23526)
+  - 🐞 修复 Button 在 RTL 下 loading 样式不正确的问题。[#23399](https://github.com/ant-design/ant-design/pull/23399)
+  - 🐞 修复 Collapse 在 RTL 下切换图标位置不正确的问题。[#23445](https://github.com/ant-design/ant-design/pull/23445)
+  - 🐞 修复 Select 分组名称的 RTL 样式问题。[#23404](https://github.com/ant-design/ant-design/pull/23404)
+  - 🐞 修复 Statistic 的 RTL 样式不正确的问题。[#23397](https://github.com/ant-design/ant-design/pull/23397)
+- TypeScript
+  - 🐞 修复 Table 的 `selections` 类型定义。[#23462](https://github.com/ant-design/ant-design/pull/23462) [@xiaoxintang](https://github.com/xiaoxintang)
+
 ## 4.1.4
 
 `2020-04-18`
