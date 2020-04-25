@@ -4,11 +4,6 @@ import ConfigProvider from '..';
 import DatePicker from '../../date-picker';
 import Slider from '../../slider';
 
-const delay = (timeout = 0) =>
-  new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-
 describe('ConfigProvider.GetPopupContainer', () => {
   it('Datepicker', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
