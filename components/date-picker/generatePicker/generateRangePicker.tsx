@@ -49,7 +49,7 @@ export default function generateRangePicker<DateType>(
     };
 
     renderPicker = (locale: PickerLocale) => {
-      const { getPrefixCls, direction } = this.context;
+      const { getPrefixCls, direction, getPopupContainer } = this.context;
       const {
         prefixCls: customizePrefixCls,
         className,
@@ -86,6 +86,7 @@ export default function generateRangePicker<DateType>(
                 clearIcon={<CloseCircleFilled />}
                 allowClear
                 transitionName="slide-up"
+                getPopupContainer={getPopupContainer}
                 {...restProps}
                 className={classNames(className, {
                   [`${prefixCls}-${mergedSize}`]: mergedSize,

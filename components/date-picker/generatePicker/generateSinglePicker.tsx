@@ -62,7 +62,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       };
 
       renderPicker = (locale: PickerLocale) => {
-        const { getPrefixCls, direction } = this.context;
+        const { getPrefixCls, direction, getPopupContainer } = this.context;
         const {
           prefixCls: customizePrefixCls,
           className,
@@ -106,6 +106,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   clearIcon={<CloseCircleFilled />}
                   allowClear
                   transitionName="slide-up"
+                  getPopupContainer={getPopupContainer}
                   {...additionalProps}
                   {...restProps}
                   {...additionalOverrideProps}
