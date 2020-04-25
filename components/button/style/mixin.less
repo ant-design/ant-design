@@ -165,7 +165,7 @@
 }
 .button-group-base(@btnClassName) {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   > .@{btnClassName},
   > span > .@{btnClassName} {
     position: relative;
@@ -179,7 +179,7 @@
       z-index: 0;
     }
   }
-  > .@{btnClassName}-icon-only {
+  .@{btnClassName}-icon-only {
     font-size: @font-size-base;
   }
   // size
@@ -187,7 +187,7 @@
   &-lg > span > .@{btnClassName} {
     .button-size(@btn-height-lg; @btn-padding-horizontal-lg; @btn-font-size-lg; 0);
   }
-  &-lg > .@{btnClassName}.@{btnClassName}-icon-only {
+  &-lg .@{btnClassName}.@{btnClassName}-icon-only {
     .square(@btn-height-lg);
     padding-right: 0;
     padding-left: 0;
@@ -199,7 +199,7 @@
       font-size: @font-size-base;
     }
   }
-  &-sm > .@{btnClassName}.@{btnClassName}-icon-only {
+  &-sm .@{btnClassName}.@{btnClassName}-icon-only {
     .square(@btn-height-sm);
     padding-right: 0;
     padding-left: 0;
