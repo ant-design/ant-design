@@ -38,7 +38,9 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   extra?: React.ReactNode;
   bordered?: boolean;
   headStyle?: React.CSSProperties;
+  headClassName?: string;
   bodyStyle?: React.CSSProperties;
+  bodyClassName?: string;
   style?: React.CSSProperties;
   loading?: boolean;
   hoverable?: boolean;
@@ -84,7 +86,9 @@ export default class Card extends React.Component<CardProps, {}> {
       className,
       extra,
       headStyle = {},
+      headClassName,
       bodyStyle = {},
+      bodyClassName,
       title,
       loading,
       bordered = true,
@@ -177,7 +181,7 @@ export default class Card extends React.Component<CardProps, {}> {
       ) : null;
     if (title || extra || tabs) {
       head = (
-        <div className={`${prefixCls}-head`} style={headStyle}>
+        <div className={classNames(`${prefixCls}-head`, headClassName)} style={headStyle}>
           <div className={`${prefixCls}-head-wrapper`}>
             {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
             {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
@@ -188,7 +192,7 @@ export default class Card extends React.Component<CardProps, {}> {
     }
     const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
     const body = (
-      <div className={`${prefixCls}-body`} style={bodyStyle}>
+      <div className={classNames(`${prefixCls}-body`, bodyClassName)} style={bodyStyle}>
         {loading ? loadingBlock : children}
       </div>
     );
