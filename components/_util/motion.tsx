@@ -9,6 +9,7 @@ interface Motion {
   motionEnter?: boolean;
   motionLeave?: boolean;
   motionLeaveImmediately?: boolean; // Trigger leave motion immediately
+  motionDeadline?: number;
   removeOnLeave?: boolean;
   leavedClassName?: string;
   onAppearStart?: MotionFunc;
@@ -35,6 +36,7 @@ const collapseMotion: Motion = {
   onEnterActive: getRealHeight,
   onLeaveStart: getCurrentHeight,
   onLeaveActive: getCollapsedHeight,
+  motionDeadline: 500,
 };
 
 export default collapseMotion;
