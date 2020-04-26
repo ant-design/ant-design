@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.16
+
+`2020-04-26`
+
+- 🐞 修复 Carousel 键盘切换到非活跃 slide 上的 Radio/Checkbox 的问题。[#23380](https://github.com/ant-design/ant-design/pull/23380)
+- 🐞 修复 Table 筛选菜单在 less 版本为 `2.x` 时不显示的问题。[#23272](https://github.com/ant-design/ant-design/pull/23272)
+
 ## 3.26.15
 
 `2020-04-03`
@@ -2696,7 +2703,7 @@ timeline: true
   - 🙅 废弃以下属性 `onRowClick`，`onRowDoubleClick`、`onRowContextMenu`、`onRowMouseEnter`、`onRowMouseLeave`，请使用 `onRow` 代替。
     ```javascript
     <Table
-      onRow={record => ({
+      onRow={(record) => ({
         onClick: () => {},
         onDoubleClick: () => {},
         onContextMenu: () => {},
