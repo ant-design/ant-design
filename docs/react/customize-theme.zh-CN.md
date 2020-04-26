@@ -51,6 +51,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
++       // 在less-loader@6 之后，应将配置选项移至 lessOptions 对象下
 +       lessOptions: {
 +         modifyVars: {
 +           'primary-color': '#1DA57A',
@@ -176,6 +177,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
++       // 在less-loader@6 之后，应将配置选项移至 lessOptions 对象下
 +       lessOptions: {
 +         modifyVars: getThemeVariables({
 +           dark: true, // 开启暗黑模式
