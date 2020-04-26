@@ -59,7 +59,7 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   }
 
   render() {
-    const { rootPrefixCls, popupClassName, icon } = this.props;
+    const { rootPrefixCls, popupClassName } = this.props;
     return (
       <MenuContext.Consumer>
         {({ antdMenuTheme }: MenuContextProps) => (
