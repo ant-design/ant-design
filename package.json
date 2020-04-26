@@ -287,5 +287,8 @@
       "maxSize": "65 kB"
     }
   ],
+  "tnpm": {
+    "mode": "npm"
+  },
   "title": "Ant Design"
 }
