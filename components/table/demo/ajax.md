@@ -46,64 +46,69 @@ const columns = [
   },
 ];
 
+const getRandomuserParams = params => {
+  return {
+    results: params.pagination.pageSize,
+    page: params.pagination.current,
+    ...params,
+  };
+};
+
 class App extends React.Component {
   state = {
     data: [],
-    pagination: {},
+    pagination: {
+      current: 1,
+      pageSize: 10,
+    },
     loading: false,
   };
 
   componentDidMount() {
-    this.fetch();
+    const { pagination } = this.state;
+    this.fetch({ pagination });
   }
 
   handleTableChange = (pagination, filters, sorter) => {
-    const pager = { ...this.state.pagination };
-    pager.current = pagination.current;
-    this.setState({
-      pagination: pager,
-    });
     this.fetch({
-      results: pagination.pageSize,
-      page: pagination.current,
       sortField: sorter.field,
       sortOrder: sorter.order,
+      pagination,
       ...filters,
     });
   };
 
   fetch = (params = {}) => {
-    console.log('params:', params);
     this.setState({ loading: true });
     reqwest({
       url: 'https://randomuser.me/api',
       method: 'get',
-      data: {
-        results: 10,
-        ...params,
-      },
       type: 'json',
+      data: getRandomuserParams(params),
     }).then(data => {
-      const pagination = { ...this.state.pagination };
-      // Read total count from server
-      // pagination.total = data.totalCount;
-      pagination.total = 200;
+      console.log(data);
       this.setState({
         loading: false,
         data: data.results,
-        pagination,
+        pagination: {
+          ...params.pagination,
+          total: 200,
+          // 200 is mock data, you should read it from server
+          // total: data.totalCount,
+        },
       });
     });
   };
 
   render() {
+    const { data, pagination, loading } = this.state;
     return (
       <Table
         columns={columns}
         rowKey={record => record.login.uuid}
-        dataSource={this.state.data}
-        pagination={this.state.pagination}
-        loading={this.state.loading}
+        dataSource={data}
+        pagination={pagination}
+        loading={loading}
         onChange={this.handleTableChange}
       />
     );

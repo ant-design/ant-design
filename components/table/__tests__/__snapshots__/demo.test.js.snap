@@ -11261,14 +11261,16 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell react-resizable"
+                    handle="[object Object]"
                   >
                     Date
                     <span
-                      class="react-resizable-handle react-resizable-handle-se"
+                      class="react-resizable-handle"
                     />
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
+                    handle="[object Object]"
                   >
                     <div
                       class="ant-table-column-sorters-with-tooltip"
@@ -11330,23 +11332,25 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </div>
                     <span
-                      class="react-resizable-handle react-resizable-handle-se"
+                      class="react-resizable-handle"
                     />
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
+                    handle="[object Object]"
                   >
                     Type
                     <span
-                      class="react-resizable-handle react-resizable-handle-se"
+                      class="react-resizable-handle"
                     />
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
+                    handle="[object Object]"
                   >
                     Note
                     <span
-                      class="react-resizable-handle react-resizable-handle-se"
+                      class="react-resizable-handle"
                     />
                   </th>
                   <th

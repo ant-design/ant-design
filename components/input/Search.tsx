@@ -70,14 +70,9 @@ export default class Search extends React.Component<SearchProps, any> {
 
     if (enterButton) {
       return (
-        <SizeContext.Consumer>
+        <SizeContext.Consumer key="enterButton">
           {size => (
-            <Button
-              className={`${prefixCls}-button`}
-              type="primary"
-              size={customizeSize || size}
-              key="enterButton"
-            >
+            <Button className={`${prefixCls}-button`} type="primary" size={customizeSize || size}>
               <LoadingOutlined />
             </Button>
           )}

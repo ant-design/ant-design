@@ -48,6 +48,10 @@
     cursor: not-allowed;
   }
 
+  &&-disabled &-suffix {
+    color: @disabled-color;
+  }
+
   &&-borderless {
     background-color: transparent !important;
     border-color: transparent !important;
@@ -105,7 +109,7 @@
   &-suffix {
     align-self: center;
     margin-left: @padding-xs / 2;
-    color: @text-color-secondary;
+    color: @disabled-color;
     pointer-events: none;
   }
 

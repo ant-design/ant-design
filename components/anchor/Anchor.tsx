@@ -35,7 +35,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   return rect.top;
 }
 
-const sharpMatcherRegx = /#([^#]+)$/;
+const sharpMatcherRegx = /#(\S+)$/;
 
 type Section = {
   link: string;

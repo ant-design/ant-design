@@ -15,6 +15,30 @@ timeline: true
 
 ---
 
+## 4.1.5
+
+`2020-04-25`
+
+- 🐞 Fix Button.Group align style. [#23590](https://github.com/ant-design/ant-design/pull/23590)
+- 🐞 Fix Select cannot trigger open by clicking arrow icon. [#23448](https://github.com/ant-design/ant-design/pull/23448)
+- 🐞 Fix Form fields shake when `@form-item-margin-bottom` is customize and switching the validing info. [#23436](https://github.com/ant-design/ant-design/pull/23436) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix the first Divider render differently with others. [#23438](https://github.com/ant-design/ant-design/pull/23438)
+- 🐞 Fix nest ConfigProvider missing `prefixCls` value. [#23423](https://github.com/ant-design/ant-design/pull/23423)
+- 🐞 Fix Carousel tabbed Radio/Checkbox to non-active slide. [#23380](https://github.com/ant-design/ant-design/pull/23380)
+- 🐞 Fix Tree with virtual scroll frozen by quick `loadData`. [#23581](https://github.com/ant-design/ant-design/pull/23581)
+- 🐞 Fix Steps style in IE11 when direction is vertical. [#23561](https://github.com/ant-design/ant-design/pull/23561) [@AdrianoRuberto](https://github.com/AdrianoRuberto)
+- 🐞 Fix Input.Search height affected by `suffix` and `react key` warning. [#23527](https://github.com/ant-design/ant-design/pull/23527)
+- 🐞 Fix Menu behavior when hover on submenu gap. [#23511](https://github.com/ant-design/ant-design/pull/23511)
+- 🐞 Fix Tree custom icon missing when node is loading data. [#23494](https://github.com/ant-design/ant-design/pull/23494)
+- RTL
+  - 🐞 Fix Alert RTL style when set both `showIcon` and `closable`. [#23526](https://github.com/ant-design/ant-design/pull/23526)
+  - 🐞 Fix Button RTL style when loading. [#23399](https://github.com/ant-design/ant-design/pull/23399)
+  - 🐞 Fix Collapse that icon position is incorrect in RTL. [#23445](https://github.com/ant-design/ant-design/pull/23445)
+  - 🐞 Fix Select group label style in RTL. [#23404](https://github.com/ant-design/ant-design/pull/23404)
+  - 🐞 Fix Statistic RTL style. [#23397](https://github.com/ant-design/ant-design/pull/23397)
+- TypeScript
+  - 🐞 Fix type definition of `selections` for Table. [#23462](https://github.com/ant-design/ant-design/pull/23462) [@xiaoxintang](https://github.com/xiaoxintang)
+
 ## 4.1.4
 
 `2020-04-18`

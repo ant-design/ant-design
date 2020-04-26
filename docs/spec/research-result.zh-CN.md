@@ -100,7 +100,7 @@ title: 结果页
 
 #### 补充信息类型
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QjpBRpyx5ecAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*avS5TZcMawwAAAAAAAAAAABkARQnAQ">
 
 ## 延伸阅读
 

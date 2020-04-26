@@ -6,8 +6,6 @@ const cheerio = require('cheerio');
 const glob = require('glob');
 const uniq = require('lodash/uniq');
 const { createServer } = require('http-server');
-const zhCN = require('../site/theme/zh-CN');
-const enUS = require('../site/theme/en-US');
 
 const components = uniq(
   glob
@@ -43,11 +41,7 @@ describe('site test', () => {
   const expectComponent = async component => {
     const { status, $ } = await render(`/${component}/`);
     expect(status).toBe(200);
-    expect(
-      $('.markdown > h1')
-        .text()
-        .toLowerCase(),
-    ).toMatch(handleComponentName(component));
+    expect($('.markdown > h1').text().toLowerCase()).toMatch(handleComponentName(component));
   };
 
   beforeAll(() => {
@@ -67,13 +61,15 @@ describe('site test', () => {
 
   it('Basic Pages en', async () => {
     const { status, $ } = await render('/');
-    expect($('title').text()).toEqual(`Ant Design - ${enUS.messages['app.home.slogan']}`);
+    expect($('title').text()).toEqual(
+      `Ant Design - The world's second most popular React UI framework`,
+    );
     expect(status).toBe(200);
   });
 
   it('Basic Pages zh', async () => {
     const { status, $ } = await render('/index-cn');
-    expect($('title').text()).toEqual(`Ant Design - ${zhCN.messages['app.home.slogan']}`);
+    expect($('title').text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
     expect(status).toBe(200);
   });
 

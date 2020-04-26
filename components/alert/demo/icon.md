@@ -20,7 +20,7 @@ ReactDOM.render(
   <div>
     <Alert message="Success Tips" type="success" showIcon />
     <Alert message="Informational Notes" type="info" showIcon />
-    <Alert message="Warning" type="warning" showIcon />
+    <Alert message="Warning" type="warning" showIcon closable />
     <Alert message="Error" type="error" showIcon />
     <Alert
       message="Success Tips"
@@ -39,6 +39,7 @@ ReactDOM.render(
       description="This is a warning notice about copywriting."
       type="warning"
       showIcon
+      closable
     />
     <Alert
       message="Error"

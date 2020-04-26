@@ -36,7 +36,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-- Modern browsers and Internet Explorer 11+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
@@ -76,6 +76,7 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 
 ```jsx
 import { DatePicker } from 'antd';
+
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
@@ -122,7 +123,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ## Links
 
 - [Home page](https://ant.design/)
-- [Components](/docs/react/introduce)
+- [Components](https://ant.design/components/button/)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Change Log](/changelog)
 - [rc-components](http://react-component.github.io/)
