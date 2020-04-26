@@ -191,11 +191,16 @@ module.exports = override(
 +   style: true,
   }),
 + addLessLoader({
-+   lessOptions: {
-+     javascriptEnabled: true,
-+     modifyVars: { '@primary-color': '#1DA57A' },
-+   },
++   javascriptEnabled: true,
++   modifyVars: { '@primary-color': '#1DA57A' },
 + }),
++ // less-loader@6+ https://github.com/webpack-contrib/less-loader#lessoptions
++ // addLessLoader({
++ //   lessOptions: {
++ //     javascriptEnabled: true,
++ //     modifyVars: { '@primary-color': '#1DA57A' },
++ //   },
++ // }),
 );
 ```
 
