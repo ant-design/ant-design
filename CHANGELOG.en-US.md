@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.16
+
+`2020-04-26`
+
+- 🐞 Fix Carousel tabbed Radio/Checkbox to non-active slide. [#23380](https://github.com/ant-design/ant-design/pull/23380)
+- 🐞 Fix Table filter menu no height when less version is `2.x`. [#23272](https://github.com/ant-design/ant-design/pull/23272)
+
 ## 3.26.15
 
 `2020-04-03`
@@ -2680,7 +2687,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
   - 🙅 Deprecated `onRowClick`, `onRowDoubleClick`, `onRowContextMenu`, `onRowMouseEnter`, `onRowMouseLeave`, please use `onRow` instead.
     ```javascript
     <Table
-      onRow={record => ({
+      onRow={(record) => ({
         onClick: () => {},
         onDoubleClick: () => {},
         onContextMenu: () => {},
