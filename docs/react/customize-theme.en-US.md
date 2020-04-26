@@ -51,7 +51,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       // Should move less-specific options to the lessOptions option after less-loader@6+
++       // Should move less-specific options to the lessOptions after less-loader@6+
 +       lessOptions: {
 +         modifyVars: {
 +           'primary-color': '#1DA57A',
@@ -199,7 +199,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       // Should move less-specific options to the lessOptions option after less-loader@6+
++       // Should move less-specific options to the lessOptions after less-loader@6+
 +       lessOptions: {
 +         modifyVars: getThemeVariables({
 +           dark: true, // 开启暗黑模式
