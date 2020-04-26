@@ -48,7 +48,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
       </svg>
     </span>
-    Navigation One
+    <span>
+      Navigation One
+    </span>
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -94,7 +96,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
       </svg>
     </span>
-    Navigation Two
+    <span>
+      Navigation Two
+    </span>
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -873,7 +877,9 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
           />
         </svg>
       </span>
-      Navigation One
+      <span>
+        Navigation One
+      </span>
     </li>
     <li
       class="ant-menu-item"
@@ -900,7 +906,9 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
           />
         </svg>
       </span>
-      Navigation Two
+      <span>
+        Navigation Two
+      </span>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"

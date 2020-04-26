@@ -1,8 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { MailOutlined } from '@ant-design/icons';
+import {
+  MailOutlined,
+  InboxOutlined,
+  AppstoreOutlined,
+  PieChartOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import Menu from '..';
-import Icon from '../../icon';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
@@ -198,7 +203,7 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <Menu.Item key="menu1">
-          <Icon type="inbox" />
+          <InboxOutlined />
           <span>Option</span>
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
@@ -231,7 +236,7 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['not-existed']} mode="inline">
         <Menu.Item key="menu1">
-          <Icon type="inbox" />
+          <InboxOutlined />
           <span>Option</span>
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
@@ -378,7 +383,7 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed>
         <Menu.Item key="1" title="bamboo lucky">
-          <Icon type="pie-chart" />
+          <PieChartOutlined />
           <span>
             Option 1
             <img
@@ -420,7 +425,7 @@ describe('Menu', () => {
                   key="sub1"
                   title={
                     <span>
-                      <Icon type="user" />
+                      <UserOutlined />
                       <span>User</span>
                     </span>
                   }
@@ -493,11 +498,11 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
         <Menu.Item key="mail">
-          <Icon type="mail" />
+          <MailOutlined />
           Navigation One
         </Menu.Item>
         <Menu.Item key="app">
-          <Icon type="appstore" />
+          <AppstoreOutlined />
           Navigation Two
         </Menu.Item>
         <Menu.Item key="alipay">
@@ -521,14 +526,14 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('.ant-menu-item span').hasClass('anticon-mail')).toBe(true);
+    expect(wrapper.find('.ant-menu-item .anticon').hasClass('anticon-mail')).toBe(true);
   });
 
   it('should controlled collapse work', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1">
-          <Icon type="pie-chart" />
+          <PieChartOutlined />
           <span>Option 1</span>
         </Menu.Item>
       </Menu>,
@@ -546,7 +551,7 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1">
-          <Icon type="pie-chart" />
+          <PieChartOutlined />
           <span>Option 1</span>
         </Menu.Item>
       </Menu>,
