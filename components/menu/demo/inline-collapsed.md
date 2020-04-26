@@ -55,17 +55,14 @@ class App extends React.Component {
           theme="dark"
           inlineCollapsed={this.state.collapsed}
         >
-          <Menu.Item key="1">
-            <PieChartOutlined />
-            <span>Option 1</span>
+          <Menu.Item key="1" icon={<PieChartOutlined />}>
+            Option 1
           </Menu.Item>
-          <Menu.Item key="2">
-            <DesktopOutlined />
-            <span>Option 2</span>
+          <Menu.Item key="2" icon={<DesktopOutlined />}>
+            Option 2
           </Menu.Item>
-          <Menu.Item key="3">
-            <ContainerOutlined />
-            <span>Option 3</span>
+          <Menu.Item key="3" icon={<ContainerOutlined />}>
+            Option 3
           </Menu.Item>
           <SubMenu
             key="sub1"

@@ -15,6 +15,7 @@ export interface MenuItemProps
   rootPrefixCls?: string;
   disabled?: boolean;
   level?: number;
+  icon?: React.ReactNode;
   title?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
@@ -39,7 +40,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
     const { level, className, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
+    const { title, icon, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
@@ -60,6 +61,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
             // ref: https://github.com/ant-design/ant-design/issues/16742
             tooltipProps.visible = false;
           }
+          const childrenLength = toArray(children).length;
           return (
             <Tooltip
               {...tooltipProps}
@@ -69,11 +71,19 @@ export default class MenuItem extends React.Component<MenuItemProps> {
               <Item
                 {...rest}
                 className={classNames(className, {
-                  [`${rootPrefixCls}-item-only-child`]: toArray(children).length === 1,
+                  [`${rootPrefixCls}-item-only-child`]:
+                    (icon ? childrenLength + 1 : childrenLength) === 1,
                 })}
                 title={title}
                 ref={this.saveMenuItem}
-              />
+              >
+                {icon}
+                {/* 
+                inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
+                ref: https://github.com/ant-design/ant-design/pull/23456
+                */}
+                {icon ? <span>{children}</span> : children}
+              </Item>
             </Tooltip>
           );
         }}

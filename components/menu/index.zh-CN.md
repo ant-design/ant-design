@@ -53,11 +53,21 @@ subtitle: 导航菜单
 
 ### Menu.Item
 
-| 参数     | 说明                     | 类型    | 默认值 | 版本 |
-| -------- | ------------------------ | ------- | ------ | ---- |
-| disabled | 是否禁用                 | boolean | false  |      |
-| key      | item 的唯一标志          | string  |        |      |
-| title    | 设置收缩时展示的悬浮标题 | string  |        |      |
+| 参数     | 说明                     | 类型      | 默认值 | 版本  |
+| -------- | ------------------------ | --------- | ------ | ----- |
+| disabled | 是否禁用                 | boolean   | false  |       |
+| key      | item 的唯一标志          | string    |        |       |
+| title    | 设置收缩时展示的悬浮标题 | string    |        |       |
+| icon     | item 前面的 icon         | ReactNode |        | 4.2.0 |
+
+> 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
+>
+> ```jsx
+> <Menu.Item key="1">
+>   <PieChartOutlined />
+>   <span>Option 1</span>
+> </Menu.Item>
+> ```
 
 ### Menu.SubMenu
 

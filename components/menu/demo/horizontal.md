@@ -34,12 +34,10 @@ class App extends React.Component {
   render() {
     return (
       <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-        <Menu.Item key="mail">
-          <MailOutlined />
+        <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
-        <Menu.Item key="app" disabled>
-          <AppstoreOutlined />
+        <Menu.Item key="app" disabled icon={<AppstoreOutlined />}>
           Navigation Two
         </Menu.Item>
         <SubMenu

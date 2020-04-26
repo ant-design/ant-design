@@ -52,11 +52,21 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Menu.Item
 
-| Param    | Description                          | Type    | Default value | Version |
-| -------- | ------------------------------------ | ------- | ------------- | ------- |
-| disabled | Whether menu item is disabled        | boolean | false         |         |
-| key      | Unique ID of the menu item           | string  |               |         |
-| title    | Set display title for collapsed item | string  |               |         |
+| Param    | Description                          | Type      | Default value | Version |
+| -------- | ------------------------------------ | --------- | ------------- | ------- |
+| disabled | Whether menu item is disabled        | boolean   | false         |         |
+| key      | Unique ID of the menu item           | string    |               |         |
+| title    | Set display title for collapsed item | string    |               |         |
+| icon     | icon in front of the menu item       | ReactNode |               | 4.2.0   |
+
+> Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
+>
+> ```jsx
+> <Menu.Item key="1">
+>   <PieChartOutlined />
+>   <span>Option 1</span>
+> </Menu.Item>
+> ```
 
 ### Menu.SubMenu
 
