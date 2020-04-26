@@ -191,7 +191,7 @@ module.exports = override(
 +   style: true,
   }),
 + addLessLoader({
-+   // 在less-loader@6 之后，应将配置选项移至 lessOptions 对象下
++   // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
 +   lessOptions: {
 +     javascriptEnabled: true,
 +     modifyVars: { '@primary-color': '#1DA57A' },
