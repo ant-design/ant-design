@@ -51,24 +51,15 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+         'primary-color': '#1DA57A',
-+         'link-color': '#1DA57A',
-+         'border-radius-base': '2px',
++       lessOptions: {
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++         },
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
-+     // less-loader@6+ https://github.com/webpack-contrib/less-loader#lessoptions
-+     // options: {
-+     //   lessOptions: {
-+     //     modifyVars: {
-+     //       'primary-color': '#1DA57A',
-+     //       'link-color': '#1DA57A',
-+     //       'border-radius-base': '2px',
-+     //     },
-+     //     javascriptEnabled: true,
-+     //   },
-+     // },
     }],
     // ...other rules
   }],
@@ -207,22 +198,14 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: getThemeVariables({
-+         dark: true, // 开启暗黑模式
-+         compact: true, // 开启紧凑模式
-+       }),
-+       javascriptEnabled: true,
++       lessOptions: {
++         modifyVars: getThemeVariables({
++           dark: true, // 开启暗黑模式
++           compact: true, // 开启紧凑模式
++         }),
++         javascriptEnabled: true,
++       },
 +     },
-+     // less-loader@6+ https://github.com/webpack-contrib/less-loader#lessoptions
-+     // options: {
-+     //  lessOptions: {
-+     //    modifyVars: getThemeVariables({
-+     //      dark: true, // 开启暗黑模式
-+     //      compact: true, // 开启紧凑模式
-+     //    }),
-+     //    javascriptEnabled: true,
-+     //  },
-+     // },
     }],
   }],
 };
