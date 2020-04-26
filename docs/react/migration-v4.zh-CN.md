@@ -123,6 +123,7 @@ const Demo = () => (
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
   - Select 移除 `dropdownMenuStyle` 属性。
   - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
+  - `filterOption` 第二个参数直接返回原数据，不在需要通过 `option.props.children` 来进行匹配。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。

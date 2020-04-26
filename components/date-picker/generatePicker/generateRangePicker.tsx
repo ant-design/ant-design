@@ -49,9 +49,10 @@ export default function generateRangePicker<DateType>(
     };
 
     renderPicker = (locale: PickerLocale) => {
-      const { getPrefixCls, direction } = this.context;
+      const { getPrefixCls, direction, getPopupContainer } = this.context;
       const {
         prefixCls: customizePrefixCls,
+        getPopupContainer: customGetPopupContainer,
         className,
         size: customizeSize,
         bordered = true,
@@ -94,6 +95,7 @@ export default function generateRangePicker<DateType>(
                 {...additionalOverrideProps}
                 locale={locale!.lang}
                 prefixCls={prefixCls}
+                getPopupContainer={customGetPopupContainer || getPopupContainer}
                 generateConfig={generateConfig}
                 prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                 nextIcon={<span className={`${prefixCls}-next-icon`} />}

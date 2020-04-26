@@ -1,7 +1,3 @@
-const commonGlobals = {
-  gtag: true,
-};
-
 module.exports = {
   extends: [
     'airbnb',
@@ -38,7 +34,6 @@ module.exports = {
     {
       files: ['*.md'],
       globals: {
-        ...commonGlobals,
         React: true,
         ReactDOM: true,
         mountNode: true,
@@ -124,5 +119,7 @@ module.exports = {
     'unicorn/expiring-todo-comments': 2,
     'unicorn/no-abusive-eslint-disable': 2,
   },
-  globals: commonGlobals,
+  globals: {
+    gtag: true,
+  },
 };

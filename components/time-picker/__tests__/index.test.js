@@ -18,7 +18,7 @@ describe('TimePicker', () => {
     errorSpy.mockRestore();
   });
 
-  focusTest(TimePicker, true);
+  focusTest(TimePicker, { refFocus: true });
   mountTest(TimePicker);
   rtlTest(TimePicker);
 

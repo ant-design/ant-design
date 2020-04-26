@@ -50,73 +50,50 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState> {
-  static defaultProps = {
-    count: null,
-    onAnimated() {},
-  };
+const ScrollNumber: React.FC<ScrollNumberProps> = props => {
+  const [animateStarted, setAnimateStarted] = React.useState(true);
+  const [count, setCount] = React.useState(props.count);
+  const [prevCount, setPrevCount] = React.useState(props.count);
+  const [lastCount, setLastCount] = React.useState(props.count);
 
-  static getDerivedStateFromProps(nextProps: ScrollNumberProps, nextState: ScrollNumberState) {
-    if ('count' in nextProps) {
-      if (nextState.count === nextProps.count) {
-        return null;
-      }
-      return {
-        animateStarted: true,
-      };
-    }
-    return null;
+  if (prevCount !== props.count) {
+    setAnimateStarted(true);
+    setPrevCount(props.count);
   }
 
-  lastCount?: string | number | null;
-
-  private timeout?: number;
-
-  constructor(props: ScrollNumberProps) {
-    super(props);
-    this.state = {
-      animateStarted: true,
-      count: props.count,
-    };
-  }
-
-  componentDidUpdate(_: any, prevState: ScrollNumberState) {
-    this.lastCount = prevState.count;
-    const { animateStarted } = this.state;
+  React.useEffect(() => {
+    setLastCount(count);
+    let timeout: number;
     if (animateStarted) {
-      this.clearTimeout();
       // Let browser has time to reset the scroller before actually
       // performing the transition.
-      this.timeout = setTimeout(() => {
-        // eslint-disable-next-line react/no-did-update-set-state
-        this.setState(
-          (__, props) => ({
-            animateStarted: false,
-            count: props.count,
-          }),
-          this.onAnimated,
-        );
+      timeout = setTimeout(() => {
+        setAnimateStarted(false);
+        setCount(props.count);
+        if (props.onAnimated) {
+          props.onAnimated();
+        }
       });
     }
-  }
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [animateStarted, count, props.count, props.onAnimated]);
 
-  componentWillUnmount() {
-    this.clearTimeout();
-  }
-
-  getPositionByNum(num: number, i: number) {
-    const { count } = this.state;
+  const getPositionByNum = (num: number, i: number) => {
     const currentCount = Math.abs(Number(count));
-    const lastCount = Math.abs(Number(this.lastCount));
-    const currentDigit = Math.abs(getNumberArray(this.state.count)[i] as number);
-    const lastDigit = Math.abs(getNumberArray(this.lastCount)[i] as number);
+    const lstCount = Math.abs(Number(lastCount));
+    const currentDigit = Math.abs(getNumberArray(count)[i] as number);
+    const lastDigit = Math.abs(getNumberArray(lstCount)[i] as number);
 
-    if (this.state.animateStarted) {
+    if (animateStarted) {
       return 10 + num;
     }
 
     // 同方向则在同一侧切换数字
-    if (currentCount > lastCount) {
+    if (currentCount > lstCount) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       }
@@ -126,20 +103,12 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
       return 10 + num;
     }
     return num;
-  }
-
-  onAnimated = () => {
-    const { onAnimated } = this.props;
-    if (onAnimated) {
-      onAnimated();
-    }
   };
 
-  renderCurrentNumber(prefixCls: string, num: number | string, i: number) {
+  const renderCurrentNumber = (prefixCls: string, num: number | string, i: number) => {
     if (typeof num === 'number') {
-      const position = this.getPositionByNum(num, i);
-      const removeTransition =
-        this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
+      const position = getPositionByNum(num, i);
+      const removeTransition = animateStarted || getNumberArray(lastCount)[i] === undefined;
       return React.createElement(
         'span',
         {
@@ -161,19 +130,18 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
         {num}
       </span>
     );
-  }
+  };
 
-  renderNumberElement(prefixCls: string) {
-    const { count } = this.state;
+  const renderNumberElement = (prefixCls: string) => {
     if (count && Number(count) % 1 === 0) {
       return getNumberArray(count)
-        .map((num, i) => this.renderCurrentNumber(prefixCls, num, i))
+        .map((num, i) => renderCurrentNumber(prefixCls, num, i))
         .reverse();
     }
     return count;
-  }
+  };
 
-  renderScrollNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
+  const renderScrollNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -181,9 +149,9 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
       title,
       component = 'sup',
       displayComponent,
-    } = this.props;
+    } = props;
     // fix https://fb.me/react-unknown-prop
-    const restProps = omit(this.props, [
+    const restProps = omit(props, [
       'count',
       'onAnimated',
       'component',
@@ -214,19 +182,15 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
         ),
       });
     }
-    return React.createElement(component as any, newProps, this.renderNumberElement(prefixCls));
+    return React.createElement(component as any, newProps, renderNumberElement(prefixCls));
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderScrollNumber}</ConfigConsumer>;
-  }
+  return <ConfigConsumer>{renderScrollNumber}</ConfigConsumer>;
+};
 
-  private clearTimeout(): void {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-      this.timeout = undefined;
-    }
-  }
-}
+ScrollNumber.defaultProps = {
+  count: null,
+  onAnimated() {},
+};
 
 export default ScrollNumber;

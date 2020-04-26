@@ -4,13 +4,20 @@
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
 .@{alert-prefix-cls} {
-  &-rtl {
+  &&-rtl {
     padding: 8px 37px 8px 15px;
     direction: rtl;
   }
 
   &&-closable {
-    .@{alert-prefix-cls}-rtl& {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
+      padding-right: 37px;
+      padding-left: 30px;
+    }
+  }
+
+  &&-no-icon&-closable {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding-right: 15px;
       padding-left: 30px;
     }
@@ -30,14 +37,15 @@
     }
   }
 
-  &-with-description {
-    .@{alert-prefix-cls}-rtl& {
+  &-with-description,
+  &-with-description&-closable {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding: 15px 64px 15px 15px;
     }
   }
 
   &-with-description&-no-icon {
-    .@{alert-prefix-cls}-rtl& {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding: 15px;
     }
   }

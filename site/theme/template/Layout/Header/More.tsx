@@ -37,6 +37,16 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
           Ant Design of Vue
         </a>
       </Menu.Item>
+      <Menu.Item key="blazor">
+        <a
+          href="https://append-it.github.io/ant-design-blazor/"
+          className="header-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ant Design of Blazor
+        </a>
+      </Menu.Item>
       {isZhCN ? (
         <Menu.Item key="course" className="hide-in-home-page">
           <a
