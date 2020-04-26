@@ -8,6 +8,7 @@ import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
 import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+
 export { GetRowKey, ExpandableConfig };
 
 export type Key = React.Key;
