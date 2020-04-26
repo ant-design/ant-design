@@ -56,6 +56,9 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         // https://github.com/ant-design/ant-design/issues/15173
         e.preventDefault();
       },
+      onMouseUp: (e: MouseEvent) => {
+        e.preventDefault();
+      },
     };
     return React.createElement(icon as React.ComponentType, iconProps);
   };
