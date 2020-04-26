@@ -51,7 +51,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       lessOptions: {
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
 +         modifyVars: {
 +           'primary-color': '#1DA57A',
 +           'link-color': '#1DA57A',
@@ -176,7 +176,7 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       lessOptions: {
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
 +         modifyVars: getThemeVariables({
 +           dark: true, // 开启暗黑模式
 +           compact: true, // 开启紧凑模式
