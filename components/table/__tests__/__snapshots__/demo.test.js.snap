@@ -11868,6 +11868,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     </span>
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
+                      style="touch-action:none"
                     />
                   </th>
                   <th
@@ -11889,6 +11890,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     </span>
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
+                      style="touch-action:none"
                     />
                   </th>
                   <th
@@ -11910,6 +11912,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     </span>
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
+                      style="touch-action:none"
                     />
                   </th>
                   <th
@@ -11931,6 +11934,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     </span>
                     <span
                       class="react-resizable-handle react-resizable-handle-se"
+                      style="touch-action:none"
                     />
                   </th>
                   <th
