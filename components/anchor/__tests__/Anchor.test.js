@@ -49,6 +49,28 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
   });
 
+  it('Anchor render perfectly for complete href - hash router', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    let root = document.getElementById('root');
+    if (!root) {
+      root = document.createElement('div', { id: 'root' });
+      root.id = 'root';
+      document.body.appendChild(root);
+    }
+    mount(<div id="/faq?locale=en#Q1">Q1</div>, { attachTo: root });
+    const wrapper = mount(
+      <Anchor>
+        <Link href="/#/faq?locale=en#Q1" title="Q1" />
+      </Anchor>,
+    );
+
+    wrapper.instance().handleScrollTo('/#/faq?locale=en#Q1');
+    expect(wrapper.instance().state.activeLink).toBe('/#/faq?locale=en#Q1');
+    expect(scrollToSpy).not.toHaveBeenCalled();
+    await sleep(1000);
+    expect(scrollToSpy).toHaveBeenCalled();
+  });
+
   it('Anchor render perfectly for complete href - scroll', () => {
     let root = document.getElementById('root');
     if (!root) {
@@ -74,7 +96,7 @@ describe('Anchor Render', () => {
       root.id = 'root';
       document.body.appendChild(root);
     }
-    mount(<div id="API">Hello</div>, { attachTo: root });
+    mount(<div id="#API">Hello</div>, { attachTo: root });
     const wrapper = mount(
       <Anchor>
         <Link href="##API" title="API" />
@@ -82,9 +104,9 @@ describe('Anchor Render', () => {
     );
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
-    expect(scrollToSpy).not.toHaveBeenCalled();
+    const calls = scrollToSpy.mock.calls.length;
     await sleep(1000);
-    expect(scrollToSpy).toHaveBeenCalled();
+    expect(scrollToSpy.mock.calls.length).toBeGreaterThan(calls);
   });
 
   it('should remove listener when unmount', async () => {
@@ -304,19 +326,19 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     wrapper.instance().handleScrollTo('#API');
-    await sleep(20);
+    await sleep(30);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ offsetTop: 100 });
     wrapper.instance().handleScrollTo('#API');
-    await sleep(20);
+    await sleep(30);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     wrapper.setProps({ targetOffset: 200 });
     wrapper.instance().handleScrollTo('#API');
-    await sleep(20);
+    await sleep(30);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
