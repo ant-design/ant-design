@@ -624,4 +624,18 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();
   });
+
+  it('Menu.Item with icon children auto wrap span', () => {
+    const wrapper = mount(
+      <Menu>
+        <Menu.Item key="mail" icon={<MailOutlined />}>
+          Navigation One
+        </Menu.Item>
+        <Menu.Item key="mail" icon={<MailOutlined />}>
+          <span>Navigation One</span>
+        </Menu.Item>
+      </Menu>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
