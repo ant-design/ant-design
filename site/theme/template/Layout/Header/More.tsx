@@ -65,7 +65,7 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
 
 export default (props: SharedProps) => {
   const menu = <Menu>{getEcosystemGroup(props)}</Menu>;
-  const DownStyle = props.isRTL ? '-1px 2px 0 0' : '-1px 0 0 2px';
+  const downstyle = props.isRTL ? '-1px 2px 0 0' : '-1px 0 0 2px';
   return (
     <Dropdown overlay={menu} placement="bottomRight">
       <Button size="small" className="header-button">
@@ -73,7 +73,7 @@ export default (props: SharedProps) => {
         <DownOutlined
           style={{
             fontSize: '9px',
-            margin: DownStyle,
+            margin: downstyle,
             verticalAlign: 'middle',
           }}
         />

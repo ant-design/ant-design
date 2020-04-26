@@ -212,7 +212,7 @@ export default class Layout extends React.Component {
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
-      <SiteContext.Provider value={{ isMobile }}>
+      <SiteContext.Provider value={{ isMobile, direction }}>
         <HelmetProvider context={helmetContext}>
           <Helmet encodeSpecialCharacters={false}>
             <html

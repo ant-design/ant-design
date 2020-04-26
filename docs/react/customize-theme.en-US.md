@@ -97,6 +97,7 @@ Follow [Use in create-react-app](/docs/react/use-with-create-react-app).
 Another approach to customize theme is creating a `less` file within variables to override `antd.less`.
 
 ```css
+@import '~antd/es/style/themes/default.less';
 @import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
 @import 'your-theme-file.less'; // variables to override above
 ```
