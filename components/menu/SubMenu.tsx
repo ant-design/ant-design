@@ -44,12 +44,18 @@ class SubMenu extends React.Component<SubMenuProps, any> {
 
   renderTitle() {
     const { icon, title } = this.props;
-    // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
-    // ref: https://github.com/ant-design/ant-design/pull/23456
-    if (!icon || (React.isValidElement(title) && title.type === 'span')) {
+    if (!icon) {
       return title;
     }
-    return <span>{title}</span>;
+    // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
+    // ref: https://github.com/ant-design/ant-design/pull/23456
+    const titleIsSpan = React.isValidElement(title) && title.type === 'span';
+    return (
+      <>
+        {icon}
+        {titleIsSpan ? title : <span>{title}</span>}
+      </>
+    );
   }
 
   render() {
@@ -59,12 +65,7 @@ class SubMenu extends React.Component<SubMenuProps, any> {
         {({ antdMenuTheme }: MenuContextProps) => (
           <RcSubMenu
             {...this.props}
-            title={
-              <>
-                {icon}
-                {this.renderTitle()}
-              </>
-            }
+            title={this.renderTitle()}
             ref={this.saveSubMenu}
             popupClassName={classNames(
               rootPrefixCls,
