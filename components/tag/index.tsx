@@ -4,7 +4,7 @@ import omit from 'omit.js';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import CheckableTag from './CheckableTag';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import {
   PresetColorTypes,
   PresetStatusColorTypes,
@@ -35,6 +35,7 @@ interface TagType extends React.FC<TagProps> {
 }
 
 const Tag: TagType = props => {
+  const configProps = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
   React.useEffect(() => {
@@ -95,37 +96,33 @@ const Tag: TagType = props => {
     return closable ? <CloseOutlined onClick={handleIconClick} /> : null;
   };
 
-  const renderTag = (configProps: ConfigConsumerProps) => {
-    const { children, icon, ...otherProps } = props;
-    const isNeedWave =
-      'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
-    const iconNode = icon || null;
-    const kids = iconNode ? (
-      <>
-        {iconNode}
-        <span>{children}</span>
-      </>
-    ) : (
-      children
-    );
+  const { children, icon, ...otherProps } = props;
+  const isNeedWave =
+    'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
+  const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
+  const iconNode = icon || null;
+  const kids = iconNode ? (
+    <>
+      {iconNode}
+      <span>{children}</span>
+    </>
+  ) : (
+    children
+  );
 
-    return isNeedWave ? (
-      <Wave>
-        <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
-          {kids}
-          {renderCloseIcon()}
-        </span>
-      </Wave>
-    ) : (
+  return isNeedWave ? (
+    <Wave>
       <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
         {kids}
         {renderCloseIcon()}
       </span>
-    );
-  };
-
-  return <ConfigConsumer>{renderTag}</ConfigConsumer>;
+    </Wave>
+  ) : (
+    <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
+      {kids}
+      {renderCloseIcon()}
+    </span>
+  );
 };
 
 Tag.defaultProps = {
