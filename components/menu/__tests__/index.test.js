@@ -628,12 +628,14 @@ describe('Menu', () => {
   it('Menu.Item with icon children auto wrap span', () => {
     const wrapper = mount(
       <Menu>
-        <Menu.Item key="mail" icon={<MailOutlined />}>
+        <Menu.Item key="1" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
-        <Menu.Item key="mail" icon={<MailOutlined />}>
+        <Menu.Item key="2" icon={<MailOutlined />}>
           <span>Navigation One</span>
         </Menu.Item>
+        <Menu.SubMenu key="3" icon={<MailOutlined />} title="Navigation One" />
+        <Menu.SubMenu key="4" icon={<MailOutlined />} title={<span>Navigation One</span>} />
       </Menu>,
     );
     expect(wrapper.render()).toMatchSnapshot();

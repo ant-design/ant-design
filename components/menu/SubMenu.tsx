@@ -15,6 +15,7 @@ export interface SubMenuProps {
   className?: string;
   disabled?: boolean;
   title?: React.ReactNode;
+  icon?: React.ReactNode;
   style?: React.CSSProperties;
   onTitleClick?: (e: TitleEventEntity) => void;
   onTitleMouseEnter?: (e: TitleEventEntity) => void;
@@ -41,13 +42,29 @@ class SubMenu extends React.Component<SubMenuProps, any> {
     this.subMenu = subMenu;
   };
 
+  renderTitle() {
+    const { icon, title } = this.props;
+    // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
+    // ref: https://github.com/ant-design/ant-design/pull/23456
+    if (!icon || (React.isValidElement(title) && title.type === 'span')) {
+      return title;
+    }
+    return <span>{title}</span>;
+  }
+
   render() {
-    const { rootPrefixCls, popupClassName } = this.props;
+    const { rootPrefixCls, popupClassName, icon } = this.props;
     return (
       <MenuContext.Consumer>
         {({ antdMenuTheme }: MenuContextProps) => (
           <RcSubMenu
             {...this.props}
+            title={
+              <>
+                {icon}
+                {this.renderTitle()}
+              </>
+            }
             ref={this.saveSubMenu}
             popupClassName={classNames(
               rootPrefixCls,
