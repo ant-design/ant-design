@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ListGridType, ColumnType, ListContext } from './index';
+import { ListGridType, ListContext } from './index';
 import { Col } from '../grid';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -53,10 +53,6 @@ export const Meta: React.FC<ListItemMetaProps> = ({
     </div>
   );
 };
-
-function getGrid(grid: ListGridType, t: ColumnType) {
-  return grid[t] && Math.floor(24 / grid[t]!);
-}
 
 export interface ListItemTypeProps extends React.FC<ListItemProps> {
   Meta: typeof Meta;
@@ -120,16 +116,17 @@ const Item: ListItemTypeProps = props => {
     </Tag>
   );
 
+  const colStyle = React.useMemo(() => {
+    if (grid && grid.column) {
+      return {
+        width: `${100 / grid.column}%`,
+      };
+    }
+    return undefined;
+  }, [grid && grid.column]);
+
   return grid ? (
-    <Col
-      span={getGrid(grid, 'column')}
-      xs={getGrid(grid, 'xs')}
-      sm={getGrid(grid, 'sm')}
-      md={getGrid(grid, 'md')}
-      lg={getGrid(grid, 'lg')}
-      xl={getGrid(grid, 'xl')}
-      xxl={getGrid(grid, 'xxl')}
-    >
+    <Col flex={1} style={colStyle}>
       {itemChildren}
     </Col>
   ) : (

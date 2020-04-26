@@ -11,7 +11,7 @@ import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
-export type ColumnCount = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+export type ColumnCount = number;
 
 export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
