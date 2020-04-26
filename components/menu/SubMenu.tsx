@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
-
+import omit from 'omit.js';
 import MenuContext, { MenuContextProps } from './MenuContext';
 
 interface TitleEventEntity {
@@ -64,7 +64,7 @@ class SubMenu extends React.Component<SubMenuProps, any> {
       <MenuContext.Consumer>
         {({ antdMenuTheme }: MenuContextProps) => (
           <RcSubMenu
-            {...this.props}
+            {...omit(this.props, ['icon'])}
             title={this.renderTitle()}
             ref={this.saveSubMenu}
             popupClassName={classNames(

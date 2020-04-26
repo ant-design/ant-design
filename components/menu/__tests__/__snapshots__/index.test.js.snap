@@ -63,7 +63,6 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    icon="[object Object]"
     role="menuitem"
   >
     <div
@@ -102,7 +101,6 @@ exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
-    icon="[object Object]"
     role="menuitem"
   >
     <div
@@ -171,6 +169,7 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
       aria-haspopup="true"
       class="ant-menu-submenu-title"
       role="button"
+      title=""
     >
       <i
         class="ant-menu-submenu-arrow"
