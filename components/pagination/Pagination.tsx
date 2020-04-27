@@ -45,16 +45,10 @@ export interface PaginationProps {
   showLessItems?: boolean;
 }
 
-export type PaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
+export type PaginationPosition = 'top' | 'bottom' | 'both';
 
 export interface PaginationConfig extends PaginationProps {
-  position?: PaginationPosition[];
+  position?: PaginationPosition;
 }
 
 export type PaginationLocale = any;
