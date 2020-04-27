@@ -6,7 +6,7 @@ import { ConfigContext } from '../config-provider';
 export interface TimeLineItemProps {
   prefixCls?: string;
   className?: string;
-  color: string;
+  color?: string;
   dot?: React.ReactNode;
   pending?: boolean;
   position?: string;
@@ -48,7 +48,7 @@ const TimelineItem: React.FC<TimeLineItemProps> = props => {
       <div className={`${prefixCls}-item-tail`} />
       <div
         className={dotClassName}
-        style={{ borderColor: /blue|red|green|gray/.test(color) ? undefined : color }}
+        style={{ borderColor: /blue|red|green|gray/.test(color || '') ? undefined : color }}
       >
         {dot}
       </div>
