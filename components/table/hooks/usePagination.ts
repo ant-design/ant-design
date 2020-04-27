@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { PaginationProps, PaginationConfig } from '../../pagination';
+import { PaginationProps } from '../../pagination';
 import { TablePaginationConfig } from '../interface';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
 export function getPaginationParam(
-  pagination: PaginationConfig | boolean | undefined,
-  mergedPagination: PaginationConfig,
+  pagination: TablePaginationConfig | boolean | undefined,
+  mergedPagination: TablePaginationConfig,
 ) {
   const param: any = {
     current: mergedPagination.current,
