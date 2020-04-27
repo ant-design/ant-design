@@ -57,6 +57,8 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         e.preventDefault();
       },
       onMouseUp: (e: MouseEvent) => {
+        // Prevent caret position change
+        // https://github.com/ant-design/ant-design/issues/23524
         e.preventDefault();
       },
     };
