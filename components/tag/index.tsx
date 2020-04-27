@@ -128,6 +128,8 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (props, r
 
 const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as CompoundedComponent;
 
+Tag.displayName = 'Tag';
+
 Tag.defaultProps = {
   closable: false,
 };
