@@ -103,8 +103,8 @@ class App extends React.Component {
         </div>
         <Row gutter={[this.gutters[gutterKey], this.vgutters[vgutterKey]]}>{cols}</Row>
         <Row gutter={[this.gutters[gutterKey], this.vgutters[vgutterKey]]}>{cols}</Row>
-        <pre class="demo-code">{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
-        <pre class="demo-code">{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
       </>
     );
   }
