@@ -60,10 +60,16 @@ describe('Input.Password', () => {
         .at(0)
         .getDOMNode(),
     );
+    document.activeElement.setSelectionRange(2, 2);
+    expect(document.activeElement.selectionStart).toBe(2);
     wrapper
       .find('.ant-input-password-icon')
       .at(0)
       .simulate('mousedown');
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('mouseup');
     wrapper
       .find('.ant-input-password-icon')
       .at(0)
@@ -74,6 +80,7 @@ describe('Input.Password', () => {
         .at(0)
         .getDOMNode(),
     );
+    expect(document.activeElement.selectionStart).toBe(2);
     wrapper.unmount();
   });
 
