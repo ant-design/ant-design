@@ -53,7 +53,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | disabled | determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | - |  |
 | dropdownClassName | to customize the className of the popup calendar | string | - |  |
-| getPopupContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
+| getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | picker panel mode（[Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | open state of picker | boolean | - |  |
