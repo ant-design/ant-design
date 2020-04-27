@@ -14,7 +14,7 @@ export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   extra?: React.ReactNode;
   actions?: React.ReactNode[];
   grid?: ListGridType;
-  colStyle?: React.CSSProperties;
+  flex?: string;
 }
 
 export interface ListItemMetaProps {
@@ -88,7 +88,7 @@ const Item: ListItemTypeProps = props => {
     actions,
     extra,
     className,
-    colStyle,
+    flex,
     ...others
   } = props;
   const prefixCls = getPrefixCls('list', customizePrefixCls);
@@ -125,13 +125,7 @@ const Item: ListItemTypeProps = props => {
     </Element>
   );
 
-  return grid ? (
-    <Col flex={1} style={colStyle}>
-      {itemChildren}
-    </Col>
-  ) : (
-    itemChildren
-  );
+  return grid ? <Col flex={flex}>{itemChildren}</Col> : itemChildren;
 };
 
 Item.Meta = Meta;

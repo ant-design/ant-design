@@ -229,17 +229,14 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
     return undefined;
   }, [screens]);
 
-  const colStyle = React.useMemo(() => {
+  const flex = React.useMemo(() => {
     if (!grid) {
       return undefined;
     }
     const columnCount =
       currentBreakpoint && grid[currentBreakpoint] ? grid[currentBreakpoint] : grid.column;
     if (columnCount) {
-      return {
-        width: `${100 / columnCount}%`,
-        maxWidth: `${100 / columnCount}%`,
-      };
+      return `${100 / columnCount}%`;
     }
   }, [grid?.column, currentBreakpoint]);
 
@@ -249,7 +246,7 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
     const childrenList = React.Children.map(items, (child: any, index) =>
       React.cloneElement(child, {
         key: keys[index],
-        colStyle,
+        flex,
       }),
     );
     childrenContent = grid ? (
