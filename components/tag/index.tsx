@@ -30,11 +30,12 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
-interface TagType extends React.FC<TagProps> {
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
   CheckableTag: typeof CheckableTag;
 }
 
-const Tag: TagType = props => {
+const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (props, ref) => {
   const configProps = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
@@ -112,18 +113,20 @@ const Tag: TagType = props => {
 
   return isNeedWave ? (
     <Wave>
-      <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
+      <span {...tagProps} ref={ref} className={getTagClassName(configProps)} style={getTagStyle()}>
         {kids}
         {renderCloseIcon()}
       </span>
     </Wave>
   ) : (
-    <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
+    <span {...tagProps} ref={ref} className={getTagClassName(configProps)} style={getTagStyle()}>
       {kids}
       {renderCloseIcon()}
     </span>
   );
 };
+
+const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as CompoundedComponent;
 
 Tag.defaultProps = {
   closable: false,
