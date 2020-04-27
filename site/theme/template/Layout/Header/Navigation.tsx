@@ -32,6 +32,7 @@ export default ({
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
+  const [isGitee, setIsGitee] = React.useState(false);
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
   const module = pathname.split('/').slice(0, -1).join('/');
@@ -68,7 +69,9 @@ export default ({
     );
   }
 
-  const isGitee = document.location.host.indexOf('gitee') !== -1;
+  React.useEffect(() => {
+    setIsGitee(document.location.host.indexOf('gitee') !== -1);
+  }, []);
 
   return (
     <Menu
