@@ -100,21 +100,21 @@ ReactDOM.render(
 
         return (
           <>
-            <tr>
-              <th>Total</th>
-              <td>
+            <Table.Summary.Row>
+              <Table.Summary.Cell>Total</Table.Summary.Cell>
+              <Table.Summary.Cell>
                 <Text type="danger">{totalBorrow}</Text>
-              </td>
-              <td>
+              </Table.Summary.Cell>
+              <Table.Summary.Cell>
                 <Text>{totalRepayment}</Text>
-              </td>
-            </tr>
-            <tr>
-              <th>Balance</th>
-              <td colSpan={2}>
+              </Table.Summary.Cell>
+            </Table.Summary.Row>
+            <Table.Summary.Row>
+              <Table.Summary.Cell>Balance</Table.Summary.Cell>
+              <Table.Summary.Cell colSpan={2}>
                 <Text type="danger">{totalBorrow - totalRepayment}</Text>
-              </td>
-            </tr>
+              </Table.Summary.Cell>
+            </Table.Summary.Row>
           </>
         );
       }}

@@ -14191,17 +14191,23 @@ Array [
                   class="ant-table-summary"
                 >
                   <tr>
-                    <th>
+                    <td
+                      class="ant-table-cell"
+                    >
                       Total
-                    </th>
-                    <td>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
                       <span
                         class="ant-typography ant-typography-danger"
                       >
                         195
                       </span>
                     </td>
-                    <td>
+                    <td
+                      class="ant-table-cell"
+                    >
                       <span
                         class="ant-typography"
                       >
@@ -14210,10 +14216,13 @@ Array [
                     </td>
                   </tr>
                   <tr>
-                    <th>
-                      Balance
-                    </th>
                     <td
+                      class="ant-table-cell"
+                    >
+                      Balance
+                    </td>
+                    <td
+                      class="ant-table-cell"
                       colspan="2"
                     >
                       <span
