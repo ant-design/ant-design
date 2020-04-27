@@ -183,7 +183,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
       >
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:0 0 25%"
+          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -214,7 +214,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:0 0 25%"
+          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -245,7 +245,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:0 0 25%"
+          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -276,7 +276,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:0 0 25%"
+          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -452,7 +452,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
       >
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px"
+          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -483,7 +483,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px"
+          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -514,7 +514,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px"
+          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -545,7 +545,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px"
+          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -576,7 +576,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px"
+          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
@@ -607,7 +607,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
         <div
           class="ant-col"
-          style="padding-left:8px;padding-right:8px"
+          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
         >
           <div
             class="ant-list-item"
