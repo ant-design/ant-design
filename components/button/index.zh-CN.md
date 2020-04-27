@@ -62,6 +62,10 @@ subtitle: 按钮
   margin-right: 8px;
   margin-bottom: 12px;
 }
+[id^="components-button-demo-"] .ant-btn-rtl {
+  margin-right: 0;
+  margin-left: 8px;
+}
 [id^="components-button-demo-"] .ant-btn-group > .ant-btn {
   margin-right: 0;
 }

@@ -658,6 +658,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
   </span>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
+    style="margin:0 8px"
   >
     <div
       class="ant-select-selector"
