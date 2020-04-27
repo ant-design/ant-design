@@ -88,7 +88,7 @@
   padding-left: 4px;
   list-style-type: circle;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 20px;
     margin-left: 0;
     padding-right: 4px;
@@ -187,7 +187,7 @@
   font-size: 90%;
   border-left: 4px solid @site-border-color-split;
 
-  .ant-row-rtl & {
+  .rtl & {
     padding-right: 0.8em;
     padding-left: 0;
     border-right: 4px solid @site-border-color-split;
@@ -204,7 +204,7 @@
   opacity: 0;
   transition: opacity 0.3s;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 8px;
     margin-left: 0;
   }
@@ -220,10 +220,12 @@
   margin-left: 8px;
   text-decoration: none;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 8px;
     margin-left: 0;
+    transform: rotateY(180deg);
   }
+
   i {
     color: @site-text-color-secondary;
 
