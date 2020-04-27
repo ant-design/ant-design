@@ -3,11 +3,10 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
 import { useBreakpoint } from '../grid';
+import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import { RenderEmptyHandler, ConfigContext } from '../config-provider';
-
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
-
 import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
@@ -220,9 +219,15 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
   }
 
   const screens = useBreakpoint();
-  const currentBreakpoint = Object.entries(screens)
-    .filter(screen => !!screen[1])
-    .pop()?.[0] as ColumnType;
+  const currentBreakpoint = React.useMemo(() => {
+    for (let i = 0; i < responsiveArray.length; i += 1) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint]) {
+        return breakpoint;
+      }
+    }
+    return undefined;
+  }, [screens]);
 
   const colStyle = React.useMemo(() => {
     if (!grid) {
