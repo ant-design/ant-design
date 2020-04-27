@@ -30,9 +30,11 @@ for (let i = 0; i < 23; i++) {
   });
 }
 
+const isRTL = document.getElementsByClassName('rtl').length > 0;
+const iconstyle = isRTL ? { marginLeft: 8 } : { marginRight: 8 };
 const IconText = ({ icon, text }) => (
   <span>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
+    {React.createElement(icon, { style: iconstyle })}
     {text}
   </span>
 );
