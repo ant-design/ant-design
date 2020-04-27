@@ -84,7 +84,7 @@ const LinksList = () => (
       </a>
     </li>
       <li>
-      <a href="https://append-it.github.io/ant-design-blazor/" target="_blank">Ant Design of Blazor<LinkIcon /></a>
+      <a href="https://ant-design-blazor.gitee.io/" target="_blank">Ant Design of Blazor<LinkIcon /></a>
     </li>
   </ul>
 );
