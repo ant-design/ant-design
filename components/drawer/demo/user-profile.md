@@ -174,26 +174,26 @@ ReactDOM.render(<App />, mountNode);
 .site-description-item-profile-wrapper {
   color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
-  line-height: 22px;
+  line-height: 1.5715;
   margin-bottom: 7px;
 }
 
 [data-theme='compact'] .site-description-item-profile-wrapper {
   font-size: 12px;
-  line-height: 20px;
+  line-height: 1.66667;
 }
 
 .ant-drawer-body p.site-description-item-profile-p {
   color: rgba(0, 0, 0, 0.85);
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5715;
   display: block;
   margin-bottom: 16px;
 }
 
 [data-theme='compact'] .ant-drawer-body p.site-description-item-profile-p {
   font-size: 14px;
-  line-height: 22px;
+  line-height: 1.66667;
 }
 
 .site-description-item-profile-p-label {
