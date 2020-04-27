@@ -26,6 +26,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | onConfirm | callback of confirmation | function(e) | - |
 | icon | customize icon of confirmation | ReactNode | `<ExclamationCircle />` |
 | disabled | is show popconfirm when click its childrenNode | boolean | false |
+| confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
 
 Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
 

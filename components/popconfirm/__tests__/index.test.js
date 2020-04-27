@@ -176,4 +176,14 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     expect(ref.current.getPopupDomNode()).toBeFalsy();
   });
+
+  it('confirmLoading', () => {
+    const ref = React.createRef();
+    const wrapper = mount(
+      <Popconfirm ref={ref} title="code" defaultVisible confirmLoading>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -20,6 +20,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
   onVisibleChange?: (visible: boolean, e?: React.MouseEvent<HTMLElement>) => void;
+  /** 确定按钮 loading */
+  confirmLoading?: boolean;
 }
 
 export interface PopconfirmState {
@@ -81,7 +83,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const renderOverlay = (prefixCls: string, popconfirmLocale: PopconfirmLocale) => {
-    const { okButtonProps, cancelButtonProps, title, cancelText, okText, okType, icon } = props;
+    const {
+      okButtonProps,
+      cancelButtonProps,
+      title,
+      cancelText,
+      okText,
+      okType,
+      icon,
+      confirmLoading,
+    } = props;
     return (
       <div className={`${prefixCls}-inner-content`}>
         <div className={`${prefixCls}-message`}>
@@ -92,7 +103,13 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
             {cancelText || popconfirmLocale.cancelText}
           </Button>
-          <Button onClick={onConfirm} type={okType} size="small" {...okButtonProps}>
+          <Button
+            onClick={onConfirm}
+            loading={confirmLoading}
+            type={okType}
+            size="small"
+            {...okButtonProps}
+          >
             {okText || popconfirmLocale.okText}
           </Button>
         </div>
@@ -124,6 +141,8 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   );
 });
 
+Popconfirm.displayName = 'Popconfirm';
+
 Popconfirm.defaultProps = {
   transitionName: 'zoom-big',
   placement: 'top' as PopconfirmProps['placement'],
@@ -131,6 +150,7 @@ Popconfirm.defaultProps = {
   okType: 'primary' as PopconfirmProps['okType'],
   icon: <ExclamationCircleFilled />,
   disabled: false,
+  confirmLoading: false,
 };
 
 export default Popconfirm;
