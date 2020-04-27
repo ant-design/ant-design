@@ -19,7 +19,7 @@ const TimelineItem: React.FC<TimeLineItemProps> = props => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    color = '',
+    color,
     children,
     pending,
     dot,
