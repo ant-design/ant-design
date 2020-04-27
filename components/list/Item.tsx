@@ -14,6 +14,7 @@ export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   extra?: React.ReactNode;
   actions?: React.ReactNode[];
   grid?: ListGridType;
+  colStyle?: React.CSSProperties;
 }
 
 export interface ListItemMetaProps {
@@ -81,7 +82,15 @@ const Item: ListItemTypeProps = props => {
     return !isItemContainsTextNodeAndNotSingular();
   };
 
-  const { prefixCls: customizePrefixCls, children, actions, extra, className, ...others } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    children,
+    actions,
+    extra,
+    className,
+    colStyle,
+    ...others
+  } = props;
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul className={`${prefixCls}-item-action`} key="actions">
@@ -94,9 +103,9 @@ const Item: ListItemTypeProps = props => {
       ))}
     </ul>
   );
-  const Tag = grid ? 'div' : 'li';
+  const Element = grid ? 'div' : 'li';
   const itemChildren = (
-    <Tag
+    <Element
       {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
       className={classNames(`${prefixCls}-item`, className, {
         [`${prefixCls}-item-no-flex`]: !isFlexMode(),
@@ -113,17 +122,8 @@ const Item: ListItemTypeProps = props => {
             </div>,
           ]
         : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
-    </Tag>
+    </Element>
   );
-
-  const colStyle = React.useMemo(() => {
-    if (grid && grid.column) {
-      return {
-        width: `${100 / grid.column}%`,
-      };
-    }
-    return undefined;
-  }, [grid && grid.column]);
 
   return grid ? (
     <Col flex={1} style={colStyle}>

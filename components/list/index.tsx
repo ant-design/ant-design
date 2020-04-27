@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
+import { useBreakpoint } from '../grid';
 import { RenderEmptyHandler, ConfigContext } from '../config-provider';
 
 import Pagination, { PaginationConfig } from '../pagination';
@@ -218,20 +219,34 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
     }
   }
 
-  let childrenContent;
-  childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
+  const screens = useBreakpoint();
+  const currentBreakpoint = Object.entries(screens)
+    .filter(screen => !!screen[1])
+    .pop()?.[0] as ColumnType;
+
+  const colStyle = React.useMemo(() => {
+    if (!grid) {
+      return undefined;
+    }
+    const columnCount =
+      currentBreakpoint && grid[currentBreakpoint] ? grid[currentBreakpoint] : grid.column;
+    if (columnCount) {
+      return {
+        width: `${100 / columnCount}%`,
+        maxWidth: `${100 / columnCount}%`,
+      };
+    }
+  }, [grid?.column, currentBreakpoint]);
+
+  let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: any, index: number) => renderItem(item, index));
-
-    const childrenList: Array<React.ReactNode> = [];
-    React.Children.forEach(items, (child: any, index) => {
-      childrenList.push(
-        React.cloneElement(child, {
-          key: keys[index],
-        }),
-      );
-    });
-
+    const childrenList = React.Children.map(items, (child: any, index) =>
+      React.cloneElement(child, {
+        key: keys[index],
+        colStyle,
+      }),
+    );
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>{childrenList}</Row>
     ) : (
