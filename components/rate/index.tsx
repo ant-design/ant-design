@@ -49,6 +49,7 @@ const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
       {...rateProps}
       prefixCls={ratePrefixCls}
       className={rateClassNames}
+      direction={direction}
     />
   );
 });

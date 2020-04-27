@@ -15,5 +15,6 @@ Avoid components clinging together and set a unified space.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| size | space size | `small` \| `middle` \| `large` \| `number` | `small` | 4.1.0 |
+| align | align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | direction | space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
+| size | space size | `small` \| `middle` \| `large` \| `number` | `small` | 4.1.0 |
