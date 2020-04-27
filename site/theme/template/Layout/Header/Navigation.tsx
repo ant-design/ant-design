@@ -68,7 +68,7 @@ export default ({
     );
   }
 
-  const isGitee = document.location.host.indexOf('gitee') != -1;
+  const isGitee = document.location.host.indexOf('gitee') !== -1;
 
   return (
     <Menu
