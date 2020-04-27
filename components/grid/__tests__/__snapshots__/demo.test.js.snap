@@ -1227,14 +1227,4 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `
-<div
-  class="ant-row"
->
-  <div
-    class="ant-col"
-  >
-    Current break point: 
-  </div>
-</div>
-`;
+exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `null`;

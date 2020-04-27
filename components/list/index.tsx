@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
-import { useBreakpoint } from '../grid';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import { RenderEmptyHandler, ConfigContext } from '../config-provider';
 import Pagination, { PaginationConfig } from '../pagination';
