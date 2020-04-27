@@ -34,9 +34,12 @@ describe('TimeLine', () => {
     });
 
     it('its last item is marked as the last item', () => {
-      expect(wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
-        true,
-      );
+      expect(
+        wrapper
+          .find('li.ant-timeline-item')
+          .last()
+          .hasClass('ant-timeline-item-last'),
+      ).toBe(true);
     });
   });
 
@@ -62,7 +65,10 @@ describe('TimeLine', () => {
     it('its last item is marked as the pending item', () => {
       const wrapper = wrapperFactory({ pending });
       expect(
-        wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-pending'),
+        wrapper
+          .find('li.ant-timeline-item')
+          .last()
+          .hasClass('ant-timeline-item-pending'),
       ).toBe(true);
     });
 
@@ -113,15 +119,21 @@ describe('TimeLine', () => {
 
     it('its last item is marked as the last item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });
-      expect(wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
-        true,
-      );
+      expect(
+        wrapper
+          .find('li.ant-timeline-item')
+          .last()
+          .hasClass('ant-timeline-item-last'),
+      ).toBe(true);
     });
 
     it('its first item is marked as the pending item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });
       expect(
-        wrapper.find('li.ant-timeline-item').first().hasClass('ant-timeline-item-pending'),
+        wrapper
+          .find('li.ant-timeline-item')
+          .first()
+          .hasClass('ant-timeline-item-pending'),
       ).toBe(true);
     });
   });
@@ -136,16 +148,5 @@ describe('TimeLine', () => {
     );
     expect(wrapper.find('.ant-timeline-label')).toHaveLength(1);
     expect(wrapper.find('.ant-timeline-item-label').text()).toBe(label);
-  });
-
-  it('renders Timeline color', () => {
-    const label = '2020-01-01';
-    const wrapper = wrapperFactory(
-      {},
-      <Item key="1" label={label} color="red">
-        foo
-      </Item>,
-    );
-    expect(wrapper).toMatchSnapshot();
   });
 });
