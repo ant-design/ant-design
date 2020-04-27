@@ -1,5 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TimeLine renders Timeline color 1`] = `
+<Timeline
+  mode=""
+  reverse={false}
+  type="editable-card"
+>
+  <ul
+    className="ant-timeline ant-timeline-label"
+    type="editable-card"
+  >
+    <TimelineItem
+      className=""
+      color="blue"
+      key=".$.$1"
+      pending={false}
+      position=""
+    >
+      <li
+        className="ant-timeline-item"
+      >
+        <div
+          className="ant-timeline-item-tail"
+        />
+        <div
+          className="ant-timeline-item-head ant-timeline-item-head-blue"
+          style={
+            Object {
+              "borderColor": undefined,
+            }
+          }
+        />
+        <div
+          className="ant-timeline-item-content"
+        >
+          foo
+        </div>
+      </li>
+    </TimelineItem>
+    <TimelineItem
+      className=""
+      color="blue"
+      key=".$.$2"
+      pending={false}
+      position=""
+    >
+      <li
+        className="ant-timeline-item"
+      >
+        <div
+          className="ant-timeline-item-tail"
+        />
+        <div
+          className="ant-timeline-item-head ant-timeline-item-head-blue"
+          style={
+            Object {
+              "borderColor": undefined,
+            }
+          }
+        />
+        <div
+          className="ant-timeline-item-content"
+        >
+          bar
+        </div>
+      </li>
+    </TimelineItem>
+    <TimelineItem
+      className=""
+      color="blue"
+      key=".$.$3"
+      pending={false}
+      position=""
+    >
+      <li
+        className="ant-timeline-item"
+      >
+        <div
+          className="ant-timeline-item-tail"
+        />
+        <div
+          className="ant-timeline-item-head ant-timeline-item-head-blue"
+          style={
+            Object {
+              "borderColor": undefined,
+            }
+          }
+        />
+        <div
+          className="ant-timeline-item-content"
+        >
+          baz
+        </div>
+      </li>
+    </TimelineItem>
+    <TimelineItem
+      className="ant-timeline-item-last"
+      color="red"
+      key=".$.$1"
+      label="2020-01-01"
+      pending={false}
+      position=""
+    >
+      <li
+        className="ant-timeline-item ant-timeline-item-last"
+      >
+        <div
+          className="ant-timeline-item-label"
+        >
+          2020-01-01
+        </div>
+        <div
+          className="ant-timeline-item-tail"
+        />
+        <div
+          className="ant-timeline-item-head ant-timeline-item-head-red"
+          style={
+            Object {
+              "borderColor": undefined,
+            }
+          }
+        />
+        <div
+          className="ant-timeline-item-content"
+        >
+          foo
+        </div>
+      </li>
+    </TimelineItem>
+  </ul>
+</Timeline>
+`;
+
 exports[`TimeLine rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-timeline ant-timeline-rtl"
