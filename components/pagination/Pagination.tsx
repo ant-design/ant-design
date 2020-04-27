@@ -46,9 +46,6 @@ export interface PaginationProps {
 }
 
 export type PaginationPosition =
-  | 'top'
-  | 'bottom'
-  | 'both'
   | 'topLeft'
   | 'topCenter'
   | 'topRight'
@@ -57,7 +54,7 @@ export type PaginationPosition =
   | 'bottomRight';
 
 export interface PaginationConfig extends PaginationProps {
-  position?: PaginationPosition[] | PaginationPosition;
+  position?: PaginationPosition[];
 }
 
 export type PaginationLocale = any;
@@ -68,7 +65,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   private inferredSmall: boolean = false;
 
   componentDidMount() {
-    this.token = ResponsiveObserve.subscribe((screens) => {
+    this.token = ResponsiveObserve.subscribe(screens => {
       const { xs } = screens;
       const { size, responsive } = this.props;
       const inferredSmall = !!(xs && !size && responsive);
