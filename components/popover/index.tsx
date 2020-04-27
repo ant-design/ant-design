@@ -33,6 +33,8 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
   },
 );
 
+Popover.displayName = 'Popover';
+
 Popover.defaultProps = {
   placement: 'top' as TooltipPlacement,
   transitionName: 'zoom-big',
