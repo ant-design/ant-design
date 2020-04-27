@@ -9,7 +9,7 @@ import focusTest from '../../../tests/shared/focusTest';
 const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
-  focusTest(RangePicker, true);
+  focusTest(RangePicker, { refFocus: true });
 
   beforeEach(() => {
     setMockDate();

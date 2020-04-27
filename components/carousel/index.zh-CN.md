@@ -33,4 +33,4 @@ subtitle: 走马灯
 | next()                         | 切换到下一面板                                    |
 | prev()                         | 切换到上一面板                                    |
 
-更多参数可参考：<https://github.com/akiran/react-slick>
+更多 API 可参考：<https://react-slick.neostack.com/docs/api>

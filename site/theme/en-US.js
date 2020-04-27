@@ -31,7 +31,6 @@ module.exports = {
     'app.demo.codesandbox': 'Open in CodeSandbox',
     'app.demo.stackblitz': 'Open in Stackblitz',
     'app.demo.riddle': 'Open in Riddle',
-    'app.home.slogan': 'A UI Design Language and React UI library',
     'app.home.introduce':
       'A design system for enterprise-level products. Create an efficient and enjoyable work experience.',
     'app.home.recommend': 'Recommend',

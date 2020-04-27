@@ -645,7 +645,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
 exports[`renders ./components/list/demo/simple.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
   >
     <span
@@ -745,7 +745,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
   >
     <span
@@ -810,7 +810,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
   >
     <span

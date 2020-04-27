@@ -37,6 +37,8 @@ export interface AlertProps {
   afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
+  /** https://www.w3.org/TR/2014/REC-html5-20141028/dom.html#aria-role-attribute */
+  role?: string;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;

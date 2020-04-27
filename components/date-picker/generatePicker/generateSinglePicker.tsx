@@ -62,9 +62,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       };
 
       renderPicker = (locale: PickerLocale) => {
-        const { getPrefixCls, direction } = this.context;
+        const { getPrefixCls, direction, getPopupContainer } = this.context;
         const {
           prefixCls: customizePrefixCls,
+          getPopupContainer: customizeGetPopupContainer,
           className,
           size: customizeSize,
           bordered = true,
@@ -115,6 +116,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                     [`${prefixCls}-borderless`]: !bordered,
                   })}
                   prefixCls={prefixCls}
+                  getPopupContainer={customizeGetPopupContainer || getPopupContainer}
                   generateConfig={generateConfig}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}

@@ -84,7 +84,7 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 We are successfully running antd components now, go build your own application!
 
@@ -191,8 +191,10 @@ module.exports = override(
 +   style: true,
   }),
 + addLessLoader({
-+   javascriptEnabled: true,
-+   modifyVars: { '@primary-color': '#1DA57A' },
++   lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
++     javascriptEnabled: true,
++     modifyVars: { '@primary-color': '#1DA57A' },
++   },
 + }),
 );
 ```

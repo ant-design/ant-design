@@ -1,3 +1,7 @@
+html.rtl {
+  direction: rtl;
+}
+
 body {
   color: @site-text-color;
   font-size: 14px;
@@ -171,15 +175,6 @@ a {
   height: 100%;
   transition: transform 0.3s @ease-in-out-circ;
 }
-.page-wrapper {
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-
-  &-rtl {
-    direction: rtl;
-  }
-}
 
 .drawer-content {
   padding: 40px 0;
@@ -224,7 +219,7 @@ a {
     color: #000;
     background-color: #fff;
     box-shadow: @shadow-2;
-    transition: color .3s;
+    transition: color 0.3s;
     &:hover {
       color: @primary-color;
     }

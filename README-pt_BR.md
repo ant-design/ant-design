@@ -33,7 +33,7 @@ Uma solução empresarial de design e biblioteca UI para React.
 
 ## 🖥 Suporte aos ambientes
 
-- Navegadores modernos e Internet Explorer 11+ (com [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Navegadores modernos e Internet Explorer 11 (com [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 - Renderização no lado do servidor (server-side)
 - [Electron](https://www.electronjs.org/)
 

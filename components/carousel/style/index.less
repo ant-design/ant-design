@@ -33,8 +33,19 @@
     .slick-slide {
       pointer-events: none;
 
+      // https://github.com/ant-design/ant-design/issues/23294
+      input.@{ant-prefix}-radio-input,
+      input.@{ant-prefix}-checkbox-input {
+        visibility: hidden;
+      }
+
       &.slick-active {
         pointer-events: auto;
+
+        input.@{ant-prefix}-radio-input,
+        input.@{ant-prefix}-checkbox-input {
+          visibility: visible;
+        }
       }
     }
   }

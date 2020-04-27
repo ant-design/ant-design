@@ -210,15 +210,24 @@
       z-index: @zindex-dropdown;
       border-radius: @border-radius-base;
 
+      // https://github.com/ant-design/ant-design/issues/13955
       &::before {
         position: absolute;
         top: -7px;
         right: 0;
         bottom: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
         opacity: 0.0001;
         content: ' ';
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/13955
+    &-placement-rightTop::before {
+      top: 0;
+      left: -7px;
     }
 
     > .@{menu-prefix-cls} {

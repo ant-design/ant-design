@@ -5,14 +5,61 @@
 
 @search-prefix: ~'@{ant-prefix}-input-search';
 
+.searchInputIcon(@input-height, @font-size) {
+  .@{search-prefix}-icon {
+    @horizontal-padding: (@input-height - @font-size) / 2;
+    padding: 0 @horizontal-padding;
+
+    &::before {
+      transform: translateX(-@horizontal-padding - @border-width-base);
+    }
+
+    &::after {
+      width: @input-height;
+    }
+  }
+}
+
+.searchInputIcon(@input-height-base, @font-size-base);
+
+.@{ant-prefix}-input-affix-wrapper-lg {
+  .searchInputIcon(@input-height-lg, @font-size-lg);
+}
+.@{ant-prefix}-input-affix-wrapper-sm {
+  .searchInputIcon(@input-height-sm, @font-size-sm);
+}
+
 .@{search-prefix} {
   &-icon {
+    margin-left: 0.5em;
     color: @text-color-secondary;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
       color: @input-icon-hover-color;
     }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: block;
+      border-left: @border-width-base @border-style-base @input-border-color;
+      transition: all 0.3s;
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+    }
+  }
+
+  &:not(&-enter-button) {
+    padding-right: 0;
   }
 
   &-enter-button {

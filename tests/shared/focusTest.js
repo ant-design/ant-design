@@ -1,24 +1,22 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component, refFocus = false) {
+export default function focusTest(Component, { refFocus = false } = {}) {
   describe('focus and blur', () => {
-    let domSpy;
     let focused = false;
     let blurred = false;
+    const mockFocus = jest.spyOn(HTMLElement.prototype, 'focus');
+    const mockBlur = jest.spyOn(HTMLElement.prototype, 'blur');
 
     beforeAll(() => {
       if (refFocus) {
-        domSpy = spyElementPrototypes(HTMLElement, {
-          focus() {
-            focused = true;
-          },
-          blur() {
-            blurred = true;
-          },
+        mockFocus.mockImplementation(() => {
+          focused = true;
+        });
+        mockBlur.mockImplementation(() => {
+          blurred = true;
         });
       }
     });
@@ -32,14 +30,21 @@ export default function focusTest(Component, refFocus = false) {
     });
 
     afterAll(() => {
-      if (domSpy) {
-        domSpy.mockRestore();
-      }
+      mockFocus.mockRestore();
+      mockBlur.mockRestore();
     });
 
     afterEach(() => {
       document.body.removeChild(container);
     });
+
+    const getElement = wrapper => {
+      let ele = wrapper.find('input').first();
+      if (ele.length === 0) {
+        ele = wrapper.find('div[tabIndex]').first();
+      }
+      return ele;
+    };
 
     if (refFocus) {
       it('Ref: focus() and onFocus', () => {
@@ -53,10 +58,7 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        wrapper
-          .find('input')
-          .first()
-          .simulate('focus');
+        getElement(wrapper).simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
 
@@ -71,10 +73,7 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        wrapper
-          .find('input')
-          .first()
-          .simulate('blur');
+        getElement(wrapper).simulate('blur');
         expect(onBlur).toHaveBeenCalled();
       });
 
@@ -84,10 +83,7 @@ export default function focusTest(Component, refFocus = false) {
 
         expect(focused).toBeTruthy();
 
-        wrapper
-          .find('input')
-          .first()
-          .simulate('focus');
+        getElement(wrapper).simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
     } else {

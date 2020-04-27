@@ -32,6 +32,16 @@
     .@{table-prefix-cls}-expanded-row-fixed {
       margin: -@padding-vertical -@padding-horizontal;
     }
+
+    .@{table-prefix-cls}-tbody {
+      // ========================= Nest Table ===========================
+      .@{table-prefix-cls}-wrapper:only-child {
+        .@{table-prefix-cls} {
+          margin: -@padding-vertical -@padding-horizontal -@padding-vertical (@padding-horizontal +
+                ceil(@font-size-sm * 1.4));
+        }
+      }
+    }
   }
 }
 

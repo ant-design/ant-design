@@ -32,4 +32,4 @@ A carousel component. Scales with its container.
 | next() | Change current slide to next slide |
 | prev() | Change current slide to previous slide |
 
-For more info on the parameters, refer to the <https://github.com/akiran/react-slick>
+Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
