@@ -6,6 +6,7 @@ import {
 } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+import { Breakpoint } from '../_util/responsiveObserve';
 import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
 export { GetRowKey, ExpandableConfig };
@@ -96,6 +97,9 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+
+  // Responsive
+  responsive?: Breakpoint[];
 }
 
 export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {

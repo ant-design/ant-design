@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ListGridType, ColumnType, ListContext } from './index';
+import { ListGridType, ListContext } from './index';
 import { Col } from '../grid';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -14,6 +14,7 @@ export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   extra?: React.ReactNode;
   actions?: React.ReactNode[];
   grid?: ListGridType;
+  colStyle?: React.CSSProperties;
 }
 
 export interface ListItemMetaProps {
@@ -54,10 +55,6 @@ export const Meta: React.FC<ListItemMetaProps> = ({
   );
 };
 
-function getGrid(grid: ListGridType, t: ColumnType) {
-  return grid[t] && Math.floor(24 / grid[t]!);
-}
-
 export interface ListItemTypeProps extends React.FC<ListItemProps> {
   Meta: typeof Meta;
 }
@@ -85,7 +82,15 @@ const Item: ListItemTypeProps = props => {
     return !isItemContainsTextNodeAndNotSingular();
   };
 
-  const { prefixCls: customizePrefixCls, children, actions, extra, className, ...others } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    children,
+    actions,
+    extra,
+    className,
+    colStyle,
+    ...others
+  } = props;
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul className={`${prefixCls}-item-action`} key="actions">
@@ -98,9 +103,9 @@ const Item: ListItemTypeProps = props => {
       ))}
     </ul>
   );
-  const Tag = grid ? 'div' : 'li';
+  const Element = grid ? 'div' : 'li';
   const itemChildren = (
-    <Tag
+    <Element
       {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
       className={classNames(`${prefixCls}-item`, className, {
         [`${prefixCls}-item-no-flex`]: !isFlexMode(),
@@ -117,19 +122,11 @@ const Item: ListItemTypeProps = props => {
             </div>,
           ]
         : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
-    </Tag>
+    </Element>
   );
 
   return grid ? (
-    <Col
-      span={getGrid(grid, 'column')}
-      xs={getGrid(grid, 'xs')}
-      sm={getGrid(grid, 'sm')}
-      md={getGrid(grid, 'md')}
-      lg={getGrid(grid, 'lg')}
-      xl={getGrid(grid, 'xl')}
-      xxl={getGrid(grid, 'xxl')}
-    >
+    <Col flex={1} style={colStyle}>
       {itemChildren}
     </Col>
   ) : (

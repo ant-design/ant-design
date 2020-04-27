@@ -942,7 +942,7 @@ exports[`Calendar Calendar should support locale 1`] = `
 
 exports[`Calendar rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full ant-picker-calendar-rtl"
 >
   <div
     class="ant-picker-calendar-header"

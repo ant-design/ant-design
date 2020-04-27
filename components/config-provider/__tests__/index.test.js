@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import ConfigProvider from '..';
 import Button from '../../button';
 import Table from '../../table';
+import Input from '../../input';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
@@ -53,5 +54,15 @@ describe('ConfigProvider', () => {
     );
 
     expect(wrapper.find('button').props().className).toEqual('bamboo-btn');
+  });
+
+  it('input autoComplete', () => {
+    const wrapper = mount(
+      <ConfigProvider input={{ autoComplete: 'off' }}>
+        <Input />
+      </ConfigProvider>,
+    );
+
+    expect(wrapper.find('input').props().autoComplete).toEqual('off');
   });
 });
