@@ -6,7 +6,7 @@ import { ConfigContext } from '../config-provider';
 export interface TimeLineItemProps {
   prefixCls?: string;
   className?: string;
-  color?: string;
+  color: string;
   dot?: React.ReactNode;
   pending?: boolean;
   position?: string;
