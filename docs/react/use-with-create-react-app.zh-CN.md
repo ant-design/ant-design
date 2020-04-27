@@ -139,7 +139,7 @@ $ yarn add babel-plugin-import
 -   return config;
 - };
 + module.exports = override(
-+   fixBabelImports('import', {
++   fixBabelImports('antd', {
 +     libraryName: 'antd',
 +     libraryDirectory: 'es',
 +     style: 'css',
@@ -184,7 +184,7 @@ $ yarn add less less-loader
 + const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
 module.exports = override(
-  fixBabelImports('import', {
+  fixBabelImports('antd', {
     libraryName: 'antd',
     libraryDirectory: 'es',
 -   style: 'css',
