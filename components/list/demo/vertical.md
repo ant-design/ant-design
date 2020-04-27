@@ -14,7 +14,7 @@ title:
 Set the `itemLayout` property to `vertical` to create a vertical list.
 
 ```jsx
-import { List, Avatar } from 'antd';
+import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 const listData = [];
@@ -30,13 +30,11 @@ for (let i = 0; i < 23; i++) {
   });
 }
 
-const isRTL = document.getElementsByClassName('rtl').length > 0;
-const iconstyle = isRTL ? { marginLeft: 8 } : { marginRight: 8 };
 const IconText = ({ icon, text }) => (
-  <span>
-    {React.createElement(icon, { style: iconstyle })}
+  <Space>
+    {React.createElement(icon)}
     {text}
-  </span>
+  </Space>
 );
 
 ReactDOM.render(
