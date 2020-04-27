@@ -56,7 +56,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 
 #### Icon upgrade
 
-In `antd @ 3.9.0`, we introduced the svg icon ([Why use the svg icon?](Https://github.com/ant-design/ant-design/issues/10353)). The icon API using the string name cannot be loaded on demand, so the svg icon file is fully introduced, which greatly increases the size of the packaged product. In 4.0, we adjusted the icon usage API to support tree shaking, reducing the default package size of antd by about 150 KB (Gzipped).
+In `antd @ 3.9.0`, we introduced the svg icon ([Why use the svg icon?](https://github.com/ant-design/ant-design/issues/10353)). The icon API using the string name cannot be loaded on demand, so the svg icon file is fully introduced, which greatly increases the size of the packaged product. In 4.0, we adjusted the icon usage API to support tree shaking, reducing the default package size of antd by about 150 KB (Gzipped).
 
 Legacy Icon usage will be discarded:
 

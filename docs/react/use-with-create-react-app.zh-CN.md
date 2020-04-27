@@ -104,10 +104,10 @@ $ yarn add react-app-rewired customize-cra
 /* package.json */
 "scripts": {
 -   "start": "react-scripts start",
-+   "start": "react-app-rewired start",
 -   "build": "react-scripts build",
-+   "build": "react-app-rewired build",
 -   "test": "react-scripts test",
++   "start": "react-app-rewired start",
++   "build": "react-app-rewired build",
 +   "test": "react-app-rewired test",
 }
 ```
@@ -139,8 +139,7 @@ $ yarn add babel-plugin-import
 -   return config;
 - };
 + module.exports = override(
-+   fixBabelImports('import', {
-+     libraryName: 'antd',
++   fixBabelImports('antd', {
 +     libraryDirectory: 'es',
 +     style: 'css',
 +   }),
@@ -184,8 +183,7 @@ $ yarn add less less-loader
 + const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
 module.exports = override(
-  fixBabelImports('import', {
-    libraryName: 'antd',
+  fixBabelImports('antd', {
     libraryDirectory: 'es',
 -   style: 'css',
 +   style: true,

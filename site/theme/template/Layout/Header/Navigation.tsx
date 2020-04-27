@@ -32,6 +32,7 @@ export default ({
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
+  const [isGitee, setIsGitee] = React.useState(false);
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
   const module = pathname.split('/').slice(0, -1).join('/');
@@ -68,6 +69,10 @@ export default ({
     );
   }
 
+  React.useEffect(() => {
+    setIsGitee(document.location.host.indexOf('gitee') !== -1);
+  }, []);
+
   return (
     <Menu
       className={classNames('menu-site')}
@@ -95,7 +100,7 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>
-      {isZhCN && (
+      {isZhCN && !isGitee && (
         <Menu.Item key="mirror">
           <a href="https://ant-design.gitee.io">国内镜像</a>
         </Menu.Item>
