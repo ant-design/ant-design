@@ -69,6 +69,10 @@ describe('Input.Password', () => {
     wrapper
       .find('.ant-input-password-icon')
       .at(0)
+      .simulate('up');
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
       .simulate('click');
     expect(document.activeElement).toBe(
       wrapper
