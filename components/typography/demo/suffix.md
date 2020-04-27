@@ -39,6 +39,9 @@ class Demo extends React.Component {
             rows,
             expandable: true,
             suffix: '--William Shakespeare',
+            onEllipsis: ellipsis => {
+              console.log('Ellipsis changed:', ellipsis);
+            },
           }}
           title={`${article}--William Shakespeare`}
         >

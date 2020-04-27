@@ -25,9 +25,7 @@ describe('Table.typescript', () => {
     expect(table).toBeTruthy();
   });
   it('selections', () => {
-    const table = (
-      <Table rowSelection={{ selections: [Table.SELECTION_ALL] }} />
-    );
+    const table = <Table rowSelection={{ selections: [Table.SELECTION_ALL] }} />;
     expect(table).toBeTruthy();
   });
 });
