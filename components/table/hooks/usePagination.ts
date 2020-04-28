@@ -25,6 +25,23 @@ export function getPaginationParam(
   return param;
 }
 
+function extendsObject<T extends Object>(...list: T[]) {
+  const result: T = {} as T;
+
+  list.forEach(obj => {
+    if (obj) {
+      Object.keys(obj).forEach(key => {
+        const val = (obj as any)[key];
+        if (val !== undefined) {
+          (result as any)[key] = val;
+        }
+      });
+    }
+  });
+
+  return result;
+}
+
 export default function usePagination(
   total: number,
   pagination: TablePaginationConfig | false | undefined,
@@ -42,11 +59,13 @@ export default function usePagination(
   });
 
   // ============ Basic Pagination Config ============
-  const mergedPagination = {
-    ...innerPagination,
-    ...paginationObj,
-    total: paginationTotal > 0 ? paginationTotal : total,
-  };
+  const mergedPagination = extendsObject<Partial<TablePaginationConfig>>(
+    innerPagination,
+    paginationObj,
+    {
+      total: paginationTotal > 0 ? paginationTotal : total,
+    },
+  );
 
   if (!paginationTotal) {
     // Reset `current` if data length changed. Only reset when paginationObj do not have total
