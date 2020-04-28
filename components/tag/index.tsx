@@ -30,7 +30,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
-interface TagType extends React.FC<TagProps> {
+export interface TagType extends React.FC<TagProps> {
   CheckableTag: typeof CheckableTag;
 }
 
