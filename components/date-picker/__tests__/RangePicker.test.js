@@ -78,17 +78,16 @@ describe('RangePicker', () => {
 
   describe('ranges', () => {
     it('RangePicker support presetted ranges with Tags', () => {
-      const birthday = moment('2000-01-01', 'YYYY-MM-DD');
       const wrapper = mount(
         <RangePicker
           ranges={{
-            Today: [birthday, birthday],
-            'This Month': [birthday.startOf('month'), birthday.endOf('month')],
+            Today: [moment(), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
           }}
           open
         />,
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toMatchRenderedSnapshot();
     });
   });
 });
