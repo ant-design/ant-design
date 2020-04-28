@@ -15,15 +15,25 @@ Normal message for information.
 
 ```jsx
 import { message, Button } from 'antd';
+import { ConfigContext } from '../../config-provider';
 
 const info = () => {
   message.info('This is a normal message');
 };
 
-ReactDOM.render(
-  <Button type="primary" onClick={info}>
-    Display normal message
-  </Button>,
-  mountNode,
-);
+const Demo = () => {
+  const { direction } = React.useContext(ConfigContext);
+
+  message.config({
+    rtl: direction === 'rtl',
+  });
+
+  return (
+    <Button type="primary" onClick={info}>
+      Display normal message
+    </Button>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

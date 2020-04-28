@@ -15,6 +15,7 @@ Update message content with unique `key`.
 
 ```jsx
 import { Button, message } from 'antd';
+import { ConfigContext } from '../../config-provider';
 
 const key = 'updatable';
 
@@ -25,10 +26,19 @@ const openMessage = () => {
   }, 1000);
 };
 
-ReactDOM.render(
-  <Button type="primary" onClick={openMessage}>
-    Open the message box
-  </Button>,
-  mountNode,
-);
+const Demo = () => {
+  const { direction } = React.useContext(ConfigContext);
+
+  message.config({
+    rtl: direction === 'rtl',
+  });
+
+  return (
+    <Button type="primary" onClick={openMessage}>
+      Open the message box
+    </Button>
+  );
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

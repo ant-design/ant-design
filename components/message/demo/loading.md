@@ -15,6 +15,7 @@ Display a global loading indicator, which is dismissed by itself asynchronously.
 
 ```jsx
 import { message, Button } from 'antd';
+import { ConfigContext } from '../../config-provider';
 
 const success = () => {
   const hide = message.loading('Action in progress..', 0);
@@ -22,5 +23,15 @@ const success = () => {
   setTimeout(hide, 2500);
 };
 
-ReactDOM.render(<Button onClick={success}>Display a loading indicator</Button>, mountNode);
+const Demo = () => {
+  const { direction } = React.useContext(ConfigContext);
+
+  message.config({
+    rtl: direction === 'rtl',
+  });
+
+  return <Button onClick={success}>Display a loading indicator</Button>;
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```

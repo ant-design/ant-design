@@ -15,6 +15,7 @@ title:
 
 ```jsx
 import { message, Button } from 'antd';
+import { ConfigContext } from '../../config-provider';
 
 const success = () => {
   message
@@ -23,5 +24,15 @@ const success = () => {
     .then(() => message.info('Loading finished is finished', 2.5));
 };
 
-ReactDOM.render(<Button onClick={success}>Display sequential messages</Button>, mountNode);
+const Demo = () => {
+  const { direction } = React.useContext(ConfigContext);
+
+  message.config({
+    rtl: direction === 'rtl',
+  });
+
+  return <Button onClick={success}>Display sequential messages</Button>;
+};
+
+ReactDOM.render(<Demo />, mountNode);
 ```
