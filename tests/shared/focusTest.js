@@ -41,6 +41,9 @@ export default function focusTest(Component, { refFocus = false } = {}) {
     const getElement = wrapper => {
       let ele = wrapper.find('input').first();
       if (ele.length === 0) {
+        ele = wrapper.find('button').first();
+      }
+      if (ele.length === 0) {
         ele = wrapper.find('div[tabIndex]').first();
       }
       return ele;

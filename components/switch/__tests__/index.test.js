@@ -7,7 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Switch', () => {
-  focusTest(Switch);
+  focusTest(Switch, { refFocus: true });
   mountTest(Switch);
   rtlTest(Switch);
 

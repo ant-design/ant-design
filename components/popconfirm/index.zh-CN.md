@@ -20,6 +20,8 @@ title: Popconfirm
 | cancelText | 取消按钮文字 | string | 取消 |
 | okText | 确认按钮文字 | string | 确定 |
 | okType | 确认按钮类型 | string | primary |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
 | title | 确认框的描述 | string\|ReactNode\|() => ReactNode | - |
 | onCancel | 点击取消的回调 | function(e) | - |
 | onConfirm | 点击确认的回调 | function(e) | - |

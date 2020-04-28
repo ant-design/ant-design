@@ -2,16 +2,16 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
+import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import { RenderEmptyHandler, ConfigContext } from '../config-provider';
-
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
-
 import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
-export type ColumnCount = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+export type ColumnCount = number;
 
 export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
@@ -218,20 +218,40 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
     }
   }
 
-  let childrenContent;
-  childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
+  const screens = useBreakpoint();
+  const currentBreakpoint = React.useMemo(() => {
+    for (let i = 0; i < responsiveArray.length; i += 1) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint]) {
+        return breakpoint;
+      }
+    }
+    return undefined;
+  }, [screens]);
+
+  const colStyle = React.useMemo(() => {
+    if (!grid) {
+      return undefined;
+    }
+    const columnCount =
+      currentBreakpoint && grid[currentBreakpoint] ? grid[currentBreakpoint] : grid.column;
+    if (columnCount) {
+      return {
+        width: `${100 / columnCount}%`,
+        maxWidth: `${100 / columnCount}%`,
+      };
+    }
+  }, [grid?.column, currentBreakpoint]);
+
+  let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: any, index: number) => renderItem(item, index));
-
-    const childrenList: Array<React.ReactNode> = [];
-    React.Children.forEach(items, (child: any, index) => {
-      childrenList.push(
-        React.cloneElement(child, {
-          key: keys[index],
-        }),
-      );
-    });
-
+    const childrenList = React.Children.map(items, (child: any, index) =>
+      React.cloneElement(child, {
+        key: keys[index],
+        colStyle,
+      }),
+    );
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>{childrenList}</Row>
     ) : (
