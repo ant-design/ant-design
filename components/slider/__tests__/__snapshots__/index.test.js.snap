@@ -125,30 +125,694 @@ exports[`Slider should show tooltip when hovering slider handler 2`] = `
 </div>
 `;
 
-exports[`Slider slider tooltip visible 1`] = `
-Array [
-  <span
-    class="ant-tooltip-open"
-  />,
-  <div>
-    <div
-      class="ant-tooltip"
-      style="opacity:0"
+exports[`Slider slider tooltip visible 1`] = `<span />`;
+
+exports[`Slider slider tooltip visible 2`] = `
+<SliderTooltip
+  title="30"
+  visible={true}
+>
+  <Tooltip
+    arrowPointAtCenter={false}
+    autoAdjustOverflow={true}
+    mouseEnterDelay={0.1}
+    mouseLeaveDelay={0.1}
+    placement="top"
+    title="30"
+    transitionName="zoom-big-fast"
+    visible={true}
+  >
+    <ForwardRef(Tooltip)
+      arrowPointAtCenter={false}
+      autoAdjustOverflow={true}
+      builtinPlacements={
+        Object {
+          "bottom": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              0,
+              4,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "tc",
+              "bc",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "bottomLeft": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              0,
+              4,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "tl",
+              "bl",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "bottomRight": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              0,
+              4,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "tr",
+              "br",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "left": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              -4,
+              0,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "cr",
+              "cl",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "leftBottom": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              -4,
+              0,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "br",
+              "bl",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "leftTop": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              -4,
+              0,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "tr",
+              "tl",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "right": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              4,
+              0,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "cl",
+              "cr",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "rightBottom": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              4,
+              0,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "bl",
+              "br",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "rightTop": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              4,
+              0,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "tl",
+              "tr",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "top": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              0,
+              -4,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "bc",
+              "tc",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "topLeft": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              0,
+              -4,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "bl",
+              "tl",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+          "topRight": Object {
+            "ignoreShake": true,
+            "offset": Array [
+              0,
+              -4,
+            ],
+            "overflow": Object {
+              "adjustX": 1,
+              "adjustY": 1,
+            },
+            "points": Array [
+              "br",
+              "tr",
+            ],
+            "targetOffset": Array [
+              0,
+              0,
+            ],
+          },
+        }
+      }
+      mouseEnterDelay={0.1}
+      mouseLeaveDelay={0.1}
+      onPopupAlign={[Function]}
+      onVisibleChange={[Function]}
+      overlay="30"
+      overlayClassName=""
+      placement="top"
+      prefixCls="ant-tooltip"
+      title="30"
+      transitionName="zoom-big-fast"
+      visible={true}
     >
-      <div
-        class="ant-tooltip-content"
+      <Trigger
+        action={
+          Array [
+            "hover",
+          ]
+        }
+        afterPopupVisibleChange={[Function]}
+        arrowPointAtCenter={false}
+        autoAdjustOverflow={true}
+        blurDelay={0.15}
+        builtinPlacements={
+          Object {
+            "bottom": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                0,
+                4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tc",
+                "bc",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "bottomLeft": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                0,
+                4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tl",
+                "bl",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "bottomRight": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                0,
+                4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tr",
+                "br",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "left": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                -4,
+                0,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "cr",
+                "cl",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "leftBottom": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                -4,
+                0,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "br",
+                "bl",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "leftTop": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                -4,
+                0,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tr",
+                "tl",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "right": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                4,
+                0,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "cl",
+                "cr",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "rightBottom": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                4,
+                0,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "bl",
+                "br",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "rightTop": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                4,
+                0,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tl",
+                "tr",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "top": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                0,
+                -4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "bc",
+                "tc",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "topLeft": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                0,
+                -4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "bl",
+                "tl",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+            "topRight": Object {
+              "ignoreShake": true,
+              "offset": Array [
+                0,
+                -4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "br",
+                "tr",
+              ],
+              "targetOffset": Array [
+                0,
+                0,
+              ],
+            },
+          }
+        }
+        defaultPopupVisible={false}
+        destroyPopupOnHide={false}
+        focusDelay={0}
+        getDocument={[Function]}
+        getPopupClassNameFromAlign={[Function]}
+        hideAction={Array []}
+        mask={false}
+        maskClosable={true}
+        mouseEnterDelay={0.1}
+        mouseLeaveDelay={0.1}
+        onPopupAlign={[Function]}
+        onPopupVisibleChange={[Function]}
+        overlay="30"
+        popup={[Function]}
+        popupAlign={Object {}}
+        popupClassName=""
+        popupPlacement="top"
+        popupStyle={Object {}}
+        popupTransitionName="zoom-big-fast"
+        popupVisible={true}
+        prefixCls="ant-tooltip"
+        showAction={Array []}
+        title="30"
+        visible={true}
       >
-        <div
-          class="ant-tooltip-arrow"
+        <span
+          className="ant-tooltip-open"
+          key="trigger"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         />
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
+        <MockPortal
+          didUpdate={[Function]}
+          getContainer={[Function]}
+          key="portal"
         >
-          30
-        </div>
-      </div>
-    </div>
-  </div>,
-]
+          <Popup
+            align={
+              Object {
+                "ignoreShake": true,
+                "offset": Array [
+                  0,
+                  -4,
+                ],
+                "overflow": Object {
+                  "adjustX": 1,
+                  "adjustY": 1,
+                },
+                "points": Array [
+                  "bc",
+                  "tc",
+                ],
+                "targetOffset": Array [
+                  0,
+                  0,
+                ],
+              }
+            }
+            className=""
+            destroyPopupOnHide={false}
+            getClassNameFromAlign={[Function]}
+            getRootDomNode={[Function]}
+            mask={false}
+            onAlign={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            prefixCls="ant-tooltip"
+            style={Object {}}
+            transitionName="zoom-big-fast"
+            visible={true}
+          >
+            <div>
+              <ForwardRef
+                motionAppear={false}
+                motionEnter={false}
+                motionLeave={false}
+                motionName="zoom-big-fast"
+                onEnterEnd={[Function]}
+                onLeaveEnd={[Function]}
+                removeOnLeave={false}
+                visible={true}
+              >
+                <CSSMotion
+                  internalRef={null}
+                  motionAppear={false}
+                  motionEnter={false}
+                  motionLeave={false}
+                  motionName="zoom-big-fast"
+                  onEnterEnd={[Function]}
+                  onLeaveEnd={[Function]}
+                  removeOnLeave={false}
+                  visible={true}
+                >
+                  <Align
+                    align={
+                      Object {
+                        "ignoreShake": true,
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bc",
+                          "tc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      }
+                    }
+                    disabled={true}
+                    key="popup"
+                    monitorWindowResize={true}
+                    onAlign={[Function]}
+                    target={[Function]}
+                  >
+                    <PopupInner
+                      className="ant-tooltip"
+                      hiddenClassName="ant-tooltip-hidden"
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onTouchStart={[Function]}
+                      prefixCls="ant-tooltip"
+                      style={
+                        Object {
+                          "opacity": 0,
+                          "zIndex": undefined,
+                        }
+                      }
+                      visible={true}
+                    >
+                      <div
+                        className="ant-tooltip"
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onTouchStart={[Function]}
+                        style={
+                          Object {
+                            "opacity": 0,
+                            "zIndex": undefined,
+                          }
+                        }
+                      >
+                        <div
+                          className="ant-tooltip-content"
+                        >
+                          <div
+                            className="ant-tooltip-arrow"
+                            key="arrow"
+                          />
+                          <Content
+                            key="content"
+                            overlay="30"
+                            prefixCls="ant-tooltip"
+                          >
+                            <div
+                              className="ant-tooltip-inner"
+                              role="tooltip"
+                            >
+                              30
+                            </div>
+                          </Content>
+                        </div>
+                      </div>
+                    </PopupInner>
+                  </Align>
+                </CSSMotion>
+              </ForwardRef>
+            </div>
+          </Popup>
+        </MockPortal>
+      </Trigger>
+    </ForwardRef(Tooltip)>
+  </Tooltip>
+</SliderTooltip>
 `;
