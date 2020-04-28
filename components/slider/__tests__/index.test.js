@@ -5,7 +5,6 @@ import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep } from '../../../tests/utils';
 
 describe('Slider', () => {
   mountTest(Slider);
