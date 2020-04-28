@@ -18,9 +18,7 @@ export default function SliderTooltip(props: TooltipProps) {
     }
 
     rafRef.current = window.requestAnimationFrame(() => {
-      if (tooltipRef.current) {
-        tooltipRef.current.forcePopupAlign();
-      }
+      tooltipRef.current.forcePopupAlign();
 
       rafRef.current = null;
       keepAlign();

@@ -5,6 +5,7 @@ import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import focusTest from '../../../tests/shared/focusTest';
+import SliderTooltip from '../SliderTooltip';
 
 describe('Slider', () => {
   mountTest(Slider);
@@ -42,6 +43,11 @@ describe('Slider', () => {
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
       mount(<Slider value={value} tooltipVisible />);
+    });
+
+    it('slider tooltip visible', () => {
+      const wrapper = mount(<SliderTooltip visible />);
+      expect(render(wrapper)).toMatchSnapshot();
     });
   });
 });
