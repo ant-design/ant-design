@@ -186,6 +186,12 @@ const Button: ButtonTypeProps = ({ ...props }) => {
           `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
         );
 
+        warning(
+          (type as any) === 'danger',
+          'Button',
+          `\`type="danger"\` is deprecated. Please use \`danger\`.`,
+        );
+
         const prefixCls = getPrefixCls('btn', customizePrefixCls);
         const autoInsertSpace = autoInsertSpaceInButton !== false;
 
