@@ -40,13 +40,6 @@ describe('Slider', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
-  it('should keepAlign by calling forcePopupAlign', async () => {
-    const wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
-    wrapper.find('Tooltip').instance().tooltip.forcePopupAlign = jest.fn();
-    await sleep(20);
-    expect(wrapper.find('Tooltip').instance().tooltip.forcePopupAlign).toHaveBeenCalled();
-  });
-
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
       mount(<Slider value={value} tooltipVisible />);
