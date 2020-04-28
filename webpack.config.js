@@ -74,6 +74,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
           openAnalyzer: false,
+          reportFilename: '../report.html',
         }),
       );
     }
