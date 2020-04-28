@@ -38,7 +38,9 @@ describe('Table.pagination', () => {
   });
 
   it('not crash when pageSize is undefined', () => {
-    expect(mount(createTable({ pagination: { pageSIze: undefined } }))).not.toThrow();
+    expect(() => {
+      mount(createTable({ pagination: { pageSIze: undefined } }));
+    }).not.toThrow();
   });
 
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
