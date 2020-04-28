@@ -1,4 +1,4 @@
-import * as React from 'react';
+mport * as React from 'react';
 import Tooltip, { TooltipProps } from '../tooltip';
 
 function useCombinedRefs(
