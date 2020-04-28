@@ -14,7 +14,7 @@ export interface DividerProps {
 
 const Divider: React.FC<DividerProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         type = 'horizontal',
@@ -29,6 +29,7 @@ const Divider: React.FC<DividerProps> = props => (
       const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
         [`${prefixCls}-with-text${orientationPrefix}`]: children,
         [`${prefixCls}-dashed`]: !!dashed,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       });
       return (
         <div className={classString} {...restProps} role="separator">
