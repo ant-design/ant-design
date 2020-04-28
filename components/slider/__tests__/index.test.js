@@ -47,9 +47,10 @@ describe('Slider', () => {
   });
 
   it('slider tooltip visible', () => {
-    const wrapper = mount(<SliderTooltip title="30" visible={false} />);
+    const wrapper = mount(<SliderTooltip title="30" visible />);
     expect(render(wrapper)).toMatchSnapshot();
 
-    expect(mount(<SliderTooltip title="30" visible />)).toMatchSnapshot();
+    wrapper.setProps('visible', () => false);
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });
