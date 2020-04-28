@@ -14,7 +14,7 @@ title:
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
 ```jsx
-import { Badge, Icon } from 'antd';
+import { Badge, Icon, Button } from 'antd';
 
 ReactDOM.render(
   <div>
@@ -26,6 +26,15 @@ ReactDOM.render(
     </Badge>
     <Badge count={<Icon type="clock-circle" style={{ color: '#f5222d' }} />}>
       <a href="#" className="head-example" />
+    </Badge>
+    <Badge count={5}>
+      <Button>按钮</Button>
+    </Badge>
+    <Badge count={5}>
+      <Button disabled>按钮</Button>
+    </Badge>
+    <Badge count={5}>
+      <Button loading>按钮</Button>
     </Badge>
   </div>,
   mountNode,
