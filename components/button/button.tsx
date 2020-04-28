@@ -187,7 +187,7 @@ const Button: ButtonTypeProps = ({ ...props }) => {
         );
 
         warning(
-          (type as any) === 'danger',
+          (type as string) !== 'danger',
           'Button',
           `\`type="danger"\` is deprecated. Please use \`danger\`.`,
         );
