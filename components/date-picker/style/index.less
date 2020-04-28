@@ -243,7 +243,11 @@
       display: inline-block;
     }
 
-    .@{picker-prefix-cls}-preset span {
+    // https://github.com/ant-design/ant-design/issues/23687
+    .@{picker-prefix-cls}-preset > .@{ant-prefix}-tag-blue {
+      color: @primary-color;
+      background: @primary-1;
+      border-color: @primary-3;
       cursor: pointer;
     }
 
