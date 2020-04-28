@@ -19,7 +19,8 @@ const SourceImages = {
 const MORE_LIST: MoreProps[] = [
   {
     title: '揭密可视化专家配色秘笈',
-    description: '颜色搭配不仅可以传递出美感，颜色还可以通过不同的组合排序，形成一门新的界面语言，讲述数据的故事。',
+    description:
+      '颜色搭配不仅可以传递出美感，颜色还可以通过不同的组合排序，形成一门新的界面语言，讲述数据的故事。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*M7rLR5follIAAAAAAAAAAABkARQnAQ',
     date: '2020-04-02',
     source: 'zhihu',
@@ -36,8 +37,7 @@ const MORE_LIST: MoreProps[] = [
   },
   {
     title: '从常用图表到 DashBoard 页面模板，懒人套餐请享用吧！',
-    description:
-      'Ant Design 4.0 和 AntV 的重磅产品 G2 4.0 发布之际，图表的样式也跟着大升级了哦。',
+    description: 'Ant Design 4.0 和 AntV 的重磅产品 G2 4.0 发布之际，图表的样式也跟着大升级了哦。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d_D0TLmwFLoAAAAAAAAAAABkARQnAQ',
     date: '2020-03-11',
     source: 'zhihu',

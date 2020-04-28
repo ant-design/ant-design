@@ -6,8 +6,8 @@
 
 .@{picker-prefix-cls} {
   @picker-arrow-size: 7px;
-  @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
+  @picker-panel-width: @picker-panel-cell-width * 7 + @padding-sm * 2 + 4;
 
   &-panel {
     display: inline-block;
@@ -162,7 +162,7 @@
       right: 0;
       left: 0;
       z-index: 1;
-      height: 24px;
+      height: @picker-panel-cell-height;
       transform: translateY(-50%);
       content: '';
     }
@@ -172,9 +172,9 @@
       position: relative;
       z-index: 2;
       display: inline-block;
-      min-width: 24px;
-      height: 24px;
-      line-height: 24px;
+      min-width: @picker-panel-cell-height;
+      height: @picker-panel-cell-height;
+      line-height: @picker-panel-cell-height;
       border-radius: @border-radius-base;
       transition: background @animation-duration-slow, border @animation-duration-slow;
     }
@@ -378,7 +378,7 @@
   &-quarter-panel,
   &-month-panel {
     .@{picker-prefix-cls}-content {
-      height: 265px;
+      height: @picker-panel-without-time-cell-height * 4;
     }
 
     .@{picker-cell-inner-cls} {
@@ -540,10 +540,10 @@
     }
 
     .@{picker-prefix-cls}-content {
-      width: 36px * 7;
+      width: @picker-panel-cell-width * 7;
 
       th {
-        width: 36px;
+        width: @picker-panel-cell-width;
       }
     }
   }

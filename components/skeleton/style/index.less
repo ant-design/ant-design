@@ -31,12 +31,12 @@
     // Title
     .@{skeleton-title-prefix-cls} {
       width: 100%;
-      height: 16px;
+      height: @skeleton-title-height;
       margin-top: @margin-md;
       background: @skeleton-color;
 
       + .@{skeleton-paragraph-prefix-cls} {
-        margin-top: @margin-lg;
+        margin-top: @skeleton-title-paragraph-margin-top;
       }
     }
 
@@ -46,7 +46,7 @@
 
       > li {
         width: 100%;
-        height: 16px;
+        height: @skeleton-paragraph-li-height;
         list-style: none;
         background: @skeleton-color;
 

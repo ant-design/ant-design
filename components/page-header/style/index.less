@@ -65,7 +65,7 @@
       margin-bottom: 0;
       color: @heading-color;
       font-weight: 600;
-      font-size: @heading-4-size;
+      font-size: @page-header-heading-title;
       line-height: 32px;
       .text-overflow-ellipsis;
     }
@@ -77,8 +77,8 @@
     &-sub-title {
       margin-right: @margin-sm;
       color: @text-color-secondary;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: @page-header-heading-sub-title;
+      line-height: @line-height-base;
       .text-overflow-ellipsis;
     }
 
@@ -108,7 +108,7 @@
       .@{ant-prefix}-tabs-nav {
         .@{ant-prefix}-tabs-tab {
           padding: @tabs-horizontal-padding-sm;
-          font-size: 16px;
+          font-size: @page-header-tabs-tab-font-size;
         }
       }
     }

@@ -26,3 +26,9 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+<style>
+[data-theme="compact"] .code-box-demo .ant-alert {
+  margin-bottom: 8px;
+}
+</style>
