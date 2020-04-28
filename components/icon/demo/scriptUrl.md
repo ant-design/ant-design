@@ -11,14 +11,14 @@ title:
 
 ## en-US
 
-You can use `scriptUrl` as an array after `@ant-design/icons@4.1.0`, manage icons in one `<Icon />` from multiple [iconfont.cn](http://iconfont.cn/) resources.
+You can use `scriptUrl` as an array after `@ant-design/icons@4.1.0`, manage icons in one `<Icon />` from multiple [iconfont.cn](http://iconfont.cn/) resources. If icon with a duplicate name in resources, it will overrided in array order.
 
 ```jsx
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: [
-    '//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js', // icon-javascript, icon-java, icon-shoppingcart(被覆盖)
+    '//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js', // icon-javascript, icon-java, icon-shoppingcart (overrided)
     '//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js', // icon-shoppingcart, icon-python
   ],
 });
