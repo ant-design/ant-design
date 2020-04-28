@@ -40,7 +40,7 @@ Cascade selection box.
 | popupVisible | set visible of cascader popup | boolean | - |  |
 | showSearch | Whether show search input in single mode. | boolean\|object | false |  |
 | size | input size | `large` \| `middle` \| `small` |  |  |
-| style | additional style | string | - |  |
+| style | additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | selected value | string\[] | - |  |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |  |

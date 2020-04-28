@@ -24,7 +24,7 @@ title: Rate
 | count         | star 总数                | number                  | 5                      |
 | defaultValue  | 默认值                   | number                  | 0                      |
 | disabled      | 只读，无法进行交互       | boolean                 | false                  |
-| style         | 自定义样式对象           | object                  |                        |
+| style         | 自定义样式对象           | CSSProperties           |                        |
 | tooltips      | 自定义每项的提示信息     | string\[]               |                        |
 | value         | 当前数，受控值           | number                  |                        |
 | onBlur        | 失去焦点时的回调         | Function()              |                        |
