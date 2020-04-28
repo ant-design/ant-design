@@ -61,11 +61,11 @@ import 'moment/locale/zh-cn';
 | open | 控制弹层是否展开 | boolean | - |  |
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` (4.1.0) \| `year` | `date` |  |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |  |
-| popupStyle | 额外的弹出日历样式 | object | {} |  |
+| popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | 无 |  |
 | bordered | 是否有边框 | Boolean | true |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| style | 自定义输入框样式 | object | {} |  |
+| style | 自定义输入框样式 | CSSProperties | {} |  |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | 无 |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |

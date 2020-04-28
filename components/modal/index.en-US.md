@@ -15,7 +15,7 @@ When requiring users to interact with the application, but without jumping to a 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
-| bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} |
+| bodyStyle | Body style for modal body element. Such as height, padding etc. | CSSProperties | {} |
 | cancelText | Text of the Cancel button | string\|ReactNode | `Cancel` |
 | centered | Centered Modal | Boolean | `false` |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |
@@ -32,7 +32,7 @@ When requiring users to interact with the application, but without jumping to a 
 | okType | Button `type` of the OK button | string | `primary` |
 | okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button) | - |
-| style | Style of floating layer, typically used at least for adjusting the position. | object | - |
+| style | Style of floating layer, typically used at least for adjusting the position. | CSSProperties | - |
 | title | The modal dialog's title | string\|ReactNode | - |
 | visible | Whether the modal dialog is visible or not | boolean | false |
 | width | Width of the modal dialog | string\|number | 520 |

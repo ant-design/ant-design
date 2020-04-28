@@ -19,5 +19,5 @@ subtitle: 分割线
 | className   | 分割线样式类     | string                        | -            |      |
 | dashed      | 是否虚线         | boolean                       | false        |      |
 | orientation | 分割线标题的位置 | `left` \| `right` \| `center` | `center`     |      |
-| style       | 分割线样式对象   | object                        | -            |      |
+| style       | 分割线样式对象   | CSSProperties                 | -            |      |
 | type        | 水平还是垂直类型 | `horizontal` \| `vertical`    | `horizontal` |      |

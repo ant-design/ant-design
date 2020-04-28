@@ -38,7 +38,7 @@ More layouts with navigation: [Layout](/components/layout).
 | openKeys | Array with the keys of currently opened sub-menus | string\[] |  |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] |  |  |
-| style | Style of the root node | object |  |  |
+| style | Style of the root node | CSSProperties |  |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |

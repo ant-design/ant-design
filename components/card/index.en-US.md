@@ -23,8 +23,8 @@ A card can be used to display content related to a single subject. The content c
 | --- | --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card. | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
-| headStyle | Inline style to apply to the card head | object | - |  |
-| bodyStyle | Inline style to apply to the card content | object | - |  |
+| headStyle | Inline style to apply to the card head | CSSProperties | - |  |
+| bodyStyle | Inline style to apply to the card content | CSSProperties | - |  |
 | bordered | Toggles rendering of the border around the card | boolean | `true` |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set. | string | - |  |
@@ -41,18 +41,18 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card.Grid
 
-| Property  | Description                     | Type    | Default | Version |
-| --------- | ------------------------------- | ------- | ------- | ------- |
-| className | className of container          | string  | -       |         |
-| hoverable | Lift up when hovering card grid | boolean | true    |         |
-| style     | style object of container       | object  | -       |         |
+| Property  | Description                     | Type          | Default | Version |
+| --------- | ------------------------------- | ------------- | ------- | ------- |
+| className | className of container          | string        | -       |         |
+| hoverable | Lift up when hovering card grid | boolean       | true    |         |
+| style     | style object of container       | CSSProperties | -       |         |
 
 ### Card.Meta
 
-| Property    | Description               | Type      | Default | Version |
-| ----------- | ------------------------- | --------- | ------- | ------- |
-| avatar      | avatar or icon            | ReactNode | -       |         |
-| className   | className of container    | string    | -       |         |
-| description | description content       | ReactNode | -       |         |
-| style       | style object of container | object    | -       |         |
-| title       | title content             | ReactNode | -       |         |
+| Property    | Description               | Type          | Default | Version |
+| ----------- | ------------------------- | ------------- | ------- | ------- |
+| avatar      | avatar or icon            | ReactNode     | -       |         |
+| className   | className of container    | string        | -       |         |
+| description | description content       | ReactNode     | -       |         |
+| style       | style object of container | CSSProperties | -       |         |
+| title       | title content             | ReactNode     | -       |         |

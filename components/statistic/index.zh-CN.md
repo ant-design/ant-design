@@ -26,7 +26,7 @@ title: Statistic
 | suffix           | 设置数值的后缀   | string \| ReactNode  | -      |      |
 | title            | 数值的标题       | string \| ReactNode  | -      |      |
 | value            | 数值内容         | string \| number     | -      |      |
-| valueStyle       | 设置数值的样式   | style                | -      |      |
+| valueStyle       | 设置数值的样式   | CSSProperties        | -      |      |
 
 #### Statistic.Countdown
 
@@ -38,4 +38,4 @@ title: Statistic
 | suffix | 设置数值的后缀 | string \| ReactNode | - |  |
 | title | 数值的标题 | string \| ReactNode | - |  |
 | value | 数值内容 | number \| moment | - |  |
-| valueStyle | 设置数值的样式 | style | - |  |
+| valueStyle | 设置数值的样式 | CSSProperties | - |  |

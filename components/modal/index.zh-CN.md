@@ -36,7 +36,7 @@ title: Modal
 | okType | 确认按钮类型 | string | primary |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
-| style | 可用于设置浮层的样式，调整浮层位置等 | object | - |
+| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
 | title | 标题 | string\|ReactNode | - |
 | visible | 对话框是否可见 | boolean | - |
 | width | 宽度 | string\|number | 520 |
