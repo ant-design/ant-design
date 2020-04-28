@@ -65,7 +65,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
@@ -184,6 +184,12 @@ const Button: ButtonTypeProps = ({ ...props }) => {
           !(typeof icon === 'string' && icon.length > 2),
           'Button',
           `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+        );
+
+        warning(
+          (type as string) !== 'danger',
+          'Button',
+          `\`type="danger"\` is deprecated. Please use \`danger\`.`,
         );
 
         const prefixCls = getPrefixCls('btn', customizePrefixCls);
