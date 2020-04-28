@@ -1,13 +1,13 @@
 ---
 order: 4
 title:
-  zh-CN: 使用iconfont.cn的多个资源
-  en-US: use multiple resources from iconfont.cn
+  zh-CN: 使用 iconfont.cn 的多个资源
+  en-US: Multiple resources from iconfont.cn
 ---
 
 ## zh-CN
 
-`@ant-design/icons@4.1.0`以后，`scriptUrl` 可引用多个资源，用户可灵活的管理 [iconfont.cn](http://iconfont.cn/) 图标。
+`@ant-design/icons@4.1.0` 以后，`scriptUrl` 可引用多个资源，用户可灵活的管理 [iconfont.cn](http://iconfont.cn/) 图标。
 
 ## en-US
 
