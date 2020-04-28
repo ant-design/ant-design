@@ -32,6 +32,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 
 - The minimum supported version of IE is IE 11.
 - The minimum supported version of React is React 16.9, and some components have started to refactor using hooks.
+  - Internal using `useMemo` for performance, do not use mutable data as props.
 
 #### Remove deprecated API
 
