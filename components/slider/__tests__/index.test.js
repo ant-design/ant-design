@@ -44,10 +44,10 @@ describe('Slider', () => {
     [undefined, null].forEach(value => {
       mount(<Slider value={value} tooltipVisible />);
     });
+  });
 
-    it('slider tooltip visible', () => {
-      const wrapper = mount(<SliderTooltip visible />);
-      expect(render(wrapper)).toMatchSnapshot();
-    });
+  it('slider tooltip visible', () => {
+    const wrapper = mount(<SliderTooltip title="30" visible />);
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });
