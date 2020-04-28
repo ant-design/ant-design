@@ -22,7 +22,7 @@ Control filters and sorters by `filteredValue` and `sortOrder`.
 > 3. `column.key` is required.
 
 ```jsx
-import { Table, Button } from 'antd';
+import { Table, Button, Space } from 'antd';
 
 const data = [
   {
@@ -130,9 +130,11 @@ class App extends React.Component {
     return (
       <div>
         <div className="table-operations">
-          <Button onClick={this.setAgeSort}>Sort age</Button>
-          <Button onClick={this.clearFilters}>Clear filters</Button>
-          <Button onClick={this.clearAll}>Clear filters and sorters</Button>
+          <Space>
+            <Button onClick={this.setAgeSort}>Sort age</Button>
+            <Button onClick={this.clearFilters}>Clear filters</Button>
+            <Button onClick={this.clearAll}>Clear filters and sorters</Button>
+          </Space>
         </div>
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>
@@ -146,9 +148,5 @@ ReactDOM.render(<App />, mountNode);
 ```css
 .table-operations {
   margin-bottom: 16px;
-}
-
-.table-operations > button {
-  margin-right: 8px;
 }
 ```
