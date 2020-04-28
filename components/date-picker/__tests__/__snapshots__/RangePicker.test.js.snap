@@ -66,12 +66,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
   ranges={
     Object {
       "This Month": Array [
-        "2017-08-31T16:00:00.000Z",
-        "2017-09-30T15:59:59.999Z",
+        "2000-01-31T15:59:59.999Z",
+        "2000-01-31T15:59:59.999Z",
       ],
       "Today": Array [
-        "2017-09-17T19:30:07.795Z",
-        "2017-09-17T19:30:07.795Z",
+        "2000-01-31T15:59:59.999Z",
+        "2000-01-31T15:59:59.999Z",
       ],
     }
   }
@@ -194,12 +194,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
       ranges={
         Object {
           "This Month": Array [
-            "2017-08-31T16:00:00.000Z",
-            "2017-09-30T15:59:59.999Z",
+            "2000-01-31T15:59:59.999Z",
+            "2000-01-31T15:59:59.999Z",
           ],
           "Today": Array [
-            "2017-09-17T19:30:07.795Z",
-            "2017-09-17T19:30:07.795Z",
+            "2000-01-31T15:59:59.999Z",
+            "2000-01-31T15:59:59.999Z",
           ],
         }
       }
@@ -346,12 +346,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
         ranges={
           Object {
             "This Month": Array [
-              "2017-08-31T16:00:00.000Z",
-              "2017-09-30T15:59:59.999Z",
+              "2000-01-31T15:59:59.999Z",
+              "2000-01-31T15:59:59.999Z",
             ],
             "Today": Array [
-              "2017-09-17T19:30:07.795Z",
-              "2017-09-17T19:30:07.795Z",
+              "2000-01-31T15:59:59.999Z",
+              "2000-01-31T15:59:59.999Z",
             ],
           }
         }
@@ -546,12 +546,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                         ranges={
                           Object {
                             "This Month": Array [
-                              "2017-08-31T16:00:00.000Z",
-                              "2017-09-30T15:59:59.999Z",
+                              "2000-01-31T15:59:59.999Z",
+                              "2000-01-31T15:59:59.999Z",
                             ],
                             "Today": Array [
-                              "2017-09-17T19:30:07.795Z",
-                              "2017-09-17T19:30:07.795Z",
+                              "2000-01-31T15:59:59.999Z",
+                              "2000-01-31T15:59:59.999Z",
                             ],
                           }
                         }
@@ -718,12 +718,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                         ranges={
                           Object {
                             "This Month": Array [
-                              "2017-08-31T16:00:00.000Z",
-                              "2017-09-30T15:59:59.999Z",
+                              "2000-01-31T15:59:59.999Z",
+                              "2000-01-31T15:59:59.999Z",
                             ],
                             "Today": Array [
-                              "2017-09-17T19:30:07.795Z",
-                              "2017-09-17T19:30:07.795Z",
+                              "2000-01-31T15:59:59.999Z",
+                              "2000-01-31T15:59:59.999Z",
                             ],
                           }
                         }
@@ -1038,12 +1038,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                           ranges={
                             Object {
                               "This Month": Array [
-                                "2017-08-31T16:00:00.000Z",
-                                "2017-09-30T15:59:59.999Z",
+                                "2000-01-31T15:59:59.999Z",
+                                "2000-01-31T15:59:59.999Z",
                               ],
                               "Today": Array [
-                                "2017-09-17T19:30:07.795Z",
-                                "2017-09-17T19:30:07.795Z",
+                                "2000-01-31T15:59:59.999Z",
+                                "2000-01-31T15:59:59.999Z",
                               ],
                             }
                           }
@@ -1210,12 +1210,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                           ranges={
                             Object {
                               "This Month": Array [
-                                "2017-08-31T16:00:00.000Z",
-                                "2017-09-30T15:59:59.999Z",
+                                "2000-01-31T15:59:59.999Z",
+                                "2000-01-31T15:59:59.999Z",
                               ],
                               "Today": Array [
-                                "2017-09-17T19:30:07.795Z",
-                                "2017-09-17T19:30:07.795Z",
+                                "2000-01-31T15:59:59.999Z",
+                                "2000-01-31T15:59:59.999Z",
                               ],
                             }
                           }
@@ -1757,12 +1757,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                     ranges={
                                       Object {
                                         "This Month": Array [
-                                          "2017-08-31T16:00:00.000Z",
-                                          "2017-09-30T15:59:59.999Z",
+                                          "2000-01-31T15:59:59.999Z",
+                                          "2000-01-31T15:59:59.999Z",
                                         ],
                                         "Today": Array [
-                                          "2017-09-17T19:30:07.795Z",
-                                          "2017-09-17T19:30:07.795Z",
+                                          "2000-01-31T15:59:59.999Z",
+                                          "2000-01-31T15:59:59.999Z",
                                         ],
                                       }
                                     }
@@ -1933,12 +1933,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                         ranges={
                                           Object {
                                             "This Month": Array [
-                                              "2017-08-31T16:00:00.000Z",
-                                              "2017-09-30T15:59:59.999Z",
+                                              "2000-01-31T15:59:59.999Z",
+                                              "2000-01-31T15:59:59.999Z",
                                             ],
                                             "Today": Array [
-                                              "2017-09-17T19:30:07.795Z",
-                                              "2017-09-17T19:30:07.795Z",
+                                              "2000-01-31T15:59:59.999Z",
+                                              "2000-01-31T15:59:59.999Z",
                                             ],
                                           }
                                         }
@@ -2114,12 +2114,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                             ranges={
                                               Object {
                                                 "This Month": Array [
-                                                  "2017-08-31T16:00:00.000Z",
-                                                  "2017-09-30T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                                 "Today": Array [
-                                                  "2017-09-17T19:30:07.795Z",
-                                                  "2017-09-17T19:30:07.795Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                               }
                                             }
@@ -2296,12 +2296,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                               ranges={
                                                 Object {
                                                   "This Month": Array [
-                                                    "2017-08-31T16:00:00.000Z",
-                                                    "2017-09-30T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                   "Today": Array [
-                                                    "2017-09-17T19:30:07.795Z",
-                                                    "2017-09-17T19:30:07.795Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                 }
                                               }
@@ -2548,12 +2548,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                             ranges={
                                               Object {
                                                 "This Month": Array [
-                                                  "2017-08-31T16:00:00.000Z",
-                                                  "2017-09-30T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                                 "Today": Array [
-                                                  "2017-09-17T19:30:07.795Z",
-                                                  "2017-09-17T19:30:07.795Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                               }
                                             }
@@ -2751,12 +2751,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                               ranges={
                                                 Object {
                                                   "This Month": Array [
-                                                    "2017-08-31T16:00:00.000Z",
-                                                    "2017-09-30T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                   "Today": Array [
-                                                    "2017-09-17T19:30:07.795Z",
-                                                    "2017-09-17T19:30:07.795Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                 }
                                               }
@@ -3584,12 +3584,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                     ranges={
                                       Object {
                                         "This Month": Array [
-                                          "2017-08-31T16:00:00.000Z",
-                                          "2017-09-30T15:59:59.999Z",
+                                          "2000-01-31T15:59:59.999Z",
+                                          "2000-01-31T15:59:59.999Z",
                                         ],
                                         "Today": Array [
-                                          "2017-09-17T19:30:07.795Z",
-                                          "2017-09-17T19:30:07.795Z",
+                                          "2000-01-31T15:59:59.999Z",
+                                          "2000-01-31T15:59:59.999Z",
                                         ],
                                       }
                                     }
@@ -3760,12 +3760,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                         ranges={
                                           Object {
                                             "This Month": Array [
-                                              "2017-08-31T16:00:00.000Z",
-                                              "2017-09-30T15:59:59.999Z",
+                                              "2000-01-31T15:59:59.999Z",
+                                              "2000-01-31T15:59:59.999Z",
                                             ],
                                             "Today": Array [
-                                              "2017-09-17T19:30:07.795Z",
-                                              "2017-09-17T19:30:07.795Z",
+                                              "2000-01-31T15:59:59.999Z",
+                                              "2000-01-31T15:59:59.999Z",
                                             ],
                                           }
                                         }
@@ -3941,12 +3941,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                             ranges={
                                               Object {
                                                 "This Month": Array [
-                                                  "2017-08-31T16:00:00.000Z",
-                                                  "2017-09-30T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                                 "Today": Array [
-                                                  "2017-09-17T19:30:07.795Z",
-                                                  "2017-09-17T19:30:07.795Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                               }
                                             }
@@ -4123,12 +4123,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                               ranges={
                                                 Object {
                                                   "This Month": Array [
-                                                    "2017-08-31T16:00:00.000Z",
-                                                    "2017-09-30T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                   "Today": Array [
-                                                    "2017-09-17T19:30:07.795Z",
-                                                    "2017-09-17T19:30:07.795Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                 }
                                               }
@@ -4375,12 +4375,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                             ranges={
                                               Object {
                                                 "This Month": Array [
-                                                  "2017-08-31T16:00:00.000Z",
-                                                  "2017-09-30T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                                 "Today": Array [
-                                                  "2017-09-17T19:30:07.795Z",
-                                                  "2017-09-17T19:30:07.795Z",
+                                                  "2000-01-31T15:59:59.999Z",
+                                                  "2000-01-31T15:59:59.999Z",
                                                 ],
                                               }
                                             }
@@ -4578,12 +4578,12 @@ exports[`RangePicker ranges RangePicker support presetted ranges with Tags 1`] =
                                               ranges={
                                                 Object {
                                                   "This Month": Array [
-                                                    "2017-08-31T16:00:00.000Z",
-                                                    "2017-09-30T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                   "Today": Array [
-                                                    "2017-09-17T19:30:07.795Z",
-                                                    "2017-09-17T19:30:07.795Z",
+                                                    "2000-01-31T15:59:59.999Z",
+                                                    "2000-01-31T15:59:59.999Z",
                                                   ],
                                                 }
                                               }
