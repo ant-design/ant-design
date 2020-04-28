@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import focusTest from '../../../tests/shared/focusTest';
 import SliderTooltip from '../SliderTooltip';
+import { sleep } from '../../../tests/utils';
 
 describe('Slider', () => {
   mountTest(Slider);
@@ -40,17 +41,17 @@ describe('Slider', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
+  it('should keepAlign by calling forcePopupAlign', async () => {
+    const ref = React.createRef();
+    mount(<SliderTooltip title="30" visible ref={ref} />);
+    ref.current.forcePopupAlign = jest.fn();
+    await sleep(20);
+    expect(ref.current.forcePopupAlign).toHaveBeenCalled();
+  });
+
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
       mount(<Slider value={value} tooltipVisible />);
     });
-  });
-
-  it('slider tooltip visible', () => {
-    const wrapper = mount(<SliderTooltip title="30" visible />);
-    expect(render(wrapper)).toMatchSnapshot();
-
-    wrapper.setProps('visible', () => false);
-    expect(render(wrapper)).toMatchSnapshot();
   });
 });
