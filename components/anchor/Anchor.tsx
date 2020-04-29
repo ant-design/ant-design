@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
+import AnchorContext from './context';
 
 function getDefaultContainer() {
   return window;
@@ -88,7 +88,7 @@ export interface AntAnchor {
   ) => void;
 }
 
-export default class Anchor extends React.Component<AnchorProps, AnchorState> {
+export default class Anchor extends React.Component<AnchorProps, AnchorState, ConfigConsumerProps> {
   static Link: typeof AnchorLink;
 
   static defaultProps = {
@@ -97,13 +97,13 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     getContainer: getDefaultContainer,
   };
 
-  static childContextTypes = {
-    antAnchor: PropTypes.object,
-  };
+  static contextType = ConfigContext;
 
   state = {
     activeLink: null,
   };
+
+  content: ConfigConsumerProps;
 
   private inkNode: HTMLSpanElement;
 
@@ -118,25 +118,19 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
 
   private prefixCls?: string;
 
-  getChildContext() {
-    const antAnchor: AntAnchor = {
-      registerLink: (link: string) => {
-        if (!this.links.includes(link)) {
-          this.links.push(link);
-        }
-      },
-      unregisterLink: (link: string) => {
-        const index = this.links.indexOf(link);
-        if (index !== -1) {
-          this.links.splice(index, 1);
-        }
-      },
-      activeLink: this.state.activeLink,
-      scrollTo: this.handleScrollTo,
-      onClick: this.props.onClick,
-    };
-    return { antAnchor };
-  }
+  // Context
+  registerLink = (link: string) => {
+    if (!this.links.includes(link)) {
+      this.links.push(link);
+    }
+  };
+
+  unregisterLink = (link: string) => {
+    const index = this.links.indexOf(link);
+    if (index !== -1) {
+      this.links.splice(index, 1);
+    }
+  };
 
   componentDidMount() {
     const { getContainer } = this.props as AnchorDefaultProps;
@@ -274,7 +268,9 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     }
   };
 
-  renderAnchor = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  render = () => {
+    const { getPrefixCls, direction } = this.context;
+
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -322,16 +318,24 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       </div>
     );
 
-    return !affix ? (
-      anchorContent
-    ) : (
-      <Affix offsetTop={offsetTop} target={getContainer}>
-        {anchorContent}
-      </Affix>
+    return (
+      <AnchorContext.Provider
+        value={{
+          registerLink: this.registerLink,
+          unregisterLink: this.unregisterLink,
+          activeLink: this.state.activeLink,
+          scrollTo: this.handleScrollTo,
+          onClick: this.props.onClick,
+        }}
+      >
+        {!affix ? (
+          anchorContent
+        ) : (
+          <Affix offsetTop={offsetTop} target={getContainer}>
+            {anchorContent}
+          </Affix>
+        )}
+      </AnchorContext.Provider>
     );
   };
-
-  render() {
-    return <ConfigConsumer>{this.renderAnchor}</ConfigConsumer>;
-  }
 }
