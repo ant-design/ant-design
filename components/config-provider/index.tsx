@@ -9,7 +9,8 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
-import { message, notification } from 'antd';
+import message from '../message';
+import notification from '../notification';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
