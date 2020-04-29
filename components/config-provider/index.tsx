@@ -9,6 +9,7 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
+import { message } from 'antd';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
@@ -81,6 +82,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       direction,
       space,
     };
+
+    message.config({
+      rtl: direction === 'rtl',
+    });
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
