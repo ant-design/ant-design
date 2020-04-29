@@ -13,6 +13,7 @@ import { SizeType, SizeContextProvider } from './SizeContext';
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
+  'getTargetContainer',
   'getPopupContainer',
   'rootPrefixCls',
   'getPrefixCls',
@@ -24,6 +25,7 @@ export const configConsumerProps = [
 ];
 
 export interface ConfigProviderProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -63,6 +65,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
+      getTargetContainer,
       getPopupContainer,
       renderEmpty,
       csp,
@@ -85,6 +88,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       direction,
       space,
     };
+
+    if (getTargetContainer) {
+      config.getTargetContainer = getTargetContainer;
+    }
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
