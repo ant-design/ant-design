@@ -10826,35 +10826,50 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
-<div>
+Array [
   <div
-    class="table-operations"
+    class="ant-space ant-space-horizontal"
+    style="margin-bottom:16px"
   >
-    <button
-      class="ant-btn"
-      type="button"
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span>
-        Sort age
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Sort age
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span>
-        Clear filters
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Clear filters
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <span>
-        Clear filters and sorters
-      </span>
-    </button>
-  </div>
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Clear filters and sorters
+        </span>
+      </button>
+    </div>
+  </div>,
   <div
     class="ant-table-wrapper"
   >
@@ -11322,8 +11337,8 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
         </ul>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
