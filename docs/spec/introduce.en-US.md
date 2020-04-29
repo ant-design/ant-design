@@ -64,11 +64,6 @@ const LinksList = () => (
       </a>
     </li>
     <li>
-      <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
-        vue-beauty (vue)<LinkIcon />
-      </a>
-    </li>
-    <li>
       <a href="https://github.com/priornix/antizer" target="_blank">
         antizer (ClojureScript)<LinkIcon />
       </a>
@@ -85,7 +80,11 @@ const LinksList = () => (
     </li>
     <li>
       <a href="https://ant-design-blazor.github.io/" target="_blank">
-        Ant Design of Blazor<LinkIcon />
+        ant-design-blazor/ant-design-blazor<LinkIcon />
+      </a>
+      <span class="ant-divider ant-divider-vertical" />
+      <a href="https://append-it.github.io/ant-design-blazor/" target="_blank">
+        append-it/ant-design-blazor<LinkIcon />
       </a>
     </li>
   </ul>
