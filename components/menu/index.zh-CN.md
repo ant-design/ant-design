@@ -39,7 +39,7 @@ subtitle: 导航菜单
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] |  |  |
 | selectable | 是否允许选中 | boolean | true |  |
 | selectedKeys | 当前选中的菜单项 key 数组 | string\[] |  |  |
-| style | 根节点样式 | object |  |  |
+| style | 根节点样式 | CSSProperties |  |  |
 | subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 |  |
 | subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 |  |
 | theme | 主题颜色 | `light` \| `dark` | `light` |  |

@@ -11,6 +11,7 @@ import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } fro
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
 import useSyncState from '../useSyncState';
+import { ConfigContext } from '../../../config-provider/context';
 
 const { SubMenu, Item: MenuItem } = Menu;
 
@@ -230,6 +231,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     filterIcon = <FilterFilled />;
   }
 
+  const { direction } = React.useContext(ConfigContext);
+
   return (
     <div className={classNames(`${prefixCls}-column`)}>
       <span className={`${prefixCls}-column-title`}>{children}</span>
@@ -248,7 +251,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           visible={mergedVisible}
           onVisibleChange={onVisibleChange}
           getPopupContainer={getPopupContainer}
-          placement="bottomRight"
+          placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
         >
           <span
             role="button"

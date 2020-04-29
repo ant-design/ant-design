@@ -35,7 +35,7 @@ title: Transfer
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
-| style | 容器的自定义样式 | object |  |  |
+| style | 容器的自定义样式 | CSSProperties |  |  |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | \['', ''] |  |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)[] |  |  |

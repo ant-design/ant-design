@@ -30,7 +30,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
-interface CompoundedComponent
+export interface TagType
   extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
   CheckableTag: typeof CheckableTag;
 }
@@ -126,7 +126,7 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (props, r
   );
 };
 
-const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as CompoundedComponent;
+const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;
 
 Tag.displayName = 'Tag';
 

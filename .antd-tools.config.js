@@ -61,15 +61,14 @@ function finalizeCompile() {
 
 function buildThemeFile(theme, vars) {
   // Build less entry file: dist/antd.${theme}.less
-  fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `antd.${theme}.less`),
-    `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
-  );
-
-  // eslint-disable-next-line no-console
-  console.log(`Built a entry less file to dist/antd.${theme}.less`);
-
-  if (theme === 'default') {
+  if (theme !== 'default') {
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', `antd.${theme}.less`),
+      `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
+    );
+    // eslint-disable-next-line no-console
+    console.log(`Built a entry less file to dist/antd.${theme}.less`);
+  } else {
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', `default-theme.js`),
       `module.exports = ${JSON.stringify(vars, null, 2)};\n`,

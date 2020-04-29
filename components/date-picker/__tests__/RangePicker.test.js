@@ -75,4 +75,19 @@ describe('RangePicker', () => {
       expect(value[0].isSame(value[1], 'date')).toBeTruthy();
     });
   });
+
+  describe('ranges', () => {
+    it('RangePicker support presetted ranges with Tags', () => {
+      const wrapper = mount(
+        <RangePicker
+          ranges={{
+            Today: [moment(), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+          }}
+          open
+        />,
+      );
+      expect(wrapper).toMatchRenderedSnapshot();
+    });
+  });
 });
