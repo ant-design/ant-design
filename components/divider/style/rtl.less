@@ -4,6 +4,10 @@
 @divider-prefix-cls: ~'@{ant-prefix}-divider';
 
 .@{divider-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
   &-horizontal&-with-text-left {
     &::before {
       .@{divider-prefix-cls}-rtl& {
