@@ -94,7 +94,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   static defaultProps = {
     affix: true,
     showInkInFixed: false,
-    getContainer: getDefaultContainer,
   };
 
   static contextType = ConfigContext;
@@ -132,17 +131,24 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
   };
 
+  getContainer = () => {
+    const { getTargetContainer } = this.context;
+    const { getContainer } = this.props;
+
+    const getFunc = getContainer || getTargetContainer || getDefaultContainer;
+
+    return getFunc();
+  };
+
   componentDidMount() {
-    const { getContainer } = this.props as AnchorDefaultProps;
-    this.scrollContainer = getContainer();
+    this.scrollContainer = this.getContainer();
     this.scrollEvent = addEventListener(this.scrollContainer, 'scroll', this.handleScroll);
     this.handleScroll();
   }
 
   componentDidUpdate() {
     if (this.scrollEvent) {
-      const { getContainer } = this.props as AnchorDefaultProps;
-      const currentContainer = getContainer();
+      const currentContainer = this.getContainer();
       if (this.scrollContainer !== currentContainer) {
         this.scrollContainer = currentContainer;
         this.scrollEvent.remove();
@@ -172,8 +178,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
 
     const linkSections: Array<Section> = [];
-    const { getContainer } = this.props as AnchorDefaultProps;
-    const container = getContainer();
+    const container = this.getContainer();
     this.links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
       if (!sharpLinkMatch) {
@@ -199,10 +204,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   }
 
   handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
+    const { offsetTop, targetOffset } = this.props;
 
     this.setCurrentActiveLink(link);
-    const container = getContainer();
+    const container = this.getContainer();
     const scrollTop = getScroll(container, true);
     const sharpLinkMatch = sharpMatcherRegx.exec(link);
     if (!sharpLinkMatch) {
@@ -222,7 +227,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       callback: () => {
         this.animating = false;
       },
-      getContainer,
+      getContainer: this.getContainer,
     });
   };
 
@@ -279,7 +284,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       affix,
       showInkInFixed,
       children,
-      getContainer,
     } = this.props;
     const { activeLink } = this.state;
 
@@ -331,7 +335,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
         {!affix ? (
           anchorContent
         ) : (
-          <Affix offsetTop={offsetTop} target={getContainer}>
+          <Affix offsetTop={offsetTop} target={this.getContainer}>
             {anchorContent}
           </Affix>
         )}
