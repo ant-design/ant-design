@@ -935,7 +935,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -974,7 +974,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1013,7 +1013,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1104,7 +1104,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1143,7 +1143,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1182,7 +1182,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1273,7 +1273,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1312,7 +1312,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
@@ -1351,7 +1351,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
                 >
                   <div
                     class="ant-space-item"
