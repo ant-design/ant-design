@@ -66,7 +66,7 @@ exports[`renders ./components/drawer/demo/multi-level-drawer.md correctly 1`] = 
 exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 <div>
   <div
-    class="ant-space ant-space-horizontal"
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
     <div
       class="ant-space-item"
