@@ -78,7 +78,7 @@ title: Layout
 | --- | --- | --- | --- |
 | className | 容器 className | string | - |
 | hasSider | 表示子元素里有 Sider，一般不用指定。可用于服务端渲染时避免样式闪动 | boolean | - |
-| style | 指定样式 | object | - |
+| style | 指定样式 | CSSProperties | - |
 
 > `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
 
@@ -95,7 +95,7 @@ title: Layout
 | collapsible | 是否可收起 | boolean | false |
 | defaultCollapsed | 是否默认收起 | boolean | false |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |
-| style | 指定样式 | object | - |
+| style | 指定样式 | CSSProperties | - |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
 | width | 宽度 | number\|string | 200 |

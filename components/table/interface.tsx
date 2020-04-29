@@ -5,7 +5,7 @@ import {
   ExpandableConfig,
 } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
-import { PaginationConfig } from '../pagination';
+import { PaginationProps } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
 import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
@@ -165,6 +165,14 @@ export interface SorterResult<RecordType> {
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
-export interface TablePaginationConfig extends PaginationConfig {
-  // position?: 'top' | 'bottom' | 'both';
+type TablePaginationPosition =
+  | 'topLeft'
+  | 'topCenter'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomCenter'
+  | 'bottomRight';
+
+export interface TablePaginationConfig extends PaginationProps {
+  position?: TablePaginationPosition[];
 }

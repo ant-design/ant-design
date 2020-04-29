@@ -54,11 +54,14 @@ Following the Ant Design specification, we will add one space between if Button 
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="Button with two Chinese characters" />
 
-
 <style>
 [id^=components-button-demo-] .ant-btn {
   margin-right: 8px;
   margin-bottom: 12px;
+}
+[id^="components-button-demo-"] .ant-btn-rtl {
+  margin-right: 0;
+  margin-left: 8px;
 }
 [id^=components-button-demo-] .ant-btn-group > .ant-btn,
 [id^=components-button-demo-] .ant-btn-group > span > .ant-btn {

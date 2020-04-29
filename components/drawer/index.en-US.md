@@ -21,12 +21,12 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | --- | --- | --- | --- |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not. | boolean | true |
 | destroyOnClose | Whether to unmount child components on closing drawer or not. | boolean | false |
-| forceRender |  Prerender Drawer component forcely | boolean | false |
+| forceRender | Prerender Drawer component forcely | boolean | false |
 | getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| Selectors \| false | 'body' |
 | mask | Whether to show mask or not. | Boolean | true |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not. | boolean | true |
-| maskStyle | Style for Drawer's mask element. | object | {} |
-| style | Style of wrapper element which **contains mask** compare to `drawerStyle` | object | - |
+| maskStyle | Style for Drawer's mask element. | CSSProperties | {} |
+| style | Style of wrapper element which **contains mask** compare to `drawerStyle` | CSSProperties | - |
 | drawerStyle | Style of the popup layer element | object | - |
 | headerStyle | Style of the drawer header part | object | - |
 | bodyStyle | Style of the drawer content part | object | - |

@@ -97,7 +97,7 @@ Follow [Use in create-react-app](/docs/react/use-with-create-react-app).
 Another approach to customize theme is creating a `less` file within variables to override `antd.less`.
 
 ```css
-@import '~antd/es/style/themes/default.less';
+@import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
 @import 'your-theme-file.less'; // variables to override above
 ```
@@ -117,7 +117,7 @@ It's possible to configure webpack to load an alternate less file:
 ```ts
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
 
-#antd { @import '~antd/es/style/core/index.less'; @import '~antd/es/style/themes/default.less'; }
+#antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
 ```
 
 Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.
@@ -210,6 +210,7 @@ module.exports = {
     }],
   }],
 };
+```
 
 ## Related Articles
 
@@ -218,4 +219,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
-```
+

@@ -103,8 +103,8 @@ class App extends React.Component {
         </div>
         <Row gutter={[this.gutters[gutterKey], this.vgutters[vgutterKey]]}>{cols}</Row>
         <Row gutter={[this.gutters[gutterKey], this.vgutters[vgutterKey]]}>{cols}</Row>
-        <pre>{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
-        <pre>{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
       </>
     );
   }
@@ -130,6 +130,9 @@ ReactDOM.render(<App />, mountNode);
   font-size: 13px;
   background: #f9f9f9;
   border-radius: 6px;
+}
+#components-grid-demo-playground pre.demo-code {
+  direction: ltr;
 }
 ```
 

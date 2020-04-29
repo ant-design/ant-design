@@ -32,6 +32,7 @@ title: 从 v3 到 v4
 
 - IE 最低支持版本为 IE 11。
 - React 最低支持版本为 React 16.9，部分组件开始使用 hooks 进行重构。
+  - 重构通过 `useMemo` 进行性能优化，请勿使用 mutable data 作为参数。
 
 #### 移除废弃的 API
 

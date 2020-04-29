@@ -1147,7 +1147,9 @@ Array [
       </div>
     </div>
   </div>,
-  <pre>
+  <pre
+    class="demo-code"
+  >
     &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
@@ -1155,7 +1157,9 @@ Array [
   &lt;Col span={6} /&gt;
 &lt;/Row&gt;
   </pre>,
-  <pre>
+  <pre
+    class="demo-code"
+  >
     &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;

@@ -33,7 +33,7 @@ One or more elements can be selected from either column, one click on the proper
 | selectedKeys | A set of keys of selected items. | string\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column. | boolean | false |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
-| style | A custom CSS style used for rendering wrapper element. | object |  |  |
+| style | A custom CSS style used for rendering wrapper element. | CSSProperties |  |  |
 | targetKeys | A set of keys of elements that are listed on the right column. | string\[] | \[] |  |
 | titles | A set of titles that are sorted from left to right. | ReactNode\[] | - |  |
 | selectAllLabels | A set of customized labels for select all checkboxs on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)[] |  |  |

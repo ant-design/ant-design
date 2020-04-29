@@ -1,0 +1,36 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@divider-prefix-cls: ~'@{ant-prefix}-divider';
+
+.@{divider-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-horizontal&-with-text-left {
+    &::before {
+      .@{divider-prefix-cls}-rtl& {
+        width: 95%;
+      }
+    }
+    &::after {
+      .@{divider-prefix-cls}-rtl& {
+        width: 5%;
+      }
+    }
+  }
+
+  &-horizontal&-with-text-right {
+    &::before {
+      .@{divider-prefix-cls}-rtl& {
+        width: 5%;
+      }
+    }
+    &::after {
+      .@{divider-prefix-cls}-rtl& {
+        width: 95%;
+      }
+    }
+  }
+}

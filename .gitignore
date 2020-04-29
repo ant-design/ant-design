@@ -25,6 +25,7 @@ nohup.out
 _site
 _data
 dist
+report.html
 /lib
 /es
 elasticsearch-*

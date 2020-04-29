@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@table-wrapepr-cls: ~'@{table-prefix-cls}-wrapper';
 @table-wrapepr-rtl-cls: ~'@{table-prefix-cls}-wrapper-rtl';
 
 .@{table-prefix-cls}-wrapper {
@@ -51,9 +52,28 @@
   }
 
   // ========================== Pagination ==========================
-  &-pagination.@{ant-prefix}-pagination {
-    .@{table-wrapepr-rtl-cls} & {
+  &-pagination {
+    .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
       float: left;
+    }
+
+    &-left {
+      .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
+        float: left;
+      }
+    }
+
+    &-right {
+      .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
+        float: right;
+      }
+    }
+
+    &-center {
+      .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
+        float: initial;
+        text-align: center;
+      }
     }
   }
 
@@ -106,8 +126,7 @@
     &-extra {
       .@{table-wrapepr-rtl-cls} & {
         right: auto;
-        left: 0;
-        transform: translate(-100%, -50%);
+        left: -10px;
       }
     }
   }
@@ -128,6 +147,24 @@
       .@{table-wrapepr-rtl-cls} & {
         margin-right: 0;
         margin-left: @padding-xs;
+      }
+    }
+
+    &::after {
+      .@{table-wrapepr-rtl-cls} & {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &-collapsed::before {
+      .@{table-wrapepr-rtl-cls} & {
+        transform: rotate(180deg);
+      }
+    }
+
+    &-collapsed::after {
+      .@{table-wrapepr-rtl-cls} & {
+        transform: rotate(0deg);
       }
     }
   }

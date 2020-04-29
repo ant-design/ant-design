@@ -63,7 +63,7 @@ const columns = [
 | bordered | Whether to show all table borders | boolean | `false` |
 | columns | Columns of table | [ColumnProps](#Column)\[] | - |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
-| dataSource | Data record array to be displayed | any\[] | - |
+| dataSource | Data record array to be displayed | object\[] | - |
 | expandable | Config expandable content | [expandable](#expandable) | - |
 | footer | Table footer renderer | Function(currentPageData) | - |
 | loading | Loading status of table | boolean\|[object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
