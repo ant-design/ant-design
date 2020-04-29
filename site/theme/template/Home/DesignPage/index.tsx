@@ -258,16 +258,6 @@ export default function DesignPage() {
                       {IconComponent}
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="https://ant-design-blazor.github.io/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Ant Design of Blazor
-                      {IconComponent}
-                    </a>
-                  </li>
                 </ul>
               </Col>
               <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
