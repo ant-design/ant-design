@@ -81,7 +81,7 @@ class Footer extends React.Component<WrappedComponentProps> {
         },
         {
           title: 'Ant Design Blazor',
-          url: 'https://ant-design-blazor.gitee.io/',
+          url: 'https://ant-design-blazor.github.io/',
           openExternal: true,
         },
         {

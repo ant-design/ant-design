@@ -259,7 +259,11 @@ export default function DesignPage() {
                     </a>
                   </li>
                   <li>
-                    <a href="https://ant-design-blazor.gitee.io/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://ant-design-blazor.github.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Ant Design of Blazor
                       {IconComponent}
                     </a>

@@ -39,7 +39,7 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
       </Menu.Item>
       <Menu.Item key="blazor">
         <a
-          href="https://ant-design-blazor.gitee.io/"
+          href="https://ant-design-blazor.github.io/"
           className="header-link"
           target="_blank"
           rel="noopener noreferrer"
