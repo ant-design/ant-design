@@ -98,7 +98,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       onPanelChange,
       onSelect,
     } = props;
-    const { getPrefixCls } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
     const today = generateConfig.getNow();
@@ -239,6 +239,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
               className={classNames(calendarPrefixCls, className, {
                 [`${calendarPrefixCls}-full`]: fullscreen,
                 [`${calendarPrefixCls}-mini`]: !fullscreen,
+                [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
               })}
               style={style}
             >

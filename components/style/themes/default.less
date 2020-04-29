@@ -226,6 +226,7 @@
 @checkbox-check-color: #fff;
 @checkbox-check-bg: @checkbox-check-color;
 @checkbox-border-width: @border-width-base;
+@checkbox-group-item-margin-right: 8px;
 
 // Descriptions
 @descriptions-bg: #fafafa;
@@ -233,6 +234,7 @@
 @descriptions-default-padding: @padding-md @padding-lg;
 @descriptions-middle-padding: @padding-sm @padding-lg;
 @descriptions-small-padding: @padding-xs @padding-md;
+@descriptions-item-padding-bottom: @padding-md;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
@@ -243,6 +245,7 @@
 
 // Radio
 @radio-size: 16px;
+@radio-top: 0px;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
 // solid text-color
@@ -258,6 +261,7 @@
 @radio-button-active-color: @primary-7;
 @radio-disabled-button-checked-bg: tint(@black, 90%);
 @radio-disabled-button-checked-color: @text-color-inverse;
+@radio-wrapper-margin-right: 8px;
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -439,6 +443,7 @@
 // ---
 @anchor-bg: @component-background;
 @anchor-border-color: @border-color-split;
+@anchor-link-padding: 7px 0 7px 16px;
 
 // Tooltip
 // ---
@@ -498,7 +503,8 @@
 @progress-text-color: @text-color;
 @progress-radius: 100px;
 @progress-steps-item-bg: #f3f3f3;
-
+@progress-text-font-size: 1em;
+@progress-circle-text-font-size: 1em;
 // Menu
 // ---
 @menu-inline-toplevel-item-height: 40px;
@@ -518,6 +524,9 @@
 @menu-item-vertical-margin: 4px;
 @menu-item-font-size: @font-size-base;
 @menu-item-boundary-margin: 8px;
+@menu-item-padding: 0 20px;
+@menu-horizontal-line-height: 46px;
+@menu-item-icon-margin-right: 10px;
 
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
@@ -566,12 +575,15 @@
 @table-filter-btns-bg: inherit;
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
+@table-selection-column-width: 60px;
+@table-selection-extra-right: -10px;
 
 // Tag
 // --
 @tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
+@tag-line-height: 20px;
 
 // TimePicker
 // ---
@@ -584,6 +596,10 @@
 @picker-date-hover-range-border-color: lighten(@primary-color, 20%);
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
 @picker-time-panel-cell-height: 28px;
+@picker-panel-cell-height: 24px;
+@picker-panel-cell-width: 36px;
+@picker-text-height: 40px;
+@picker-panel-without-time-cell-height: 66px;
 
 // Calendar
 // ---
@@ -613,6 +629,7 @@
 // ---
 @rate-star-color: @yellow-6;
 @rate-star-bg: @border-color-split;
+@rate-star-size: 20px;
 
 // Card
 // ---
@@ -707,6 +724,7 @@
 @switch-color: @primary-color;
 @switch-bg: @component-background;
 @switch-shadow-color: fade(#00230b, 20%);
+@switch-inner-margin: 0 24px 0 6px;
 
 // Pagination
 // ---
@@ -730,6 +748,9 @@
 @page-header-content-padding-vertical: @padding-sm;
 @page-header-back-color: #000;
 @page-header-ghost-bg: inherit;
+@page-header-heading-title: @heading-4-size;
+@page-header-heading-sub-title: 14px;
+@page-header-tabs-tab-font-size: 16px;
 
 // Breadcrumb
 // ---
@@ -756,6 +777,8 @@
 @slider-handle-color-focus: tint(@primary-color, 20%);
 @slider-handle-color-focus-shadow: fade(@primary-color, 12%);
 @slider-handle-color-tooltip-open: @primary-color;
+@slider-handle-size: 14px;
+@slider-handle-margin-top: -5px;
 @slider-handle-shadow: 0;
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: tint(@primary-color, 50%);
@@ -779,6 +802,7 @@
 @collapse-header-bg: @background-color-light;
 @collapse-content-padding: @padding-md;
 @collapse-content-bg: @component-background;
+@collapse-header-arrow-left: 16px;
 
 // Skeleton
 // ---
@@ -786,6 +810,9 @@
 @skeleton-to-color: shade(@skeleton-color, 5%);
 @skeleton-paragraph-margin-top: 28px;
 @skeleton-paragraph-li-margin-top: @margin-md;
+@skeleton-paragraph-li-height: 16px;
+@skeleton-title-height: 16px;
+@skeleton-title-paragraph-margin-top: @margin-lg;
 
 // Transfer
 // ---
@@ -825,6 +852,12 @@
 @alert-close-hover-color: @icon-color-hover;
 @alert-no-icon-padding-vertical: @padding-xs;
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
+@alert-with-description-padding-vertical: @padding-md - 1px;
+@alert-with-description-padding: @alert-with-description-padding-vertical 15px
+  @alert-with-description-no-icon-padding-vertical - 1px 64px;
+@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+@alert-with-description-icon-size: 24px;
+@alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
 // List
 // ---
@@ -895,7 +928,17 @@
 @steps-current-dot-size: 10px;
 @steps-desciption-max-width: 140px;
 @steps-nav-content-max-width: auto;
+@steps-vertical-icon-margin: 0 16px 0 0;
 
 // Notification
 // ---
 @notification-bg: @component-background;
+@notification-padding-vertical: 16px;
+@notification-padding-horizontal: 24px;
+
+//  Result
+// ---
+@result-title-font-size: 24px;
+@result-subtitle-font-size: @font-size-base;
+@result-icon-font-size: 72px;
+@result-extra-margin: 32px 0 0 0;

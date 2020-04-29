@@ -4,7 +4,7 @@ import omit from 'omit.js';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import CheckableTag from './CheckableTag';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import {
   PresetColorTypes,
   PresetStatusColorTypes,
@@ -30,11 +30,13 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
-export interface TagType extends React.FC<TagProps> {
+export interface TagType
+  extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
   CheckableTag: typeof CheckableTag;
 }
 
-const Tag: TagType = props => {
+const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (props, ref) => {
+  const configProps = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
   React.useEffect(() => {
@@ -95,38 +97,38 @@ const Tag: TagType = props => {
     return closable ? <CloseOutlined onClick={handleIconClick} /> : null;
   };
 
-  const renderTag = (configProps: ConfigConsumerProps) => {
-    const { children, icon, ...otherProps } = props;
-    const isNeedWave =
-      'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
-    const iconNode = icon || null;
-    const kids = iconNode ? (
-      <>
-        {iconNode}
-        <span>{children}</span>
-      </>
-    ) : (
-      children
-    );
+  const { children, icon, ...otherProps } = props;
+  const isNeedWave =
+    'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
+  const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
+  const iconNode = icon || null;
+  const kids = iconNode ? (
+    <>
+      {iconNode}
+      <span>{children}</span>
+    </>
+  ) : (
+    children
+  );
 
-    return isNeedWave ? (
-      <Wave>
-        <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
-          {kids}
-          {renderCloseIcon()}
-        </span>
-      </Wave>
-    ) : (
-      <span {...tagProps} className={getTagClassName(configProps)} style={getTagStyle()}>
+  return isNeedWave ? (
+    <Wave>
+      <span {...tagProps} ref={ref} className={getTagClassName(configProps)} style={getTagStyle()}>
         {kids}
         {renderCloseIcon()}
       </span>
-    );
-  };
-
-  return <ConfigConsumer>{renderTag}</ConfigConsumer>;
+    </Wave>
+  ) : (
+    <span {...tagProps} ref={ref} className={getTagClassName(configProps)} style={getTagStyle()}>
+      {kids}
+      {renderCloseIcon()}
+    </span>
+  );
 };
+
+const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;
+
+Tag.displayName = 'Tag';
 
 Tag.defaultProps = {
   closable: false,

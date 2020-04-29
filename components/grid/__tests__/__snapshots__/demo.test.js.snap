@@ -74,7 +74,7 @@ Array [
 exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -109,7 +109,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -144,7 +144,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -179,7 +179,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -214,7 +214,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -254,7 +254,7 @@ Array [
 exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -305,7 +305,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -356,7 +356,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -439,7 +439,7 @@ exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
 exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -466,7 +466,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -493,7 +493,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -525,7 +525,7 @@ Array [
 exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -581,7 +581,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -637,7 +637,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
     style="color:#333;font-weight:normal"
   >
@@ -1231,14 +1231,4 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `
-<div
-  class="ant-row"
->
-  <div
-    class="ant-col"
-  >
-    Current break point: 
-  </div>
-</div>
-`;
+exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `null`;

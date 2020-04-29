@@ -263,7 +263,5 @@ describe('Button', () => {
         throw new Error('Should not called!!!');
       },
     });
-
-    expect(wrapper.find('Button').instance()).toBe(null);
   });
 });

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import {
   TransformColumns,
   ColumnsType,
@@ -162,8 +161,7 @@ export function getFilterData<RecordType>(
 interface FilterConfig<RecordType> {
   prefixCls: string;
   dropdownPrefixCls: string;
-  columns?: ColumnsType<RecordType>;
-  children?: React.ReactNode;
+  mergedColumns: ColumnsType<RecordType>;
   locale: TableLocale;
   onFilterChange: (
     filters: Record<string, Key[] | null>,
@@ -175,8 +173,7 @@ interface FilterConfig<RecordType> {
 function useFilter<RecordType>({
   prefixCls,
   dropdownPrefixCls,
-  columns,
-  children,
+  mergedColumns,
   onFilterChange,
   getPopupContainer,
   locale: tableLocale,
@@ -185,10 +182,6 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   () => Record<string, Key[] | null>,
 ] {
-  const mergedColumns = React.useMemo(() => {
-    return columns || convertChildrenToColumns(children);
-  }, [children, columns]);
-
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
     collectFilterStates(mergedColumns, true),
   );

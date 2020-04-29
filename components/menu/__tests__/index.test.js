@@ -1,7 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import {
+  MailOutlined,
+  InboxOutlined,
+  AppstoreOutlined,
+  PieChartOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import Menu from '..';
-import Icon from '../../icon';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
@@ -62,12 +68,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
   it('should accept defaultOpenKeys in mode inline', () => {
@@ -80,12 +81,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -98,12 +94,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
   it('horizontal', () => {
@@ -116,31 +107,17 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+      true,
+    );
     wrapper.setProps({ openKeys: [] });
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+      true,
+    );
   });
 
   it('inline', () => {
@@ -153,31 +130,17 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+      true,
+    );
     wrapper.setProps({ openKeys: [] });
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+      true,
+    );
   });
 
   it('vertical', () => {
@@ -190,31 +153,17 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+      true,
+    );
     wrapper.setProps({ openKeys: [] });
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-sub')
-        .hostNodes()
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+      true,
+    );
   });
 
   // https://github.com/ant-design/ant-design/pulls/4677
@@ -243,33 +192,18 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
     wrapper.setProps({ mode: 'vertical' });
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
     wrapper.setProps({ mode: 'inline' });
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <Menu.Item key="menu1">
-          <Icon type="inbox" />
+          <InboxOutlined />
           <span>Option</span>
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
@@ -278,18 +212,8 @@ describe('Menu', () => {
         </SubMenu>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-inline'),
-    ).toBe(true);
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
 
     wrapper.setProps({ inlineCollapsed: true });
     // 动画结束后套样式;
@@ -297,37 +221,22 @@ describe('Menu', () => {
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
 
-    expect(
-      wrapper
-        .find('ul.ant-menu-root')
-        .at(0)
-        .hasClass('ant-menu-vertical'),
-    ).toBe(true);
+    expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
     expect(wrapper.find('ul.ant-menu-sub').length).toBe(0);
 
     wrapper.setProps({ inlineCollapsed: false });
     jest.runAllTimers();
     wrapper.update();
 
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-inline'),
-    ).toBe(true);
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['not-existed']} mode="inline">
         <Menu.Item key="menu1">
-          <Icon type="inbox" />
+          <InboxOutlined />
           <span>Option</span>
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
@@ -341,36 +250,15 @@ describe('Menu', () => {
     jest.runAllTimers();
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
-    wrapper
-      .find('.ant-menu-submenu-title')
-      .at(0)
-      .simulate('mouseEnter');
+    wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
     jest.runAllTimers();
     wrapper.update();
-    expect(
-      wrapper
-        .find('.ant-menu-submenu')
-        .at(0)
-        .hasClass('ant-menu-submenu-vertical'),
-    ).toBe(true);
-    expect(
-      wrapper
-        .find('.ant-menu-submenu')
-        .at(0)
-        .hasClass('ant-menu-submenu-open'),
-    ).toBe(true);
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-vertical'),
-    ).toBe(true);
-    expect(
-      wrapper
-        .find('ul.ant-menu-sub')
-        .at(0)
-        .hasClass('ant-menu-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-vertical')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-open')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
   it('inlineCollapsed Menu.Item Tooltip can be removed', () => {
@@ -399,48 +287,12 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    expect(
-      wrapper
-        .find(Menu.Item)
-        .at(0)
-        .find(Tooltip)
-        .props().title,
-    ).toBe('item');
-    expect(
-      wrapper
-        .find(Menu.Item)
-        .at(1)
-        .find(Tooltip)
-        .props().title,
-    ).toBe('title');
-    expect(
-      wrapper
-        .find(Menu.Item)
-        .at(2)
-        .find(Tooltip)
-        .props().title,
-    ).toBe('item');
-    expect(
-      wrapper
-        .find(Menu.Item)
-        .at(3)
-        .find(Tooltip)
-        .props().title,
-    ).toBe(null);
-    expect(
-      wrapper
-        .find(Menu.Item)
-        .at(4)
-        .find(Tooltip)
-        .props().title,
-    ).toBe('');
-    expect(
-      wrapper
-        .find(Menu.Item)
-        .at(4)
-        .find(Tooltip)
-        .props().title,
-    ).toBe('');
+    expect(wrapper.find(Menu.Item).at(0).find(Tooltip).props().title).toBe('item');
+    expect(wrapper.find(Menu.Item).at(1).find(Tooltip).props().title).toBe('title');
+    expect(wrapper.find(Menu.Item).at(2).find(Tooltip).props().title).toBe('item');
+    expect(wrapper.find(Menu.Item).at(3).find(Tooltip).props().title).toBe(null);
+    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
+    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
   });
 
   describe('open submenu when click submenu title', () => {
@@ -453,10 +305,7 @@ describe('Menu', () => {
     });
 
     const toggleMenu = (wrapper, index, event) => {
-      wrapper
-        .find('.ant-menu-submenu-title')
-        .at(index)
-        .simulate(event);
+      wrapper.find('.ant-menu-submenu-title').at(index).simulate(event);
       jest.runAllTimers();
       wrapper.update();
     };
@@ -474,21 +323,13 @@ describe('Menu', () => {
       expect(wrapper.find('.ant-menu-sub').length).toBe(0);
       toggleMenu(wrapper, 0, 'click');
       expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
-      expect(
-        wrapper
-          .find('.ant-menu-sub')
-          .hostNodes()
-          .at(0)
-          .hasClass('ant-menu-hidden'),
-      ).not.toBe(true);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+        true,
+      );
       toggleMenu(wrapper, 0, 'click');
-      expect(
-        wrapper
-          .find('.ant-menu-sub')
-          .hostNodes()
-          .at(0)
-          .hasClass('ant-menu-hidden'),
-      ).toBe(true);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(
+        true,
+      );
     });
 
     it('vertical', () => {
@@ -504,21 +345,13 @@ describe('Menu', () => {
       expect(wrapper.find('.ant-menu-sub').length).toBe(0);
       toggleMenu(wrapper, 0, 'mouseenter');
       expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
-      expect(
-        wrapper
-          .find('.ant-menu-sub')
-          .hostNodes()
-          .at(0)
-          .hasClass('ant-menu-hidden'),
-      ).not.toBe(true);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+        true,
+      );
       toggleMenu(wrapper, 0, 'mouseleave');
-      expect(
-        wrapper
-          .find('.ant-menu-sub')
-          .hostNodes()
-          .at(0)
-          .hasClass('ant-menu-hidden'),
-      ).toBe(true);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(
+        true,
+      );
     });
 
     it('horizontal', () => {
@@ -535,21 +368,13 @@ describe('Menu', () => {
       expect(wrapper.find('.ant-menu-sub').length).toBe(0);
       toggleMenu(wrapper, 0, 'mouseenter');
       expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
-      expect(
-        wrapper
-          .find('.ant-menu-sub')
-          .hostNodes()
-          .at(0)
-          .hasClass('ant-menu-hidden'),
-      ).not.toBe(true);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+        true,
+      );
       toggleMenu(wrapper, 0, 'mouseleave');
-      expect(
-        wrapper
-          .find('.ant-menu-sub')
-          .hostNodes()
-          .at(0)
-          .hasClass('ant-menu-hidden'),
-      ).toBe(true);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(
+        true,
+      );
     });
   });
 
@@ -558,7 +383,7 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed>
         <Menu.Item key="1" title="bamboo lucky">
-          <Icon type="pie-chart" />
+          <PieChartOutlined />
           <span>
             Option 1
             <img
@@ -600,7 +425,7 @@ describe('Menu', () => {
                   key="sub1"
                   title={
                     <span>
-                      <Icon type="user" />
+                      <UserOutlined />
                       <span>User</span>
                     </span>
                   }
@@ -631,10 +456,7 @@ describe('Menu', () => {
         <Menu.Item key="test2">Navigation Two</Menu.Item>
       </Menu>,
     );
-    wrapper
-      .find('Menu')
-      .at(1)
-      .simulate('mouseenter');
+    wrapper.find('Menu').at(1).simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
@@ -642,12 +464,9 @@ describe('Menu', () => {
     it('get correct animation type when switched from inline', () => {
       const wrapper = mount(<Menu mode="inline" />);
       wrapper.setProps({ mode: 'horizontal' });
-      expect(
-        wrapper
-          .find('InternalMenu')
-          .instance()
-          .getOpenMotionProps(''),
-      ).toEqual({ motion: { motionName: '' } });
+      expect(wrapper.find('InternalMenu').instance().getOpenMotionProps('')).toEqual({
+        motion: { motionName: '' },
+      });
     });
 
     it('warning if use `openAnimation` as object', () => {
@@ -664,22 +483,14 @@ describe('Menu', () => {
     it('motion object', () => {
       const motion = { test: true };
       const wrapper = mount(<Menu motion={motion} />);
-      expect(
-        wrapper
-          .find('InternalMenu')
-          .instance()
-          .getOpenMotionProps(''),
-      ).toEqual({ motion });
+      expect(wrapper.find('InternalMenu').instance().getOpenMotionProps('')).toEqual({ motion });
     });
 
     it('legacy openTransitionName', () => {
       const wrapper = mount(<Menu openTransitionName="legacy" />);
-      expect(
-        wrapper
-          .find('InternalMenu')
-          .instance()
-          .getOpenMotionProps(''),
-      ).toEqual({ openTransitionName: 'legacy' });
+      expect(wrapper.find('InternalMenu').instance().getOpenMotionProps('')).toEqual({
+        openTransitionName: 'legacy',
+      });
     });
   });
 
@@ -687,11 +498,11 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
         <Menu.Item key="mail">
-          <Icon type="mail" />
+          <MailOutlined />
           Navigation One
         </Menu.Item>
         <Menu.Item key="app">
-          <Icon type="appstore" />
+          <AppstoreOutlined />
           Navigation Two
         </Menu.Item>
         <Menu.Item key="alipay">
@@ -701,20 +512,28 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    wrapper
-      .find('MenuItem')
-      .first()
-      .simulate('mouseenter');
+    wrapper.find('MenuItem').first().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
+  });
+
+  it('MenuItem should render icon and icon should be the first child when icon exists', () => {
+    const wrapper = mount(
+      <Menu>
+        <Menu.Item key="mail" icon={<MailOutlined />}>
+          Navigation One
+        </Menu.Item>
+      </Menu>,
+    );
+    expect(wrapper.find('.ant-menu-item .anticon').hasClass('anticon-mail')).toBe(true);
   });
 
   it('should controlled collapse work', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1">
-          <Icon type="pie-chart" />
+          <PieChartOutlined />
           <span>Option 1</span>
         </Menu.Item>
       </Menu>,
@@ -732,7 +551,7 @@ describe('Menu', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1">
-          <Icon type="pie-chart" />
+          <PieChartOutlined />
           <span>Option 1</span>
         </Menu.Item>
       </Menu>,
@@ -790,10 +609,7 @@ describe('Menu', () => {
       </Menu>,
     );
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 1');
-    wrapper
-      .find('.ant-menu-item')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.ant-menu-item').at(1).simulate('click');
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
@@ -807,5 +623,21 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: false });
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();
+  });
+
+  it('Menu.Item with icon children auto wrap span', () => {
+    const wrapper = mount(
+      <Menu>
+        <Menu.Item key="1" icon={<MailOutlined />}>
+          Navigation One
+        </Menu.Item>
+        <Menu.Item key="2" icon={<MailOutlined />}>
+          <span>Navigation One</span>
+        </Menu.Item>
+        <Menu.SubMenu key="3" icon={<MailOutlined />} title="Navigation One" />
+        <Menu.SubMenu key="4" icon={<MailOutlined />} title={<span>Navigation One</span>} />
+      </Menu>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

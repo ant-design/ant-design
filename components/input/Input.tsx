@@ -217,7 +217,11 @@ class Input extends React.Component<InputProps, InputState> {
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (prefixCls: string, size?: SizeType) => {
+  renderInput = (
+    prefixCls: string,
+    size: SizeType | undefined,
+    input: ConfigConsumerProps['input'] = {},
+  ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
@@ -236,6 +240,7 @@ class Input extends React.Component<InputProps, InputState> {
     ]);
     return (
       <input
+        autoComplete={input.autoComplete}
         {...otherProps}
         onChange={this.handleChange}
         onFocus={this.onFocus}
@@ -280,11 +285,12 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
+
     return (
       <SizeContext.Consumer>
         {size => (
@@ -294,7 +300,7 @@ class Input extends React.Component<InputProps, InputState> {
             prefixCls={prefixCls}
             inputType="input"
             value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size)}
+            element={this.renderInput(prefixCls, size, input)}
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
             direction={direction}

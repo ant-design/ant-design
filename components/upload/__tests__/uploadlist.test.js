@@ -735,6 +735,56 @@ describe('Upload List', () => {
     test('Blob', () => new Blob());
   });
 
+  // https://github.com/ant-design/ant-design/issues/22958
+  describe('customize isImageUrl support', () => {
+    const list = [
+      ...fileList,
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl:
+          'http://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg@!panda_style?spm=a2c4g.11186623.2.17.4dc56b29BHokyg&file=example.jpg@!panda_style',
+      },
+    ];
+    it('should not render <img /> when file.thumbUrl use "!" as separator', () => {
+      const wrapper = mount(
+        <Upload listType="picture-card" fileList={list}>
+          <button type="button">button</button>
+        </Upload>,
+      );
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(imgNode.length).toBe(2);
+    });
+    it('should render <img /> when custom imageUrl return true', () => {
+      const isImageUrl = jest.fn(() => {
+        return true;
+      });
+      const wrapper = mount(
+        <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
+          <button type="button">button</button>
+        </Upload>,
+      );
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(isImageUrl).toHaveBeenCalled();
+      expect(imgNode.length).toBe(3);
+    });
+    it('should not render <img /> when custom imageUrl return false', () => {
+      const isImageUrl = jest.fn(() => {
+        return false;
+      });
+      const wrapper = mount(
+        <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
+          <button type="button">button</button>
+        </Upload>,
+      );
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(isImageUrl).toHaveBeenCalled();
+      expect(imgNode.length).toBe(0);
+    });
+  });
+
   it('should support transformFile', done => {
     const handleTransformFile = jest.fn();
     const onChange = ({ file }) => {

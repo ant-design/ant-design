@@ -1,16 +1,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import RcTable from 'rc-table';
+import RcTable, { Summary } from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
+import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
+import { Breakpoint } from '../_util/responsiveObserve';
 import {
   TableRowSelection,
   GetRowKey,
+  ColumnType,
   ColumnsType,
   TableCurrentDataSource,
   SorterResult,
@@ -33,6 +36,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import warning from '../_util/warning';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export { ColumnsType, TablePaginationConfig };
 
@@ -113,7 +117,17 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     showSorterTooltip = true,
   } = props;
 
-  const tableProps = omit(props, ['className', 'style']) as TableProps<RecordType>;
+  const screens = useBreakpoint();
+  const mergedColumns = React.useMemo(() => {
+    const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
+
+    return (columns || convertChildrenToColumns(children)).filter(
+      (c: ColumnType<RecordType>) =>
+        !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
+    );
+  }, [children, columns, screens]);
+
+  const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
   const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
@@ -222,8 +236,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
-    columns,
-    children,
+    mergedColumns,
     onSorterChange,
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
@@ -255,8 +268,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     prefixCls,
     locale: tableLocale,
     dropdownPrefixCls,
-    columns,
-    children,
+    mergedColumns,
     onFilterChange,
     getPopupContainer,
   });
@@ -313,8 +325,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       return mergedData;
     }
 
-    const currentPageData = mergedData.slice((current - 1) * pageSize, current * pageSize);
-    return currentPageData;
+    return mergedData.slice((current - 1) * pageSize, current * pageSize);
   }, [
     !!pagination,
     mergedData,
@@ -440,6 +451,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         {topPaginationNode}
         <RcTable<RecordType>
           {...tableProps}
+          columns={mergedColumns}
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
@@ -471,5 +483,6 @@ Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
 Table.Column = Column;
 Table.ColumnGroup = ColumnGroup;
+Table.Summary = Summary;
 
 export default Table;

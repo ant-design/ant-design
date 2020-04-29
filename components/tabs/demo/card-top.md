@@ -43,10 +43,16 @@ ReactDOM.render(
 ```
 
 ```css
-[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content,
+.card-container p {
+  margin: 0;
+}
 .card-container > .ant-tabs-card > .ant-tabs-content {
   height: 120px;
   margin-top: -16px;
+}
+[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content {
+  height: 120px;
+  margin-top: -8px;
 }
 
 [data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane,
@@ -79,6 +85,7 @@ ReactDOM.render(
   overflow: hidden;
   padding: 24px;
 }
+
 [data-theme="dark"] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
   border-color: transparent;
   background: transparent;

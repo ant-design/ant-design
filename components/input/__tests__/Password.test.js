@@ -24,15 +24,9 @@ describe('Input.Password', () => {
     const wrapper = mount(<Input.Password />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -54,32 +48,13 @@ describe('Input.Password', () => {
     const wrapper = mount(<Input.Password defaultValue="111" autoFocus />, {
       attachTo: document.body,
     });
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
     document.activeElement.setSelectionRange(2, 2);
     expect(document.activeElement.selectionStart).toBe(2);
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('mousedown');
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('mouseup');
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
+    wrapper.find('.ant-input-password-icon').at(0).simulate('mousedown');
+    wrapper.find('.ant-input-password-icon').at(0).simulate('mouseup');
+    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
     expect(document.activeElement.selectionStart).toBe(2);
     wrapper.unmount();
   });
@@ -92,13 +67,7 @@ describe('Input.Password', () => {
       .at('0')
       .simulate('change', { target: { value: 'value' } });
     await sleep();
-    expect(
-      wrapper
-        .find('input')
-        .at('0')
-        .getDOMNode()
-        .getAttribute('value'),
-    ).toBeFalsy();
+    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/20541
@@ -117,12 +86,6 @@ describe('Input.Password', () => {
   it('should not contain value attribute in input element with defautValue', async () => {
     const wrapper = mount(<Input.Password defaultValue="value" />);
     await sleep();
-    expect(
-      wrapper
-        .find('input')
-        .at('0')
-        .getDOMNode()
-        .getAttribute('value'),
-    ).toBeFalsy();
+    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
   });
 });

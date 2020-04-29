@@ -41,6 +41,7 @@ interface EllipsisConfig {
   expandable?: boolean;
   suffix?: string;
   onExpand?: React.MouseEventHandler<HTMLElement>;
+  onEllipsis?: (ellipsis: boolean) => void;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -271,11 +272,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
-    const { rows, expandable, suffix } = this.getEllipsis();
+    const { rows, expandable, suffix, onEllipsis } = this.getEllipsis();
 
     if (suffix) return false;
     // Can't use css ellipsis since we need to provide the place for button
-    if (editable || copyable || expandable || !clientRendered) {
+    if (editable || copyable || expandable || !clientRendered || onEllipsis) {
       return false;
     }
 
@@ -288,7 +289,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
-    const { rows, suffix } = this.getEllipsis();
+    const { rows, suffix, onEllipsis } = this.getEllipsis();
     const { children } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
 
@@ -310,6 +311,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     );
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
       this.setState({ ellipsisText: text, ellipsisContent: content, isEllipsis: ellipsis });
+      if (isEllipsis !== ellipsis && onEllipsis) {
+        onEllipsis(ellipsis);
+      }
     }
   }
 

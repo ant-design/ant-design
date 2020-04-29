@@ -8,12 +8,16 @@ export interface CSPConfig {
 }
 
 export interface ConfigConsumerProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  input?: {
+    autoComplete?: string;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;

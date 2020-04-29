@@ -13,6 +13,7 @@ import { SizeType, SizeContextProvider } from './SizeContext';
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
+  'getTargetContainer',
   'getPopupContainer',
   'rootPrefixCls',
   'getPrefixCls',
@@ -24,6 +25,7 @@ export const configConsumerProps = [
 ];
 
 export interface ConfigProviderProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -32,6 +34,9 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   form?: {
     validateMessages?: ValidateMessages;
+  };
+  input?: {
+    autoComplete?: string;
   };
   locale?: Locale;
   pageHeader?: {
@@ -60,11 +65,13 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
+      getTargetContainer,
       getPopupContainer,
       renderEmpty,
       csp,
       autoInsertSpaceInButton,
       form,
+      input,
       locale,
       pageHeader,
       componentSize,
@@ -82,6 +89,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       space,
     };
 
+    if (getTargetContainer) {
+      config.getTargetContainer = getTargetContainer;
+    }
+
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
     }
@@ -92,6 +103,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     if (pageHeader) {
       config.pageHeader = pageHeader;
+    }
+
+    if (input) {
+      config.input = input;
     }
 
     let childNode = children;

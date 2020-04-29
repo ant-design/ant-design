@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
-import classNames from 'classnames';
 import StarFilled from '@ant-design/icons/StarFilled';
 
 import Tooltip from '../tooltip';
@@ -35,12 +34,9 @@ const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
   };
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls, className, ...restProps } = props;
+  const { prefixCls, ...restProps } = props;
   const rateProps = omit(restProps, ['tooltips']);
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
-  const rateClassNames = classNames(className, {
-    [`${ratePrefixCls}-rtl`]: direction === 'rtl',
-  });
 
   return (
     <RcRate
@@ -48,7 +44,7 @@ const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
       characterRender={characterRender}
       {...rateProps}
       prefixCls={ratePrefixCls}
-      className={rateClassNames}
+      direction={direction}
     />
   );
 });
