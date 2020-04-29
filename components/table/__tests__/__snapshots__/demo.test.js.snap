@@ -10830,30 +10830,48 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
   <div
     class="table-operations"
   >
-    <button
-      class="ant-btn"
-      type="button"
+    <div
+      class="ant-space ant-space-horizontal"
     >
-      <span>
-        Sort age
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Clear filters
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Clear filters and sorters
-      </span>
-    </button>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Sort age
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Clear filters
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Clear filters and sorters
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
   <div
     class="ant-table-wrapper"

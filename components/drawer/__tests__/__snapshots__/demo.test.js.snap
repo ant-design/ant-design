@@ -66,95 +66,107 @@ exports[`renders ./components/drawer/demo/multi-level-drawer.md correctly 1`] = 
 exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
-    style="margin-right:8px"
+    class="ant-space ant-space-horizontal"
   >
-    <label
-      class="ant-radio-wrapper"
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span
-        class="ant-radio"
+      <div
+        class="ant-radio-group ant-radio-group-outline"
       >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="top"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        top
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+              value="top"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span>
+            top
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+              value="right"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span>
+            right
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+              value="bottom"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span>
+            bottom
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper ant-radio-wrapper-checked"
+        >
+          <span
+            class="ant-radio ant-radio-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-input"
+              type="radio"
+              value="left"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span>
+            left
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <span
-        class="ant-radio"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="right"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        right
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="bottom"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        bottom
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
-    >
-      <span
-        class="ant-radio ant-radio-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-input"
-          type="radio"
-          value="left"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        left
-      </span>
-    </label>
+        <span>
+          Open
+        </span>
+      </button>
+    </div>
   </div>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Open
-    </span>
-  </button>
 </div>
 `;
 
