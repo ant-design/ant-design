@@ -128,25 +128,17 @@ class App extends React.Component {
       },
     ];
     return (
-      <div>
-        <div className="table-operations">
-          <Space>
-            <Button onClick={this.setAgeSort}>Sort age</Button>
-            <Button onClick={this.clearFilters}>Clear filters</Button>
-            <Button onClick={this.clearAll}>Clear filters and sorters</Button>
-          </Space>
-        </div>
+      <>
+        <Space style={{ marginBottom: 16 }}>
+          <Button onClick={this.setAgeSort}>Sort age</Button>
+          <Button onClick={this.clearFilters}>Clear filters</Button>
+          <Button onClick={this.clearAll}>Clear filters and sorters</Button>
+        </Space>
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-```
-
-```css
-.table-operations {
-  margin-bottom: 16px;
-}
 ```
