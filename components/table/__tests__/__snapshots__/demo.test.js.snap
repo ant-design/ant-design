@@ -10823,7 +10823,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
 exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal"
+    class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom:16px"
   >
     <div
