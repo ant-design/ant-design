@@ -71,15 +71,10 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor render perfectly for complete href - hash router', async () => {
+    const root = createDiv();
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    let root = document.getElementById('root');
-    if (!root) {
-      root = document.createElement('div', { id: 'root' });
-      root.id = 'root';
-      document.body.appendChild(root);
-    }
     mount(<div id="/faq?locale=en#Q1">Q1</div>, { attachTo: root });
-    const wrapper = mount(
+    const wrapper = mount<Anchor>(
       <Anchor>
         <Link href="/#/faq?locale=en#Q1" title="Q1" />
       </Anchor>,
@@ -108,7 +103,7 @@ describe('Anchor Render', () => {
   it('Anchor render perfectly for complete href - scrollTo', async () => {
     const hash = getHashUrl();
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
-    const root = createRootElementIfNotExisted();
+    const root = createDiv();
     mount(<div id={`#${hash}`}>Hello</div>, { attachTo: root });
     const wrapper = mount<Anchor>(
       <Anchor>
