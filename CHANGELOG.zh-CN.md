@@ -74,6 +74,7 @@ timeline: true
 
 `2020-04-25`
 
+- 重构. Anchor test 重构成 tsx. [#23499](https://github.com/ant-design/ant-design/pull/23499)
 - 🐞 修复 Button.Group 中按钮没有对齐的问题。[#23590](https://github.com/ant-design/ant-design/pull/23590)
 - 🐞 修复 Select 箭头图标点击无法触发下拉的问题。[#23448](https://github.com/ant-design/ant-design/pull/23448)
 - 🐞 修复 Form 自定义 `@form-item-margin-bottom` 变量时表单校验抖动的问题。[#23436](https://github.com/ant-design/ant-design/pull/23436) [@yoyo837](https://github.com/yoyo837)
