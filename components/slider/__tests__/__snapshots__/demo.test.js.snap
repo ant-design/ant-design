@@ -270,9 +270,8 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-input-number-handler-wrap"
         >
           <span
-            aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up "
+            class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
             unselectable="unselectable"
           >
@@ -337,6 +336,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             class="ant-input-number-input"
             max="20"
             min="1"
+            name=""
             role="spinbutton"
             step="1"
             value="1"
@@ -390,9 +390,8 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-input-number-handler-wrap"
         >
           <span
-            aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up "
+            class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
             unselectable="unselectable"
           >
@@ -457,6 +456,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             class="ant-input-number-input"
             max="1"
             min="0"
+            name=""
             role="spinbutton"
             step="0.01"
             value="0.00"

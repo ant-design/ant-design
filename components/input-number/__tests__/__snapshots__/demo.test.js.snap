@@ -8,9 +8,8 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -36,9 +35,8 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
@@ -75,6 +73,7 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       class="ant-input-number-input"
       max="10"
       min="1"
+      name=""
       role="spinbutton"
       step="1"
       value="3"
@@ -91,9 +90,8 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -119,9 +117,8 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
@@ -157,6 +154,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       class="ant-input-number-input"
       max="10"
       min="0"
+      name=""
       role="spinbutton"
       step="0.1"
       value=""
@@ -176,7 +174,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
       <span
         aria-disabled="true"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
         role="button"
         unselectable="unselectable"
       >
@@ -204,7 +202,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
       <span
         aria-disabled="true"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
         role="button"
         unselectable="unselectable"
       >
@@ -242,6 +240,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         disabled=""
         max="10"
         min="1"
+        name=""
         role="spinbutton"
         step="1"
         value="3"
@@ -272,9 +271,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
         unselectable="unselectable"
       >
@@ -300,9 +298,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -337,6 +334,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         autocomplete="off"
         class="ant-input-number-input"
         min="-9007199254740991"
+        name=""
         role="spinbutton"
         step="1"
         value="$ 1,000"
@@ -378,9 +376,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -417,6 +414,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         class="ant-input-number-input"
         max="100"
         min="0"
+        name=""
         role="spinbutton"
         step="1"
         value="100%"
@@ -437,9 +435,8 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
         unselectable="unselectable"
       >
@@ -465,9 +462,8 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -504,6 +500,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         class="ant-input-number-input"
         max="100000"
         min="1"
+        name=""
         role="spinbutton"
         step="1"
         value="3"
@@ -517,9 +514,8 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
         unselectable="unselectable"
       >
@@ -545,9 +541,8 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -584,6 +579,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         class="ant-input-number-input"
         max="100000"
         min="1"
+        name=""
         role="spinbutton"
         step="1"
         value="3"
@@ -597,9 +593,8 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
         unselectable="unselectable"
       >
@@ -625,9 +620,8 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -664,6 +658,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         class="ant-input-number-input"
         max="100000"
         min="1"
+        name=""
         role="spinbutton"
         step="1"
         value="3"
