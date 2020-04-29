@@ -63,7 +63,7 @@ timeline: true
   - 💄 修复 Table rowSelect 按钮 RTL 样式。[#23690](https://github.com/ant-design/ant-design/pull/23690)
   - 💄 优化 List RLT 样式。[#23676](https://github.com/ant-design/ant-design/pull/23676)
   - 💄 新增 Calendar RTL 支持。[#23394](https://github.com/ant-design/ant-design/pull/23394)
-  - 💄 Search 支持 RTL 样式。[#23424](https://github.com/ant-design/ant-design/pull/23424)
+  - 💄 优化 Input.Search RTL 样式。[#23424](https://github.com/ant-design/ant-design/pull/23424)
   - 💄 增加 Notification RTL 设置。[#23185](https://github.com/ant-design/ant-design/pull/23185)
 - TypeScript
   - 修复 PageHeader `tag` 属性定义错误。[#23712](https://github.com/ant-design/ant-design/pull/23712) [@hengkx](https://github.com/hengkx)
