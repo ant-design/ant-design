@@ -64,11 +64,6 @@ const LinksList = () => (
       </a>
     </li>
     <li>
-      <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
-        vue-beauty (vue)<LinkIcon />
-      </a>
-    </li>
-    <li>
       <a href="https://github.com/priornix/antizer" target="_blank">
         antizer (ClojureScript)<LinkIcon />
       </a>
