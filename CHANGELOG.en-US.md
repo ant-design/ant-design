@@ -63,7 +63,7 @@ timeline: true
   - 💄 Fix Table rowSelect icon style in RTL. [#23690](https://github.com/ant-design/ant-design/pull/23690)
   - 💄 Optimize List style in RTL. [#23676](https://github.com/ant-design/ant-design/pull/23676)
   - 💄 Add Calendar RTL. [#23394](https://github.com/ant-design/ant-design/pull/23394)
-  - 💄 Search support RTL style. [#23424](https://github.com/ant-design/ant-design/pull/23424)
+  - 💄 Optimize Input.Search style in RTL. [#23424](https://github.com/ant-design/ant-design/pull/23424)
   - 💄 Add Notification RTL config. [#23185](https://github.com/ant-design/ant-design/pull/23185)
 - TypeScript
   - Fix PageHeader `tag` definition. [#23712](https://github.com/ant-design/ant-design/pull/23712) [@hengkx](https://github.com/hengkx)
