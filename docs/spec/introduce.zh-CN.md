@@ -83,8 +83,14 @@ const LinksList = () => (
         antue (vue)<LinkIcon />
       </a>
     </li>
-      <li>
-      <a href="https://ant-design-blazor.github.io/" target="_blank">Ant Design of Blazor<LinkIcon /></a>
+    <li>
+      <a href="https://ant-design-blazor.github.io/" target="_blank">
+        ant-design-blazor/ant-design-blazor<LinkIcon />
+      </a>
+      <span class="ant-divider ant-divider-vertical" />
+      <a href="https://append-it.github.io/ant-design-blazor/" target="_blank">
+        append-it/ant-design-blazor<LinkIcon />
+      </a>
     </li>
   </ul>
 );
