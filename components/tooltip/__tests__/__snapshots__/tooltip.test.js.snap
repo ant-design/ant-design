@@ -61,3 +61,9 @@ exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`]
   </button>
 </span>
 `;
+
+exports[`Tooltip should works for mismatch placement 1`] = `
+<span>
+  Hello world!
+</span>
+`;

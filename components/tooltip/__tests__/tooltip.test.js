@@ -297,4 +297,19 @@ describe('Tooltip', () => {
     await sleep(500);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
+
+  it('should works for mismatch placement', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        align={{
+          points: ['aa', 'bb'],
+        }}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
