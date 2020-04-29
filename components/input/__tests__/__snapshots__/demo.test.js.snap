@@ -357,9 +357,8 @@ Array [
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
         unselectable="unselectable"
       >
@@ -385,9 +384,8 @@ Array [
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -1288,9 +1286,8 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-handler-wrap"
       >
         <span
-          aria-disabled="false"
           aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up "
+          class="ant-input-number-handler ant-input-number-handler-up"
           role="button"
           unselectable="unselectable"
         >
@@ -1316,9 +1313,8 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           </span>
         </span>
         <span
-          aria-disabled="false"
           aria-label="Decrease Value"
-          class="ant-input-number-handler ant-input-number-handler-down "
+          class="ant-input-number-handler ant-input-number-handler-down"
           role="button"
           unselectable="unselectable"
         >
