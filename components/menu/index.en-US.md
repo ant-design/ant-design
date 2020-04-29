@@ -38,7 +38,7 @@ More layouts with navigation: [Layout](/components/layout).
 | openKeys | Array with the keys of currently opened sub-menus | string\[] |  |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] |  |  |
-| style | Style of the root node | object |  |  |
+| style | Style of the root node | CSSProperties |  |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
@@ -52,11 +52,31 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Menu.Item
 
-| Param    | Description                          | Type    | Default value | Version |
-| -------- | ------------------------------------ | ------- | ------------- | ------- |
-| disabled | Whether menu item is disabled        | boolean | false         |         |
-| key      | Unique ID of the menu item           | string  |               |         |
-| title    | Set display title for collapsed item | string  |               |         |
+| Param    | Description                          | Type      | Default value | Version |
+| -------- | ------------------------------------ | --------- | ------------- | ------- |
+| disabled | Whether menu item is disabled        | boolean   | false         |         |
+| key      | Unique ID of the menu item           | string    |               |         |
+| title    | Set display title for collapsed item | string    |               |         |
+| icon     | icon of the menu item                | ReactNode |               | 4.2.0   |
+
+> Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
+>
+> ```jsx
+> <Menu.Item>
+>   <PieChartOutlined />
+>   <span>Option 1</span>
+> </Menu.Item>
+> <Menu.SubMenu
+>   title={
+>     <>
+>       <PieChartOutlined />
+>       <span>Option 2</span>
+>     </>
+>   }
+> >
+>   ...
+> </Menu.SubMenu>
+> ```
 
 ### Menu.SubMenu
 
@@ -66,7 +86,8 @@ More layouts with navigation: [Layout](/components/layout).
 | children | Sub-menus or sub-menu items | Array&lt;MenuItem\|SubMenu> |  |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | key | Unique ID of the sub-menu | string |  |  |
-| title | Title of the sub-menu | string\|ReactNode |  |  |
+| title | Title of sub menu | string\|ReactNode |  |  |
+| icon | Icon of sub menu | ReactNode |  | 4.2.0 |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) |  |  |
 
 ### Menu.ItemGroup

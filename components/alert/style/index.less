@@ -13,6 +13,10 @@
 
   &&-no-icon {
     padding: @alert-no-icon-padding-vertical 15px;
+    .@{alert-prefix-cls}-close-icon {
+      top: @alert-no-icon-padding-vertical + @font-size-base * @line-height-base / 2 -
+        @font-size-base / 2;
+    }
   }
 
   &&-closable {
@@ -21,14 +25,14 @@
 
   &-icon {
     position: absolute;
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+    top: @alert-icon-top;
     left: 16px;
   }
 
   &-description {
     display: none;
     font-size: @font-size-base;
-    line-height: 22px;
+    line-height: @font-size-base + 8px;
   }
 
   &-success {
@@ -71,12 +75,12 @@
 
   &-close-icon {
     position: absolute;
-    top: @padding-xs;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
     right: 16px;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
-    line-height: 22px;
+    line-height: @font-size-sm;
     background-color: transparent;
     border: none;
     outline: none;
@@ -101,7 +105,7 @@
 
   &-with-description {
     position: relative;
-    padding: 15px 15px 15px 64px;
+    padding: @alert-with-description-padding;
     color: @alert-text-color;
     line-height: @line-height-base;
     border-radius: @border-radius-base;
@@ -113,15 +117,15 @@
 
   &-with-description &-icon {
     position: absolute;
-    top: 16px;
-    left: 24px;
-    font-size: 24px;
+    top: @alert-with-description-icon-top;
+    left: @alert-with-description-icon-size;
+    font-size: @alert-with-description-icon-size;
   }
 
   &-with-description &-close-icon {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: @padding-xs;
+    right: @padding-xs;
     font-size: @font-size-base;
     cursor: pointer;
   }

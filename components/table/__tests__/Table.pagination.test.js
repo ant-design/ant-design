@@ -37,6 +37,12 @@ describe('Table.pagination', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('not crash when pageSize is undefined', () => {
+    expect(() => {
+      mount(createTable({ pagination: { pageSIze: undefined } }));
+    }).not.toThrow();
+  });
+
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
     const wrapper = mount(createTable({ pagination: { pageSize: 3, hideOnSinglePage: true } }));
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);

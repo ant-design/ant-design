@@ -12358,9 +12358,8 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up "
+      class="config-input-number-handler config-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -12386,9 +12385,8 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down "
+      class="config-input-number-handler config-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
@@ -12438,9 +12436,8 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up "
+      class="config-input-number-handler config-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -12466,9 +12463,8 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down "
+      class="config-input-number-handler config-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
@@ -12518,9 +12514,8 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="config-input-number-handler config-input-number-handler-up "
+      class="config-input-number-handler config-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -12546,9 +12541,8 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="config-input-number-handler config-input-number-handler-down "
+      class="config-input-number-handler config-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
@@ -12598,9 +12592,8 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -12626,9 +12619,8 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
@@ -12678,9 +12670,8 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="prefix-InputNumber-handler prefix-InputNumber-handler-up "
+      class="prefix-InputNumber-handler prefix-InputNumber-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -12706,9 +12697,8 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="prefix-InputNumber-handler prefix-InputNumber-handler-down "
+      class="prefix-InputNumber-handler prefix-InputNumber-handler-down"
       role="button"
       unselectable="unselectable"
     >

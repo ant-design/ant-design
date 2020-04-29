@@ -8,6 +8,7 @@ export interface CSPConfig {
 }
 
 export interface ConfigConsumerProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;

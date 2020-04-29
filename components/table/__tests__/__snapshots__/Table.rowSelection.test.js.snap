@@ -27,9 +27,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <col
                   class="ant-table-expand-icon-col"
                 />
-                <col
-                  style="width:60px;min-width:60px"
-                />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -357,11 +354,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
             <table
               style="width:903px;min-width:100%;table-layout:fixed"
             >
-              <colgroup>
-                <col
-                  style="width:60px;min-width:60px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -641,11 +634,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
             <table
               style="width:903px;min-width:100%;table-layout:fixed"
             >
-              <colgroup>
-                <col
-                  style="width:60px;min-width:60px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -956,11 +945,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col
-                  style="width: 60px; min-width: 60px;"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -1283,11 +1268,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
             <table
               style="table-layout: auto;"
             >
-              <colgroup>
-                <col
-                  style="width: 60px; min-width: 60px;"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -1610,11 +1591,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
             <table
               style="table-layout:auto"
             >
-              <colgroup>
-                <col
-                  style="width:60px;min-width:60px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >

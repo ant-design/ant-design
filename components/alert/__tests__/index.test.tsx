@@ -90,9 +90,10 @@ describe('Alert', () => {
   });
 
   it('could be used with Popconfirm', async () => {
+    const ref = React.createRef<any>();
     jest.useRealTimers();
     const wrapper = mount(
-      <Popconfirm title="xxx">
+      <Popconfirm ref={ref} title="xxx">
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
@@ -101,7 +102,7 @@ describe('Alert', () => {
     );
     wrapper.find('.ant-alert').simulate('click');
     await sleep(0);
-    expect(wrapper.find<Popconfirm>(Popconfirm).instance().getPopupDomNode()).toBeTruthy();
+    expect(ref.current.getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
   });
 });

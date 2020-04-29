@@ -42,7 +42,7 @@ const LinkIcon = () => (
 const LinksList = () => (
   <ul>
     <li>
-      <a href="/docs/react/introduce" target="_blank">Ant Design of React</a>
+      <a href="/docs/react/introduce" target="_blank">Ant Design of React </a>
       (official implementation)
     </li>
     <li>

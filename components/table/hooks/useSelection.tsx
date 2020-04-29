@@ -77,7 +77,7 @@ export default function useSelection<RecordType>(
     onSelectAll,
     onSelectInvert,
     onSelectMultiple,
-    columnWidth: selectionColWidth = 60,
+    columnWidth: selectionColWidth,
     type: selectionType,
     selections,
     fixed,

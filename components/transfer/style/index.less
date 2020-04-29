@@ -5,9 +5,9 @@
 
 @transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
-@transfer-header-vertical-padding: (
-    @transfer-header-height - 1px - @font-size-base * @line-height-base
-  ) / 2;
+@transfer-header-vertical-padding: ceil(
+  (@transfer-header-height - 1px - @font-size-base * @line-height-base) / 2
+);
 
 .@{transfer-prefix-cls} {
   .reset-component;
@@ -112,6 +112,7 @@
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
         overflow: hidden;
+        line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
         white-space: nowrap;
         text-overflow: ellipsis;
         transition: all 0.3s;
@@ -180,6 +181,10 @@
         font-size: 12px;
       }
     }
+  }
+
+  .@{ant-prefix}-empty-image {
+    max-height: @transfer-header-height / 2 - 22;
   }
 }
 

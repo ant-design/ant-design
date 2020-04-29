@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import RcTable from 'rc-table';
+import RcTable, { Summary } from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Spin, { SpinProps } from '../spin';
@@ -482,5 +482,6 @@ Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
 Table.Column = Column;
 Table.ColumnGroup = ColumnGroup;
+Table.Summary = Summary;
 
 export default Table;

@@ -77,7 +77,7 @@ The wrapper.
 | --- | --- | --- | --- |
 | className | container className | string | - |
 | hasSider | whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
-| style | to customize the styles | object | - |
+| style | to customize the styles | CSSProperties | - |
 
 > APIs of `Layout.Header` `Layout.Footer` `Layout.Content` are the same as that of `Layout`.
 
@@ -94,7 +94,7 @@ The sidebar.
 | collapsible | whether can be collapsed | boolean | false |
 | defaultCollapsed | to set the initial status | boolean | false |
 | reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false |
-| style | to customize the styles | object | - |
+| style | to customize the styles | CSSProperties | - |
 | theme | color theme of the sidebar | `light` \| `dark` | `dark` |
 | trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode | - |
 | width | width of the sidebar | number\|string | 200 |

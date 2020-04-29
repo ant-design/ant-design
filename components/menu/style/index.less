@@ -172,14 +172,14 @@
     position: relative;
     display: block;
     margin: 0;
-    padding: 0 20px;
+    padding: @menu-item-padding;
     white-space: nowrap;
     cursor: pointer;
     transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
       background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
-      margin-right: 10px;
+      margin-right: @menu-item-icon-margin-right;
       font-size: @menu-icon-size;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
@@ -209,6 +209,7 @@
       position: absolute;
       z-index: @zindex-dropdown;
       border-radius: @border-radius-base;
+      box-shadow: none;
 
       // https://github.com/ant-design/ant-design/issues/13955
       &::before {
@@ -328,7 +329,7 @@
   }
 
   &-horizontal {
-    line-height: 46px;
+    line-height: @menu-horizontal-line-height;
     white-space: nowrap;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;

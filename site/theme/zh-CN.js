@@ -55,7 +55,7 @@ module.exports = {
     'app.home.design-language': '设计语言',
     'app.home.product-antv-slogan': '全新一代数据可视化解决方案',
     'app.home.product-pro-slogan': '开箱即用的中台前端/设计解决方案',
-    'app.home.product-mobile-slogan': '一个基于 Preact / React / React Native 的 UI 组件库',
+    'app.home.product-mobile-slogan': '基于 Preact / React / React Native 的 UI 组件库',
     'app.home.product-hitu': '海兔',
     'app.home.product-hitu-slogan': '全新一代图形化解决方案',
     'app.home.product-kitchen-slogan': '一款为设计者提升工作效率的 Sketch 工具集',

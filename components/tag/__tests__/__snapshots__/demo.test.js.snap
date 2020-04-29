@@ -202,23 +202,23 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
-<div>
+Array [
   <span
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable"
   >
     Tag1
-  </span>
+  </span>,
   <span
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable"
   >
     Tag2
-  </span>
+  </span>,
   <span
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable"
   >
     Tag3
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
@@ -457,33 +457,33 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
-<div>
+Array [
   <span
     style="margin-right:8px"
   >
     Categories:
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-checkable"
   >
     Movies
-  </span>
+  </span>,
   <span
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Books
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-checkable"
   >
     Music
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-checkable"
   >
     Sports
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/icon.md correctly 1`] = `

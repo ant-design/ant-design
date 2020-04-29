@@ -18,11 +18,11 @@ import { Tag } from 'antd';
 
 const { CheckableTag } = Tag;
 
-const tagsFromServer = ['Movies', 'Books', 'Music', 'Sports'];
+const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
 class HotTags extends React.Component {
   state = {
-    selectedTags: [],
+    selectedTags: ['Books'],
   };
 
   handleChange(tag, checked) {
@@ -35,9 +35,9 @@ class HotTags extends React.Component {
   render() {
     const { selectedTags } = this.state;
     return (
-      <div>
+      <>
         <span style={{ marginRight: 8 }}>Categories:</span>
-        {tagsFromServer.map(tag => (
+        {tagsData.map(tag => (
           <CheckableTag
             key={tag}
             checked={selectedTags.indexOf(tag) > -1}
@@ -46,7 +46,7 @@ class HotTags extends React.Component {
             {tag}
           </CheckableTag>
         ))}
-      </div>
+      </>
     );
   }
 }

@@ -25,7 +25,7 @@ Display statistic number.
 | suffix           | suffix node of value          | string \| ReactNode  | -       |         |
 | title            | Display title                 | string \| ReactNode  | -       |         |
 | value            | Display value                 | string \| number     | -       |         |
-| valueStyle       | Set value css style           | style                | -       |         |
+| valueStyle       | Set value css style           | CSSProperties        | -       |         |
 
 #### Statistic.Countdown
 
@@ -37,4 +37,4 @@ Display statistic number.
 | suffix | suffix node of value | string \| ReactNode | - |  |
 | title | Display title | string \| ReactNode | - |  |
 | value | Set target countdown time | number \| moment | - |  |
-| valueStyle | Set value css style | style | - |  |
+| valueStyle | Set value css style | CSSProperties | - |  |

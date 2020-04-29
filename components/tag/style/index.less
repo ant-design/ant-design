@@ -11,7 +11,7 @@
   margin-right: 8px;
   padding: 0 7px;
   font-size: @tag-font-size;
-  line-height: 20px;
+  line-height: @tag-line-height;
   white-space: nowrap;
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
@@ -64,6 +64,7 @@
   &-checkable {
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
     &:not(&-checked):hover {
       color: @primary-color;
     }

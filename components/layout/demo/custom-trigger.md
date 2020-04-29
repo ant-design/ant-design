@@ -42,17 +42,14 @@ class SiderDemo extends React.Component {
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <UserOutlined />
-              <span>nav 1</span>
+            <Menu.Item key="1" icon={<UserOutlined />}>
+              nav 1
             </Menu.Item>
-            <Menu.Item key="2">
-              <VideoCameraOutlined />
-              <span>nav 2</span>
+            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+              nav 2
             </Menu.Item>
-            <Menu.Item key="3">
-              <UploadOutlined />
-              <span>nav 3</span>
+            <Menu.Item key="3" icon={<UploadOutlined />}>
+              nav 3
             </Menu.Item>
           </Menu>
         </Sider>

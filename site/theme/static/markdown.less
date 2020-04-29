@@ -77,6 +77,10 @@
 .markdown p,
 .markdown pre {
   margin: 1em 0;
+  .ant-row-rtl & {
+    direction: rtl;
+    text-align: right;
+  }
 }
 
 .markdown ul > li {
@@ -84,7 +88,7 @@
   padding-left: 4px;
   list-style-type: circle;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 20px;
     margin-left: 0;
     padding-right: 4px;
@@ -133,7 +137,9 @@
   padding: 0;
   overflow: auto;
   color: @site-text-color;
-  font-size: @font-size-base - 1px;
+  font-size: max(@font-size-base - 1px, 12px);
+  direction: ltr;
+  text-align: left;
   background: #f5f5f5;
   border: none;
 }
@@ -146,6 +152,7 @@
 .markdown > table {
   width: 100%;
   margin: 8px 0 16px;
+  direction: ltr;
   empty-cells: show;
   border: 1px solid @site-border-color-split;
   border-collapse: collapse;
@@ -166,6 +173,13 @@
   border: 1px solid @site-border-color-split;
 }
 
+.markdown table td > a:not(:last-child) {
+  margin-right: 0 !important;
+  &::after {
+    position: relative !important;
+  }
+}
+
 .markdown blockquote {
   margin: 1em 0;
   padding-left: 0.8em;
@@ -173,7 +187,7 @@
   font-size: 90%;
   border-left: 4px solid @site-border-color-split;
 
-  .ant-row-rtl & {
+  .rtl & {
     padding-right: 0.8em;
     padding-left: 0;
     border-right: 4px solid @site-border-color-split;
@@ -190,7 +204,7 @@
   opacity: 0;
   transition: opacity 0.3s;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 8px;
     margin-left: 0;
   }
@@ -206,10 +220,12 @@
   margin-left: 8px;
   text-decoration: none;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 8px;
     margin-left: 0;
+    transform: rotateY(180deg);
   }
+
   i {
     color: @site-text-color-secondary;
 
@@ -245,7 +261,7 @@
   table {
     min-width: 720px;
     margin: 2em 0;
-    font-size: @font-size-base - 1px;
+    font-size: max(@font-size-base - 1px, 12px);
     font-family: @code-family;
     line-height: @line-height-base;
     border: 1px solid @border-color-split;
@@ -278,12 +294,12 @@
       &:nth-child(3) {
         width: 22%;
         color: @magenta-7;
-        font-size: @font-size-base - 1px;
+        font-size: max(@font-size-base - 1px, 12px);
         word-break: break-all;
       }
       &:nth-child(4) {
         width: 16%;
-        font-size: @font-size-base - 1px;
+        font-size: max(@font-size-base - 1px, 12px);
       }
     }
   }
@@ -439,6 +455,12 @@
       > h2 {
         margin-top: 0;
         padding-top: 4px;
+        direction: ltr;
+        span {
+          .ant-row-rtl & {
+            float: right;
+          }
+        }
       }
     }
   }

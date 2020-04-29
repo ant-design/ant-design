@@ -4,7 +4,6 @@
 @import './panel';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
-@picker-text-height: 40px;
 
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
@@ -243,7 +242,11 @@
       display: inline-block;
     }
 
-    .@{picker-prefix-cls}-preset span {
+    // https://github.com/ant-design/ant-design/issues/23687
+    .@{picker-prefix-cls}-preset > .@{ant-prefix}-tag-blue {
+      color: @primary-color;
+      background: @primary-1;
+      border-color: @primary-3;
       cursor: pointer;
     }
 

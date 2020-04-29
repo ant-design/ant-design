@@ -8,9 +8,8 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
       unselectable="unselectable"
     >
@@ -36,9 +35,8 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
       unselectable="unselectable"
     >
