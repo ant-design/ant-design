@@ -2526,7 +2526,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
 exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
 <div>
   <div
-    class="ant-space ant-space-horizontal"
+    class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom:16px"
   >
     <div
