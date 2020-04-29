@@ -53,7 +53,7 @@ export interface ConfigProviderProps {
 
 const ConfigProvider: React.FC<ConfigProviderProps> = props => {
   React.useEffect(() => {
-    if (props.direction && typeof props.direction !== undefined) {
+    if (props.direction) {
       message.config({
         rtl: props.direction === 'rtl',
       });
