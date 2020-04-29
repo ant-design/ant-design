@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
+import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown, message } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
@@ -309,7 +309,10 @@ class MainContent extends Component {
   render() {
     return (
       <SiteContext.Consumer>
-        {({ isMobile }) => {
+        {({ isMobile, direction }) => {
+          message.config({
+            rtl: direction === 'rtl',
+          });
           const { theme, setIframeTheme } = this.context;
           const { openKeys } = this.state;
           const {
