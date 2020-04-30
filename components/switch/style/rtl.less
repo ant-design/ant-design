@@ -10,8 +10,8 @@
 
   &-inner {
     .@{switch-prefix-cls}-rtl & {
-      margin-right: 24px;
-      margin-left: 6px;
+      margin-right: @switch-inner-margin-max;
+      margin-left: @switch-inner-margin-min;
     }
   }
 
@@ -51,8 +51,8 @@
   &-checked {
     .@{switch-prefix-cls}-inner {
       .@{switch-prefix-cls}-rtl& {
-        margin-right: 6px;
-        margin-left: 24px;
+        margin-right: @switch-inner-margin-min;
+        margin-left: @switch-inner-margin-max;
       }
     }
 
