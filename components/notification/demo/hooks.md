@@ -14,7 +14,7 @@ title:
 Use `notification.useNotification` to get `contextHolder` with context accessible issue.
 
 ```jsx
-import { Button, notification, Divider } from 'antd';
+import { Button, notification, Divider, Space } from 'antd';
 import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
@@ -38,23 +38,27 @@ const Demo = () => {
   return (
     <Context.Provider value={{ name: 'Ant Design' }}>
       {contextHolder}
-      <Button type="primary" onClick={() => openNotification('topLeft')}>
-        <RadiusUpleftOutlined />
-        topLeft
-      </Button>
-      <Button type="primary" onClick={() => openNotification('topRight')}>
-        <RadiusUprightOutlined />
-        topRight
-      </Button>
+      <Space>
+        <Button type="primary" onClick={() => openNotification('topLeft')}>
+          <RadiusUpleftOutlined />
+          topLeft
+        </Button>
+        <Button type="primary" onClick={() => openNotification('topRight')}>
+          <RadiusUprightOutlined />
+          topRight
+        </Button>
+      </Space>
       <Divider />
-      <Button type="primary" onClick={() => openNotification('bottomLeft')}>
-        <RadiusBottomleftOutlined />
-        bottomLeft
-      </Button>
-      <Button type="primary" onClick={() => openNotification('bottomRight')}>
-        <RadiusBottomrightOutlined />
-        bottomRight
-      </Button>
+      <Space>
+        <Button type="primary" onClick={() => openNotification('bottomLeft')}>
+          <RadiusBottomleftOutlined />
+          bottomLeft
+        </Button>
+        <Button type="primary" onClick={() => openNotification('bottomRight')}>
+          <RadiusBottomrightOutlined />
+          bottomRight
+        </Button>
+      </Space>
     </Context.Provider>
   );
 };
