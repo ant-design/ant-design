@@ -47,7 +47,7 @@ describe('Input', () => {
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
-      const wrapper = mount(<Input />);
+      const wrapper = mount(<Input />, { attachTo: document.body });
       wrapper
         .find('input')
         .instance()
@@ -58,6 +58,7 @@ describe('Input', () => {
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
       );
+      wrapper.unmount();
     });
   });
 });
