@@ -93,19 +93,19 @@
   .@{inputClass}-affix-wrapper {
     &:not(:first-child) {
       .@{inputClass}-group-rtl& {
-        border-top-right-radius: 0;
         border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
+        border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+        border-bottom-left-radius: @border-radius-base;
       }
     }
 
     &:not(:last-child) {
       .@{inputClass}-group-rtl& {
-        border-top-right-radius: @border-radius-base;
         border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+        border-top-right-radius: @border-radius-base;
         border-bottom-right-radius: @border-radius-base;
+        border-bottom-left-radius: 0;
       }
     }
   }
