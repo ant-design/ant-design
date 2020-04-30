@@ -34,7 +34,7 @@ title: Upload
 | multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件 | boolean | false |  |
 | name | 发到后台的文件参数名 | string | 'file' |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise<dataURL: string> | 无 |  |
-| isImageUrl | 自定义缩略图是否使用 img 标签进行显示 | (file: UploadFile) => boolean | [内部实现](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
+| isImageUrl | 自定义缩略图是否使用 `<img />` 标签进行显示 | (file: UploadFile) => boolean | [内部实现](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
 | showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, removeIcon?: React.ReactNode, downloadIcon?: React.ReactNode } | true |  |
 | supportServerRender | 服务端渲染时需要打开这个 | boolean | false |  |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
