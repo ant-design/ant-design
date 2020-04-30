@@ -1113,7 +1113,7 @@ Array [
           Option 3
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child"
+          class="ant-menu-item ant-menu-item-danger ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
