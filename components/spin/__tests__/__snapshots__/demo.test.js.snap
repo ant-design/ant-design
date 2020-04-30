@@ -165,66 +165,82 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
 `;
 
 exports[`renders ./components/spin/demo/size.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
   <div
-    class="ant-spin ant-spin-sm ant-spin-spinning"
+    class="ant-space-item"
+    style="margin-right:16px"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      class="ant-spin ant-spin-sm ant-spin-spinning"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
   </div>
   <div
-    class="ant-spin ant-spin-spinning"
+    class="ant-space-item"
+    style="margin-right:16px"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      class="ant-spin ant-spin-spinning"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
   </div>
   <div
-    class="ant-spin ant-spin-lg ant-spin-spinning"
+    class="ant-space-item"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      class="ant-spin ant-spin-lg ant-spin-spinning"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
   </div>
 </div>
 `;
