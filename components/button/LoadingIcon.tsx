@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import { ConfigContext } from '../config-provider';
 
 export interface LoadingIconProps {
   prefixCls: string;
@@ -16,13 +17,14 @@ const getRealWidth = (node: HTMLElement) => ({
   transform: 'scale(1)',
 });
 
-export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIconProps) {
+const LoadingIcon = ({ prefixCls, loading, existIcon }: LoadingIconProps) => {
   const visible = !!loading;
-
+  const { direction } = React.useContext(ConfigContext);
+  const iconStyle = direction === 'rtl' ? { transform: 'rotateY(180deg)' } : {};
   if (existIcon) {
     return (
       <span className={`${prefixCls}-loading-icon`}>
-        <LoadingOutlined />
+        <LoadingOutlined style={iconStyle} />
       </span>
     );
   }
@@ -43,10 +45,12 @@ export default function LoadingIcon({ prefixCls, loading, existIcon }: LoadingIc
       {({ className, style }: { className: string; style: React.CSSProperties }, ref: any) => {
         return (
           <span className={`${prefixCls}-loading-icon`} style={style} ref={ref}>
-            <LoadingOutlined className={classNames(className)} />
+            <LoadingOutlined className={classNames(className)} style={iconStyle} />
           </span>
         );
       }}
     </CSSMotion>
   );
-}
+};
+
+export default LoadingIcon;

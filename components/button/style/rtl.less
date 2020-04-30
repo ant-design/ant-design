@@ -25,11 +25,14 @@
   }
 
   & > &-loading-icon {
-    .@{iconfont-css-prefix} {
-      .@{btn-prefix-cls}-rtl& {
-        padding-right: 0;
-        padding-left: @margin-xs;
-      }
+    .@{btn-prefix-cls}-rtl& {
+      padding-right: 0;
+      padding-left: @margin-xs;
+    }
+
+    &:only-child {
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 
