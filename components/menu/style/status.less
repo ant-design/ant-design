@@ -34,8 +34,17 @@
   }
 
   // Danger
-  &-item-danger.@{menu-prefix-cls}-item {
+  &-item-danger&-item {
     color: @menu-highlight-danger-color;
     .menuItem(@menu-highlight-danger-color; @menu-item-active-danger-bg);
+  }
+
+  // ==================== Dark ====================
+  &-dark &-item-danger&-item {
+    &,
+    &:hover,
+    & > a {
+      color: @menu-dark-danger-color;
+    }
   }
 }
