@@ -1,0 +1,41 @@
+@import './index';
+
+.menuItem(@highlight-color; @active-bg;) {
+  &:hover,
+  &-active {
+    color: @highlight-color;
+  }
+
+  &:active {
+    background: @active-bg;
+  }
+
+  &-selected {
+    color: @highlight-color;
+    > a,
+    > a:hover {
+      color: @highlight-color;
+    }
+  }
+
+  .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-horizontal) &-selected {
+    background-color: @active-bg;
+  }
+
+  .@{menu-prefix-cls}-inline &::after {
+    border-right-color: @highlight-color;
+  }
+}
+
+.@{menu-prefix-cls} {
+  // Normal
+  &-item {
+    .menuItem(@menu-highlight-color; @menu-item-active-bg);
+  }
+
+  // Danger
+  &-item-danger.@{menu-prefix-cls}-item {
+    color: @menu-highlight-danger-color;
+    .menuItem(@menu-highlight-danger-color; @menu-item-active-danger-bg);
+  }
+}
