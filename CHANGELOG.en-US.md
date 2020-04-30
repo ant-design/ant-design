@@ -74,7 +74,6 @@ timeline: true
 
 `2020-04-25`
 
-- Chore. Refactor the anchor test to typescript. [#23499](https://github.com/ant-design/ant-design/pull/23499)
 - 🐞 Fix Button.Group align style. [#23590](https://github.com/ant-design/ant-design/pull/23590)
 - 🐞 Fix Select cannot trigger open by clicking arrow icon. [#23448](https://github.com/ant-design/ant-design/pull/23448)
 - 🐞 Fix Form fields shake when `@form-item-margin-bottom` is customize and switching the validing info. [#23436](https://github.com/ant-design/ant-design/pull/23436) [@yoyo837](https://github.com/yoyo837)
