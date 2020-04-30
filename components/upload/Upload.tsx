@@ -193,7 +193,10 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const { onChange } = this.props;
     if (onChange) {
-      onChange(info);
+      onChange({
+        ...info,
+        fileList: [...info.fileList],
+      });
     }
   };
 
