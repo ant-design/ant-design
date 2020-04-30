@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import TreeSelect from '..';
+import TreeSelect, { TreeNode } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('TreeSelect', () => {
