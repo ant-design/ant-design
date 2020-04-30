@@ -11,6 +11,7 @@ export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
   visibilityToggle?: boolean;
+  iconRender?: (visible: boolean) => React.ReactNode;
 }
 
 export interface PasswordState {
@@ -28,6 +29,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   static defaultProps = {
     action: 'click',
     visibilityToggle: true,
+    iconRender: (visible: boolean) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />),
   };
 
   state: PasswordState = {
@@ -44,9 +46,10 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   getIcon = (prefixCls: string) => {
-    const { action } = this.props;
+    const { action, iconRender = () => null } = this.props;
+    const { visible } = this.state;
     const iconTrigger = ActionMap[action!] || '';
-    const icon = this.state.visible ? EyeOutlined : EyeInvisibleOutlined;
+    const icon = iconRender(visible);
     const iconProps = {
       [iconTrigger]: this.onVisibleChange,
       className: `${prefixCls}-icon`,
@@ -62,7 +65,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         e.preventDefault();
       },
     };
-    return React.createElement(icon as React.ComponentType, iconProps);
+    return React.cloneElement(React.isValidElement(icon) ? icon : <span>{icon}</span>, iconProps);
   };
 
   saveInput = (instance: Input) => {
@@ -102,7 +105,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     });
 
     const props = {
-      ...omit(restProps, ['suffix']),
+      ...omit(restProps, ['suffix', 'iconRender']),
       type: this.state.visible ? 'text' : 'password',
       className: inputClassName,
       prefixCls: inputPrefixCls,
