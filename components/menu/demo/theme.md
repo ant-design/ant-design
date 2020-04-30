@@ -3,7 +3,6 @@ order: 4
 title:
   zh-CN: 主题
   en-US: Menu Themes
-only: true
 ---
 
 ## zh-CN
