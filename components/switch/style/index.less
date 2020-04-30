@@ -23,7 +23,8 @@
 
   &-inner {
     display: block;
-    margin: @switch-inner-margin;
+    margin-right: @switch-inner-margin-min;
+    margin-left: @switch-inner-margin-max;
     color: @text-color-inverse;
     font-size: @font-size-sm;
   }
@@ -135,7 +136,8 @@
     background-color: @switch-color;
 
     .@{switch-prefix-cls}-inner {
-      margin: @switch-inner-margin;
+      margin-right: @switch-inner-margin-max;
+      margin-left: @switch-inner-margin-min;
     }
 
     &::after {
