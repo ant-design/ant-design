@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import { INTERNAL_COL_DEFINE } from 'rc-table';
 import { FixedType } from 'rc-table/lib/interface';
 import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
@@ -440,6 +441,9 @@ export default function useSelection<RecordType>(
         className: `${prefixCls}-selection-column`,
         title: rowSelection.columnTitle || title,
         render: renderSelectionCell,
+        [INTERNAL_COL_DEFINE]: {
+          className: `${prefixCls}-selection-column`,
+        },
       };
 
       if (expandType === 'row' && columns.length && !expandIconColumnIndex) {
