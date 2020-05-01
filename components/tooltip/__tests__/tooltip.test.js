@@ -303,13 +303,16 @@ describe('Tooltip', () => {
       <Tooltip
         title="xxxxx"
         align={{
-          points: ['aa', 'bb'],
+          points: ['bc', 'tl'],
         }}
+        mouseEnterDelay={0}
       >
         <span>Hello world!</span>
       </Tooltip>,
     );
-
-    expect(wrapper.render()).toMatchSnapshot();
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(600);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('ant-tooltip');
   });
 });
