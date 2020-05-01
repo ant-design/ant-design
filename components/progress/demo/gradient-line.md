@@ -34,6 +34,15 @@ const Demo = () => (
       status="active"
     />
     <Progress
+      strokeColor={{
+        '0%': '#73d13d',
+        '50%': '#5cdbd3',
+        '100%': '#40a9ff',
+      }}
+      percent={99.9}
+      status="flow"
+    />
+    <Progress
       type="circle"
       strokeColor={{
         '0%': '#108ee9',

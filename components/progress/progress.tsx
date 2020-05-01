@@ -15,7 +15,7 @@ import { validProgress } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
-const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
+const ProgressStatuses = tuple('normal', 'exception', 'active', 'success', 'flow');
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
 type FromToGradients = { from: string; to: string };

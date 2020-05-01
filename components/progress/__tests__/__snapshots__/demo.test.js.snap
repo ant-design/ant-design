@@ -738,6 +738,28 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     </span>
   </div>
   <div
+    class="ant-progress ant-progress-line ant-progress-status-flow ant-progress-show-info ant-progress-default"
+  >
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #73d13d 0%, #5cdbd3 50%, #40a9ff 100%)"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+      title="99.9%"
+    >
+      99.9%
+    </span>
+  </div>
+  <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div

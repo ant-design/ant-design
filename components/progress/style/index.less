@@ -115,6 +115,12 @@
     }
   }
 
+  &-status-flow {
+    .@{progress-prefix-cls}-bg {
+      animation: ~'@{ant-prefix}-progress-flow' 5s linear infinite;
+    }
+  }
+
   &-status-exception {
     .@{progress-prefix-cls}-bg {
       background-color: @error-color;
@@ -194,6 +200,15 @@
   100% {
     width: 100%;
     opacity: 0;
+  }
+}
+
+@keyframes ~"@{ant-prefix}-progress-flow" {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
   }
 }
 
