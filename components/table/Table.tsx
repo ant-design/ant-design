@@ -403,18 +403,19 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (position: string = 'right') => (
+    const renderPagination = (position: string) => (
       <Pagination
         className={`${prefixCls}-pagination ${prefixCls}-pagination-${position}`}
         {...mergedPagination}
         size={paginationSize}
       />
     );
+    const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     if (mergedPagination.position !== null && Array.isArray(mergedPagination.position)) {
       const topPos = mergedPagination.position.find(p => p.indexOf('top') !== -1);
       const bottomPos = mergedPagination.position.find(p => p.indexOf('bottom') !== -1);
       if (!topPos && !bottomPos) {
-        bottomPaginationNode = renderPagination();
+        bottomPaginationNode = renderPagination(defaultPosition);
       } else {
         if (topPos) {
           topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
@@ -424,7 +425,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         }
       }
     } else {
-      bottomPaginationNode = renderPagination();
+      bottomPaginationNode = renderPagination(defaultPosition);
     }
   }
 

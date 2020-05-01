@@ -195,7 +195,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
 | scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/blob/ece40bd9143f48caf4b99503425ecb16b0ad8249/src/types.ts#L10)]) => void |
-| setFields | 设置一组字段状态 | (fields: FieldData[]) => void |
+| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |
 | setFieldsValue | 设置表单的值 | (values) => void |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
@@ -325,6 +325,16 @@ validator(rule, value, callback) => {
 
 1. Form 的 `initialValues` 拥有最高优先级
 2. Field 的 `initialValue` 次之 \*. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
+
+### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？
+
+字段除了本身的值变化外，校验也是其状态之一。因而在触发字段变化会经历以下几个阶段：
+
+1. Trigger value change
+2. Rule validating
+3. Rule validated
+
+在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
 
 <style>
   .site-form-item-icon {

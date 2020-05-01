@@ -194,7 +194,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |
 | resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/blob/ece40bd9143f48caf4b99503425ecb16b0ad8249/src/types.ts#L10)]) => void |
-| setFields | Set fields status | (fields: FieldData[]) => void |
+| setFields | Set fields status | (fields: [FieldData](#FieldData)[]) => void |
 | setFieldsValue | Set fields value | (values) => void |
 | submit | Submit the form. It's same as click `submit` button | () => void |
 | validateFields | Validate fields | (nameList?: [NamePath](#NamePath)[]) => Promise |
@@ -324,6 +324,16 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 
 1. Form `initialValues` is the first priority
 2. Field `initialValue` is secondary \*. Not work when multiple Item with same `name` setting the `initialValue`
+
+### Why `onFieldsChange` trigger three times on change when field set `rules`?
+
+Validating is also part of the value updating. It pass follow steps:
+
+1. Trigger value change
+2. Rule validating
+3. Rule validated
+
+In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
 <style>
   .site-form-item-icon {

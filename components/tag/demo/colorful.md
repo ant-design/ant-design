@@ -44,12 +44,6 @@ ReactDOM.render(
 );
 ```
 
-```css
-.ant-tag {
-  margin-bottom: 8px;
-}
-```
-
 <style>
 .code-box-demo .ant-tag {
   margin-bottom: 8px;

@@ -2237,7 +2237,7 @@ Array [
             aria-label="audio"
             class="anticon anticon-audio"
             role="img"
-            style="font-size:16px;color:#1890ff;padding-right:4px"
+            style="font-size:16px;color:#1890ff"
           >
             <svg
               aria-hidden="true"

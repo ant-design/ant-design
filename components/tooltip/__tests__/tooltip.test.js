@@ -297,4 +297,22 @@ describe('Tooltip', () => {
     await sleep(500);
     expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
+
+  it('should works for mismatch placement', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        align={{
+          points: ['bc', 'tl'],
+        }}
+        mouseEnterDelay={0}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(600);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('ant-tooltip');
+  });
 });

@@ -2378,6 +2378,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-expand-icon-col"
                   />
+                  <col
+                    class="ant-table-selection-column"
+                  />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
@@ -4932,7 +4935,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               style="table-layout:auto"
             >
               <colgroup>
-                <col />
+                <col
+                  class="ant-table-selection-column"
+                />
                 <col />
                 <col
                   style="width:12%;min-width:12%"
@@ -10821,35 +10826,50 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
-<div>
+Array [
   <div
-    class="table-operations"
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="margin-bottom:16px"
   >
-    <button
-      class="ant-btn"
-      type="button"
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span>
-        Sort age
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Sort age
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span>
-        Clear filters
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Clear filters
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <span>
-        Clear filters and sorters
-      </span>
-    </button>
-  </div>
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Clear filters and sorters
+        </span>
+      </button>
+    </div>
+  </div>,
   <div
     class="ant-table-wrapper"
   >
@@ -11317,8 +11337,8 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
         </ul>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
@@ -11852,7 +11872,11 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    class="ant-table-selection-column"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -12195,7 +12219,11 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    class="ant-table-selection-column"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -12778,7 +12806,11 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             <table
               style="table-layout:auto"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  class="ant-table-selection-column"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -13388,7 +13420,11 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             <table
               style="table-layout:auto"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  class="ant-table-selection-column"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >

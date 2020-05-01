@@ -2243,7 +2243,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                       <table
                         style="table-layout:auto"
                       >
-                        <colgroup />
+                        <colgroup>
+                          <col
+                            class="ant-table-selection-column"
+                          />
+                        </colgroup>
                         <thead
                           class="ant-table-thead"
                         >
@@ -2920,7 +2924,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                       <table
                         style="table-layout:auto"
                       >
-                        <colgroup />
+                        <colgroup>
+                          <col
+                            class="ant-table-selection-column"
+                          />
+                        </colgroup>
                         <thead
                           class="ant-table-thead"
                         >

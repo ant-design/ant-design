@@ -150,11 +150,16 @@
   }
 
   & > &-loading-icon {
-    padding-right: @margin-xs;
     transition: all 0.3s @ease-in-out;
 
+    .@{iconfont-css-prefix} {
+      padding-right: @margin-xs;
+    }
+
     &:only-child {
-      padding-right: 0;
+      .@{iconfont-css-prefix} {
+        padding-right: 0;
+      }
     }
   }
 

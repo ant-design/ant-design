@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.1.5",
+  "version": "4.2.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -71,7 +71,7 @@
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
     "pub": "antd-tools run pub",
-    "prepublish": "antd-tools run guard",
+    "prepublish": "npm run snyk-protect && antd-tools run guard",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"node ./scripts/generateColorLess.js\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
@@ -82,7 +82,8 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false"
+    "site:test": "jest --config .jest.site.js --cache=false",
+    "snyk-protect": "snyk protect"
   },
   "husky": {
     "hooks": {
@@ -103,7 +104,7 @@
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
     "lodash": "^4.17.13",
-    "moment": "^2.24.0",
+    "moment": "~2.24.0",
     "omit.js": "^1.0.2",
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",
@@ -128,7 +129,7 @@
     "rc-slider": "~9.2.3",
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
-    "rc-table": "~7.5.2",
+    "rc-table": "~7.5.3",
     "rc-tabs": "~10.1.1",
     "rc-tooltip": "~4.0.2",
     "rc-tree": "~3.1.0",
@@ -139,7 +140,8 @@
     "rc-virtual-list": "^1.1.0",
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
-    "warning": "~4.0.3"
+    "warning": "~4.0.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
@@ -290,5 +292,6 @@
   "tnpm": {
     "mode": "npm"
   },
-  "title": "Ant Design"
+  "title": "Ant Design",
+  "snyk": true
 }
