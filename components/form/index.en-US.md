@@ -325,6 +325,16 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 1. Form `initialValues` is the first priority
 2. Field `initialValue` is secondary \*. Not work when multiple Item with same `name` setting the `initialValue`
 
+### Why `onFieldsChange` trigger three times on change when field set `rules`?
+
+Validating is also part of the value updating. It pass follow steps:
+
+1. Trigger value change
+2. Rule validating
+3. Rule validated
+
+In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
