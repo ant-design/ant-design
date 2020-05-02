@@ -71,7 +71,7 @@
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
     "pub": "antd-tools run pub",
-    "prepublish": "npm run snyk-protect && antd-tools run guard",
+    "prepublish": "antd-tools run guard",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"node ./scripts/generateColorLess.js\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
@@ -82,8 +82,7 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false",
-    "snyk-protect": "snyk protect"
+    "site:test": "jest --config .jest.site.js --cache=false"
   },
   "husky": {
     "hooks": {
@@ -140,8 +139,7 @@
     "rc-virtual-list": "^1.1.0",
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
-    "warning": "~4.0.3",
-    "snyk": "^1.316.1"
+    "warning": "~4.0.3"
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
@@ -292,6 +290,5 @@
   "tnpm": {
     "mode": "npm"
   },
-  "title": "Ant Design",
-  "snyk": true
+  "title": "Ant Design"
 }
