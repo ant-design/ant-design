@@ -172,7 +172,7 @@ Then reboot with `yarn start` and visit the demo page, you should not find any [
 
 ### Customize Theme
 
-According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
+According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra/blob/master/api.md#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
 $ yarn add less less-loader
