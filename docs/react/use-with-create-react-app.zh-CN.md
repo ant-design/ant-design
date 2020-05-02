@@ -96,8 +96,10 @@ export default App;
 
 引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) 版本的关系，你还需要安装 [customize-cra](https://github.com/arackaf/customize-cra)。
 
-```
+```bash
 $ yarn add react-app-rewired customize-cra
+# 使用less-loader@6.0.0
+$ yarn add react-app-rewired customize-cra@next
 ```
 
 ```diff
