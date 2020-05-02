@@ -98,7 +98,7 @@ Import react-app-rewired and modify the `scripts` field in package.json. Due to 
 
 ```bash
 $ yarn add react-app-rewired customize-cra
-# 使用less-loader@6.0.0
+# use less-loader@6.0.0
 $ yarn add react-app-rewired customize-cra@next
 ```
 
