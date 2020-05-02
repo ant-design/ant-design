@@ -195,9 +195,12 @@ describe('Locale Provider', () => {
   it('should change locale of Modal.xxx', () => {
     class ModalDemo extends React.Component {
       componentDidMount() {
+        jest.useFakeTimers();
         Modal.confirm({
           title: 'Hello World!',
         });
+        jest.runAllTimers();
+        jest.useRealTimers();
       }
 
       render() {
