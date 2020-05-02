@@ -90,4 +90,10 @@ describe('RangePicker', () => {
       expect(wrapper).toMatchRenderedSnapshot();
     });
   });
+
+  it('placeholder', () => {
+    const wrapper = mount(<RangePicker placeholder={undefined} />);
+    expect(wrapper.find('input').first().props().placeholder).toEqual('Start date');
+    expect(wrapper.find('input').last().props().placeholder).toEqual('End date');
+  });
 });

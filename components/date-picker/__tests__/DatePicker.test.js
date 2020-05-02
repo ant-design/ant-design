@@ -73,4 +73,9 @@ describe('DatePicker', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('placeholder', () => {
+    const wrapper = mount(<DatePicker placeholder={undefined} />);
+    expect(wrapper.find('input').props().placeholder).toEqual('Select date');
+  });
 });
