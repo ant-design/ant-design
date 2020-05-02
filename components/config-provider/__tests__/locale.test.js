@@ -45,10 +45,13 @@ describe('ConfigProvider.Locale', () => {
       }
 
       openConfirm = () => {
+        jest.useFakeTimers();
         Modal.confirm({
           title: 'title',
           content: 'Some descriptions',
         });
+        jest.runAllTimers();
+        jest.useRealTimers();
       };
 
       render() {
