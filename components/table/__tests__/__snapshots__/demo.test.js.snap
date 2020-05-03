@@ -296,32 +296,39 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class="ant-tag ant-tag-green"
-                      >
-                        NICE
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-geekblue"
-                      >
-                        DEVELOPER
-                      </span>
+                    <span
+                      class="ant-tag ant-tag-green"
+                    >
+                      NICE
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-geekblue"
+                    >
+                      DEVELOPER
                     </span>
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <a
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
                         style="margin-right:16px"
                       >
-                        Invite John Brown
-                      </a>
-                      <a>
-                        Delete
-                      </a>
-                    </span>
+                        <a>
+                          Invite John Brown
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          Delete
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -348,27 +355,34 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class="ant-tag ant-tag-volcano"
-                      >
-                        LOSER
-                      </span>
+                    <span
+                      class="ant-tag ant-tag-volcano"
+                    >
+                      LOSER
                     </span>
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <a
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
                         style="margin-right:16px"
                       >
-                        Invite Jim Green
-                      </a>
-                      <a>
-                        Delete
-                      </a>
-                    </span>
+                        <a>
+                          Invite Jim Green
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          Delete
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -395,32 +409,39 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class="ant-tag ant-tag-green"
-                      >
-                        COOL
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-geekblue"
-                      >
-                        TEACHER
-                      </span>
+                    <span
+                      class="ant-tag ant-tag-green"
+                    >
+                      COOL
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-geekblue"
+                    >
+                      TEACHER
                     </span>
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <a
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
                         style="margin-right:16px"
                       >
-                        Invite Joe Black
-                      </a>
-                      <a>
-                        Delete
-                      </a>
-                    </span>
+                        <a>
+                          Invite Joe Black
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          Delete
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -548,6 +569,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell column-money"
+                    style="text-align:right"
                   >
                     Cash Assets
                   </th>
@@ -574,6 +596,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell column-money"
+                    style="text-align:right"
                   >
                     ￥300,000.00
                   </td>
@@ -596,6 +619,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell column-money"
+                    style="text-align:right"
                   >
                     ￥1,256,000.00
                   </td>
@@ -618,6 +642,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell column-money"
+                    style="text-align:right"
                   >
                     ￥120,000.00
                   </td>
@@ -2688,7 +2713,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -2772,7 +2797,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -2856,7 +2881,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -2940,7 +2965,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3024,7 +3049,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3108,7 +3133,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3192,7 +3217,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3276,7 +3301,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3360,7 +3385,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3444,7 +3469,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions 
+                          More actions
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -9343,32 +9368,39 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class="ant-tag ant-tag-blue"
-                      >
-                        nice
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-blue"
-                      >
-                        developer
-                      </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      nice
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      developer
                     </span>
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <a
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
                         style="margin-right:16px"
                       >
-                        Invite Brown
-                      </a>
-                      <a>
-                        Delete
-                      </a>
-                    </span>
+                        <a>
+                          Invite Brown
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          Delete
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -9398,27 +9430,34 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class="ant-tag ant-tag-blue"
-                      >
-                        loser
-                      </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      loser
                     </span>
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <a
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
                         style="margin-right:16px"
                       >
-                        Invite Green
-                      </a>
-                      <a>
-                        Delete
-                      </a>
-                    </span>
+                        <a>
+                          Invite Green
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          Delete
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -9448,32 +9487,39 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class="ant-tag ant-tag-blue"
-                      >
-                        cool
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-blue"
-                      >
-                        teacher
-                      </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      cool
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      teacher
                     </span>
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <a
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
                         style="margin-right:16px"
                       >
-                        Invite Black
-                      </a>
-                      <a>
-                        Delete
-                      </a>
-                    </span>
+                        <a>
+                          Invite Black
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          Delete
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -13470,7 +13516,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false: 
+                    false:
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13511,7 +13557,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false: 
+                    false:
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13552,7 +13598,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false: 
+                    false:
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13593,7 +13639,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false: 
+                    false:
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13634,7 +13680,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false: 
+                    false:
                     <label
                       class="ant-checkbox-wrapper"
                     >

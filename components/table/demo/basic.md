@@ -14,7 +14,7 @@ title:
 Simple table with actions.
 
 ```jsx
-import { Table, Tag } from 'antd';
+import { Table, Tag, Space } from 'antd';
 
 const columns = [
   {
@@ -38,7 +38,7 @@ const columns = [
     key: 'tags',
     dataIndex: 'tags',
     render: tags => (
-      <span>
+      <>
         {tags.map(tag => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
@@ -50,17 +50,17 @@ const columns = [
             </Tag>
           );
         })}
-      </span>
+      </>
     ),
   },
   {
     title: 'Action',
     key: 'action',
     render: (text, record) => (
-      <span>
-        <a style={{ marginRight: 16 }}>Invite {record.name}</a>
+      <Space size="middle">
+        <a>Invite {record.name}</a>
         <a>Delete</a>
-      </span>
+      </Space>
     ),
   },
 ];
