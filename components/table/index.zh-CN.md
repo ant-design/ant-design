@@ -293,3 +293,7 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 ### 表格分页为何会出现 size 切换器？
 
 自 `4.1.0` 起，Pagination 在 `total` 大于 50 条时会默认显示 size 切换器以提升用户交互体验。如果你不需要该功能，可以通过设置 `showSizeChanger` 为 `false` 来关闭。
+
+### 为什么 更新 state 会导致全表渲染？
+
+由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `components` 属性来精确控制子元素的渲染，请参考 [#23763](https://github.com/ant-design/ant-design/issues/23763)。
