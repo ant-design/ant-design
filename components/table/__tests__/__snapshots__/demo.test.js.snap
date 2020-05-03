@@ -2713,7 +2713,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -2797,7 +2797,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -2881,7 +2881,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -2965,7 +2965,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3049,7 +3049,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3133,7 +3133,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3217,7 +3217,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3301,7 +3301,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3385,7 +3385,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -3469,7 +3469,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         <a
                           class="ant-dropdown-link"
                         >
-                          More actions
+                          More actions 
                           <span
                             aria-label="down"
                             class="anticon anticon-down"
@@ -13516,7 +13516,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13557,7 +13557,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13598,7 +13598,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13639,7 +13639,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -13680,7 +13680,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     class="ant-table-cell ant-table-selection-column"
                     rowspan="2"
                   >
-                    false:
+                    false: 
                     <label
                       class="ant-checkbox-wrapper"
                     >
