@@ -59,9 +59,6 @@
   }
 
   &-item a {
-    &:only-child {
-      display: block;
-    }
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
@@ -113,8 +110,8 @@
 
   &-item-selected {
     color: @menu-highlight-color;
-    > a,
-    > a:hover {
+    a,
+    a:hover {
       color: @menu-highlight-color;
     }
   }
@@ -354,9 +351,6 @@
 
     > .@{menu-prefix-cls}-item {
       a {
-        &:only-child {
-          display: block;
-        }
         color: @menu-item-color;
         &:hover {
           color: @menu-highlight-color;
