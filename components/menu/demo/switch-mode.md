@@ -20,6 +20,7 @@ import {
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
+  LinkOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -77,6 +78,11 @@ class Sider extends React.Component {
             <Menu.Item key="9">Option 9</Menu.Item>
             <Menu.Item key="10">Option 10</Menu.Item>
           </SubMenu>
+          <Menu.Item key="link" icon={<LinkOutlined />}>
+            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+              Ant Design
+            </a>
+          </Menu.Item>
         </Menu>
       </>
     );
