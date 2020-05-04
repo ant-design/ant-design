@@ -151,6 +151,16 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     raf.cancel(this.mountRafId);
   }
 
+  componentDidUpdate(prevProps: InternalMenuProps) {
+    const { siderCollapsed, inlineCollapsed, onOpenChange } = this.props;
+    if (
+      (!prevProps.inlineCollapsed && inlineCollapsed) ||
+      (!prevProps.siderCollapsed && siderCollapsed)
+    ) {
+      onOpenChange?.([]);
+    }
+  }
+
   setOpenKeys(openKeys: string[]) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });

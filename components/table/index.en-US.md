@@ -289,3 +289,7 @@ You may need to keep current page after filtering when fetch data from remote se
 ### Why Table pagination show size changer?
 
 In order to improve user experience, Pagination show size changer by default when `total >= 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
+
+### Why Table fully render when state change?
+
+Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. But you can use `components` to customize component for conditional render. ref [#23763](https://github.com/ant-design/ant-design/issues/23763).

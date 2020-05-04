@@ -18008,7 +18008,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         <div
           id="undefined_list"
           role="listbox"
-          style="height:0;overflow:hidden"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
@@ -18127,7 +18127,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         <div
           id="undefined_list"
           role="listbox"
-          style="height:0;overflow:hidden"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
@@ -18246,7 +18246,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         <div
           id="undefined_list"
           role="listbox"
-          style="height:0;overflow:hidden"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
@@ -18365,7 +18365,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         <div
           id="undefined_list"
           role="listbox"
-          style="height:0;overflow:hidden"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
@@ -18484,7 +18484,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         <div
           id="undefined_list"
           role="listbox"
-          style="height:0;overflow:hidden"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
