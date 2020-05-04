@@ -48,7 +48,7 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Alert configProvider virtual 1`] = `
+exports[`ConfigProvider components Alert configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
@@ -204,7 +204,7 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
 </div>
 `;
 
-exports[`ConfigProvider components Anchor configProvider virtual 1`] = `
+exports[`ConfigProvider components Anchor configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class=""
@@ -399,7 +399,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
 </div>
 `;
 
-exports[`ConfigProvider components AutoComplete configProvider virtual 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
 >
@@ -519,7 +519,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize middle 1`
 </span>
 `;
 
-exports[`ConfigProvider components Avatar configProvider virtual 1`] = `
+exports[`ConfigProvider components Avatar configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
 >
@@ -600,7 +600,7 @@ exports[`ConfigProvider components BackTop configProvider componentSize middle 1
 </div>
 `;
 
-exports[`ConfigProvider components BackTop configProvider virtual 1`] = `
+exports[`ConfigProvider components BackTop configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-back-top"
 >
@@ -1188,7 +1188,7 @@ exports[`ConfigProvider components Badge configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Badge configProvider virtual 1`] = `
+exports[`ConfigProvider components Badge configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <span
     class="ant-badge"
@@ -1821,7 +1821,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider components Breadcrumb configProvider virtual 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-breadcrumb"
 >
@@ -2013,7 +2013,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
 </div>
 `;
 
-exports[`ConfigProvider components Button configProvider virtual 1`] = `
+exports[`ConfigProvider components Button configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <button
     class="ant-btn"
@@ -5949,7 +5949,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Calendar configProvider virtual 1`] = `
+exports[`ConfigProvider components Calendar configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-picker-calendar ant-picker-calendar-full"
@@ -9840,7 +9840,7 @@ exports[`ConfigProvider components Card configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Card configProvider virtual 1`] = `
+exports[`ConfigProvider components Card configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-grid"
 >
@@ -10284,7 +10284,7 @@ exports[`ConfigProvider components Carousel configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Carousel configProvider virtual 1`] = `
+exports[`ConfigProvider components Carousel configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-carousel"
 >
@@ -10791,7 +10791,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
 </span>
 `;
 
-exports[`ConfigProvider components Cascader configProvider virtual 1`] = `
+exports[`ConfigProvider components Cascader configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <span
   class="ant-cascader-picker ant-cascader-picker-show-search"
   tabindex="0"
@@ -10983,7 +10983,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Checkbox configProvider virtual 1`] = `
+exports[`ConfigProvider components Checkbox configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-checkbox-group"
 >
@@ -11175,7 +11175,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Collapse configProvider virtual 1`] = `
+exports[`ConfigProvider components Collapse configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-left"
 >
@@ -11451,7 +11451,7 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
 </div>
 `;
 
-exports[`ConfigProvider components Comment configProvider virtual 1`] = `
+exports[`ConfigProvider components Comment configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-comment"
 >
@@ -11742,7 +11742,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker DatePicker configProvider virtual 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -12006,7 +12006,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker MonthPicker configProvider virtual 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -12396,7 +12396,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker RangePicker configProvider virtual 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-picker ant-picker-range"
@@ -12786,7 +12786,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker WeekPicker configProvider virtual 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-picker"
@@ -12939,7 +12939,7 @@ exports[`ConfigProvider components Divider configProvider componentSize middle 1
 />
 `;
 
-exports[`ConfigProvider components Divider configProvider virtual 1`] = `
+exports[`ConfigProvider components Divider configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-divider ant-divider-horizontal"
   role="separator"
@@ -13143,7 +13143,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
 </div>
 `;
 
-exports[`ConfigProvider components Drawer configProvider virtual 1`] = `
+exports[`ConfigProvider components Drawer configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class=""
 >
@@ -13446,7 +13446,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Dropdown configProvider virtual 1`] = `
+exports[`ConfigProvider components Dropdown configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-btn-group ant-dropdown-button"
 >
@@ -13791,7 +13791,7 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Empty configProvider virtual 1`] = `
+exports[`ConfigProvider components Empty configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-empty"
 >
@@ -14121,7 +14121,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
 </form>
 `;
 
-exports[`ConfigProvider components Form configProvider virtual 1`] = `
+exports[`ConfigProvider components Form configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -14256,7 +14256,7 @@ exports[`ConfigProvider components Grid configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Grid configProvider virtual 1`] = `
+exports[`ConfigProvider components Grid configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-row"
 >
@@ -14553,7 +14553,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Input configProvider virtual 1`] = `
+exports[`ConfigProvider components Input configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <span
     class="ant-input-group"
@@ -15054,7 +15054,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
 </div>
 `;
 
-exports[`ConfigProvider components InputNumber configProvider virtual 1`] = `
+exports[`ConfigProvider components InputNumber configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-input-number"
 >
@@ -15372,7 +15372,7 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
 </section>
 `;
 
-exports[`ConfigProvider components Layout configProvider virtual 1`] = `
+exports[`ConfigProvider components Layout configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <section
   class="ant-layout"
 >
@@ -15612,7 +15612,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components List configProvider virtual 1`] = `
+exports[`ConfigProvider components List configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-list ant-list-split"
 >
@@ -15930,7 +15930,7 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
 </ul>
 `;
 
-exports[`ConfigProvider components Menu configProvider virtual 1`] = `
+exports[`ConfigProvider components Menu configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
   role="menu"
@@ -16377,7 +16377,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Modal configProvider virtual 1`] = `
+exports[`ConfigProvider components Modal configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-modal-root"
@@ -16731,7 +16731,7 @@ exports[`ConfigProvider components PageHeader configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider components PageHeader configProvider virtual 1`] = `
+exports[`ConfigProvider components PageHeader configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-page-header ant-page-header-ghost"
@@ -17691,7 +17691,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider components Pagination configProvider virtual 1`] = `
+exports[`ConfigProvider components Pagination configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <ul
     class="ant-pagination"
@@ -18822,7 +18822,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider components Popconfirm configProvider virtual 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <span
     class="ant-popover-open"
@@ -19158,7 +19158,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
 </div>
 `;
 
-exports[`ConfigProvider components Popover configProvider virtual 1`] = `
+exports[`ConfigProvider components Popover configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <span
     class="ant-popover-open"
@@ -19329,7 +19329,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Progress configProvider virtual 1`] = `
+exports[`ConfigProvider components Progress configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
 >
@@ -19557,7 +19557,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Radio configProvider virtual 1`] = `
+exports[`ConfigProvider components Radio configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -20637,7 +20637,7 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 </ul>
 `;
 
-exports[`ConfigProvider components Rate configProvider virtual 1`] = `
+exports[`ConfigProvider components Rate configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -21921,7 +21921,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
 </div>
 `;
 
-exports[`ConfigProvider components Select configProvider virtual 1`] = `
+exports[`ConfigProvider components Select configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
 >
@@ -22362,7 +22362,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Skeleton configProvider virtual 1`] = `
+exports[`ConfigProvider components Skeleton configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -22596,7 +22596,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
 </div>
 `;
 
-exports[`ConfigProvider components Slider configProvider virtual 1`] = `
+exports[`ConfigProvider components Slider configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-slider"
 >
@@ -22815,7 +22815,7 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Spin configProvider virtual 1`] = `
+exports[`ConfigProvider components Spin configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-spin ant-spin-spinning"
 >
@@ -22944,7 +22944,7 @@ exports[`ConfigProvider components Statistic configProvider componentSize middle
 </div>
 `;
 
-exports[`ConfigProvider components Statistic configProvider virtual 1`] = `
+exports[`ConfigProvider components Statistic configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-statistic"
 >
@@ -23127,7 +23127,7 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Steps configProvider virtual 1`] = `
+exports[`ConfigProvider components Steps configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -23289,7 +23289,7 @@ exports[`ConfigProvider components Switch configProvider componentSize middle 1`
 </button>
 `;
 
-exports[`ConfigProvider components Switch configProvider virtual 1`] = `
+exports[`ConfigProvider components Switch configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <button
   aria-checked="false"
   class="ant-switch"
@@ -24150,7 +24150,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Table configProvider virtual 1`] = `
+exports[`ConfigProvider components Table configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -25317,7 +25317,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Tabs configProvider virtual 1`] = `
+exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
@@ -25707,7 +25707,7 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Tags configProvider virtual 1`] = `
+exports[`ConfigProvider components Tags configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <span
     class="ant-tag"
@@ -29985,7 +29985,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components TimePicker configProvider virtual 1`] = `
+exports[`ConfigProvider components TimePicker configProvider virtual and dropdownMatchSelectWidth 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -34284,7 +34284,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
 </ul>
 `;
 
-exports[`ConfigProvider components Timeline configProvider virtual 1`] = `
+exports[`ConfigProvider components Timeline configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -34440,7 +34440,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components Tooltip configProvider virtual 1`] = `
+exports[`ConfigProvider components Tooltip configProvider virtual and dropdownMatchSelectWidth 1`] = `
 Array [
   <span
     class="ant-tooltip-open"
@@ -35241,7 +35241,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
 </div>
 `;
 
-exports[`ConfigProvider components Transfer configProvider virtual 1`] = `
+exports[`ConfigProvider components Transfer configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-transfer"
 >
@@ -36285,7 +36285,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Tree configProvider virtual 1`] = `
+exports[`ConfigProvider components Tree configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <div
     class="ant-tree ant-tree-icon-hide"
@@ -36954,7 +36954,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
 </div>
 `;
 
-exports[`ConfigProvider components TreeSelect configProvider virtual 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
 >
@@ -37599,7 +37599,7 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
 </span>
 `;
 
-exports[`ConfigProvider components Upload configProvider virtual 1`] = `
+exports[`ConfigProvider components Upload configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <span
   class=""
 >

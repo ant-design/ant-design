@@ -103,7 +103,7 @@ describe('ConfigProvider', () => {
           ).toMatchSnapshot();
         });
 
-        it('configProvider virtual', () => {
+        it('configProvider virtual and dropdownMatchSelectWidth', () => {
           expect(
             render(
               <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
