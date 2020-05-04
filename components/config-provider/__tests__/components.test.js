@@ -102,6 +102,16 @@ describe('ConfigProvider', () => {
             ),
           ).toMatchSnapshot();
         });
+
+        it('configProvider virtual', () => {
+          expect(
+            render(
+              <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
       });
     }
 
