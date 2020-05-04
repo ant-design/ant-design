@@ -694,4 +694,15 @@ describe('Form', () => {
     wrapper.update();
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
   });
+
+  it('no warning of initialValue', () => {
+    mount(
+      <Form>
+        <Form.Item initialValue="bamboo">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
 });
