@@ -696,7 +696,6 @@ describe('Form', () => {
   });
 
   it('no warning of initialValue', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const wrapper = mount(
       <Form>
         <Form.Item initialValue="bamboo">
@@ -705,6 +704,5 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).not.toHaveBeenCalled();
-    errorSpy.mockRestore();
   });
 });
