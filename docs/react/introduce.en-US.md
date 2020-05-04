@@ -36,7 +36,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](/docs/react/getting-started#Compatibility))
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
@@ -122,8 +122,8 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## Links
 
-- [Home page](https://ant.design/)
-- [Components](https://ant.design/components/button/)
+- [Home page](/)
+- [Components](/components/button/)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Change Log](/changelog)
 - [rc-components](http://react-component.github.io/)

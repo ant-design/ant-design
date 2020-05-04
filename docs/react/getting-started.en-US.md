@@ -5,7 +5,7 @@ title: Getting Started
 
 Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you have installed [Node.js](https://nodejs.org/)(> 8.0.0) correctly.
 
-If you try in local environment, Please refer to [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
+If you try in local environment, Please refer to [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
 
 > Before delving into Ant Design React, a good knowledge base of [React](https://reactjs.org) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
 
@@ -31,7 +31,7 @@ Visit http://u.ant.design/codesandbox-repro to create a codesandbox. Don't forge
 
 Replace the content of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
 
-If you already set up by [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
+If you already set up by [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
 
 ```jsx
 import React from 'react';
