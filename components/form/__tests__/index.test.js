@@ -696,7 +696,7 @@ describe('Form', () => {
   });
 
   it('no warning of initialValue', () => {
-    const wrapper = mount(
+    mount(
       <Form>
         <Form.Item initialValue="bamboo">
           <Input />
