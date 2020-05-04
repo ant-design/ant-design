@@ -28,9 +28,10 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
         fill-opacity="0"
+        opacity="0"
         stroke=""
         stroke-linecap="round"
-        stroke-width="0"
+        stroke-width="6"
         style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
     </svg>
@@ -72,9 +73,10 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
         fill-opacity="0"
+        opacity="0"
         stroke=""
         stroke-linecap="round"
-        stroke-width="0"
+        stroke-width="6"
         style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
     </svg>
@@ -116,9 +118,10 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
         fill-opacity="0"
+        opacity="0"
         stroke=""
         stroke-linecap="round"
-        stroke-width="0"
+        stroke-width="6"
         style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
     </svg>
@@ -354,6 +357,7 @@ exports[`Progress render strokeColor 1`] = `
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
         fill-opacity="0"
+        opacity="1"
         stroke=""
         stroke-linecap="round"
         stroke-width="6"
