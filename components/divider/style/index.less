@@ -7,41 +7,40 @@
 .@{divider-prefix-cls} {
   .reset-component;
 
-  background: @border-color-split;
+  border-top: 1px solid @border-color-split;
 
   &-vertical {
     position: relative;
     top: -0.06em;
     display: inline-block;
-    width: 1px;
     height: 0.9em;
     margin: 0 8px;
     vertical-align: middle;
+    border-top: 0;
+    border-left: 1px solid @border-color-split;
   }
 
   &-horizontal {
-    display: block;
+    display: flex;
     clear: both;
     width: 100%;
     min-width: 100%; // Fix https://github.com/ant-design/ant-design/issues/10914
-    height: 1px;
     margin: 24px 0;
   }
 
   &-horizontal&-with-text {
-    display: table;
+    display: flex;
     margin: 16px 0;
     color: @heading-color;
     font-weight: 500;
     font-size: @font-size-lg;
     white-space: nowrap;
     text-align: center;
-    background: transparent;
+    border-top: 0;
     &::before,
     &::after {
       position: relative;
       top: 50%;
-      display: table-cell;
       width: 50%;
       border-top: 1px solid @border-color-split;
       transform: translateY(50%);
