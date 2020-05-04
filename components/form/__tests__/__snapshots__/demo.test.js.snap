@@ -3340,7 +3340,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
-                id="time_related_controls_date-picker"
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -3407,7 +3406,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
-                id="time_related_controls_date-time-picker"
                 placeholder="Select date"
                 readonly=""
                 size="21"
@@ -3474,7 +3472,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
-                id="time_related_controls_month-picker"
                 placeholder="Select month"
                 readonly=""
                 size="12"
@@ -3541,7 +3538,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
-                id="time_related_controls_range-picker"
                 placeholder="Start date"
                 readonly=""
                 size="12"
@@ -3650,7 +3646,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
-                id="time_related_controls_range-time-picker"
                 placeholder="Start date"
                 readonly=""
                 size="21"
@@ -3759,7 +3754,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
-                id="time_related_controls_time-picker"
                 placeholder="Select time"
                 readonly=""
                 size="10"
