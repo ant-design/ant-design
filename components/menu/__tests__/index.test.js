@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import {
   MailOutlined,
@@ -639,5 +639,34 @@ describe('Menu', () => {
       </Menu>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/23755
+  it('should trigger onOpenChange when collapse inline menu', () => {
+    const onOpenChange = jest.fn();
+    function App() {
+      const [inlineCollapsed, setInlineCollapsed] = useState(false);
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() => {
+              setInlineCollapsed(!inlineCollapsed);
+            }}
+          >
+            collapse menu
+          </button>
+          <Menu mode="inline" onOpenChange={onOpenChange} inlineCollapsed={inlineCollapsed}>
+            <Menu.SubMenu key="1" title="menu">
+              <Menu.Item key="1-1">menu</Menu.Item>
+              <Menu.Item key="1-2">menu</Menu.Item>
+            </Menu.SubMenu>
+          </Menu>
+        </>
+      );
+    }
+    const wrapper = mount(<App />);
+    wrapper.find('button').simulate('click');
+    expect(onOpenChange).toHaveBeenCalledWith([]);
   });
 });

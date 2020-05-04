@@ -116,7 +116,7 @@
     position: absolute;
     top: 50%;
     right: 0;
-    color: @text-color-secondary;
+    color: @disabled-color;
     background: @component-background;
     transform: translateY(-50%);
     cursor: pointer;
@@ -124,7 +124,7 @@
     transition: opacity @animation-duration-slow, color @animation-duration-slow;
 
     &:hover {
-      color: @disabled-color;
+      color: @text-color-secondary;
     }
   }
 

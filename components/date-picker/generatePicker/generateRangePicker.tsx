@@ -56,6 +56,7 @@ export default function generateRangePicker<DateType>(
         className,
         size: customizeSize,
         bordered = true,
+        placeholder,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
@@ -82,7 +83,7 @@ export default function generateRangePicker<DateType>(
                   </span>
                 }
                 ref={this.pickerRef}
-                placeholder={getRangePlaceholder(picker, locale)}
+                placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
                 allowClear

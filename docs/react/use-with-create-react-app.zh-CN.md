@@ -96,8 +96,10 @@ export default App;
 
 引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) 版本的关系，你还需要安装 [customize-cra](https://github.com/arackaf/customize-cra)。
 
-```
+```bash
 $ yarn add react-app-rewired customize-cra
+# 使用less-loader@6.0.0
+$ yarn add react-app-rewired customize-cra@next
 ```
 
 ```diff
@@ -172,7 +174,7 @@ $ yarn add babel-plugin-import
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra/blob/master/api.md#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
 
 ```bash
 $ yarn add less less-loader

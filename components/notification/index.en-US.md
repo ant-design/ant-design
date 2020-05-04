@@ -40,7 +40,7 @@ The properties of config are as follows:
 | closeIcon | custom close icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
 | message | The title of notification box (required) | string\|ReactNode | - |
-| onClose | Specify a function that will be called when the close button is clicked | Function | - |
+| onClose | Trigger when notification closed | Function | - |
 | onClick | Specify a function that will be called when the notification is clicked | Function | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |

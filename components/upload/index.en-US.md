@@ -35,7 +35,6 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise<dataURL: string> | - |  |
 | isImageUrl | Customize if render `<img />` in thumbnail | (file: UploadFile) => boolean | [inside implementation](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | Boolean or { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: React.ReactNode, downloadIcon?: React.ReactNode } | true |  |
-| supportServerRender | Need to be turned on while the server side is rendering | boolean | false |  |
 | withCredentials | ajax upload with cookie sent | boolean | false |  |
 | openFileDialogOnClick | click open file dialog | boolean | true |  |
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | Function | - |  |

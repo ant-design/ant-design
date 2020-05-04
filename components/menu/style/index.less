@@ -59,10 +59,7 @@
     transition: background 0.3s @ease-in-out, padding 0.3s @ease-in-out;
   }
 
-  &-item > a {
-    &:only-child {
-      display: block;
-    }
+  &-item a {
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
@@ -79,7 +76,7 @@
   }
 
   // https://github.com/ant-design/ant-design/issues/19809
-  &-item > .@{ant-prefix}-badge > a {
+  &-item > .@{ant-prefix}-badge a {
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
@@ -114,8 +111,8 @@
 
   &-item-selected {
     color: @menu-highlight-color;
-    > a,
-    > a:hover {
+    a,
+    a:hover {
       color: @menu-highlight-color;
     }
   }
@@ -324,7 +321,7 @@
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
     color: @menu-highlight-color;
-    > a {
+    a {
       color: @menu-highlight-color;
     }
   }
@@ -354,10 +351,7 @@
     }
 
     > .@{menu-prefix-cls}-item {
-      > a {
-        &:only-child {
-          display: block;
-        }
+      a {
         color: @menu-item-color;
         &:hover {
           color: @menu-highlight-color;
@@ -366,7 +360,7 @@
           bottom: -2px;
         }
       }
-      &-selected > a {
+      &-selected a {
         color: @menu-highlight-color;
       }
     }
@@ -546,7 +540,7 @@
     background: none;
     border-color: transparent !important;
     cursor: not-allowed;
-    > a {
+    a {
       color: @disabled-color !important;
       pointer-events: none;
     }
