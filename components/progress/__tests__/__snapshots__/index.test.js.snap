@@ -233,6 +233,7 @@ exports[`Progress render strokeColor 1`] = `
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
         fill-opacity="0"
+        opacity="1"
         stroke=""
         stroke-linecap="round"
         stroke-width="6"
