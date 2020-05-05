@@ -7,7 +7,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import useModal from './useModal';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
-import { ButtonType, ButtonProps } from '../button/button';
+import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -54,7 +54,7 @@ export interface ModalProps {
   /** 确认按钮文字 */
   okText?: React.ReactNode;
   /** 确认按钮类型 */
-  okType?: ButtonType;
+  okType?: LegacyButtonType;
   /** 取消按钮文字 */
   cancelText?: React.ReactNode;
   /** 点击蒙层是否允许关闭 */
@@ -96,7 +96,7 @@ export interface ModalFuncProps {
   centered?: boolean;
   width?: string | number;
   okText?: React.ReactNode;
-  okType?: ButtonType;
+  okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
   mask?: boolean;
@@ -130,7 +130,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false,
-    okType: 'primary' as ButtonType,
+    okType: 'primary' as LegacyButtonType,
   };
 
   handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -155,7 +155,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
           {cancelText || locale.cancelText}
         </Button>
         <Button
-          type={okType}
+          {...convertLegacyProps(okType)}
           loading={confirmLoading}
           onClick={this.handleOk}
           {...this.props.okButtonProps}

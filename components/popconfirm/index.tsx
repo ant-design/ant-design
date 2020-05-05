@@ -2,7 +2,7 @@ import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
-import { ButtonType, NativeButtonProps } from '../button/button';
+import { LegacyButtonType, NativeButtonProps, convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
@@ -14,7 +14,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   onConfirm?: (e?: React.MouseEvent<HTMLElement>) => void;
   onCancel?: (e?: React.MouseEvent<HTMLElement>) => void;
   okText?: React.ReactNode;
-  okType?: ButtonType;
+  okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
@@ -92,7 +92,12 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
             {cancelText || popconfirmLocale.cancelText}
           </Button>
-          <Button onClick={onConfirm} type={okType} size="small" {...okButtonProps}>
+          <Button
+            onClick={onConfirm}
+            {...convertLegacyProps(okType)}
+            size="small"
+            {...okButtonProps}
+          >
             {okText || popconfirmLocale.okText}
           </Button>
         </div>
