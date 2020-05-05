@@ -49,6 +49,8 @@ export interface ConfigProviderProps {
   space?: {
     size?: SizeType | number;
   };
+  virtual?: boolean;
+  dropdownMatchSelectWidth?: boolean;
 }
 
 const ConfigProvider: React.FC<ConfigProviderProps> = props => {
@@ -90,6 +92,8 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
       componentSize,
       direction,
       space,
+      virtual,
+      dropdownMatchSelectWidth,
     } = props;
 
     const config: ConfigConsumerProps = {
@@ -100,6 +104,8 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
       locale: locale || legacyLocale,
       direction,
       space,
+      virtual,
+      dropdownMatchSelectWidth,
     };
 
     if (getTargetContainer) {
