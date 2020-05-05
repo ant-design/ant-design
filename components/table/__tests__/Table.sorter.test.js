@@ -83,13 +83,40 @@ describe('Table.sorter', () => {
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
-  it('can be controlled by sortOrder', () => {
-    const wrapper = mount(
-      createTable({
-        columns: [{ ...column, sortOrder: 'ascend' }],
-      }),
-    );
-    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  describe('can be controlled by sortOrder', () => {
+    it('single', () => {
+      const wrapper = mount(
+        createTable({
+          columns: [{ ...column, sortOrder: 'ascend' }],
+        }),
+      );
+      expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+    });
+
+    it('invalidate mix with single & multiple sorters', () => {
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              sortOrder: 'ascend',
+              sorter: {
+                multiple: 1,
+              },
+            },
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              sortOrder: 'ascend',
+              sorter: {},
+            },
+          ],
+        }),
+      );
+
+      expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    });
   });
 
   it('provides sortOrder in the sorterFn', () => {
@@ -268,14 +295,8 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
     const getAgeColumn = () => wrapper.find('.ant-table-column-has-sorters').at(1);
-    const getNameIcon = name =>
-      getNameColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
-    const getAgeIcon = name =>
-      getAgeColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
+    const getNameIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
+    const getAgeIcon = name => getAgeColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     // sort name
     getNameColumn().simulate('click');
@@ -328,10 +349,7 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
 
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
-    const getIcon = name =>
-      getNameColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
+    const getIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
@@ -395,10 +413,7 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
 
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
-    const getIcon = name =>
-      getNameColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
+    const getIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
@@ -463,61 +478,37 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
 
     // sort name
     getNameColumn().simulate('click');
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeTruthy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
 
     // sort name
     getNameColumn().simulate('click');
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeTruthy();
 
     // sort name
     getNameColumn().simulate('click');
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
   });
 
@@ -732,10 +723,7 @@ describe('Table.sorter', () => {
       </Table>,
     );
 
-    wrapper
-      .find('th')
-      .first()
-      .simulate('click');
+    wrapper.find('th').first().simulate('click');
 
     expect(wrapper.find('th.ant-table-column-sort')).toHaveLength(1);
   });
@@ -747,18 +735,8 @@ describe('Table.sorter', () => {
       </Table>,
     );
 
-    expect(
-      wrapper
-        .find('.ant-table-column-sorter-up')
-        .last()
-        .hasClass('active'),
-    ).toBeTruthy();
-    expect(
-      wrapper
-        .find('.ant-table-column-sorter-down')
-        .last()
-        .hasClass('active'),
-    ).toBeFalsy();
+    expect(wrapper.find('.ant-table-column-sorter-up').last().hasClass('active')).toBeTruthy();
+    expect(wrapper.find('.ant-table-column-sorter-down').last().hasClass('active')).toBeFalsy();
   });
 
   it('controlled multiple group', () => {
