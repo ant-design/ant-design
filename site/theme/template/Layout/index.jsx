@@ -13,10 +13,11 @@ import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
 // eslint-disable-next-line import/no-unresolved
 import zhCN from 'antd/es/locale/zh_CN';
-import Header from './Header';
+import DemoHeader from './DemoHeader';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+import { Layout as LayoutAntd } from '../../../../components';
 import { DefaultAppLayoutProvider } from '../../../../components/layout';
 import { ThemeProvider } from '../../../../components/style/themes/varnish';
 
@@ -203,10 +204,6 @@ export default class Layout extends React.Component {
       appLocale.locale === 'zh-CN'
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
-    let pageWrapperClass = 'page-wrapper';
-    if (direction === 'rtl') {
-      pageWrapperClass += ' page-wrapper-rtl';
-    }
     return (
       <HelmetProvider context={helmetContext}>
         <Helmet encodeSpecialCharacters={false}>
@@ -229,11 +226,11 @@ export default class Layout extends React.Component {
           <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null} direction={direction}>
             <ThemeProvider>
               <DefaultAppLayoutProvider appLayoutVariant="app">
-                <div className={pageWrapperClass}>
-                  <Header {...restProps} changeDirection={this.changeDirection} />
-                  {children}
-                </div>
-                </DefaultAppLayoutProvider>
+                <LayoutAntd>
+                    <DemoHeader {...restProps} changeDirection={this.changeDirection} />
+                    {children}
+                </LayoutAntd>
+              </DefaultAppLayoutProvider>
             </ThemeProvider>
           </ConfigProvider>
         </IntlProvider>

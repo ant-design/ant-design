@@ -110,6 +110,7 @@ const Sticky = styled(Layout.Header)`
         height: initial; /* Ant sets a height, we need to unset that. */
         padding: 0;
         transition: top 200ms ease-in-out;
+        line-height: initial;
     }
 `;
 
@@ -124,6 +125,7 @@ export const HeaderTitle = styled.h5`
     font-size: 1.9rem;
     line-height: 1.65rem;
     text-transform: none;
+    display: inline;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
         font-size: 1.75rem;
