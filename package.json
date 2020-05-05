@@ -203,7 +203,7 @@
     "immutability-helper": "^3.0.0",
     "inquirer": "^7.1.0",
     "intersection-observer": "^0.10.0",
-    "jest": "^25.1.0",
+    "jest": "^26.0.0",
     "jquery": "^3.4.1",
     "jsdom": "^16.0.0",
     "jsonml.js": "^0.1.0",
