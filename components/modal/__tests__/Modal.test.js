@@ -71,6 +71,6 @@ describe('Modal', () => {
 
   it('danger type', () => {
     const wrapper = mount(<Modal okType="danger" visible />);
-    expect(wrapper.find(Button).props().danger).toBeTruthy();
+    expect(wrapper.find(Button).last().props().danger).toBeTruthy();
   });
 });
