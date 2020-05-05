@@ -121,9 +121,9 @@ class Transfer extends React.Component<TransferProps, any> {
   }
 
   getTitles(transferLocale: TransferLocale): string[] {
-    const { props } = this;
-    if (props.titles) {
-      return props.titles;
+    const { titles } = this.props;
+    if (titles) {
+      return titles;
     }
     return transferLocale.titles;
   }
@@ -319,11 +319,7 @@ class Transfer extends React.Component<TransferProps, any> {
           showSelectAll,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-        const locale = {
-          ...transferLocale,
-          notFoundContent: renderEmpty('Transfer'),
-          ...this.props.locale,
-        };
+        const locale = this.getLocale(transferLocale, renderEmpty);
         const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
         const { leftDataSource, rightDataSource } = this.separateDataSource();
@@ -336,7 +332,7 @@ class Transfer extends React.Component<TransferProps, any> {
           [`${prefixCls}-rtl`]: direction === 'rtl',
         });
 
-        const titles = this.props.titles || locale.titles;
+        const titles = this.getTitles(locale);
         const selectAllLabels = this.props.selectAllLabels || [];
         return (
           <div className={cls} style={style}>
