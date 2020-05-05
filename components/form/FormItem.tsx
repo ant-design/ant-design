@@ -165,8 +165,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && mergedValidateStatus !== 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
     };
 
