@@ -197,7 +197,7 @@
     "husky": "^3.0.2",
     "immutability-helper": "^3.0.0",
     "intersection-observer": "^0.7.0",
-    "jest": "^24.8.0",
+    "jest": "^25.5.0",
     "jsdom": "^15.1.1",
     "jsonml.js": "^0.1.0",
     "logrocket": "^1.0.0",

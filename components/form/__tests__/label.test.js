@@ -176,6 +176,7 @@ describe('Form', () => {
         <Form1 />
         <Form2 />
       </div>,
+      { attachTo: document.body },
     );
     wrapper
       .find('Form label')
@@ -197,6 +198,7 @@ describe('Form', () => {
         .at(1)
         .getDOMNode(),
     ).toBe(document.activeElement);
+    wrapper.unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/7693
@@ -208,7 +210,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>
     ));
-    const wrapper = mount(<Form1 />);
+    const wrapper = mount(<Form1 />, { attachTo: document.body });
     expect(() => {
       wrapper
         .find('Form label')
@@ -221,6 +223,7 @@ describe('Form', () => {
         .at(0)
         .getDOMNode(),
     ).toBe(document.activeElement);
+    wrapper.unmount();
   });
 
   it('should `labelAlign` work in FormItem', () => {

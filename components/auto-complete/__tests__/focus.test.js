@@ -35,6 +35,7 @@ describe('AutoComplete children could be focus', () => {
       .focus();
     jest.runAllTimers();
     expect(handleFocus).toHaveBeenCalled();
+    wrapper.unmount();
   });
 
   it('blur() and onBlur', () => {
@@ -51,6 +52,7 @@ describe('AutoComplete children could be focus', () => {
       .blur();
     jest.runAllTimers();
     expect(handleBlur).toHaveBeenCalled();
+    wrapper.unmount();
   });
 
   it('child.ref should work', () => {
@@ -67,7 +69,11 @@ describe('AutoComplete children could be focus', () => {
     let inputRef;
     mount(
       <AutoComplete dataSource={[]}>
-        <input ref={node => { inputRef = node; }} />
+        <input
+          ref={node => {
+            inputRef = node;
+          }}
+        />
       </AutoComplete>,
     );
     expect(typeof inputRef.focus).toBe('function');
