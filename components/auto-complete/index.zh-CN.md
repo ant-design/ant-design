@@ -36,6 +36,7 @@ title: AutoComplete
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | open | 是否展开下拉菜单 | boolean | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | - |  |
 
 ## 方法
 
