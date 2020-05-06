@@ -55,7 +55,12 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 #### Does the locale problem still exist in DatePicker even if ConfigProvider `locale` is used?
 
-Please make sure you set moment locale by `moment.locale('zh-cn')` or that you don't have two different versions of moment.
+Please make sure you set moment locale or that you don't have two different versions of moment.
+
+```js
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+```
 
 #### Modal throw error when setting `getPopupContainer`?
 
