@@ -34,36 +34,29 @@ Replace the content of `index.js` with the following code. As you can see, there
 If you already set up by [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
 
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { render } from 'react-dom';
 import { DatePicker, message } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 
-class App extends React.Component {
-  state = {
-    date: null,
+const App = () => {
+  const [date, setDate] = useState(null);
+  const handleChange = value => {
+    message.info(`Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`);
+    setDate(value);
   };
-
-  handleChange = date => {
-    message.info(`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`);
-    this.setState({ date });
-  };
-
-  render() {
-    const { date } = this.state;
-    return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={this.handleChange} />
-        <div style={{ marginTop: 20 }}>
-          Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-        </div>
+  return (
+    <div style={{ width: 400, margin: '100px auto' }}>
+      <DatePicker onChange={handleChange} />
+      <div style={{ marginTop: 16 }}>
+        Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
 ```
 
 ### 3. Explore more components
@@ -83,13 +76,13 @@ Add the following jsx into the `render` function.
   <DatePicker onChange={value => this.handleChange(value)} />
   <div style={{ marginTop: 20 }}>
 -   Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-+   <Alert message={`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`} type="success" />
++   <Alert message="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
   </div>
 ```
 
 Now you can see the result in the preview section.
 
-<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/QjCr7oLcpT/c7ce72d2-601e-4130-a33b-456d4652bb2d.png" alt="codesandbox screenshot" />
+<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/JrXptUm1Nz/6b50edc4-3a3c-4b2a-843e-f9f0af2c4667.png" alt="codesandbox screenshot" />
 
 OK! Now you know how to use antd components in a clear way. You are welcome to explore more components in the codesandbox. We also strongly recommend using codesandbox to provide a reproducible demo when reporting a bug.
 

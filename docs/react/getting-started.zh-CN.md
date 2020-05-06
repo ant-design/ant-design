@@ -30,8 +30,8 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 直接用下面的代码替换 `index.js` 的内容，用 React 的方式直接使用 antd 组件。
 
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { render } from 'react-dom';
 import { ConfigProvider, DatePicker, message } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
 import zhCN from 'antd/es/locale/zh_CN';
@@ -42,31 +42,25 @@ import './index.css';
 
 moment.locale('zh-cn');
 
-class App extends React.Component {
-  state = {
-    date: null,
+const App = () => {
+  const [date, setDate] = useState(null);
+  const handleChange = value => {
+    message.info(`您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`);
+    setDate(value);
   };
-
-  handleChange = date => {
-    message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
-    this.setState({ date });
-  };
-  render() {
-    const { date } = this.state;
-    return (
-      <ConfigProvider locale={zhCN}>
-        <div style={{ width: 400, margin: '100px auto' }}>
-          <DatePicker onChange={this.handleChange} />
-          <div style={{ marginTop: 20 }}>
-            当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
-          </div>
+  return (
+    <ConfigProvider locale={zhCN}>
+      <div style={{ width: 400, margin: '100px auto' }}>
+        <DatePicker onChange={handleChange} />
+        <div style={{ marginTop: 16 }}>
+          当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}
         </div>
-      </ConfigProvider>
-    );
-  }
-}
+      </div>
+    </ConfigProvider>
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
 ```
 
 ### 3. 探索更多组件用法
@@ -84,15 +78,15 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ```diff
   <DatePicker onChange={value => this.handleChange(value)} />
-  <div style={{ marginTop: 20 }}>
+  <div style={{ marginTop: 16 }}>
 -   当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
-+   <Alert message={`当前日期：${date ? date.format('YYYY-MM-DD') : '未选择'}`} type="success" />
++   <Alert message="当前日期" description={date ? date.format('YYYY年MM月DD日') : '未选择'} />
   </div>
 ```
 
-在右侧预览区就可以看到如图的效果。
+选择一个日期，在右侧预览区就可以看到如图的效果。
 
-<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/Up3%24VYhN0S/134614ee-7440-46f1-a797-fa6f6b3e300f.png" alt="codesandbox screenshot" />
+<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/ZosQjL9pqe/e6179c89-21a9-44c9-aea4-3cc04af7ef25.png" alt="codesandbox screenshot" />
 
 好的，现在你已经会使用基本的 antd 组件了，你可以在这个例子中继续探索其他组件的用法。如果你遇到组件的 bug，也推荐建一个可重现的 codesandbox 来报告 bug。
 
