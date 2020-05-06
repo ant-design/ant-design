@@ -36,6 +36,11 @@ ReactDOM.render(
       Link(disabled)
     </Button>
     <br />
+    <Button type="text">Text</Button>
+    <Button type="text" disabled>
+      Text(disabled)
+    </Button>
+    <br />
     <Button type="link" danger>
       Danger Link
     </Button>
