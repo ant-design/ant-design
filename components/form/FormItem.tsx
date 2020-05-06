@@ -180,6 +180,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'colon',
           'extra',
           'getValueFromEvent',
+          'getValueProps',
           'hasFeedback',
           'help',
           'htmlFor',

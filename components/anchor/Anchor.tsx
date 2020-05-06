@@ -14,10 +14,6 @@ function getDefaultContainer() {
 }
 
 function getOffsetTop(element: HTMLElement, container: AnchorContainer): number {
-  if (!element) {
-    return 0;
-  }
-
   if (!element.getClientRects().length) {
     return 0;
   }
@@ -172,11 +168,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       return getCurrentAnchor();
     }
 
-    const activeLink = '';
-    if (typeof document === 'undefined') {
-      return activeLink;
-    }
-
     const linkSections: Array<Section> = [];
     const container = this.getContainer();
     this.links.forEach(link => {
@@ -262,9 +253,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   };
 
   updateInk = () => {
-    if (typeof document === 'undefined') {
-      return;
-    }
     const { prefixCls } = this;
     const anchorNode = ReactDOM.findDOMNode(this) as Element;
     const linkNode = anchorNode.getElementsByClassName(`${prefixCls}-link-title-active`)[0];

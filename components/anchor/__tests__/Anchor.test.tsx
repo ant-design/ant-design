@@ -357,4 +357,113 @@ describe('Anchor Render', () => {
     expect(onChange).toHaveBeenCalledTimes(2);
     expect(onChange).toHaveBeenCalledWith(hash2);
   });
+
+  it('invalid hash', async () => {
+    const wrapper = mount<Anchor>(
+      <Anchor>
+        <Link href="notexsited" title="title" />
+      </Anchor>,
+    );
+
+    wrapper.find(`a[href="notexsited"]`).simulate('click');
+
+    wrapper.instance().handleScrollTo('notexsited');
+    expect(wrapper.instance().state).not.toBe(null);
+  });
+
+  it('test edge case when getBoundingClientRect return zero size', async () => {
+    getBoundingClientRectMock.mockReturnValue({
+      width: 0,
+      height: 0,
+      top: 1000,
+    } as DOMRect);
+    const hash = getHashUrl();
+    let dateNowMock;
+
+    function dataNowMockFn() {
+      let start = 0;
+
+      const handler = () => {
+        return (start += 1000);
+      };
+
+      return jest.spyOn(Date, 'now').mockImplementation(handler);
+    }
+
+    dateNowMock = dataNowMockFn();
+
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const root = createDiv();
+    mount(<h1 id={hash}>Hello</h1>, { attachTo: root });
+    const wrapper = mount<Anchor>(
+      <Anchor>
+        <Link href={`#${hash}`} title={hash} />
+      </Anchor>,
+    );
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ offsetTop: 100 });
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ targetOffset: 200 });
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    dateNowMock.mockRestore();
+    getBoundingClientRectMock.mockReturnValue({
+      width: 100,
+      height: 100,
+      top: 1000,
+    } as DOMRect);
+  });
+
+  it('test edge case when container is not windows', async () => {
+    const hash = getHashUrl();
+    let dateNowMock;
+
+    function dataNowMockFn() {
+      let start = 0;
+
+      const handler = () => {
+        return (start += 1000);
+      };
+
+      return jest.spyOn(Date, 'now').mockImplementation(handler);
+    }
+
+    dateNowMock = dataNowMockFn();
+
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const root = createDiv();
+    mount(<h1 id={hash}>Hello</h1>, { attachTo: root });
+    const wrapper = mount<Anchor>(
+      <Anchor getContainer={() => document.body}>
+        <Link href={`#${hash}`} title={hash} />
+      </Anchor>,
+    );
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ offsetTop: 100 });
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ targetOffset: 200 });
+    wrapper.instance().handleScrollTo(`#${hash}`);
+    await sleep(30);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    dateNowMock.mockRestore();
+  });
 });
