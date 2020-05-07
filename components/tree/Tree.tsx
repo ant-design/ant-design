@@ -43,7 +43,7 @@ export interface AntTreeNodeProps {
   selected?: boolean;
   selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
-  children?: React.ReactNode;
+  children?: React.ReactNode[];
   [customProp: string]: any;
 }
 
@@ -141,39 +141,40 @@ interface CompoundedComponent
   DirectoryTree: typeof DirectoryTree;
 }
 
-const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    showIcon,
-    showLine,
-    switcherIcon,
-    blockNode,
-    children,
-    checkable,
-  } = props;
-  const prefixCls = getPrefixCls('tree', customizePrefixCls);
-  return (
-    <RcTree
-      itemHeight={20}
-      ref={ref}
-      {...props}
-      prefixCls={prefixCls}
-      className={classNames(className, {
-        [`${prefixCls}-icon-hide`]: !showIcon,
-        [`${prefixCls}-block-node`]: blockNode,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      })}
-      checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
-      switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
-      }
-    >
-      {children}
-    </RcTree>
-  );
-}) as CompoundedComponent;
+const Tree =
+  React.forwardRef<RcTree, TreeProps>((props, ref) => {
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      showIcon,
+      showLine,
+      switcherIcon,
+      blockNode,
+      children,
+      checkable,
+    } = props;
+    const prefixCls = getPrefixCls('tree', customizePrefixCls);
+    return (
+      <RcTree
+        itemHeight={20}
+        ref={ref}
+        {...props}
+        prefixCls={prefixCls}
+        className={classNames(className, {
+          [`${prefixCls}-icon-hide`]: !showIcon,
+          [`${prefixCls}-block-node`]: blockNode,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        })}
+        checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+        switcherIcon={(nodeProps: AntTreeNodeProps) =>
+          renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
+        }
+      >
+        {children}
+      </RcTree>
+    );
+  }) as CompoundedComponent;
 
 Tree.TreeNode = TreeNode;
 
