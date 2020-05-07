@@ -4,6 +4,8 @@ import TimePicker from '../time-picker/locale/fa_IR';
 import Calendar from '../calendar/locale/fa_IR';
 import { Locale } from '../locale-provider';
 
+const typeTemplate = '${label} از نوع ${type} معتبر نیست';
+
 const localeValues: Locale = {
   locale: 'fa',
   Pagination,
