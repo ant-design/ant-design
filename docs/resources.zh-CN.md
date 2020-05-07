@@ -54,6 +54,10 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - 桌面组件 Chart 模板包
   - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
+- 墨刀原型设计
+  - https://cdn.modao.cc/logo_mockingbot.svg
+  - 内置丰富的 Ant Design 组件资源
+  - https://modao.cc/square/ant-design
 
 ## 文章
 
