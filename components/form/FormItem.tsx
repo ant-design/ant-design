@@ -82,11 +82,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const [prevValidateStatus, setPrevValidateStatus] = React.useState(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   function setDomErrorVisible(visible: boolean) {
     if (!destroyRef.current) {
       innerSetDomErrorVisible(visible);
+      if (visible) {
+        setPrevValidateStatus(validateStatus);
+      }
     }
   }
 
@@ -166,7 +170,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
       [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && mergedValidateStatus !== 'error',
+        !help && domErrorVisible && prevValidateStatus === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
     };
 
