@@ -85,15 +85,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const [prevValidateStatus, setPrevValidateStatus] = React.useState(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
-  function setDomErrorVisible(visible: boolean) {
-    if (!destroyRef.current) {
-      innerSetDomErrorVisible(visible);
-      if (visible) {
-        setPrevValidateStatus(validateStatus);
-      }
-    }
-  }
-
   const { name: formName } = formContext;
   const hasName = hasValidName(name);
 
@@ -145,6 +136,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
           mergedErrors = [...mergedErrors, ...subErrors];
         }
       });
+    }
+
+    function setDomErrorVisible(visible: boolean) {
+      if (!destroyRef.current) {
+        innerSetDomErrorVisible(visible);
+        if (visible) {
+          setPrevValidateStatus(mergedValidateStatus);
+        }
+      }
     }
 
     // ======================== Status ========================
