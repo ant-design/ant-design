@@ -25,7 +25,7 @@ title: Tooltip
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | `false` | 1.11 |
+| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | `false` |  |
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | `true` |  |
 | defaultVisible | 默认是否显隐 | boolean | false |  |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | Function(triggerNode) | () => document.body |  |
