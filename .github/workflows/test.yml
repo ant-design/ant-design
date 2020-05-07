@@ -248,3 +248,4 @@ jobs:
           now-project-id: ${{ secrets.PROJECT_ID}} #Required
           working-directory: ./jest-stare
     needs: image
+    if: always()
