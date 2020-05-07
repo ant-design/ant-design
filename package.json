@@ -96,7 +96,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/css-animation": "^1.7.0",
+    "@ant-design/css-animation": "^1.7.1",
     "@ant-design/icons": "^4.1.0",
     "@ant-design/react-slick": "~0.25.5",
     "array-tree-filter": "^2.1.0",
