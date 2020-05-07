@@ -156,7 +156,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
-    if (domErrorVisible) {
+    if (domErrorVisible && help) {
       prevValidateStatusRef.current = mergedValidateStatus;
     }
 
