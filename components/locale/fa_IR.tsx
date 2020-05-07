@@ -16,6 +16,13 @@ const localeValues: Locale = {
     filterReset: 'پاک کردن',
     selectAll: 'انتخاب صفحه‌ی کنونی',
     selectInvert: 'معکوس کردن انتخاب‌ها در صفحه ی کنونی',
+    selectionAll: 'انتخاب همه داده‌ها',
+    sortTitle: 'مرتب سازی',
+    expand: 'باز شدن ردیف',
+    collapse: 'بستن ردیف',
+    triggerDesc: 'ترتیب نزولی',
+    triggerAsc: 'ترتیب صعودی',
+    cancelSort: 'لغوِ ترتیبِ داده شده',
   },
   Modal: {
     okText: 'تایید',
@@ -27,6 +34,7 @@ const localeValues: Locale = {
     cancelText: 'لغو',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'جستجو',
     itemUnit: '',
     itemsUnit: '',
@@ -40,6 +48,18 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'داده‌ای موجود نیست',
+  },
+  Icon: {
+    icon: 'آیکن',
+  },
+  Text: {
+    edit: 'ویرایش',
+    copy: 'کپس',
+    copied: 'کپی شد',
+    expand: 'توسعه',
+  },
+  PageHeader: {
+    back: 'برگشت',
   },
 };
 
