@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const EsbuildPlugin = require('webpack-plugin-esbuild').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
@@ -35,8 +36,14 @@ function externalMoment(config) {
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
-    ignoreMomentLocale(config);
-    externalMoment(config);
+    if (process.env.RUN_ENV === 'PRODUCTION') {
+      ignoreMomentLocale(config);
+      externalMoment(config);
+      // Reduce non-minified dist files size
+      config.optimization.usedExports = true;
+      // use esbuild
+      config.optimization.minimizer[0] = new EsbuildPlugin();
+    }
 
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
@@ -61,6 +68,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
+
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -68,6 +76,8 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
+    // use esbuild
+    config.optimization.minimizer[0] = new EsbuildPlugin();
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       config.plugins.push(
