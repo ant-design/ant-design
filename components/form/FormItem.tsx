@@ -82,8 +82,14 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  const [prevValidateStatus, setPrevValidateStatus] = React.useState(validateStatus);
+  const prevValidateStatusRef = React.useRef<ValidateStatus>(null);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
+
+  function setDomErrorVisible(visible: boolean) {
+    if (!destroyRef.current) {
+      innerSetDomErrorVisible(visible);
+    }
+  }
 
   const { name: formName } = formContext;
   const hasName = hasValidName(name);
@@ -138,15 +144,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       });
     }
 
-    function setDomErrorVisible(visible: boolean) {
-      if (!destroyRef.current) {
-        innerSetDomErrorVisible(visible);
-        if (visible) {
-          setPrevValidateStatus(mergedValidateStatus);
-        }
-      }
-    }
-
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) {
@@ -157,6 +154,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'error';
     } else if (meta && meta.touched) {
       mergedValidateStatus = 'success';
+    }
+
+    if (domErrorVisible) {
+      prevValidateStatusRef.current = mergedValidateStatus;
     }
 
     const itemClassName = {
@@ -170,7 +171,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
       [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && prevValidateStatus === 'error',
+        !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
     };
 
