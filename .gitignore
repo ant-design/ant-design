@@ -60,3 +60,4 @@ scripts/previewEditor/index.html
 
 # Image snapshot diff
 __diff_output__/
+/jest-stare
