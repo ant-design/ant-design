@@ -24,7 +24,7 @@ declare module 'rc-animate*';
 
 declare module 'rc-util*';
 
-declare module 'css-animation*';
+declare module '@ant-design/css-animation*';
 
 declare module 'rc-checkbox';
 
