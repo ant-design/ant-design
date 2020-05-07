@@ -7,7 +7,7 @@
     overflow: visible;
     &-icon {
       float: left;
-      margin: @steps-vertical-icon-margin;
+      margin-right: @steps-vertical-icon-width;
     }
     &-content {
       display: block;
@@ -27,7 +27,7 @@
     > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
-    left: @steps-icon-size / 2;
+    left: @steps-vertical-tail-width;
     width: 1px;
     height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
@@ -57,7 +57,7 @@
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;
-      left: 12px;
+      left: @steps-vertical-tail-width-sm;
       padding: @steps-small-icon-size + 6px 0 6px;
     }
     .@{steps-prefix-cls}-item-title {

@@ -157,15 +157,11 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
 + import { Button } from 'antd';
   import './App.css';
 
-  class App extends Component {
-    render() {
-      return (
-        <div className="App">
-          <Button type="primary">Button</Button>
-        </div>
-      );
-    }
-  }
+  const App = () => (
+    <div className="App">
+      <Button type="primary">Button</Button>
+    </div>
+  );
 
   export default App;
 ```

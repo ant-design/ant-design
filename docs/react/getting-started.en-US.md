@@ -5,7 +5,7 @@ title: Getting Started
 
 Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you have installed [Node.js](https://nodejs.org/)(> 8.0.0) correctly.
 
-If you try in local environment, Please refer to [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
+If you try in local environment, Please refer to [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
 
 > Before delving into Ant Design React, a good knowledge base of [React](https://reactjs.org) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
 
@@ -31,39 +31,32 @@ Visit http://u.ant.design/codesandbox-repro to create a codesandbox. Don't forge
 
 Replace the content of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
 
-If you already set up by [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
+If you already set up by [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
 
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { render } from 'react-dom';
 import { DatePicker, message } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 
-class App extends React.Component {
-  state = {
-    date: null,
+const App = () => {
+  const [date, setDate] = useState(null);
+  const handleChange = value => {
+    message.info(`Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`);
+    setDate(value);
   };
-
-  handleChange = date => {
-    message.info(`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`);
-    this.setState({ date });
-  };
-
-  render() {
-    const { date } = this.state;
-    return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={this.handleChange} />
-        <div style={{ marginTop: 20 }}>
-          Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-        </div>
+  return (
+    <div style={{ width: 400, margin: '100px auto' }}>
+      <DatePicker onChange={handleChange} />
+      <div style={{ marginTop: 16 }}>
+        Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
 ```
 
 ### 3. Explore more components
@@ -83,13 +76,13 @@ Add the following jsx into the `render` function.
   <DatePicker onChange={value => this.handleChange(value)} />
   <div style={{ marginTop: 20 }}>
 -   Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-+   <Alert message={`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`} type="success" />
++   <Alert message="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
   </div>
 ```
 
 Now you can see the result in the preview section.
 
-<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/QjCr7oLcpT/c7ce72d2-601e-4130-a33b-456d4652bb2d.png" alt="codesandbox screenshot" />
+<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/JrXptUm1Nz/6b50edc4-3a3c-4b2a-843e-f9f0af2c4667.png" alt="codesandbox screenshot" />
 
 OK! Now you know how to use antd components in a clear way. You are welcome to explore more components in the codesandbox. We also strongly recommend using codesandbox to provide a reproducible demo when reporting a bug.
 

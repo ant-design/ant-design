@@ -144,15 +144,11 @@ $ yarn add babel-plugin-import
 + import { Button } from 'antd';
   import './App.css';
 
-  class App extends Component {
-    render() {
-      return (
-        <div className="App">
-          <Button type="primary">Button</Button>
-        </div>
-      );
-    }
-  }
+  const App: React.FC<{}> = () => (
+    <div className="App">
+      <Button type="primary">Button</Button>
+    </div>
+  );
 
   export default App;
 ```

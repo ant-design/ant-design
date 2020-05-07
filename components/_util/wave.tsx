@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import TransitionEvents from 'css-animation/lib/Event';
+import TransitionEvents from '@ant-design/css-animation/lib/Event';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig } from '../config-provider';
 

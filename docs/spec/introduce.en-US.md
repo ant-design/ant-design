@@ -28,7 +28,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 
 ## Front-end Implementation
 
-[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
+[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](/docs/spec/introduce) in other front-end frameworks of their choice.
 
 ```__react
 import {

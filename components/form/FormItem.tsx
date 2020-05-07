@@ -180,10 +180,12 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'colon',
           'extra',
           'getValueFromEvent',
+          'getValueProps',
           'hasFeedback',
           'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
+          'initialValue',
           'label',
           'labelAlign',
           'labelCol',
