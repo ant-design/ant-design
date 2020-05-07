@@ -26,3 +26,161 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
   </div>
 </form>
 `;
+
+exports[`Form FormItem FormItem: generate snapshot when validates fields 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <input
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="test"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            />
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form FormItem FormItem: generate snapshot when validates fields 2`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control is-validating"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <input
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="test"
+              type="text"
+              value="test"
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <i
+                aria-label="icon: close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form FormItem FormItem: generate snapshot when validates fields 3`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <input
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="test"
+              type="text"
+              value="test"
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <i
+                aria-label="icon: close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;

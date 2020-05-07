@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Form from '..';
+import Input from '../../input';
 import mountTest from '../../../tests/shared/mountTest';
 import './type.test';
 
@@ -56,6 +57,37 @@ describe('Form', () => {
         />,
       );
       expect(form).toBeInstanceOf(TestForm);
+    });
+  });
+
+  describe('FormItem', () => {
+    it('FormItem: generate snapshot when validates fields', async done => {
+      let wrapper;
+      const TestForm = props => (
+        <Form>
+          <Form.Item>
+            {props.form.getFieldDecorator('test', {
+              rules: [
+                {
+                  validator: (rule, value, callback) => {
+                    setTimeout(() => {
+                      callback();
+                      expect(wrapper.render()).toMatchSnapshot(); // after validate
+                      done();
+                    }, 100);
+                  },
+                },
+              ],
+            })(<Input allowClear />)}
+          </Form.Item>
+        </Form>
+      );
+      const Wrapped = Form.create()(TestForm);
+      wrapper = mount(<Wrapped />);
+      expect(wrapper.render()).toMatchSnapshot(); // before validate
+      wrapper.find('.ant-input').simulate('change', { target: { value: 'test' } });
+      await new Promise(resolve => setTimeout(resolve, 0));
+      expect(wrapper.render()).toMatchSnapshot(); // validating
     });
   });
 });
