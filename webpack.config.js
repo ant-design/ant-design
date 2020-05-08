@@ -36,15 +36,6 @@ function externalMoment(config) {
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
-    if (process.env.RUN_ENV === 'PRODUCTION') {
-      ignoreMomentLocale(config);
-      externalMoment(config);
-      // Reduce non-minified dist files size
-      config.optimization.usedExports = true;
-      // use esbuild
-      config.optimization.minimizer[0] = new EsbuildPlugin();
-    }
-
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
       config.entry[entryName.replace('antd', `antd.${theme}`)] = config.entry[entryName];
