@@ -244,8 +244,6 @@ jobs:
       - uses: amondnet/now-deployment@v2.0.3
         with:
           zeit-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
-          now-args: '--prod' #Optional
           now-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           now-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
           working-directory: ./jest-stare
