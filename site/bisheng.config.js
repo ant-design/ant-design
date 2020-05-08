@@ -1,7 +1,7 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const EsbuildPlugin = require('webpack-plugin-esbuild').default;
+const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const { version } = require('../package.json');
 
 const { webpack } = getWebpackConfig;

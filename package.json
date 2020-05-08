@@ -181,6 +181,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
+    "esbuild-webpack-plugin": "^1.0.0-beta.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-prettier": "^6.0.0",
@@ -258,7 +259,6 @@
     "theme-switcher": "^1.0.2",
     "typescript": "~3.8.2",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-plugin-esbuild": "^1.0.0-beta.2",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
     "yaml-front-matter": "^4.0.0"
