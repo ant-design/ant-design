@@ -156,5 +156,3 @@ module.exports = {
   },
   generateThemeFileContent,
 };
-
-finalizeDist();
