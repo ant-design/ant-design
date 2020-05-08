@@ -36,6 +36,9 @@ function externalMoment(config) {
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
+    ignoreMomentLocale(config);
+    externalMoment(config);
+
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
       config.entry[entryName.replace('antd', `antd.${theme}`)] = config.entry[entryName];
