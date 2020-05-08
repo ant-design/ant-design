@@ -248,4 +248,4 @@ jobs:
           now-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
           working-directory: ./jest-stare
     needs: image
-    if: always()
+    if: failure()
