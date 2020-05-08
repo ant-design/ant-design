@@ -49,7 +49,12 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     config.module.rules.forEach(rule => {
       // filter less rule
       if (rule.test instanceof RegExp && rule.test.test('.less')) {
-        rule.use[rule.use.length - 1].options.modifyVars = vars;
+        const lessRule = rule.use[rule.use.length - 1];
+        if (lessRule.options.lessOptions) {
+          lessRule.options.lessOptions.modifyVars = vars;
+        } else {
+          lessRule.options.modifyVars = vars;
+        }
       }
     });
 
