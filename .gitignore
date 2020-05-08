@@ -57,4 +57,4 @@ site/theme/template/Resources/*.jsx
 site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
-/version.js
+components/version/version.ts
