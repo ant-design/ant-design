@@ -451,7 +451,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%;position:relative;left:0;opacity:1;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:0;opacity:1;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -469,7 +469,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-11px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-11px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -487,7 +487,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-22px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-22px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -505,7 +505,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-33px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-33px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>

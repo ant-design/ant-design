@@ -2,7 +2,7 @@
  * Deprecated. We should replace the animation with pure react motion instead of modify style directly.
  * If you are creating new component with animation, please use `./motion`.
  */
-import cssAnimation from 'css-animation';
+import cssAnimation from '@ant-design/css-animation';
 import raf from 'raf';
 
 function animate(node: HTMLElement, show: boolean, done: () => void) {
