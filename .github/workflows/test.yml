@@ -232,7 +232,9 @@ jobs:
           key: es-${{ github.sha }}
 
       - name: test
-        run: npm run test:image
+        run: |
+          node -v
+          npm run test:image
     needs: dist
 
   deploy:
