@@ -1,3 +1,2 @@
-import packageInfo from '../../package.json';
-
-export default packageInfo.version;
+// eslint-disable-next-line global-require
+export default require('../../package.json').version;
