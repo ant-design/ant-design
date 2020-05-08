@@ -67,11 +67,12 @@
     "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
     "lint:style": "stylelint '{site,components}/**/*.less' --syntax less",
     "lint:tsc": "npm run tsc -- --noEmit",
-    "pre-publish": "npm run check-commit && npm run test-all",
+    "pre-publish": "npm run check-commit && npm run version && npm run test-all",
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
     "pub": "antd-tools run pub",
-    "prepublish": "antd-tools run guard",
+    "postinstall": "npm run version",
+    "prepublishOnly": "antd-tools run guard",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"node ./scripts/generateColorLess.js\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
@@ -82,7 +83,8 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false"
+    "site:test": "jest --config .jest.site.js --cache=false",
+    "version": "node ./scripts/generate-version"
   },
   "husky": {
     "hooks": {
