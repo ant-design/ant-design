@@ -82,6 +82,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   function setDomErrorVisible(visible: boolean) {
@@ -155,6 +156,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
+    if (domErrorVisible && help) {
+      prevValidateStatusRef.current = mergedValidateStatus;
+    }
+
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
@@ -166,7 +171,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
       [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && mergedValidateStatus !== 'error',
+        !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
     };
 

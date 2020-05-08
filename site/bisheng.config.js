@@ -1,6 +1,7 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const { version } = require('../package.json');
 
 const { webpack } = getWebpackConfig;
@@ -134,6 +135,9 @@ module.exports = {
       // Resolve use react hook fail when yarn link or npm link
       // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
       config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
+    } else if (process.env.ESBUILD) {
+      // use esbuild
+      config.optimization.minimizer = [new EsbuildPlugin()];
     }
 
     alertBabelConfig(config.module.rules);
