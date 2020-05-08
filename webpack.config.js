@@ -76,7 +76,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
-    config.optimization.minimizer[0] = new EsbuildPlugin();
+    if (process.env.CSB_REPO) {
+      config.optimization.minimizer[0] = new EsbuildPlugin();
+    }
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       config.plugins.push(

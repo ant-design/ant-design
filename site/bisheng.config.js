@@ -135,7 +135,8 @@ module.exports = {
       // Resolve use react hook fail when yarn link or npm link
       // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
       config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
-    } else {
+    } else if (process.env.ESBUILD) {
+      // use esbuild
       config.optimization.minimizer = [new EsbuildPlugin()];
     }
 
