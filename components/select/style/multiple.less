@@ -75,7 +75,6 @@
 
       &-remove {
         .iconfont-mixin();
-
         display: inline-block;
         color: @text-color-secondary;
         font-weight: bold;
@@ -83,6 +82,11 @@
         line-height: inherit;
         cursor: pointer;
         .iconfont-size-under-12px(10px);
+
+        > .@{iconfont-css-prefix} {
+          vertical-align: -0.2em;
+        }
+
         &:hover {
           color: @icon-color-hover;
         }

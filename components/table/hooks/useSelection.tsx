@@ -442,7 +442,7 @@ export default function useSelection<RecordType>(
         title: rowSelection.columnTitle || title,
         render: renderSelectionCell,
         [INTERNAL_COL_DEFINE]: {
-          className: `${prefixCls}-selection-column`,
+          className: `${prefixCls}-selection-col`,
         },
       };
 

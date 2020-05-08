@@ -42,7 +42,7 @@ Select component to select value from options.
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |
 | tagRender | Customize tag render | (props) => ReactNode | - |  |
 | mode | Set mode of Select | `multiple` \| `tags` | - |  |
-| notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |  |
+| notFoundContent | Specify content to show when no result matches.. | ReactNode | 'Not Found' |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` for `combobox`, `children` for other modes |  |
 | placeholder | Placeholder of select | string\|ReactNode | - |  |

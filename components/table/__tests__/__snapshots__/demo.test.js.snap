@@ -2404,7 +2404,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     class="ant-table-expand-icon-col"
                   />
                   <col
-                    class="ant-table-selection-column"
+                    class="ant-table-selection-col"
                   />
                 </colgroup>
                 <thead
@@ -4961,7 +4961,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-column"
+                  class="ant-table-selection-col"
                 />
                 <col />
                 <col
@@ -11920,7 +11920,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    class="ant-table-selection-column"
+                    class="ant-table-selection-col"
                   />
                 </colgroup>
                 <thead
@@ -12267,7 +12267,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               >
                 <colgroup>
                   <col
-                    class="ant-table-selection-column"
+                    class="ant-table-selection-col"
                   />
                 </colgroup>
                 <thead
@@ -12854,7 +12854,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-column"
+                  class="ant-table-selection-col"
                 />
               </colgroup>
               <thead
@@ -13468,7 +13468,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-column"
+                  class="ant-table-selection-col"
                 />
               </colgroup>
               <thead

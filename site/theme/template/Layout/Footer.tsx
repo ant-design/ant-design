@@ -98,9 +98,9 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          title: 'Dva',
-          description: <FormattedMessage id="app.footer.dva" />,
-          url: 'https://dvajs.com',
+          title: 'Dumi',
+          description: <FormattedMessage id="app.footer.dumi" />,
+          url: 'https://d.umijs.org',
           openExternal: true,
         },
         {

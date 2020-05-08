@@ -354,17 +354,12 @@
   }
 
   // ========================== Selections ==========================
-  colgroup {
-    > col.@{table-prefix-cls}-selection-col {
-      width: @table-selection-column-width;
-    }
+  .@{table-prefix-cls}-selection-col {
+    width: @table-selection-column-width;
   }
 
-  &-selection-column,
   table tr th&-selection-column,
   table tr td&-selection-column {
-    width: @table-selection-column-width;
-    min-width: @table-selection-column-width;
     text-align: center;
 
     .@{ant-prefix}-radio-wrapper {

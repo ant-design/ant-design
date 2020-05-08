@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Other
+type: Layout
 title: Divider
 ---
 
