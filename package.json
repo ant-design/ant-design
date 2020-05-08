@@ -51,6 +51,8 @@
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit",
     "precompile": "npm run version",
+    "pretest": "npm run version",
+    "predist": "npm run version",
     "compile": "antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp -r .circleci/ .github/ _site && npm run site:test",
