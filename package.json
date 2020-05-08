@@ -50,6 +50,9 @@
     "build": "npm run compile && npm run dist",
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit",
+    "precompile": "npm run version",
+    "pretest": "npm run version",
+    "predist": "npm run version",
     "compile": "antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp -r .circleci/ .github/ _site && npm run site:test",
@@ -71,7 +74,8 @@
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
     "pub": "antd-tools run pub",
-    "prepublish": "antd-tools run guard",
+    "postinstall": "npm run version",
+    "prepublishOnly": "antd-tools run guard",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"node ./scripts/generateColorLess.js\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
@@ -82,7 +86,8 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false"
+    "site:test": "jest --config .jest.site.js --cache=false",
+    "version": "node ./scripts/generate-version"
   },
   "husky": {
     "hooks": {
@@ -273,7 +278,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "305 kB"
+      "maxSize": "300 kB"
     },
     {
       "path": "./dist/antd.min.css",
