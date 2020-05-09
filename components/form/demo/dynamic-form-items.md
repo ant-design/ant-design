@@ -8,11 +8,11 @@ only: true
 
 ## zh-CN
 
-动态表单的嵌套字段示例。
+嵌套表单字段需要对 `field` 进行拓展，将 `field.name` 和 `field.fieldKey` 应用于控制字段。
 
 ## en-US
 
-Dynamic form with nest items.
+Nest dynamic field need extends `field`. Pass `field.name` and `field.fieldKey` to nest item.
 
 ```jsx
 import { Form, Input, Button, Space } from 'antd';
@@ -34,6 +34,7 @@ const Demo = () => {
                   <Form.Item
                     {...field}
                     name={[field.name, 'first']}
+                    fieldKey={[field.fieldKey, 'first']}
                     rules={[{ required: true, message: 'Missing first name' }]}
                   >
                     <Input placeholder="First Name" />
@@ -41,6 +42,7 @@ const Demo = () => {
                   <Form.Item
                     {...field}
                     name={[field.name, 'last']}
+                    fieldKey={[field.fieldKey, 'last']}
                     rules={[{ required: true, message: 'Missing last name' }]}
                   >
                     <Input placeholder="Last Name" />
