@@ -67,18 +67,16 @@ const options = [
   },
 ];
 
-const Complete: React.FC = () => {
-  return (
-    <AutoComplete
-      dropdownClassName="certain-category-search-dropdown"
-      dropdownMatchSelectWidth={500}
-      style={{ width: 250 }}
-      options={options}
-    >
-      <Input.Search size="large" placeholder="input here" />
-    </AutoComplete>
-  );
-};
+const Complete: React.FC = () => (
+  <AutoComplete
+    dropdownClassName="certain-category-search-dropdown"
+    dropdownMatchSelectWidth={500}
+    style={{ width: 250 }}
+    options={options}
+  >
+    <Input.Search size="large" placeholder="input here" />
+  </AutoComplete>
+);
 
 ReactDOM.render(<Complete />, mountNode);
 ```
