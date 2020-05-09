@@ -105,4 +105,9 @@ describe('Alert', () => {
     expect(ref.current.getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
   });
+
+  it('could accept none react element icon', () => {
+    const wrapper = mount(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
 });

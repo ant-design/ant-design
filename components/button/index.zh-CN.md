@@ -43,7 +43,7 @@ subtitle: 按钮
 | shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设 | string | - |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | 无 |  |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
-| type | 设置按钮类型 | `primary` \|  `ghost` \| `dashed` \| `danger` \| `link` \|  `text`  | - |  |
+| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `danger` \| `link` \| `text` | - |  |
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | `false` |  |
 | danger | 设置危险按钮 | boolean | `false` |  |

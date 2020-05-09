@@ -35,6 +35,24 @@
   }
 }
 
+// allow-clear
+.@{ant-prefix}-input-clear-icon {
+  &:last-child {
+    .@{ant-prefix}-input-affix-wrapper-rtl & {
+      margin-right: @input-affix-margin;
+      margin-left: 0;
+    }
+  }
+}
+
+.@{ant-prefix}-input-textarea-clear-icon {
+  .@{ant-prefix}-input-affix-wrapper-rtl & {
+    right: auto;
+    left: 0;
+    margin: 8px 0 0 8px;
+  }
+}
+
 // mixin
 @input-rtl-cls: ~'@{ant-prefix}-input-rtl';
 

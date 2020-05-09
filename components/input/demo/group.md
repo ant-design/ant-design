@@ -179,7 +179,8 @@ ReactDOM.render(<App />, mountNode);
   border-left-width: 0;
 }
 
-.site-input-group-wrapper .site-input-right:hover {
+.site-input-group-wrapper .site-input-right:hover,
+.site-input-group-wrapper .site-input-right:focus {
   border-left-width: 1px;
 }
 
@@ -187,7 +188,8 @@ ReactDOM.render(<App />, mountNode);
   border-right-width: 0;
 }
 
-.site-input-group-wrapper .ant-input-rtl.site-input-right:hover {
+.site-input-group-wrapper .ant-input-rtl.site-input-right:hover,
+.site-input-group-wrapper .ant-input-rtl.site-input-right:focus {
   border-right-width: 1px;
 }
 ```

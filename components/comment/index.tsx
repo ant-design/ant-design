@@ -52,11 +52,11 @@ const Comment: React.FC<CommentProps> = ({
 
   const prefixCls = getPrefixCls('comment', customizePrefixCls);
 
-  const avatarDom = (
+  const avatarDom = avatar ? (
     <div className={`${prefixCls}-avatar`}>
       {typeof avatar === 'string' ? <img src={avatar} alt="comment-avatar" /> : avatar}
     </div>
-  );
+  ) : null;
 
   const actionDom =
     actions && actions.length ? (

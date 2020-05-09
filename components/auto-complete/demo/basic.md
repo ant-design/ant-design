@@ -37,7 +37,7 @@ const Complete: React.FC = () => {
     setValue(data);
   };
   return (
-    <div>
+    <>
       <AutoComplete
         options={options}
         style={{ width: 200 }}
@@ -56,7 +56,7 @@ const Complete: React.FC = () => {
         onChange={onChange}
         placeholder="control mode"
       />
-    </div>
+    </>
   );
 };
 
