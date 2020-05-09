@@ -184,11 +184,19 @@ ReactDOM.render(<App />, mountNode);
   border-left-width: 1px;
 }
 
+.site-input-group-wrapper .site-input-right:focus {
+  border-left-width: 1px;
+}
+
 .site-input-group-wrapper .ant-input-rtl.site-input-right {
   border-right-width: 0;
 }
 
 .site-input-group-wrapper .ant-input-rtl.site-input-right:hover,
+.site-input-group-wrapper .ant-input-rtl.site-input-right:focus {
+  border-right-width: 1px;
+}
+
 .site-input-group-wrapper .ant-input-rtl.site-input-right:focus {
   border-right-width: 1px;
 }
