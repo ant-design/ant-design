@@ -240,12 +240,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: amondnet/now-deployment@v2.0.3
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v1
         with:
-          zeit-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          now-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
-          now-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: VERCEL Now Deployment
+        uses: amondnet/now-deployment@v2.0.3
+        with:
+          zeit-token: ${{ secrets.VERCEL_TOKEN }}
+          now-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          now-org-id: ${{ secrets.VERCEL_ORG_ID}}
           working-directory: ./jest-stare
     needs: image
     if: failure()
