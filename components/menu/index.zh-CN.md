@@ -59,6 +59,7 @@ subtitle: 导航菜单
 | key      | item 的唯一标志          | string    |        |       |
 | title    | 设置收缩时展示的悬浮标题 | string    |        |       |
 | icon     | 菜单图标                 | ReactNode |        | 4.2.0 |
+| danger   | 展示错误状态样式         | boolean   | false  | 4.3.0 |
 
 > 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >
