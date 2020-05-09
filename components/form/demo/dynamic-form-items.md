@@ -3,7 +3,6 @@ order: 4.1
 title:
   zh-CN: 动态增减嵌套字段
   en-US: Dynamic Form nest Items
-only: true
 ---
 
 ## zh-CN
