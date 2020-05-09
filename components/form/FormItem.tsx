@@ -191,6 +191,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
+          'isListField',
           'label',
           'labelAlign',
           'labelCol',
