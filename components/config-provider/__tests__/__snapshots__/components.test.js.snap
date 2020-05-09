@@ -9418,9 +9418,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
     class="config-comment-inner"
   >
     <div
-      class="config-comment-avatar"
-    />
-    <div
       class="config-comment-content"
     >
       <div
@@ -9442,9 +9439,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
       <div
         class="config-comment-inner"
       >
-        <div
-          class="config-comment-avatar"
-        />
         <div
           class="config-comment-content"
         >
@@ -9471,9 +9465,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
     class="config-comment-inner"
   >
     <div
-      class="config-comment-avatar"
-    />
-    <div
       class="config-comment-content"
     >
       <div
@@ -9495,9 +9486,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
       <div
         class="config-comment-inner"
       >
-        <div
-          class="config-comment-avatar"
-        />
         <div
           class="config-comment-content"
         >
@@ -9524,9 +9512,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
     class="config-comment-inner"
   >
     <div
-      class="config-comment-avatar"
-    />
-    <div
       class="config-comment-content"
     >
       <div
@@ -9548,9 +9533,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
       <div
         class="config-comment-inner"
       >
-        <div
-          class="config-comment-avatar"
-        />
         <div
           class="config-comment-content"
         >
@@ -9577,9 +9559,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
     class="ant-comment-inner"
   >
     <div
-      class="ant-comment-avatar"
-    />
-    <div
       class="ant-comment-content"
     >
       <div
@@ -9601,9 +9580,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
       <div
         class="ant-comment-inner"
       >
-        <div
-          class="ant-comment-avatar"
-        />
         <div
           class="ant-comment-content"
         >
@@ -9630,9 +9606,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
     class="prefix-Comment-inner"
   >
     <div
-      class="prefix-Comment-avatar"
-    />
-    <div
       class="prefix-Comment-content"
     >
       <div
@@ -9654,9 +9627,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
       <div
         class="prefix-Comment-inner"
       >
-        <div
-          class="prefix-Comment-avatar"
-        />
         <div
           class="prefix-Comment-content"
         >
