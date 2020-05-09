@@ -4,7 +4,7 @@ import AutoComplete from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-describe('AutoComplete with Custom Input Element Render', () => {
+describe('AutoComplete', () => {
   mountTest(AutoComplete);
   rtlTest(AutoComplete);
 
