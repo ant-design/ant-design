@@ -91,7 +91,7 @@ describe('Table.pagination', () => {
     scrollTo.mockReturnValue(null);
 
     const wrapper = mount(
-      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
+      createTable({ scroll: { y: true }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
