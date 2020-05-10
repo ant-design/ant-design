@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/link/demo/basic.md correctly 1`] = `
+<a
+  class="ant-link"
+  href="https://www.taobao.com"
+>
+  Taobao
+</a>
+`;
