@@ -14,7 +14,14 @@ title:
 Show the dynamic switching mode (between 'inline' and 'vertical').
 
 ```jsx
-import { Menu, Icon, Switch } from 'antd';
+import { Menu, Switch, Divider } from 'antd';
+import {
+  MailOutlined,
+  CalendarOutlined,
+  AppstoreOutlined,
+  SettingOutlined,
+  LinkOutlined,
+} from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -38,10 +45,10 @@ class Sider extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Switch onChange={this.changeMode} /> Change Mode
-        <span className="ant-divider" style={{ margin: '0 1em' }} />
-        <Switch onChange={this.changeTheme} /> Change Theme
+        <Divider type="vertical" />
+        <Switch onChange={this.changeTheme} /> Change Style
         <br />
         <br />
         <Menu
@@ -51,23 +58,13 @@ class Sider extends React.Component {
           mode={this.state.mode}
           theme={this.state.theme}
         >
-          <Menu.Item key="1">
-            <Icon type="mail" />
+          <Menu.Item key="1" icon={<MailOutlined />}>
             Navigation One
           </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="calendar" />
+          <Menu.Item key="2" icon={<CalendarOutlined />}>
             Navigation Two
           </Menu.Item>
-          <SubMenu
-            key="sub1"
-            title={
-              <span>
-                <Icon type="appstore" />
-                <span>Navigation Three</span>
-              </span>
-            }
-          >
+          <SubMenu key="sub1" icon={<AppstoreOutlined />} title="Navigation Two">
             <Menu.Item key="3">Option 3</Menu.Item>
             <Menu.Item key="4">Option 4</Menu.Item>
             <SubMenu key="sub1-2" title="Submenu">
@@ -75,22 +72,19 @@ class Sider extends React.Component {
               <Menu.Item key="6">Option 6</Menu.Item>
             </SubMenu>
           </SubMenu>
-          <SubMenu
-            key="sub2"
-            title={
-              <span>
-                <Icon type="setting" />
-                <span>Navigation Four</span>
-              </span>
-            }
-          >
+          <SubMenu key="sub2" icon={<SettingOutlined />} title="Navigation Three">
             <Menu.Item key="7">Option 7</Menu.Item>
             <Menu.Item key="8">Option 8</Menu.Item>
             <Menu.Item key="9">Option 9</Menu.Item>
             <Menu.Item key="10">Option 10</Menu.Item>
           </SubMenu>
+          <Menu.Item key="link" icon={<LinkOutlined />}>
+            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+              Ant Design
+            </a>
+          </Menu.Item>
         </Menu>
-      </div>
+      </>
     );
   }
 }

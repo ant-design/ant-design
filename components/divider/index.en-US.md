@@ -1,8 +1,7 @@
 ---
 category: Components
-type: Other
+type: Layout
 title: Divider
-cols: 1
 ---
 
 A divider line separates different content.
@@ -18,8 +17,9 @@ A divider line separates different content.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| className | className of container | string | - | 3.5.4 |
+| className | className of container | string | - |  |
 | dashed | whether line is dashed | boolean | false |  |
-| orientation | position of title inside divider | enum: `left` `right` `center` | `center` | 3.3.0 |
-| style | style object of container | object | - | 3.5.4 |
-| type | direction type of divider | enum: `horizontal` `vertical` | `horizontal` |  |
+| orientation | position of title inside divider | `left` \| `right` \| `center` | `center` |  |
+| style | style object of container | CSSProperties | - |  |
+| type | direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+| plain | divider text show as plain style | boolean | true | 4.2.0 |

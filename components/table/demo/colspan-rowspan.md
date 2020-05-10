@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 15
 title:
   en-US: colSpan and rowSpan
   zh-CN: 表格行/列合并
@@ -39,10 +39,10 @@ const columns = [
     dataIndex: 'name',
     render: (text, row, index) => {
       if (index < 4) {
-        return <a href="javascript:;">{text}</a>;
+        return <a>{text}</a>;
       }
       return {
-        children: <a href="javascript:;">{text}</a>,
+        children: <a>{text}</a>,
         props: {
           colSpan: 5,
         },

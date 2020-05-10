@@ -1,14 +1,12 @@
 import classNames from 'classnames';
 import omit from 'omit.js';
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
-import { OptionProps as RcOptionProps } from 'rc-mentions/lib/Option';
 import Spin from '../spin';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
-const Option: React.FunctionComponent<RcOptionProps> = RcMentions.Option;
+const { Option } = RcMentions;
 
 function loadingFilterOption() {
   return true;
@@ -76,6 +74,8 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     focused: false,
   };
 
+  private rcMentions: any;
+
   onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     const { onFocus } = this.props;
     if (onFocus) {
@@ -109,7 +109,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     const { children, loading } = this.props;
     if (loading) {
       return (
-        <Option value={'ANTD_SEARCHING'} disabled>
+        <Option value="ANTD_SEARCHING" disabled>
           <Spin size="small" />
         </Option>
       );
@@ -126,7 +126,19 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     return filterOption;
   };
 
-  renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  saveMentions = (node: typeof RcMentions) => {
+    this.rcMentions = node;
+  };
+
+  focus() {
+    this.rcMentions.focus();
+  }
+
+  blur() {
+    this.rcMentions.blur();
+  }
+
+  renderMentions = ({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
     const { focused } = this.state;
     const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
     const prefixCls = getPrefixCls('mentions', customizePrefixCls);
@@ -135,6 +147,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     const mergedClassName = classNames(className, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-focused`]: focused,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     return (
@@ -143,10 +156,12 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         notFoundContent={this.getNotFoundContent(renderEmpty)}
         className={mergedClassName}
         disabled={disabled}
+        direction={direction}
         {...mentionsProps}
         filterOption={this.getFilterOption()}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
+        ref={this.saveMentions}
       >
         {this.getOptions()}
       </RcMentions>
@@ -157,7 +172,5 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     return <ConfigConsumer>{this.renderMentions}</ConfigConsumer>;
   }
 }
-
-polyfill(Mentions);
 
 export default Mentions;

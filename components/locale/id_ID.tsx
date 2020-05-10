@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/id_ID';
 import DatePicker from '../date-picker/locale/id_ID';
 import TimePicker from '../time-picker/locale/id_ID';
 import Calendar from '../calendar/locale/id_ID';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'id',
   Pagination,
   DatePicker,
@@ -37,8 +38,11 @@ export default {
     removeFile: 'Hapus file',
     uploadError: 'Kesalahan pengunggahan',
     previewFile: 'File pratinjau',
+    downloadFile: 'Unduh berkas',
   },
   Empty: {
     description: 'Tidak ada data',
   },
 };
+
+export default localeValues;

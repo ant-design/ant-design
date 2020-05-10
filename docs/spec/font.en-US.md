@@ -1,5 +1,5 @@
 ---
-category: Visual
+category: Global Styles
 order: 3
 title: Font
 ---
@@ -21,9 +21,9 @@ Text is the major channel for users to understand application content and comple
 In order to implement a good font system, the first thing is to choose an appropriate font family. Ant Design prefers the system default font family and then also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol';
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
 ```
 
 > References：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ and http://markdotto.com/2018/02/07/github-system-fonts/

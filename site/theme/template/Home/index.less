@@ -1,0 +1,79 @@
+@import '../../../../components/style/themes/default.less';
+
+.home-container {
+  h1,
+  h2,
+  h3,
+  h4 {
+    &.ant-typography {
+      font-weight: 400;
+    }
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .home-block-content {
+    margin: 88px 40px 124px;
+
+    h2.ant-typography {
+      margin-bottom: 56px;
+    }
+
+    &-extra {
+      float: right;
+      padding-top: 12px;
+      font-weight: 200;
+      font-size: 16px;
+
+      html.rtl & {
+        float: left;
+      }
+    }
+  }
+
+  .home-link-arrow {
+    position: relative;
+    margin-left: 0.3em;
+    font-size: 0.85em;
+    opacity: 0.75;
+    transition: all 0.2s;
+    &-rtl {
+      margin-right: 0.3em;
+      margin-left: 0;
+    }
+  }
+
+  a:hover .home-link-arrow {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+
+  a:hover .home-link-arrow-rtl {
+    transform: translateX(-3px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .home-container {
+    .home-block-content {
+      margin-top: 64px;
+      margin-bottom: 96px;
+
+      h2.ant-typography {
+        margin-bottom: 44px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767.99px) {
+  .home-container {
+    .home-block-content {
+      margin-right: 24px;
+      margin-left: 24px;
+    }
+  }
+}

@@ -4,6 +4,11 @@
   font-size: 12px;
   list-style: none;
   border-left: 1px solid @site-border-color-split;
+
+  .ant-row-rtl & {
+    border-right: 1px solid @site-border-color-split;
+    border-left: none;
+  }
 }
 
 ul.toc > li {
@@ -13,6 +18,11 @@ ul.toc > li {
   list-style: none;
   &:not(:last-child) {
     margin-bottom: 4px;
+  }
+
+  .ant-row-rtl & {
+    margin-right: 0;
+    padding-right: 0;
   }
 }
 
@@ -33,6 +43,15 @@ ul.toc > li {
   text-overflow: ellipsis;
   border-left: 1px solid transparent;
   transition: all 0.3s ease;
+
+  .ant-row-rtl & {
+    margin-right: -1px;
+    margin-left: 0;
+    padding-right: 16px;
+    padding-left: 0;
+    border-right: 1px solid transparent;
+    border-left: none;
+  }
 }
 
 .toc a:hover {
@@ -55,6 +74,10 @@ ul.toc > li {
     overflow-y: auto;
     background: #fff;
   }
+  .ant-row-rtl & {
+    right: auto;
+    left: 20px;
+  }
 }
 
 .toc-affix-bottom {
@@ -62,6 +85,10 @@ ul.toc > li {
   right: 20px;
   bottom: 88px;
   .ant-affix {
-    background: #fff;
+    background: @body-background;
+  }
+  .ant-row-rtl & {
+    right: auto;
+    left: 20px;
   }
 }

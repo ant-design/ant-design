@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/ms_MY';
+import CalendarLocale from 'rc-picker/lib/locale/ms_MY';
 import TimePickerLocale from '../../time-picker/locale/ms_MY';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Pilih tarikh',
     rangePlaceholder: ['Tarikh mula', 'Tarikh akhir'],

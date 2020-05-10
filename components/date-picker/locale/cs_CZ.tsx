@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/cs_CZ';
+import CalendarLocale from 'rc-picker/lib/locale/cs_CZ';
 import TimePickerLocale from '../../time-picker/locale/cs_CZ';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Vybrat datum',
     rangePlaceholder: ['Od', 'Do'],

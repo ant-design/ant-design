@@ -29,6 +29,7 @@
     left: 0;
     z-index: 1;
     box-sizing: border-box;
+    width: 0;
     height: 2px;
     background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
@@ -60,7 +61,7 @@
 
   // https://github.com/ant-design/ant-design/issues/9104
   &-bottom &-bottom-bar {
-    margin-top: 16px;
+    margin-top: @margin-md;
     margin-bottom: 0;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-bottom: none;
@@ -136,6 +137,7 @@
 
   &-tab-prev {
     left: 0;
+
     :root & {
       filter: none;
     }
@@ -206,12 +208,13 @@
       }
 
       .@{iconfont-css-prefix} {
-        margin-right: 8px;
+        margin-right: @margin-sm;
       }
 
       &-active {
         color: @tabs-highlight-color;
         font-weight: 500;
+        outline: none;
       }
 
       &-disabled {
@@ -242,14 +245,26 @@
     }
   }
 
+  // Create an empty element to avoid margin collapsing
+  // https://github.com/ant-design/ant-design/issues/18103
+  &-content::before {
+    display: block;
+    overflow: hidden;
+    content: '';
+  }
+
+  .@{tab-prefix-cls}-tabpane {
+    outline: none;
+  }
+
   // Horizontal Content
   .@{tab-prefix-cls}-top-content,
   .@{tab-prefix-cls}-bottom-content {
     width: 100%;
-
     > .@{tab-prefix-cls}-tabpane {
       flex-shrink: 0;
       width: 100%;
+      -webkit-backface-visibility: hidden;
       opacity: 1;
       transition: opacity 0.45s;
     }
@@ -272,7 +287,6 @@
     height: 100%;
     border-bottom: 0;
 
-    .@{tab-prefix-cls}-tab-arrow-show,
     .@{tab-prefix-cls}-tab-arrow-show {
       width: 100%;
       height: @tabs-scrolling-size;
@@ -283,6 +297,7 @@
       float: none;
       margin: @tabs-vertical-margin;
       padding: @tabs-vertical-padding;
+      text-align: center;
 
       &:last-child {
         margin-bottom: 0;
@@ -323,7 +338,7 @@
       bottom: auto;
       left: auto;
       width: 2px;
-      height: auto;
+      height: 0;
     }
 
     .@{tab-prefix-cls}-tab-next {
@@ -354,9 +369,6 @@
     margin-right: -1px;
     margin-bottom: 0;
     border-right: @border-width-base @border-style-base @border-color-split;
-    .@{tab-prefix-cls}-tab {
-      text-align: right;
-    }
     .@{tab-prefix-cls}-nav-container {
       margin-right: -1px;
     }
@@ -368,7 +380,7 @@
     }
   }
   .@{tab-prefix-cls}-left-content {
-    padding-left: 24px;
+    padding-left: @padding-lg;
     border-left: @border-width-base @border-style-base @border-color-split;
   }
 
@@ -389,19 +401,19 @@
     }
   }
   .@{tab-prefix-cls}-right-content {
-    padding-right: 24px;
+    padding-right: @padding-lg;
     border-right: @border-width-base @border-style-base @border-color-split;
   }
 }
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out, left 0.3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, width 0.2s @ease-in-out, left 0.3s @ease-in-out;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, height 0.3s @ease-in-out, top 0.3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, height 0.2s @ease-in-out, top 0.3s @ease-in-out;
 }
 
 // No animation
@@ -426,3 +438,5 @@
 .@{tab-prefix-cls}-right-content {
   .tabs-no-animation();
 }
+
+@import './rtl.less';

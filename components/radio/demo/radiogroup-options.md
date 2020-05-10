@@ -57,16 +57,17 @@ class App extends React.Component {
   };
 
   render() {
+    const { value1, value2, value3 } = this.state;
     return (
-      <div>
-        <Radio.Group options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
-        <Radio.Group options={options} onChange={this.onChange2} value={this.state.value2} />
+      <>
+        <Radio.Group options={plainOptions} onChange={this.onChange1} value={value1} />
+        <Radio.Group options={options} onChange={this.onChange2} value={value2} />
         <Radio.Group
           options={optionsWithDisabled}
           onChange={this.onChange3}
-          value={this.state.value3}
+          value={value3}
         />
-      </div>
+      </>
     );
   }
 }

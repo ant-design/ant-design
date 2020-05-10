@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 12
 title:
   en-US: border, title and footer
   zh-CN: 带边框
@@ -20,12 +20,13 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Cash Assets',
     className: 'column-money',
     dataIndex: 'money',
+    align: 'right',
   },
   {
     title: 'Address',
@@ -64,11 +65,4 @@ ReactDOM.render(
   />,
   mountNode,
 );
-```
-
-```css
-th.column-money,
-td.column-money {
-  text-align: right !important;
-}
 ```

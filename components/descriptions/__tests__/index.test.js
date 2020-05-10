@@ -2,26 +2,12 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
-
-jest.mock('enquire.js', () => {
-  let that;
-  let unmatchFun;
-  return {
-    unregister: jest.fn(),
-    register: (media, options) => {
-      if (media === '(max-width: 575px)') {
-        that = this;
-        options.match.call(that);
-        unmatchFun = options.unmatch;
-      }
-    },
-    callunmatch() {
-      unmatchFun.call(that);
-    },
-  };
-});
+import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from '../../_util/warning';
 
 describe('Descriptions', () => {
+  mountTest(Descriptions);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -34,8 +20,6 @@ describe('Descriptions', () => {
   });
 
   it('when max-width: 575px，column=1', () => {
-    // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
     const wrapper = mount(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -46,15 +30,12 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.find('tr')).toHaveLength(5);
-    expect(wrapper.find('.ant-descriptions-item-no-label')).toHaveLength(1);
-
-    enquire.callunmatch();
+    expect(wrapper.find('.ant-descriptions-item-label')).toHaveLength(4);
     wrapper.unmount();
   });
 
   it('when max-width: 575px，column=2', () => {
     // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
     const wrapper = mount(
       <Descriptions column={{ xs: 2 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -64,8 +45,6 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.find('tr')).toHaveLength(2);
-
-    enquire.callunmatch();
     wrapper.unmount();
   });
 
@@ -79,7 +58,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -92,11 +71,13 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.instance().getColumn()).toBe(8);
+    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(8);
     wrapper.unmount();
   });
 
   it('warning if ecceed the row span', () => {
+    resetWarned();
+
     mount(
       <Descriptions column={3}>
         <Descriptions.Item label="Product" span={2}>
@@ -108,7 +89,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Descriptions] Sum of column `span` in a line exceeds `column` of Descriptions.',
+      'Warning: [antd: Descriptions] Sum of column `span` in a line not match `column` of Descriptions.',
     );
   });
 
@@ -123,7 +104,7 @@ describe('Descriptions', () => {
         {hasDiscount && <Descriptions.Item label="Discount">$20.00</Descriptions.Item>}
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -137,7 +118,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -149,7 +130,7 @@ describe('Descriptions', () => {
         </Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Descriptions support colon', () => {
@@ -158,7 +139,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Descriptions support style', () => {
@@ -167,6 +148,83 @@ describe('Descriptions', () => {
         <Descriptions.Item>Cloud Database</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('keep key', () => {
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item key="bamboo" />
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('Cell').key()).toBe('item-bamboo');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/19887
+  it('should work with React Fragment', () => {
+    if (!React.Fragment) {
+      return;
+    }
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <>
+          <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+          <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        </>
+      </Descriptions>,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20255
+  it('columns 5 with customize', () => {
+    const wrapper = mount(
+      <Descriptions layout="vertical" column={4}>
+        {/* 1 1 1 1 */}
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        {/* 2 2 */}
+        <Descriptions.Item label="bamboo" span={2}>
+          bamboo
+        </Descriptions.Item>
+        <Descriptions.Item label="bamboo" span={2}>
+          bamboo
+        </Descriptions.Item>
+        {/* 3 1 */}
+        <Descriptions.Item label="bamboo" span={3}>
+          bamboo
+        </Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+      </Descriptions>,
+    );
+
+    function matchSpan(rowIndex, spans) {
+      const tr = wrapper.find('tr').at(rowIndex);
+      const tds = tr.find('th');
+      expect(tds).toHaveLength(spans.length);
+      tds.forEach((td, index) => {
+        expect(td.props().colSpan).toEqual(spans[index]);
+      });
+    }
+
+    matchSpan(0, [1, 1, 1, 1]);
+    matchSpan(2, [2, 2]);
+    matchSpan(4, [3, 1]);
+  });
+
+  it('number value should render correct', () => {
+    const wrapper = mount(
+      <Descriptions bordered>
+        <Descriptions.Item label={0}>{0}</Descriptions.Item>
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
+    expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
   });
 });

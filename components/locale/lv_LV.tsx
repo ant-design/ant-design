@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/lv_LV';
 import DatePicker from '../date-picker/locale/lv_LV';
 import TimePicker from '../time-picker/locale/lv_LV';
 import Calendar from '../calendar/locale/lv_LV';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'lv',
   Pagination,
   DatePicker,
@@ -35,8 +36,11 @@ export default {
     removeFile: 'Noņemt failu',
     uploadError: 'Augšupielādes kļūda',
     previewFile: 'Priekšskatiet failu',
+    downloadFile: 'Lejupielādēt failu',
   },
   Empty: {
     description: 'Nav datu',
   },
 };
+
+export default localeValues;

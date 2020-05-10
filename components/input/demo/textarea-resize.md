@@ -20,7 +20,7 @@ import { Input, Button } from 'antd';
 const { TextArea } = Input;
 
 const defaultValue =
-  'autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。ending';
+  'The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.';
 
 class Demo extends React.Component {
   state = {
@@ -31,15 +31,15 @@ class Demo extends React.Component {
     const { autoResize } = this.state;
 
     return (
-      <div>
+      <>
         <Button
           onClick={() => this.setState({ autoResize: !autoResize })}
           style={{ marginBottom: 16 }}
         >
           Auto Resize: {String(autoResize)}
         </Button>
-        <TextArea rows={4} autosize={autoResize} defaultValue={defaultValue} />
-      </div>
+        <TextArea rows={4} autoSize={autoResize} defaultValue={defaultValue} />
+      </>
     );
   }
 }

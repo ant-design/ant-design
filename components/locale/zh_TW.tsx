@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/zh_TW';
 import DatePicker from '../date-picker/locale/zh_TW';
 import TimePicker from '../time-picker/locale/zh_TW';
 import Calendar from '../calendar/locale/zh_TW';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'zh-tw',
   Pagination,
   DatePicker,
@@ -35,6 +36,7 @@ export default {
     removeFile: '刪除檔案',
     uploadError: '上傳失敗',
     previewFile: '檔案預覽',
+    downloadFile: '下载文件',
   },
   Empty: {
     description: '無此資料',
@@ -43,3 +45,5 @@ export default {
     back: '返回',
   },
 };
+
+export default localeValues;

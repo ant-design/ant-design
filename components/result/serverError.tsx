@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default () => (
+const ServerError = () => (
   <svg width="254" height="294">
     <defs>
       <path d="M0 .335h253.49v253.49H0z" />
@@ -327,3 +327,5 @@ export default () => (
     </g>
   </svg>
 );
+
+export default ServerError;

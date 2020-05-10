@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/hr_HR';
 import DatePicker from '../date-picker/locale/hr_HR';
 import TimePicker from '../time-picker/locale/hr_HR';
 import Calendar from '../calendar/locale/hr_HR';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'hr',
   Pagination,
   DatePicker,
@@ -40,6 +41,7 @@ export default {
     removeFile: 'Makni datoteku',
     uploadError: 'Greška kod uploada',
     previewFile: 'Pogledaj datoteku',
+    downloadFile: 'Preuzmi datoteku',
   },
   Empty: {
     description: 'Nema podataka',
@@ -54,3 +56,5 @@ export default {
     expand: 'proširi',
   },
 };
+
+export default localeValues;

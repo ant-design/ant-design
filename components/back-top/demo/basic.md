@@ -17,12 +17,24 @@ The most basic usage.
 import { BackTop } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <BackTop />
     Scroll down to see the bottom-right
-    <strong style={{ color: 'rgba(64, 64, 64, 0.6)' }}> gray </strong>
+    <strong className="site-back-top-basic"> gray </strong>
     button.
-  </div>,
+  </>,
   mountNode,
 );
 ```
+
+```css
+.site-back-top-basic {
+  color: rgba(64, 64, 64, 0.6);
+}
+```
+
+<style>
+[data-theme="dark"] .site-back-top-basic {
+  color: rgba(255,255,255,.45);
+}
+</style>

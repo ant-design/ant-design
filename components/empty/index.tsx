@@ -2,8 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultEmptyImg from './empty.svg';
-import simpleEmptyImg from './simple.svg';
+import DefaultEmptyImg from './empty';
+import SimpleEmptyImg from './simple';
+
+const defaultEmptyImg = <DefaultEmptyImg />;
+const simpleEmptyImg = <SimpleEmptyImg />;
 
 export interface TransferLocale {
   description: string;
@@ -22,9 +25,14 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
+interface EmptyType extends React.FC<EmptyProps> {
+  PRESENTED_IMAGE_DEFAULT: React.ReactNode;
+  PRESENTED_IMAGE_SIMPLE: React.ReactNode;
+}
+
+const Empty: EmptyType = (props: EmptyProps) => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         className,
         prefixCls: customizePrefixCls,
@@ -56,6 +64,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
                   prefixCls,
                   {
                     [`${prefixCls}-normal`]: image === simpleEmptyImg,
+                    [`${prefixCls}-rtl`]: direction === 'rtl',
                   },
                   className,
                 )}
@@ -75,12 +84,6 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
   </ConfigConsumer>
 );
 
-type EmptyType = typeof OriginEmpty & {
-  PRESENTED_IMAGE_DEFAULT: string;
-  PRESENTED_IMAGE_SIMPLE: string;
-};
-
-const Empty: EmptyType = OriginEmpty as EmptyType;
 Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
 Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
 

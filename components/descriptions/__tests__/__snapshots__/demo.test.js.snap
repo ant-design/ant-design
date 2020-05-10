@@ -121,7 +121,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Product
           </th>
@@ -132,7 +133,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             Cloud Database
           </td>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Billing Mode
           </th>
@@ -143,7 +145,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             Prepaid
           </td>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Automatic Renewal
           </th>
@@ -158,7 +161,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Order time
           </th>
@@ -169,13 +173,14 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             2018-04-24 18:00:00
           </td>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Usage Time
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="3"
           >
             2019-04-24 18:00:00
           </td>
@@ -184,7 +189,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Status
           </th>
@@ -210,7 +216,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Negotiated Amount
           </th>
@@ -221,7 +228,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             $80.00
           </td>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Discount
           </th>
@@ -232,7 +240,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             $20.00
           </td>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Official Receipts
           </th>
@@ -247,7 +256,8 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
+            colspan="1"
           >
             Config Info
           </th>
@@ -263,7 +273,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             <br />
             Storage space: 10 GB
             <br />
-            Replication_factor:3
+            Replication factor: 3
             <br />
             Region: East China 1
             <br />
@@ -294,7 +304,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Product
             </th>
@@ -305,7 +316,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               Cloud Database
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Billing
             </th>
@@ -316,7 +328,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               Prepaid
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               time
             </th>
@@ -331,7 +344,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Amount
             </th>
@@ -342,7 +356,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               $80.00
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Discount
             </th>
@@ -353,7 +368,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               $20.00
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Official
             </th>
@@ -368,7 +384,8 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Config Info
             </th>
@@ -384,7 +401,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               <br />
               Storage space: 10 GB
               <br />
-              Replication_factor:3
+              Replication factor: 3
               <br />
               Region: East China 1
             </td>
@@ -479,7 +496,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Product
             </th>
@@ -490,7 +508,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               Cloud Database
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Billing
             </th>
@@ -501,7 +520,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               Prepaid
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               time
             </th>
@@ -516,7 +536,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Amount
             </th>
@@ -527,7 +548,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               $80.00
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Discount
             </th>
@@ -538,7 +560,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               $20.00
             </td>
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Official
             </th>
@@ -553,7 +576,8 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
+              colspan="1"
             >
               Config Info
             </th>
@@ -569,10 +593,127 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               <br />
               Storage space: 10 GB
               <br />
-              Replication_factor:3
+              Replication factor: 3
               <br />
               Region: East China 1
               <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div
+    class="ant-descriptions"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      Custom Size
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Product
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Billing
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Prepaid
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                time
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                18:00:00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Amount
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $80.00
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Discount
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $20.00
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Official
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $60.00
+              </span>
             </td>
           </tr>
         </tbody>
@@ -599,7 +740,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -608,8 +749,8 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               UserName
             </span>
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -618,8 +759,8 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               Telephone
             </span>
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -628,7 +769,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               Live
             </span>
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -667,17 +808,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
-            >
-              Remark
-            </span>
-          </td>
-          <td
+          <th
             class="ant-descriptions-item"
             colspan="2"
           >
@@ -686,21 +817,21 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               Address
             </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
+          </th>
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
-              empty
+              Remark
             </span>
-          </td>
+          </th>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="2"
@@ -709,6 +840,16 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
               class="ant-descriptions-item-content"
             >
               No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              empty
             </span>
           </td>
         </tr>
@@ -736,19 +877,19 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Product
           </th>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Billing Mode
           </th>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Automatic Renewal
@@ -780,14 +921,14 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Order time
           </th>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
-            colspan="5"
+            class="ant-descriptions-item-label"
+            colspan="2"
           >
             Usage Time
           </th>
@@ -803,7 +944,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           </td>
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="2"
           >
             2019-04-24 18:00:00
           </td>
@@ -812,8 +953,8 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
-            colspan="5"
+            class="ant-descriptions-item-label"
+            colspan="3"
           >
             Status
           </th>
@@ -823,7 +964,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="3"
           >
             <span
               class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -843,19 +984,19 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Negotiated Amount
           </th>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Discount
           </th>
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
+            class="ant-descriptions-item-label"
             colspan="1"
           >
             Official Receipts
@@ -887,8 +1028,8 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           class="ant-descriptions-row"
         >
           <th
-            class="ant-descriptions-item-label ant-descriptions-item-colon"
-            colspan="5"
+            class="ant-descriptions-item-label"
+            colspan="3"
           >
             Config Info
           </th>
@@ -898,7 +1039,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="3"
           >
             Data disk type: MongoDB
             <br />
@@ -908,7 +1049,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             <br />
             Storage space: 10 GB
             <br />
-            Replication_factor:3
+            Replication factor: 3
             <br />
             Region: East China 1
             <br />

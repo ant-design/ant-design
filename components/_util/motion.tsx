@@ -9,6 +9,7 @@ interface Motion {
   motionEnter?: boolean;
   motionLeave?: boolean;
   motionLeaveImmediately?: boolean; // Trigger leave motion immediately
+  motionDeadline?: number;
   removeOnLeave?: boolean;
   leavedClassName?: string;
   onAppearStart?: MotionFunc;
@@ -27,7 +28,7 @@ const getCollapsedHeight: MotionFunc = () => ({ height: 0, opacity: 0 });
 const getRealHeight: MotionFunc = node => ({ height: node.scrollHeight, opacity: 1 });
 const getCurrentHeight: MotionFunc = node => ({ height: node.offsetHeight });
 
-export const collapseMotion: Motion = {
+const collapseMotion: Motion = {
   motionName: 'ant-motion-collapse',
   onAppearStart: getCollapsedHeight,
   onEnterStart: getCollapsedHeight,
@@ -35,4 +36,7 @@ export const collapseMotion: Motion = {
   onEnterActive: getRealHeight,
   onLeaveStart: getCurrentHeight,
   onLeaveActive: getCollapsedHeight,
+  motionDeadline: 500,
 };
+
+export default collapseMotion;

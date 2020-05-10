@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/it_IT';
 import DatePicker from '../date-picker/locale/it_IT';
 import TimePicker from '../time-picker/locale/it_IT';
 import Calendar from '../calendar/locale/it_IT';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'it',
   Pagination,
   DatePicker,
@@ -39,6 +40,7 @@ export default {
     removeFile: 'Rimuovi il file',
     uploadError: 'Errore di caricamento',
     previewFile: 'Anteprima file',
+    downloadFile: 'Download file',
   },
   Empty: {
     description: 'Nessun dato',
@@ -53,3 +55,5 @@ export default {
     expand: 'espandi',
   },
 };
+
+export default localeValues;

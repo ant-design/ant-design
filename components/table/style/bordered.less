@@ -1,0 +1,83 @@
+@import './index';
+@import './size';
+
+@table-border: @border-width-base @border-style-base @border-color-split;
+
+.@{table-prefix-cls}.@{table-prefix-cls}-bordered {
+  // ============================ Title =============================
+  .@{table-prefix-cls}-title {
+    border: @table-border;
+    border-bottom: 0;
+  }
+
+  // ============================= Cell =============================
+  thead > tr > th,
+  tbody > tr > td,
+  tfoot > tr > th,
+  tfoot > tr > td {
+    border-right: @table-border;
+  }
+
+  // Fixed right should provides additional border
+  .@{table-prefix-cls}-cell-fix-right-first::after {
+    border-right: @table-border;
+  }
+
+  // ============================ Header ============================
+  table > {
+    thead {
+      > tr:not(:last-child) > th {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+  }
+
+  // =========================== Content ============================
+  .@{table-prefix-cls}-container {
+    border: @table-border;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  // ========================== Expandable ==========================
+  .@{table-prefix-cls}-expanded-row-fixed {
+    margin: -@table-padding-vertical (-@table-padding-horizontal - @border-width-base);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: @border-width-base;
+      bottom: 0;
+      border-right: @table-border;
+      content: '';
+    }
+  }
+
+  &.@{table-prefix-cls}-scroll-horizontal {
+    tr.@{table-prefix-cls}-expanded-row,
+    tr.@{table-prefix-cls}-placeholder {
+      > td {
+        border-right: 0;
+      }
+    }
+  }
+
+  // Size related
+  &.@{table-prefix-cls}-middle {
+    .@{table-prefix-cls}-expanded-row-fixed {
+      margin: -@table-padding-vertical-md (-@table-padding-horizontal-md - @border-width-base);
+    }
+  }
+
+  &.@{table-prefix-cls}-small {
+    .@{table-prefix-cls}-expanded-row-fixed {
+      margin: -@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base);
+    }
+  }
+
+  // ============================ Footer ============================
+  .@{table-prefix-cls}-footer {
+    border: @table-border;
+    border-top: 0;
+  }
+}

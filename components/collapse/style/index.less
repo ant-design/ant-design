@@ -26,16 +26,17 @@
       padding: @collapse-header-padding;
       padding-left: @collapse-header-padding-extra;
       color: @heading-color;
-      line-height: 22px;
+      line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s;
+      .clearfix;
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
 
         position: absolute;
         top: 50%;
-        left: @padding-md;
+        left: @collapse-header-arrow-left;
         display: inline-block;
         font-size: @font-size-sm;
         transform: translateY(-50%);
@@ -70,7 +71,7 @@
 
         .@{collapse-prefix-cls}-arrow {
           right: @padding-md;
-          left: initial;
+          left: auto;
         }
       }
     }
@@ -102,7 +103,7 @@
   }
 
   &-borderless {
-    background-color: @component-background;
+    background-color: @collapse-header-bg;
     border: 0;
   }
 
@@ -132,3 +133,5 @@
     }
   }
 }
+
+@import './rtl';

@@ -1,22 +1,6 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire: any;
-
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-  enquire = require('enquire.js');
-}
-
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
+export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
 
 export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
@@ -29,7 +13,7 @@ export const responsiveMap: BreakpointMap = {
   xxl: '(min-width: 1600px)',
 };
 
-type SubscribeFunc = (screens: BreakpointMap) => void;
+type SubscribeFunc = (screens: ScreenMap) => void;
 
 let subscribers: Array<{
   token: string;
@@ -39,7 +23,8 @@ let subUid = -1;
 let screens = {};
 
 const responsiveObserve = {
-  dispatch(pointMap: BreakpointMap) {
+  matchHandlers: {},
+  dispatch(pointMap: ScreenMap) {
     screens = pointMap;
     if (subscribers.length < 1) {
       return false;
@@ -57,8 +42,8 @@ const responsiveObserve = {
     }
     const token = (++subUid).toString();
     subscribers.push({
-      token: token,
-      func: func,
+      token,
+      func,
     });
     func(screens);
     return token;
@@ -70,31 +55,32 @@ const responsiveObserve = {
     }
   },
   unregister() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.unregister(responsiveMap[screen]),
-    );
+    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+      const matchMediaQuery = responsiveMap[screen]!;
+      const handler = this.matchHandlers[matchMediaQuery];
+      if (handler && handler.mql && handler.listener) {
+        handler.mql.removeListener(handler.listener);
+      }
+    });
   },
   register() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.register(responsiveMap[screen], {
-        match: () => {
-          const pointMap = {
-            ...screens,
-            [screen]: true,
-          };
-          this.dispatch(pointMap);
-        },
-        unmatch: () => {
-          const pointMap = {
-            ...screens,
-            [screen]: false,
-          };
-          this.dispatch(pointMap);
-        },
-        // Keep a empty destory to avoid triggering unmatch when unregister
-        destroy() {},
-      }),
-    );
+    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+      const matchMediaQuery = responsiveMap[screen]!;
+      const listener = ({ matches }: { matches: boolean }) => {
+        this.dispatch({
+          ...screens,
+          [screen]: matches,
+        });
+      };
+      const mql = window.matchMedia(matchMediaQuery);
+      mql.addListener(listener);
+      this.matchHandlers[matchMediaQuery] = {
+        mql,
+        listener,
+      };
+
+      listener(mql);
+    });
   },
 };
 

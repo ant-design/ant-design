@@ -2,11 +2,13 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
-import TabBar from './TabBar';
 import classNames from 'classnames';
-import Icon from '../icon';
+import omit from 'omit.js';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
+import TabBar from './TabBar';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
 import { isFlexSupported } from '../_util/styleChecker';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
@@ -36,6 +38,7 @@ export interface TabsProps {
     DefaultTabBar: React.ComponentClass<any>,
   ) => React.ReactElement<any>;
   destroyInactiveTabPane?: boolean;
+  keyboard?: boolean;
 }
 
 // Tabs
@@ -58,20 +61,28 @@ export default class Tabs extends React.Component<TabsProps, any> {
     tabPosition: 'top' as TabsPosition,
   };
 
+  componentDidMount() {
+    const NO_FLEX = ' no-flex';
+    const tabNode = ReactDOM.findDOMNode(this) as Element;
+    if (tabNode && !isFlexSupported && tabNode.className.indexOf(NO_FLEX) === -1) {
+      tabNode.className += NO_FLEX;
+    }
+  }
+
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     if (!targetKey) {
       return;
     }
 
-    const onEdit = this.props.onEdit;
+    const { onEdit } = this.props;
     if (onEdit) {
       onEdit(targetKey, 'remove');
     }
   };
 
   handleChange = (activeKey: string) => {
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange(activeKey);
     }
@@ -84,15 +95,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   };
 
-  componentDidMount() {
-    const NO_FLEX = ' no-flex';
-    const tabNode = ReactDOM.findDOMNode(this) as Element;
-    if (tabNode && !isFlexSupported && tabNode.className.indexOf(NO_FLEX) === -1) {
-      tabNode.className += NO_FLEX;
-    }
-  }
-
-  renderTabs = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTabs = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -112,11 +115,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPaneAnimated = 'animated' in this.props ? tabPaneAnimated : false;
     }
 
-    warning(
-      !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
-      'Tabs',
-      "`type=card|editable-card` doesn't have small or large size, it's by design.",
-    );
     const prefixCls = getPrefixCls('tabs', customizePrefixCls);
     const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
@@ -129,36 +127,33 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
       childrenWithClose = [];
-      React.Children.forEach(
-        children as React.ReactNode,
-        (child: React.ReactElement<any>, index) => {
-          let closable = child.props.closable;
-          closable = typeof closable === 'undefined' ? true : closable;
-          const closeIcon = closable ? (
-            <Icon
-              type="close"
-              className={`${prefixCls}-close-x`}
-              onClick={e => this.removeTab(child.key as string, e)}
-            />
-          ) : null;
-          childrenWithClose.push(
-            React.cloneElement(child, {
-              tab: (
-                <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
-                  {child.props.tab}
-                  {closeIcon}
-                </div>
-              ),
-              key: child.key || index,
-            }),
-          );
-        },
-      );
+      React.Children.forEach(children as React.ReactNode, (child, index) => {
+        if (!React.isValidElement(child)) return child;
+        let { closable } = child.props;
+        closable = typeof closable === 'undefined' ? true : closable;
+        const closeIcon = closable ? (
+          <CloseOutlined
+            className={`${prefixCls}-close-x`}
+            onClick={e => this.removeTab(child.key as string, e)}
+          />
+        ) : null;
+        childrenWithClose.push(
+          React.cloneElement(child, {
+            tab: (
+              <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
+                {child.props.tab}
+                {closeIcon}
+              </div>
+            ),
+            key: child.key || index,
+          }),
+        );
+      });
       // Add new tab handler
       if (!hideAdd) {
         tabBarExtraContent = (
           <span>
-            <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
+            <PlusOutlined className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
             {tabBarExtraContent}
           </span>
         );
@@ -169,7 +164,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       <div className={`${prefixCls}-extra-content`}>{tabBarExtraContent}</div>
     ) : null;
 
-    const { className: dropped, ...tabBarProps } = this.props;
+    const { ...tabBarProps } = this.props;
     const contentCls: string = classNames(
       `${prefixCls}-${tabPosition}-content`,
       type.indexOf('card') >= 0 && `${prefixCls}-card-content`,
@@ -181,7 +176,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
         prefixCls={prefixCls}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent} />}
+        direction={direction}
+        renderTabBar={() => (
+          <TabBar {...omit(tabBarProps, ['className'])} tabBarExtraContent={tabBarExtraContent} />
+        )}
         renderTabContent={() => (
           <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />
         )}

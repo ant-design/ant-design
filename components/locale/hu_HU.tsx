@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/hu_HU';
 import DatePicker from '../date-picker/locale/hu_HU';
 import TimePicker from '../time-picker/locale/hu_HU';
 import Calendar from '../calendar/locale/hu_HU';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'hu',
   Pagination,
   DatePicker,
@@ -36,8 +37,11 @@ export default {
     removeFile: 'Fájl eltávolítása',
     uploadError: 'Feltöltési hiba',
     previewFile: 'Fájl előnézet',
+    downloadFile: 'Fájl letöltése',
   },
   Empty: {
     description: 'Nincs adat',
   },
 };
+
+export default localeValues;

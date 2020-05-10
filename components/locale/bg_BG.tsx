@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/bg_BG';
 import DatePicker from '../date-picker/locale/bg_BG';
 import TimePicker from '../time-picker/locale/bg_BG';
 import Calendar from '../calendar/locale/bg_BG';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'bg',
   Pagination,
   DatePicker,
@@ -35,8 +36,11 @@ export default {
     removeFile: 'Премахване',
     uploadError: 'Грешка при качването',
     previewFile: 'Преглед',
+    downloadFile: 'Свали файл',
   },
   Empty: {
     description: 'Няма данни',
   },
 };
+
+export default localeValues;

@@ -1,7 +1,5 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@modal-footer-padding-vertical: 10px;
-@modal-footer-padding-horizontal: 16px;
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -27,7 +25,7 @@
 
   &-title {
     margin: 0;
-    color: @heading-color;
+    color: @modal-heading-color;
     font-weight: 500;
     font-size: @font-size-lg;
     line-height: 22px;
@@ -36,7 +34,7 @@
 
   &-content {
     position: relative;
-    background-color: @component-background;
+    background-color: @modal-content-bg;
     background-clip: padding-box;
     border: 0;
     border-radius: @border-radius-base;
@@ -62,11 +60,11 @@
 
     &-x {
       display: block;
-      width: 56px;
-      height: 56px;
+      width: @modal-header-close-size;
+      height: @modal-header-close-size;
       font-size: @font-size-lg;
       font-style: normal;
-      line-height: 56px;
+      line-height: @modal-header-close-size;
       text-align: center;
       text-transform: none;
       text-rendering: auto;
@@ -80,10 +78,10 @@
   }
 
   &-header {
-    padding: 16px 24px;
+    padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -98,8 +96,9 @@
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
     background: @modal-footer-bg;
-    border-top: @border-width-base @border-style-base @border-color-split;
+    border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+
     button + button {
       margin-bottom: 0;
       margin-left: 8px;

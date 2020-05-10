@@ -14,7 +14,7 @@ title:
 The Drawer can appear from any edge of the screen.
 
 ```jsx
-import { Drawer, Button, Radio } from 'antd';
+import { Drawer, Button, Radio, Space } from 'antd';
 
 const RadioGroup = Radio.Group;
 
@@ -40,33 +40,33 @@ class App extends React.Component {
   };
 
   render() {
+    const { placement, visible } = this.state;
     return (
-      <div>
-        <RadioGroup
-          style={{ marginRight: 8 }}
-          defaultValue={this.state.placement}
-          onChange={this.onChange}
-        >
-          <Radio value="top">top</Radio>
-          <Radio value="right">right</Radio>
-          <Radio value="bottom">bottom</Radio>
-          <Radio value="left">left</Radio>
-        </RadioGroup>
-        <Button type="primary" onClick={this.showDrawer}>
-          Open
-        </Button>
+      <>
+        <Space>
+          <RadioGroup defaultValue={placement} onChange={this.onChange}>
+            <Radio value="top">top</Radio>
+            <Radio value="right">right</Radio>
+            <Radio value="bottom">bottom</Radio>
+            <Radio value="left">left</Radio>
+          </RadioGroup>
+          <Button type="primary" onClick={this.showDrawer}>
+            Open
+          </Button>
+        </Space>
         <Drawer
           title="Basic Drawer"
-          placement={this.state.placement}
+          placement={placement}
           closable={false}
           onClose={this.onClose}
-          visible={this.state.visible}
+          visible={visible}
+          key={placement}
         >
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Drawer>
-      </div>
+      </>
     );
   }
 }

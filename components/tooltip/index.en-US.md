@@ -13,9 +13,9 @@ A simple text popup tip.
 
 ## API
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| title | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | - |  |
+| Property | Description                   | Type                               | Default |
+| -------- | ----------------------------- | ---------------------------------- | ------- |
+| title    | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | -       |
 
 ### Common API
 
@@ -23,7 +23,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| arrowPointAtCenter | Whether the arrow is pointed at the center of target, supported after `antd@1.11+` | boolean | `false` |  |
+| arrowPointAtCenter | Whether the arrow is pointed at the center of target | boolean | `false` |  |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | `true` |  |
 | defaultVisible | Whether the floating tooltip card is visible by default | boolean | `false` |  |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | Function(triggerNode) | () => document.body |  |
@@ -32,10 +32,10 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | overlayClassName | Class name of the tooltip card | string | - |  |
 | overlayStyle | Style of the tooltip card | object | - |  |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
-| trigger | Tooltip trigger mode | `hover` \| `focus` \| `click` \| `contextMenu` | `hover` |  |
+| trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| `Array<string>` | `hover` |  |
 | visible | Whether the floating tooltip card is visible or not | boolean | `false` |  |
 | onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |  |
-| align | this value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | Object | - | 3.10.0 |
+| align | this value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | Object | - |  |
 
 ## Note
 

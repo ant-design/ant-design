@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ku_IQ';
 import DatePicker from '../date-picker/locale/ku_IQ';
 import TimePicker from '../time-picker/locale/ku_IQ';
 import Calendar from '../calendar/locale/ku_IQ';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ku-iq',
   Pagination,
   DatePicker,
@@ -35,8 +36,11 @@ export default {
     removeFile: 'Pelê rabike',
     uploadError: 'Xeta barkirine',
     previewFile: 'Pelê pêşbibîne',
+    downloadFile: 'Pelê dakêşin',
   },
   Empty: {
     description: 'Agahî tune',
   },
 };
+
+export default localeValues;

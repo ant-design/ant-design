@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './status';
 
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 
@@ -49,10 +50,10 @@
   &-menu {
     position: relative;
     margin: 0;
-    padding: 4px 0;
+    padding: @dropdown-edge-child-vertical-padding 0;
     text-align: left;
     list-style-type: none;
-    background-color: @component-background;
+    background-color: @dropdown-menu-bg;
     background-clip: padding-box;
     border-radius: @border-radius-base;
     outline: none;
@@ -68,9 +69,21 @@
     &-submenu-popup {
       position: absolute;
       z-index: @zindex-dropdown;
+      background: transparent;
+      box-shadow: none;
 
       > .@{dropdown-prefix-cls}-menu {
         transform-origin: 0 0;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      ul {
+        margin-right: 0.3em;
+        margin-left: 0.3em;
       }
     }
 
@@ -87,9 +100,11 @@
       cursor: pointer;
       transition: all 0.3s;
 
-      > .anticon:first-child {
+      > .anticon:first-child,
+      > span > .anticon:first-child {
         min-width: 12px;
         margin-right: 8px;
+        font-size: @font-size-sm;
       }
 
       > a {
@@ -98,6 +113,21 @@
         padding: 5px @control-padding-horizontal;
         color: @text-color;
         transition: all 0.3s;
+        &:hover {
+          color: @text-color;
+        }
+      }
+
+      &:first-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
+      }
+
+      &:last-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
       }
 
       &-selected,
@@ -116,7 +146,7 @@
 
         &:hover {
           color: @disabled-color;
-          background-color: @component-background;
+          background-color: @dropdown-menu-submenu-disabled-bg;
           cursor: not-allowed;
         }
       }
@@ -128,10 +158,13 @@
         line-height: 0;
         background-color: @border-color-split;
       }
+
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
         right: @padding-xs;
+
         &-icon {
+          margin-right: 0 !important;
           color: @text-color-secondary;
           font-style: normal;
           .iconfont-size-under-12px(10px);
@@ -139,8 +172,14 @@
       }
     }
 
+    &-item-group-list {
+      margin: 0 8px;
+      padding: 0;
+      list-style: none;
+    }
+
     &-submenu-title {
-      padding-right: 26px;
+      padding-right: @control-padding-horizontal + @font-size-sm;
     }
 
     &-submenu-vertical {
@@ -160,9 +199,14 @@
       &,
       .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
         color: @disabled-color;
-        background-color: @component-background;
+        background-color: @dropdown-menu-submenu-disabled-bg;
         cursor: not-allowed;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/19264
+    &-submenu-selected &-submenu-title {
+      color: @primary-color;
     }
   }
 
@@ -243,3 +287,5 @@
     }
   }
 }
+
+@import './rtl';

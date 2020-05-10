@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ca_ES';
 import DatePicker from '../date-picker/locale/ca_ES';
 import TimePicker from '../time-picker/locale/ca_ES';
 import Calendar from '../calendar/locale/ca_ES';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ca',
   Pagination,
   DatePicker,
@@ -28,7 +29,16 @@ export default {
     itemUnit: 'item',
     itemsUnit: 'items',
   },
+  Upload: {
+    uploading: 'Carregant...',
+    removeFile: 'Elimina el fitxer',
+    uploadError: 'Error de càrrega',
+    previewFile: 'Vista prèvia del fitxer',
+    downloadFile: "Descarrega l'arxiu",
+  },
   Empty: {
     description: 'Sense dades',
   },
 };
+
+export default localeValues;

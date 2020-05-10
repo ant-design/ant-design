@@ -1,24 +1,39 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import * as moment from 'moment';
-import interopDefault from '../_util/interopDefault';
-import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import warning from '../_util/warning';
+
+import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+import { TransferLocale as TransferLocaleForEmpty } from '../empty';
+import { PaginationLocale } from '../pagination/Pagination';
+import { TableLocale } from '../table/interface';
+import { PopconfirmLocale } from '../popconfirm';
+import { UploadLocale } from '../upload/interface';
+import { TransferLocale } from '../transfer';
+import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
+import LocaleContext from './context';
 
 export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
-  Pagination?: Object;
-  DatePicker?: Object;
+  Pagination?: PaginationLocale;
+  DatePicker?: DatePickerLocale;
   TimePicker?: Object;
   Calendar?: Object;
-  Table?: Object;
+  Table?: TableLocale;
   Modal?: ModalLocale;
-  Popconfirm?: Object;
-  Transfer?: Object;
+  Popconfirm?: PopconfirmLocale;
+  Transfer?: Partial<TransferLocale>;
   Select?: Object;
-  Upload?: Object;
+  Upload?: UploadLocale;
+  Empty?: TransferLocaleForEmpty;
+  global?: Object;
+  PageHeader?: Object;
+  Icon?: Object;
+  Text?: Object;
+  Form?: {
+    defaultValidateMessages: ValidateMessages;
+  };
 }
 
 export interface LocaleProviderProps {
@@ -27,30 +42,13 @@ export interface LocaleProviderProps {
   _ANT_MARK__?: string;
 }
 
-function setMomentLocale(locale: Locale) {
-  if (locale && locale.locale) {
-    interopDefault(moment).locale(locale.locale);
-  } else {
-    interopDefault(moment).locale('en');
-  }
-}
-
 export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
-  static propTypes = {
-    locale: PropTypes.object,
-  };
-
   static defaultProps = {
     locale: {},
   };
 
-  static childContextTypes = {
-    antLocale: PropTypes.object,
-  };
-
   constructor(props: LocaleProviderProps) {
     super(props);
-    setMomentLocale(props.locale);
     changeConfirmLocale(props.locale && props.locale.Modal);
 
     warning(
@@ -60,21 +58,11 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     );
   }
 
-  getChildContext() {
-    return {
-      antLocale: {
-        ...this.props.locale,
-        exist: true,
-      },
-    };
-  }
-
   componentDidUpdate(prevProps: LocaleProviderProps) {
     const { locale } = this.props;
     if (prevProps.locale !== locale) {
-      setMomentLocale(locale);
+      changeConfirmLocale(locale && locale.Modal);
     }
-    changeConfirmLocale(locale && locale.Modal);
   }
 
   componentWillUnmount() {
@@ -82,6 +70,10 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   }
 
   render() {
-    return React.Children.only(this.props.children);
+    const { locale, children } = this.props;
+
+    return (
+      <LocaleContext.Provider value={{ ...locale, exist: true }}>{children}</LocaleContext.Provider>
+    );
   }
 }

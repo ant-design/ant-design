@@ -33,7 +33,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showDrawer}>
           Open
         </Button>
@@ -48,10 +48,16 @@ class App extends React.Component {
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Drawer>
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
+```
+
+```css
+[data-theme='compact'] .ant-drawer-body p {
+  margin-bottom: 0px;
+}
 ```

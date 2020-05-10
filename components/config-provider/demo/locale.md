@@ -28,7 +28,8 @@ import {
   Transfer,
   Radio,
 } from 'antd';
-import zhCN from 'antd/lib/locale/zh_CN';
+import enUS from 'antd/es/locale/en_US';
+import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -107,7 +108,7 @@ class Page extends React.Component {
         <div className="example">
           <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
         </div>
-        <div style={{ width: 319, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+        <div className="site-config-provider-calendar-wrapper">
           <Calendar fullscreen={false} value={moment()} />
         </div>
         <div className="example">
@@ -125,7 +126,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      locale: null,
+      locale: enUS,
     };
   }
 
@@ -145,8 +146,8 @@ class App extends React.Component {
       <div>
         <div className="change-locale">
           <span style={{ marginRight: 16 }}>Change locale of components: </span>
-          <Radio.Group defaultValue={undefined} onChange={this.changeLocale}>
-            <Radio.Button key="en" value={undefined}>
+          <Radio.Group value={locale} onChange={this.changeLocale}>
+            <Radio.Button key="en" value={enUS}>
               English
             </Radio.Button>
             <Radio.Button key="cn" value={zhCN}>
@@ -168,16 +169,22 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 ```css
+.site-config-provider-calendar-wrapper {
+  width: 319px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
 .locale-components {
   border-top: 1px solid #d9d9d9;
   padding-top: 16px;
 }
 
-.example {
+.code-box-demo .example {
   margin: 16px 0;
 }
 
-.example > * {
+.code-box-demo .example > * {
   margin-right: 8px;
 }
 
@@ -185,3 +192,12 @@ ReactDOM.render(<App />, mountNode);
   margin-bottom: 16px;
 }
 ```
+
+<style>
+[data-theme="dark"] .locale-components {
+  border-top: 1px solid #303030;
+}
+[data-theme="dark"] .site-config-provider-calendar-wrapper {
+  border: 1px solid #303030;
+}
+</style>

@@ -6,10 +6,7 @@ function getFileName(filePath) {
   return filePath.slice(filePath.lastIndexOf(path.sep) + 1);
 }
 
-$('lib')
-  .isDirectory()
-  .hasFile('index.js')
-  .hasFile('index.d.ts');
+$('lib').isDirectory().hasFile('index.js').hasFile('index.d.ts');
 
 $('lib/*')
   .filter(
@@ -27,11 +24,7 @@ $('lib/*')
   .hasFile('index.d.ts')
   .hasDirectory('style');
 
-$('lib/*/style')
-  .hasFile('css.js')
-  .hasFile('index.js');
-
-$('lib/style').hasFile('v2-compatible-reset.css');
+$('lib/*/style').hasFile('css.js').hasFile('index.js');
 
 // locale
 const filterLocaleFile = filePath => {
@@ -42,7 +35,8 @@ const filterLocaleFile = filePath => {
     !fileName.endsWith('.map') &&
     !fileName.endsWith('style') &&
     !fileName.includes('-') &&
-    !fileName.endsWith('LocaleReceiver.js')
+    !fileName.endsWith('LocaleReceiver.js') &&
+    !fileName.endsWith('context.js')
   );
 };
 const localeFiles = $('lib/locale/*').filter(filterLocaleFile);
@@ -62,5 +56,5 @@ function compare(originFiles, targetFiles, targetPath) {
 compare(localeFiles, localeProviderFiles, '/locale-provider');
 compare(localeProviderFiles, localeFiles, '/locale');
 
-// eslint-disable-next-line
+// eslint-disable-next-line no-console
 console.log(chalk.green('✨ `lib` directory is valid.'));

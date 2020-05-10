@@ -1,5 +1,6 @@
 ---
-category: Principles
+category: Design Patterns
+type: Principles
 order: 10
 title: React Immediately
 ---
@@ -10,15 +11,15 @@ While we can't literally extend Newton's law to the world of user interfaces, we
 
 While there is a possibility of too much feedback (or, more accurately, too much of the wrong feedback—a concept we will discuss in the upcoming chapters), a system with little or no feedback feels sluggish and thickheaded.
 
-> ** Newton's Third Law of Motion **: For every action, there is an equal and opposite reaction, from Wikipedia.
+> **Newton's Third Law of Motion**: For every action, there is an equal and opposite reaction, from Wikipedia.
 
 ---
 
 ## Lookup Patterns
 
-<img class="preview-img" align="right" alt="example of Certain Category" description="The keyword of the user query is only displayed in three categories, Topics, Questions and Articles." src="https://gw.alipayobjects.com/zos/rmsportal/XlqFYhYiZtWFNImtRElR.png">
+<img class="preview-img" align="right" alt="example of Certain Category" description="The keyword of the user query is only displayed in three categories, Topics, Questions and Articles." src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
 
-<img class="preview-img" align="right" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncertain." src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
+<img class="preview-img" align="right" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncertain." src="https://gw.alipayobjects.com/zos/rmsportal/XlqFYhYiZtWFNImtRElR.png">
 
 Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed. Depending on the categories of search results, it can be divided into two types, Certain Category and Uncertain Category.
 

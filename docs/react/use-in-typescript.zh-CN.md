@@ -1,9 +1,11 @@
 ---
-order: 4
+order: 5
 title: 在 TypeScript 中使用
 ---
 
 使用 `create-react-app` 一步步地创建一个 TypeScript 项目，并引入 antd。
+
+> `antd` 基于最新稳定版本的 TypeScript（`>=3.8.4`），请确保项目中使用匹配的版本。
 
 ---
 
@@ -11,10 +13,14 @@ title: 在 TypeScript 中使用
 
 请确保电脑上已经安装了最新版的 [yarn](https://yarnpkg.com) 或者 [npm](https://www.npmjs.com/)。
 
-使用 yarn 创建项目。
+使用 yarn 创建 [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) 项目。
 
 ```bash
-$ yarn create react-app antd-demo-ts --typescript
+$ yarn create react-app antd-demo-ts --template typescript
+
+# or
+
+npx create-react-app my-app --template typescript
 ```
 
 如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。
@@ -138,15 +144,11 @@ $ yarn add babel-plugin-import
 + import { Button } from 'antd';
   import './App.css';
 
-  class App extends Component {
-    render() {
-      return (
-        <div className="App">
-          <Button type="primary">Button</Button>
-        </div>
-      );
-    }
-  }
+  const App: React.FC<{}> = () => (
+    <div className="App">
+      <Button type="primary">Button</Button>
+    </div>
+  );
 
   export default App;
 ```
@@ -155,7 +157,7 @@ $ yarn add babel-plugin-import
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra/blob/master/api.md#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
 
 ```diff
 - const { override, fixBabelImports } = require('customize-cra');
@@ -183,12 +185,12 @@ module.exports = override(
 
 ## 其他方案
 
-先按照 [在 create-react-app 中使用](/docs/react/use-with-create-react-app.en-US.md) 中的说明操作，再配置 TypeScript 开发环境。
+先按照 [在 create-react-app 中使用](/docs/react/use-with-create-react-app) 中的说明操作，再配置 TypeScript 开发环境。
 
 你也可以使用 [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd)，其中包括了 ts-import-plugin，react-app-rewired，scss，less 等插件。你可以通过只运行一个命令来创建一个没有任何配置的新项目。
 
 - [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
-- [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
+- [react-app-rewire-typescript](https://github.com/lwd-technology/react-app-rewire-typescript)
 - [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
 - [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
 - [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)

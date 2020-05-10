@@ -62,7 +62,11 @@ class SearchInput extends React.Component {
   };
 
   handleSearch = value => {
-    fetch(value, data => this.setState({ data }));
+    if (value) {
+      fetch(value, data => this.setState({ data }));
+    } else {
+      this.setState({ data: [] });
+    }
   };
 
   handleChange = value => {

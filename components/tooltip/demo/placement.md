@@ -79,6 +79,11 @@ ReactDOM.render(
   margin-right: 8px;
   margin-bottom: 8px;
 }
+.code-box-demo .ant-btn-rtl {
+  margin-right: 0;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
 #components-tooltip-demo-placement .ant-btn {
   width: 70px;
   text-align: center;

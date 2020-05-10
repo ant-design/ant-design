@@ -1,5 +1,184 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
+<ul
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  role="menu"
+>
+  <li
+    class="ant-menu-item"
+    role="menuitem"
+  >
+    <span
+      aria-label="mail"
+      class="anticon anticon-mail"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="mail"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+        />
+      </svg>
+    </span>
+    <span>
+      Navigation One
+    </span>
+  </li>
+  <li
+    class="ant-menu-item"
+    role="menuitem"
+  >
+    <span
+      aria-label="mail"
+      class="anticon anticon-mail"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="mail"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+        />
+      </svg>
+    </span>
+    <span>
+      Navigation One
+    </span>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+      role="button"
+    >
+      <span
+        aria-label="mail"
+        class="anticon anticon-mail"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="mail"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation One
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+      role="button"
+    >
+      <span
+        aria-label="mail"
+        class="anticon anticon-mail"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="mail"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation One
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
+<ul
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-rtl ant-menu-vertical"
+  direction="rtl"
+  role="menu"
+>
+  <li
+    class="ant-menu-item"
+    role="menuitem"
+  />
+  <li
+    class=" ant-menu-item-group"
+  >
+    <div
+      class="ant-menu-item-group-title"
+    />
+    <ul
+      class="ant-menu-item-group-list"
+    />
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+      role="button"
+      title=""
+    >
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
 exports[`Menu should controlled collapse work 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
@@ -10,9 +189,10 @@ exports[`Menu should controlled collapse work 1`] = `
     role="menuitem"
     style="padding-left: 24px;"
   >
-    <i
-      aria-label="icon: pie-chart"
+    <span
+      aria-label="pie-chart"
       class="anticon anticon-pie-chart"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -25,10 +205,10 @@ exports[`Menu should controlled collapse work 1`] = `
         width="1em"
       >
         <path
-          d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 0 0-282.8 117.1 398.19 398.19 0 0 0-85.7 127.1A397.61 397.61 0 0 0 72 552a398.46 398.46 0 0 0 117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 0 0 472 952a398.46 398.46 0 0 0 282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 0 0 872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 0 1 470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 0 0 589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 0 1 166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
+          d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 00-282.8 117.1 398.19 398.19 0 00-85.7 127.1A397.61 397.61 0 0072 552a398.46 398.46 0 00117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 00472 952a398.46 398.46 0 00282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 00872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 01470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 00589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 01166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
         />
       </svg>
-    </i>
+    </span>
     <span>
       Option 1
     </span>
@@ -46,9 +226,10 @@ exports[`Menu should controlled collapse work 2`] = `
     role="menuitem"
     style="padding-left: 24px;"
   >
-    <i
-      aria-label="icon: pie-chart"
+    <span
+      aria-label="pie-chart"
       class="anticon anticon-pie-chart"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -61,10 +242,10 @@ exports[`Menu should controlled collapse work 2`] = `
         width="1em"
       >
         <path
-          d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 0 0-282.8 117.1 398.19 398.19 0 0 0-85.7 127.1A397.61 397.61 0 0 0 72 552a398.46 398.46 0 0 0 117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 0 0 472 952a398.46 398.46 0 0 0 282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 0 0 872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 0 1 470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 0 0 589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 0 1 166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
+          d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 00-282.8 117.1 398.19 398.19 0 00-85.7 127.1A397.61 397.61 0 0072 552a398.46 398.46 0 00117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 00472 952a398.46 398.46 0 00282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 00872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 01470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 00589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 01166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
         />
       </svg>
-    </i>
+    </span>
     <span>
       Option 1
     </span>
