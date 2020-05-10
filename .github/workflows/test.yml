@@ -235,25 +235,6 @@ jobs:
         run: |
           node -v
           npm run test:image
-    needs: dist
-
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@master
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v1
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: VERCEL Now Deployment
         uses: amondnet/now-deployment@v2.0.3
@@ -262,5 +243,4 @@ jobs:
           now-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
           now-org-id: ${{ secrets.VERCEL_ORG_ID}}
           working-directory: ./jest-stare
-    needs: image
-    if: failure()
+    needs: dist
