@@ -60,6 +60,8 @@ export interface ArgsProps {
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 const iconMap = {
@@ -91,7 +93,8 @@ function notice(args: ArgsProps): MessageType {
       instance.notice({
         key: target,
         duration,
-        style: {},
+        style: args.style || {},
+        className: args.className,
         content: (
           <div className={messageClass}>
             {args.icon || (IconComponent && <IconComponent />)}
