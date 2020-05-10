@@ -87,7 +87,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       </Button>
     );
 
-    const rightButton = <Button type={type}>{icon}</Button>;
+    const rightButton = <Button type={type} icon={icon} />;
 
     const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
 

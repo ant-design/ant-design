@@ -58,7 +58,7 @@ ReactDOM.render(
         <Tooltip title="tooltip" key="leftButton">
           {leftButton}
         </Tooltip>,
-        rightButton,
+        React.cloneElement(rightButton, { loading: true }),
       ]}
     >
       With Tooltip
