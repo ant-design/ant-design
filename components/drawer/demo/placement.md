@@ -41,7 +41,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Space>
           <RadioGroup defaultValue={this.state.placement} onChange={this.onChange}>
             <Radio value="top">top</Radio>
@@ -64,7 +64,7 @@ class App extends React.Component {
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Drawer>
-      </div>
+      </>
     );
   }
 }
