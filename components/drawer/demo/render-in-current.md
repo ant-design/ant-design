@@ -61,14 +61,14 @@ ReactDOM.render(<App />, mountNode);
 
 ```css
 .site-drawer-render-in-current-wrapper {
-  height: 200px;
-  overflow: hidden;
   position: relative;
-  border: 1px solid #ebedf0;
-  border-radius: 2px;
+  height: 200px;
   padding: 48px;
+  overflow: hidden;
   text-align: center;
   background: #fafafa;
+  border: 1px solid #ebedf0;
+  border-radius: 2px;
 }
 ```
 
