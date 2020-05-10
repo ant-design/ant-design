@@ -42,11 +42,19 @@ describe('Slider', () => {
   });
 
   it('should keepAlign by calling forcePopupAlign', async () => {
-    const ref = React.createRef();
-    mount(<SliderTooltip title="30" visible ref={ref} />);
-    ref.current.forcePopupAlign = jest.fn();
+    let ref;
+    mount(
+      <SliderTooltip
+        title="30"
+        visible
+        ref={node => {
+          ref = node;
+        }}
+      />,
+    );
+    ref.forcePopupAlign = jest.fn();
     await sleep(20);
-    expect(ref.current.forcePopupAlign).toHaveBeenCalled();
+    expect(ref.forcePopupAlign).toHaveBeenCalled();
   });
 
   it('tipFormatter should not crash with undefined value', () => {
