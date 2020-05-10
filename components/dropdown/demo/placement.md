@@ -67,4 +67,9 @@ ReactDOM.render(
   margin-right: 8px;
   margin-bottom: 8px;
 }
+.ant-row-rtl #components-dropdown-demo-placement .ant-btn {
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
+}
 ```

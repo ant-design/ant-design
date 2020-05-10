@@ -68,7 +68,10 @@ import moment from 'moment';
 | ----- | -------------------- | ------- | ------ | ----- |
 | order | 始末时间是否自动排序 | boolean | true   | 4.1.0 |
 
-<style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>
+<style>
+.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
+.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
+</style>
 
 ## FAQ
 
