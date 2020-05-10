@@ -314,6 +314,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for mismatch placement', async () => {
+    const ref = React.createRef();
     const wrapper = mount(
       <Tooltip
         title="xxxxx"
@@ -321,6 +322,7 @@ describe('Tooltip', () => {
           points: ['bc', 'tl'],
         }}
         mouseEnterDelay={0}
+        ref={ref}
       >
         <span>Hello world!</span>
       </Tooltip>,
@@ -328,6 +330,6 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     await sleep(600);
-    expect(wrapper.instance().getPopupDomNode().className).toContain('ant-tooltip');
+    expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
   });
 });
