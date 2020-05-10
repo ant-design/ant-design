@@ -243,5 +243,5 @@ jobs:
           now-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
           now-org-id: ${{ secrets.VERCEL_ORG_ID}}
           working-directory: ./jest-stare
-        if: failed()
+        if: failure()
     needs: dist
