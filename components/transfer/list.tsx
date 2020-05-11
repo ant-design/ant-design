@@ -1,13 +1,17 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
+import { DownOutlined } from '@ant-design/icons';
 import Checkbox from '../checkbox';
+import Menu from '../menu';
+import Dropdown from '../dropdown';
 import {
   TransferItem,
   TransferDirection,
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
+  TransferLocale,
 } from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
@@ -30,7 +34,7 @@ export interface RenderedItem {
 
 type RenderListFunction = (props: TransferListBodyProps) => React.ReactNode;
 
-export interface TransferListProps {
+export interface TransferListProps extends TransferLocale {
   prefixCls: string;
   titleText: string;
   dataSource: TransferItem[];
@@ -40,13 +44,12 @@ export interface TransferListProps {
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onItemSelect: (key: string, check: boolean) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
-  onItemRemove?: (key: string) => void;
+  onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
   /** render item */
   render?: (item: TransferItem) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
-  notFoundContent: React.ReactNode;
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction;
@@ -282,8 +285,12 @@ export default class TransferList extends React.PureComponent<
       style,
       searchPlaceholder,
       notFoundContent,
+      selectAll,
+      selectInvert,
+      removeAll,
       renderList,
       onItemSelectAll,
+      onItemRemove,
       showSelectAll,
       showRemove,
     } = this.props;
@@ -320,6 +327,34 @@ export default class TransferList extends React.PureComponent<
     const checkAllCheckbox =
       !showRemove && this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
 
+    let menu: React.ReactElement | null = null;
+    if (showRemove) {
+      menu = (
+        <Menu>
+          <Menu.Item
+            onClick={() => {
+              onItemRemove?.(dataSource.map(data => data.key));
+            }}
+          >
+            {removeAll}
+          </Menu.Item>
+        </Menu>
+      );
+    } else {
+      menu = (
+        <Menu>
+          <Menu.Item>{selectAll}</Menu.Item>
+          <Menu.Item>{selectInvert}</Menu.Item>
+        </Menu>
+      );
+    }
+
+    const dropdown = (
+      <Dropdown className={`${prefixCls}-header-dropdown`} overlay={menu}>
+        <DownOutlined />
+      </Dropdown>
+    );
+
     // ================================== Render ===================================
     return (
       <div className={listCls} style={style}>
@@ -327,9 +362,11 @@ export default class TransferList extends React.PureComponent<
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
-            <span>{this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}</span>
-            <span className={`${prefixCls}-header-title`}>{titleText}</span>
+            {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
           </span>
+          {dropdown}
+
+          <span className={`${prefixCls}-header-title`}>{titleText}</span>
         </div>
 
         {/* Body */}

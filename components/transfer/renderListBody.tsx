@@ -23,7 +23,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   onItemRemove = (item: TransferItem) => {
     const { onItemRemove } = this.props;
-    onItemRemove?.(item.key);
+    onItemRemove?.([item.key]);
   };
 
   render() {

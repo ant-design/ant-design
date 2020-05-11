@@ -74,6 +74,9 @@ export interface TransferLocale {
   itemUnit: string;
   itemsUnit: string;
   remove: string;
+  selectAll: string;
+  selectInvert: string;
+  removeAll: string;
 }
 
 class Transfer extends React.Component<TransferProps, any> {
@@ -241,7 +244,7 @@ class Transfer extends React.Component<TransferProps, any> {
   onRightItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('right', selectedKey, checked);
 
-  onRightItemRemove = (selectedKey: string) => {
+  onRightItemRemove = (selectedKeys: string[]) => {
     const { targetKeys = [], onChange } = this.props;
 
     this.setState({
@@ -250,9 +253,9 @@ class Transfer extends React.Component<TransferProps, any> {
 
     if (onChange) {
       onChange(
-        targetKeys.filter(key => key !== selectedKey),
+        targetKeys.filter(key => !selectedKeys.includes(key)),
         'left',
-        [selectedKey],
+        [...selectedKeys],
       );
     }
   };

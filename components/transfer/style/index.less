@@ -65,6 +65,8 @@
       top: 0;
       left: 0;
       width: 100%;
+      display: flex;
+      align-items: center;
       // border-top is on the transfer dom. We should minus 1px for this
       padding: (@transfer-header-vertical-padding - 1px) @control-padding-horizontal
         @transfer-header-vertical-padding;
@@ -74,13 +76,25 @@
       border-bottom: @border-width-base @border-style-base @border-color-split;
       border-radius: @border-radius-base @border-radius-base 0 0;
 
-      &-title {
-        position: absolute;
-        right: 12px;
+      > *:not(:last-child) {
+        margin-right: 4px;
       }
 
-      .@{ant-prefix}-checkbox-wrapper + span {
-        padding-left: 8px;
+      > * {
+        flex: none;
+      }
+
+      &-title {
+        flex: auto;
+        text-align: right;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &-dropdown {
+        .iconfont-size-under-12px(10px);
+        transform: translateY(10%);
       }
     }
 

@@ -45,6 +45,9 @@ const localeValues: Locale = {
     itemUnit: '项',
     itemsUnit: '项',
     remove: '删除',
+    selectAll: '全选所有',
+    selectInvert: '反选当页',
+    removeAll: '删除全部',
   },
   Upload: {
     uploading: '文件上传中',

@@ -691,6 +691,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       Object {
         "itemUnit": "item",
         "itemsUnit": "items",
+        "remove": "Remove",
         "searchPlaceholder": "Search here",
         "titles": Array [
           "",
@@ -726,6 +727,7 @@ exports[`Transfer should support render value and label in item 1`] = `
         onItemSelectAll={[Function]}
         onScroll={[Function]}
         prefixCls="ant-transfer-list"
+        remove="Remove"
         render={[Function]}
         searchPlaceholder="Search here"
         showSearch={false}
@@ -838,6 +840,7 @@ exports[`Transfer should support render value and label in item 1`] = `
               onItemSelectAll={[Function]}
               onScroll={[Function]}
               prefixCls="ant-transfer-list"
+              remove="Remove"
               render={[Function]}
               searchPlaceholder="Search here"
               selectedKeys={Array []}
@@ -864,58 +867,75 @@ exports[`Transfer should support render value and label in item 1`] = `
                   }
                   key="a"
                   onClick={[Function]}
+                  onRemove={[Function]}
                   prefixCls="ant-transfer-list"
                   renderedEl="label"
                   renderedText="title value"
                 >
-                  <li
-                    className="ant-transfer-list-content-item"
-                    onClick={[Function]}
-                    title="title value"
+                  <LocaleReceiver
+                    componentName="Transfer"
+                    defaultLocale={
+                      Object {
+                        "itemUnit": "item",
+                        "itemsUnit": "items",
+                        "remove": "Remove",
+                        "searchPlaceholder": "Search here",
+                        "titles": Array [
+                          "",
+                          "",
+                        ],
+                      }
+                    }
                   >
-                    <Checkbox
-                      checked={false}
-                      indeterminate={false}
+                    <li
+                      className="ant-transfer-list-content-item"
+                      onClick={[Function]}
+                      title="title value"
                     >
-                      <label
-                        className="ant-checkbox-wrapper"
+                      <Checkbox
+                        checked={false}
+                        indeterminate={false}
                       >
-                        <Checkbox
-                          checked={false}
-                          className=""
-                          defaultChecked={false}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          prefixCls="ant-checkbox"
-                          style={Object {}}
-                          type="checkbox"
+                        <label
+                          className="ant-checkbox-wrapper"
                         >
-                          <span
-                            className="ant-checkbox"
+                          <Checkbox
+                            checked={false}
+                            className=""
+                            defaultChecked={false}
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            prefixCls="ant-checkbox"
                             style={Object {}}
+                            type="checkbox"
                           >
-                            <input
-                              checked={false}
-                              className="ant-checkbox-input"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="checkbox"
-                            />
                             <span
-                              className="ant-checkbox-inner"
-                            />
-                          </span>
-                        </Checkbox>
-                      </label>
-                    </Checkbox>
-                    <span
-                      className="ant-transfer-list-content-item-text"
-                    >
-                      label
-                    </span>
-                  </li>
+                              className="ant-checkbox"
+                              style={Object {}}
+                            >
+                              <input
+                                checked={false}
+                                className="ant-checkbox-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="ant-checkbox-inner"
+                              />
+                            </span>
+                          </Checkbox>
+                        </label>
+                      </Checkbox>
+                      <span
+                        className="ant-transfer-list-content-item-text"
+                      >
+                        label
+                      </span>
+                    </li>
+                  </LocaleReceiver>
                 </Memo(ListItem)>
               </ul>
             </ListBody>
@@ -1135,10 +1155,12 @@ exports[`Transfer should support render value and label in item 1`] = `
             [Function]
           </Context.Consumer>
         }
+        onItemRemove={[Function]}
         onItemSelect={[Function]}
         onItemSelectAll={[Function]}
         onScroll={[Function]}
         prefixCls="ant-transfer-list"
+        remove="Remove"
         render={[Function]}
         searchPlaceholder="Search here"
         showSearch={false}
