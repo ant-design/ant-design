@@ -19,6 +19,16 @@ timeline: true
 
 `2020-05-11`
 
+- Form
+  - 🐞 Fix Form.Item get React warning for `getValueProps`. [#23875](https://github.com/ant-design/ant-design/pull/23875)
+  - 🐞 Fix Form.Item `help` style issue when `validateStatus` is not `error`. [#23945](https://github.com/ant-design/ant-design/pull/23945)
+  - 🌐 Add default `en` default locale template localisations for Form. [#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
+- Table
+  - 🐞 Fix selection column width issue when fix header. [#23806](https://github.com/ant-design/ant-design/pull/23806)
+  - 💄 Adjust selection column css selector priority to enable customize width. [#23914](https://github.com/ant-design/ant-design/pull/23914)
+- DatePicker
+  - 🐞 Fix miss placeholder when `placeholder` is `undefined`. [#23818](https://github.com/ant-design/ant-design/pull/23818)
+  - 🐞 Fix clear icon color style. [#23811](https://github.com/ant-design/ant-design/pull/23811)
 - 🐞 Fix Upload error message location to scroll in the float layer. [#24001](https://github.com/ant-design/ant-design/pull/24001) [@mraiguo](https://github.com/mraiguo)
 - 💄 Tweak Comment render unnecessary div style when `avatar` is empty. [#23994](https://github.com/ant-design/ant-design/pull/23994) [@Xuhao](https://github.com/Xuhao)
 - 🐞 Fix Select `focus` border style in Input.Group. [#23985](https://github.com/ant-design/ant-design/pull/23985)
@@ -27,23 +37,17 @@ timeline: true
 - 💄 Tweak Select close icon position. [#23963](https://github.com/ant-design/ant-design/pull/23963)
 - 🛠 Reduce bundle size via excluding `package.json` from source code. [#23957](https://github.com/ant-design/ant-design/pull/23957)
 - 🛠 Upgrade rc-animate to 3.x. [#23937](https://github.com/ant-design/ant-design/pull/23937)
-- 🐞 Fix Form.Item `help` style issue when `validateStatus` is not `error`. [#23945](https://github.com/ant-design/ant-design/pull/23945)
-- 🌐 Add default `en` default locale template localisations for Form. [#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
 - 🌐 Add Farsi `fa_IR` default locale template localisations. [#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
 - 🐞 Fix Drawer `width="50%"` hidden problem when no mask. [#23925](https://github.com/ant-design/ant-design/pull/23925)
-- 💄 Adjust Table selection column css selector priority to enable customize width. [#23914](https://github.com/ant-design/ant-design/pull/23914)
-- 🐞 Fix Form.Item get React warning for `getValueProps`. [#23875](https://github.com/ant-design/ant-design/pull/23875)
 - 🐞 Fix Textarea with `allowClear` has error height style. [#23835](https://github.com/ant-design/ant-design/pull/23835)
 - 💄 Adjust Modal.xxx function async to avoid block React events. [#23826](https://github.com/ant-design/ant-design/pull/23826)
 - 🐞 Fix Menu with controlled `openKeys` abnormal behavior when `inlineCollapsed` changed. [#23822](https://github.com/ant-design/ant-design/pull/23822)
-- 🐞 Fix DatePicker miss placeholder when `placeholder` is `undefined`. [#23818](https://github.com/ant-design/ant-design/pull/23818)
-- 🛠 Timeline refactors with React Hooks. [#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
-- 🐞 Fix Switch loading style for the dark theme. [#23766](https://github.com/ant-design/ant-design/pull/23766) [@vsn4ik](https://github.com/vsn4ik)
-- 🐞 Fix DatePicker clear icon color style. [#23811](https://github.com/ant-design/ant-design/pull/23811)
-- 🐞 Fix Table selection column width issue when fix header. [#23806](https://github.com/ant-design/ant-design/pull/23806)
-- 🐞 Fix Switch `unCheckedChildren` not showing. [#23791](https://github.com/ant-design/ant-design/pull/23791)
+- Switch
+  - 🐞 Fix loading style for the dark theme. [#23766](https://github.com/ant-design/ant-design/pull/23766) [@vsn4ik](https://github.com/vsn4ik)
+  - 🐞 Fix `unCheckedChildren` not showing. [#23791](https://github.com/ant-design/ant-design/pull/23791)
 - 🐞 Fix Button `loading` animation. [#23783](https://github.com/ant-design/ant-design/pull/23783)
 - 🐞 Fix Slider `marks` selected problem when dragging. [#23773](https://github.com/ant-design/ant-design/pull/23773)
+- 🛠 Timeline refactors with React Hooks. [#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
 - RTL
   - 🐞 Fix Input clear icon style in RTL. [#23999](https://github.com/ant-design/ant-design/pull/23999)
   - 🐞 Fix DatePicker panel style in RTL. [#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)

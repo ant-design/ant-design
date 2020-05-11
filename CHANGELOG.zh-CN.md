@@ -19,6 +19,16 @@ timeline: true
 
 `2020-05-11`
 
+- Form
+  - 🐞 修复 Form.Item 使用 `getValueProps` React 会报警的问题。[#23875](https://github.com/ant-design/ant-design/pull/23875)
+  - 🐞 修复 Form.Item `help` 在 `validateStatus` 不是 `error` 时的样式问题。[#23945](https://github.com/ant-design/ant-design/pull/23945)
+  - 🌐 增加 Form `en` 国际化默认提示模板[#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
+- Table
+  - 🐞 修复 Table 固定表头时选择列的宽度问题。[#23806](https://github.com/ant-design/ant-design/pull/23806)
+  - 💄 调整 Table 选择列 css 选择器优先级以支持自定义宽度。[#23914](https://github.com/ant-design/ant-design/pull/23914)
+- DatePicker
+  - 🐞 修复在 `placeholder` 为 `undefined` 时不展示的问题。[#23818](https://github.com/ant-design/ant-design/pull/23818)
+  - 🐞 修复清除图标的颜色。[#23811](https://github.com/ant-design/ant-design/pull/23811)
 - 🐞 修复 Upload 在浮层中错误提示滚动定位问题。[#24001](https://github.com/ant-design/ant-design/pull/24001) [@mraiguo](https://github.com/mraiguo)
 - 💄 调整 Comment 中 `avatar` 为空时不必要的 div 样式[#23994](https://github.com/ant-design/ant-design/pull/23994) [@Xuhao](https://github.com/Xuhao)
 - 🐞 修复 Input.Group 中 Select 选项 `focus` 边框样式[#23985](https://github.com/ant-design/ant-design/pull/23985)
@@ -27,23 +37,17 @@ timeline: true
 - 💄 微调 Select 移除图标的位置。[#23963](https://github.com/ant-design/ant-design/pull/23963)
 - 🛠 源码中不再引用 `package.json` 从而优化了一点包体积。[#23957](https://github.com/ant-design/ant-design/pull/23957)
 - 🛠 更新 rc-animate 到 3.x 以优化包体积。[#23937](https://github.com/ant-design/ant-design/pull/23937)
-- 🐞 修复 Form.Item `help` 在 `validateStatus` 不是 `error` 时的样式问题。[#23945](https://github.com/ant-design/ant-design/pull/23945)
-- 🌐 增加 Form `en` 国际化默认提示模板[#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
 - 🌐 增加波斯语 `fa_IR` 国际化默认提示模板。[#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
 - 🐞 修复无遮罩的 Drawer 设置 `50%` 宽度时不显示的问题。[#23925](https://github.com/ant-design/ant-design/pull/23925)
-- 💄 调整 Table 选择列 css 选择器优先级以支持自定义宽度。[#23914](https://github.com/ant-design/ant-design/pull/23914)
-- 🐞 修复 Form.Item 使用 `getValueProps` React 会报警的问题。[#23875](https://github.com/ant-design/ant-design/pull/23875)
 - 🐞 修复 Textarea 开启 `allowClear` 时高度错误的问题。[#23835](https://github.com/ant-design/ant-design/pull/23835)
 - 💄 调整 Modal.xxx 方法为异步以防止其影响 React 事件响应。[#23826](https://github.com/ant-design/ant-design/pull/23826)
 - 🐞 修复受控模式 Menu `inlineCollapsed` 折叠时的表现。[#23822](https://github.com/ant-design/ant-design/pull/23822)
-- 🐞 修复 DatePicker 在 `placeholder` 为 `undefined` 时不展示的问题。[#23818](https://github.com/ant-design/ant-design/pull/23818)
-- 🛠 Timeline 使用 React Hooks 重构。[#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
-- 🐞 修复 Switch 暗色主题下的加载样式。[#23766](https://github.com/ant-design/ant-design/pull/23766) [@vsn4ik](https://github.com/vsn4ik)
-- 🐞 修复 DatePicker 清除图标的颜色。[#23811](https://github.com/ant-design/ant-design/pull/23811)
-- 🐞 修复 Table 固定表头时选择列的宽度问题。[#23806](https://github.com/ant-design/ant-design/pull/23806)
-- 🐞 修复 Switch `unCheckedChildren` 不显示的问题。[#23791](https://github.com/ant-design/ant-design/pull/23791)
+- Switch
+  - 🐞 修复暗色主题下的加载样式。[#23766](https://github.com/ant-design/ant-design/pull/23766) [@vsn4ik](https://github.com/vsn4ik)
+  - 🐞 修复 `unCheckedChildren` 不显示的问题。[#23791](https://github.com/ant-design/ant-design/pull/23791)
 - 🐞 修复 Button `loading` 动画。[#23783](https://github.com/ant-design/ant-design/pull/23783)
 - 🐞 修复 Slider 拖拽中选中 `marks` 文本的问题。[#23773](https://github.com/ant-design/ant-design/pull/23773)
+- 🛠 Timeline 使用 React Hooks 重构。[#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
 - RTL
   - 🐞 修复 Input 在 RTL 模式下清空按钮的样式。[#23999](https://github.com/ant-design/ant-design/pull/23999)
   - 🐞 修复 DatePicker 下拉框在 RTL 模式下样式。[#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)
