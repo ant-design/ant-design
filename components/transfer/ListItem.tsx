@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { DeleteOutlined } from '@ant-design/icons';
 import { TransferItem } from '.';
 import Checkbox from '../checkbox';
 
@@ -11,10 +12,20 @@ type ListItemProps = {
   prefixCls: string;
   onClick: (item: TransferItem) => void;
   item: TransferItem;
+  showRemove?: boolean;
 };
 
 const ListItem = (props: ListItemProps) => {
-  const { renderedText, renderedEl, item, checked, disabled, prefixCls, onClick } = props;
+  const {
+    renderedText,
+    renderedEl,
+    item,
+    checked,
+    disabled,
+    prefixCls,
+    onClick,
+    showRemove,
+  } = props;
 
   const className = classNames({
     [`${prefixCls}-content-item`]: true,
@@ -33,8 +44,9 @@ const ListItem = (props: ListItemProps) => {
       title={title}
       onClick={disabled || item.disabled ? undefined : () => onClick(item)}
     >
-      <Checkbox checked={checked} disabled={disabled || item.disabled} />
+      {!showRemove && <Checkbox checked={checked} disabled={disabled || item.disabled} />}
       <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>
+      {showRemove && <DeleteOutlined />}
     </li>
   );
 

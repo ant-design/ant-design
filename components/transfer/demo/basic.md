@@ -3,6 +3,7 @@ order: 0
 title:
   zh-CN: 基本用法
   en-US: Basic
+only: true
 ---
 
 ## zh-CN
@@ -14,7 +15,7 @@ title:
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ```jsx
-import { Transfer, Switch } from 'antd';
+import { Space, Transfer, Switch } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -33,6 +34,7 @@ class App extends React.Component {
     targetKeys: oriTargetKeys,
     selectedKeys: [],
     disabled: false,
+    oneWay: false,
   };
 
   handleChange = (nextTargetKeys, direction, moveKeys) => {
@@ -59,8 +61,12 @@ class App extends React.Component {
     this.setState({ disabled });
   };
 
+  handleOneWay = oneWay => {
+    this.setState({ oneWay });
+  };
+
   render() {
-    const { targetKeys, selectedKeys, disabled } = this.state;
+    const { targetKeys, selectedKeys, disabled, oneWay } = this.state;
     return (
       <div>
         <Transfer
@@ -73,14 +79,22 @@ class App extends React.Component {
           onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
+          oneWay={oneWay}
         />
-        <Switch
-          unCheckedChildren="disabled"
-          checkedChildren="disabled"
-          checked={disabled}
-          onChange={this.handleDisable}
-          style={{ marginTop: 16 }}
-        />
+        <Space style={{ marginTop: 16 }}>
+          <Switch
+            unCheckedChildren="disabled"
+            checkedChildren="disabled"
+            checked={disabled}
+            onChange={this.handleDisable}
+          />
+          <Switch
+            unCheckedChildren="one way"
+            checkedChildren="one way"
+            checked={oneWay}
+            onChange={this.handleOneWay}
+          />
+        </Space>
       </div>
     );
   }

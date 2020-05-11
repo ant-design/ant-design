@@ -41,6 +41,7 @@ export interface TransferListProps {
   onItemSelect: (key: string, check: boolean) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   handleClear: () => void;
+  /** render item */
   render?: (item: TransferItem) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
@@ -54,6 +55,7 @@ export interface TransferListProps {
   direction: TransferDirection;
   showSelectAll?: boolean;
   selectAllLabel?: SelectAllLabel;
+  showRemove?: boolean;
 }
 
 interface TransferListState {

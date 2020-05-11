@@ -28,6 +28,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
       filteredRenderItems,
       selectedKeys,
       disabled: globalDisabled,
+      showRemove,
     } = this.props;
 
     return (
@@ -46,6 +47,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
               checked={checked}
               prefixCls={prefixCls}
               onClick={this.onItemSelect}
+              showRemove={showRemove}
             />
           );
         })}

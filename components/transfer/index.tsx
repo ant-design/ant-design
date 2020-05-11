@@ -64,6 +64,7 @@ export interface TransferProps {
   children?: (props: TransferListBodyProps) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
+  oneWay?: boolean;
 }
 
 export interface TransferLocale {
@@ -317,6 +318,7 @@ class Transfer extends React.Component<TransferProps, any> {
           render,
           children,
           showSelectAll,
+          oneWay,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -369,6 +371,7 @@ class Transfer extends React.Component<TransferProps, any> {
               style={operationStyle}
               disabled={disabled}
               direction={direction}
+              oneWay={oneWay}
             />
             <List
               prefixCls={`${prefixCls}-list`}
@@ -390,6 +393,7 @@ class Transfer extends React.Component<TransferProps, any> {
               direction="right"
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[1]}
+              showRemove={oneWay}
               {...locale}
             />
           </div>

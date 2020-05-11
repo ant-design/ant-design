@@ -109,18 +109,26 @@
       overflow: auto;
       list-style: none;
       &-item {
+        display: flex;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
         overflow: hidden;
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
-        white-space: nowrap;
-        text-overflow: ellipsis;
         transition: all 0.3s;
-        > span {
-          padding-right: 0;
+
+        > *:not(:last-child) {
+          margin-right: 8px;
         }
+
+        > * {
+          flex: none;
+        }
+
         &-text {
-          padding-left: 8px;
+          flex: auto;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
       }
 
