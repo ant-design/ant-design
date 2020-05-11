@@ -46,6 +46,7 @@ timeline: true
 - 🐞 Fix Slider `marks` selected problem when dragging. [#23773](https://github.com/ant-design/ant-design/pull/23773)
 - RTL
   - 🐞 Fix Input clear icon style in RTL. [#23999](https://github.com/ant-design/ant-design/pull/23999)
+  - 🐞 Fix DatePicker panel style in RTL. [#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 Optimize DatePicker active bar style in `RTL`. [#23981](https://github.com/ant-design/ant-design/pull/23981)
   - 🐞 Fix Transfer search padding style in `RTL`. [#23962](https://github.com/ant-design/ant-design/pull/23962)
   - 💄 Optimize Layout style of RTL. [#23921](https://github.com/ant-design/ant-design/pull/23921)

@@ -46,6 +46,7 @@ timeline: true
 - 🐞 修复 Slider 拖拽中选中 `marks` 文本的问题。[#23773](https://github.com/ant-design/ant-design/pull/23773)
 - RTL
   - 🐞 修复 Input 在 RTL 模式下清空按钮的样式。[#23999](https://github.com/ant-design/ant-design/pull/23999)
+  - 🐞 修复 DatePicker 下拉框在 RTL 模式下样式。[#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)
   - 💄 优化 DatePick 在 `RTL` 模式下的激活条样式。[#23981](https://github.com/ant-design/ant-design/pull/23981)
   - 🐞 修复 Transfer 查询框在 `RTL` 模式下的边距样式。[#23962](https://github.com/ant-design/ant-design/pull/23962)
   - 💄 优化 Layout RTL 样式。[#23921](https://github.com/ant-design/ant-design/pull/23921)
