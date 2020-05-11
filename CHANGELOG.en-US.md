@@ -20,7 +20,6 @@ timeline: true
 `2020-05-11`
 
 - 🐞 Fix Upload error message location to scroll in the float layer. [#24001](https://github.com/ant-design/ant-design/pull/24001) [@mraiguo](https://github.com/mraiguo)
-- 🐞 Fix Input clear icon style in RTL. [#23999](https://github.com/ant-design/ant-design/pull/23999)
 - 💄 Tweak Comment render unnecessary div style when `avatar` is empty. [#23994](https://github.com/ant-design/ant-design/pull/23994) [@Xuhao](https://github.com/Xuhao)
 - 🐞 Fix Select `focus` border style in Input.Group. [#23985](https://github.com/ant-design/ant-design/pull/23985)
 - 🐞 Fix Steps `subTitle` showing `[object Object]` title. [#23989](https://github.com/ant-design/ant-design/pull/23989)
@@ -46,8 +45,9 @@ timeline: true
 - 🐞 Fix Button `loading` animation. [#23783](https://github.com/ant-design/ant-design/pull/23783)
 - 🐞 Fix Slider `marks` selected problem when dragging. [#23773](https://github.com/ant-design/ant-design/pull/23773)
 - RTL
+  - 🐞 Fix Input clear icon style in RTL. [#23999](https://github.com/ant-design/ant-design/pull/23999)
   - 💄 Optimize DatePicker active bar style in `RTL`. [#23981](https://github.com/ant-design/ant-design/pull/23981)
-  - 💄 Fix Transfer search padding style in `RTL`. [#23962](https://github.com/ant-design/ant-design/pull/23962)
+  - 🐞 Fix Transfer search padding style in `RTL`. [#23962](https://github.com/ant-design/ant-design/pull/23962)
   - 💄 Optimize Layout style of RTL. [#23921](https://github.com/ant-design/ant-design/pull/23921)
   - 💄 Optimize Button `loading` style in RT. [#23776](https://github.com/ant-design/ant-design/pull/23776)
   - 💄 Optimize Input.Search style in RTL. [#23797](https://github.com/ant-design/ant-design/pull/23797)
