@@ -74,8 +74,6 @@ export { default as InputNumber } from './input-number';
 
 export { default as Layout } from './layout';
 
-export { default as Link } from './link';
-
 export { default as List } from './list';
 
 export { default as message } from './message';
