@@ -8,9 +8,6 @@ exports[`Comment rtl render component should be rendered correctly in RTL direct
     class="ant-comment-inner"
   >
     <div
-      class="ant-comment-avatar"
-    />
-    <div
       class="ant-comment-content"
     >
       <div

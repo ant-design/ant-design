@@ -73,7 +73,7 @@ module.exports = {
     'app.footer.scaffolds': '脚手架市场',
     'app.footer.dev-tools': '开发工具',
     'app.footer.umi': 'React 应用开发框架',
-    'app.footer.dva': '数据流前端框架',
+    'app.footer.dumi': '组件/文档研发工具',
     'app.footer.remax': '全新的小程序开发体验',
     'app.footer.hooks': 'React Hooks 库',
     'app.footer.resources': '相关资源',

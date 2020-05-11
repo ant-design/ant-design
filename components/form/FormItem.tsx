@@ -46,7 +46,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   required?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
-  fieldKey?: number;
+  fieldKey?: React.Key | React.Key[];
 }
 
 function hasValidName(name?: NamePath): Boolean {
@@ -82,6 +82,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   function setDomErrorVisible(visible: boolean) {
@@ -155,6 +156,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
+    if (domErrorVisible && help) {
+      prevValidateStatusRef.current = mergedValidateStatus;
+    }
+
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
@@ -166,7 +171,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
       [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && mergedValidateStatus !== 'error',
+        !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
     };
 
@@ -186,6 +191,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
+          'isListField',
           'label',
           'labelAlign',
           'labelCol',
@@ -250,7 +256,8 @@ function FormItem(props: FormItemProps): React.ReactElement {
         if (noStyle) {
           nameRef.current = [...mergedName];
           if (fieldKey) {
-            nameRef.current[nameRef.current.length - 1] = fieldKey;
+            const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
+            nameRef.current = [...mergedName.slice(-1), ...fieldKeys];
           }
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }

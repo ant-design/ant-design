@@ -40,10 +40,11 @@ class App extends React.Component {
   };
 
   render() {
+    const { placement, visible } = this.state;
     return (
-      <div>
+      <>
         <Space>
-          <RadioGroup defaultValue={this.state.placement} onChange={this.onChange}>
+          <RadioGroup defaultValue={placement} onChange={this.onChange}>
             <Radio value="top">top</Radio>
             <Radio value="right">right</Radio>
             <Radio value="bottom">bottom</Radio>
@@ -55,16 +56,17 @@ class App extends React.Component {
         </Space>
         <Drawer
           title="Basic Drawer"
-          placement={this.state.placement}
+          placement={placement}
           closable={false}
           onClose={this.onClose}
-          visible={this.state.visible}
+          visible={visible}
+          key={placement}
         >
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Drawer>
-      </div>
+      </>
     );
   }
 }

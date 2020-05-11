@@ -74,7 +74,7 @@ module.exports = {
     'app.footer.scaffolds': 'Scaffold Market',
     'app.footer.dev-tools': 'Developer Tools',
     'app.footer.umi': 'React Application Framework',
-    'app.footer.dva': 'Data Flow Framework',
+    'app.footer.dumi': 'Component doc generator',
     'app.footer.remax': 'Mini Program Framework',
     'app.footer.hooks': 'React Hooks Library',
     'app.footer.resources': 'Resources',

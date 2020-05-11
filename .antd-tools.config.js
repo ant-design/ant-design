@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-// eslint-disable-next-line import/no-extraneous-dependencies
-const packageInfo = require('./package.json');
 const defaultVars = require('./scripts/default-vars');
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
@@ -17,30 +15,6 @@ module.exports = {
 // We need compile additional content for antd user
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './lib'))) {
-    // Build package.json version to lib/version/index.js
-    // prevent json-loader needing in user-side
-    const versionFilePath = path.join(process.cwd(), 'lib', 'version', 'index.js');
-    const versionFileContent = fs.readFileSync(versionFilePath).toString();
-    fs.writeFileSync(
-      versionFilePath,
-      versionFileContent.replace(
-        /require\(('|")\.\.\/\.\.\/package\.json('|")\)/,
-        `{ version: '${packageInfo.version}' }`,
-      ),
-    );
-    // eslint-disable-next-line no-console
-    console.log('Wrote version into lib/version/index.js');
-
-    // Build package.json version to lib/version/index.d.ts
-    // prevent https://github.com/ant-design/ant-design/issues/4935
-    const versionDefPath = path.join(process.cwd(), 'lib', 'version', 'index.d.ts');
-    fs.writeFileSync(
-      versionDefPath,
-      `declare var _default: "${packageInfo.version}";\nexport default _default;\n`,
-    );
-    // eslint-disable-next-line no-console
-    console.log('Wrote version into lib/version/index.d.ts');
-
     // Build a entry less file to dist/antd.less
     const componentsPath = path.join(process.cwd(), 'components');
     let componentsLessContent = '';
@@ -156,4 +130,3 @@ module.exports = {
   },
   generateThemeFileContent,
 };
-finalizeDist();
