@@ -231,10 +231,18 @@ jobs:
           path: es
           key: es-${{ github.sha }}
 
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
+        with:
+          trigger: '/UI-TEST'
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
       - name: test
         run: |
           node -v
           npm run test:image
+        if: steps.check.outputs.triggered == 'true'
 
       - name: VERCEL Now Deployment
         uses: amondnet/now-deployment@v2.0.3
