@@ -39,16 +39,21 @@
     line-height: @line-height-base;
 
     &::after {
+      & when (@descriptions-item-trailing-colon=true) {
+        content: ':';
+      }
+      & when not (@descriptions-item-trailing-colon=true) {
+        content: ' ';
+      }
+
       position: relative;
       top: -0.5px;
-      margin: 0 8px 0 2px;
-      content: ' ';
+      margin: 0 @descriptions-item-label-colon-margin-right 0
+        @descriptions-item-label-colon-margin-left;
     }
-  }
 
-  &-item-colon {
-    &::after {
-      content: ':';
+    &.@{descriptions-prefix-cls}-item-no-colon::after {
+      content: ' ';
     }
   }
 
