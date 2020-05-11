@@ -104,7 +104,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Created
                   </span>
@@ -119,7 +119,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Association
                   </span>
@@ -136,7 +136,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Creation Time
                   </span>
@@ -155,7 +155,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Effective Time
                   </span>
@@ -170,7 +170,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   colspan="2"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Remarks
                   </span>
@@ -828,7 +828,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Created
                   </span>
@@ -843,7 +843,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Association
                   </span>
@@ -860,7 +860,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Creation Time
                   </span>
@@ -879,7 +879,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   colspan="1"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Effective Time
                   </span>
@@ -894,7 +894,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   colspan="2"
                 >
                   <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    class="ant-descriptions-item-label"
                   >
                     Remarks
                   </span>
@@ -1024,7 +1024,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       colspan="1"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Created
                       </span>
@@ -1039,7 +1039,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       colspan="1"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Association
                       </span>
@@ -1060,7 +1060,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       colspan="1"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Creation Time
                       </span>
@@ -1075,7 +1075,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       colspan="1"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Effective Time
                       </span>
@@ -1094,7 +1094,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       colspan="2"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Remarks
                       </span>
