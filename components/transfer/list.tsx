@@ -40,6 +40,7 @@ export interface TransferListProps {
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onItemSelect: (key: string, check: boolean) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+  onItemRemove?: (key: string) => void;
   handleClear: () => void;
   /** render item */
   render?: (item: TransferItem) => RenderResult;
@@ -284,6 +285,7 @@ export default class TransferList extends React.PureComponent<
       renderList,
       onItemSelectAll,
       showSelectAll,
+      showRemove,
     } = this.props;
 
     // Custom Layout
@@ -315,12 +317,8 @@ export default class TransferList extends React.PureComponent<
     // ================================ List Footer ================================
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-    const checkAllCheckbox = this.getCheckBox(
-      filteredItems,
-      onItemSelectAll,
-      showSelectAll,
-      disabled,
-    );
+    const checkAllCheckbox =
+      !showRemove && this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
 
     // ================================== Render ===================================
     return (

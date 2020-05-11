@@ -241,6 +241,22 @@ class Transfer extends React.Component<TransferProps, any> {
   onRightItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('right', selectedKey, checked);
 
+  onRightItemRemove = (selectedKey: string) => {
+    const { targetKeys = [], onChange } = this.props;
+
+    this.setState({
+      [this.getSelectedKeysName('right')]: [],
+    });
+
+    if (onChange) {
+      onChange(
+        targetKeys.filter(key => key !== selectedKey),
+        'left',
+        [selectedKey],
+      );
+    }
+  };
+
   handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     const { onScroll } = this.props;
     if (onScroll) {
@@ -385,6 +401,7 @@ class Transfer extends React.Component<TransferProps, any> {
               handleClear={this.handleRightClear}
               onItemSelect={this.onRightItemSelect}
               onItemSelectAll={this.onRightItemSelectAll}
+              onItemRemove={this.onRightItemRemove}
               render={render}
               showSearch={showSearch}
               renderList={children}

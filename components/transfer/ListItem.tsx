@@ -14,6 +14,7 @@ type ListItemProps = {
   checked?: boolean;
   prefixCls: string;
   onClick: (item: TransferItem) => void;
+  onRemove?: (item: TransferItem) => void;
   item: TransferItem;
   showRemove?: boolean;
 };
@@ -27,6 +28,7 @@ const ListItem = (props: ListItemProps) => {
     disabled,
     prefixCls,
     onClick,
+    onRemove,
     showRemove,
   } = props;
 
@@ -56,6 +58,9 @@ const ListItem = (props: ListItemProps) => {
                 <TransButton
                   className={`${prefixCls}-content-item-remove`}
                   aria-label={transferLocale.remove}
+                  onClick={() => {
+                    onRemove?.(item);
+                  }}
                 >
                   <DeleteOutlined />
                 </TransButton>

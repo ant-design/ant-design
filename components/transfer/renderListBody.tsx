@@ -21,6 +21,11 @@ class ListBody extends React.Component<TransferListBodyProps> {
     onItemSelect(item.key, !checked);
   };
 
+  onItemRemove = (item: TransferItem) => {
+    const { onItemRemove } = this.props;
+    onItemRemove?.(item.key);
+  };
+
   render() {
     const {
       prefixCls,
@@ -47,6 +52,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
               checked={checked}
               prefixCls={prefixCls}
               onClick={this.onItemSelect}
+              onRemove={this.onItemRemove}
               showRemove={showRemove}
             />
           );
