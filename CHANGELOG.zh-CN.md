@@ -49,7 +49,7 @@ timeline: true
 - 📦 包体积优化
   - 🗑 移除 `react-lifecycles-compat` 依赖以优化包体积。[#23969](https://github.com/ant-design/ant-design/pull/23969)
   - 🛠 源码中不再引用 `package.json` 从而优化了一点包体积。[#23957](https://github.com/ant-design/ant-design/pull/23957)
-  - 🛠 更新 rc-animate 到 3.x 以优化包体积。[#23937](https://github.com/ant-design/ant-design/pull/23937)
+  - 🛠 更新 `rc-animate` 到 3.x 以优化包体积。[#23937](https://github.com/ant-design/ant-design/pull/23937)
 - RTL
   - 🐞 修复 Input 在 RTL 模式下清空按钮的样式。[#23999](https://github.com/ant-design/ant-design/pull/23999)
   - 🐞 修复 DatePicker 下拉框在 RTL 模式下样式。[#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)

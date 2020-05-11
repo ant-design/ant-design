@@ -49,7 +49,7 @@ timeline: true
 - 📦 Reduce bundle size
   - 🗑 Reduce bundle size via removing `react-lifecycles-compat`. [#23969](https://github.com/ant-design/ant-design/pull/23969)
   - 🛠 Reduce bundle size via excluding `package.json` from source code. [#23957](https://github.com/ant-design/ant-design/pull/23957)
-  - 🛠 Upgrade rc-animate to 3.x to reduce bundle size. [#23937](https://github.com/ant-design/ant-design/pull/23937)
+  - 🛠 Upgrade `rc-animate` to 3.x to reduce bundle size. [#23937](https://github.com/ant-design/ant-design/pull/23937)
 - RTL
   - 🐞 Fix Input clear icon style in RTL. [#23999](https://github.com/ant-design/ant-design/pull/23999)
   - 🐞 Fix DatePicker panel style in RTL. [#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)
