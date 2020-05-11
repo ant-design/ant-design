@@ -44,6 +44,7 @@ const localeValues: Locale = {
     searchPlaceholder: 'Search here',
     itemUnit: 'item',
     itemsUnit: 'items',
+    remove: 'Remove',
   },
   Upload: {
     uploading: 'Uploading...',

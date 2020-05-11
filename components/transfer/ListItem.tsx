@@ -1,8 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { DeleteOutlined } from '@ant-design/icons';
-import { TransferItem } from '.';
+import { TransferItem, TransferLocale } from '.';
+import defaultLocale from '../locale/default';
 import Checkbox from '../checkbox';
+import TransButton from '../_util/transButton';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 type ListItemProps = {
   renderedText?: string | number;
@@ -38,19 +41,40 @@ const ListItem = (props: ListItemProps) => {
     title = String(renderedText);
   }
 
-  const listItem = (
-    <li
-      className={className}
-      title={title}
-      onClick={disabled || item.disabled ? undefined : () => onClick(item)}
-    >
-      {!showRemove && <Checkbox checked={checked} disabled={disabled || item.disabled} />}
-      <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>
-      {showRemove && <DeleteOutlined />}
-    </li>
-  );
+  return (
+    <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
+      {(transferLocale: TransferLocale) => {
+        const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
+        const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
 
-  return listItem;
+        // Show remove
+        if (showRemove) {
+          return (
+            <li {...liProps}>
+              {labelNode}
+              {showRemove && (
+                <TransButton
+                  className={`${prefixCls}-content-item-remove`}
+                  aria-label={transferLocale.remove}
+                >
+                  <DeleteOutlined />
+                </TransButton>
+              )}
+            </li>
+          );
+        }
+
+        // Default click to select
+        liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
+        return (
+          <li {...liProps}>
+            {!showRemove && <Checkbox checked={checked} disabled={disabled || item.disabled} />}
+            {labelNode}
+          </li>
+        );
+      }}
+    </LocaleReceiver>
+  );
 };
 
 export default React.memo(ListItem);

@@ -73,6 +73,7 @@ export interface TransferLocale {
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
+  remove: string;
 }
 
 class Transfer extends React.Component<TransferProps, any> {

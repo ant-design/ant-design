@@ -110,6 +110,7 @@
       list-style: none;
       &-item {
         display: flex;
+        align-items: center;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
         overflow: hidden;
@@ -129,6 +130,10 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
+        }
+
+        &-remove {
+          color: @border-color-base;
         }
       }
 

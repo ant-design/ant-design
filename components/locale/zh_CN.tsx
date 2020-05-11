@@ -44,6 +44,7 @@ const localeValues: Locale = {
     searchPlaceholder: '请输入搜索内容',
     itemUnit: '项',
     itemsUnit: '项',
+    remove: '删除',
   },
   Upload: {
     uploading: '文件上传中',
