@@ -53,7 +53,7 @@ timeline: true
   - 💄 优化 Button `loading` 状态在 RTL 下样式。[#23776](https://github.com/ant-design/ant-design/pull/23776)
   - 💄 优化 Input.Search RTL 样式。[#23797](https://github.com/ant-design/ant-design/pull/23797)
 - TypeScript
-  - 修复 InputNumber `onChange` 类型。[#23871](https://github.com/ant-design/ant-design/pull/23871) [@Jurriaan BW](https://github.com/Jurriaan BW)
+  - 🐞 修复 InputNumber `onChange` 类型。[#23871](https://github.com/ant-design/ant-design/pull/23871) [@jjhbw](https://github.com/jjhbw)
 
 ## 4.2.0
 

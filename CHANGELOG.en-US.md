@@ -53,7 +53,7 @@ timeline: true
   - 💄 Optimize Button `loading` style in RT. [#23776](https://github.com/ant-design/ant-design/pull/23776)
   - 💄 Optimize Input.Search style in RTL. [#23797](https://github.com/ant-design/ant-design/pull/23797)
 - TypeScript
-  - Fix InputNumber `onChange` type. [#23871](https://github.com/ant-design/ant-design/pull/23871) [@Jurriaan BW](https://github.com/Jurriaan BW)
+  - 🐞 Fix InputNumber `onChange` type. [#23871](https://github.com/ant-design/ant-design/pull/23871) [@jjhbw](https://github.com/jjhbw)
 
 ## 4.2.0
 
