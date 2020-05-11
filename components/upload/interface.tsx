@@ -104,11 +104,8 @@ export interface UploadProps<T = any> {
   id?: string;
   previewFile?: PreviewFileHandler;
   transformFile?: TransformFileHandler;
-<<<<<<< HEAD
-=======
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
->>>>>>> upstream/feature
 }
 
 export interface UploadState<T = any> {
