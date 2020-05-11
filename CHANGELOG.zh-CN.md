@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.2.2
+
+`2020-05-11`
+
+- 🐞 修复安装 antd `npm run version` 报错的问题。[#24059](https://github.com/ant-design/ant-design/pull/24059)
+- 🐞 修复 Menu @menu-item-font-size 变量失效的问题。[#24052](https://github.com/ant-design/ant-design/pull/24052)
+
 ## 4.2.1
 
 `2020-05-11`
