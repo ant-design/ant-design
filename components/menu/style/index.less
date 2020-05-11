@@ -10,6 +10,7 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   color: @menu-item-color;
+  font-size: @menu-item-font-size;
   line-height: 0; // Fix display inline-block gap
   list-style: none;
   background: @menu-bg;
@@ -33,7 +34,7 @@
     height: @menu-item-group-height;
     padding: 8px 16px;
     color: @menu-item-group-title-color;
-    font-size: @font-size-base;
+    font-size: @menu-item-group-title-font-size;
     line-height: @menu-item-group-height;
     transition: all 0.3s;
   }
@@ -176,7 +177,7 @@
       background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
-      margin-right: @menu-item-icon-margin-right;
+      margin-right: @menu-icon-margin-right;
       font-size: @menu-icon-size;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
@@ -398,7 +399,6 @@
       margin-bottom: @menu-item-vertical-margin;
       padding: 0 16px;
       overflow: hidden;
-      font-size: @menu-item-font-size;
       line-height: @menu-item-height;
       text-overflow: ellipsis;
     }
