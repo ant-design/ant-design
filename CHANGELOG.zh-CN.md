@@ -27,7 +27,6 @@ timeline: true
 - 🗑 移除 `react-lifecycles-compat` 依赖以优化包体积。[#23969](https://github.com/ant-design/ant-design/pull/23969)
 - 💄 微调 Select 移除图标的位置。[#23963](https://github.com/ant-design/ant-design/pull/23963)
 - 🛠 源码中不再引用 `package.json` 从而优化了一点包体积。[#23957](https://github.com/ant-design/ant-design/pull/23957)
-- 🛠 打包提供 esbuild 构建方式。[#23930](https://github.com/ant-design/ant-design/pull/23930)
 - 🛠 更新 rc-animate 到 3.x 以优化包体积。[#23937](https://github.com/ant-design/ant-design/pull/23937)
 - 🐞 修复 Form.Item `help` 在 `validateStatus` 不是 `error` 时的样式问题。[#23945](https://github.com/ant-design/ant-design/pull/23945)
 - 🌐 增加 Form `en` 国际化默认提示模板[#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)

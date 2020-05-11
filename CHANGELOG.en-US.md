@@ -27,7 +27,6 @@ timeline: true
 - 🗑 Reduce bundle size via removing `react-lifecycles-compat`. [#23969](https://github.com/ant-design/ant-design/pull/23969)
 - 💄 Tweak Select close icon position. [#23963](https://github.com/ant-design/ant-design/pull/23963)
 - 🛠 Reduce bundle size via excluding `package.json` from source code. [#23957](https://github.com/ant-design/ant-design/pull/23957)
-- 🛠 Packed with esbuild build mode [#23930](https://github.com/ant-design/ant-design/pull/23930)
 - 🛠 Upgrade rc-animate to 3.x. [#23937](https://github.com/ant-design/ant-design/pull/23937)
 - 🐞 Fix Form.Item `help` style issue when `validateStatus` is not `error`. [#23945](https://github.com/ant-design/ant-design/pull/23945)
 - 🌐 Add default `en` default locale template localisations for Form. [#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
