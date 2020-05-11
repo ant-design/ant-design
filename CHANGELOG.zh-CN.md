@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.17
+
+`2020-05-11`
+
+- 🐞 修复 `loading` 按钮在 Badge 中遮挡样式的问题。[#23691](https://github.com/ant-design/ant-design/pull/23691) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Table 筛选菜单在 less 版本为 2.x 时不显示的问题。[#23272](https://github.com/ant-design/ant-design/pull/23272)
+
 ## 3.26.16
 
 `2020-04-26`

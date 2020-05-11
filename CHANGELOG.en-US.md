@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.17
+
+`2020-05-11`
+
+- 🐞 Fix the problem that the badge number style is blocked when putting the `loading` button into the badge. [#23691](https://github.com/ant-design/ant-design/pull/23691) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Table filter menu no height when less version is 2.x. [#23272](https://github.com/ant-design/ant-design/pull/23272)
+
 ## 3.26.16
 
 `2020-04-26`
