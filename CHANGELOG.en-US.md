@@ -29,25 +29,26 @@ timeline: true
 - DatePicker
   - 🐞 Fix miss placeholder when `placeholder` is `undefined`. [#23818](https://github.com/ant-design/ant-design/pull/23818)
   - 🐞 Fix clear icon color style. [#23811](https://github.com/ant-design/ant-design/pull/23811)
+- Switch
+  - 🐞 Fix loading style for the dark theme. [#23766](https://github.com/ant-design/ant-design/pull/23766) [@vsn4ik](https://github.com/vsn4ik)
+  - 🐞 Fix `unCheckedChildren` not showing. [#23791](https://github.com/ant-design/ant-design/pull/23791)
 - 🐞 Fix Upload error message location to scroll in the float layer. [#24001](https://github.com/ant-design/ant-design/pull/24001) [@mraiguo](https://github.com/mraiguo)
 - 💄 Tweak Comment render unnecessary div style when `avatar` is empty. [#23994](https://github.com/ant-design/ant-design/pull/23994) [@Xuhao](https://github.com/Xuhao)
 - 🐞 Fix Select `focus` border style in Input.Group. [#23985](https://github.com/ant-design/ant-design/pull/23985)
 - 🐞 Fix Steps `subTitle` showing `[object Object]` title. [#23989](https://github.com/ant-design/ant-design/pull/23989)
-- 🗑 Reduce bundle size via removing `react-lifecycles-compat`. [#23969](https://github.com/ant-design/ant-design/pull/23969)
 - 💄 Tweak Select close icon position. [#23963](https://github.com/ant-design/ant-design/pull/23963)
-- 🛠 Reduce bundle size via excluding `package.json` from source code. [#23957](https://github.com/ant-design/ant-design/pull/23957)
-- 🛠 Upgrade rc-animate to 3.x. [#23937](https://github.com/ant-design/ant-design/pull/23937)
 - 🌐 Add Farsi `fa_IR` default locale template localisations. [#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
 - 🐞 Fix Drawer `width="50%"` hidden problem when no mask. [#23925](https://github.com/ant-design/ant-design/pull/23925)
 - 🐞 Fix Textarea with `allowClear` has error height style. [#23835](https://github.com/ant-design/ant-design/pull/23835)
 - 💄 Adjust Modal.xxx function async to avoid block React events. [#23826](https://github.com/ant-design/ant-design/pull/23826)
 - 🐞 Fix Menu with controlled `openKeys` abnormal behavior when `inlineCollapsed` changed. [#23822](https://github.com/ant-design/ant-design/pull/23822)
-- Switch
-  - 🐞 Fix loading style for the dark theme. [#23766](https://github.com/ant-design/ant-design/pull/23766) [@vsn4ik](https://github.com/vsn4ik)
-  - 🐞 Fix `unCheckedChildren` not showing. [#23791](https://github.com/ant-design/ant-design/pull/23791)
 - 🐞 Fix Button `loading` animation. [#23783](https://github.com/ant-design/ant-design/pull/23783)
 - 🐞 Fix Slider `marks` selected problem when dragging. [#23773](https://github.com/ant-design/ant-design/pull/23773)
 - 🛠 Timeline refactors with React Hooks. [#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
+- Reduce bundle size
+  - 🗑 Reduce bundle size via removing `react-lifecycles-compat`. [#23969](https://github.com/ant-design/ant-design/pull/23969)
+  - 🛠 Reduce bundle size via excluding `package.json` from source code. [#23957](https://github.com/ant-design/ant-design/pull/23957)
+  - 🛠 Upgrade rc-animate to 3.x to reduce bundle size. [#23937](https://github.com/ant-design/ant-design/pull/23937)
 - RTL
   - 🐞 Fix Input clear icon style in RTL. [#23999](https://github.com/ant-design/ant-design/pull/23999)
   - 🐞 Fix DatePicker panel style in RTL. [#24028](https://github.com/ant-design/ant-design/pull/24028) [@xrkffgg](https://github.com/xrkffgg)
