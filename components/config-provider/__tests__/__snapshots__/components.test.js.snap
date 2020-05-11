@@ -13444,24 +13444,22 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           <div
             class="config-modal-footer"
           >
-            <div>
-              <button
-                class="config-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn config-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="config-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn config-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13539,24 +13537,22 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
           <div
             class="config-modal-footer"
           >
-            <div>
-              <button
-                class="config-btn config-btn-lg"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn config-btn-primary config-btn-lg"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="config-btn config-btn-lg"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn config-btn-primary config-btn-lg"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13634,24 +13630,22 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
           <div
             class="config-modal-footer"
           >
-            <div>
-              <button
-                class="config-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn config-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="config-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn config-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13729,24 +13723,22 @@ exports[`ConfigProvider components Modal normal 1`] = `
           <div
             class="ant-modal-footer"
           >
-            <div>
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="ant-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13824,24 +13816,22 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           <div
             class="prefix-Modal-footer"
           >
-            <div>
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="ant-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
