@@ -21,6 +21,7 @@ timeline: true
 
 - 🐞 Fix `npm run version` install error. [#24059](https://github.com/ant-design/ant-design/pull/24059)
 - 🐞 Fix Menu `@menu-item-font-size` not working. [#24052](https://github.com/ant-design/ant-design/pull/24052)
+- 💄 Add `@modal-close-color` less variable. [#24053](https://github.com/ant-design/ant-design/pull/24053)
 
 ## 4.2.1
 
