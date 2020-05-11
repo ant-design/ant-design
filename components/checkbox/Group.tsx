@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
@@ -46,13 +45,6 @@ export const GroupContext = React.createContext<CheckboxGroupContext | null>(nul
 class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-  };
-
-  static propTypes = {
-    defaultValue: PropTypes.array,
-    value: PropTypes.array,
-    options: PropTypes.array.isRequired,
-    onChange: PropTypes.func,
   };
 
   static getDerivedStateFromProps(nextProps: CheckboxGroupProps) {
