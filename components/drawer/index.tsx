@@ -141,9 +141,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
       offsetStyle.width = width;
-      offsetStyle.height = '100%';
     } else {
-      offsetStyle.width = '100%';
       offsetStyle.height = height;
     }
     return offsetStyle;
