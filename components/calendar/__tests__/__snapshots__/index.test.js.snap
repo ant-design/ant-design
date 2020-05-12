@@ -28,6 +28,7 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
@@ -86,6 +87,7 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
@@ -967,6 +969,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1024,6 +1027,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>

@@ -114,7 +114,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | specify which way that column is aligned | `left` \| `right` \| `center` | `left` |  |
-| ellipsis | ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false |  |
+| ellipsis | ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }`. | boolean \| { showTitle?: boolean } | false | showTitle: 4.3.0 |
 | className | className of this column | string | - |  |
 | colSpan | Span of this column's title | number | - |  |
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |

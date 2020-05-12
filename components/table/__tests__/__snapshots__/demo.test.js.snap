@@ -4322,6 +4322,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -4560,6 +4561,300 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        unselectable="unselectable"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <a
+            class="ant-pagination-item-link"
+            disabled=""
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a>
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <a
+            class="ant-pagination-item-link"
+            disabled=""
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:80px;min-width:80px"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Address"
+                  >
+                    Address
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Long Column Long Column Long Column"
+                  >
+                    Long Column Long Column Long Column
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Long Column Long Column"
+                  >
+                    Long Column Long Column
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Long Column"
+                  >
+                    Long Column
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      John Brown
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Jim Green
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Joe Black
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                  >
+                    <span>
+                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -6573,6 +6868,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -7809,6 +8105,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -8780,6 +9077,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
