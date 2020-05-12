@@ -117,6 +117,7 @@ export default class TransferList extends React.PureComponent<
     return 'part';
   }
 
+  // ================================ Item ================================
   getFilteredItems(
     dataSource: TransferItem[],
     filterValue: string,
@@ -140,6 +141,42 @@ export default class TransferList extends React.PureComponent<
     return { filteredItems, filteredRenderItems };
   }
 
+  // =============================== Filter ===============================
+  handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { handleFilter } = this.props;
+    const {
+      target: { value: filterValue },
+    } = e;
+    this.setState({ filterValue });
+    handleFilter(e);
+  };
+
+  handleClear = () => {
+    const { handleClear } = this.props;
+    this.setState({ filterValue: '' });
+    handleClear();
+  };
+
+  matchFilter = (text: string, item: TransferItem) => {
+    const { filterValue } = this.state;
+    const { filterOption } = this.props;
+    if (filterOption) {
+      return filterOption(filterValue, item);
+    }
+    return text.indexOf(filterValue) >= 0;
+  };
+
+  // ============================== Dropdown ==============================
+  onSelectAll = () => {};
+
+  onSelectCurrent = () => {};
+
+  onRemoveAll = () => {
+    const { onItemRemove, dataSource } = this.props;
+    onItemRemove?.(dataSource.map(data => data.key));
+  };
+
+  // =============================== Render ===============================
   getListBody(
     prefixCls: string,
     searchPlaceholder: string,
@@ -222,30 +259,6 @@ export default class TransferList extends React.PureComponent<
     return checkAllCheckbox;
   }
 
-  handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { handleFilter } = this.props;
-    const {
-      target: { value: filterValue },
-    } = e;
-    this.setState({ filterValue });
-    handleFilter(e);
-  };
-
-  handleClear = () => {
-    const { handleClear } = this.props;
-    this.setState({ filterValue: '' });
-    handleClear();
-  };
-
-  matchFilter = (text: string, item: TransferItem) => {
-    const { filterValue } = this.state;
-    const { filterOption } = this.props;
-    if (filterOption) {
-      return filterOption(filterValue, item);
-    }
-    return text.indexOf(filterValue) >= 0;
-  };
-
   renderItem = (item: TransferItem): RenderedItem => {
     const { render = defaultRender } = this.props;
     const renderResult: RenderResult = render(item);
@@ -290,6 +303,7 @@ export default class TransferList extends React.PureComponent<
       selectAll,
       selectInvert,
       removeAll,
+      removeCurrent,
       renderList,
       onItemSelectAll,
       onItemRemove,
@@ -335,13 +349,19 @@ export default class TransferList extends React.PureComponent<
     if (showRemove) {
       menu = (
         <Menu>
-          <Menu.Item
-            onClick={() => {
-              onItemRemove?.(dataSource.map(data => data.key));
-            }}
-          >
-            {removeAll}
-          </Menu.Item>
+          {/* Remove Current Page */}
+          {pagination && (
+            <Menu.Item
+              onClick={() => {
+                onItemRemove?.(dataSource.map(data => data.key));
+              }}
+            >
+              {removeCurrent}
+            </Menu.Item>
+          )}
+
+          {/* Remove All */}
+          <Menu.Item onClick={this.onRemoveAll}>{removeAll}</Menu.Item>
         </Menu>
       );
     } else {

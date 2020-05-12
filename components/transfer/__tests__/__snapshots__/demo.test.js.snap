@@ -29,13 +29,31 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -228,13 +246,31 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -372,14 +408,32 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
         <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            14 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
+          14 items
+        </span>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            Source
-          </span>
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        >
+          Source
         </span>
       </div>
       <div
@@ -828,14 +882,32 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
         <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            6 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
+          6 items
+        </span>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            Target
-          </span>
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        >
+          Target
         </span>
       </div>
       <div
@@ -1068,13 +1140,31 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1212,13 +1302,31 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1306,13 +1414,31 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          Select All
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        Select All
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1578,13 +1704,31 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0/3
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0/3
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1678,7 +1822,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
   class="ant-transfer"
 >
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-list ant-transfer-list-with-pagination"
   >
     <div
       class="ant-transfer-list-header"
@@ -1701,13 +1845,31 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1821,7 +1983,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer-list ant-transfer-list-with-pagination"
   >
     <div
       class="ant-transfer-list-header"
@@ -1844,13 +2006,31 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1938,13 +2118,31 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -2117,13 +2315,31 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -2233,13 +2449,31 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
         <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            14 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
+          14 items
         </span>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
       </div>
       <div
         class="ant-transfer-list-body"
@@ -2914,13 +3148,31 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
         <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            6 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
+          6 items
         </span>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
       </div>
       <div
         class="ant-transfer-list-body"
@@ -3297,13 +3549,31 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
         <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            5 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
+          5 items
         </span>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
       </div>
       <div
         class="ant-transfer-list-body"
@@ -3560,13 +3830,31 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
         <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            0 item
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
+          0 item
         </span>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
       </div>
       <div
         class="ant-transfer-list-body"

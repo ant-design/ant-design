@@ -8,6 +8,7 @@ import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { TransferListBodyProps } from './renderListBody';
 import { PaginationType } from './interface';
+import warning from '../_util/warning';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -77,8 +78,10 @@ export interface TransferLocale {
   itemsUnit: string;
   remove: string;
   selectAll: string;
+  selectCurrent: string;
   selectInvert: string;
   removeAll: string;
+  removeCurrent: string;
 }
 
 class Transfer extends React.Component<TransferProps, any> {
@@ -96,14 +99,26 @@ class Transfer extends React.Component<TransferProps, any> {
     listStyle: () => {},
   };
 
-  static getDerivedStateFromProps(nextProps: TransferProps) {
-    if (nextProps.selectedKeys) {
-      const targetKeys = nextProps.targetKeys || [];
+  static getDerivedStateFromProps({
+    selectedKeys,
+    targetKeys,
+    pagination,
+    children,
+  }: TransferProps) {
+    if (selectedKeys) {
+      const mergedTargetKeys = targetKeys || [];
       return {
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
+        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
+        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
       };
     }
+
+    warning(
+      !pagination || !children,
+      'Transfer',
+      '`pagination` not support customize render list.',
+    );
+
     return null;
   }
 
