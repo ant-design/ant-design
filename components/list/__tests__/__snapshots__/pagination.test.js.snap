@@ -218,6 +218,7 @@ exports[`List.pagination should change page size work 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
@@ -360,6 +361,7 @@ exports[`List.pagination should change page size work 2`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
@@ -630,6 +632,7 @@ exports[`List.pagination should default work 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
