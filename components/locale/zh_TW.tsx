@@ -5,7 +5,7 @@ import TimePicker from '../time-picker/locale/zh_TW';
 import Calendar from '../calendar/locale/zh_TW';
 import { Locale } from '../locale-provider';
 
-const typeTemplate = '${label}不是一个有效的${type}';
+const typeTemplate = '${label}不是一個有效的${type}';
 
 const localeValues: Locale = {
   locale: 'zh-tw',
@@ -18,8 +18,8 @@ const localeValues: Locale = {
   },
   Table: {
     filterTitle: '篩選器',
-    filterConfirm: '確 定',
-    filterReset: '重 置',
+    filterConfirm: '確定',
+    filterReset: '重置',
     selectAll: '全部選取',
     selectInvert: '反向選取',
     selectionAll: '全選所有',
@@ -31,13 +31,13 @@ const localeValues: Locale = {
     cancelSort: '取消排序',
   },
   Modal: {
-    okText: '確 定',
-    cancelText: '取 消',
+    okText: '確定',
+    cancelText: '取消',
     justOkText: 'OK',
   },
   Popconfirm: {
-    okText: '確 定',
-    cancelText: '取 消',
+    okText: '確定',
+    cancelText: '取消',
   },
   Transfer: {
     searchPlaceholder: '搜尋資料',
