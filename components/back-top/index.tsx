@@ -107,7 +107,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     );
     return (
       <Animate component="" transitionName="fade">
-        {this.getVisible() ? <div>{children || defaultElement}</div> : null}
+        {this.getVisible() ? <div>{children || defaultElement}</div> : ""}
       </Animate>
     );
   }
