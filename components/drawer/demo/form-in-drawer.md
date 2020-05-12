@@ -36,7 +36,7 @@ class DrawerForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showDrawer}>
           <PlusOutlined /> New account
         </Button>
@@ -157,7 +157,7 @@ class DrawerForm extends React.Component {
             </Row>
           </Form>
         </Drawer>
-      </div>
+      </>
     );
   }
 }

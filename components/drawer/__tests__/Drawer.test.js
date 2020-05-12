@@ -93,19 +93,15 @@ describe('Drawer', () => {
   it('forceRender works', () => {
     const wrapper = mount(
       <Drawer>
-        <button type="button" className="forceRender">
-          should not be rendered
-        </button>
+        <button type="button" className="forceRender">should not be rendered</button>
       </Drawer>,
     );
     expect(wrapper.find('button.forceRender').length).toBe(0);
     const wrapper2 = mount(
       <Drawer forceRender>
-        <button type="button" className="forceRender">
-          should be rendered
-        </button>
+        <button type="button" className="forceRender">should be rendered</button>
       </Drawer>,
     );
     expect(wrapper2.find('button.forceRender').length).toBe(1);
-  });
+  })
 });

@@ -84,4 +84,8 @@ ReactDOM.render(
 .custom-icons-list > .anticon {
   margin-right: 6px;
 }
+.ant-row-rtl .custom-icons-list > .anticon {
+  margin-right: 0;
+  margin-left: 6px;
+}
 ```

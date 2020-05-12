@@ -29,11 +29,21 @@ describe('Pagination', () => {
       return originalElement;
     }
     const wrapper = mount(<Pagination defaultCurrent={1} total={50} itemRender={itemRender} />);
-    expect(wrapper.find('button').at(0).props().disabled).toBe(true);
+    expect(
+      wrapper
+        .find('button')
+        .at(0)
+        .props().disabled,
+    ).toBe(true);
   });
 
   it('should autometically be small when size is not specified', async () => {
     const wrapper = mount(<Pagination responsive />);
-    expect(wrapper.find('ul').at(0).hasClass('mini')).toBe(true);
+    expect(
+      wrapper
+        .find('ul')
+        .at(0)
+        .hasClass('mini'),
+    ).toBe(true);
   });
 });

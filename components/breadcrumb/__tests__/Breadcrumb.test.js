@@ -111,7 +111,7 @@ describe('Breadcrumb', () => {
   it('should accept undefined routes', () => {
     const wrapper = render(<Breadcrumb routes={undefined} />);
     expect(wrapper).toMatchSnapshot();
-  });
+   })
 
   it('props#linkRender and props#nameRender do not warn anymore', () => {
     const linkRender = jest.fn();

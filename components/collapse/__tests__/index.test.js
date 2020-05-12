@@ -65,7 +65,10 @@ describe('Collapse', () => {
       </Collapse>,
     );
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(false);
-    wrapper.find('.ant-collapse-header').at(0).simulate('click');
+    wrapper
+      .find('.ant-collapse-header')
+      .at(0)
+      .simulate('click');
     await sleep(400);
     expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
   });
@@ -78,7 +81,10 @@ describe('Collapse', () => {
         </Collapse.Panel>
       </Collapse>,
     );
-    wrapper.find('.ant-collapse-header').at(0).simulate('click');
+    wrapper
+      .find('.ant-collapse-header')
+      .at(0)
+      .simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

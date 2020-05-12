@@ -130,7 +130,12 @@ describe('CheckboxGroup', () => {
     wrapper.setProps({
       children: [<Checkbox key={1} value={2} />],
     });
-    expect(wrapper.find('.ant-checkbox-input').at(0).prop('checked')).toBe(false);
+    expect(
+      wrapper
+        .find('.ant-checkbox-input')
+        .at(0)
+        .prop('checked'),
+    ).toBe(false);
   });
 
   // https://github.com/ant-design/ant-design/issues/17297

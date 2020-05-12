@@ -19,7 +19,7 @@ import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-const type = 'DragbleBodyRow';
+const type = 'DragableBodyRow';
 
 const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
   const ref = React.useRef();

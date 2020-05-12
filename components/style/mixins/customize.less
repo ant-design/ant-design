@@ -1,8 +1,6 @@
 // customize dark components background in popover containers(like Modal, Drawer, Card, Popover, Popconfirm, Notification, ...)
 // for dark theme
-.popover-customize-bg(@containerClass, @background: @popover-background, @prefix: @ant-prefix)
-  when
-  (@theme = dark) {
+.popover-customize-bg(@containerClass, @background: @popover-background, @prefix: @ant-prefix) when (@theme = dark) {
   @picker-prefix-cls: ~'@{prefix}-picker';
   @slider-prefix-cls: ~'@{prefix}-slider';
   @anchor-prefix-cls: ~'@{prefix}-anchor';
@@ -20,12 +18,7 @@
   @popover-border: @border-width-base @border-style-base @popover-customize-border-color;
 
   .@{containerClass} {
-    .@{picker-prefix-cls}-clear,
-    .@{slider-prefix-cls}-handle,
-    .@{anchor-prefix-cls}-wrapper,
-    .@{collapse-prefix-cls}-content,
-    .@{timeline-prefix-cls}-item-head,
-    .@{card-prefix-cls} {
+    .@{picker-prefix-cls}-clear, .@{slider-prefix-cls}-handle, .@{anchor-prefix-cls}-wrapper, .@{collapse-prefix-cls}-content, .@{timeline-prefix-cls}-item-head, .@{card-prefix-cls} {
       background-color: @background;
     }
 
@@ -84,8 +77,7 @@
         > tr {
           > td {
             border-bottom: @popover-border;
-            &.@{table-prefix-cls}-cell-fix-left,
-            &.@{table-prefix-cls}-cell-fix-right {
+            &.@{table-prefix-cls}-cell-fix-left, &.@{table-prefix-cls}-cell-fix-right {
               background-color: @background;
             }
           }

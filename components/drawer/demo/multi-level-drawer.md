@@ -45,7 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showDrawer}>
           Open drawer
         </Button>
@@ -69,7 +69,7 @@ class App extends React.Component {
             This is two-level drawer
           </Drawer>
         </Drawer>
-      </div>
+      </>
     );
   }
 }

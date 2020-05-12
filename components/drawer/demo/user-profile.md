@@ -40,7 +40,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <List
           dataSource={[
             {
@@ -162,7 +162,7 @@ class App extends React.Component {
             </Col>
           </Row>
         </Drawer>
-      </div>
+      </>
     );
   }
 }
@@ -172,10 +172,10 @@ ReactDOM.render(<App />, mountNode);
 
 ```css
 .site-description-item-profile-wrapper {
+  margin-bottom: 7px;
   color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
   line-height: 1.5715;
-  margin-bottom: 7px;
 }
 
 [data-theme='compact'] .site-description-item-profile-wrapper {
@@ -184,11 +184,11 @@ ReactDOM.render(<App />, mountNode);
 }
 
 .ant-drawer-body p.site-description-item-profile-p {
+  display: block;
+  margin-bottom: 16px;
   color: rgba(0, 0, 0, 0.85);
   font-size: 16px;
   line-height: 1.5715;
-  display: block;
-  margin-bottom: 16px;
 }
 
 [data-theme='compact'] .ant-drawer-body p.site-description-item-profile-p {
@@ -197,8 +197,8 @@ ReactDOM.render(<App />, mountNode);
 }
 
 .site-description-item-profile-p-label {
-  margin-right: 8px;
   display: inline-block;
+  margin-right: 8px;
   color: rgba(0, 0, 0, 0.85);
 }
 ```

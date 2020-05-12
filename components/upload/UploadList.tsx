@@ -313,7 +313,13 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       });
       return (
         <div key={file.uid} className={listContainerNameClass}>
-          {file.status === 'error' ? <Tooltip title={message}>{dom}</Tooltip> : <span>{dom}</span>}
+          {file.status === 'error' ? (
+            <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+              {dom}
+            </Tooltip>
+          ) : (
+            <span>{dom}</span>
+          )}
         </div>
       );
     });

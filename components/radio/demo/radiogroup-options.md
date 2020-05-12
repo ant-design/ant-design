@@ -62,7 +62,11 @@ class App extends React.Component {
       <>
         <Radio.Group options={plainOptions} onChange={this.onChange1} value={value1} />
         <Radio.Group options={options} onChange={this.onChange2} value={value2} />
-        <Radio.Group options={optionsWithDisabled} onChange={this.onChange3} value={value3} />
+        <Radio.Group
+          options={optionsWithDisabled}
+          onChange={this.onChange3}
+          value={value3}
+        />
       </>
     );
   }

@@ -61,6 +61,7 @@ Array [
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -127,6 +128,7 @@ Array [
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -529,6 +531,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -587,6 +590,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -1122,6 +1126,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1236,6 +1241,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1523,6 +1529,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1580,6 +1587,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1642,6 +1650,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1727,6 +1736,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -1819,6 +1829,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>

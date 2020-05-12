@@ -100,7 +100,9 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
 
   return (
     <SizeContextProvider size={size}>
-      <FormContext.Provider value={formContextValue}>
+      <FormContext.Provider
+        value={formContextValue}
+      >
         <FieldForm
           id={name}
           {...formProps}

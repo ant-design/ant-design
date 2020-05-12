@@ -13,7 +13,7 @@ import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
 // eslint-disable-next-line import/no-unresolved
 import zhCN from 'antd/es/locale/zh_CN';
-import DemoHeader2 from './Header/DemoHeader2';
+import DemoHeader from './Header/DemoHeader';
 import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
@@ -251,7 +251,7 @@ export default class Layout extends React.Component {
               <ThemeProvider>
                 <DefaultAppLayoutProvider appLayoutVariant="app">
                   <LayoutAntd>
-                    <DemoHeader2
+                    <DemoHeader
                       ismobile={isMobile}
                       {...restProps}
                       changeDirection={this.changeDirection}

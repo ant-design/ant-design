@@ -126,7 +126,7 @@
       .@{table-prefix-cls}-wrapper:only-child {
         .@{table-prefix-cls} {
           margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-                ceil((@remToPx * @font-size-sm) * 1.4));
+            ceil((@remToPx * @font-size-sm) * 1.4));
 
           td {
             background: transparent;
@@ -354,10 +354,8 @@
   }
 
   // ========================== Selections ==========================
-  colgroup {
-    > col.@{table-prefix-cls}-selection-col {
-      width: @table-selection-column-width;
-    }
+  .@{table-prefix-cls}-selection-col {
+    width: @table-selection-column-width;
   }
 
   &-selection-column,

@@ -1788,6 +1788,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -1845,6 +1846,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -2723,6 +2725,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -3067,6 +3070,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -3124,6 +3128,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -4002,6 +4007,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -4346,6 +4352,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -4403,6 +4410,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -5281,6 +5289,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -5625,6 +5634,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -5682,6 +5692,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -6560,6 +6571,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -6904,6 +6916,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -6961,6 +6974,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -7839,6 +7853,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -9418,9 +9433,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
     class="config-comment-inner"
   >
     <div
-      class="config-comment-avatar"
-    />
-    <div
       class="config-comment-content"
     >
       <div
@@ -9442,9 +9454,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
       <div
         class="config-comment-inner"
       >
-        <div
-          class="config-comment-avatar"
-        />
         <div
           class="config-comment-content"
         >
@@ -9471,9 +9480,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
     class="config-comment-inner"
   >
     <div
-      class="config-comment-avatar"
-    />
-    <div
       class="config-comment-content"
     >
       <div
@@ -9495,9 +9501,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
       <div
         class="config-comment-inner"
       >
-        <div
-          class="config-comment-avatar"
-        />
         <div
           class="config-comment-content"
         >
@@ -9524,9 +9527,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
     class="config-comment-inner"
   >
     <div
-      class="config-comment-avatar"
-    />
-    <div
       class="config-comment-content"
     >
       <div
@@ -9548,9 +9548,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
       <div
         class="config-comment-inner"
       >
-        <div
-          class="config-comment-avatar"
-        />
         <div
           class="config-comment-content"
         >
@@ -9577,9 +9574,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
     class="ant-comment-inner"
   >
     <div
-      class="ant-comment-avatar"
-    />
-    <div
       class="ant-comment-content"
     >
       <div
@@ -9601,9 +9595,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
       <div
         class="ant-comment-inner"
       >
-        <div
-          class="ant-comment-avatar"
-        />
         <div
           class="ant-comment-content"
         >
@@ -9630,9 +9621,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
     class="prefix-Comment-inner"
   >
     <div
-      class="prefix-Comment-avatar"
-    />
-    <div
       class="prefix-Comment-content"
     >
       <div
@@ -9654,9 +9642,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
       <div
         class="prefix-Comment-inner"
       >
-        <div
-          class="prefix-Comment-avatar"
-        />
         <div
           class="prefix-Comment-content"
         >
@@ -11118,7 +11103,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default"
+    class="config-btn config-dropdown-trigger config-btn-default config-btn-icon-only"
     type="button"
   >
     <span
@@ -11158,7 +11143,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default config-btn-lg"
+    class="config-btn config-dropdown-trigger config-btn-default config-btn-lg config-btn-icon-only"
     type="button"
   >
     <span
@@ -11198,7 +11183,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default"
+    class="config-btn config-dropdown-trigger config-btn-default config-btn-icon-only"
     type="button"
   >
     <span
@@ -11238,7 +11223,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default"
+    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span
@@ -11278,7 +11263,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default"
+    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span
@@ -13479,24 +13464,22 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           <div
             class="config-modal-footer"
           >
-            <div>
-              <button
-                class="config-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn config-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="config-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn config-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13574,24 +13557,22 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
           <div
             class="config-modal-footer"
           >
-            <div>
-              <button
-                class="config-btn config-btn-lg"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn config-btn-primary config-btn-lg"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="config-btn config-btn-lg"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn config-btn-primary config-btn-lg"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13669,24 +13650,22 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
           <div
             class="config-modal-footer"
           >
-            <div>
-              <button
-                class="config-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn config-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="config-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="config-btn config-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13764,24 +13743,22 @@ exports[`ConfigProvider components Modal normal 1`] = `
           <div
             class="ant-modal-footer"
           >
-            <div>
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="ant-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -13859,24 +13836,22 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           <div
             class="prefix-Modal-footer"
           >
-            <div>
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+            <button
+              class="ant-btn"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
         <div
@@ -14105,6 +14080,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -14251,6 +14227,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -14402,6 +14379,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -14548,6 +14526,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -14699,6 +14678,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -14845,6 +14825,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -14996,6 +14977,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -15142,6 +15124,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -15293,6 +15276,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -15439,6 +15423,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              unselectable="on"
               value=""
             />
           </span>
@@ -17997,6 +17982,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -18116,6 +18102,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -18235,6 +18222,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -18354,6 +18342,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -18473,6 +18462,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -30537,6 +30527,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -30649,6 +30640,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -30761,6 +30753,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -30873,6 +30866,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -30985,6 +30979,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>

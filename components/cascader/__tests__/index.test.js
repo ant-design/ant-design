@@ -487,4 +487,9 @@ describe('Cascader', () => {
       .simulate('click');
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
+
+  it('defaultValue works correctly when no match options', () => {
+    const wrapper = mount(<Cascader options={options} defaultValue={['options1', 'options2']} />);
+    expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('options1 / options2');
+  });
 });

@@ -163,7 +163,7 @@ exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-closable"
     data-show="true"
@@ -202,7 +202,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
     data-show="true"
@@ -243,8 +243,8 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
@@ -275,7 +275,7 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"
@@ -288,7 +288,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-success"
     data-show="true"
@@ -321,7 +321,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-info"
     data-show="true"
@@ -354,7 +354,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-warning"
     data-show="true"
@@ -387,7 +387,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error"
     data-show="true"
@@ -420,7 +420,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-success ant-alert-with-description"
     data-show="true"
@@ -455,7 +455,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     >
       Detailed description and advices about successful copywriting.
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-info ant-alert-with-description"
     data-show="true"
@@ -490,7 +490,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     >
       Additional description and informations about copywriting.
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-warning ant-alert-with-description"
     data-show="true"
@@ -525,7 +525,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     >
       This is a warning notice about copywriting.
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error ant-alert-with-description"
     data-show="true"
@@ -560,12 +560,12 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     >
       This is an error message about copywriting.
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/alert/demo/description.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
     data-show="true"
@@ -580,7 +580,7 @@ exports[`renders ./components/alert/demo/description.md correctly 1`] = `
     >
       Success Description Success Description Success Description
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
     data-show="true"
@@ -595,7 +595,7 @@ exports[`renders ./components/alert/demo/description.md correctly 1`] = `
     >
       Info Description Info Description Info Description Info Description
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
     data-show="true"
@@ -610,7 +610,7 @@ exports[`renders ./components/alert/demo/description.md correctly 1`] = `
     >
       Warning Description Warning Description Warning Description Warning Description
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
     data-show="true"
@@ -625,8 +625,8 @@ exports[`renders ./components/alert/demo/description.md correctly 1`] = `
     >
       Error Description Error Description Error Description Error Description
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
@@ -641,7 +641,7 @@ exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-success"
     data-show="true"
@@ -674,7 +674,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-info"
     data-show="true"
@@ -707,7 +707,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-warning ant-alert-closable"
     data-show="true"
@@ -766,7 +766,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error"
     data-show="true"
@@ -799,7 +799,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-success ant-alert-with-description"
     data-show="true"
@@ -837,7 +837,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     >
       Detailed description and advice about successful copywriting.
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-info ant-alert-with-description"
     data-show="true"
@@ -875,7 +875,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     >
       Additional description and information about copywriting.
     </span>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-closable"
     data-show="true"
@@ -939,7 +939,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error ant-alert-with-description"
     data-show="true"
@@ -977,8 +977,8 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     >
       This is an error message about copywriting.
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
@@ -1080,7 +1080,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/style.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"
@@ -1093,7 +1093,7 @@ exports[`renders ./components/alert/demo/style.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"
     data-show="true"
@@ -1106,7 +1106,7 @@ exports[`renders ./components/alert/demo/style.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon"
     data-show="true"
@@ -1119,7 +1119,7 @@ exports[`renders ./components/alert/demo/style.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-alert ant-alert-error ant-alert-no-icon"
     data-show="true"
@@ -1132,6 +1132,6 @@ exports[`renders ./components/alert/demo/style.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
-</div>
+  </div>,
+]
 `;

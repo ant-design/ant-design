@@ -99,8 +99,8 @@
       cursor: pointer;
       transition: all 0.3s;
 
-      > .anticon:first-child,
-      > span > .anticon:first-child {
+      > .@{iconfont-css-prefix}:first-child,
+      > span > .@{iconfont-css-prefix}:first-child {
         min-width: 12px;
         margin-right: 8px;
         font-size: @font-size-sm;
@@ -250,10 +250,12 @@
 .@{dropdown-prefix-cls}-button {
   white-space: nowrap;
 
-  &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
+  &.@{ant-prefix}-btn-group
+    > .@{ant-prefix}-btn:last-child:not(:first-child):not(.@{ant-prefix}-btn-icon-only) {
     padding-right: @padding-xs;
     padding-left: @padding-xs;
   }
+
   .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
   }

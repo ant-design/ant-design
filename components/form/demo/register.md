@@ -251,10 +251,7 @@ const RegistrationForm = () => {
         name="agreement"
         valuePropName="checked"
         rules={[
-          {
-            validator: (_, value) =>
-              value ? Promise.resolve() : Promise.reject('Should accept agreement'),
-          },
+          { validator:(_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
         ]}
         {...tailFormItemLayout}
       >
