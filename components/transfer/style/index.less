@@ -31,6 +31,7 @@
     flex-direction: column;
 
     &-with-pagination {
+      width: 250px;
       height: auto;
     }
 
@@ -158,6 +159,12 @@
         color: @btn-disable-color;
         cursor: not-allowed;
       }
+    }
+
+    &-pagination {
+      flex: none;
+      align-self: flex-end;
+      padding: @padding-xs 0;
     }
 
     &-body-not-found {

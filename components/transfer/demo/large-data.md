@@ -1,18 +1,17 @@
 ---
 order: 4
-debug: true
 title:
-  zh-CN: 大数据性能测试
-  en-US: Performance Test
+  zh-CN: 分页
+  en-US: Pagination
 ---
 
 ## zh-CN
 
-2000 条数据。
+大数据下使用分页。
 
 ## en-US
 
-2000 items.
+large count of items with pagination.
 
 ```jsx
 import { Transfer } from 'antd';

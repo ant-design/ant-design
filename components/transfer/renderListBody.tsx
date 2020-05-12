@@ -70,6 +70,10 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
     onItemRemove?.([item.key]);
   };
 
+  onPageChange = (current: number) => {
+    this.setState({ current });
+  };
+
   render() {
     const { current } = this.state;
     const {
@@ -88,7 +92,15 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
     let paginationNode: React.ReactNode = null;
 
     if (mergedPagination) {
-      paginationNode = <Pagination simple total={filteredRenderItems.length} current={current} />;
+      paginationNode = (
+        <Pagination
+          simple
+          className={`${prefixCls}-pagination`}
+          total={filteredRenderItems.length}
+          current={current}
+          onChange={this.onPageChange}
+        />
+      );
 
       displayItems = filteredRenderItems.slice(
         (current - 1) * mergedPagination.pageSize,

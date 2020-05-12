@@ -34,7 +34,6 @@ class App extends React.Component {
     selectedKeys: [],
     disabled: false,
     oneWay: false,
-    pagination: false,
   };
 
   handleChange = (nextTargetKeys, direction, moveKeys) => {
@@ -65,12 +64,8 @@ class App extends React.Component {
     this.setState({ oneWay });
   };
 
-  handlePagination = pagination => {
-    this.setState({ pagination });
-  };
-
   render() {
-    const { targetKeys, selectedKeys, disabled, oneWay, pagination } = this.state;
+    const { targetKeys, selectedKeys, disabled, oneWay } = this.state;
     return (
       <div>
         <Transfer
@@ -84,7 +79,6 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
           oneWay={oneWay}
-          pagination={pagination}
         />
         <Space style={{ marginTop: 16 }}>
           <Switch
@@ -98,12 +92,6 @@ class App extends React.Component {
             checkedChildren="one way"
             checked={oneWay}
             onChange={this.handleOneWay}
-          />
-          <Switch
-            unCheckedChildren="pagination"
-            checkedChildren="pagination"
-            checked={pagination}
-            onChange={this.handlePagination}
           />
         </Space>
       </div>
