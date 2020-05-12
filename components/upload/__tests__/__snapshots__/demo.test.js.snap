@@ -2654,21 +2654,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
 </span>
 `;
 
-exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
-<div>
-  <span
-    class=""
-  >
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-text"
-    />
-    <div
-      class="ant-upload-list ant-upload-list-text"
-    />
-  </span>
-</div>
-`;
-
 exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
 <div>
   <span
