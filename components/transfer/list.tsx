@@ -440,10 +440,10 @@ export default class TransferList extends React.PureComponent<
         {/* Header */}
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
+          {dropdown}
           <span className={`${prefixCls}-header-selected`}>
             {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
           </span>
-          {dropdown}
 
           <span className={`${prefixCls}-header-title`}>{titleText}</span>
         </div>
