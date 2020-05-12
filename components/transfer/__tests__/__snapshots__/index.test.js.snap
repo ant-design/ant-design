@@ -800,7 +800,12 @@ exports[`Transfer should support render value and label in item 1`] = `
         "itemUnit": "item",
         "itemsUnit": "items",
         "remove": "Remove",
+        "removeAll": "Remove all data",
+        "removeCurrent": "Remove current page",
         "searchPlaceholder": "Search here",
+        "selectAll": "Select all data",
+        "selectCurrent": "Select current page",
+        "selectInvert": "Invert current page",
         "titles": Array [
           "",
           "",
@@ -836,8 +841,13 @@ exports[`Transfer should support render value and label in item 1`] = `
         onScroll={[Function]}
         prefixCls="ant-transfer-list"
         remove="Remove"
+        removeAll="Remove all data"
+        removeCurrent="Remove current page"
         render={[Function]}
         searchPlaceholder="Search here"
+        selectAll="Select all data"
+        selectCurrent="Select current page"
+        selectInvert="Invert current page"
         showSearch={false}
         titleText=""
         titles={
@@ -899,10 +909,14 @@ exports[`Transfer should support render value and label in item 1`] = `
                 <Menu>
                   <MenuItem
                     onClick={[Function]}
-                  />
+                  >
+                    Select all data
+                  </MenuItem>
                   <MenuItem
                     onClick={[Function]}
-                  />
+                  >
+                    Invert current page
+                  </MenuItem>
                 </Menu>
               }
             >
@@ -1202,8 +1216,13 @@ exports[`Transfer should support render value and label in item 1`] = `
               onScroll={[Function]}
               prefixCls="ant-transfer-list"
               remove="Remove"
+              removeAll="Remove all data"
+              removeCurrent="Remove current page"
               render={[Function]}
               searchPlaceholder="Search here"
+              selectAll="Select all data"
+              selectCurrent="Select current page"
+              selectInvert="Invert current page"
               selectedKeys={Array []}
               showSearch={false}
               titleText=""
@@ -1240,7 +1259,12 @@ exports[`Transfer should support render value and label in item 1`] = `
                         "itemUnit": "item",
                         "itemsUnit": "items",
                         "remove": "Remove",
+                        "removeAll": "Remove all data",
+                        "removeCurrent": "Remove current page",
                         "searchPlaceholder": "Search here",
+                        "selectAll": "Select all data",
+                        "selectCurrent": "Select current page",
+                        "selectInvert": "Invert current page",
                         "titles": Array [
                           "",
                           "",
@@ -1522,8 +1546,13 @@ exports[`Transfer should support render value and label in item 1`] = `
         onScroll={[Function]}
         prefixCls="ant-transfer-list"
         remove="Remove"
+        removeAll="Remove all data"
+        removeCurrent="Remove current page"
         render={[Function]}
         searchPlaceholder="Search here"
+        selectAll="Select all data"
+        selectCurrent="Select current page"
+        selectInvert="Invert current page"
         showSearch={false}
         titleText=""
         titles={
@@ -1585,10 +1614,14 @@ exports[`Transfer should support render value and label in item 1`] = `
                 <Menu>
                   <MenuItem
                     onClick={[Function]}
-                  />
+                  >
+                    Select all data
+                  </MenuItem>
                   <MenuItem
                     onClick={[Function]}
-                  />
+                  >
+                    Invert current page
+                  </MenuItem>
                 </Menu>
               }
             >
