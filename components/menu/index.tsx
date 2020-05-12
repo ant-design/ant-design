@@ -151,6 +151,16 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     raf.cancel(this.mountRafId);
   }
 
+  componentDidUpdate(prevProps: InternalMenuProps) {
+    const { siderCollapsed, inlineCollapsed, onOpenChange } = this.props;
+    if (
+      (!prevProps.inlineCollapsed && inlineCollapsed) ||
+      (!prevProps.siderCollapsed && siderCollapsed)
+    ) {
+      onOpenChange?.([]);
+    }
+  }
+
   setOpenKeys(openKeys: string[]) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });
@@ -158,18 +168,19 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
   }
 
   getRealMenuMode() {
+    const { mode } = this.props;
+    const { switchingModeFromInline } = this.state;
     const inlineCollapsed = this.getInlineCollapsed();
-    if (this.state.switchingModeFromInline && inlineCollapsed) {
+    if (switchingModeFromInline && inlineCollapsed) {
       return 'inline';
     }
-    const { mode } = this.props;
     return inlineCollapsed ? 'vertical' : mode;
   }
 
   getInlineCollapsed() {
-    const { inlineCollapsed } = this.props;
-    if (this.props.siderCollapsed !== undefined) {
-      return this.props.siderCollapsed;
+    const { inlineCollapsed, siderCollapsed } = this.props;
+    if (siderCollapsed !== undefined) {
+      return siderCollapsed;
     }
     return inlineCollapsed;
   }
@@ -178,6 +189,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     menuMode: MenuMode,
   ): { openTransitionName?: any; openAnimation?: any; motion?: Object } {
     const { openTransitionName, openAnimation, motion } = this.props;
+    const { switchingModeFromInline } = this.state;
 
     // Provides by user
     if (motion) {
@@ -210,7 +222,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     // submenu should hide without animation
     return {
       motion: {
-        motionName: this.state.switchingModeFromInline ? '' : 'zoom-big',
+        motionName: switchingModeFromInline ? '' : 'zoom-big',
       },
     };
   }
@@ -277,6 +289,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
 
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
+    const { openKeys } = this.state;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
     const menuOpenMotion = this.getOpenMotionProps(menuMode!);
@@ -287,7 +300,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     });
 
     const menuProps: MenuProps = {
-      openKeys: this.state.openKeys,
+      openKeys,
       onOpenChange: this.handleOpenChange,
       className: menuClassName,
       mode: menuMode,
@@ -313,7 +326,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       <MenuContext.Provider
         value={{
           inlineCollapsed: this.getInlineCollapsed() || false,
-          antdMenuTheme: this.props.theme,
+          antdMenuTheme: theme,
           direction,
         }}
       >

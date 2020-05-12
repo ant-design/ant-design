@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import * as React from 'react';
 import Form from '..';
 import Input from '../../input';
@@ -17,5 +15,3 @@ describe('Form.typescript', () => {
     expect(form).toBeTruthy();
   });
 });
-
-/* eslint-enable */

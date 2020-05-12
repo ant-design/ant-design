@@ -52,10 +52,7 @@ describe('Card', () => {
         xxx
       </Card>,
     );
-    wrapper
-      .find('.ant-tabs-tab')
-      .at(1)
-      .simulate('click');
+    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
@@ -66,5 +63,23 @@ describe('Card', () => {
       </Card>,
     );
     expect(wrapper.find('.ant-card-actions').length).toBe(0);
+  });
+
+  it('with tab props', () => {
+    const wrapper = mount(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        tabProps={{ size: 'small' }}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('Tabs').get(0).props.size).toBe('small');
   });
 });

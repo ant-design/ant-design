@@ -62,7 +62,7 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
 }
 
 .icon-wrapper .icon-wrapper-active {
-  color: rgba(0, 0, 0, .45);
+  color: rgba(0, 0, 0, 0.45);
 }
 
 .icon-wrapper .anticon:first-child {

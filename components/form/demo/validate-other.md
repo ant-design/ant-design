@@ -129,24 +129,37 @@ const Demo = () => {
       </Form.Item>
 
       <Form.Item name="checkbox-group" label="Checkbox.Group">
-        <Checkbox.Group style={{ width: '100%' }}>
+        <Checkbox.Group>
           <Row>
             <Col span={8}>
-              <Checkbox value="A">A</Checkbox>
+              <Checkbox value="A" style={{ lineHeight: '32px' }}>
+                A
+              </Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox disabled value="B">
+              <Checkbox value="B" style={{ lineHeight: '32px' }} disabled>
                 B
               </Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="C">C</Checkbox>
+              <Checkbox value="C" style={{ lineHeight: '32px' }}>
+                C
+              </Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="D">D</Checkbox>
+              <Checkbox value="D" style={{ lineHeight: '32px' }}>
+                D
+              </Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="E">E</Checkbox>
+              <Checkbox value="E" style={{ lineHeight: '32px' }}>
+                E
+              </Checkbox>
+            </Col>
+            <Col span={8}>
+              <Checkbox value="F" style={{ lineHeight: '32px' }}>
+                F
+              </Checkbox>
             </Col>
           </Row>
         </Checkbox.Group>

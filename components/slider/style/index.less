@@ -15,10 +15,6 @@
 
   .vertical();
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-with-marks {
     margin-bottom: 28px;
   }
@@ -42,9 +38,9 @@
 
   &-handle {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    margin-top: -5px;
+    width: @slider-handle-size;
+    height: @slider-handle-size;
+    margin-top: @slider-handle-margin-top;
     background-color: @slider-handle-background-color;
     border: solid @slider-handle-border-width @slider-handle-color;
     border-radius: 50%;
@@ -59,7 +55,9 @@
     }
 
     &:focus {
+      border-color: @slider-handle-color-focus;
       outline: none;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
     }
 
     &.@{ant-prefix}-tooltip-open {
@@ -85,11 +83,6 @@
     left: 0;
     width: 100%;
     font-size: @font-size-base;
-
-    .@{slider-prefix-cls}-rtl & {
-      right: 0;
-      left: auto;
-    }
   }
 
   &-mark-text {
@@ -99,6 +92,7 @@
     text-align: center;
     word-break: keep-all;
     cursor: pointer;
+    user-select: none;
 
     &-active {
       color: @text-color;
@@ -123,25 +117,11 @@
     border-radius: 50%;
     cursor: pointer;
 
-    .@{slider-prefix-cls}-rtl & {
-      margin-right: -4px;
-      margin-left: 0;
-    }
     &:first-child {
       margin-left: -4px;
-
-      .@{slider-prefix-cls}-rtl & {
-        margin-right: -4px;
-        margin-left: 0;
-      }
     }
     &:last-child {
       margin-left: -4px;
-
-      .@{slider-prefix-cls}-rtl & {
-        margin-right: -4px;
-        margin-left: 0;
-      }
     }
     &-active {
       border-color: @slider-dot-border-color-active;
@@ -187,13 +167,8 @@
     }
 
     .@{slider-prefix-cls}-handle {
-      margin-bottom: -7px;
+      margin-top: -6px; // we chould consider border width as well: (10 + 2 ) / 2
       margin-left: -5px;
-
-      .@{slider-prefix-cls}-rtl& {
-        margin-right: -5px;
-        margin-left: 0;
-      }
     }
 
     .@{slider-prefix-cls}-mark {
@@ -201,21 +176,11 @@
       left: 12px;
       width: 18px;
       height: 100%;
-
-      .@{slider-prefix-cls}-rtl& {
-        right: 12px;
-        left: auto;
-      }
     }
 
     .@{slider-prefix-cls}-mark-text {
       left: 4px;
       white-space: nowrap;
-
-      .@{slider-prefix-cls}-rtl& {
-        right: 4px;
-        left: auto;
-      }
     }
 
     .@{slider-prefix-cls}-step {
@@ -227,11 +192,6 @@
       top: auto;
       left: 2px;
       margin-bottom: -4px;
-
-      .@{slider-prefix-cls}-rtl& {
-        right: 2px;
-        left: auto;
-      }
     }
   }
 
@@ -242,3 +202,5 @@
     }
   }
 }
+
+@import './rtl';

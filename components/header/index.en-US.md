@@ -9,6 +9,6 @@ Unified header for all AI2 properties.
 
 ## API
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| alwaysVisible | prevent top banner from hiding when scrolling | boolean | false |
+| Property      | Description                                   | Type    | Default |
+| ------------- | --------------------------------------------- | ------- | ------- |
+| alwaysVisible | prevent top banner from hiding when scrolling | boolean | false   |

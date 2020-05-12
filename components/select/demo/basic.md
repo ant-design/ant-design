@@ -23,7 +23,7 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
@@ -41,7 +41,7 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </div>,
+  </>,
   mountNode,
 );
 ```

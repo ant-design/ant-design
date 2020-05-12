@@ -20,10 +20,10 @@ cols: 1
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示边框 | boolean | false |  |
 | footer | 列表底部 | string\|ReactNode | - |  |
-| grid | 列表栅格配置 | object | - |  |
+| grid | 列表栅格配置 | [object](#List-grid-props) | - |  |
 | header | 列表头部 | string\|ReactNode | - |  |
 | itemLayout | 设置 `List.Item` 布局, 设置成 `vertical` 则竖直样式显示, 默认横排 | string | - |  |
-| loading | 当卡片内容还在加载中时，可以用 `loading` 展示一个占位 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
+| loading | 当卡片内容还在加载中时，可以用 `loading` 展示一个占位 | boolean\|[object](/components/spin/#API) ([更多](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | 加载更多 | string\|ReactNode | - |  |
 | locale | 默认文案设置，目前包括空数据文案 | object | emptyText: '暂无数据' |  |
 | pagination | 对应的 `pagination` 配置, 设置 `false` 不显示 | boolean\|object | false |  |
@@ -44,16 +44,16 @@ cols: 1
 
 ### List grid props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| column | 列数，[可选值](https://github.com/ant-design/ant-design/blob/a7f17b4cdebbca07b3b9ce5698de61e772d46237/components/list/index.tsx#L16) | number | - |  |
-| gutter | 栅格间隔 | number | 0 |  |
-| xs | `<576px` 展示的列数 | number | - |  |
-| sm | `≥576px` 展示的列数 | number | - |  |
-| md | `≥768px` 展示的列数 | number | - |  |
-| lg | `≥992px` 展示的列数 | number | - |  |
-| xl | `≥1200px` 展示的列数 | number | - |  |
-| xxl | `≥1600px` 展示的列数 | number | - |  |
+| 参数   | 说明                 | 类型   | 默认值 | 版本 |
+| ------ | -------------------- | ------ | ------ | ---- |
+| column | 列数                 | number | -      |      |
+| gutter | 栅格间隔             | number | 0      |      |
+| xs     | `<576px` 展示的列数  | number | -      |      |
+| sm     | `≥576px` 展示的列数  | number | -      |      |
+| md     | `≥768px` 展示的列数  | number | -      |      |
+| lg     | `≥992px` 展示的列数  | number | -      |      |
+| xl     | `≥1200px` 展示的列数 | number | -      |      |
+| xxl    | `≥1600px` 展示的列数 | number | -      |      |
 
 ### List.Item
 

@@ -69,9 +69,13 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
         type="text"
         value={value.number || number}
         onChange={onNumberChange}
-        style={{ width: 100, marginRight: 8 }}
+        style={{ width: 100 }}
       />
-      <Select value={value.currency || currency} style={{ width: 80 }} onChange={onCurrencyChange}>
+      <Select
+        value={value.currency || currency}
+        style={{ width: 80, margin: '0 8px' }}
+        onChange={onCurrencyChange}
+      >
         <Option value="rmb">RMB</Option>
         <Option value="dollar">Dollar</Option>
       </Select>
@@ -81,14 +85,14 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
 
 const Demo = () => {
   const onFinish = values => {
-    console.log('Received values of form: ', values);
+    console.log('Received values from form: ', values);
   };
 
   const checkPrice = (rule, value) => {
     if (value.number > 0) {
       return Promise.resolve();
     }
-    return Promise.reject('Price must greater than zero!');
+    return Promise.reject('Price must be greater than zero!');
   };
 
   return (

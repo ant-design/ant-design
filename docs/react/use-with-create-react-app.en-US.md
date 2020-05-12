@@ -84,7 +84,7 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 We are successfully running antd components now, go build your own application!
 
@@ -96,18 +96,20 @@ Now we need to customize the default webpack config. We can achieve that by usin
 
 Import react-app-rewired and modify the `scripts` field in package.json. Due to new [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) issue, you shall need [customize-cra](https://github.com/arackaf/customize-cra) along with react-app-rewired.
 
-```
+```bash
 $ yarn add react-app-rewired customize-cra
+# use less-loader@6.0.0
+$ yarn add react-app-rewired customize-cra@next
 ```
 
 ```diff
 /* package.json */
 "scripts": {
 -   "start": "react-scripts start",
-+   "start": "react-app-rewired start",
 -   "build": "react-scripts build",
-+   "build": "react-app-rewired build",
 -   "test": "react-scripts test",
++   "start": "react-app-rewired start",
++   "build": "react-app-rewired build",
 +   "test": "react-app-rewired test",
 }
 ```
@@ -139,8 +141,7 @@ $ yarn add babel-plugin-import
 -   return config;
 - };
 + module.exports = override(
-+   fixBabelImports('import', {
-+     libraryName: 'antd',
++   fixBabelImports('antd', {
 +     libraryDirectory: 'es',
 +     style: 'css',
 +   }),
@@ -173,7 +174,7 @@ Then reboot with `yarn start` and visit the demo page, you should not find any [
 
 ### Customize Theme
 
-According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
+According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra/blob/master/api.md#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
 $ yarn add less less-loader
@@ -184,22 +185,27 @@ $ yarn add less less-loader
 + const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
 module.exports = override(
-  fixBabelImports('import', {
-    libraryName: 'antd',
+  fixBabelImports('antd', {
     libraryDirectory: 'es',
 -   style: 'css',
 +   style: true,
   }),
 + addLessLoader({
-+   javascriptEnabled: true,
-+   modifyVars: { '@primary-color': '#1DA57A' },
++   lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
++     javascriptEnabled: true,
++     modifyVars: { '@primary-color': '#1DA57A' },
++   },
 + }),
 );
 ```
 
-We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
+We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here. If you see a green button rendered on the page after rebooting the server, then the configuration was successful.
+
+We have built-in dark theme and compact theme in antd, you can reference to [Use dark or compact theme](/docs/react/customize-theme#Use-dark-or-compact-theme).
 
 > You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+
+> Note: It is recommended to use the latest version of `less`, or a minimum version greater than `3.0.1`.
 
 ## Replace momentjs to Day.js
 

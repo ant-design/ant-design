@@ -1,12 +1,11 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import Notification from 'rc-notification';
-import {
-  LoadingOutlined,
-  ExclamationCircleFilled,
-  CloseCircleFilled,
-  CheckCircleFilled,
-  InfoCircleFilled,
-} from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -16,6 +15,7 @@ let prefixCls = 'ant-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
+let rtl = false;
 
 function getMessageInstance(callback: (i: any) => void) {
   if (messageInstance) {
@@ -74,6 +74,11 @@ function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const IconComponent = iconMap[args.type];
 
+  const messageClass = classNames(`${prefixCls}-custom-content`, {
+    [`${prefixCls}-${args.type}`]: args.type,
+    [`${prefixCls}-rtl`]: rtl === true,
+  });
+
   const target = args.key || key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
@@ -88,12 +93,8 @@ function notice(args: ArgsProps): MessageType {
         duration,
         style: {},
         content: (
-          <div
-            className={`${prefixCls}-custom-content${
-              args.type ? ` ${prefixCls}-${args.type}` : ''
-            }`}
-          >
-            {args.icon ? args.icon : <IconComponent />}
+          <div className={messageClass}>
+            {args.icon || (IconComponent && <IconComponent />)}
             <span>{args.content}</span>
           </div>
         ),
@@ -131,6 +132,7 @@ export interface ConfigOptions {
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
+  rtl?: boolean;
 }
 
 const api: any = {
@@ -156,6 +158,9 @@ const api: any = {
     if (options.maxCount !== undefined) {
       maxCount = options.maxCount;
       messageInstance = null;
+    }
+    if (options.rtl !== undefined) {
+      rtl = options.rtl;
     }
   },
   destroy() {

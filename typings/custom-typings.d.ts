@@ -2,13 +2,19 @@
 declare module '*.svg' {
   import * as React from 'react';
 
-  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 
   const src: string;
   export default src;
 }
 
+declare module 'bisheng/collect';
+
 declare module 'bisheng/router';
+
+declare module 'react-github-button';
+
+declare module 'jsonml.js/*';
 
 declare module 'rc-pagination/*';
 

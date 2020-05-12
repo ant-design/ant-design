@@ -40,24 +40,14 @@ describe('Select', () => {
   it('should support set notFoundContent to null', () => {
     const wrapper = mount(<Select mode="multiple" notFoundContent={null} />);
     toggleOpen(wrapper);
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.find('MenuItem').length).toBe(0);
   });
 
   it('should not have default notFoundContent when mode is combobox', () => {
     const wrapper = mount(<Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} />);
     toggleOpen(wrapper);
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.find('MenuItem').length).toBe(0);
   });
 
@@ -66,19 +56,9 @@ describe('Select', () => {
       <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} notFoundContent="not at all" />,
     );
     toggleOpen(wrapper);
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.find('.ant-select-item-option').length).toBeFalsy();
-    expect(
-      dropdownWrapper
-        .find('.ant-select-item-empty')
-        .at(0)
-        .text(),
-    ).toBe('not at all');
+    expect(dropdownWrapper.find('.ant-select-item-empty').at(0).text()).toBe('not at all');
   });
 
   it('should be controlled by open prop', () => {
@@ -88,24 +68,14 @@ describe('Select', () => {
         <Option value="1">1</Option>
       </Select>,
     );
-    let dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    let dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.props().visible).toBe(true);
     toggleOpen(wrapper);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(false);
     expect(dropdownWrapper.props().visible).toBe(true);
 
     wrapper.setProps({ open: false });
-    dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.props().visible).toBe(false);
     toggleOpen(wrapper);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);

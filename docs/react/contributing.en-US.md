@@ -22,7 +22,7 @@ According to our [release schedule](changelog#Release-Schedule), we maintain two
 
 We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracking. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide reproduction steps with this [template](https://u.ant.design/codesandbox-repro).
 
-Before you report a bug, please make sure you've searched exists issues, and read our [FAQ](/docs/react/faq).
+Before you report a bug, please make sure you've searched existing issues, and read our [FAQ](/docs/react/faq).
 
 ## Proposing a Change
 
@@ -68,3 +68,7 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 1. `npm test` runs the complete test suite.
 1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
 1. `npm run dist` creates UMD build of antd.
+
+## Being a collaborator
+
+If you are a active contributor and are willing to work with Ant Design Team in our opensource workflow, you can [apply to be a outside collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator).

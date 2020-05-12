@@ -10,7 +10,13 @@ site/theme/template/IconDisplay/*.jsx
 site/theme/template/IconDisplay/fields.js
 site/theme/template/Home/**/*.jsx
 site/theme/template/utils.jsx
+site/theme/template/Layout/**/*.jsx
 site/theme/template/Layout/Footer.jsx
+site/theme/template/Content/Article.jsx
+site/theme/template/Content/EditButton.jsx
+site/theme/template/Resources/*.jsx
+site/theme/template/Resources/**/*.jsx
+site/theme/template/NotFound.jsx
 typings
 es/**/*
 lib/**/*
@@ -18,5 +24,11 @@ node_modules
 _site
 dist
 **/*.d.ts
+
+# Shellac
 shellac/*.js
 dist_varnish
+
+# Scripts
+scripts/previewEditor/**/*
+

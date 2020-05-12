@@ -7,14 +7,12 @@ title:
 Layout can specify a background Varnish color.
 
 ```jsx
-import { Layout } from 'antd';
+import Layout from '..'; // TODO: point this at varnish
 
 ReactDOM.render(
-  <Layout bgcolor='B6'>
+  <Layout bgcolor="B6">
     Hello Blue World
-    <Layout bgcolor='G6'>
-      Hello Green World
-    </Layout>
+    <Layout bgcolor="G6">Hello Green World</Layout>
   </Layout>,
   mountNode,
 );

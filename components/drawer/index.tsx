@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import { CloseOutlined } from '@ant-design/icons';
+import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
@@ -21,6 +22,7 @@ type placementType = typeof PlacementTypes[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
+  forceRender?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;
@@ -178,7 +180,16 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     return (
       closable && (
         // eslint-disable-next-line react/button-has-type
-        <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className={`${prefixCls}-close`}
+          style={
+            {
+              '--scroll-bar': `${getScrollBarSize()}px`,
+            } as any
+          }
+        >
           <CloseOutlined />
         </button>
       )

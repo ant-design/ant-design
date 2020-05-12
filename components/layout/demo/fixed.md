@@ -15,7 +15,9 @@ title:
 Fixed Header is generally used to fix the top navigation to facilitate page switching.
 
 ```jsx
-import { Layout, Menu, Breadcrumb } from 'antd';
+import Layout from '..'; // TODO: point this at varnish
+import Menu from '../../menu'; // TODO: point this at varnish
+import Breadcrumb from '../../breadcrumb'; // TODO: point this at varnish
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,12 +25,7 @@ ReactDOM.render(
   <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
-      >
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>
         <Menu.Item key="3">nav 3</Menu.Item>

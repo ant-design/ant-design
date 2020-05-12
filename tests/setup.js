@@ -23,13 +23,18 @@ if (typeof window !== 'undefined') {
   }
 }
 
-// The built-in requestAnimationFrame and cancelAnimationFrame not working with jest.runFakeTimes()
-// https://github.com/facebook/jest/issues/5147
-global.requestAnimationFrame = cb => setTimeout(cb, 0);
-global.cancelAnimationFrame = cb => clearTimeout(cb, 0);
-
 const Enzyme = require('enzyme');
 
 const Adapter = require('enzyme-adapter-react-16');
 
 Enzyme.configure({ adapter: new Adapter() });
+
+Object.assign(Enzyme.ReactWrapper.prototype, {
+  findObserver() {
+    return this.find('ResizeObserver');
+  },
+  triggerResize() {
+    const ob = this.findObserver();
+    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  },
+});

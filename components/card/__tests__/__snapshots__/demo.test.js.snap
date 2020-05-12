@@ -846,7 +846,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         <div
           class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
           role="tablist"
-          tabindex="0"
+          tabindex="-1"
         >
           <div
             class="ant-tabs-nav-container"
@@ -920,18 +920,24 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                 >
                   <div>
                     <div
+                      aria-controls="tabpane-tab1"
                       aria-disabled="false"
                       aria-selected="true"
                       class="ant-tabs-tab-active ant-tabs-tab"
+                      id="tab-tab1"
                       role="tab"
+                      tabindex="0"
                     >
                       tab1
                     </div>
                     <div
+                      aria-controls="tabpane-tab2"
                       aria-disabled="false"
                       aria-selected="false"
                       class=" ant-tabs-tab"
+                      id="tab-tab2"
                       role="tab"
+                      tabindex="-1"
                     >
                       tab2
                     </div>
@@ -945,40 +951,23 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
-          role="presentation"
-          style="width:0;height:0;overflow:hidden;position:absolute"
-          tabindex="0"
-        />
-        <div
           class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
         >
           <div
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          >
-            <div
-              role="presentation"
-              style="width:0;height:0;overflow:hidden;position:absolute"
-              tabindex="0"
-            />
-            <div
-              role="presentation"
-              style="width:0;height:0;overflow:hidden;position:absolute"
-              tabindex="0"
-            />
-          </div>
+            style="visibility:visible"
+            tabindex="0"
+          />
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
+            style="visibility:hidden"
+            tabindex="-1"
           />
         </div>
-        <div
-          role="presentation"
-          style="width:0;height:0;overflow:hidden;position:absolute"
-          tabindex="0"
-        />
       </div>
     </div>
     <div
@@ -1007,7 +996,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         <div
           class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
           role="tablist"
-          tabindex="0"
+          tabindex="-1"
         >
           <div
             class="ant-tabs-extra-content"
@@ -1091,26 +1080,35 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                 >
                   <div>
                     <div
+                      aria-controls="tabpane-article"
                       aria-disabled="false"
                       aria-selected="false"
                       class=" ant-tabs-tab"
+                      id="tab-article"
                       role="tab"
+                      tabindex="-1"
                     >
                       article
                     </div>
                     <div
+                      aria-controls="tabpane-app"
                       aria-disabled="false"
                       aria-selected="true"
                       class="ant-tabs-tab-active ant-tabs-tab"
+                      id="tab-app"
                       role="tab"
+                      tabindex="0"
                     >
                       app
                     </div>
                     <div
+                      aria-controls="tabpane-project"
                       aria-disabled="false"
                       aria-selected="false"
                       class=" ant-tabs-tab"
+                      id="tab-project"
                       role="tab"
+                      tabindex="-1"
                     >
                       project
                     </div>
@@ -1124,45 +1122,30 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
-          role="presentation"
-          style="width:0;height:0;overflow:hidden;position:absolute"
-          tabindex="0"
-        />
-        <div
           class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
         >
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
+            style="visibility:hidden"
+            tabindex="-1"
           />
           <div
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          >
-            <div
-              role="presentation"
-              style="width:0;height:0;overflow:hidden;position:absolute"
-              tabindex="0"
-            />
-            <div
-              role="presentation"
-              style="width:0;height:0;overflow:hidden;position:absolute"
-              tabindex="0"
-            />
-          </div>
+            style="visibility:visible"
+            tabindex="0"
+          />
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
+            style="visibility:hidden"
+            tabindex="-1"
           />
         </div>
-        <div
-          role="presentation"
-          style="width:0;height:0;overflow:hidden;position:absolute"
-          tabindex="0"
-        />
       </div>
     </div>
     <div

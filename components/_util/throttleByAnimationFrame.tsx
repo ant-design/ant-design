@@ -21,7 +21,7 @@ export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
 
 export function throttleByAnimationFrameDecorator() {
   // eslint-disable-next-line func-names
-  return function(target: any, key: string, descriptor: any) {
+  return function (target: any, key: string, descriptor: any) {
     const fn = descriptor.value;
     let definingProperty = false;
     return {

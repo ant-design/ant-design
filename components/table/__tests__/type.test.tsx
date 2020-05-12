@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import * as React from 'react';
 import Table from '../Table';
 import { ColumnProps } from '..';
@@ -26,6 +24,10 @@ describe('Table.typescript', () => {
     );
     expect(table).toBeTruthy();
   });
+  it('selections', () => {
+    const table = <Table rowSelection={{ selections: [Table.SELECTION_ALL] }} />;
+    expect(table).toBeTruthy();
+  });
 });
 
 describe('Table.typescript types', () => {
@@ -44,4 +46,3 @@ describe('Table.typescript types', () => {
     expect(columns).toBeTruthy();
   });
 });
-/* eslint-enable */

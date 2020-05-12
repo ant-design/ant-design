@@ -1,4 +1,5 @@
 import * as React from 'react';
+import raf from 'raf';
 import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import { ScrollOptions } from './interface';
@@ -73,23 +74,74 @@ export interface FormInstance extends RcFormInstance {
 }
 
 export function useForm(form?: FormInstance): [FormInstance] {
-  const wrapForm: FormInstance = form || {
-    ...useRcForm()[0],
-    __INTERNAL__: {},
-    scrollToField: (name: string, options: ScrollOptions = {}) => {
-      const namePath = toArray(name);
-      const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-      const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+  const [rcForm] = useRcForm();
 
-      if (node) {
-        scrollIntoView(node, {
-          scrollMode: 'if-needed',
-          block: 'nearest',
-          ...options,
-        });
-      }
-    },
-  };
+  const wrapForm: FormInstance = React.useMemo(
+    () =>
+      form || {
+        ...rcForm,
+        __INTERNAL__: {},
+        scrollToField: (name: string, options: ScrollOptions = {}) => {
+          const namePath = toArray(name);
+          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+
+          if (node) {
+            scrollIntoView(node, {
+              scrollMode: 'if-needed',
+              block: 'nearest',
+              ...options,
+            });
+          }
+        },
+      },
+    [form, rcForm],
+  );
 
   return [wrapForm];
+}
+
+type Updater<ValueType> = (prev?: ValueType) => ValueType;
+
+export function useFrameState<ValueType>(
+  defaultValue: ValueType,
+): [ValueType, (updater: Updater<ValueType>) => void] {
+  const [value, setValue] = React.useState(defaultValue);
+  const frameRef = React.useRef<number | null>(null);
+  const batchRef = React.useRef<Updater<ValueType>[]>([]);
+  const destroyRef = React.useRef(false);
+
+  React.useEffect(
+    () => () => {
+      destroyRef.current = true;
+      raf.cancel(frameRef.current!);
+    },
+    [],
+  );
+
+  function setFrameValue(updater: Updater<ValueType>) {
+    if (destroyRef.current) {
+      return;
+    }
+
+    if (frameRef.current === null) {
+      batchRef.current = [];
+      frameRef.current = raf(() => {
+        frameRef.current = null;
+        setValue(prevValue => {
+          let current = prevValue;
+
+          batchRef.current.forEach(func => {
+            current = func(current);
+          });
+
+          return current;
+        });
+      });
+    }
+
+    batchRef.current.push(updater);
+  }
+
+  return [value, setFrameValue];
 }

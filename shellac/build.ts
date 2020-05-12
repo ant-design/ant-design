@@ -23,10 +23,10 @@ fs.writeFileSync(cssPath, generateCSS(), 'utf-8');
 console.log(`✨ wrote ${path.relative(process.cwd(), cssPath)}`); // eslint-disable-line no-console
 
 for (let i = 0; i < svgs.length; i++) {
-    const svgPath = svgs[i];
-    const outputPath = path.join(distPath, path.basename(svgPath));
-    fs.writeFileSync(outputPath, fs.readFileSync(svgPath, 'utf-8'), 'utf-8');
-    console.log(`🌅 wrote ${path.relative(process.cwd(), outputPath)}`); // eslint-disable-line no-console
+  const svgPath = svgs[i];
+  const outputPath = path.join(distPath, path.basename(svgPath));
+  fs.writeFileSync(outputPath, fs.readFileSync(svgPath, 'utf-8'), 'utf-8');
+  console.log(`🌅 wrote ${path.relative(process.cwd(), outputPath)}`); // eslint-disable-line no-console
 }
 
 const htmlPath = path.join(__dirname, 'template.html');

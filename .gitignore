@@ -25,6 +25,7 @@ nohup.out
 _site
 _data
 dist
+report.html
 /lib
 /es
 elasticsearch-*
@@ -48,6 +49,16 @@ site/theme/template/IconDisplay/fields.js
 site/theme/template/Home/**/*.jsx
 site/theme/template/utils.jsx
 site/theme/template/Layout/Footer.jsx
+site/theme/template/Layout/Header/**/*.jsx
+site/theme/template/Layout/SiteContext.jsx
+site/theme/template/Content/Article.jsx
+site/theme/template/Content/EditButton.jsx
+site/theme/template/Resources/*.jsx
+site/theme/template/Resources/**/*.jsx
+site/theme/template/NotFound.jsx
+scripts/previewEditor/index.html
 
+# Shellac
 shellac/*.js
-dist_varnish
+dist_varnish/*
+!dist_varnish/.keep

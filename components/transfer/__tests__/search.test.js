@@ -64,10 +64,7 @@ describe('Transfer.Search', () => {
 
     onSearch.mockReset();
 
-    wrapper
-      .find('.ant-transfer-list-search-action')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-transfer-list-search-action').at(0).simulate('click');
     expect(onSearch).toHaveBeenCalledWith('left', '');
     jest.useRealTimers();
   });

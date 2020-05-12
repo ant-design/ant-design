@@ -1,12 +1,12 @@
 import { Breakpoint } from './spacing';
 
 export const breakpoints = {
-    xs: Breakpoint.fromPixels(480),
-    sm: Breakpoint.fromPixels(576),
-    md: Breakpoint.fromPixels(768),
-    lg: Breakpoint.fromPixels(992),
-    xl: Breakpoint.fromPixels(1200),
-    xl2: Breakpoint.fromPixels(1600),
+  xs: Breakpoint.fromPixels(480),
+  sm: Breakpoint.fromPixels(576),
+  md: Breakpoint.fromPixels(768),
+  lg: Breakpoint.fromPixels(992),
+  xl: Breakpoint.fromPixels(1200),
+  xl2: Breakpoint.fromPixels(1600),
 };
 
 /* Usage:
@@ -15,7 +15,7 @@ export const breakpoints = {
     }
 */
 export function above(breakpoint: Breakpoint) {
-    return `(min-width: ${breakpoint.getValue() + 1}px)`;
+  return `(min-width: ${breakpoint.getValue() + 1}px)`;
 }
 
 /* Usage:
@@ -24,5 +24,5 @@ export function above(breakpoint: Breakpoint) {
     }
 */
 export function belowOrEqualTo(breakpoint: Breakpoint) {
-    return `(max-width: ${breakpoint.getValue()}px)`;
+  return `(max-width: ${breakpoint.getValue()}px)`;
 }

@@ -18,19 +18,17 @@ interface LineProps extends ProgressProps {
  *   '100%': '#ffffff'
  * }
  */
-export const sortGradient = (gradients: ProgressGradient) => {
-  let tempArr = [];
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [key, value] of Object.entries(gradients)) {
-    const formatKey = parseFloat(key.replace(/%/g, ''));
-    if (isNaN(formatKey)) {
-      return {};
+export const sortGradient = (gradients: StringGradients) => {
+  let tempArr: any[] = [];
+  Object.keys(gradients).forEach(key => {
+    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    if (!isNaN(formattedKey)) {
+      tempArr.push({
+        key: formattedKey,
+        value: gradients[key],
+      });
     }
-    tempArr.push({
-      key: formatKey,
-      value,
-    });
-  }
+  });
   tempArr = tempArr.sort((a, b) => a.key - b.key);
   return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
 };
@@ -59,7 +57,7 @@ export const handleGradient = (strokeColor: ProgressGradient) => {
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
-const Line: React.SFC<LineProps> = props => {
+const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
     percent,
@@ -69,6 +67,7 @@ const Line: React.SFC<LineProps> = props => {
     strokeColor,
     strokeLinecap,
     children,
+    trailColor,
   } = props;
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
@@ -76,6 +75,12 @@ const Line: React.SFC<LineProps> = props => {
   } else {
     backgroundProps = {
       background: strokeColor,
+    };
+  }
+  let trailStyle;
+  if (trailColor && typeof trailColor === 'string') {
+    trailStyle = {
+      backgroundColor: trailColor,
     };
   }
   const percentStyle = {
@@ -96,7 +101,7 @@ const Line: React.SFC<LineProps> = props => {
   return (
     <>
       <div className={`${prefixCls}-outer`}>
-        <div className={`${prefixCls}-inner`}>
+        <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successSegment}
         </div>

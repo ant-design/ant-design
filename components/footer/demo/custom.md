@@ -9,10 +9,5 @@ Footer with custom content.
 ```jsx
 import { Footer } from '..'; // TODO: point this at varnish
 
-ReactDOM.render(
-  <Footer>
-    Custom footer content - &#128540;
-  </Footer>,
-  mountNode
-);
+ReactDOM.render(<Footer>Custom footer content - &#128540;</Footer>, mountNode);
 ```

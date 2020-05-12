@@ -1,12 +1,13 @@
-@import './index';
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
 @picker-cell-inner-cls: ~'@{picker-prefix-cls}-cell-inner';
-@picker-legacy-cell-cls: ~'@{ant-prefix}-calendar-date';
 
 .@{picker-prefix-cls} {
   @picker-arrow-size: 7px;
-  @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
+  @picker-panel-width: @picker-panel-cell-width * 7 + @padding-sm * 2 + 4;
 
   &-panel {
     display: inline-block;
@@ -15,10 +16,6 @@
     border: @border-width-base @border-style-base @picker-border-color;
     border-radius: @border-radius-base;
     outline: none;
-
-    &-rtl {
-      direction: rtl;
-    }
 
     &-focused {
       border-color: @primary-color;
@@ -30,6 +27,7 @@
   // ========================================================
   &-decade-panel,
   &-year-panel,
+  &-quarter-panel,
   &-month-panel,
   &-week-panel,
   &-date-panel,
@@ -130,19 +128,11 @@
   &-prev-icon,
   &-super-prev-icon {
     transform: rotate(-45deg);
-
-    .@{picker-prefix-cls}-panel-rtl & {
-      transform: rotate(135deg);
-    }
   }
 
   &-next-icon,
   &-super-next-icon {
     transform: rotate(135deg);
-
-    .@{picker-prefix-cls}-panel-rtl & {
-      transform: rotate(-45deg);
-    }
   }
 
   // ======================== Body ========================
@@ -172,7 +162,7 @@
       right: 0;
       left: 0;
       z-index: 1;
-      height: 24px;
+      height: @picker-panel-cell-height;
       transform: translateY(-50%);
       content: '';
     }
@@ -182,9 +172,9 @@
       position: relative;
       z-index: 2;
       display: inline-block;
-      min-width: 24px;
-      height: 24px;
-      line-height: 24px;
+      min-width: @picker-panel-cell-height;
+      height: @picker-panel-cell-height;
+      line-height: @picker-panel-cell-height;
       border-radius: @border-radius-base;
       transition: background @animation-duration-slow, border @animation-duration-slow;
     }
@@ -238,19 +228,10 @@
 
     &-in-view&-range-start::before {
       left: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 50%;
-        left: 0;
-      }
     }
+
     &-in-view&-range-end::before {
       right: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: 50%;
-      }
     }
 
     // >>> Range Hover
@@ -320,38 +301,18 @@
       .@{cellClassName}::after {
       right: -6px - @border-width-base;
       left: 0;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: -6px - @border-width-base;
-      }
     }
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: 0;
       left: -6px - @border-width-base;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: -6px - @border-width-base;
-        left: 0;
-      }
     }
 
     // Hover with range start & end
     &-range-hover&-range-start::after {
       right: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: 50%;
-      }
     }
     &-range-hover&-range-end::after {
       left: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 50%;
-        left: 0;
-      }
     }
 
     // Edge start
@@ -363,15 +324,6 @@
       border-left: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 6px;
-        left: 0;
-        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
-        border-left: none;
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
-      }
     }
 
     // Edge end
@@ -383,15 +335,6 @@
       border-right: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: 6px;
-        border-right: none;
-        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
-        border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
-      }
     }
 
     // >>> Disabled
@@ -428,14 +371,14 @@
     }
 
     .picker-cell-inner(~'@{picker-cell-inner-cls}');
-    .picker-cell-inner(~'@{picker-legacy-cell-cls}');
   }
 
   &-decade-panel,
   &-year-panel,
+  &-quarter-panel,
   &-month-panel {
     .@{picker-prefix-cls}-content {
-      height: 265px;
+      height: @picker-panel-without-time-cell-height * 4;
     }
 
     .@{picker-cell-inner-cls} {
@@ -446,6 +389,12 @@
       &-disabled .@{picker-cell-inner-cls} {
         background: @picker-basic-cell-disabled-bg;
       }
+    }
+  }
+
+  &-quarter-panel {
+    .@{picker-prefix-cls}-content {
+      height: 56px;
     }
   }
 
@@ -501,8 +450,9 @@
     }
   }
 
-  // ================== Year & Month Panel ==================
+  // ============= Year & Quarter & Month Panel =============
   &-year-panel,
+  &-quarter-panel,
   &-month-panel {
     @hover-cell-fixed-distance: (
         (@picker-panel-width - @padding-xs * 2) / 3 - @picker-year-month-cell-width
@@ -590,10 +540,10 @@
     }
 
     .@{picker-prefix-cls}-content {
-      width: 36px * 7;
+      width: @picker-panel-cell-width * 7;
 
       th {
-        width: 36px;
+        width: @picker-panel-cell-width;
       }
     }
   }
@@ -628,10 +578,6 @@
   &-time-panel {
     width: auto;
     min-width: auto;
-
-    .@{picker-prefix-cls}-panel-rtl & {
-      direction: ltr;
-    }
 
     .@{picker-prefix-cls}-content {
       display: flex;
@@ -669,11 +615,11 @@
           .@{picker-prefix-cls}-time-panel-cell-inner {
             display: block;
             width: 100%;
-            height: 32px;
+            height: @picker-time-panel-cell-height;
             margin: 0;
             padding: 0;
             color: @text-color;
-            line-height: 32px;
+            line-height: @picker-time-panel-cell-height;
             text-align: center;
             border-radius: 0;
             cursor: pointer;
@@ -699,6 +645,20 @@
           }
         }
       }
+    }
+  }
+}
+
+// Fix IE11 render bug by css hacks
+// https://github.com/ant-design/ant-design/issues/21559
+// https://codepen.io/afc163-1472555193/pen/mdJRaNj?editors=0110
+/* stylelint-disable-next-line */
+_:-ms-fullscreen,
+:root {
+  .@{picker-prefix-cls}-range-wrapper {
+    .@{picker-prefix-cls}-month-panel .@{picker-prefix-cls}-cell,
+    .@{picker-prefix-cls}-year-panel .@{picker-prefix-cls}-cell {
+      padding: 21px 0;
     }
   }
 }

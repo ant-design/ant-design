@@ -36,7 +36,7 @@ title: Ant Design of React
 
 ## 支持环境
 
-- 现代浏览器和 IE11 及以上（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
+- 现代浏览器和 IE11（需要 [polyfills](/docs/react/getting-started-cn#兼容性)）。
 - 支持服务端渲染。
 - [Electron](https://electronjs.org/)
 
@@ -70,12 +70,13 @@ $ yarn add antd
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
-> 注意：3.0 之后引入 antd.js 前你需要自行引入 [moment](http://momentjs.com/)。
+> 注意：antd.js 依赖 react/react-dom/moment，请确保提前引入这些文件。
 
 ## 示例
 
 ```jsx
 import { DatePicker } from 'antd';
+
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
@@ -123,8 +124,8 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## 链接
 
-- [首页](https://ant.design/)
-- [组件库](/docs/react/introduce)
+- [首页](/)
+- [组件库](/components/button-cn/)
 - [Ant Design Pro](https://pro.ant.design/)
 - [更新日志](/changelog)
 - [React 底层基础组件](http://react-component.github.io/)
@@ -144,6 +145,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](/docs/react/customize-theme)
+- [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## 谁在使用
 
@@ -170,7 +172,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
-1. [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd)（English）
-2. [<img alt="Segment Fault" src="https://gw.alipayobjects.com/zos/rmsportal/hfYFfCvHTQTUKntlJbMF.svg" width="100" />](https://segmentfault.com/t/antd)（中文）
-3. [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
-4. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
+1. [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd)(English)
+2. [<img alt="Segment Fault" src="https://gw.alipayobjects.com/zos/rmsportal/hfYFfCvHTQTUKntlJbMF.svg" width="100" />](https://segmentfault.com/t/antd)(中文)
+3. [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)(English)
+4. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)(中文)

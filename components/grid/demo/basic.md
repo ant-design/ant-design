@@ -21,7 +21,7 @@ You can create a basic grid system by using a single set of `Row` and `Col` grid
 import { Row, Col } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Row>
       <Col span={24}>col</Col>
     </Row>
@@ -40,7 +40,7 @@ ReactDOM.render(
       <Col span={6}>col-6</Col>
       <Col span={6}>col-6</Col>
     </Row>
-  </div>,
+  </>,
   mountNode,
 );
 ```

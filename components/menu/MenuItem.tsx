@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
+import toArray from 'rc-util/lib/Children/toArray';
+import classNames from 'classnames';
 import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
@@ -13,6 +15,7 @@ export interface MenuItemProps
   rootPrefixCls?: string;
   disabled?: boolean;
   level?: number;
+  icon?: React.ReactNode;
   title?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
@@ -35,15 +38,31 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     this.menuItem = menuItem;
   };
 
+  renderItemChildren() {
+    const { icon, children } = this.props;
+    // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
+    // ref: https://github.com/ant-design/ant-design/pull/23456
+    if (!icon || (React.isValidElement(children) && children.type === 'span')) {
+      return children;
+    }
+    return <span>{children}</span>;
+  }
+
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
+    const { level, className, children, rootPrefixCls } = this.props;
+    const { title, icon, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
         {({ inlineCollapsed, direction }: MenuContextProps) => {
+          let tooltipTitle = title;
+          if (typeof title === 'undefined') {
+            tooltipTitle = level === 1 ? children : '';
+          } else if (title === false) {
+            tooltipTitle = '';
+          }
           const tooltipProps: TooltipProps = {
-            title: title || (level === 1 ? children : ''),
+            title: tooltipTitle,
           };
 
           if (!siderCollapsed && !inlineCollapsed) {
@@ -52,13 +71,25 @@ export default class MenuItem extends React.Component<MenuItemProps> {
             // ref: https://github.com/ant-design/ant-design/issues/16742
             tooltipProps.visible = false;
           }
+          const childrenLength = toArray(children).length;
           return (
             <Tooltip
               {...tooltipProps}
               placement={direction === 'rtl' ? 'left' : 'right'}
               overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
             >
-              <Item {...rest} title={title} ref={this.saveMenuItem} />
+              <Item
+                {...rest}
+                className={classNames(className, {
+                  [`${rootPrefixCls}-item-only-child`]:
+                    (icon ? childrenLength + 1 : childrenLength) === 1,
+                })}
+                title={title}
+                ref={this.saveMenuItem}
+              >
+                {icon}
+                {this.renderItemChildren()}
+              </Item>
             </Tooltip>
           );
         }}

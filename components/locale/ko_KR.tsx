@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/ko_KR';
 import DatePicker from '../date-picker/locale/ko_KR';
 import TimePicker from '../time-picker/locale/ko_KR';
 import Calendar from '../calendar/locale/ko_KR';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'ko',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: '데이터 없음',
   },
 };
+
+export default localeValues;

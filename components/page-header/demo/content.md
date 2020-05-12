@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-使用了 pageHeader 提供的所有能力。
+使用了 PageHeader 提供的所有能力。
 
 ## en-US
 
-Show all props.Used all the capabilities provided by pageHeader.
+Show all props provided by PageHeader.
 
 ```jsx
 import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
@@ -75,26 +75,14 @@ const routes = [
 ];
 
 const IconLink = ({ src, text }) => (
-  <a
-    style={{
-      marginRight: 16,
-      display: 'flex',
-      alignItems: 'center',
-    }}
-  >
-    <img
-      style={{
-        marginRight: 8,
-      }}
-      src={src}
-      alt="start"
-    />
+  <a className="example-link">
+    <img className="example-link-icon" src={src} alt={text} />
     {text}
   </a>
 );
 
 const content = (
-  <div className="content">
+  <>
     <Paragraph>
       Ant Design interprets the color system into two levels: a system-level color system and a
       product-level color system.
@@ -104,7 +92,7 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <Row className="contentLink">
+    <div>
       <IconLink
         src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
         text="Quick Start"
@@ -117,25 +105,15 @@ const content = (
         src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
         text="Product Doc"
       />
-    </Row>
-  </div>
+    </div>
+  </>
 );
 
 const Content = ({ children, extraContent }) => {
   return (
-    <Row className="content">
-      <div className="main" style={{ flex: 1 }}>
-        {children}
-      </div>
-      <div
-        className="extra"
-        style={{
-          marginLeft: 80,
-          marginTop: 16,
-        }}
-      >
-        {extraContent}
-      </div>
+    <Row>
+      <div style={{ flex: 1 }}>{children}</div>
+      <div className="image">{extraContent}</div>
     </Row>
   );
 };
@@ -162,6 +140,7 @@ ReactDOM.render(
         <img
           src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
           alt="content"
+          width="100%"
         />
       }
     >
@@ -170,4 +149,49 @@ ReactDOM.render(
   </PageHeader>,
   mountNode,
 );
+```
+
+```css
+#components-page-header-demo-content .image {
+  margin: 0 0 0 60px;
+  display: flex;
+  align-items: center;
+}
+
+#components-page-header-demo-content .ant-page-header-rtl .image {
+  margin: 0 60px 0 0;
+}
+
+#components-page-header-demo-content .example-link {
+  line-height: 24px;
+  margin-right: 16px;
+}
+[data-theme='compact'] #components-page-header-demo-content .example-link {
+  line-height: 20px;
+}
+#components-page-header-demo-content .example-link-icon {
+  margin-right: 8px;
+}
+
+[data-theme='compact'] #components-page-header-demo-content .example-link-icon {
+  width: 20px;
+  height: 20px;
+}
+
+#components-page-header-demo-content .ant-page-header-rtl .example-link {
+  float: right;
+  margin-right: 0;
+  margin-left: 16px;
+}
+#components-page-header-demo-content .ant-page-header-rtl .example-link-icon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  #components-page-header-demo-content .image {
+    flex: 100%;
+    margin: 24px 0 0;
+  }
+}
 ```

@@ -26,6 +26,7 @@ const columns = [
     title: 'Cash Assets',
     className: 'column-money',
     dataIndex: 'money',
+    align: 'right',
   },
   {
     title: 'Address',
@@ -64,11 +65,4 @@ ReactDOM.render(
   />,
   mountNode,
 );
-```
-
-```css
-th.column-money,
-td.column-money {
-  text-align: right !important;
-}
 ```

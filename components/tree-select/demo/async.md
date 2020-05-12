@@ -27,9 +27,7 @@ class Demo extends React.Component {
   };
 
   genTreeNode = (parentId, isLeaf = false) => {
-    const random = Math.random()
-      .toString(36)
-      .substring(2, 6);
+    const random = Math.random().toString(36).substring(2, 6);
     return {
       id: random,
       pId: parentId,

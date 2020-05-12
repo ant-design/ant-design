@@ -63,10 +63,10 @@ const columns = [
 | bordered | Whether to show all table borders | boolean | `false` |
 | columns | Columns of table | [ColumnProps](#Column)\[] | - |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
-| dataSource | Data record array to be displayed | any\[] | - |
+| dataSource | Data record array to be displayed | object\[] | - |
 | expandable | Config expandable content | [expandable](#expandable) | - |
 | footer | Table footer renderer | Function(currentPageData) | - |
-| loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
+| loading | Loading status of table | boolean\|[object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
 | locale | i18n text including filter, sort, empty text, etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |
 | rowClassName | Row's className | Function(record, index):string | - |
@@ -81,6 +81,8 @@ const columns = [
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
+| sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
+| showSorterTooltip | header show next sorter direction tooltip | boolean | `true` |
 
 #### onRow usage
 
@@ -130,13 +132,14 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
-| sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
+| sortDirections | supported sort way, override `sortDirections` in `Table`, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
 | title | Title of this column | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string\|number | - |
 | onCell | Set props on per cell | Function(record, rowIndex) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
 | onHeaderCell | Set props on per header cell | Function(column) | - |
+| showSorterTooltip | header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean | `true` |
 
 ### ColumnGroup
 
@@ -148,9 +151,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 Properties for pagination.
 
-| Property | Description                          | Type                        | Default  |
-| -------- | ------------------------------------ | --------------------------- | -------- |
-| position | specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| position | specify the position of `Pagination`, could be `topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` | Array | `['bottomRight']` |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -163,7 +166,8 @@ Properties for expandable.
 | childrenColumnName | The column contains children to display | string\[] | children |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
-| expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
+| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | Function(props):ReactNode | - |
+| expandIconColumnIndex | Customize expand icon column index | number | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
@@ -176,20 +180,21 @@ Properties for expandable.
 
 Properties for row selection.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| columnWidth | Set the width of the selection column | string\|number | `60px` |
-| columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
-| fixed | Fixed selection column on the left | boolean | - |
-| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
-| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` |
-| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |
-| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |
-| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
-| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |
-| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |
-| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |
-| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| columnWidth | Set the width of the selection column | string\|number | `60px` | 4.0 |
+| columnTitle | Set the title of the selection column | string\|React.ReactNode | - | 4.0 |
+| fixed | Fixed selection column on the left | boolean | - | 4.0 |
+| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - | 4.0 |
+| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` | 4.0 |
+| renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
+| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] | 4.0 |
+| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - | 4.0 |
+| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` | 4.0 |
+| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - | 4.0 |
+| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
+| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - | 4.0 |
+| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRowKeys) | - | 4.0 |
 
 ### scroll
 
@@ -271,6 +276,20 @@ Besides, the breaking change is changing `dataIndex` from nest string path like 
 
 ## FAQ
 
-### How to hide pagination when single page or not data
+### How to hide pagination when single page or not data?
 
 You can set `hideOnSinglePage` with `pagination` prop.
+
+### Table will return to first page when filter data.
+
+Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
+
+You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
+
+### Why Table pagination show size changer?
+
+In order to improve user experience, Pagination show size changer by default when `total >= 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
+
+### Why Table fully render when state change?
+
+Table can not tell what state used in `columns.render`, so it always need fully render to avoid sync issue. But you can use `components` to customize component for conditional render. ref [#23763](https://github.com/ant-design/ant-design/issues/23763).

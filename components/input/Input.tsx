@@ -5,16 +5,42 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
-import { Omit } from '../_util/type';
+import { Omit, LiteralUnion } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
   prefixCls?: string;
   size?: SizeType;
+  // ref: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types
+  type?: LiteralUnion<
+    | 'button'
+    | 'checkbox'
+    | 'color'
+    | 'date'
+    | 'datetime-local'
+    | 'email'
+    | 'file'
+    | 'hidden'
+    | 'image'
+    | 'month'
+    | 'number'
+    | 'password'
+    | 'radio'
+    | 'range'
+    | 'reset'
+    | 'search'
+    | 'submit'
+    | 'tel'
+    | 'text'
+    | 'time'
+    | 'url'
+    | 'week',
+    string
+  >;
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -142,9 +168,9 @@ class Input extends React.Component<InputProps, InputState> {
     }
   }
 
-  focus() {
+  focus = () => {
     this.input.focus();
-  }
+  };
 
   blur() {
     this.input.blur();
@@ -191,7 +217,11 @@ class Input extends React.Component<InputProps, InputState> {
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (prefixCls: string, size?: SizeType) => {
+  renderInput = (
+    prefixCls: string,
+    size: SizeType | undefined,
+    input: ConfigConsumerProps['input'] = {},
+  ) => {
     const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
@@ -210,6 +240,7 @@ class Input extends React.Component<InputProps, InputState> {
     ]);
     return (
       <input
+        autoComplete={input.autoComplete}
         {...otherProps}
         onChange={this.handleChange}
         onFocus={this.onFocus}
@@ -254,11 +285,12 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
     const { value, focused } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
+
     return (
       <SizeContext.Consumer>
         {size => (
@@ -268,11 +300,12 @@ class Input extends React.Component<InputProps, InputState> {
             prefixCls={prefixCls}
             inputType="input"
             value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size)}
+            element={this.renderInput(prefixCls, size, input)}
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
             direction={direction}
             focused={focused}
+            triggerFocus={this.focus}
           />
         )}
       </SizeContext.Consumer>

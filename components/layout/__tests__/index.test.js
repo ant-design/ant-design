@@ -13,6 +13,14 @@ describe('Layout', () => {
   mountTest(Layout);
   mountTest(Content);
   mountTest(Sider);
+  mountTest(() => (
+    <ThemeProvider>
+      <Layout>
+        <Sider />
+        <Content />
+      </Layout>
+    </ThemeProvider>
+  ));
 
   rtlTest(Layout);
   rtlTest(Content);
@@ -69,18 +77,8 @@ describe('Layout', () => {
         </Layout>
       </ThemeProvider>,
     );
-    expect(
-      wrapper
-        .find('.ant-layout-sider')
-        .at(0)
-        .prop('style').width,
-    ).toBe('50%');
-    expect(
-      wrapper
-        .find('.ant-layout-sider')
-        .at(0)
-        .prop('style').flex,
-    ).toBe('0 0 50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').width).toBe('50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
 
   it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {

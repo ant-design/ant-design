@@ -28,6 +28,14 @@ const ResizeableTitle = props => {
     <Resizable
       width={width}
       height={0}
+      handle={
+        <span
+          className="react-resizable-handle"
+          onClick={e => {
+            e.stopPropagation();
+          }}
+        />
+      }
       onResize={onResize}
       draggableOpts={{ enableUserSelectHack: false }}
     >
@@ -48,6 +56,7 @@ class Demo extends React.Component {
         title: 'Amount',
         dataIndex: 'amount',
         width: 100,
+        sorter: (a, b) => a.amount - b.amount,
       },
       {
         title: 'Type',

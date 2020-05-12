@@ -30,15 +30,12 @@
   }
 
   &-item-group-title {
+    height: @menu-item-group-height;
     padding: 8px 16px;
     color: @menu-item-group-title-color;
     font-size: @font-size-base;
-    line-height: @line-height-base;
+    line-height: @menu-item-group-height;
     transition: all 0.3s;
-
-    .@{menu-prefix-cls}-rtl & {
-      text-align: right;
-    }
   }
 
   &-submenu,
@@ -61,8 +58,7 @@
     transition: background 0.3s @ease-in-out, padding 0.3s @ease-in-out;
   }
 
-  &-item > a {
-    display: block;
+  &-item a {
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
@@ -79,7 +75,7 @@
   }
 
   // https://github.com/ant-design/ant-design/issues/19809
-  &-item > .@{ant-prefix}-badge > a {
+  &-item > .@{ant-prefix}-badge a {
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
@@ -114,8 +110,8 @@
 
   &-item-selected {
     color: @menu-highlight-color;
-    > a,
-    > a:hover {
+    a,
+    a:hover {
       color: @menu-highlight-color;
     }
   }
@@ -130,14 +126,6 @@
     border-right: @border-width-base @border-style-base @border-color-split;
   }
 
-  &-inline,
-  &-vertical {
-    .@{menu-prefix-cls}-rtl& {
-      border-right: none;
-      border-left: @border-width-base @border-style-base @border-color-split;
-    }
-  }
-
   &-vertical-right {
     border-left: @border-width-base @border-style-base @border-color-split;
   }
@@ -146,12 +134,16 @@
   &-vertical-left&-sub,
   &-vertical-right&-sub {
     min-width: 160px;
+    max-height: calc(100vh - 100px);
     padding: 0;
+    overflow: hidden;
     border-right: 0;
     transform-origin: 0 0;
 
-    .@{menu-prefix-cls}-rtl& {
-      transform-origin: top right;
+    // https://github.com/ant-design/ant-design/issues/22244
+    &:not(.zoom-big-enter-active):not(.zoom-big-leave-active) {
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .@{menu-prefix-cls}-item {
@@ -165,10 +157,6 @@
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       transform-origin: 0 0;
-
-      .@{menu-prefix-cls}-rtl& {
-        transform-origin: top right;
-      }
     }
   }
 
@@ -181,24 +169,25 @@
     position: relative;
     display: block;
     margin: 0;
-    padding: 0 20px;
+    padding: @menu-item-padding;
     white-space: nowrap;
     cursor: pointer;
     transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
       background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
-      margin-right: 10px;
+      margin-right: @menu-item-icon-margin-right;
       font-size: @menu-icon-size;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
         opacity: 1;
         transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
       }
+    }
 
-      .@{menu-prefix-cls}-rtl & {
-        margin-right: auto;
-        margin-left: 10px;
+    &.@{menu-prefix-cls}-item-only-child {
+      > .@{iconfont-css-prefix} {
+        margin-right: 0;
       }
     }
   }
@@ -217,25 +206,26 @@
       position: absolute;
       z-index: @zindex-dropdown;
       border-radius: @border-radius-base;
+      box-shadow: none;
 
-      .submenu-title-wrapper {
-        padding-right: 20px;
-
-        .@{menu-prefix-cls}-submenu-rtl& {
-          padding-right: 0;
-          padding-left: 20px;
-        }
-      }
-
+      // https://github.com/ant-design/ant-design/issues/13955
       &::before {
         position: absolute;
         top: -7px;
         right: 0;
         bottom: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
         opacity: 0.0001;
         content: ' ';
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/13955
+    &-placement-rightTop::before {
+      top: 0;
+      left: -7px;
     }
 
     > .@{menu-prefix-cls} {
@@ -260,11 +250,6 @@
         right: 16px;
         width: 10px;
         transition: transform 0.3s @ease-in-out;
-
-        .@{menu-prefix-cls}-rtl & {
-          right: auto;
-          left: 16px;
-        }
 
         &::before,
         &::after {
@@ -300,15 +285,9 @@
       > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
         &::before {
           transform: rotate(45deg) translateY(-2px);
-          .@{menu-prefix-cls}-rtl & {
-            transform: rotate(-45deg) translateY(-2px);
-          }
         }
         &::after {
           transform: rotate(-45deg) translateY(2px);
-          .@{menu-prefix-cls}-rtl & {
-            transform: rotate(45deg) translateY(2px);
-          }
         }
       }
     }
@@ -341,13 +320,13 @@
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
     color: @menu-highlight-color;
-    > a {
+    a {
       color: @menu-highlight-color;
     }
   }
 
   &-horizontal {
-    line-height: 46px;
+    line-height: @menu-horizontal-line-height;
     white-space: nowrap;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -371,8 +350,7 @@
     }
 
     > .@{menu-prefix-cls}-item {
-      > a {
-        display: block;
+      a {
         color: @menu-item-color;
         &:hover {
           color: @menu-highlight-color;
@@ -381,7 +359,7 @@
           bottom: -2px;
         }
       }
-      &-selected > a {
+      &-selected a {
         color: @menu-highlight-color;
       }
     }
@@ -410,11 +388,6 @@
         opacity: 0;
         transition: transform 0.15s @ease-out, opacity 0.15s @ease-out;
         content: '';
-
-        .@{menu-prefix-cls}-rtl& {
-          right: auto;
-          left: 0;
-        }
       }
     }
 
@@ -428,10 +401,6 @@
       font-size: @menu-item-font-size;
       line-height: @menu-item-height;
       text-overflow: ellipsis;
-
-      .@{menu-prefix-cls}-rtl& {
-        text-align: right;
-      }
     }
 
     // disable margin collapsed
@@ -447,6 +416,12 @@
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       height: @menu-inline-toplevel-item-height;
       line-height: @menu-inline-toplevel-item-height;
+    }
+  }
+
+  &-vertical {
+    .@{menu-prefix-cls}-submenu-title {
+      padding-right: 34px;
     }
   }
 
@@ -468,11 +443,6 @@
 
     .@{menu-prefix-cls}-submenu-title {
       padding-right: 34px;
-
-      .@{menu-prefix-cls}-rtl& {
-        padding-right: 0;
-        padding-left: 34px;
-      }
     }
   }
 
@@ -488,7 +458,7 @@
       > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
-      padding: 0 (@menu-collapsed-width - (@remToPx * @menu-icon-size-lg)) / 2 !important;
+      padding: 0 (@menu-collapsed-width - (@remToPx * @menu-icon-size-lg)) / 2;
       text-overflow: clip;
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;
@@ -504,6 +474,11 @@
         }
       }
     }
+
+    .@{iconfont-css-prefix} {
+      display: inline-block;
+    }
+
     &-tooltip {
       pointer-events: none;
       .@{iconfont-css-prefix} {
@@ -529,10 +504,6 @@
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       padding: 0 16px 0 28px;
-
-      .@{menu-prefix-cls}-rtl & {
-        padding: 0 28px 0 16px;
-      }
     }
   }
 
@@ -558,11 +529,6 @@
 
     & .@{menu-prefix-cls}-item-group-title {
       padding-left: 32px;
-
-      .@{menu-prefix-cls}-rtl& {
-        padding-right: 32px;
-        padding-left: 0;
-      }
     }
   }
 
@@ -573,7 +539,7 @@
     background: none;
     border-color: transparent !important;
     cursor: not-allowed;
-    > a {
+    a {
       color: @disabled-color !important;
       pointer-events: none;
     }
@@ -590,4 +556,12 @@
   }
 }
 
+// Integration with header element so menu items have the same height
+.@{ant-prefix}-layout-header {
+  .@{menu-prefix-cls} {
+    line-height: inherit;
+  }
+}
+
 @import './dark';
+@import './rtl';

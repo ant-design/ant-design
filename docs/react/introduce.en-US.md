@@ -36,9 +36,9 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-- Modern browsers and Internet Explorer 11+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](/docs/react/getting-started#Compatibility))
 - Server-side Rendering
-- [Electron](http://electron.atom.io/)
+- [Electron](https://www.electronjs.org/)
 
 ## Version
 
@@ -70,12 +70,13 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 
 > **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
 
-> Note: you should import moment before using antd.js after `3.0`.
+> Note: you should import react/react-dom/moment before using antd.js.
 
 ## Usage
 
 ```jsx
 import { DatePicker } from 'antd';
+
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
@@ -121,8 +122,8 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## Links
 
-- [Home page](https://ant.design/)
-- [Components](/docs/react/introduce)
+- [Home page](/)
+- [Components](/components/button/)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Change Log](/changelog)
 - [rc-components](http://react-component.github.io/)
@@ -141,6 +142,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
+- [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## Companies using antd
 

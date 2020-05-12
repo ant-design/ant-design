@@ -20,7 +20,9 @@ Generally, the mainnav is placed at the top of the page, and includes the logo, 
 Top-bottom structure is conform with the top-bottom viewing habit, it's a classical navigation pattern of websites. This pattern demonstrates efficiency in the main workarea, while using some vertical space. And because the horizontal space of the navigation is limited, this pattern is not suitable for cases when the first level navigation contains many elements or links
 
 ```jsx
-import { Layout, Menu, Breadcrumb } from 'antd';
+import Layout from '..'; // TODO: point this at varnish
+import Menu from '../../menu'; // TODO: point this at varnish
+import Breadcrumb from '../../breadcrumb'; // TODO: point this at varnish
 
 const { Header, Content, Footer } = Layout;
 
@@ -28,12 +30,7 @@ ReactDOM.render(
   <Layout className="layout">
     <Header>
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
-      >
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>
         <Menu.Item key="3">nav 3</Menu.Item>

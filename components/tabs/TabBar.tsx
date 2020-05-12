@@ -1,7 +1,10 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
-import { UpOutlined, LeftOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
+import UpOutlined from '@ant-design/icons/UpOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import { TabsProps } from './index';
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
@@ -9,7 +12,7 @@ import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
     animated: true,
-    type: 'line',
+    type: 'line' as TabsProps['type'],
   };
 
   renderTabBar = ({ direction }: ConfigConsumerProps) => {

@@ -20,14 +20,15 @@ title: Drawer
 | --- | --- | --- | --- |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |
+| forceRender | 预渲染 Drawer 内元素 | boolean | false |
 | getContainer | 指定 Drawer 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| `() => HTMLElement` \| Selectors \| false | 'body' |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | mask | 是否展示遮罩 | boolean | true |
-| maskStyle | 遮罩样式 | object | {} |
-| style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | object | - |
-| drawerStyle | 用于设置 Drawer 弹出层的样式 | object | - |
-| headerStyle | 用于设置 Drawer 头部的样式 | object | - |
-| bodyStyle | 可用于设置 Drawer 内容部分的样式 | object | - |
+| maskStyle | 遮罩样式 | CSSProperties | {} |
+| style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | CSSProperties | - |
+| drawerStyle | 用于设置 Drawer 弹出层的样式 | CSSProperties | - |
+| headerStyle | 用于设置 Drawer 头部的样式 | CSSProperties | - |
+| bodyStyle | 可用于设置 Drawer 内容部分的样式 | CSSProperties | - |
 | title | 标题 | string \| ReactNode | - |
 | visible | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 256 |

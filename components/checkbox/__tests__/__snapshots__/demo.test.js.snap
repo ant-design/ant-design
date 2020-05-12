@@ -148,7 +148,7 @@ exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-sm"
-      style="margin-left:10px"
+      style="margin:0 10px"
       type="button"
     >
       <span>

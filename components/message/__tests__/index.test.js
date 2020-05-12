@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
-
 import message from '..';
 
 describe('message', () => {
@@ -12,41 +11,6 @@ describe('message', () => {
   afterEach(() => {
     message.destroy();
     jest.useRealTimers();
-  });
-
-  it('should be able to config top', () => {
-    message.config({
-      top: 100,
-    });
-    message.info('whatever');
-    expect(document.querySelectorAll('.ant-message')[0].style.top).toBe('100px');
-  });
-
-  it('should be able to config getContainer', () => {
-    message.config({
-      getContainer: () => {
-        const div = document.createElement('div');
-        div.className = 'custom-container';
-        document.body.appendChild(div);
-        return div;
-      },
-    });
-    message.info('whatever');
-    expect(document.querySelectorAll('.custom-container').length).toBe(1);
-  });
-
-  it('should be able to config maxCount', () => {
-    message.config({
-      maxCount: 5,
-    });
-    for (let i = 0; i < 10; i += 1) {
-      message.info('test');
-    }
-    message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(5);
-    expect(document.querySelectorAll('.ant-message-notice')[4].textContent).toBe('last');
-    jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 
   it('should be able to hide manually', () => {
@@ -124,13 +88,16 @@ describe('message', () => {
   });
 
   it('should have no icon', () => {
+    message.open({ content: 'Message', icon: <span /> });
+    expect(document.querySelectorAll('.ant-message-notice .anticon').length).toBe(0);
+  });
+  it('should have no icon when not pass icon props', () => {
     message.open({ content: 'Message' });
     expect(document.querySelectorAll('.ant-message-notice .anticon').length).toBe(0);
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
   it('should destroy messages correctly', () => {
-    // eslint-disable-next-line
     class Test extends React.Component {
       componentDidMount() {
         message.loading('Action in progress1..', 0);

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { AppLayoutVariant, AppLayoutContext }  from './AppLayoutContext';
+import { AppLayoutVariant, AppLayoutContext } from './AppLayoutContext';
 
 export interface GeneratorProps {
   suffixCls: string;
@@ -119,14 +119,14 @@ const AntdLayout: React.ComponentClass<BasicProps> & {
   Content: React.FunctionComponent<BasicProps>;
   Sider: React.ComponentClass<SiderProps>;
 } = generator({
-    suffixCls: 'layout',
-    tagName: 'section',
-    displayName: 'Layout',
-  })(BasicLayout);
+  suffixCls: 'layout',
+  tagName: 'section',
+  displayName: 'Layout',
+})(BasicLayout);
 
 const Layout = styled(AntdLayout)<{ bgcolor?: string }>`
   && {
-      background: ${({ theme, bgcolor }) => (bgcolor ? theme.color[bgcolor] : 'none')};
+    background: ${({ theme, bgcolor }) => (bgcolor ? theme.color[bgcolor] : 'none')};
   }
 `;
 
@@ -155,11 +155,11 @@ interface ContentProps extends BasicProps {
 
 export const Content = ({ children, className, ...basicProps }: ContentProps) => (
   <AppLayoutContext.Consumer>
-      {({ appLayoutVariant }) => (
-          <ContentContainer layout={appLayoutVariant} className={className} {...basicProps}>
-              {children}
-          </ContentContainer>
-      )}
+    {({ appLayoutVariant }) => (
+      <ContentContainer layout={appLayoutVariant} className={className} {...basicProps}>
+        {children}
+      </ContentContainer>
+    )}
   </AppLayoutContext.Consumer>
 );
 

@@ -33,11 +33,6 @@
 
   .subtitle {
     margin-left: 12px;
-
-    .ant-row-rtl & {
-      margin-right: 12px;
-      margin-left: 0;
-    }
   }
 }
 
@@ -82,6 +77,10 @@
 .markdown p,
 .markdown pre {
   margin: 1em 0;
+  .ant-row-rtl & {
+    direction: rtl;
+    text-align: right;
+  }
 }
 
 .markdown ul > li {
@@ -89,7 +88,7 @@
   padding-left: 4px;
   list-style-type: circle;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 20px;
     margin-left: 0;
     padding-right: 4px;
@@ -128,7 +127,7 @@
 }
 
 .markdown pre {
-  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: @code-family;
   background: @site-markdown-code-bg;
   border-radius: @border-radius-base;
 }
@@ -138,7 +137,9 @@
   padding: 0;
   overflow: auto;
   color: @site-text-color;
-  font-size: @font-size-base - (@pxToRem * 1);
+  font-size: max(@font-size-base - (@pxToRem * 1), 0.75rem);
+  direction: ltr;
+  text-align: left;
   background: #f5f5f5;
   border: none;
 }
@@ -151,6 +152,7 @@
 .markdown > table {
   width: 100%;
   margin: 8px 0 16px;
+  direction: ltr;
   empty-cells: show;
   border: 1px solid @site-border-color-split;
   border-collapse: collapse;
@@ -171,6 +173,13 @@
   border: 1px solid @site-border-color-split;
 }
 
+.markdown table td > a:not(:last-child) {
+  margin-right: 0 !important;
+  &::after {
+    position: relative !important;
+  }
+}
+
 .markdown blockquote {
   margin: 1em 0;
   padding-left: 0.8em;
@@ -178,7 +187,7 @@
   font-size: 90%;
   border-left: 4px solid @site-border-color-split;
 
-  .ant-row-rtl & {
+  .rtl & {
     padding-right: 0.8em;
     padding-left: 0;
     border-right: 4px solid @site-border-color-split;
@@ -193,9 +202,9 @@
 .markdown .anchor {
   margin-left: 8px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 8px;
     margin-left: 0;
   }
@@ -211,10 +220,12 @@
   margin-left: 8px;
   text-decoration: none;
 
-  .ant-row-rtl & {
+  .rtl & {
     margin-right: 8px;
     margin-left: 0;
+    transform: rotateY(180deg);
   }
+
   i {
     color: @site-text-color-secondary;
 
@@ -250,7 +261,7 @@
   table {
     min-width: 720px;
     margin: 2em 0;
-    font-size: @font-size-base - (@pxToRem * 1);
+    font-size: max(@font-size-base - (@pxToRem * 1), 0.75rem);
     font-family: @code-family;
     line-height: @line-height-base;
     border: 1px solid @border-color-split;
@@ -283,12 +294,12 @@
       &:nth-child(3) {
         width: 22%;
         color: @magenta-7;
-        font-size: @font-size-base - (@pxToRem * 1);
+        font-size: max(@font-size-base - (@pxToRem * 1), 0.75rem);
         word-break: break-all;
       }
       &:nth-child(4) {
         width: 16%;
-        font-size: @font-size-base - (@pxToRem * 1);
+        font-size: max(@font-size-base - (@pxToRem * 1), 0.75rem);
       }
     }
   }
@@ -297,6 +308,8 @@
     margin: 12px 0;
   }
 }
+
+@demo-grid-color: #0092ff;
 
 .grid-demo,
 [id^='components-grid-demo-'] {
@@ -359,16 +372,15 @@
     min-height: 30px;
     margin-top: 8px;
     margin-bottom: 8px;
-    padding: 5px 0;
     color: #fff;
     text-align: center;
     border-radius: 0;
   }
   .code-box-demo .ant-row > div:not(.gutter-row) {
     padding: 16px 0;
-    background: #00a0e9;
+    background: @demo-grid-color;
     &:nth-child(2n + 1) {
-      background: fade(#00a0e9, 70%);
+      background: fade(@demo-grid-color, 75%);
     }
   }
   .ant-row .demo-col,
@@ -382,11 +394,11 @@
     border: none;
   }
   .ant-row .demo-col-1 {
-    background: fade(#00a0e9, 70%);
+    background: fade(@demo-grid-color, 75%);
   }
   .ant-row .demo-col-2,
   .code-box-demo .ant-row .demo-col-2 {
-    background: fade(#00a0e9, 50%);
+    background: fade(@demo-grid-color, 50%);
   }
   .ant-row .demo-col-3,
   .code-box-demo .ant-row .demo-col-3 {
@@ -395,7 +407,7 @@
   }
   .ant-row .demo-col-4,
   .code-box-demo .ant-row .demo-col-4 {
-    background: fade(#00a0e9, 60%);
+    background: fade(@demo-grid-color, 60%);
   }
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {
@@ -443,6 +455,12 @@
       > h2 {
         margin-top: 0;
         padding-top: 4px;
+        direction: ltr;
+        span {
+          .ant-row-rtl & {
+            float: right;
+          }
+        }
       }
     }
   }

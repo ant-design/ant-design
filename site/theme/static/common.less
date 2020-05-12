@@ -1,3 +1,7 @@
+html.rtl {
+  direction: rtl;
+}
+
 body {
   color: @site-text-color;
   font-size: 14px;
@@ -20,7 +24,6 @@ a {
   position: relative;
   min-height: 500px;
   padding: 0 170px 32px 64px;
-  overflow: hidden;
   background: @component-background;
 
   .ant-row-rtl & {
@@ -83,16 +86,31 @@ a {
     > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
     &.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
       padding-left: 40px !important;
+
+      .ant-row-rtl & {
+        padding-right: 40px !important;
+        padding-left: 16px !important;
+      }
     }
 
     // Nest Category > Type > Article
     &.ant-menu-inline {
       .ant-menu-item-group-title {
         padding-left: 56px;
+
+        .ant-row-rtl & {
+          padding-right: 56px;
+          padding-left: 16px;
+        }
       }
 
       .ant-menu-item-group-list > .ant-menu-item {
         padding-left: 80px !important;
+
+        .ant-row-rtl & {
+          padding-right: 80px !important;
+          padding-left: 16px !important;
+        }
       }
     }
 
@@ -139,6 +157,11 @@ a {
   margin-left: 5px;
   color: #aaa;
   font-size: 12px;
+  .ant-row-rtl & {
+    margin-right: 5px;
+    margin-left: 0;
+    transform: rotate(180deg);
+  }
 }
 
 // reset menu text color
@@ -157,18 +180,12 @@ a {
   height: 100%;
   transition: transform 0.3s @ease-in-out-circ;
 }
-.page-wrapper {
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-
-  &-rtl {
-    direction: rtl;
-  }
-}
 
 .drawer-content {
   padding: 40px 0;
+  &-wrapper {
+    background-color: @component-background;
+  }
 }
 
 .drawer {
@@ -189,6 +206,8 @@ a {
   right: 32px;
   bottom: 102px;
   z-index: 2147483640;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   &-tooltip {
     .ant-tooltip-inner {
@@ -198,9 +217,47 @@ a {
   & > div {
     display: block;
   }
-  & &-avatar {
-    background-color: #fff;
-    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  &-active {
+    color: @primary-color;
   }
+  & &-avatar {
+    color: #000;
+    background-color: #fff;
+    box-shadow: @shadow-2;
+    transition: color 0.3s;
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
+// keep transition consistent to make mode toggle animation be more smooth, include:
+// nav bar background
+// nav search border
+// nav menu background
+// wrapper content
+// sidemenu background
+// sidemenu active background
+// content background
+// affix toc
+#header,
+#header #search-box,
+#header #nav.ant-menu,
+.main-wrapper,
+.main-wrapper > .ant-row > .main-menu .main-menu-inner > .ant-menu,
+.main-wrapper
+  > .ant-row
+  > .main-menu
+  .main-menu-inner
+  > .ant-menu.aside-container.ant-menu-inline
+  > .ant-menu-item-group
+  > .ant-menu-item-group-title::after,
+.main-wrapper .main-container,
+#demo-toc.toc {
+  transition: all 0.3s @ease-in-out-circ;
+}
+
+// remove margin-bottom from dark theme (why need margin-bottom in dark theme?)
+#header > .ant-row > .ant-col h1 {
+  margin-bottom: 0;
 }

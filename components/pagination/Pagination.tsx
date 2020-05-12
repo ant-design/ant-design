@@ -2,13 +2,12 @@ import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import {
-  LeftOutlined,
-  RightOutlined,
-  DoubleLeftOutlined,
-  DoubleRightOutlined,
-} from '@ant-design/icons';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
+import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 
+import ResponsiveObserve from '../_util/responsiveObserve';
 import MiniSelect from './MiniSelect';
 import Select from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -27,8 +26,10 @@ export interface PaginationProps {
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
+  showTitle?: boolean;
   showTotal?: (total: number, range: [number, number]) => React.ReactNode;
-  size?: string;
+  size?: 'default' | 'small';
+  responsive?: boolean;
   simple?: boolean;
   style?: React.CSSProperties;
   locale?: Object;
@@ -44,13 +45,35 @@ export interface PaginationProps {
   showLessItems?: boolean;
 }
 
+export type PaginationPosition = 'top' | 'bottom' | 'both';
+
 export interface PaginationConfig extends PaginationProps {
-  position?: 'top' | 'bottom' | 'both';
+  position?: PaginationPosition;
 }
 
 export type PaginationLocale = any;
 
 export default class Pagination extends React.Component<PaginationProps, {}> {
+  private token: string;
+
+  private inferredSmall: boolean = false;
+
+  componentDidMount() {
+    this.token = ResponsiveObserve.subscribe(screens => {
+      const { xs } = screens;
+      const { size, responsive } = this.props;
+      const inferredSmall = !!(xs && !size && responsive);
+      if (this.inferredSmall !== inferredSmall) {
+        this.inferredSmall = inferredSmall;
+        this.forceUpdate();
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    ResponsiveObserve.unsubscribe(this.token);
+  }
+
   getIconsProps = (prefixCls: string, direction: 'ltr' | 'rtl' | undefined) => {
     let prevIcon = (
       <a className={`${prefixCls}-item-link`}>
@@ -110,7 +133,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       ...restProps
     } = this.props;
     const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small';
+    const isSmall = size === 'small' || this.inferredSmall;
     return (
       <ConfigConsumer>
         {({ getPrefixCls, direction }: ConfigConsumerProps) => {

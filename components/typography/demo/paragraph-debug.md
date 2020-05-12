@@ -86,6 +86,30 @@ ReactDOM.render(
         </li>
       </ul>
     </Paragraph>
+
+    <Paragraph>
+      <ul>
+        <li>I am an unordered item</li>
+        <li>
+          I am an unordered item with an ordered sublist
+          <ol>
+            <li>I am ordered</li>
+          </ol>
+          <ul>
+            <li>I am unordered</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>
+          Ordered list item with unordered sublist
+          <ul>
+            <li>I am unordered!</li>
+            <li>I am also unordered!</li>
+          </ul>
+        </li>
+      </ol>
+    </Paragraph>
   </div>,
   mountNode,
 );

@@ -154,10 +154,7 @@ describe('Input.Search', () => {
     const wrapper = mount(
       <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
     );
-    wrapper
-      .find('.ant-input-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
     expect(onChange).toHaveBeenCalled();
   });

@@ -111,7 +111,11 @@ ReactDOM.render(
       >
         <DatePicker />
       </Form.Item>
-      <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>-</span>
+      <span
+        style={{ display: 'inline-block', width: '24px', lineHeight: '32px', textAlign: 'center' }}
+      >
+        -
+      </span>
       <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
         <DatePicker />
       </Form.Item>

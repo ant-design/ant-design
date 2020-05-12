@@ -47,6 +47,7 @@
       display: block;
       width: @checkbox-size;
       height: @checkbox-size;
+      direction: ltr;
       background-color: @checkbox-check-bg;
       border: @checkbox-border-width @border-style-base @border-color-base;
       border-radius: @border-radius-base;
@@ -170,7 +171,7 @@
     display: inline-block;
     &-item {
       display: inline-block;
-      margin-right: 8px;
+      margin-right: @checkbox-group-item-margin-right;
       &:last-child {
         margin-right: 0;
       }
@@ -183,7 +184,7 @@
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
-      background-color: @component-background;
+      background-color: @checkbox-check-bg;
       border-color: @border-color-base;
     }
     .@{checkbox-inner-prefix-cls}::after {

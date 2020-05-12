@@ -114,23 +114,36 @@ export function isZhCN(pathname: string) {
   return /-cn\/?$/.test(pathname);
 }
 
-export function getLocalizedPathname(path: string, zhCN: boolean) {
+export function getLocalizedPathname(
+  path: string,
+  zhCN?: boolean,
+  hash?: {
+    zhCN: string;
+    enUS: string;
+  },
+) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
+  let fullPath;
   if (!zhCN) {
     // to enUS
-    return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+    fullPath = /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+  } else if (pathname === '/') {
+    fullPath = '/index-cn';
+  } else if (pathname.endsWith('/')) {
+    fullPath = pathname.replace(/\/$/, '-cn/');
+  } else {
+    fullPath = `${pathname}-cn`;
   }
-  if (pathname === '/') {
-    return '/index-cn';
+
+  if (hash) {
+    const localHash = hash[zhCN ? 'zhCN' : 'enUS'];
+    fullPath += `#${localHash}`;
   }
-  if (pathname.endsWith('/')) {
-    return pathname.replace(/\/$/, '-cn/');
-  }
-  return `${pathname}-cn`;
+
+  return fullPath;
 }
 
 export function ping(callback: (status: string) => void) {
-  // eslint-disable-next-line
   const url =
     'https://private-a' +
     'lipay' +
@@ -175,7 +188,7 @@ export function loadScript(src: string) {
   });
 }
 
-export function getMetaDescription(jml: any[]) {
+export function getMetaDescription(jml?: any[] | null) {
   const COMMON_TAGS = ['h1', 'h2', 'h3', 'p', 'img', 'a', 'code', 'strong'];
   if (!Array.isArray(jml)) {
     return '';

@@ -11,10 +11,6 @@
   border-bottom: 0;
   border-radius: @collapse-panel-border-radius;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
 
@@ -30,7 +26,7 @@
       padding: @collapse-header-padding;
       padding-left: @collapse-header-padding-extra;
       color: @heading-color;
-      line-height: 22px;
+      line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s;
       .clearfix;
@@ -45,26 +41,18 @@
 
         position: absolute;
         top: 50%;
-        left: @padding-md;
+        left: @collapse-header-arrow-left;
         display: inline-block;
         font-size: @font-size-sm;
         transform: translateY(-50%);
 
         & svg {
           transition: transform 0.24s;
-
-          .@{collapse-prefix-cls}-rtl& {
-            transform: rotate(180deg);
-          }
         }
       }
 
       .@{collapse-prefix-cls}-extra {
         float: right;
-
-        .@{collapse-prefix-cls}-rtl& {
-          float: left;
-        }
       }
 
       &:focus {
@@ -75,11 +63,6 @@
     &.@{collapse-prefix-cls}-no-arrow {
       > .@{collapse-prefix-cls}-header {
         padding-left: 12px;
-
-        .@{collapse-prefix-cls}-rtl& {
-          padding-right: 12px;
-          padding-left: 0;
-        }
       }
     }
   }
@@ -155,3 +138,5 @@
     }
   }
 }
+
+@import './rtl';

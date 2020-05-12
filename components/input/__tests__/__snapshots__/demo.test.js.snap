@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/input/demo/addon.md correctly 1`] = `
-<div>
+Array [
   <div
     style="margin-bottom:16px"
   >
@@ -28,7 +28,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         </span>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     style="margin-bottom:16px"
   >
@@ -42,8 +42,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
-            style="width:90px"
+            class="ant-select select-before ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -109,8 +108,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
-            style="width:80px"
+            class="ant-select select-after ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -169,7 +167,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         </span>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     style="margin-bottom:16px"
   >
@@ -210,7 +208,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         </span>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     style="margin-bottom:16px"
   >
@@ -241,12 +239,12 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         </span>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input/demo/align.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-mentions"
     style="width:100px"
@@ -254,12 +252,12 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     <textarea
       rows="1"
     />
-  </div>
+  </div>,
   <textarea
     class="ant-input"
     rows="1"
     style="width:100px"
-  />
+  />,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -267,13 +265,13 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     <span>
       Button
     </span>
-  </button>
+  </button>,
   <input
     class="ant-input"
     style="width:100px"
     type="text"
     value=""
-  />
+  />,
   <span
     class="ant-typography"
   >
@@ -306,7 +304,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </span>
+  </span>,
   <span
     class="ant-input-affix-wrapper"
     style="width:100px"
@@ -326,7 +324,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     >
       2
     </span>
-  </span>
+  </span>,
   <span
     class="ant-input-group-wrapper"
     style="width:100px"
@@ -350,7 +348,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         2
       </span>
     </span>
-  </span>
+  </span>,
   <div
     class="ant-input-number"
     style="width:100px"
@@ -359,9 +357,8 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
         unselectable="unselectable"
       >
@@ -387,9 +384,8 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
         unselectable="unselectable"
       >
@@ -428,7 +424,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         value=""
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-picker"
     style="width:100px"
@@ -440,23 +436,35 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         placeholder="Select date"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
         class="ant-picker-suffix"
       >
         <span
-          class="anticon"
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
-          <img
-            alt=""
-            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
-          />
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-picker"
     style="width:100px"
@@ -468,6 +476,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -498,7 +507,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:100px"
@@ -556,65 +565,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:100px"
-  >
-    <div
-      class="ant-select-selector"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        jack
-      </span>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
+  </div>,
   <div
     class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
     style="width:100px"
@@ -670,7 +621,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <span
     class="ant-cascader-picker"
     tabindex="0"
@@ -729,7 +680,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -747,9 +698,29 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       class="ant-picker-range-separator"
     >
       <span
+        aria-label="to"
         class="ant-picker-separator"
       >
-        →
+        <span
+          aria-label="swap-right"
+          class="anticon anticon-swap-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="swap-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+            />
+          </svg>
+        </span>
       </span>
     </div>
     <div
@@ -770,16 +741,27 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       class="ant-picker-suffix"
     >
       <span
-        class="anticon"
+        aria-label="calendar"
+        class="anticon anticon-calendar"
         role="img"
       >
-        <img
-          alt=""
-          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
-        />
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-picker"
   >
@@ -790,23 +772,35 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         placeholder="Select month"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
         class="ant-picker-suffix"
       >
         <span
-          class="anticon"
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
-          <img
-            alt=""
-            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
-          />
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -849,7 +843,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         Shanghai
       </span>
     </label>
-  </div>
+  </div>,
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width:100px"
@@ -878,8 +872,8 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         input here
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <span
     class="ant-input-group-wrapper"
   >
@@ -911,12 +905,48 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         .com
       </span>
     </span>
-  </span>
-</div>
+  </span>,
+  <span
+    class="ant-input-affix-wrapper"
+    style="width:50px"
+  >
+    <input
+      class="ant-input"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      Y
+    </span>
+  </span>,
+  <input
+    class="ant-input"
+    style="width:50px"
+    type="text"
+    value=""
+  />,
+  <span
+    class="ant-input-affix-wrapper"
+    style="width:50px"
+  >
+    <input
+      class="ant-input"
+      type="text"
+      value="1"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      Y
+    </span>
+  </span>,
+]
 `;
 
 exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-input-affix-wrapper"
   >
@@ -928,10 +958,32 @@ exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
     />
     <span
       class="ant-input-suffix"
-    />
-  </span>
-  <br />
-  <br />
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+        role="button"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
   >
@@ -939,31 +991,52 @@ exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
       class="ant-input"
       placeholder="textarea with clear icon"
     />
-  </span>
-</div>
+    <span
+      aria-label="close-circle"
+      class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+      role="button"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        />
+      </svg>
+    </span>
+  </span>,
+]
 `;
 
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
-<div>
+Array [
   <textarea
     class="ant-input"
     placeholder="Autosize height based on content lines"
-  />
+  />,
   <div
     style="margin:24px 0"
-  />
+  />,
   <textarea
     class="ant-input"
     placeholder="Autosize height with minimum and maximum number of lines"
-  />
+  />,
   <div
     style="margin:24px 0"
-  />
+  />,
   <textarea
     class="ant-input"
     placeholder="Controlled autosize"
-  />
-</div>
+  />,
+]
 `;
 
 exports[`renders ./components/input/demo/basic.md correctly 1`] = `
@@ -1097,6 +1170,52 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   <span
     class="ant-input-group ant-input-group-compact"
   >
+    <input
+      class="ant-input"
+      style="width:20%"
+      type="text"
+      value="0571"
+    />
+    <span
+      class="ant-input-search ant-input-affix-wrapper"
+      style="width:30%"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="26888888"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          aria-label="search"
+          class="anticon anticon-search ant-input-search-icon"
+          role="img"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="search"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
     >
@@ -1167,9 +1286,8 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-handler-wrap"
       >
         <span
-          aria-disabled="false"
           aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up "
+          class="ant-input-number-handler ant-input-number-handler-up"
           role="button"
           unselectable="unselectable"
         >
@@ -1195,9 +1313,8 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           </span>
         </span>
         <span
-          aria-disabled="false"
           aria-label="Decrease Value"
-          class="ant-input-number-handler ant-input-number-handler-down "
+          class="ant-input-number-handler ant-input-number-handler-down"
           role="button"
           unselectable="unselectable"
         >
@@ -1259,22 +1376,127 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           placeholder="Select date"
           readonly=""
           size="12"
+          title=""
           value=""
         />
         <span
           class="ant-picker-suffix"
         >
           <span
-            class="anticon"
+            aria-label="calendar"
+            class="anticon anticon-calendar"
             role="img"
           >
-            <img
-              alt=""
-              src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
-            />
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
           </span>
         </span>
       </div>
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <input
+      class="ant-input"
+      style="width:30%"
+      type="text"
+      value="input content"
+    />
+    <div
+      class="ant-picker ant-picker-range"
+      style="width:70%"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </span>
   <br />
@@ -1473,9 +1695,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input"
+      class="ant-input site-input-right"
       placeholder="Maximum"
-      style="width:100px;text-align:center;border-left:0"
+      style="width:100px;text-align:center"
       type="text"
       value=""
     />
@@ -1486,6 +1708,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
+      style="width:30%"
     >
       <div
         class="ant-select-selector"
@@ -1543,7 +1766,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </div>
     <div
       class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-      style="width:200px"
+      style="width:70%"
     >
       <div
         class="ant-select-selector"
@@ -1718,7 +1941,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-input-affix-wrapper"
   >
@@ -1780,9 +2003,9 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-affix-wrapper"
   >
@@ -1801,9 +2024,9 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     >
       RMB
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
   >
@@ -1823,12 +2046,12 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     >
       RMB
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-input-search ant-input-affix-wrapper"
     style="width:200px"
@@ -1864,9 +2087,9 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
   >
@@ -1909,9 +2132,9 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         </button>
       </span>
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
   >
@@ -1937,12 +2160,69 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         </button>
       </span>
     </span>
-  </span>
-</div>
+  </span>,
+  <br />,
+  <br />,
+  <span
+    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
+  >
+    <span
+      class="ant-input-wrapper ant-input-group"
+    >
+      <span
+        class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          placeholder="input search text"
+          type="text"
+          value=""
+        />
+        <span
+          class="ant-input-suffix"
+        >
+          <span
+            aria-label="audio"
+            class="anticon anticon-audio"
+            role="img"
+            style="font-size:16px;color:#1890ff"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="audio"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M842 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 140.3-113.7 254-254 254S258 594.3 258 454c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8 0 168.7 126.6 307.9 290 327.6V884H326.7c-13.7 0-24.7 14.3-24.7 32v36c0 4.4 2.8 8 6.2 8h407.6c3.4 0 6.2-3.6 6.2-8v-36c0-17.7-11-32-24.7-32H548V782.1c165.3-18 294-158 294-328.1zM512 624c93.9 0 170-75.2 170-168V232c0-92.8-76.1-168-170-168s-170 75.2-170 168v224c0 92.8 76.1 168 170 168zm-94-392c0-50.6 41.9-92 94-92s94 41.4 94 92v224c0 50.6-41.9 92-94 92s-94-41.4-94-92V232z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <span
+        class="ant-input-group-addon"
+      >
+        <button
+          class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+          type="button"
+        >
+          <span>
+            Search
+          </span>
+        </button>
+      </span>
+    </span>
+  </span>,
+]
 `;
 
 exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-input-search ant-input-affix-wrapper"
   >
@@ -1976,9 +2256,9 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
         </svg>
       </span>
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
   >
@@ -2021,14 +2301,12 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
         </button>
       </span>
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/input/demo/size.md correctly 1`] = `
-<div
-  class="example-input"
->
+Array [
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
   >
@@ -2062,7 +2340,9 @@ exports[`renders ./components/input/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-  </span>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-affix-wrapper"
   >
@@ -2096,7 +2376,9 @@ exports[`renders ./components/input/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-  </span>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-sm"
   >
@@ -2130,47 +2412,8 @@ exports[`renders ./components/input/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-  </span>
-  <span
-    class="ant-input-password ant-input-password-large ant-input-affix-wrapper ant-input-affix-wrapper-lg"
-  >
-    <input
-      action="click"
-      class="ant-input ant-input-lg"
-      placeholder="large Password"
-      type="password"
-      value=""
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible ant-input-password-icon"
-        role="img"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
-      </span>
-    </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
@@ -2181,7 +2424,7 @@ exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn"
     style="margin-bottom:16px"
@@ -2190,14 +2433,14 @@ exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
     <span>
       Auto Resize: false
     </span>
-  </button>
+  </button>,
   <textarea
     class="ant-input"
     rows="4"
   >
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
-  </textarea>
-</div>
+  </textarea>,
+]
 `;
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `

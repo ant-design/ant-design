@@ -1,20 +1,21 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
 import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
-import {
-  CloseOutlined,
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  ExclamationCircleOutlined,
-  InfoCircleOutlined,
-} from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-const notificationInstance: { [key: string]: RCNotificationInstance } = {};
+const notificationInstance: {
+  [key: string]: Promise<RCNotificationInstance>;
+} = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
@@ -29,8 +30,10 @@ export interface ConfigProps {
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
+  rtl?: boolean;
 }
 
+let rtl = false;
 function setNotificationConfig(options: ConfigProps) {
   const { duration, placement, bottom, top, getContainer, closeIcon } = options;
   if (duration !== undefined) {
@@ -50,6 +53,9 @@ function setNotificationConfig(options: ConfigProps) {
   }
   if (closeIcon !== undefined) {
     defaultCloseIcon = closeIcon;
+  }
+  if (options.rtl !== undefined) {
+    rtl = options.rtl;
   }
 }
 
@@ -107,8 +113,12 @@ function getNotificationInstance(
   const prefixCls = `${outerPrefixCls}-notice`;
 
   const cacheKey = `${outerPrefixCls}-${placement}`;
-  if (notificationInstance[cacheKey]) {
-    callback({ prefixCls, instance: notificationInstance[cacheKey] });
+  const cacheInstance = notificationInstance[cacheKey];
+  if (cacheInstance) {
+    Promise.resolve(cacheInstance).then(instance => {
+      callback({ prefixCls, instance });
+    });
+
     return;
   }
 
@@ -118,22 +128,28 @@ function getNotificationInstance(
     </span>
   );
 
-  Notification.newInstance(
-    {
-      prefixCls: outerPrefixCls,
-      className: `${outerPrefixCls}-${placement}`,
-      style: getPlacementStyle(placement, top, bottom),
-      getContainer,
-      closeIcon: closeIconToRender,
-    },
-    notification => {
-      notificationInstance[cacheKey] = notification;
-      callback({
-        prefixCls,
-        instance: notification,
-      });
-    },
-  );
+  const notificationClass = classNames(`${outerPrefixCls}-${placement}`, {
+    [`${outerPrefixCls}-rtl`]: rtl === true,
+  });
+
+  notificationInstance[cacheKey] = new Promise(resolve => {
+    Notification.newInstance(
+      {
+        prefixCls: outerPrefixCls,
+        className: notificationClass,
+        style: getPlacementStyle(placement, top, bottom),
+        getContainer,
+        closeIcon: closeIconToRender,
+      },
+      notification => {
+        resolve(notification);
+        callback({
+          prefixCls,
+          instance: notification,
+        });
+      },
+    );
+  });
 }
 
 const typeToIcon = {
@@ -210,14 +226,18 @@ const api: any = {
   },
   close(key: string) {
     Object.keys(notificationInstance).forEach(cacheKey =>
-      notificationInstance[cacheKey].removeNotice(key),
+      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+        instance.removeNotice(key);
+      }),
     );
   },
   config: setNotificationConfig,
   destroy() {
     Object.keys(notificationInstance).forEach(cacheKey => {
-      notificationInstance[cacheKey].destroy();
-      delete notificationInstance[cacheKey];
+      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+        instance.destroy();
+      });
+      delete notificationInstance[cacheKey]; // lgtm[js/missing-await]
     });
   },
 };

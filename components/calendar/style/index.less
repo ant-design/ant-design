@@ -12,10 +12,10 @@
   &-header {
     display: flex;
     justify-content: flex-end;
-    padding: 11px 16px 11px 0;
+    padding: @padding-sm 0;
 
     .@{calendar-prefix-cls}-year-select {
-      min-width: 85px;
+      min-width: 80px;
     }
 
     .@{calendar-prefix-cls}-month-select {
@@ -40,7 +40,7 @@
     }
 
     .@{calendar-picker-prefix-cls}-body {
-      padding: @padding-xs @padding-sm;
+      padding: @padding-xs 0;
     }
 
     .@{calendar-picker-prefix-cls}-content {
@@ -50,6 +50,17 @@
 
   // ========================== Mini ==========================
   &-mini {
+    border-radius: @border-radius-base;
+
+    .@{calendar-picker-prefix-cls}-calendar-header {
+      padding-right: @padding-xs;
+      padding-left: @padding-xs;
+    }
+
+    .@{calendar-picker-prefix-cls}-panel {
+      border-radius: 0 0 @border-radius-base @border-radius-base;
+    }
+
     .@{calendar-picker-prefix-cls}-content {
       height: 256px;
 
@@ -63,21 +74,6 @@
 
   // ========================== Full ==========================
   &-full {
-    .@{calendar-prefix-cls}-header {
-      .@{calendar-prefix-cls}-year-select {
-        width: 90px;
-      }
-
-      .@{calendar-prefix-cls}-month-select {
-        width: 80px;
-        margin-left: @padding-xs;
-      }
-
-      .@{calendar-prefix-cls}-mode-switch {
-        margin-left: @padding-md;
-      }
-    }
-
     .@{calendar-picker-prefix-cls}-panel {
       display: block;
       width: 100%;
@@ -149,6 +145,7 @@
           width: auto;
           height: 86px;
           overflow-y: auto;
+          color: @text-color;
           line-height: @line-height-base;
           text-align: left;
         }
@@ -164,3 +161,32 @@
     }
   }
 }
+
+@media only screen and (max-width: @screen-xs) {
+  .@{calendar-prefix-cls} {
+    &-header {
+      display: block;
+
+      .@{calendar-prefix-cls}-year-select {
+        width: 50%;
+      }
+
+      .@{calendar-prefix-cls}-month-select {
+        width: ~'calc(50% - @{padding-xs})';
+      }
+
+      .@{calendar-prefix-cls}-mode-switch {
+        width: 100%;
+        margin-top: @padding-xs;
+        margin-left: 0;
+
+        > label {
+          width: 50%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@import './rtl';

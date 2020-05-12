@@ -7,8 +7,8 @@ import { getFontImportsURL } from '../components/style/themes/varnish/typography
  */
 // eslint-disable-next-line import/prefer-default-export
 export function generateCSS() {
-    const vars = StyleVariables.fromTheme(Theme.default, Style.CSS);
-    return `
+  const vars = StyleVariables.fromTheme(Theme.default, Style.CSS);
+  return `
 @import "${getFontImportsURL()}";
 
 :root {
@@ -251,16 +251,6 @@ footer {
 footer .content {
     padding-top: ${vars.getRefOrError('spacing.md')};
     padding-bottom: ${vars.getRefOrError('spacing.md')};
-}
-
-/**
- * You can't use css variables in media queries, so we just source this
- * directly from the original theme definition.
- */
-@media screen and (max-width: ${vars.getRefOrError('breakpoints.lg')}) {
-    html {
-        font-size: ${100 * (14 / 16)}%;
-    }
 }
     `.trim();
 }

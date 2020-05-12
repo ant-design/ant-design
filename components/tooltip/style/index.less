@@ -21,10 +21,6 @@
   max-width: @tooltip-max-width;
   visibility: visible;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-hidden {
     display: none;
   }
@@ -65,10 +61,6 @@
     background-color: @tooltip-bg;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
-
-    .@{tooltip-prefix-cls}-rtl & {
-      text-align: right;
-    }
   }
 
   // Arrows
@@ -193,3 +185,5 @@
     right: @tooltip-arrow-offset-horizontal;
   }
 }
+
+@import './rtl';

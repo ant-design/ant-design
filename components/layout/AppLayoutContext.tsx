@@ -15,13 +15,13 @@ export type AppLayoutVariant = 'app' | 'hcenter';
  * Information captured about the current layout.
  */
 interface AppLayoutSettings {
-    /* The current, active variant. */
-    appLayoutVariant: AppLayoutVariant;
-    /* The current height of the header, which by default in Varnish collapses
+  /* The current, active variant. */
+  appLayoutVariant: AppLayoutVariant;
+  /* The current height of the header, which by default in Varnish collapses
        as the user scrolls. */
-    currentHeaderHeight: number;
-    /* A method allowing the header height to be set. */
-    setHeaderHeight: (height: number) => void;
+  currentHeaderHeight: number;
+  /* A method allowing the header height to be set. */
+  setHeaderHeight: (height: number) => void;
 }
 
 /**
@@ -32,14 +32,14 @@ interface AppLayoutSettings {
  * per page. More complex scenarios, however, might necessitate using multiple.
  */
 export const AppLayoutContext = React.createContext<AppLayoutSettings>({
-    appLayoutVariant: 'hcenter',
-    currentHeaderHeight: 0,
-    setHeaderHeight() {},
+  appLayoutVariant: 'hcenter',
+  currentHeaderHeight: 0,
+  setHeaderHeight() {},
 });
 
 interface AppLayoutProviderProps {
-    appLayoutVariant: AppLayoutVariant;
-    children: React.ReactNode | React.ReactNodeArray;
+  appLayoutVariant: AppLayoutVariant;
+  children: React.ReactNode | React.ReactNodeArray;
 }
 
 /**
@@ -47,16 +47,20 @@ interface AppLayoutProviderProps {
  *
  * Most of the time you should use this.
  */
-export const DefaultAppLayoutProvider = ({ appLayoutVariant, children }: AppLayoutProviderProps) => {
-    const [currentHeaderHeight, setHeaderHeight] = React.useState(0);
-    return (
-        <AppLayoutContext.Provider
-            value={{
-                appLayoutVariant,
-                currentHeaderHeight,
-                setHeaderHeight,
-            }}>
-            {children}
-        </AppLayoutContext.Provider>
-    );
+export const DefaultAppLayoutProvider = ({
+  appLayoutVariant,
+  children,
+}: AppLayoutProviderProps) => {
+  const [currentHeaderHeight, setHeaderHeight] = React.useState(0);
+  return (
+    <AppLayoutContext.Provider
+      value={{
+        appLayoutVariant,
+        currentHeaderHeight,
+        setHeaderHeight,
+      }}
+    >
+      {children}
+    </AppLayoutContext.Provider>
+  );
 };

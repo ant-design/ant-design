@@ -40,8 +40,8 @@ subtitle: 级联选择
 | popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |  |
 | popupVisible | 控制浮层显隐 | boolean | - |  |
 | showSearch | 在选择框中显示搜索框 | boolean | false |  |
-| size | 输入框大小，可选 `large` `default` `small` | string | `default` |  |
-| style | 自定义样式 | string | - |  |
+| size | 输入框大小 | `large` \| `middle` \| `small` | 无 |  |
+| style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | value | 指定选中项 | string\[] | - |  |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |  |

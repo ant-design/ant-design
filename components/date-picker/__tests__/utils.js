@@ -18,10 +18,7 @@ export function openPanel(wrapper) {
 }
 
 export function clearInput(wrapper) {
-  wrapper
-    .find('.ant-calendar-picker-clear')
-    .hostNodes()
-    .simulate('click');
+  wrapper.find('.ant-calendar-picker-clear').hostNodes().simulate('click');
 }
 
 export function nextYear(wrapper) {
@@ -33,17 +30,10 @@ export function nextMonth(wrapper) {
 }
 
 export function openPicker(wrapper, index = 0) {
-  wrapper
-    .find('input')
-    .at(index)
-    .simulate('mousedown')
-    .simulate('focus');
+  wrapper.find('input').at(index).simulate('mousedown').simulate('focus');
 }
 export function closePicker(wrapper, index = 0) {
-  wrapper
-    .find('input')
-    .at(index)
-    .simulate('blur');
+  wrapper.find('input').at(index).simulate('blur');
 }
 
 export function selectCell(wrapper, text, index = 0) {

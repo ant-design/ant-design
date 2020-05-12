@@ -46,7 +46,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     this.token = ResponsiveObserve.subscribe(screens => {
       const { gutter } = this.props;
       if (
-        typeof gutter === 'object' ||
+        (!Array.isArray(gutter) && typeof gutter === 'object') ||
         (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
       ) {
         this.setState({ screens });

@@ -26,16 +26,22 @@ ReactDOM.render(
         <HeaderTitle>Title</HeaderTitle>
         <MenuArea>
           <Menu defaultSelectedKeys={[1]} mode="horizontal">
-            <Menu.Item key="1"><a><MailOutlined /> Link 1</a></Menu.Item>
-            <Menu.Item key="2"><a><AppstoreOutlined /> Link 2</a></Menu.Item>
+            <Menu.Item key="1">
+              <a>
+                <MailOutlined /> Link 1
+              </a>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <a>
+                <AppstoreOutlined /> Link 2
+              </a>
+            </Menu.Item>
           </Menu>
         </MenuArea>
       </HeaderColumns>
     </Header>
-    <Layout.Content >
-      Content!
-    </Layout.Content>
+    <Layout.Content>Content!</Layout.Content>
   </Layout>,
-  mountNode
+  mountNode,
 );
 ```

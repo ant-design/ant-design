@@ -16,7 +16,7 @@ describe('Footer', () => {
       const wrapper = render(
         <ThemeProvider>
           <DefaultAppLayoutProvider layoutVariant="app">
-            <Footer/>
+            <Footer />
           </DefaultAppLayoutProvider>
         </ThemeProvider>,
       );
@@ -26,7 +26,7 @@ describe('Footer', () => {
     it('dark', () => {
       const wrapper = render(
         <ThemeProvider>
-          <Footer variant='dark'/>
+          <Footer variant="dark" />
         </ThemeProvider>,
       );
       expect(wrapper).toMatchSnapshot();

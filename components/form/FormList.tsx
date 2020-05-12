@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { List } from 'rc-field-form';
+import { StoreValue } from 'rc-field-form/lib/interface';
 import warning from '../_util/warning';
 
 interface FieldData {
@@ -9,7 +10,7 @@ interface FieldData {
 }
 
 interface Operation {
-  add: () => void;
+  add: (defaultValue?: StoreValue) => void;
   remove: (index: number) => void;
   move: (from: number, to: number) => void;
 }

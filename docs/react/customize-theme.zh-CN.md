@@ -51,14 +51,14 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+         'primary-color': '#1DA57A',
-+         'link-color': '#1DA57A',
-+         'border-radius-base': '2px',
-+         // or
-+         'hack': `true; @import "your-less-file-path.less";`, // Override with less file
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++         },
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
@@ -67,7 +67,10 @@ module.exports = {
 }
 ```
 
-注意 less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
+注意：
+
+1. less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
+2. `lessOptions` 的配置写法在 [less-loader@6.0.0](https://github.com/webpack-contrib/less-loader/releases/tag/v6.0.0) 里支持。
 
 ### 在 Umi 里配置主题
 
@@ -94,55 +97,12 @@ module.exports = {
 另外一种方式是建立一个单独的 `less` 变量文件，引入这个文件覆盖 `antd.less` 里的变量。
 
 ```css
+@import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
 @import 'your-theme-file.less'; // 用于覆盖上面定义的变量
 ```
 
 注意，这种方式已经载入了所有组件的样式，不需要也无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
-
-### 使用暗色主题
-
-![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
-
-方式一：是在样式文件全量引入 `antd/dist/antd.dark.less`：
-
-```less
-@import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
-```
-
-方式二：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
-
-```diff
-const darkThemeVars = require('antd/dist/dark-theme');
-
-// webpack.config.js
-module.exports = {
-  rules: [{
-    test: /\.less$/,
-    use: [{
-      loader: 'style-loader',
-    }, {
-      loader: 'css-loader', // translates CSS into CommonJS
-    }, {
-      loader: 'less-loader', // compiles Less to CSS
-+     options: {
-+       modifyVars: {
-+          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`
-+          ...darkThemeVars,
-+       },
-+       javascriptEnabled: true,
-+     },
-    }],
-    // ...other rules
-  }],
-  // ...other config
-```
-
-方式三：如果项目不使用 Less，可在 CSS 文件中，全量引入 `antd.dark.css`：
-
-```css
-@import '~antd/dist/antd.dark.css';
-```
 
 ## 没有生效？
 
@@ -155,7 +115,80 @@ module.exports = {
 
 我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
 
-- [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+- 🌑 暗黑主题（4.0.0+ 支持）
+- 📦 紧凑主题（4.1.0+ 支持）
+- ☁️ [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+
+### 使用暗黑主题和紧凑主题
+
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
+
+方式一：使用 Umi 3
+
+如果你在使用 [Umi 3](http://umijs.org/zh/)，仅需两步：
+
+1. 安装 `@umijs/plugin-antd` 插件;
+
+   ```bash
+   $ npm i @umijs/plugin-antd -D
+   ```
+
+2. 配置 `dark` 和 `compact`。
+
+   ```js
+   // .umirc.ts or config/config.ts
+   export default {
+     antd: {
+       dark: true, // 开启暗色主题
+       compact: true, // 开启紧凑主题
+     },
+   },
+   ```
+
+方式二：是在样式文件全量引入 [antd.dark.less](https://unpkg.com/browse/antd@4.x/dist/antd.dark.less) 或 [antd.compact.less](https://unpkg.com/browse/antd@4.x/dist/antd.compact.less)。
+
+```less
+@import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
+@import '~antd/dist/antd.compact.less'; // 引入官方提供的紧凑 less 样式入口文件
+```
+
+如果项目不使用 Less，可在 CSS 文件中全量引入 [antd.dark.css](https://unpkg.com/browse/antd@4.x/dist/antd.dark.css) 或 [antd.compact.css](https://unpkg.com/browse/antd@4.x/dist/antd.compact.css)。
+
+```css
+@import '~antd/dist/antd.dark.css';
+@import '~antd/dist/antd.compact.css';
+```
+
+> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。通过此方式不能同时配置两种及以上主题。
+
+方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+
+```diff
+const { getThemeVariables } = require('antd/dist/theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++         modifyVars: getThemeVariables({
++           dark: true, // 开启暗黑模式
++           compact: true, // 开启紧凑模式
++         }),
++         javascriptEnabled: true,
++       },
++     },
+    }],
+  }],
+};
+```
 
 ## 社区教程
 

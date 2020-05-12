@@ -23,10 +23,6 @@
   overflow: hidden;
   .clearfix;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-ink-bar {
     position: absolute;
     bottom: 1px;
@@ -37,11 +33,6 @@
     height: 2px;
     background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
-
-    .@{tab-prefix-cls}-rtl & {
-      right: 0;
-      left: auto;
-    }
   }
 
   &-bar {
@@ -70,7 +61,7 @@
 
   // https://github.com/ant-design/ant-design/issues/9104
   &-bottom &-bottom-bar {
-    margin-top: 16px;
+    margin-top: @margin-md;
     margin-bottom: 0;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-bottom: none;
@@ -125,11 +116,6 @@
       text-transform: none;
       transform: translate(-50%, -50%);
 
-      .@{tab-prefix-cls}-rtl & {
-        right: 50%;
-        left: auto;
-      }
-
       &-target {
         display: block;
         .iconfont-size-under-12px(10px);
@@ -147,20 +133,10 @@
 
   &-tab-next {
     right: 2px;
-
-    .@{tab-prefix-cls}-rtl & {
-      right: auto;
-      left: 2px;
-    }
   }
 
   &-tab-prev {
     left: 0;
-
-    .@{tab-prefix-cls}-rtl & {
-      right: 2px;
-      left: auto;
-    }
 
     :root & {
       filter: none;
@@ -207,10 +183,6 @@
       cursor: pointer;
       transition: color 0.3s @ease-in-out;
 
-      .@{tab-prefix-cls}-rtl & {
-        margin: @tabs-horizontal-margin-rtl;
-      }
-
       &::before {
         position: absolute;
         top: -1px;
@@ -236,17 +208,13 @@
       }
 
       .@{iconfont-css-prefix} {
-        margin-right: 8px;
-
-        .@{tab-prefix-cls}-rtl & {
-          margin-right: 0;
-          margin-left: 8px;
-        }
+        margin-right: @margin-sm;
       }
 
       &-active {
         color: @tabs-highlight-color;
         font-weight: 500;
+        outline: none;
       }
 
       &-disabled {
@@ -285,14 +253,18 @@
     content: '';
   }
 
+  .@{tab-prefix-cls}-tabpane {
+    outline: none;
+  }
+
   // Horizontal Content
   .@{tab-prefix-cls}-top-content,
   .@{tab-prefix-cls}-bottom-content {
     width: 100%;
-
     > .@{tab-prefix-cls}-tabpane {
       flex-shrink: 0;
       width: 100%;
+      -webkit-backface-visibility: hidden;
       opacity: 1;
       transition: opacity @tabs-pane-transition-time;
     }
@@ -325,6 +297,7 @@
       float: none;
       margin: @tabs-vertical-margin;
       padding: @tabs-vertical-padding;
+      text-align: center;
 
       &:last-child {
         margin-bottom: 0;
@@ -396,9 +369,6 @@
     margin-right: -1px;
     margin-bottom: 0;
     border-right: @border-width-base @border-style-base @border-color-split;
-    .@{tab-prefix-cls}-tab {
-      text-align: right;
-    }
     .@{tab-prefix-cls}-nav-container {
       margin-right: -1px;
     }
@@ -410,7 +380,7 @@
     }
   }
   .@{tab-prefix-cls}-left-content {
-    padding-left: 24px;
+    padding-left: @padding-lg;
     border-left: @border-width-base @border-style-base @border-color-split;
   }
 
@@ -431,7 +401,7 @@
     }
   }
   .@{tab-prefix-cls}-right-content {
-    padding-right: 24px;
+    padding-right: @padding-lg;
     border-right: @border-width-base @border-style-base @border-color-split;
   }
 }
@@ -468,3 +438,5 @@
 .@{tab-prefix-cls}-right-content {
   .tabs-no-animation();
 }
+
+@import './rtl.less';

@@ -27,10 +27,7 @@ export function getThemeFromTypeName(type) {
 }
 
 export function removeTypeTheme(type) {
-  return type
-    .replace(fillTester, '')
-    .replace(outlineTester, '')
-    .replace(twoToneTester, '');
+  return type.replace(fillTester, '').replace(outlineTester, '').replace(twoToneTester, '');
 }
 
 export function withThemeSuffix(type, theme) {

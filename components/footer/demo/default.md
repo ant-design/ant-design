@@ -9,8 +9,5 @@ Simplest Usage.
 ```jsx
 import { Footer } from '..'; // TODO: point this at varnish
 
-ReactDOM.render(
-  <Footer />,
-  mountNode
-);
+ReactDOM.render(<Footer />, mountNode);
 ```

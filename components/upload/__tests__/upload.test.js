@@ -199,7 +199,6 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14298
   it('should not have id if upload children is null, avoid being triggered by label', () => {
-    // eslint-disable-next-line
     const Demo = ({ children }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
@@ -221,7 +220,6 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/16478
   it('should not have id if upload is disabled, avoid being triggered by label', () => {
-    // eslint-disable-next-line
     const Demo = ({ disabled }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
@@ -420,6 +418,9 @@ describe('Upload', () => {
     const mockRemove = jest.fn(() => false);
     const props = {
       onRemove: mockRemove,
+      showUploadList: {
+        showDownloadIcon: true,
+      },
       fileList: [
         {
           uid: '-1',
@@ -494,8 +495,19 @@ describe('Upload', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Upload value={[]} />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Upload] `value` is not validate prop, do you mean `fileList`?',
+      'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',
     );
     errorSpy.mockRestore();
+  });
+
+  it('it should be treated as file but not an image', () => {
+    const file = {
+      status: 'done',
+      uid: '-1',
+      type: 'video/mp4',
+      url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+    };
+    const wrapper = mount(<Upload listType="picture-card" fileList={[file]} />);
+    expect(wrapper.find('img').length).toBe(0);
   });
 });

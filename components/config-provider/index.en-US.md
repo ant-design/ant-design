@@ -41,12 +41,15 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages) } | - |  |
+| input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
 | renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |  |
 | getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` |  |
+| getTargetContainer | Config Affix, Anchor scroll target container. | () => HTMLElement | () => window | 4.2.0 |
 | locale | language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object |  |
 | prefixCls | set prefix class. `Note:` This will discard default styles from `antd`. | string | ant |  |
-| pageHeader | Unify the ghost of pageHeader ,Ref [pageHeader](<(/components/page-header)> | { ghost:boolean } | 'true' |  |
+| pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost:boolean } | 'true' |  |
 | direction | set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| space | set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 
 ## FAQ
 

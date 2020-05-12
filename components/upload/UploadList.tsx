@@ -1,15 +1,13 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
-import {
-  LoadingOutlined,
-  PaperClipOutlined,
-  PictureTwoTone,
-  FileTwoTone,
-  EyeOutlined,
-  DeleteOutlined,
-  DownloadOutlined,
-} from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
+import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
+import FileTwoTone from '@ant-design/icons/FileTwoTone';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
+import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 
 import { UploadListProps, UploadFile, UploadListType } from './interface';
 import { previewImage, isImageUrl } from './utils';
@@ -25,9 +23,10 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showInfo: false,
     },
     showRemoveIcon: true,
-    showDownloadIcon: true,
+    showDownloadIcon: false,
     showPreviewIcon: true,
     previewFile: previewImage,
+    isImageUrl,
   };
 
   componentDidUpdate() {
@@ -83,12 +82,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   handleIconRender = (file: UploadFile) => {
-    const { listType, locale, iconRender } = this.props;
+    const { listType, locale, iconRender, isImageUrl: isImgUrl } = this.props;
     if (iconRender) {
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const fileIcon = isImageUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
+    const fileIcon = isImgUrl && isImgUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
@@ -96,6 +95,26 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       icon = isLoading ? locale.uploading : fileIcon;
     }
     return icon;
+  };
+
+  handleActionIconRender = (customIcon: React.ReactNode, callback: () => void, title?: string) => {
+    if (React.isValidElement(customIcon)) {
+      return React.cloneElement(customIcon, {
+        ...customIcon.props,
+        title,
+        onClick: (e: React.MouseEvent<HTMLElement>) => {
+          callback();
+          if (customIcon.props.onClick) {
+            customIcon.props.onClick(e);
+          }
+        },
+      });
+    }
+    return (
+      <span title={title} onClick={callback}>
+        {customIcon}
+      </span>
+    );
   };
 
   renderUploadList = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
@@ -106,8 +125,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showPreviewIcon,
       showRemoveIcon,
       showDownloadIcon,
+      removeIcon: customRemoveIcon,
+      downloadIcon: customDownloadIcon,
       locale,
       progressAttr,
+      isImageUrl: isImgUrl,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -122,18 +144,19 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           });
           icon = <div className={uploadingClassName}>{iconNode}</div>;
         } else {
-          const thumbnail = isImageUrl(file) ? (
-            <img
-              src={file.thumbUrl || file.url}
-              alt={file.name}
-              className={`${prefixCls}-list-item-image`}
-            />
-          ) : (
-            iconNode
-          );
+          const thumbnail =
+            isImgUrl && isImgUrl(file) ? (
+              <img
+                src={file.thumbUrl || file.url}
+                alt={file.name}
+                className={`${prefixCls}-list-item-image`}
+              />
+            ) : (
+              iconNode
+            );
           const aClassName = classNames({
             [`${prefixCls}-list-item-thumbnail`]: true,
-            [`${prefixCls}-list-item-file`]: !isImageUrl(file),
+            [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
           });
           icon = (
             <a
@@ -170,14 +193,31 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const linkProps =
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
-      const removeIcon = showRemoveIcon ? (
-        <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
-      ) : null;
+      const removeIcon = showRemoveIcon
+        ? (customRemoveIcon &&
+            this.handleActionIconRender(
+              customRemoveIcon,
+              () => this.handleClose(file),
+              locale.removeFile,
+            )) || (
+            <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
+          )
+        : null;
 
       const downloadIcon =
-        showDownloadIcon && file.status === 'done' ? (
-          <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)} />
-        ) : null;
+        showDownloadIcon && file.status === 'done'
+          ? (customDownloadIcon &&
+              this.handleActionIconRender(
+                customDownloadIcon,
+                () => this.handleDownload(file),
+                locale.downloadFile,
+              )) || (
+              <DownloadOutlined
+                title={locale.downloadFile}
+                onClick={() => this.handleDownload(file)}
+              />
+            )
+          : null;
       const downloadOrDelete = listType !== 'picture-card' && (
         <span
           key="download-delete"

@@ -2245,13 +2245,12 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                       >
                         <colgroup>
                           <col
-                            style="width:60px;min-width:60px"
+                            class="ant-table-selection-column"
                           />
-                          <col />
-                          <col />
-                          <col />
                         </colgroup>
-                        <thead>
+                        <thead
+                          class="ant-table-thead"
+                        >
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
@@ -2735,12 +2734,12 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination mini"
+                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
                   unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
-                    class="ant-pagination-disabled ant-pagination-prev"
+                    class="ant-pagination-prev ant-pagination-disabled"
                     title="Previous Page"
                   >
                     <a
@@ -2789,7 +2788,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    class=" ant-pagination-next"
+                    class="ant-pagination-next"
                     tabindex="0"
                     title="Next Page"
                   >
@@ -2927,11 +2926,12 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                       >
                         <colgroup>
                           <col
-                            style="width:60px;min-width:60px"
+                            class="ant-table-selection-column"
                           />
-                          <col />
                         </colgroup>
-                        <thead>
+                        <thead
+                          class="ant-table-thead"
+                        >
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
@@ -3147,12 +3147,12 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination mini"
+                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
                   unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
-                    class="ant-pagination-disabled ant-pagination-prev"
+                    class="ant-pagination-prev ant-pagination-disabled"
                     title="Previous Page"
                   >
                     <a
@@ -3192,7 +3192,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   </li>
                   <li
                     aria-disabled="true"
-                    class="ant-pagination-disabled ant-pagination-next"
+                    class="ant-pagination-next ant-pagination-disabled"
                     title="Next Page"
                   >
                     <a

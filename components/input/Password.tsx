@@ -1,8 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Input, { InputProps } from './Input';
 
 export interface PasswordProps extends InputProps {
@@ -24,8 +26,6 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   input: HTMLInputElement;
 
   static defaultProps = {
-    inputPrefixCls: 'ant-input',
-    prefixCls: 'ant-input-password',
     action: 'click',
     visibilityToggle: true,
   };
@@ -43,8 +43,8 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     this.setState(({ visible }) => ({ visible: !visible }));
   };
 
-  getIcon() {
-    const { prefixCls, action } = this.props;
+  getIcon = (prefixCls: string) => {
+    const { action } = this.props;
     const iconTrigger = ActionMap[action!] || '';
     const icon = this.state.visible ? EyeOutlined : EyeInvisibleOutlined;
     const iconProps = {
@@ -56,9 +56,14 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         // https://github.com/ant-design/ant-design/issues/15173
         e.preventDefault();
       },
+      onMouseUp: (e: MouseEvent) => {
+        // Prevent caret position change
+        // https://github.com/ant-design/ant-design/issues/23524
+        e.preventDefault();
+      },
     };
-    return React.createElement(icon, iconProps);
-  }
+    return React.createElement(icon as React.ComponentType, iconProps);
+  };
 
   saveInput = (instance: Input) => {
     if (instance && instance.input) {
@@ -78,19 +83,24 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     this.input.select();
   }
 
-  render() {
+  renderPassword = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       className,
-      prefixCls,
-      inputPrefixCls,
+      prefixCls: customizePrefixCls,
+      inputPrefixCls: customizeInputPrefixCls,
       size,
       visibilityToggle,
       ...restProps
     } = this.props;
-    const suffixIcon = visibilityToggle && this.getIcon();
+
+    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+    const prefixCls = getPrefixCls('input-password', customizePrefixCls);
+
+    const suffixIcon = visibilityToggle && this.getIcon(prefixCls);
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
+
     const props = {
       ...omit(restProps, ['suffix']),
       type: this.state.visible ? 'text' : 'password',
@@ -99,9 +109,15 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
       suffix: suffixIcon,
       ref: this.saveInput,
     };
+
     if (size) {
       props.size = size;
     }
+
     return <Input {...props} />;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderPassword}</ConfigConsumer>;
   }
 }

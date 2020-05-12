@@ -6,12 +6,13 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Item } = TimeLine;
 
-const wrapperFactory = (timeLineProps = {}) =>
+const wrapperFactory = (timeLineProps = {}, labelItems) =>
   mount(
     <TimeLine type="editable-card" {...timeLineProps}>
       <Item key="1">foo</Item>
       <Item key="2">bar</Item>
       <Item key="3">baz</Item>
+      {labelItems}
     </TimeLine>,
   );
 
@@ -33,12 +34,9 @@ describe('TimeLine', () => {
     });
 
     it('its last item is marked as the last item', () => {
-      expect(
-        wrapper
-          .find('li.ant-timeline-item')
-          .last()
-          .hasClass('ant-timeline-item-last'),
-      ).toBe(true);
+      expect(wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
+        true,
+      );
     });
   });
 
@@ -64,10 +62,7 @@ describe('TimeLine', () => {
     it('its last item is marked as the pending item', () => {
       const wrapper = wrapperFactory({ pending });
       expect(
-        wrapper
-          .find('li.ant-timeline-item')
-          .last()
-          .hasClass('ant-timeline-item-pending'),
+        wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-pending'),
       ).toBe(true);
     });
 
@@ -118,22 +113,28 @@ describe('TimeLine', () => {
 
     it('its last item is marked as the last item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });
-      expect(
-        wrapper
-          .find('li.ant-timeline-item')
-          .last()
-          .hasClass('ant-timeline-item-last'),
-      ).toBe(true);
+      expect(wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
+        true,
+      );
     });
 
     it('its first item is marked as the pending item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });
       expect(
-        wrapper
-          .find('li.ant-timeline-item')
-          .first()
-          .hasClass('ant-timeline-item-pending'),
+        wrapper.find('li.ant-timeline-item').first().hasClass('ant-timeline-item-pending'),
       ).toBe(true);
     });
+  });
+
+  it('renders Timeline item with label correctly', () => {
+    const label = '2020-01-01';
+    const wrapper = wrapperFactory(
+      {},
+      <Item key="1" label={label}>
+        foo
+      </Item>,
+    );
+    expect(wrapper.find('.ant-timeline-label')).toHaveLength(1);
+    expect(wrapper.find('.ant-timeline-item-label').text()).toBe(label);
   });
 });

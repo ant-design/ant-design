@@ -10,42 +10,42 @@ import { Spacing, Breakpoint } from '../components/style/themes/varnish/spacing'
  * for the StyleVariables class below.
  */
 function getThemeVariables(props: { [k: string]: any }, prefix = ''): [string, string][] {
-    return Object.getOwnPropertyNames(props).reduce((allProps, propName) => {
-        const value = props[propName];
-        const name = (prefix !== '' ? `${prefix}.` : '') + propName;
+  return Object.getOwnPropertyNames(props).reduce((allProps, propName) => {
+    const value = props[propName];
+    const name = (prefix !== '' ? `${prefix}.` : '') + propName;
 
-        if (Array.isArray(value)) {
-            throw new Error(`Invalid type, ${propName} is an Array`);
-        }
+    if (Array.isArray(value)) {
+      throw new Error(`Invalid type, ${propName} is an Array`);
+    }
 
-        if (value instanceof Breakpoint || value instanceof Spacing || value instanceof Color) {
-            return allProps.concat([[name, value.toString()]]);
-        }
+    if (value instanceof Breakpoint || value instanceof Spacing || value instanceof Color) {
+      return allProps.concat([[name, value.toString()]]);
+    }
 
-        if (typeof value === 'object') {
-            const children = getThemeVariables(value, name);
-            return allProps.concat(children);
-        }
+    if (typeof value === 'object') {
+      const children = getThemeVariables(value, name);
+      return allProps.concat(children);
+    }
 
-        return allProps.concat([[name, value]]);
-    }, [] as [string, string][]);
+    return allProps.concat([[name, value]]);
+  }, [] as [string, string][]);
 }
 
 const reDigit = /\d+/;
 function isUpperCaseLetter(char?: string): boolean {
-    if (!char) {
-        return false;
-    }
-    return !reDigit.test(char) && char.toUpperCase() === char;
+  if (!char) {
+    return false;
+  }
+  return !reDigit.test(char) && char.toUpperCase() === char;
 }
 
 /**
  * Shellac supports exporting CSS and LESS
  */
 export enum Style {
-    CSS = 0,
-    LESS
-};
+  CSS = 0,
+  LESS,
+}
 
 /**
  * Helper function that returns a variable name that's formatted appropriately
@@ -55,30 +55,30 @@ export enum Style {
  * will become `@shape-border-radius` for LESS.
  */
 function toStyleVarName(name: string, style: Style = Style.CSS) {
-    const prefix = style === Style.CSS ? '--' : '@v-';
-    let lastChar;
-    let formattedName = '';
-    const chars = Array.from(name);
-    for (let i = 0; i < name.length; i++) {
-        const char = chars[i];
-        if (char === '.') {
-            lastChar = '-';
-            formattedName += lastChar;
-        } else if (isUpperCaseLetter(char)) {
-            if (lastChar === '-' || isUpperCaseLetter(lastChar)) {
-                lastChar = char.toLowerCase();
-                formattedName += lastChar;
-            } else {
-                lastChar = char.toLowerCase();
-                formattedName += `-${lastChar}`;
-            }
-        } else {
-            lastChar = char;
-            formattedName += char;
-        }
+  const prefix = style === Style.CSS ? '--' : '@v-';
+  let lastChar;
+  let formattedName = '';
+  const chars = Array.from(name);
+  for (let i = 0; i < name.length; i++) {
+    const char = chars[i];
+    if (char === '.') {
+      lastChar = '-';
+      formattedName += lastChar;
+    } else if (isUpperCaseLetter(char)) {
+      if (lastChar === '-' || isUpperCaseLetter(lastChar)) {
+        lastChar = char.toLowerCase();
+        formattedName += lastChar;
+      } else {
+        lastChar = char.toLowerCase();
+        formattedName += `-${lastChar}`;
+      }
+    } else {
+      lastChar = char;
+      formattedName += char;
     }
+  }
 
-    return `${prefix}${formattedName}`;
+  return `${prefix}${formattedName}`;
 }
 
 /**
@@ -110,36 +110,36 @@ function toStyleVarName(name: string, style: Style = Style.CSS) {
  * values.
  */
 export class StyleVariables {
-    private valuesByName: { [k: string]: string };
+  private valuesByName: { [k: string]: string };
 
-    constructor(vars: [string, string][], private style: Style = Style.CSS) {
-        this.valuesByName = vars.reduce((byName, [name, value]) => {
-            if (name in byName) {
-                throw new Error(`Duplicate id: ${name}`);
-            }
-            byName[name] = value;
-            return byName;
-        }, {} as { [k: string]: string });
-    }
+  constructor(vars: [string, string][], private style: Style = Style.CSS) {
+    this.valuesByName = vars.reduce((byName, [name, value]) => {
+      if (name in byName) {
+        throw new Error(`Duplicate id: ${name}`);
+      }
+      byName[name] = value;
+      return byName;
+    }, {} as { [k: string]: string });
+  }
 
-    getRefOrError(name: string): string {
-        if (!(name in this.valuesByName)) {
-            throw new Error(`Invalid variable: ${name}`);
-        }
-        let ret = toStyleVarName(name, this.style);
-        if(this.style === Style.CSS) {
-            ret = `var(${ret})`
-        }
-        return ret;
+  getRefOrError(name: string): string {
+    if (!(name in this.valuesByName)) {
+      throw new Error(`Invalid variable: ${name}`);
     }
+    let ret = toStyleVarName(name, this.style);
+    if (this.style === Style.CSS) {
+      ret = `var(${ret})`;
+    }
+    return ret;
+  }
 
-    toVariables(indent: string = ''): string {
-        return Object.entries(this.valuesByName)
-            .map(([name, value]) => `${toStyleVarName(name, this.style)}: ${value};`)
-            .join(`\n${indent}`);
-    }
+  toVariables(indent: string = ''): string {
+    return Object.entries(this.valuesByName)
+      .map(([name, value]) => `${toStyleVarName(name, this.style)}: ${value};`)
+      .join(`\n${indent}`);
+  }
 
-    static fromTheme(theme: VarnishTheme, style: Style = Style.CSS): StyleVariables {
-        return new StyleVariables(getThemeVariables(theme), style);
-    }
+  static fromTheme(theme: VarnishTheme, style: Style = Style.CSS): StyleVariables {
+    return new StyleVariables(getThemeVariables(theme), style);
+  }
 }

@@ -12,7 +12,9 @@ $('dist')
   .hasFile('antd.less')
   .hasFile('antd.dark.less')
   .hasFile('antd.dark.css')
+  .hasFile('antd.compact.less')
+  .hasFile('antd.compact.css')
   .hasFile('dark-theme.js');
 
-// eslint-disable-next-line
+// eslint-disable-next-line no-console
 console.log(chalk.green('✨ `dist` directory is valid.'));

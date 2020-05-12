@@ -22,10 +22,6 @@
     color: @warning-color;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   // Exception Status image
   &-image {
     width: 250px;
@@ -38,40 +34,32 @@
     text-align: center;
 
     > .anticon {
-      font-size: 72px;
+      font-size: @result-icon-font-size;
     }
   }
 
   &-title {
     color: @heading-color;
-    font-size: 24px;
+    font-size: @result-title-font-size;
     line-height: 1.8;
     text-align: center;
   }
 
   &-subtitle {
     color: @text-color-secondary;
-    font-size: 14px;
+    font-size: @result-subtitle-font-size;
     line-height: 1.6;
     text-align: center;
   }
 
   &-extra {
-    margin-top: 32px;
+    margin: @result-extra-margin;
     text-align: center;
     > * {
       margin-right: 8px;
 
-      .@{result-prefix-cls}-rtl & {
-        margin-right: 0;
-        margin-left: 8px;
-      }
-
       &:last-child {
         margin-right: 0;
-        .@{result-prefix-cls}-rtl & {
-          margin-left: 8px;
-        }
       }
     }
   }
@@ -82,3 +70,5 @@
     background-color: @background-color-light;
   }
 }
+
+@import './rtl';

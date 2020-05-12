@@ -9,8 +9,8 @@ title: 从 v3 到 v4
 
 1. 请先升级到 3.x 的最新版本，按照控制台 warning 信息移除/修改相关的 API。
 2. 升级项目 React 16.12.0 以上。
-   - 如果你仍在使用 React 15，请参考[React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)
-   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
+   - 如果你仍在使用 React 15，请参考 [React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)。
+   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)。
 
 ## 4.0 有哪些不兼容的变化
 
@@ -32,6 +32,7 @@ title: 从 v3 到 v4
 
 - IE 最低支持版本为 IE 11。
 - React 最低支持版本为 React 16.9，部分组件开始使用 hooks 进行重构。
+  - 重构通过 `useMemo` 进行性能优化，请勿使用 mutable data 作为参数。
 
 #### 移除废弃的 API
 
@@ -74,22 +75,22 @@ const Demo = () => (
 4.0 中会采用按需引入的方式：
 
 ```diff
-import { Button } from 'antd';
+  import { Button } from 'antd';
 
-// tree-shaking supported
+  // tree-shaking supported
 - import { Icon } from 'antd';
 + import { SmileOutlined } from '@ant-design/icons';
 
-const Demo = () => (
-  <div>
--    <Icon type="smile" />
-+    <SmileOutlined />
-    <Button icon={<SmileOutlined />} />
-  </div>
-);
+  const Demo = () => (
+    <div>
+-     <Icon type="smile" />
++     <SmileOutlined />
+      <Button icon={<SmileOutlined />} />
+    </div>
+  );
 
-// or directly import
-import SmileOutlined from '@ant-design/icons/SmileOutlined';
+  // or directly import
+  import SmileOutlined from '@ant-design/icons/SmileOutlined';
 ```
 
 你将仍然可以通过兼容包继续使用：
@@ -108,16 +109,41 @@ const Demo = () => (
 
 #### 组件重构
 
-- Form 重写，不再需要 `Form.create`，迁移文档请查看[此处](/components/form/v3)。
+- Form 重写
+  - 不再需要 `Form.create`。
+  - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+  - 迁移文档请查看[此处](/components/form/v3)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
-- Tree、Select、TreeSelect、AutoComplete 使用虚拟滚动。
-  - `dropdownMatchSelectWidth` 不再自动适应内容宽度，请用数字设置下拉宽度。
+  - `onPanelChange` 在面板值变化时也会触发。
+  - [自定义单元格样式](/components/date-picker-cn/#components-date-picker-demo-date-render)的类名从 `ant-calendar-date` 改为 `ant-picker-cell-inner`。
+- Tree、Select、TreeSelect、AutoComplete 重新写
+  - 使用虚拟滚动。
+  - `onBlur` 时不再修改选中值，且返回 React 原生的 `event` 对象。
+  - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
+  - Select 移除 `dropdownMenuStyle` 属性。
+  - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
+  - `filterOption` 第二个参数直接返回原数据，不在需要通过 `option.props.children` 来进行匹配。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
-- Table 在没有 `columns` 时仍然会保留一列。
+- Table 重写
+  - 在没有 `columns` 时仍然会保留一列。
+  - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+- Pagination 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+
+```diff
+<Table
+  columns={[
+    {
+      title: 'Age',
+-     dataIndex: 'user.age',
++     dataIndex: ['user', 'age'],
+    },
+  ]}
+/>
+```
 
 ## 开始升级
 
@@ -139,11 +165,11 @@ yarn global add @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-![codemod running](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ)
+<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ" alt="codemod running" width="720" />
 
 对于无法自动修改的部分，codemod 会在命令行进行提示，建议按提示手动修改。修改后可以反复运行上述命令进行检查。
 
-![contains an invalid icon](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ)
+<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ" alt="contains an invalid icon" width="720" />
 
 > 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
 

@@ -37,7 +37,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | icon | set the icon component of button | ReactNode | - |  |
 | loading | set the loading status of button | boolean \| { delay: number } | `false` |  |
 | shape | can be set to `circle`, `round` or omitted | string | - |  |
-| size | can be set to `small` `large` or omitted | string | `default` |  |
+| size | set the size of button | `large` \| `middle` \| `small` |  |  |
 | target | same as target attribute of a, works when href is specified | string | - |  |
 | type | can be set to `primary` `ghost` `dashed` `link` or omitted (meaning `default`) | string | `default` |  |
 | onClick | set the handler to handle `click` event | (event) => void | - |  |
@@ -52,12 +52,16 @@ It accepts all props which native buttons support.
 
 Following the Ant Design specification, we will add one space between if Button contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none" alt="Button with two Chinese characters" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="Button with two Chinese characters" />
 
 <style>
 [id^=components-button-demo-] .ant-btn {
   margin-right: 8px;
   margin-bottom: 12px;
+}
+[id^="components-button-demo-"] .ant-btn-rtl {
+  margin-right: 0;
+  margin-left: 8px;
 }
 [id^=components-button-demo-] .ant-btn-group > .ant-btn,
 [id^=components-button-demo-] .ant-btn-group > span > .ant-btn {

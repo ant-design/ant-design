@@ -1,0 +1,18 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
+
+.@{descriptions-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-item-label {
+    &::after {
+      .@{descriptions-prefix-cls}-rtl & {
+        margin: 0 2px 0 8px;
+      }
+    }
+  }
+}

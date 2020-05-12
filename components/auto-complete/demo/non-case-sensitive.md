@@ -33,7 +33,7 @@ const Complete: React.FC = () => {
       }
     />
   );
-}
+};
 
 ReactDOM.render(<Complete />, mountNode);
 ```

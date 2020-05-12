@@ -15,6 +15,6 @@ ReactDOM.render(
       <HeaderTitle>Title</HeaderTitle>
     </HeaderColumns>
   </Header>,
-  mountNode
+  mountNode,
 );
 ```

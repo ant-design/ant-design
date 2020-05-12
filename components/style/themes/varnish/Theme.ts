@@ -14,23 +14,23 @@ import { zIndex } from './zIndex';
 // https://material-ui.com/customization/default-theme/
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 const Default = {
-    animation,
-    breakpoints,
-    button,
-    chartingColor,
-    color,
-    link,
-    palette,
-    shape,
-    spacing,
-    typography,
-    zIndex,
-}
+  animation,
+  breakpoints,
+  button,
+  chartingColor,
+  color,
+  link,
+  palette,
+  shape,
+  spacing,
+  typography,
+  zIndex,
+};
 
 export type VarnishTheme = typeof Default;
 
 export const Theme: Dictionary<VarnishTheme> = {
-    default: Default,
-}
+  default: Default,
+};
 
 export { Color, RGB };

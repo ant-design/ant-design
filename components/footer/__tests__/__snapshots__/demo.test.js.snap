@@ -2,7 +2,7 @@
 
 exports[`renders ./components/footer/demo/custom.md correctly 1`] = `
 <footer
-  class="ant-layout-footer sc-htpNat evgISr"
+  class="ant-layout-footer sc-htpNat ecrzFI"
   layout="hcenter"
 >
   Custom footer content - 😜
@@ -11,7 +11,7 @@ exports[`renders ./components/footer/demo/custom.md correctly 1`] = `
 
 exports[`renders ./components/footer/demo/dark.md correctly 1`] = `
 <footer
-  class="ant-layout-footer sc-htpNat eUjNmj"
+  class="ant-layout-footer sc-htpNat gUxZqA"
   layout="hcenter"
 >
   <span>
@@ -38,7 +38,7 @@ exports[`renders ./components/footer/demo/dark.md correctly 1`] = `
 
 exports[`renders ./components/footer/demo/default.md correctly 1`] = `
 <footer
-  class="ant-layout-footer sc-htpNat evgISr"
+  class="ant-layout-footer sc-htpNat ecrzFI"
   layout="hcenter"
 >
   <span>

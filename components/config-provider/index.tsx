@@ -13,6 +13,7 @@ import { SizeType, SizeContextProvider } from './SizeContext';
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
+  'getTargetContainer',
   'getPopupContainer',
   'rootPrefixCls',
   'getPrefixCls',
@@ -24,6 +25,7 @@ export const configConsumerProps = [
 ];
 
 export interface ConfigProviderProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -33,45 +35,63 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
   };
+  input?: {
+    autoComplete?: string;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
   };
   componentSize?: SizeType;
   direction?: 'ltr' | 'rtl';
+  space?: {
+    size?: SizeType | number;
+  };
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
-  getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
-    const { prefixCls = 'ant' } = this.props;
+  getPrefixClsWrapper = (context: ConfigConsumerProps) => {
+    return (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = this.props;
 
-    if (customizePrefixCls) return customizePrefixCls;
+      if (customizePrefixCls) return customizePrefixCls;
 
-    return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    };
   };
 
   renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
+      getTargetContainer,
       getPopupContainer,
       renderEmpty,
       csp,
       autoInsertSpaceInButton,
       form,
+      input,
       locale,
       pageHeader,
       componentSize,
       direction,
+      space,
     } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: this.getPrefixCls,
+      getPrefixCls: this.getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
       direction,
+      space,
     };
+
+    if (getTargetContainer) {
+      config.getTargetContainer = getTargetContainer;
+    }
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
@@ -85,13 +105,24 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.pageHeader = pageHeader;
     }
 
+    if (input) {
+      config.input = input;
+    }
+
     let childNode = children;
 
     // Additional Form provider
+    let validateMessages: ValidateMessages = {};
+
+    if (locale && locale.Form && locale.Form.defaultValidateMessages) {
+      validateMessages = locale.Form.defaultValidateMessages;
+    }
     if (form && form.validateMessages) {
-      childNode = (
-        <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
-      );
+      validateMessages = { ...validateMessages, ...form.validateMessages };
+    }
+
+    if (Object.keys(validateMessages).length > 0) {
+      childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
     }
 
     return (

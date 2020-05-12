@@ -19,10 +19,8 @@ ReactDOM.render(
         <HeaderTitle>Title</HeaderTitle>
       </HeaderColumns>
     </Header>
-    <Layout.Content >
-      Content!
-    </Layout.Content>
+    <Layout.Content>Content!</Layout.Content>
   </Layout>,
-  mountNode
+  mountNode,
 );
 ```

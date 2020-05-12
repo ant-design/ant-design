@@ -4,19 +4,18 @@
 @import './panel';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
-@picker-text-height: 40px;
 
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
-  @font-height-px: floor((@remToPx * @font-size) * @line-height-base) + 2;
-  @padding-top: (@input-height - @font-height-px) / 2;
-  @padding-bottom: @input-height - @font-height-px - @padding-top;
+  @font-height: floor((@remToPx * @font-size) * @line-height-base) + 2;
+  @padding-top: max((@input-height - @font-height) / 2, 0);
+  @padding-bottom: max(@input-height - @font-height - @padding-top, 0);
   padding: @padding-top @padding-horizontal @padding-bottom;
 }
 
 .@{picker-prefix-cls} {
-  @vertical-fix-base: @input-height-base - ceil((@remToPx * @font-size-base) * @line-height-base) - 2 *
-    @input-padding-vertical-base - 2 * @border-width-base;
+  @vertical-fix-base: @input-height-base - ceil((@remToPx * @font-size-base) * @line-height-base) -
+    2 * @input-padding-vertical-base - 2 * @border-width-base;
   @vertical-fix-lg: @input-height-lg - ceil((@remToPx * @font-size-lg) * @line-height-base) - 2 *
     @input-padding-vertical-lg - 2 * @border-width-base;
   @vertical-fix-sm: @input-height-sm - ceil((@remToPx * @font-size-base) * @line-height-base) - 2 *
@@ -33,10 +32,6 @@
   border-radius: @border-radius-base;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &:hover,
   &-focused {
     .hover();
@@ -50,6 +45,10 @@
     background: @input-disabled-bg;
     border-color: @select-border-color;
     cursor: not-allowed;
+  }
+
+  &&-disabled &-suffix {
+    color: @disabled-color;
   }
 
   &&-borderless {
@@ -136,26 +135,26 @@
     &:hover {
       color: @text-color-secondary;
     }
-
-    .@{picker-prefix-cls}-rtl & {
-      right: auto;
-      left: 0;
-    }
   }
 
   &-separator {
+    position: relative;
     display: inline-block;
-    align-self: center;
-    width: 2em;
+    width: 1em;
     height: @font-size-lg;
     color: @disabled-color;
     font-size: @font-size-lg;
-    line-height: @font-size-lg;
-    text-align: center;
+    vertical-align: top;
+    cursor: default;
 
-    .@{picker-prefix-cls}-rtl & {
-      transform: rotate(180deg);
-      transform-origin: 50% 60%;
+    .@{picker-prefix-cls}-focused & {
+      color: @text-color-secondary;
+    }
+
+    .@{picker-prefix-cls}-range-separator & {
+      .@{picker-prefix-cls}-disabled & {
+        cursor: not-allowed;
+      }
     }
   }
 
@@ -167,11 +166,6 @@
     // Clear
     .@{picker-prefix-cls}-clear {
       right: @input-padding-horizontal-base;
-
-      .@{picker-prefix-cls}-rtl& {
-        right: auto;
-        left: @input-padding-horizontal-base;
-      }
     }
 
     &:hover {
@@ -195,6 +189,12 @@
       .@{picker-prefix-cls}-active-bar {
         opacity: 1;
       }
+    }
+
+    &-separator {
+      align-items: center;
+      padding: 0 @padding-xs;
+      line-height: 1;
     }
   }
 
@@ -247,27 +247,21 @@
     text-align: left;
     list-style: none;
 
-    .@{picker-prefix-cls}-dropdown-rtl & {
-      text-align: right;
-    }
-
     > li {
       display: inline-block;
     }
 
-    .@{picker-prefix-cls}-preset span {
+    // https://github.com/ant-design/ant-design/issues/23687
+    .@{picker-prefix-cls}-preset > .@{ant-prefix}-tag-blue {
+      color: @primary-color;
+      background: @primary-1;
+      border-color: @primary-3;
       cursor: pointer;
     }
 
     .@{picker-prefix-cls}-ok {
       float: right;
       margin-left: @padding-xs;
-
-      .@{picker-prefix-cls}-dropdown-rtl & {
-        float: left;
-        margin-right: @padding-xs;
-        margin-left: 0;
-      }
     }
   }
 
@@ -282,6 +276,7 @@
     width: @arrow-size;
     height: @arrow-size;
     margin-left: @input-padding-horizontal-base * 1.5;
+    box-shadow: 2px -2px 6px fade(@black, 6%);
     transition: left @animation-duration-slow ease-out;
 
     &::after {
@@ -321,3 +316,5 @@
     }
   }
 }
+
+@import './rtl';

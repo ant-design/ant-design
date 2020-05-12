@@ -128,18 +128,8 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(
-      wrapper1
-        .find('span')
-        .first()
-        .getDOMNode().style.display,
-    ).toBe('inline-block');
-    expect(
-      wrapper2
-        .find('span')
-        .first()
-        .getDOMNode().style.display,
-    ).toBe('block');
+    expect(wrapper1.find('span').first().getDOMNode().style.display).toBe('inline-block');
+    expect(wrapper2.find('span').first().getDOMNode().style.display).toBe('block');
   });
 
   it('should works for arrowPointAtCenter', () => {
@@ -161,10 +151,7 @@ describe('Tooltip', () => {
           </button>
         </Tooltip>,
       );
-      wrapper
-        .find('button')
-        .at(0)
-        .simulate('click');
+      wrapper.find('button').at(0).simulate('click');
       const popupLeftDefault = parseInt(wrapper.instance().getPopupDomNode().style.left, 10);
 
       const wrapper2 = mount(
@@ -181,10 +168,7 @@ describe('Tooltip', () => {
           </button>
         </Tooltip>,
       );
-      wrapper2
-        .find('button')
-        .at(0)
-        .simulate('click');
+      wrapper2.find('button').at(0).simulate('click');
       const popupLeftArrowPointAtCenter = parseInt(
         wrapper2.instance().getPopupDomNode().style.left,
         10,
@@ -245,12 +229,90 @@ describe('Tooltip', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
-  it('should display zero', async () => {
+  it('should display zero', () => {
     const wrapper = mount(
       <Tooltip title={0} visible>
         <div />
       </Tooltip>,
     );
     expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
+  });
+
+  it('autoAdjustOverflow should be object or undefined', () => {
+    expect(() => {
+      mount(
+        <Tooltip title={0} visible autoAdjustOverflow={{ adjustX: 0, adjustY: 0 }}>
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+
+    expect(() => {
+      mount(
+        <Tooltip title={0} visible autoAdjustOverflow={undefined}>
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+  });
+
+  it('support other placement', done => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="bottomLeft"
+        transitionName=""
+        mouseEnterDelay={0}
+        afterVisibleChange={visible => {
+          if (visible) {
+            expect(wrapper.find('Trigger').props().popupPlacement).toBe('bottomLeft');
+          }
+          done();
+        }}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+  });
+
+  it('other placement when mouse enter', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="topRight"
+        transitionName=""
+        popupTransitionName=""
+        mouseEnterDelay={0}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
+
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(500);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
+  });
+
+  it('should works for mismatch placement', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        align={{
+          points: ['bc', 'tl'],
+        }}
+        mouseEnterDelay={0}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(600);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('ant-tooltip');
   });
 });

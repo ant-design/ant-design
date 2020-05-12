@@ -1,16 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  CloseOutlined,
-  CheckCircleOutlined,
-  ExclamationCircleOutlined,
-  InfoCircleOutlined,
-  CloseCircleOutlined,
-  CheckCircleFilled,
-  ExclamationCircleFilled,
-  InfoCircleFilled,
-  CloseCircleFilled,
-} from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 
@@ -39,11 +37,16 @@ export interface AlertProps {
   afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
+  /** https://www.w3.org/TR/2014/REC-html5-20141028/dom.html#aria-role-attribute */
+  role?: string;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface AlertState {
@@ -105,6 +108,9 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       className = '',
       style,
       icon,
+      onMouseEnter,
+      onMouseLeave,
+      onClick,
     } = this.props;
     let { closable, type, showIcon } = this.props;
     const { closing, closed } = this.state;
@@ -175,7 +181,15 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
-        <div data-show={!closing} className={alertCls} style={style} {...dataOrAriaProps}>
+        <div
+          data-show={!closing}
+          className={alertCls}
+          style={style}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={onClick}
+          {...dataOrAriaProps}
+        >
           {showIcon ? iconNode : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>

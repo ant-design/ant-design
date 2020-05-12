@@ -3,6 +3,7 @@ import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import useBreakpoint from '../hooks/useBreakpoint';
 
 describe('Grid', () => {
   mountTest(Row);
@@ -89,5 +90,27 @@ describe('Grid', () => {
       marginTop: -10,
       marginBottom: 10,
     });
+  });
+
+  // By jsdom mock, actual jsdom not implemented matchMedia
+  // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+  it('should work with useBreakpoint', () => {
+    function Demo() {
+      const screens = useBreakpoint();
+
+      return JSON.stringify(screens);
+    }
+    const wrapper = mount(<Demo />);
+
+    expect(wrapper.text()).toEqual(
+      JSON.stringify({
+        xs: true,
+        sm: false,
+        md: false,
+        lg: false,
+        xl: false,
+        xxl: false,
+      }),
+    );
   });
 });

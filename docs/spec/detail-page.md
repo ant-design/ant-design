@@ -137,9 +137,9 @@ title:
 
 ### 会用到哪些模块或组件
 
-- [描述列表](https://ant.design/components/descriptions-cn/#header)
-- [折叠面板](https://ant.design/components/collapse-cn/)
-- [表格](https://ant.design/components/table-cn/)
+- [描述列表](/components/descriptions-cn/#header)
+- [折叠面板](/components/collapse-cn/)
+- [表格](/components/table-cn/)
 
 ### 外部参考文章
 

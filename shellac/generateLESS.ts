@@ -1,16 +1,16 @@
 import { StyleVariables, Style } from './styleVariables';
 import { Theme } from '../components/style/themes/varnish/Theme';
-import { getFontImportsURL } from '../components/style/themes/varnish/typography';
+// import { getFontImportsURL } from '../components/style/themes/varnish/typography';
 
 /**
  * Returns the styles required for shellac as a string.
  */
 // eslint-disable-next-line import/prefer-default-export
 export function generateLESS() {
-    const vars = StyleVariables.fromTheme(Theme.default, Style.LESS);
-    return `
-/*yuck, this is now failing, so hardcodeing to get rolling... need to fix
-@import (css) url("${getFontImportsURL()}");*/
+  const vars = StyleVariables.fromTheme(Theme.default, Style.LESS);
+  return `
+// yuck, this is now failing, so hardcodeing to get rolling... need to fix
+// @import (css) url("$ {getFontImportsURL()}");*/
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -288,16 +288,6 @@ blockquote {
     margin: ${vars.getRefOrError('spacing.lg')} ${vars.getRefOrError('spacing.xs')};
     padding: ${vars.getRefOrError('spacing.md')} ${vars.getRefOrError('spacing.xs')};
     border-left: ${vars.getRefOrError('spacing.xxs')} solid ${vars.getRefOrError('color.N5')};
-}
-
-/**
- * You can't use css variables in media queries, so we just source this
- * directly from the original theme definition.
- */
-@media screen and (max-width: ${vars.getRefOrError('breakpoints.lg')}) {
-    html {
-        font-size: ${100 * (14 / 16)}%;
-    }
 }
     `.trim();
 }

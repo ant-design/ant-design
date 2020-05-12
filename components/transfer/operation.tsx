@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
 import Button from '../button';
 
 export interface TransferOperationProps {

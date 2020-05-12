@@ -16,11 +16,13 @@ title:
 Child elements depending on the value of the `start`,`center`, `end`,`space-between`, `space-around`, which are defined in its parent node typesetting mode.
 
 ```jsx
-import { Row, Col } from 'antd';
+import { Row, Col, Divider } from 'antd';
 
 ReactDOM.render(
-  <div>
-    <p>sub-element align left</p>
+  <>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      sub-element align left
+    </Divider>
     <Row justify="start">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -28,7 +30,9 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
     </Row>
 
-    <p>sub-element align center</p>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      sub-element align center
+    </Divider>
     <Row justify="center">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -36,7 +40,9 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
     </Row>
 
-    <p>sub-element align right</p>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      sub-element align right
+    </Divider>
     <Row justify="end">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -44,7 +50,9 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
     </Row>
 
-    <p>sub-element monospaced arrangement</p>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      sub-element monospaced arrangement
+    </Divider>
     <Row justify="space-between">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -52,14 +60,16 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
     </Row>
 
-    <p>sub-element align full</p>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      sub-element align full
+    </Divider>
     <Row justify="space-around">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-  </div>,
+  </>,
   mountNode,
 );
 ```

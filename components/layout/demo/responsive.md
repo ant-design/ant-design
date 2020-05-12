@@ -18,8 +18,9 @@ Layout.Sider supports responsive layout.
 > Note: You can get a responsive layout by setting `breakpoint`, the Sider will collapse to the width of `collapsedWidth` when window width is below the `breakpoint`. And a special trigger will appear if the `collapsedWidth` is set to `0`.
 
 ```jsx
-import { Layout, Menu } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import Layout from '..'; // TODO: point this at varnish
+import Menu from '../../menu'; // TODO: point this at varnish
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -37,21 +38,17 @@ ReactDOM.render(
     >
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-        <Menu.Item key="1">
-          <UserOutlined />
-          <span className="nav-text">nav 1</span>
+        <Menu.Item key="1" icon={<UserOutlined />}>
+          nav 1
         </Menu.Item>
-        <Menu.Item key="2">
-          <VideoCameraOutlined />
-          <span className="nav-text">nav 2</span>
+        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+          nav 2
         </Menu.Item>
-        <Menu.Item key="3">
-          <UploadOutlined />
-          <span className="nav-text">nav 3</span>
+        <Menu.Item key="3" icon={<UploadOutlined />}>
+          nav 3
         </Menu.Item>
-        <Menu.Item key="4">
-          <UserOutlined />
-          <span className="nav-text">nav 4</span>
+        <Menu.Item key="4" icon={<UserOutlined />}>
+          nav 4
         </Menu.Item>
       </Menu>
     </Sider>

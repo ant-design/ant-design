@@ -72,23 +72,12 @@ describe('react router', () => {
       </MemoryRouter>,
     );
     expect(wrapper.find('BreadcrumbItem').length).toBe(1);
-    expect(
-      wrapper
-        .find('BreadcrumbItem .ant-breadcrumb-link')
-        .at(0)
-        .text(),
-    ).toBe('Home');
-    wrapper
-      .find('.demo-nav a')
-      .at(1)
-      .simulate('click');
+    expect(wrapper.find('BreadcrumbItem .ant-breadcrumb-link').at(0).text()).toBe('Home');
+    wrapper.find('.demo-nav a').at(1).simulate('click');
     expect(wrapper.find('BreadcrumbItem').length).toBe(2);
-    expect(
-      wrapper
-        .find('BreadcrumbItem .ant-breadcrumb-link')
-        .at(1)
-        .text(),
-    ).toBe('Application List');
+    expect(wrapper.find('BreadcrumbItem .ant-breadcrumb-link').at(1).text()).toBe(
+      'Application List',
+    );
   });
 
   it('react router 3', () => {

@@ -1,4 +1,4 @@
-import { DataNode } from 'rc-tree/lib/interface';
+import { DataNode, Key } from 'rc-tree/lib/interface';
 
 enum Record {
   None,
@@ -8,7 +8,7 @@ enum Record {
 
 function traverseNodesKey(
   treeData: DataNode[],
-  callback: (key: string | number | null, node: DataNode) => boolean,
+  callback: (key: Key | number | null, node: DataNode) => boolean,
 ) {
   function processNode(dataNode: DataNode) {
     const { key, children } = dataNode;
@@ -23,11 +23,11 @@ function traverseNodesKey(
 /** 计算选中范围，只考虑expanded情况以优化性能 */
 export function calcRangeKeys(
   treeData: DataNode[],
-  expandedKeys: string[],
-  startKey?: string,
-  endKey?: string,
-): string[] {
-  const keys: string[] = [];
+  expandedKeys: Key[],
+  startKey?: Key,
+  endKey?: Key,
+): Key[] {
+  const keys: Key[] = [];
   let record: Record = Record.None;
 
   if (startKey && startKey === endKey) {
@@ -37,11 +37,11 @@ export function calcRangeKeys(
     return [];
   }
 
-  function matchKey(key: string) {
+  function matchKey(key: Key) {
     return key === startKey || key === endKey;
   }
 
-  traverseNodesKey(treeData, (key: string) => {
+  traverseNodesKey(treeData, (key: Key) => {
     if (record === Record.End) {
       return false;
     }
@@ -71,10 +71,10 @@ export function calcRangeKeys(
   return keys;
 }
 
-export function convertDirectoryKeysToNodes(treeData: DataNode[], keys: string[]) {
-  const restKeys: string[] = [...keys];
+export function convertDirectoryKeysToNodes(treeData: DataNode[], keys: Key[]) {
+  const restKeys: Key[] = [...keys];
   const nodes: DataNode[] = [];
-  traverseNodesKey(treeData, (key: string, node: DataNode) => {
+  traverseNodesKey(treeData, (key: Key, node: DataNode) => {
     const index = restKeys.indexOf(key);
     if (index !== -1) {
       nodes.push(node);

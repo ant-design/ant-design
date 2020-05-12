@@ -15,7 +15,7 @@ When requiring users to interact with the application, but without jumping to a 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
-| bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} |
+| bodyStyle | Body style for modal body element. Such as height, padding etc. | CSSProperties | {} |
 | cancelText | Text of the Cancel button | string\|ReactNode | `Cancel` |
 | centered | Centered Modal | Boolean | `false` |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |
@@ -32,7 +32,7 @@ When requiring users to interact with the application, but without jumping to a 
 | okType | Button `type` of the OK button | string | `primary` |
 | okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button) | - |
-| style | Style of floating layer, typically used at least for adjusting the position. | object | - |
+| style | Style of floating layer, typically used at least for adjusting the position. | CSSProperties | - |
 | title | The modal dialog's title | string\|ReactNode | - |
 | visible | Whether the modal dialog is visible or not | boolean | false |
 | width | Width of the modal dialog | string\|number | 520 |
@@ -75,8 +75,8 @@ The items listed above are all functions, expecting a settings object as paramet
 | title | Title | string\|ReactNode | - |
 | width | Width of the modal dialog | string\|number | 416 |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
-| onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
-| onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
+| onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |
+| onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |
 
 All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
 
@@ -90,12 +90,6 @@ modal.update({
 
 modal.destroy();
 ```
-
-<style>
-.code-box-demo .ant-btn {
-  margin-right: 8px;
-}
-</style>
 
 - `Modal.destroyAll`
 
@@ -136,6 +130,8 @@ When you need context info (like ConfigProvider context), you can use `Modal.use
 
 ```tsx
 const [modal, contextHolder] = Modal.useModal();
+
+// then call modal.confirm instead of Modal.confirm
 
 return (
   <Context1.Provider value="Ant">

@@ -27,6 +27,7 @@ describe('Badge', () => {
     expect(wrapper).toMatchSnapshot();
     wrapper = mount(<Badge count="3.5" />);
     expect(wrapper).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('badge dot not showing count == 0', () => {
@@ -37,10 +38,7 @@ describe('Badge', () => {
   it('should have an overriden title attribute', () => {
     const badge = mount(<Badge count={10} title="Custom title" />);
     expect(
-      badge
-        .find('.ant-scroll-number')
-        .getDOMNode()
-        .attributes.getNamedItem('title').value,
+      badge.find('.ant-scroll-number').getDOMNode().attributes.getNamedItem('title').value,
     ).toEqual('Custom title');
   });
 

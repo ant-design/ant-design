@@ -1,7 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 import {
   TransferItem,
@@ -74,7 +73,10 @@ function renderListNode(renderList: RenderListFunction | undefined, props: Trans
   };
 }
 
-export default class TransferList extends React.Component<TransferListProps, TransferListState> {
+export default class TransferList extends React.PureComponent<
+  TransferListProps,
+  TransferListState
+> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
@@ -90,10 +92,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     this.state = {
       filterValue: '',
     };
-  }
-
-  shouldComponentUpdate(...args: any[]) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   componentWillUnmount() {

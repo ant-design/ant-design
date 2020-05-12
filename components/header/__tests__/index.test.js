@@ -35,7 +35,7 @@ describe('Header', () => {
               </HeaderColumns>
             </Header>
           </DefaultAppLayoutProvider>
-      </ThemeProvider>,
+        </ThemeProvider>,
       );
       expect(wrapper).toMatchSnapshot();
     });

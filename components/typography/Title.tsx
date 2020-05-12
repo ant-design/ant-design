@@ -7,7 +7,7 @@ const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4);
 
 export type TitleProps = Omit<BlockProps & { level?: typeof TITLE_ELE_LIST[number] }, 'strong'>;
 
-const Title: React.SFC<TitleProps> = props => {
+const Title: React.FC<TitleProps> = props => {
   const { level = 1, ...restProps } = props;
   let component: string;
 

@@ -96,18 +96,20 @@ export default App;
 
 引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) 版本的关系，你还需要安装 [customize-cra](https://github.com/arackaf/customize-cra)。
 
-```
+```bash
 $ yarn add react-app-rewired customize-cra
+# 使用less-loader@6.0.0
+$ yarn add react-app-rewired customize-cra@next
 ```
 
 ```diff
 /* package.json */
 "scripts": {
 -   "start": "react-scripts start",
-+   "start": "react-app-rewired start",
 -   "build": "react-scripts build",
-+   "build": "react-app-rewired build",
 -   "test": "react-scripts test",
++   "start": "react-app-rewired start",
++   "build": "react-app-rewired build",
 +   "test": "react-app-rewired test",
 }
 ```
@@ -139,8 +141,7 @@ $ yarn add babel-plugin-import
 -   return config;
 - };
 + module.exports = override(
-+   fixBabelImports('import', {
-+     libraryName: 'antd',
++   fixBabelImports('antd', {
 +     libraryDirectory: 'es',
 +     style: 'css',
 +   }),
@@ -173,7 +174,7 @@ $ yarn add babel-plugin-import
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra/blob/master/api.md#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
 
 ```bash
 $ yarn add less less-loader
@@ -184,24 +185,27 @@ $ yarn add less less-loader
 + const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
 module.exports = override(
-  fixBabelImports('import', {
-    libraryName: 'antd',
+  fixBabelImports('antd', {
     libraryDirectory: 'es',
 -   style: 'css',
 +   style: true,
   }),
 + addLessLoader({
-+   javascriptEnabled: true,
-+   modifyVars: { '@primary-color': '#1DA57A' },
++   lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++     javascriptEnabled: true,
++     modifyVars: { '@primary-color': '#1DA57A' },
++   },
 + }),
 );
 ```
 
-这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
+这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
-修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
+antd 内建了深色主题和紧凑主题，你可以参照 [使用暗色主题和紧凑主题](/docs/react/customize-theme#使用暗色主题和紧凑主题) 进行接入。
 
-> 你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
+> 同样，你可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来自定义 create-react-app 的 webpack 配置，类似于 customize-cra。
+
+> 注意：建议使用最新版本的 `less`，或不低于 `3.0.1`。
 
 ## 使用 Day.js 替换 momentjs 优化打包大小
 

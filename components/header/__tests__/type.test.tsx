@@ -10,7 +10,7 @@ describe('Header.typescript', () => {
         <HeaderColumns gridTemplateColumns="auto 1fr">
           <HeaderTitle>Title</HeaderTitle>
         </HeaderColumns>
-    </Header>
+      </Header>
     );
 
     expect(header).toBeTruthy();

@@ -9,7 +9,7 @@ import focusTest from '../../../tests/shared/focusTest';
 const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
-  focusTest(RangePicker, true);
+  focusTest(RangePicker, { refFocus: true });
 
   beforeEach(() => {
     setMockDate();
@@ -74,5 +74,26 @@ describe('RangePicker', () => {
 
       expect(value[0].isSame(value[1], 'date')).toBeTruthy();
     });
+  });
+
+  describe('ranges', () => {
+    it('RangePicker support presetted ranges with Tags', () => {
+      const wrapper = mount(
+        <RangePicker
+          ranges={{
+            Today: [moment(), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+          }}
+          open
+        />,
+      );
+      expect(wrapper).toMatchRenderedSnapshot();
+    });
+  });
+
+  it('placeholder', () => {
+    const wrapper = mount(<RangePicker placeholder={undefined} />);
+    expect(wrapper.find('input').first().props().placeholder).toEqual('Start date');
+    expect(wrapper.find('input').last().props().placeholder).toEqual('End date');
   });
 });

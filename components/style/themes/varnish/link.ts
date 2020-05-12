@@ -5,14 +5,14 @@ const contrastColor = color.B4;
 
 // eslint-disable-next-line import/prefer-default-export
 export const link = {
+  color: defaultColor,
+  activeColor: defaultColor,
+  decoration: 'none',
+  contrastColor,
+  contrastActiveColor: contrastColor,
+  hover: {
     color: defaultColor,
-    activeColor: defaultColor,
-    decoration: 'none',
+    decoration: 'underline',
     contrastColor,
-    contrastActiveColor: contrastColor,
-    hover: {
-        color: defaultColor,
-        decoration: 'underline',
-        contrastColor,
-    },
+  },
 };
