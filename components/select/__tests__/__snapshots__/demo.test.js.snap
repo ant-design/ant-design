@@ -60,6 +60,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -120,6 +121,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -178,6 +180,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -236,6 +239,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -382,6 +386,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
         <span
@@ -433,6 +438,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -493,6 +499,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -556,6 +563,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -614,6 +622,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -676,6 +685,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -796,6 +806,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -840,6 +851,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -935,6 +947,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
         <span
@@ -985,6 +998,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -1025,6 +1039,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -1159,6 +1174,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -1194,6 +1210,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -1292,6 +1309,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -1327,6 +1345,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -1388,6 +1407,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -1423,6 +1443,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -1528,6 +1549,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -1660,6 +1682,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
         <span
@@ -1801,6 +1824,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>
@@ -1861,6 +1885,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>

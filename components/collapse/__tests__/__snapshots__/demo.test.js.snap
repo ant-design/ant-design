@@ -677,6 +677,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          unselectable="on"
           value=""
         />
       </span>

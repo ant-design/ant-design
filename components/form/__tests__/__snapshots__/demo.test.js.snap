@@ -554,6 +554,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -720,6 +721,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -860,6 +862,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -2563,6 +2566,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity:0"
+                        unselectable="on"
                         value=""
                       />
                     </span>
@@ -2965,6 +2969,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -3046,6 +3051,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -3989,6 +3995,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -4075,6 +4082,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
                 <span
@@ -5820,6 +5828,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
