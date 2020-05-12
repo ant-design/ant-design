@@ -118,8 +118,9 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
               />
             );
           })}
-          {paginationNode}
         </ul>
+
+        {paginationNode}
       </>
     );
   }

@@ -4,7 +4,6 @@ debug: true
 title:
   zh-CN: 大数据性能测试
   en-US: Performance Test
-only: true
 ---
 
 ## zh-CN

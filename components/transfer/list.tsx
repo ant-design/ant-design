@@ -295,13 +295,15 @@ export default class TransferList extends React.PureComponent<
       onItemRemove,
       showSelectAll,
       showRemove,
+      pagination,
     } = this.props;
 
     // Custom Layout
     const footerDom = footer && footer(this.props);
 
     const listCls = classNames(prefixCls, {
-      [`${prefixCls}-with-footer`]: !!footerDom,
+      [`${prefixCls}-with-pagination`]: pagination,
+      [`${prefixCls}-with-footer`]: footerDom,
     });
 
     // ====================== Get filtered, checked item list ======================

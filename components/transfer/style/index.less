@@ -13,6 +13,8 @@
   .reset-component;
 
   position: relative;
+  display: flex;
+  align-items: stretch;
 
   &-disabled {
     .@{transfer-prefix-cls}-list {
@@ -21,14 +23,16 @@
   }
 
   &-list {
-    position: relative;
-    display: inline-block;
     width: 180px;
     height: @transfer-list-height;
-    padding-top: @transfer-header-height;
-    vertical-align: middle;
     border: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base;
+    display: flex;
+    flex-direction: column;
+
+    &-with-pagination {
+      height: auto;
+    }
 
     &-with-footer {
       padding-bottom: 34px;
@@ -61,20 +65,17 @@
     }
 
     &-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      flex: none;
       display: flex;
       align-items: center;
       // border-top is on the transfer dom. We should minus 1px for this
       padding: (@transfer-header-vertical-padding - 1px) @control-padding-horizontal
         @transfer-header-vertical-padding;
-      overflow: hidden;
       color: @text-color;
       background: @component-background;
       border-bottom: @border-width-base @border-style-base @border-color-split;
       border-radius: @border-radius-base @border-radius-base 0 0;
+      height: @transfer-header-height;
 
       > *:not(:last-child) {
         margin-right: 4px;
@@ -99,25 +100,21 @@
     }
 
     &-body {
-      position: relative;
-      height: 100%;
       font-size: @font-size-base;
+      flex: auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
 
       &-search-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+        flex: none;
         padding: @padding-sm;
+        position: relative;
       }
     }
 
-    &-body-with-search {
-      padding-top: @input-height-base + @padding-sm * 2;
-    }
-
     &-content {
-      height: 100%;
+      flex: auto;
       margin: 0;
       padding: 0;
       overflow: auto;
@@ -168,18 +165,11 @@
     }
 
     &-body-not-found {
-      position: absolute;
-      top: 50%;
+      flex: none;
+      margin: auto 0;
       width: 100%;
-      padding-top: 0;
       color: @disabled-color;
       text-align: center;
-      transform: translateY(-50%);
-
-      // with filter should offset the search box height
-      .@{transfer-prefix-cls}-list-body-with-search & {
-        margin-top: @input-height-base / 2;
-      }
     }
 
     &-footer {
@@ -197,6 +187,7 @@
     margin: 0 8px;
     overflow: hidden;
     vertical-align: middle;
+    align-self: center;
 
     .@{ant-prefix}-btn {
       display: block;
