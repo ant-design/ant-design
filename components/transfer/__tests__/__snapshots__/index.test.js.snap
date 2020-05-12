@@ -904,8 +904,12 @@ exports[`Transfer should support render value and label in item 1`] = `
               mouseLeaveDelay={0.1}
               overlay={
                 <Menu>
-                  <MenuItem />
-                  <MenuItem />
+                  <MenuItem
+                    onClick={[Function]}
+                  />
+                  <MenuItem
+                    onClick={[Function]}
+                  />
                 </Menu>
               }
             >
@@ -1586,8 +1590,12 @@ exports[`Transfer should support render value and label in item 1`] = `
               mouseLeaveDelay={0.1}
               overlay={
                 <Menu>
-                  <MenuItem />
-                  <MenuItem />
+                  <MenuItem
+                    onClick={[Function]}
+                  />
+                  <MenuItem
+                    onClick={[Function]}
+                  />
                 </Menu>
               }
             >
