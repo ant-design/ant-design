@@ -19,7 +19,10 @@
 
   &-content-wrapper {
     position: absolute;
+    width: 100%;
+    height: 100%;
   }
+
   .@{drawer-prefix-cls}-content {
     width: 100%;
     height: 100%;
@@ -36,13 +39,6 @@
     &.@{drawer-prefix-cls}-open {
       width: 100%;
       transition: transform @animation-duration-slow @ease-base-out;
-    }
-    &.@{drawer-prefix-cls}-open.no-mask {
-      height: 0%;
-
-      .@{drawer-prefix-cls}-content-wrapper {
-        height: 100vh;
-      }
     }
   }
 
@@ -94,13 +90,6 @@
     &.@{drawer-prefix-cls}-open {
       height: 100%;
       transition: transform @animation-duration-slow @ease-base-out;
-    }
-    &.@{drawer-prefix-cls}-open.no-mask {
-      width: 0%;
-
-      .@{drawer-prefix-cls}-content-wrapper {
-        width: 100vw;
-      }
     }
   }
 
