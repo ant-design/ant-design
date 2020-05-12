@@ -56,6 +56,7 @@ const ListItem = (props: ListItemProps) => {
               {labelNode}
               {showRemove && (
                 <TransButton
+                  disabled={disabled || item.disabled}
                   className={`${prefixCls}-content-item-remove`}
                   aria-label={transferLocale.remove}
                   onClick={() => {

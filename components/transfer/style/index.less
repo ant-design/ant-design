@@ -141,14 +141,24 @@
         }
 
         &-remove {
+          .operation-unit();
           color: @border-color-base;
-          outline: none;
+
+          &:hover {
+            color: @link-hover-color;
+          }
         }
       }
 
       &-item:not(&-item-disabled):hover {
         background-color: @transfer-item-hover-bg;
         cursor: pointer;
+      }
+
+      // Do not change hover style when `oneWay` mode
+      &-show-remove &-item:hover {
+        background: transparent;
+        cursor: default;
       }
 
       &-item-checked {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import { ElementOf, Omit, tuple } from '../_util/type';
 import Pagination from '../pagination';
 import { TransferItem } from '.';
@@ -124,7 +125,12 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
 
     return (
       <>
-        <ul className={`${prefixCls}-content`} onScroll={onScroll}>
+        <ul
+          className={classNames(`${prefixCls}-content`, {
+            [`${prefixCls}-content-show-remove`]: showRemove,
+          })}
+          onScroll={onScroll}
+        >
           {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem) => {
             const { disabled } = item;
             const checked = selectedKeys.indexOf(item.key) >= 0;
