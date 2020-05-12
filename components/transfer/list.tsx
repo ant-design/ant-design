@@ -354,7 +354,10 @@ export default class TransferList extends React.PureComponent<
           {pagination && (
             <Menu.Item
               onClick={() => {
-                onItemRemove?.(dataSource.map(data => data.key));
+                const pageKeys = getEnabledItemKeys(
+                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                );
+                onItemRemove?.(pageKeys);
               }}
             >
               {removeCurrent}
@@ -364,7 +367,7 @@ export default class TransferList extends React.PureComponent<
           {/* Remove All */}
           <Menu.Item
             onClick={() => {
-              onItemRemove?.(filteredItems.map(data => data.key));
+              onItemRemove?.(getEnabledItemKeys(filteredItems));
             }}
           >
             {removeAll}
