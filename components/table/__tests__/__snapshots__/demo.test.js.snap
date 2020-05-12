@@ -4322,6 +4322,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -6573,6 +6574,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -7809,6 +7811,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -8780,6 +8783,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>

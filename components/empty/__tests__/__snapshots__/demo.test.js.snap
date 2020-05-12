@@ -120,6 +120,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
@@ -179,6 +180,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            unselectable="on"
             value=""
           />
         </span>
