@@ -15,6 +15,7 @@ import {
 } from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
+import { PaginationType } from './interface';
 
 const defaultRender = () => null;
 
@@ -60,6 +61,7 @@ export interface TransferListProps extends TransferLocale {
   showSelectAll?: boolean;
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
+  pagination?: PaginationType;
 }
 
 interface TransferListState {

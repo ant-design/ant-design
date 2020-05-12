@@ -7,6 +7,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { TransferListBodyProps } from './renderListBody';
+import { PaginationType } from './interface';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -65,6 +66,7 @@ export interface TransferProps {
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
+  pagination?: PaginationType;
 }
 
 export interface TransferLocale {
@@ -339,6 +341,7 @@ class Transfer extends React.Component<TransferProps, any> {
           children,
           showSelectAll,
           oneWay,
+          pagination,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -378,6 +381,7 @@ class Transfer extends React.Component<TransferProps, any> {
               direction="left"
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
+              pagination={pagination}
               {...locale}
             />
             <Operation
@@ -415,6 +419,7 @@ class Transfer extends React.Component<TransferProps, any> {
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
+              pagination={pagination}
               {...locale}
             />
           </div>

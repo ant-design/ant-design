@@ -4,6 +4,7 @@ debug: true
 title:
   zh-CN: 大数据性能测试
   en-US: Performance Test
+only: true
 ---
 
 ## zh-CN
@@ -57,6 +58,7 @@ class App extends React.Component {
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
         render={item => item.title}
+        pagination
       />
     );
   }
