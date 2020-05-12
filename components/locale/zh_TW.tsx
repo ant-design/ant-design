@@ -33,7 +33,7 @@ const localeValues: Locale = {
   Modal: {
     okText: '確定',
     cancelText: '取消',
-    justOkText: 'OK',
+    justOkText: '知道了',
   },
   Popconfirm: {
     okText: '確定',
