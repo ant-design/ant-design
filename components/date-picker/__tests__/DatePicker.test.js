@@ -4,6 +4,7 @@ import moment from 'moment';
 import MockDate from 'mockdate';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import ConfigProvider from '../../config-provider';
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -77,5 +78,14 @@ describe('DatePicker', () => {
   it('placeholder', () => {
     const wrapper = mount(<DatePicker placeholder={undefined} />);
     expect(wrapper.find('input').props().placeholder).toEqual('Select date');
+  });
+
+  it('autocomplete', () => {
+    const wrapper = mount(
+      <ConfigProvider input={{ autoComplete: 'off' }}>
+        <DatePicker />
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('input').first().props().autoComplete).toEqual('off');
   });
 });

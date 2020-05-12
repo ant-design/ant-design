@@ -8,7 +8,7 @@ import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
 import { getPlaceholder } from '../util';
-import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
+import { ConfigContext, ConfigConsumerProps, ConfigConsumer } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
 import {
@@ -94,41 +94,46 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         };
 
         return (
-          <SizeContext.Consumer>
-            {size => {
-              const mergedSize = customizeSize || size;
+          <ConfigConsumer>
+            {({ input }) => (
+              <SizeContext.Consumer>
+                {size => {
+                  const mergedSize = customizeSize || size;
 
-              return (
-                <RCPicker<DateType>
-                  ref={this.pickerRef}
-                  placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                  suffixIcon={
-                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
-                  }
-                  clearIcon={<CloseCircleFilled />}
-                  allowClear
-                  transitionName="slide-up"
-                  {...additionalProps}
-                  {...restProps}
-                  {...additionalOverrideProps}
-                  locale={locale!.lang}
-                  className={classNames(className, {
-                    [`${prefixCls}-${mergedSize}`]: mergedSize,
-                    [`${prefixCls}-borderless`]: !bordered,
-                  })}
-                  prefixCls={prefixCls}
-                  getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-                  generateConfig={generateConfig}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                  components={Components}
-                  direction={direction}
-                />
-              );
-            }}
-          </SizeContext.Consumer>
+                  return (
+                    <RCPicker<DateType>
+                      ref={this.pickerRef}
+                      placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
+                      suffixIcon={
+                        mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
+                      }
+                      clearIcon={<CloseCircleFilled />}
+                      allowClear
+                      transitionName="slide-up"
+                      {...additionalProps}
+                      {...restProps}
+                      {...additionalOverrideProps}
+                      locale={locale!.lang}
+                      className={classNames(className, {
+                        [`${prefixCls}-${mergedSize}`]: mergedSize,
+                        [`${prefixCls}-borderless`]: !bordered,
+                      })}
+                      prefixCls={prefixCls}
+                      getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+                      generateConfig={generateConfig}
+                      prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                      nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                      superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                      superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                      components={Components}
+                      direction={direction}
+                      autoComplete={input && input.autoComplete}
+                    />
+                  );
+                }}
+              </SizeContext.Consumer>
+            )}
+          </ConfigConsumer>
         );
       };
 

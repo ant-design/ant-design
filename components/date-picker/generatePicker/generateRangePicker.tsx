@@ -7,7 +7,7 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
-import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
+import { ConfigContext, ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
@@ -71,43 +71,47 @@ export default function generateRangePicker<DateType>(
       };
 
       return (
-        <SizeContext.Consumer>
-          {size => {
-            const mergedSize = customizeSize || size;
-
-            return (
-              <RCRangePicker<DateType>
-                separator={
-                  <span aria-label="to" className={`${prefixCls}-separator`}>
-                    <SwapRightOutlined />
-                  </span>
-                }
-                ref={this.pickerRef}
-                placeholder={getRangePlaceholder(picker, locale, placeholder)}
-                suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-                clearIcon={<CloseCircleFilled />}
-                allowClear
-                transitionName="slide-up"
-                {...restProps}
-                className={classNames(className, {
-                  [`${prefixCls}-${mergedSize}`]: mergedSize,
-                  [`${prefixCls}-borderless`]: !bordered,
-                })}
-                {...additionalOverrideProps}
-                locale={locale!.lang}
-                prefixCls={prefixCls}
-                getPopupContainer={customGetPopupContainer || getPopupContainer}
-                generateConfig={generateConfig}
-                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                components={Components}
-                direction={direction}
-              />
-            );
-          }}
-        </SizeContext.Consumer>
+        <ConfigConsumer>
+          {({ input }) => (
+            <SizeContext.Consumer>
+              {size => {
+                const mergedSize = customizeSize || size;
+                return (
+                  <RCRangePicker<DateType>
+                    separator={
+                      <span aria-label="to" className={`${prefixCls}-separator`}>
+                        <SwapRightOutlined />
+                      </span>
+                    }
+                    ref={this.pickerRef}
+                    placeholder={getRangePlaceholder(picker, locale, placeholder)}
+                    suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+                    clearIcon={<CloseCircleFilled />}
+                    allowClear
+                    transitionName="slide-up"
+                    {...restProps}
+                    className={classNames(className, {
+                      [`${prefixCls}-${mergedSize}`]: mergedSize,
+                      [`${prefixCls}-borderless`]: !bordered,
+                    })}
+                    {...additionalOverrideProps}
+                    locale={locale!.lang}
+                    prefixCls={prefixCls}
+                    getPopupContainer={customGetPopupContainer || getPopupContainer}
+                    generateConfig={generateConfig}
+                    prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                    nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                    superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                    superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                    components={Components}
+                    direction={direction}
+                    autoComplete={input && input.autoComplete}
+                  />
+                );
+              }}
+            </SizeContext.Consumer>
+          )}
+        </ConfigConsumer>
       );
     };
 

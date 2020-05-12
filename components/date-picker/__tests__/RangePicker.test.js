@@ -5,6 +5,7 @@ import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+import ConfigProvider from '../../config-provider';
 
 const { RangePicker } = DatePicker;
 
@@ -77,7 +78,7 @@ describe('RangePicker', () => {
   });
 
   describe('ranges', () => {
-    it('RangePicker support presetted ranges with Tags', () => {
+    it('RangePicker support preseted ranges with Tags', () => {
       const wrapper = mount(
         <RangePicker
           ranges={{
@@ -95,5 +96,15 @@ describe('RangePicker', () => {
     const wrapper = mount(<RangePicker placeholder={undefined} />);
     expect(wrapper.find('input').first().props().placeholder).toEqual('Start date');
     expect(wrapper.find('input').last().props().placeholder).toEqual('End date');
+  });
+
+  it('autocomplete', () => {
+    const wrapper = mount(
+      <ConfigProvider input={{ autoComplete: 'off' }}>
+        <RangePicker />
+      </ConfigProvider>,
+    );
+    expect(wrapper.find('input').first().props().autoComplete).toEqual('off');
+    expect(wrapper.find('input').last().props().autoComplete).toEqual('off');
   });
 });
