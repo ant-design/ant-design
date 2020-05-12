@@ -34,10 +34,6 @@
       height: auto;
     }
 
-    &-with-footer {
-      padding-bottom: 34px;
-    }
-
     &-search {
       padding-right: 24px;
       padding-left: @control-padding-horizontal-sm;
@@ -173,17 +169,13 @@
     }
 
     &-footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
       border-top: @border-width-base @border-style-base @border-color-split;
-      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
   &-operation {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin: 0 8px;
     overflow: hidden;
     vertical-align: middle;
