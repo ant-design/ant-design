@@ -27,6 +27,10 @@ function isRenderResultPlainObject(result: RenderResult) {
   );
 }
 
+function getEnabledItemKeys(items: TransferItem[]) {
+  return items.filter(data => !data.disabled).map(data => data.key);
+}
+
 export interface RenderedItem {
   renderedText: string;
   renderedEl: React.ReactNode;
@@ -372,15 +376,22 @@ export default class TransferList extends React.PureComponent<
         <Menu>
           <Menu.Item
             onClick={() => {
-              onItemSelectAll(
-                filteredItems.filter(data => !data.disabled).map(data => data.key),
-                true,
-              );
+              onItemSelectAll(getEnabledItemKeys(filteredItems), true);
             }}
           >
             {selectAll}
           </Menu.Item>
-          {pagination && <Menu.Item>{selectCurrent}</Menu.Item>}
+          {pagination && (
+            <Menu.Item
+              onClick={() => {
+                const pageItems = this.defaultListBodyRef.current?.getItems() || [];
+                console.log('~~~>', this.defaultListBodyRef.current?.getItems());
+                onItemSelectAll(getEnabledItemKeys(pageItems.map(entity => entity.item)), true);
+              }}
+            >
+              {selectCurrent}
+            </Menu.Item>
+          )}
           <Menu.Item>{selectInvert}</Menu.Item>
         </Menu>
       );

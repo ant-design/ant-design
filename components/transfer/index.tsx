@@ -362,6 +362,8 @@ class Transfer extends React.Component<TransferProps, any> {
         const locale = this.getLocale(transferLocale, renderEmpty);
         const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
+        const mergedPagination = !children && pagination;
+
         const { leftDataSource, rightDataSource } = this.separateDataSource();
         const leftActive = targetSelectedKeys.length > 0;
         const rightActive = sourceSelectedKeys.length > 0;
@@ -396,7 +398,7 @@ class Transfer extends React.Component<TransferProps, any> {
               direction="left"
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
-              pagination={pagination}
+              pagination={mergedPagination}
               {...locale}
             />
             <Operation
@@ -434,7 +436,7 @@ class Transfer extends React.Component<TransferProps, any> {
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
-              pagination={pagination}
+              pagination={mergedPagination}
               {...locale}
             />
           </div>

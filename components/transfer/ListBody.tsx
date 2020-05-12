@@ -57,6 +57,8 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
         return { current: maxPageCount };
       }
     }
+
+    return null;
   }
 
   onItemSelect = (item: TransferItem) => {
