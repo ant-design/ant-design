@@ -6,7 +6,7 @@ import Search from './search';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { TransferListBodyProps } from './renderListBody';
+import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
 import warning from '../_util/warning';
 

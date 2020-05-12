@@ -14,7 +14,7 @@ import {
   TransferLocale,
 } from './index';
 import Search from './search';
-import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
+import DefaultListBody, { TransferListBodyProps, OmitProps } from './ListBody';
 import { PaginationType } from './interface';
 
 const defaultRender = () => null;
@@ -69,18 +69,6 @@ interface TransferListState {
   filterValue: string;
 }
 
-function renderListNode(renderList: RenderListFunction | undefined, props: TransferListBodyProps) {
-  let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
-  const customize: boolean = !!bodyContent;
-  if (!customize) {
-    bodyContent = defaultRenderList(props);
-  }
-  return {
-    customize,
-    bodyContent,
-  };
-}
-
 export default class TransferList extends React.PureComponent<
   TransferListProps,
   TransferListState
@@ -94,6 +82,8 @@ export default class TransferList extends React.PureComponent<
   timer: number;
 
   triggerScrollTimer: number;
+
+  defaultListBodyRef = React.createRef<DefaultListBody>();
 
   constructor(props: TransferListProps) {
     super(props);
@@ -166,17 +156,21 @@ export default class TransferList extends React.PureComponent<
     return text.indexOf(filterValue) >= 0;
   };
 
-  // ============================== Dropdown ==============================
-  onSelectAll = () => {};
-
-  onSelectCurrent = () => {};
-
-  onRemoveAll = () => {
-    const { onItemRemove, dataSource } = this.props;
-    onItemRemove?.(dataSource.map(data => data.key));
-  };
+  getCurrentPageItems = () => {};
 
   // =============================== Render ===============================
+  renderListBody = (renderList: RenderListFunction | undefined, props: TransferListBodyProps) => {
+    let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
+    const customize: boolean = !!bodyContent;
+    if (!customize) {
+      bodyContent = <DefaultListBody ref={this.defaultListBodyRef} {...props} />;
+    }
+    return {
+      customize,
+      bodyContent,
+    };
+  };
+
   getListBody(
     prefixCls: string,
     searchPlaceholder: string,
@@ -202,7 +196,7 @@ export default class TransferList extends React.PureComponent<
       </div>
     ) : null;
 
-    const { bodyContent, customize } = renderListNode(renderList, {
+    const { bodyContent, customize } = this.renderListBody(renderList, {
       ...omit(this.props, OmitProps),
       filteredItems,
       filteredRenderItems,
@@ -301,6 +295,7 @@ export default class TransferList extends React.PureComponent<
       searchPlaceholder,
       notFoundContent,
       selectAll,
+      selectCurrent,
       selectInvert,
       removeAll,
       removeCurrent,
@@ -343,7 +338,9 @@ export default class TransferList extends React.PureComponent<
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
     const checkAllCheckbox =
-      !showRemove && this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
+      !showRemove &&
+      !pagination &&
+      this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
 
     let menu: React.ReactElement | null = null;
     if (showRemove) {
@@ -361,13 +358,29 @@ export default class TransferList extends React.PureComponent<
           )}
 
           {/* Remove All */}
-          <Menu.Item onClick={this.onRemoveAll}>{removeAll}</Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              onItemRemove?.(filteredItems.map(data => data.key));
+            }}
+          >
+            {removeAll}
+          </Menu.Item>
         </Menu>
       );
     } else {
       menu = (
         <Menu>
-          <Menu.Item>{selectAll}</Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              onItemSelectAll(
+                filteredItems.filter(data => !data.disabled).map(data => data.key),
+                true,
+              );
+            }}
+          >
+            {selectAll}
+          </Menu.Item>
+          {pagination && <Menu.Item>{selectCurrent}</Menu.Item>}
           <Menu.Item>{selectInvert}</Menu.Item>
         </Menu>
       );

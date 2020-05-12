@@ -74,6 +74,24 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
     this.setState({ current });
   };
 
+  getItems = () => {
+    const { current } = this.state;
+    const { pagination, filteredRenderItems } = this.props;
+
+    const mergedPagination = parsePagination(pagination);
+
+    let displayItems = filteredRenderItems;
+
+    if (mergedPagination) {
+      displayItems = filteredRenderItems.slice(
+        (current - 1) * mergedPagination.pageSize,
+        current * mergedPagination.pageSize,
+      );
+    }
+
+    return displayItems;
+  };
+
   render() {
     const { current } = this.state;
     const {
@@ -87,8 +105,6 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
     } = this.props;
 
     const mergedPagination = parsePagination(pagination);
-
-    let displayItems = filteredRenderItems;
     let paginationNode: React.ReactNode = null;
 
     if (mergedPagination) {
@@ -97,21 +113,17 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
           simple
           className={`${prefixCls}-pagination`}
           total={filteredRenderItems.length}
+          pageSize={mergedPagination.pageSize}
           current={current}
           onChange={this.onPageChange}
         />
-      );
-
-      displayItems = filteredRenderItems.slice(
-        (current - 1) * mergedPagination.pageSize,
-        current * mergedPagination.pageSize,
       );
     }
 
     return (
       <>
         <ul className={`${prefixCls}-content`} onScroll={onScroll}>
-          {displayItems.map(({ renderedEl, renderedText, item }: RenderedItem) => {
+          {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem) => {
             const { disabled } = item;
             const checked = selectedKeys.indexOf(item.key) >= 0;
 
@@ -138,6 +150,4 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
   }
 }
 
-const ListBodyWrapper = (props: TransferListBodyProps) => <ListBody {...props} />;
-
-export default ListBodyWrapper;
+export default ListBody;
