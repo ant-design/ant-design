@@ -84,7 +84,12 @@ export interface TransferLocale {
   removeCurrent: string;
 }
 
-class Transfer extends React.Component<TransferProps, any> {
+interface TransferState {
+  sourceSelectedKeys: string[];
+  targetSelectedKeys: string[];
+}
+
+class Transfer extends React.Component<TransferProps, TransferState> {
   // For high-level customized Transfer @dqaria
   static List = List;
 
@@ -137,10 +142,20 @@ class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  getSelectedKeysName(direction: TransferDirection) {
-    return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
-  }
+  setStateKeys = (
+    direction: TransferDirection,
+    keys: string[] | ((prevKeys: string[]) => string[]),
+  ) => {
+    if (direction === 'left') {
+      this.setState(({ sourceSelectedKeys }) => ({
+        sourceSelectedKeys: typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys,
+      }));
+    } else {
+      this.setState(({ targetSelectedKeys }) => ({
+        targetSelectedKeys: typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys,
+      }));
+    }
+  };
 
   getTitles(transferLocale: TransferLocale): string[] {
     const { titles } = this.props;
@@ -170,9 +185,7 @@ class Transfer extends React.Component<TransferProps, any> {
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
-    this.setState({
-      [this.getSelectedKeysName(oppositeDirection)]: [],
-    });
+    this.setStateKeys(oppositeDirection, []);
     this.handleSelectChange(oppositeDirection, []);
 
     if (onChange) {
@@ -185,26 +198,20 @@ class Transfer extends React.Component<TransferProps, any> {
   moveToRight = () => this.moveTo('right');
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
-    const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
+    this.setStateKeys(direction, prevKeys => {
+      let mergedCheckedKeys = [];
+      if (checkAll) {
+        // Merge current keys with origin key
+        mergedCheckedKeys = Array.from(new Set([...prevKeys, ...selectedKeys]));
+      } else {
+        // Remove current keys from origin keys
+        mergedCheckedKeys = prevKeys.filter((key: string) => selectedKeys.indexOf(key) === -1);
+      }
 
-    let mergedCheckedKeys = [];
-    if (checkAll) {
-      // Merge current keys with origin key
-      mergedCheckedKeys = Array.from(new Set([...originalSelectedKeys, ...selectedKeys]));
-    } else {
-      // Remove current keys from origin keys
-      mergedCheckedKeys = originalSelectedKeys.filter(
-        (key: string) => selectedKeys.indexOf(key) === -1,
-      );
-    }
+      this.handleSelectChange(direction, mergedCheckedKeys);
 
-    this.handleSelectChange(direction, mergedCheckedKeys);
-
-    if (!this.props.selectedKeys) {
-      this.setState({
-        [this.getSelectedKeysName(direction)]: mergedCheckedKeys,
-      });
-    }
+      return mergedCheckedKeys;
+    });
   };
 
   onLeftItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
@@ -249,9 +256,7 @@ class Transfer extends React.Component<TransferProps, any> {
     this.handleSelectChange(direction, holder);
 
     if (!this.props.selectedKeys) {
-      this.setState({
-        [this.getSelectedKeysName(direction)]: holder,
-      });
+      this.setStateKeys(direction, holder);
     }
   };
 
@@ -264,9 +269,7 @@ class Transfer extends React.Component<TransferProps, any> {
   onRightItemRemove = (selectedKeys: string[]) => {
     const { targetKeys = [], onChange } = this.props;
 
-    this.setState({
-      [this.getSelectedKeysName('right')]: [],
-    });
+    this.setStateKeys('right', []);
 
     if (onChange) {
       onChange(

@@ -376,7 +376,8 @@ export default class TransferList extends React.PureComponent<
         <Menu>
           <Menu.Item
             onClick={() => {
-              onItemSelectAll(getEnabledItemKeys(filteredItems), true);
+              const keys = getEnabledItemKeys(filteredItems);
+              onItemSelectAll(keys, keys.length !== checkedKeys.length);
             }}
           >
             {selectAll}
@@ -385,14 +386,41 @@ export default class TransferList extends React.PureComponent<
             <Menu.Item
               onClick={() => {
                 const pageItems = this.defaultListBodyRef.current?.getItems() || [];
-                console.log('~~~>', this.defaultListBodyRef.current?.getItems());
                 onItemSelectAll(getEnabledItemKeys(pageItems.map(entity => entity.item)), true);
               }}
             >
               {selectCurrent}
             </Menu.Item>
           )}
-          <Menu.Item>{selectInvert}</Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              let availableKeys: string[];
+              if (pagination) {
+                availableKeys = getEnabledItemKeys(
+                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                );
+              } else {
+                availableKeys = getEnabledItemKeys(filteredItems);
+              }
+
+              const checkedKeySet = new Set(checkedKeys);
+              const newCheckedKeys: string[] = [];
+              const newUnCheckedKeys: string[] = [];
+
+              availableKeys.forEach(key => {
+                if (checkedKeySet.has(key)) {
+                  newUnCheckedKeys.push(key);
+                } else {
+                  newCheckedKeys.push(key);
+                }
+              });
+
+              onItemSelectAll(newCheckedKeys, true);
+              onItemSelectAll(newUnCheckedKeys, false);
+            }}
+          >
+            {selectInvert}
+          </Menu.Item>
         </Menu>
       );
     }
