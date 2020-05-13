@@ -79,6 +79,23 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     if (process.env.ESBUILD) {
       config.optimization.minimizer[0] = new EsbuildPlugin();
     }
+
+    config.module.rules.forEach(rule => {
+      // Remove devWarning
+      if (rule.test.test('test.tsx')) {
+        rule.use = [
+          ...rule.use,
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: 'devWarning(',
+              replace: 'if (false) devWarning(',
+            },
+          },
+        ];
+      }
+    });
+
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       config.plugins.push(
