@@ -54,18 +54,16 @@ const ListItem = (props: ListItemProps) => {
           return (
             <li {...liProps}>
               {labelNode}
-              {showRemove && (
-                <TransButton
-                  disabled={disabled || item.disabled}
-                  className={`${prefixCls}-content-item-remove`}
-                  aria-label={transferLocale.remove}
-                  onClick={() => {
-                    onRemove?.(item);
-                  }}
-                >
-                  <DeleteOutlined />
-                </TransButton>
-              )}
+              <TransButton
+                disabled={disabled || item.disabled}
+                className={`${prefixCls}-content-item-remove`}
+                aria-label={transferLocale.remove}
+                onClick={() => {
+                  onRemove?.(item);
+                }}
+              >
+                <DeleteOutlined />
+              </TransButton>
             </li>
           );
         }
@@ -74,7 +72,7 @@ const ListItem = (props: ListItemProps) => {
         liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
         return (
           <li {...liProps}>
-            {!showRemove && <Checkbox checked={checked} disabled={disabled || item.disabled} />}
+            <Checkbox checked={checked} disabled={disabled || item.disabled} />
             {labelNode}
           </li>
         );
