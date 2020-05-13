@@ -24,15 +24,9 @@ describe('Wave component', () => {
       </Wave>,
     );
     expect(wrapper.find('button').getDOMNode().className).toBe('');
-    wrapper
-      .find('button')
-      .getDOMNode()
-      .click();
+    wrapper.find('button').getDOMNode().click();
     expect(
-      wrapper
-        .find('button')
-        .getDOMNode()
-        .hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('button').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(false);
     wrapper.unmount();
     process.env.NODE_ENV = TEST_NODE_ENV;
@@ -45,15 +39,9 @@ describe('Wave component', () => {
       </Wave>,
     );
     expect(wrapper.find('button').getDOMNode().className).toBe('');
-    wrapper
-      .find('button')
-      .getDOMNode()
-      .click();
+    wrapper.find('button').getDOMNode().click();
     expect(
-      wrapper
-        .find('button')
-        .getDOMNode()
-        .getAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('button').getDOMNode().getAttribute('ant-click-animating-without-extra-node'),
     ).toBe('false');
     wrapper.unmount();
   });
@@ -66,10 +54,7 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-    wrapper
-      .find('button')
-      .getDOMNode()
-      .click();
+    wrapper.find('button').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(0);
@@ -84,10 +69,7 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-    wrapper
-      .find('button')
-      .getDOMNode()
-      .click();
+    wrapper.find('button').getDOMNode().click();
     await sleep(200);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(1);
@@ -101,10 +83,7 @@ describe('Wave component', () => {
         <div style={{ borderTopColor: 'blue' }}>button</div>
       </Wave>,
     );
-    wrapper
-      .find('div')
-      .getDOMNode()
-      .click();
+    wrapper.find('div').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(1);
@@ -118,10 +97,7 @@ describe('Wave component', () => {
         <div style={{ backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
-    wrapper
-      .find('div')
-      .getDOMNode()
-      .click();
+    wrapper.find('div').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(1);
@@ -135,10 +111,7 @@ describe('Wave component', () => {
         <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
-    wrapper
-      .find('div')
-      .getDOMNode()
-      .click();
+    wrapper.find('div').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(1);
@@ -154,10 +127,7 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-    wrapper
-      .find('button')
-      .getDOMNode()
-      .click();
+    wrapper.find('button').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
     expect(styles.length).toBe(0);
@@ -172,10 +142,7 @@ describe('Wave component', () => {
         </Wave>
       </ConfigProvider>,
     );
-    wrapper
-      .find('button')
-      .getDOMNode()
-      .click();
+    wrapper.find('button').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
     expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');

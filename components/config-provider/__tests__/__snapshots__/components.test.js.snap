@@ -11601,6 +11601,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -11645,6 +11646,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -11689,6 +11691,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -11733,6 +11736,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider virtual 
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -11777,6 +11781,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -11821,6 +11826,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
       class="prefix-DatePicker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -11865,6 +11871,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -11909,6 +11916,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -11953,6 +11961,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -11997,6 +12006,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider virtual
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -12041,6 +12051,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -12085,6 +12096,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
       class="prefix-MonthPicker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -12129,6 +12141,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-input config-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -12168,6 +12181,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -12215,6 +12229,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-input config-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -12254,6 +12269,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -12301,6 +12317,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-input config-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -12340,6 +12357,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -12387,6 +12405,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider virtual
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -12426,6 +12445,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider virtual
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -12473,6 +12493,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -12512,6 +12533,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -12559,6 +12581,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-input prefix-RangePicker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -12598,6 +12621,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -12645,6 +12669,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -12689,6 +12714,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -12733,6 +12759,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -12777,6 +12804,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider virtual 
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -12821,6 +12849,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -12865,6 +12894,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
       class="prefix-WeekPicker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -25749,6 +25779,7 @@ Array [
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -27160,6 +27191,7 @@ Array [
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -28571,6 +28603,7 @@ Array [
       class="config-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -29982,6 +30015,7 @@ Array [
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -31393,6 +31427,7 @@ Array [
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -32804,6 +32839,7 @@ Array [
       class="prefix-TimePicker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"

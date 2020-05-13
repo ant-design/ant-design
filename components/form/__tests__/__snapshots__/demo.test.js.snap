@@ -3183,6 +3183,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  autocomplete="off"
                   placeholder="Select date"
                   readonly=""
                   size="12"
@@ -3429,6 +3430,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_date-picker"
                 placeholder="Select date"
                 readonly=""
@@ -3496,6 +3498,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_date-time-picker"
                 placeholder="Select date"
                 readonly=""
@@ -3563,6 +3566,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_month-picker"
                 placeholder="Select month"
                 readonly=""
@@ -3630,6 +3634,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_range-picker"
                 placeholder="Start date"
                 readonly=""
@@ -3670,6 +3675,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="End date"
                 readonly=""
                 size="12"
@@ -3739,6 +3745,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_range-time-picker"
                 placeholder="Start date"
                 readonly=""
@@ -3779,6 +3786,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="End date"
                 readonly=""
                 size="21"
@@ -3848,6 +3856,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_time-picker"
                 placeholder="Select time"
                 readonly=""
@@ -5633,6 +5642,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -5723,6 +5733,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="Select time"
                 readonly=""
                 size="10"
@@ -6029,6 +6040,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        autocomplete="off"
                         placeholder="Select date"
                         readonly=""
                         size="12"
@@ -6097,6 +6109,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        autocomplete="off"
                         placeholder="Select date"
                         readonly=""
                         size="12"
