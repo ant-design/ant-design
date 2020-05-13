@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaxLengthText rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+
+exports[`MaxLengthText variants default 1`] = `
+<span>
+  Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the… 
+  <a>
+    more
+  </a>
+</span>
+`;

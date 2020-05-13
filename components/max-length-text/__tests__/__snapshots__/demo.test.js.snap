@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/max-length-text/demo/buttonText.md correctly 1`] = `
+<span>
+  Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the… 
+  <a>
+    Thar be the treasure
+  </a>
+</span>
+`;
+
+exports[`renders ./components/max-length-text/demo/default.md correctly 1`] = `
+<span>
+  Deadlights jack lad schooner scallywag dance the hempen jig… 
+  <a>
+    more
+  </a>
+</span>
+`;
+
+exports[`renders ./components/max-length-text/demo/expanded.md correctly 1`] = `
+<span>
+  Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to. 
+  <a>
+    less
+  </a>
+</span>
+`;
+
+exports[`renders ./components/max-length-text/demo/maxLength.md correctly 1`] = `
+<span>
+  Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the… 
+  <a>
+    more
+  </a>
+</span>
+`;
+
+exports[`renders ./components/max-length-text/demo/noTruncation.md correctly 1`] = `
+<span>
+  This is a short passage, me' matey. A'vast, there shouldn't be no truncation no should there.
+</span>
+`;
