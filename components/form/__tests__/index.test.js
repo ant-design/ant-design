@@ -85,7 +85,7 @@ describe('Form', () => {
 
         await change(wrapper, 1, '');
         wrapper.update();
-        await sleep(100);
+        await sleep(300);
         expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
 
         await operate('.remove');

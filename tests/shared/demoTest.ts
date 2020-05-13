@@ -57,7 +57,11 @@ export default function demoTest(component: string, options: Options = {}) {
     testMethod(`renders ${file} correctly`, () => {
       MockDate.set(moment('2016-11-22').toDate());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = render(<ThemeProvider>{demo}</ThemeProvider>);
+      const wrapper = render(React.createElement(
+        ThemeProvider,
+        null,
+        demo,
+      ));
 
       // Convert aria related content
       ariaConvert(wrapper);
