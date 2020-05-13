@@ -1,17 +1,17 @@
 ---
-order: 0
+order: 0.1
 title:
-  zh-CN: 基本用法
-  en-US: Basic
+  zh-CN: 单向样式
+  en-US: One Way
 ---
 
 ## zh-CN
 
-最基本的用法，展示了 `dataSource`、`targetKeys`、每行的渲染函数 `render` 以及回调函数 `onChange` `onSelectChange` `onScroll` 的用法。
+通过 `oneWay` 将 Transfer 转为单向样式。
 
 ## en-US
 
-The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
+Use `oneWay` to makes Transfer to one way style.
 
 ```jsx
 import { Space, Transfer, Switch } from 'antd';
@@ -73,6 +73,7 @@ class App extends React.Component {
           onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
+          oneWay
         />
         <Space style={{ marginTop: 16 }}>
           <Switch

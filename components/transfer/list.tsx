@@ -429,7 +429,7 @@ export default class TransferList extends React.PureComponent<
     }
 
     const dropdown = (
-      <Dropdown className={`${prefixCls}-header-dropdown`} overlay={menu}>
+      <Dropdown className={`${prefixCls}-header-dropdown`} overlay={menu} disabled={disabled}>
         <DownOutlined />
       </Dropdown>
     );

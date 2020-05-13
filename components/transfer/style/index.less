@@ -144,6 +144,16 @@
         &-remove {
           .operation-unit();
           color: @border-color-base;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: -50%;
+            right: -50%;
+            top: -@transfer-item-padding-vertical;
+            bottom: -@transfer-item-padding-vertical;
+          }
 
           &:hover {
             color: @link-hover-color;
