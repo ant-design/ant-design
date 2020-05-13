@@ -91,6 +91,7 @@
       }
 
       &-dropdown {
+        cursor: pointer;
         .iconfont-size-under-12px(10px);
         transform: translateY(10%);
       }
@@ -156,7 +157,7 @@
       }
 
       // Do not change hover style when `oneWay` mode
-      &-show-remove &-item:hover {
+      &-show-remove &-item:not(&-item-disabled):hover {
         background: transparent;
         cursor: default;
       }
