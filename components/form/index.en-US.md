@@ -16,26 +16,27 @@ High performance Form component with data scope management. Including data colle
 
 ### Form
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |
-| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |
-| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
-| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |
-| hideRequiredMark | Hide required mark for all form items | boolean | false |
-| initialValues | Set value by Form initialization or reset | object | - |
-| labelAlign | text align of label of all items | `left` \| `right` | `right` |
-| labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |
-| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |
-| name | Form name. Will be the prefix of Field `id` | string | - |
-| scrollToFirstError | Auto scroll to first failed field when submit | false | - |
-| size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |
-| validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
-| wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#Col) | - |
-| onFinish | Trigger after submitting the form and verifying data successfully | Function(values) | - |
-| onFinishFailed | Trigger after submitting the form and verifying data failed | Function({ values, errorFields, outOfDate }) | - |
-| onFieldsChange | Trigger when field updated | Function(changedFields, allFields) | - |
-| onValuesChange | Trigger when value updated | Function(changedValues, allValues) | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
+| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
+| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
+| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
+| hideRequiredMark | Hide required mark for all form items | boolean | false |  |
+| initialValues | Set value by Form initialization or reset | object | - |  |
+| labelAlign | text align of label of all items | `left` \| `right` | `right` |  |
+| labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
+| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| name | Form name. Will be the prefix of Field `id` | string | - |  |
+| scrollToFirstError | Auto scroll to first failed field when submit | false | - |  |
+| size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
+| validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
+| validateTrigger | Config field validate trigger | string \| string[] | 'onChange' | 4.3.0 |
+| wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#Col) | - |  |
+| onFinish | Trigger after submitting the form and verifying data successfully | Function(values) | - |  |
+| onFinishFailed | Trigger after submitting the form and verifying data failed | Function({ values, errorFields, outOfDate }) | - |  |
+| onFieldsChange | Trigger when field updated | Function(changedFields, allFields) | - |  |
+| onValuesChange | Trigger when value updated | Function(changedValues, allValues) | - |  |
 
 ### validateMessages
 

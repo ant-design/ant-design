@@ -48,7 +48,7 @@ Describe changes from userside, and list all potential break changes or other ri
 
 ### ☑️ Self Check before Merge
 
-⚠️ Please check all items below before review. ⚠️ 
+⚠️ Please check all items below before review. ⚠️
 
 - [ ] Doc is updated/provided or not needed
 - [ ] Demo is updated/provided or not needed

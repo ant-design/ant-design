@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
+import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Base from '../Base'; // eslint-disable-line import/no-named-as-default
 import mountTest from '../../../tests/shared/mountTest';
@@ -16,10 +17,12 @@ describe('Typography', () => {
   mountTest(Paragraph);
   mountTest(Base);
   mountTest(Title);
+  mountTest(Link);
 
   rtlTest(Paragraph);
   rtlTest(Base);
   rtlTest(Title);
+  rtlTest(Link);
 
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

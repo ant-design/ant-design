@@ -15,6 +15,7 @@ In Ant Design we provide 4 types of button.
 - Primary button: indicate the main action, one primary button at most in one section.
 - Default button: indicate a series of actions without priority.
 - Dashed button: used for adding action commonly.
+- Text button: used for the most secondary action.
 - Link button: used for external links.
 
 And 4 other properties additionally.
@@ -39,7 +40,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | shape | can be set to `circle`, `round` or omitted | string | - |  |
 | size | set the size of button | `large` \| `middle` \| `small` |  |  |
 | target | same as target attribute of a, works when href is specified | string | - |  |
-| type | can be set to `primary` `ghost` `dashed` `link` or omitted (meaning `default`) | string | `default` |  |
+| type | can be set to `primary` `ghost` `dashed` `danger` `link` `text` or omitted (meaning `default`) | string | `default` |  |
 | onClick | set the handler to handle `click` event | (event) => void | - |  |
 | block | option to fit button width to its parent width | boolean | `false` |  |
 | danger | set the danger status of button | boolean | `false` |  |

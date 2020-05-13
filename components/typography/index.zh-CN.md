@@ -59,3 +59,13 @@ cols: 1
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
+
+## FAQ
+
+### Typography.Link 如何与 react-router 库集成？
+
+`react-router` 支持[自定义](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md#component-reactcomponent)渲染组件：
+
+```tsx
+<Link to="/" component={Typography.Link} />
+```
