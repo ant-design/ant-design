@@ -91,9 +91,9 @@
       }
 
       &-dropdown {
+        transform: translateY(10%);
         cursor: pointer;
         .iconfont-size-under-12px(10px);
-        transform: translateY(10%);
       }
     }
 
@@ -151,9 +151,15 @@
         }
       }
 
-      &-item:not(&-item-disabled):hover {
-        background-color: @transfer-item-hover-bg;
-        cursor: pointer;
+      &-item:not(&-item-disabled) {
+        &:hover {
+          background-color: @transfer-item-hover-bg;
+          cursor: pointer;
+        }
+
+        &.@{transfer-prefix-cls}-list-content-item-checked:hover {
+          background-color: darken(@item-active-bg, 2%);
+        }
       }
 
       // Do not change hover style when `oneWay` mode
