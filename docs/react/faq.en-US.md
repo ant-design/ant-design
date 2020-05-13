@@ -60,7 +60,7 @@ Please refer to [Replace Moment.js](/docs/react/replace-moment).
 
 The `defaultXxxx` (like `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
 
-### Why modify object or array pass to component not update?
+### Why modify props in mutable way not trigger component update?
 
 antd use shallow compare of props to optimize performance. You should always pass new object when state update. Please ref [React's document](https://reactjs.org/docs/thinking-in-react.html)
 
