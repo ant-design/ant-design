@@ -61,7 +61,6 @@ Array [
                   readonly=""
                   role="combobox"
                   style="opacity:0"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -128,7 +127,6 @@ Array [
                   readonly=""
                   role="combobox"
                   style="opacity:0"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -435,7 +433,6 @@ Array [
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -476,7 +473,6 @@ Array [
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -533,7 +529,6 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
-          unselectable="on"
           value=""
         />
       </span>
@@ -592,7 +587,6 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
-          unselectable="on"
           value=""
         />
       </span>
@@ -694,7 +688,6 @@ Array [
       class="ant-picker-input ant-picker-input-active"
     >
       <input
-        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -734,7 +727,6 @@ Array [
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -777,7 +769,6 @@ Array [
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -1131,7 +1122,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1246,7 +1236,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1384,7 +1373,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          autocomplete="off"
           placeholder="Select date"
           readonly=""
           size="12"
@@ -1436,7 +1424,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-picker-input ant-picker-input-active"
       >
         <input
-          autocomplete="off"
           placeholder="Start date"
           readonly=""
           size="12"
@@ -1476,7 +1463,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          autocomplete="off"
           placeholder="End date"
           readonly=""
           size="12"
@@ -1537,7 +1523,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1595,7 +1580,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1658,7 +1642,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1744,7 +1727,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1837,7 +1819,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>

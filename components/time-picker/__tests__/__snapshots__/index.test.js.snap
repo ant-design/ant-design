@@ -8,7 +8,6 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -55,7 +54,6 @@ Array [
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -1490,7 +1488,6 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"

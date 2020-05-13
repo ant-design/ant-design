@@ -256,7 +256,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
-                  unselectable="on"
                   value=""
                 />
               </span>
@@ -342,7 +341,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
-                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -536,7 +534,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
-                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -678,7 +675,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
-                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -821,7 +817,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
-                    unselectable="on"
                     value=""
                   />
                 </span>

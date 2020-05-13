@@ -189,7 +189,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -540,7 +539,6 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -765,7 +763,6 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -1065,7 +1062,6 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -1291,7 +1287,6 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -1525,7 +1520,6 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -1826,7 +1820,6 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -2226,7 +2219,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
-            unselectable="on"
             value=""
           />
         </span>
@@ -2494,7 +2486,6 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>
@@ -2674,7 +2665,6 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
-              unselectable="on"
               value=""
             />
           </span>

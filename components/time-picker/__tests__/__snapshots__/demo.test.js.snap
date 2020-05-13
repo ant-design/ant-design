@@ -9,7 +9,6 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="12"
@@ -53,7 +52,6 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="11"
@@ -96,7 +94,6 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -143,7 +140,6 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -189,7 +185,6 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -235,7 +230,6 @@ exports[`renders ./components/time-picker/demo/colored-popup.md correctly 1`] = 
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -281,7 +275,6 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       disabled=""
       placeholder="Select time"
       readonly=""
@@ -328,7 +321,6 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -398,7 +390,6 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -445,7 +436,6 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
-        autocomplete="off"
         placeholder="Start time"
         readonly=""
         size="10"
@@ -485,7 +475,6 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="End time"
         readonly=""
         size="10"
@@ -536,7 +525,6 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -603,7 +591,6 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -670,7 +657,6 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="Select time"
         readonly=""
         size="10"
@@ -741,7 +727,6 @@ exports[`renders ./components/time-picker/demo/suffix.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"
@@ -784,7 +769,6 @@ exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="Select time"
       readonly=""
       size="10"

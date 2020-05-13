@@ -8,7 +8,6 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-input ant-picker-input-active"
   >
     <input
-      autocomplete="off"
       placeholder="Start date"
       readonly=""
       size="12"
@@ -24,7 +23,6 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-input"
   >
     <input
-      autocomplete="off"
       placeholder="End date"
       readonly=""
       size="12"
@@ -71,7 +69,6 @@ Array [
       class="ant-picker-input ant-picker-input-active"
     >
       <input
-        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -111,7 +108,6 @@ Array [
       class="ant-picker-input"
     >
       <input
-        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"

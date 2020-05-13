@@ -23,7 +23,6 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
-        unselectable="on"
         value=""
       />
     </span>
@@ -182,7 +181,6 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
         readonly=""
         role="combobox"
         style="opacity: 0;"
-        unselectable="on"
         value=""
       />
       <span
@@ -227,7 +225,6 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
         readonly=""
         role="combobox"
         style="opacity:0"
-        unselectable="on"
         value=""
       />
     </span>
