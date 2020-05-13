@@ -181,7 +181,7 @@ const MenuItem = styled(Menu.Item)<{ ismobile: boolean }>`
   }
 `;
 
-const HomeTitle = styled(HeaderTitle)`
+const HomeTitle = styled(HeaderTitle as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   vertical-align: middle;
   margin-left: 10px;
 `;

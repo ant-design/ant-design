@@ -9,6 +9,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -49,6 +50,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -89,6 +91,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -129,6 +132,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select quarter"
         readonly=""
         size="12"
@@ -169,6 +173,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select year"
         readonly=""
         size="12"
@@ -213,6 +218,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -253,6 +259,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -293,6 +300,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -333,6 +341,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select year"
         readonly=""
         size="12"
@@ -373,6 +382,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -412,6 +422,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -455,6 +466,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start week"
         readonly=""
         size="12"
@@ -494,6 +506,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End week"
         readonly=""
         size="12"
@@ -537,6 +550,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start month"
         readonly=""
         size="12"
@@ -576,6 +590,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End month"
         readonly=""
         size="12"
@@ -619,6 +634,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start year"
         readonly=""
         size="12"
@@ -658,6 +674,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End year"
         readonly=""
         size="12"
@@ -705,6 +722,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -744,6 +762,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -783,6 +802,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -830,6 +850,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         disabled=""
         placeholder="Select date"
         readonly=""
@@ -871,6 +892,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         disabled=""
         placeholder="Select month"
         readonly=""
@@ -912,6 +934,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         disabled=""
         placeholder="Start date"
         readonly=""
@@ -952,6 +975,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         disabled=""
         placeholder="End date"
         readonly=""
@@ -996,6 +1020,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -1035,6 +1060,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         disabled=""
         placeholder="End date"
         readonly=""
@@ -1107,6 +1133,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="21"
@@ -1147,6 +1174,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -1187,6 +1215,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -1226,6 +1255,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -1268,6 +1298,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="21"
@@ -1307,6 +1338,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="21"
@@ -1354,6 +1386,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -1394,6 +1427,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="21"
@@ -1434,6 +1468,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -1473,6 +1508,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -1516,6 +1552,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="21"
@@ -1555,6 +1592,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="21"
@@ -1598,6 +1636,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -1642,6 +1681,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -1706,6 +1746,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -1770,6 +1811,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -1834,6 +1876,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -1873,6 +1916,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -1944,6 +1988,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="21"
@@ -1984,6 +2029,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start month"
         readonly=""
         size="12"
@@ -2023,6 +2069,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End month"
         readonly=""
         size="12"
@@ -2070,6 +2117,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -2109,6 +2157,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -2152,6 +2201,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="21"
@@ -2191,6 +2241,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="21"
@@ -2238,6 +2289,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -2277,6 +2329,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -2320,6 +2373,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="21"
@@ -2359,6 +2413,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="21"
@@ -2402,6 +2457,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start week"
         readonly=""
         size="12"
@@ -2441,6 +2497,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End week"
         readonly=""
         size="12"
@@ -2484,6 +2541,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start month"
         readonly=""
         size="12"
@@ -2523,6 +2581,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End month"
         readonly=""
         size="12"
@@ -2566,6 +2625,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start year"
         readonly=""
         size="12"
@@ -2605,6 +2665,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End year"
         readonly=""
         size="12"
@@ -2651,6 +2712,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
     class="ant-picker-input ant-picker-input-active"
   >
     <input
+      autocomplete="off"
       placeholder="Start date"
       readonly=""
       size="12"
@@ -2690,6 +2752,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="End date"
       readonly=""
       size="12"
@@ -2800,6 +2863,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -2840,6 +2904,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -2880,6 +2945,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -2919,6 +2985,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -2962,6 +3029,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -3006,6 +3074,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Start"
         readonly=""
         size="21"
@@ -3045,6 +3114,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End"
         readonly=""
         size="21"
@@ -3089,6 +3159,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -3129,6 +3200,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -3169,6 +3241,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -3208,6 +3281,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -3251,6 +3325,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -3291,6 +3366,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -3312,6 +3388,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select month"
         readonly=""
         size="12"
@@ -3333,6 +3410,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="12"
@@ -3372,6 +3450,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="12"
@@ -3396,6 +3475,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select week"
         readonly=""
         size="12"
@@ -3421,6 +3501,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="21"
@@ -3461,6 +3542,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
+        autocomplete="off"
         placeholder="Start date"
         readonly=""
         size="18"
@@ -3500,6 +3582,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="End date"
         readonly=""
         size="18"

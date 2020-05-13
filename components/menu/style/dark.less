@@ -40,7 +40,8 @@
 
   &-dark &-item,
   &-dark &-item-group-title,
-  &-dark &-item > a {
+  &-dark &-item > a,
+  &-dark &-item > span > a {
     color: @menu-dark-color;
   }
 
@@ -76,7 +77,8 @@
   &-dark &-submenu-title:hover {
     color: @menu-dark-highlight-color;
     background-color: transparent;
-    > a {
+    > a,
+    > span > a {
       color: @menu-dark-highlight-color;
     }
     > .@{menu-prefix-cls}-submenu-title,
@@ -105,7 +107,9 @@
       border-right: 0;
     }
     > a,
-    > a:hover {
+    > span > a,
+    > a:hover,
+    > span > a:hover {
       color: @menu-dark-highlight-color;
     }
     .@{iconfont-css-prefix} {
@@ -125,7 +129,8 @@
   &-dark &-item-disabled,
   &-dark &-submenu-disabled {
     &,
-    > a {
+    > a,
+    > span > a {
       color: @disabled-color-dark !important;
       opacity: 0.8;
     }

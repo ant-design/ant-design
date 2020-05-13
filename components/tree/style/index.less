@@ -10,8 +10,9 @@
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
-.antTreeFn(@tree-prefix-cls) {
-  .@{tree-prefix-cls} {
+.antTreeFn(@custom-tree-prefix-cls) {
+  @custom-tree-node-prefix-cls: ~'@{custom-tree-prefix-cls}-treenode';
+  .@{custom-tree-prefix-cls} {
     .reset-component;
     background: @tree-bg;
     border-radius: @border-radius-base;
@@ -26,19 +27,19 @@
       align-items: flex-start;
     }
 
-    &.@{tree-prefix-cls}-block-node {
-      .@{tree-prefix-cls}-list-holder-inner {
+    &.@{custom-tree-prefix-cls}-block-node {
+      .@{custom-tree-prefix-cls}-list-holder-inner {
         align-items: stretch;
 
         // >>> Title
-        .@{tree-prefix-cls}-node-content-wrapper {
+        .@{custom-tree-prefix-cls}-node-content-wrapper {
           flex: auto;
         }
       }
     }
 
     // ===================== TreeNode =====================
-    .@{tree-node-prefix-cls} {
+    .@{custom-tree-node-prefix-cls} {
       display: flex;
       align-items: flex-start;
       padding: 0 0 (@padding-xs / 2) 0;
@@ -46,7 +47,7 @@
       // Disabled
       &-disabled {
         // >>> Title
-        .@{tree-prefix-cls}-node-content-wrapper {
+        .@{custom-tree-prefix-cls}-node-content-wrapper {
           color: @disabled-color;
           cursor: not-allowed;
 
@@ -56,7 +57,7 @@
         }
       }
 
-      &-active .@{tree-prefix-cls}-node-content-wrapper {
+      &-active .@{custom-tree-prefix-cls}-node-content-wrapper {
         background: @tree-node-hover-bg;
       }
     }
@@ -90,7 +91,7 @@
       }
 
       &_close {
-        .@{tree-prefix-cls}-switcher-icon {
+        .@{custom-tree-prefix-cls}-switcher-icon {
           svg {
             transform: rotate(-90deg);
           }
@@ -123,12 +124,13 @@
       &:hover {
         background-color: @tree-node-hover-bg;
       }
-      &.@{tree-prefix-cls}-node-selected {
+
+      &.@{custom-tree-prefix-cls}-node-selected {
         background-color: @tree-node-selected-bg;
       }
 
       // Icon
-      .@{tree-prefix-cls}-iconEle {
+      .@{custom-tree-prefix-cls}-iconEle {
         display: inline-block;
         width: @tree-title-height;
         height: @tree-title-height;
@@ -149,19 +151,19 @@
       user-select: none;
     }
 
-    .@{tree-node-prefix-cls}.drag-over {
+    .@{custom-tree-node-prefix-cls}.drag-over {
       > [draggable] {
         color: white;
         background-color: @primary-color;
         opacity: 0.8;
       }
     }
-    .@{tree-node-prefix-cls}.drag-over-gap-top {
+    .@{custom-tree-node-prefix-cls}.drag-over-gap-top {
       > [draggable] {
         border-top-color: @primary-color;
       }
     }
-    .@{tree-node-prefix-cls}.drag-over-gap-bottom {
+    .@{custom-tree-node-prefix-cls}.drag-over-gap-bottom {
       > [draggable] {
         border-bottom-color: @primary-color;
       }
@@ -170,7 +172,7 @@
     // ==================== Show Line =====================
     &-show-line {
       // ================ Indent lines ================
-      .@{tree-prefix-cls}-indent {
+      .@{custom-tree-prefix-cls}-indent {
         &-unit {
           position: relative;
           height: 100%;
@@ -193,8 +195,8 @@
       }
 
       /* Motion should hide line of measure */
-      .@{tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
-        .@{tree-prefix-cls}-indent-unit {
+      .@{custom-tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
+        .@{custom-tree-prefix-cls}-indent-unit {
           &::before {
             display: none;
           }
@@ -202,7 +204,7 @@
       }
 
       // ============== Cover Background ==============
-      .@{tree-prefix-cls}-switcher {
+      .@{custom-tree-prefix-cls}-switcher {
         z-index: 1;
         background: @component-background;
       }

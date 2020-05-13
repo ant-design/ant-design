@@ -112,7 +112,7 @@ const Sticky = styled(Layout.Header)`
   }
 `;
 
-export const HeaderColumns = styled(Columns)`
+export const HeaderColumns = styled(Columns as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   width: 100%;
   align-items: center;
   padding: 11.5px 0;
