@@ -283,7 +283,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       (o: CascaderOptionType, level: number) => o[names.value] === unwrappedValue[level],
       { childrenKeyName: names.children },
     );
-    const label = selectedOptions.map(o => o[names.label]);
+    const label = selectedOptions.length ? selectedOptions.map(o => o[names.label]) : value;
     return displayRender(label, selectedOptions);
   }
 
@@ -522,8 +522,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
           if (state.inputValue) {
-             const filteredOptions = this.generateFilteredOptions(prefixCls, renderEmpty);
-             options = isEqual(filteredOptions, this.cachedOptions) ? this.cachedOptions : filteredOptions;
+            const filteredOptions = this.generateFilteredOptions(prefixCls, renderEmpty);
+            options = isEqual(filteredOptions, this.cachedOptions)
+              ? this.cachedOptions
+              : filteredOptions;
           }
         } else {
           options = [

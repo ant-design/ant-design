@@ -150,7 +150,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   renderFooter = (locale: ModalLocale) => {
     const { okText, okType, cancelText, confirmLoading } = this.props;
     return (
-      <div>
+      <>
         <Button onClick={this.handleCancel} {...this.props.cancelButtonProps}>
           {cancelText || locale.cancelText}
         </Button>
@@ -162,7 +162,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
         >
           {okText || locale.okText}
         </Button>
-      </div>
+      </>
     );
   };
 
