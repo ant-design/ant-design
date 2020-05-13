@@ -17,7 +17,7 @@ exports[`Descriptions Descriptions support colon 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-no-colon"
             >
               Product
             </span>
@@ -81,7 +81,7 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Product
             </span>
@@ -115,7 +115,7 @@ exports[`Descriptions column is number 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Product
             </span>
@@ -130,7 +130,7 @@ exports[`Descriptions column is number 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Billing
             </span>
@@ -145,7 +145,7 @@ exports[`Descriptions column is number 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               time
             </span>
@@ -164,7 +164,7 @@ exports[`Descriptions column is number 1`] = `
             colspan="3"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Amount
             </span>
@@ -198,7 +198,7 @@ exports[`Descriptions should work with React Fragment 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               bamboo
             </span>
@@ -217,7 +217,7 @@ exports[`Descriptions should work with React Fragment 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               bamboo
             </span>
@@ -236,7 +236,7 @@ exports[`Descriptions should work with React Fragment 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               bamboo
             </span>
@@ -270,7 +270,7 @@ exports[`Descriptions vertical layout 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Product
             </span>
@@ -298,7 +298,7 @@ exports[`Descriptions vertical layout 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Billing
             </span>
@@ -326,7 +326,7 @@ exports[`Descriptions vertical layout 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               time
             </span>
@@ -354,7 +354,7 @@ exports[`Descriptions vertical layout 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Amount
             </span>
@@ -397,7 +397,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Product
             </span>
@@ -416,7 +416,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Billing
             </span>
@@ -435,7 +435,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               time
             </span>
@@ -454,7 +454,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Amount
             </span>

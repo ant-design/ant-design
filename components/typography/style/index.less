@@ -73,10 +73,12 @@
     }
   }
 
+  a&-ellipsis,
   span&-ellipsis {
     display: inline-block;
   }
 
+  a&,
   a {
     .operation-unit();
 
@@ -194,6 +196,7 @@
     text-overflow: ellipsis;
 
     // https://blog.csdn.net/iefreer/article/details/50421025
+    a&,
     span& {
       vertical-align: bottom;
     }
