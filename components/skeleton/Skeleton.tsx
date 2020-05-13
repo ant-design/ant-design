@@ -21,6 +21,7 @@ export interface SkeletonProps {
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
+  round?: boolean;
 }
 
 function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
@@ -80,6 +81,7 @@ const Skeleton = (props: SkeletonProps) => {
       title,
       paragraph,
       active,
+      round,
     } = props;
 
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
@@ -143,6 +145,7 @@ const Skeleton = (props: SkeletonProps) => {
         [`${prefixCls}-with-avatar`]: hasAvatar,
         [`${prefixCls}-active`]: active,
         [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-round`]: round,
       });
 
       return (
