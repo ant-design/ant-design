@@ -68,6 +68,22 @@ const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
 
+config.module.rules.forEach(rule => {
+  // Remove devWarning if needed
+  if (rule.test.test('test.tsx')) {
+    rule.use = [
+      ...rule.use,
+      {
+        loader: 'string-replace-loader',
+        options: {
+          search: 'devWarning(',
+          replace: 'if (process.env.NODE_ENV !== 'production') devWarning(',
+        },
+      },
+    ];
+  }
+});
+
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -79,22 +95,6 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     if (process.env.ESBUILD) {
       config.optimization.minimizer[0] = new EsbuildPlugin();
     }
-
-    config.module.rules.forEach(rule => {
-      // Remove devWarning
-      if (rule.test.test('test.tsx')) {
-        rule.use = [
-          ...rule.use,
-          {
-            loader: 'string-replace-loader',
-            options: {
-              search: 'devWarning(',
-              replace: 'if (process.env.NODE_ENV !== 'production') devWarning(',
-            },
-          },
-        ];
-      }
-    });
 
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
