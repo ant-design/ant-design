@@ -7,6 +7,10 @@ cols: 1
 
 Unified header for all AI2 properties.
 
+## When To Use
+
+On all pages.
+
 ## API
 
 | Property      | Description                                   | Type    | Default |
