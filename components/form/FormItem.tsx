@@ -46,7 +46,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   required?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
-  fieldKey?: number;
+  fieldKey?: number | NamePath;
 }
 
 function hasValidName(name?: NamePath): Boolean {
