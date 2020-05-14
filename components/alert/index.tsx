@@ -15,6 +15,7 @@ import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import ErrorBoundary from './ErrorBoundary';
+import { replaceElement } from '../_util/reactNode';
 
 export interface AlertProps {
   /**
@@ -127,15 +128,11 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     const { icon } = this.props;
     const iconType = this.getIconType();
     if (icon) {
-      return React.isValidElement<{ className?: string }>(icon) ? (
-        React.cloneElement(icon, {
-          className: classNames(`${prefixCls}-icon`, {
-            [icon.props.className as string]: icon.props.className,
-          }),
-        })
-      ) : (
-        <span className={`${prefixCls}-icon`}>{icon}</span>
-      );
+      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
+        className: classNames(`${prefixCls}-icon`, {
+          [(icon as any).props.className]: (icon as any).props.className,
+        }),
+      }));
     }
     return React.createElement(iconType, { className: `${prefixCls}-icon` });
   }

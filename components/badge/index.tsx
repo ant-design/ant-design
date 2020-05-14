@@ -6,6 +6,7 @@ import ScrollNumber from './ScrollNumber';
 import { PresetColorTypes, PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { LiteralUnion } from '../_util/type';
+import { cloneElement } from '../_util/reactNode';
 
 export { ScrollNumberProps } from './ScrollNumber';
 
@@ -110,7 +111,7 @@ const Badge: React.FC<BadgeProps> = props => {
     if (!customNode || typeof customNode !== 'object') {
       return undefined;
     }
-    return React.cloneElement(customNode, {
+    return cloneElement(customNode, {
       style: {
         ...getStyleWithOffset(),
         ...(customNode.props && customNode.props.style),

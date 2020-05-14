@@ -8,6 +8,7 @@ import { RenderEmptyHandler, ConfigContext } from '../config-provider';
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
+import { cloneElement } from '../_util/reactNode';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
@@ -247,7 +248,7 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: any, index: number) => renderItem(item, index));
     const childrenList = React.Children.map(items, (child: any, index) =>
-      React.cloneElement(child, {
+      cloneElement(child, {
         key: keys[index],
         colStyle,
       }),
