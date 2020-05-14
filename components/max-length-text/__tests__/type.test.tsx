@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MaxLengthText } from '..';
 
-describe('Header.typescript', () => {
+describe('MaxLengthText.typescript', () => {
   it('Max Length Text Basic', () => {
     const wrapper = (
       <MaxLengthText maxLength={150}>
