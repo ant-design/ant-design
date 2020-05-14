@@ -78,7 +78,7 @@ webpackConfig.forEach(config => {
           loader: 'string-replace-loader',
           options: {
             search: 'devWarning(',
-            replace: 'if (process.env.NODE_ENV !== "production") devWarning(',
+            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
           },
         },
       ];
