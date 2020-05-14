@@ -89,7 +89,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
             loader: 'string-replace-loader',
             options: {
               search: 'devWarning(',
-              replace: 'if (false) devWarning(',
+              replace: 'if (process.env.NODE_ENV !== 'production') devWarning(',
             },
           },
         ];
