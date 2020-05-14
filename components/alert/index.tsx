@@ -128,11 +128,11 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     const { icon } = this.props;
     const iconType = this.getIconType();
     if (icon) {
-      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, {
+      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
         className: classNames(`${prefixCls}-icon`, {
           [(icon as any).props.className]: (icon as any).props.className,
         }),
-      });
+      }));
     }
     return React.createElement(iconType, { className: `${prefixCls}-icon` });
   }
