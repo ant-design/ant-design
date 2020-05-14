@@ -16,7 +16,7 @@ title: 在 TypeScript 中使用
 使用 yarn 创建 [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) 项目。
 
 ```bash
-$ yarn create react-app antd-demo-ts --template typescript
+$ yarn create-react-app antd-demo-ts --template typescript
 
 # or
 
