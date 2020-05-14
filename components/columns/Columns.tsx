@@ -18,7 +18,7 @@ export const Columns = styled.div<Props>`
   @media (max-width: ${({ theme, breakpoint }) =>
       breakpoint ? theme.breakpoints[breakpoint] : null}) {
     justify-items: center;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     grid-row-gap: ${({ theme }) => theme.spacing.sm};
   }
 `;

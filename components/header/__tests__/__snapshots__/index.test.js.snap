@@ -62,7 +62,7 @@ exports[`Header variants dark 1`] = `
     class="ant-layout-content sc-htpNat Nropg sc-gzVnrw cUcqqT"
   >
     <div
-      class="sc-bdVaJa sc-dnqmqq gRONPY"
+      class="sc-bdVaJa sc-dnqmqq jJDzQX"
     >
       <h5
         class="sc-iwsKbI dTCaBK"
@@ -105,7 +105,7 @@ exports[`Header variants default 1`] = `
     layout="hcenter"
   >
     <div
-      class="sc-bdVaJa sc-dnqmqq gRONPY"
+      class="sc-bdVaJa sc-dnqmqq jJDzQX"
     >
       <h5
         class="sc-iwsKbI dTCaBK"
