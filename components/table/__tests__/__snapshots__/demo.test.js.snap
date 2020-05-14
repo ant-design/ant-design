@@ -4740,6 +4740,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -4747,6 +4748,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -4754,6 +4756,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -4761,6 +4764,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     <span>
                       New York No. 1 Lake Park, New York No. 1 Lake Park
@@ -4785,6 +4789,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
@@ -4792,6 +4797,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
@@ -4799,6 +4805,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
@@ -4806,6 +4813,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     <span>
                       London No. 2 Lake Park, London No. 2 Lake Park
@@ -4830,6 +4838,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     <span>
                       Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
@@ -4837,6 +4846,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     <span>
                       Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
@@ -4844,6 +4854,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     <span>
                       Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
@@ -4851,6 +4862,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     <span>
                       Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
