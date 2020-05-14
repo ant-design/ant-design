@@ -106,6 +106,7 @@
     "@ant-design/css-animation": "^1.7.2",
     "@ant-design/icons": "^4.1.0",
     "@ant-design/react-slick": "~0.26.1",
+    "antd-img-crop": "^3.1.1",
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
