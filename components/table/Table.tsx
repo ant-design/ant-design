@@ -35,7 +35,7 @@ import defaultLocale from '../locale/en_US';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export { ColumnsType, TablePaginationConfig };
@@ -315,7 +315,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     // Dynamic table data
     if (mergedData.length < total!) {
       if (mergedData.length > pageSize) {
-        warning(
+        devWarning(
           false,
           'Table',
           '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',

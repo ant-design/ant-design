@@ -44,7 +44,7 @@ title: Ant Design of React
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
-你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得稳定版发布的通知。
+你可以订阅：https://github.com/ant-design/ant-design/releases.atom 或 https://app.releasly.co/sites/ant-design/ant-design 来获得版本发布的通知。
 
 ## 安装
 
@@ -70,7 +70,7 @@ $ yarn add antd
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
-> 注意：antd.js 依赖 react/react-dom/moment，请确保提前引入这些文件。
+> 注意：`antd.js` 和 `antd.min.js` 依赖 `react/react-dom/moment`，请确保提前引入这些文件。
 
 ## 示例
 
@@ -125,7 +125,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ## 链接
 
 - [首页](/)
-- [组件库](/components/button-cn/)
+- [组件库](/components/button)
 - [Ant Design Pro](https://pro.ant.design/)
 - [更新日志](/changelog)
 - [React 底层基础组件](http://react-component.github.io/)

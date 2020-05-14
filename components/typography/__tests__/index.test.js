@@ -64,7 +64,7 @@ describe('Typography', () => {
       mount(<Title level={false} />);
 
       expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: Title only accept `1 | 2 | 3 | 4` as `level` value.',
+        'Warning: [antd: Typography.Title] Title only accept `1 | 2 | 3 | 4` as `level` value.',
       );
     });
   });

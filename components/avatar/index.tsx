@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -109,7 +109,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       ...others
     } = this.props;
 
-    warning(
+    devWarning(
       !(typeof icon === 'string' && icon.length > 2),
       'Avatar',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,

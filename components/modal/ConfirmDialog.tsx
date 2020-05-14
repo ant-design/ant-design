@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -29,7 +29,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelButtonProps,
   } = props;
 
-  warning(
+  devWarning(
     !(typeof icon === 'string' && icon.length > 2),
     'Modal',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,

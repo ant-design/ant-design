@@ -5,7 +5,7 @@ import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 

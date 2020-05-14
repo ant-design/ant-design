@@ -1,4 +1,4 @@
-import warning from '../../../../components/_util/warning';
+import warning from '../../../../components/_util/devWarning';
 
 // These props make sure that the SVG behaviours like general text.
 // Reference: https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
@@ -27,10 +27,7 @@ export function getThemeFromTypeName(type) {
 }
 
 export function removeTypeTheme(type) {
-  return type
-    .replace(fillTester, '')
-    .replace(outlineTester, '')
-    .replace(twoToneTester, '');
+  return type.replace(fillTester, '').replace(outlineTester, '').replace(twoToneTester, '');
 }
 
 export function withThemeSuffix(type, theme) {

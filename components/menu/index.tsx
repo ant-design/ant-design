@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
 import collapseMotion from '../_util/motion';
@@ -120,13 +120,13 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
   constructor(props: InternalMenuProps) {
     super(props);
 
-    warning(
+    devWarning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
       'Menu',
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
-    warning(
+    devWarning(
       !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
       'Menu',
       '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
@@ -197,7 +197,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
 
     if (openAnimation) {
-      warning(
+      devWarning(
         typeof openAnimation === 'string',
         'Menu',
         '`openAnimation` do not support object. Please use `motion` instead.',
