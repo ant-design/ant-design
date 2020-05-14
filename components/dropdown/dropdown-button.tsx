@@ -28,7 +28,6 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   static __ANT_BUTTON = true;
 
   static defaultProps = {
-    placement: 'bottomRight' as DropDownProps['placement'],
     type: 'default' as DropdownButtonType,
     buttonsRender: (buttons: React.ReactNode[]) => buttons,
   };
@@ -36,6 +35,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   renderButton = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -66,12 +66,17 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       disabled,
       trigger: disabled ? [] : trigger,
       onVisibleChange,
-      placement,
       getPopupContainer: getPopupContainer || getContextPopupContainer,
     } as DropDownProps;
 
     if ('visible' in this.props) {
       dropdownProps.visible = visible;
+    }
+
+    if ('placement' in this.props) {
+      dropdownProps.placement = placement;
+    } else {
+      dropdownProps.placement = direction === 'rtl' ? 'bottomLeft' : 'bottomRight';
     }
 
     const leftButton = (
