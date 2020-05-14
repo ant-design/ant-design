@@ -72,5 +72,12 @@ Array [
   "HeaderColumns",
   "HeaderTitle",
   "AI2Logo",
+  "AllenNLP",
+  "Aristo",
+  "Mosaic",
+  "Prior",
+  "SemanticScholar",
+  "Fairness",
+  "Incubator",
 ]
 `;
