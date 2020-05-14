@@ -6,6 +6,7 @@ import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
+import { isValidElement } from '../_util/reactNode';
 
 export interface MenuItemProps
   extends Omit<
@@ -42,7 +43,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     const { icon, children } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
-    if (!icon || (React.isValidElement(children) && children.type === 'span')) {
+    if (!icon || (isValidElement(children) && children.type === 'span')) {
       return children;
     }
     return <span>{children}</span>;

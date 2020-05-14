@@ -2,6 +2,7 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 
 function getNumberArray(num: string | number | undefined | null) {
   return num
@@ -175,7 +176,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = props => {
       };
     }
     if (displayComponent) {
-      return React.cloneElement(displayComponent, {
+      return cloneElement(displayComponent, {
         className: classNames(
           `${prefixCls}-custom-component`,
           displayComponent.props && displayComponent.props.className,
