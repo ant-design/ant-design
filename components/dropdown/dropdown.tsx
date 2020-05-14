@@ -5,7 +5,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
 
 const Placements = tuple(
@@ -88,7 +88,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     const overlayProps = overlayNode.props;
 
     // Warning if use other mode
-    warning(
+    devWarning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
       'Dropdown',
       `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,

@@ -14,7 +14,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export interface CascaderOptionType {
@@ -211,7 +211,7 @@ const defaultDisplayRender = (label: string[]) => label.join(' / ');
 function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNamesType = {}) {
   (list || []).forEach(item => {
     const valueFieldName = fieldNames.value || 'value';
-    warning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
+    devWarning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
     warningValueNotExist(item[fieldNames.children || 'children'], fieldNames);
   });
 }
@@ -384,7 +384,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         return matchCount >= limit;
       });
     } else {
-      warning(
+      devWarning(
         typeof limit !== 'number',
         'Cascader',
         "'limit' of showSearch should be positive number or false.",

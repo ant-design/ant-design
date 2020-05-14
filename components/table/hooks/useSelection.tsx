@@ -6,7 +6,7 @@ import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
 import Radio from '../../radio';
-import warning from '../../_util/warning';
+import devWarning from '../../_util/devWarning';
 import {
   TableRowSelection,
   Key,
@@ -178,7 +178,7 @@ export default function useSelection<RecordType>(
             const keys = Array.from(keySet);
             setSelectedKeys(keys);
             if (onSelectInvert) {
-              warning(
+              devWarning(
                 false,
                 'Table',
                 '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
@@ -215,7 +215,7 @@ export default function useSelection<RecordType>(
           process.env.NODE_ENV !== 'production' &&
           ('checked' in checkboxProps || 'defaultChecked' in checkboxProps)
         ) {
-          warning(
+          devWarning(
             false,
             'Table',
             'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',

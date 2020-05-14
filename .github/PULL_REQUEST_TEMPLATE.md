@@ -4,17 +4,20 @@ First of all, thank you for your contribution! 😄
 New feature please send pull request to feature branch, and rest to master branch.
 Pull request will be merged after one of collaborators approve.
 Please makes sure that these form are filled before submitting your pull request, thank you!
+-->
 
 [[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
--->
 
 ### 🤔 This is a ...
 
 - [ ] New feature
 - [ ] Bug fix
-- [ ] Site / document update
+- [ ] Site / documentation update
+- [ ] Demo update
 - [ ] Component style update
 - [ ] TypeScript definition update
+- [ ] Bundle size optimization
+- [ ] Perfermance optimization
 - [ ] Refactoring
 - [ ] Code style optimization
 - [ ] Test Case
