@@ -13,6 +13,7 @@ import omit from 'omit.js';
 import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import { isValidElement } from '../_util/reactNode';
 
 const { Option } = Select;
 
@@ -49,7 +50,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
 
   if (
     childNodes.length === 1 &&
-    React.isValidElement(childNodes[0]) &&
+    isValidElement(childNodes[0]) &&
     !isSelectOptionOrSelectOptGroup(childNodes[0])
   ) {
     customizeInput = childNodes[0];
@@ -66,7 +67,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
   } else {
     optionChildren = dataSource
       ? dataSource.map(item => {
-          if (React.isValidElement(item)) {
+          if (isValidElement(item)) {
             return item;
           }
           switch (typeof item) {

@@ -16,13 +16,14 @@ import {
 import Search from './search';
 import DefaultListBody, { TransferListBodyProps, OmitProps } from './ListBody';
 import { PaginationType } from './interface';
+import { isValidElement } from '../_util/reactNode';
 
 const defaultRender = () => null;
 
 function isRenderResultPlainObject(result: RenderResult) {
   return (
     result &&
-    !React.isValidElement(result) &&
+    !isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }

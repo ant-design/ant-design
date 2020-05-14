@@ -13,6 +13,7 @@ import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId, useFrameState } from './util';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -306,7 +307,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
             'Form.Item',
             'Must set `name` or use render props when `dependencies` is set.',
           );
-        } else if (React.isValidElement(children)) {
+        } else if (isValidElement(children)) {
           devWarning(
             children.props.defaultValue === undefined,
             'Form.Item',
@@ -330,7 +331,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
               value={mergedControl[props.valuePropName || 'value']}
               update={updateRef.current}
             >
-              {React.cloneElement(children, childProps)}
+              {cloneElement(children, childProps)}
             </MemoInput>
           );
         } else if (isRenderProps && shouldUpdate && !hasName) {

@@ -56,7 +56,6 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
     externalMoment(config);
-    injectWarningCondition(config);
 
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
@@ -86,6 +85,10 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
+
+webpackConfig.forEach(config => {
+  injectWarningCondition(config);
+});
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {

@@ -11,6 +11,7 @@ import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
+import { cloneElement } from '../_util/reactNode';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
@@ -46,7 +47,7 @@ function getFilledItem(
   let clone = node;
 
   if (span === undefined || span > rowRestCol) {
-    clone = React.cloneElement(node, {
+    clone = cloneElement(node, {
       span: rowRestCol,
     });
     devWarning(

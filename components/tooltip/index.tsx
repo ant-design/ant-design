@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -105,7 +106,7 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
       ...omitted,
       pointerEvents: 'none',
     };
-    const child = React.cloneElement(element, {
+    const child = cloneElement(element, {
       style: buttonStyle,
       className: null,
     });
@@ -243,7 +244,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     }
 
     const child = getDisabledCompatibleChildren(
-      React.isValidElement(children) ? children : <span>{children}</span>,
+      isValidElement(children) ? children : <span>{children}</span>,
       prefixCls,
     );
 
@@ -268,7 +269,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
       >
-        {visible ? React.cloneElement(child, { className: childCls }) : child}
+        {visible ? cloneElement(child, { className: childCls }) : child}
       </RcTooltip>
     );
   };
