@@ -1,5 +1,5 @@
 import * as React from 'react';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import Base, { BlockProps } from './Base';
 
 export interface LinkProps
@@ -12,7 +12,7 @@ const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
   { ellipsis, rel, ...restProps },
   ref,
 ) => {
-  warning(
+  devWarning(
     typeof ellipsis !== 'object',
     'Typography.Link',
     '`ellipsis` only supports boolean value.',
