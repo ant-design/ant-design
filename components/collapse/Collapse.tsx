@@ -6,6 +6,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import CollapsePanel from './CollapsePanel';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
+import { cloneElement } from '../_util/reactNode';
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
 
@@ -58,11 +59,9 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
     )) as React.ReactNode;
 
-    return React.isValidElement(icon)
-      ? React.cloneElement(icon as any, {
-          className: classNames(icon.props.className, `${prefixCls}-arrow`),
-        })
-      : icon;
+    return cloneElement(icon, () => ({
+      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+    }));
   };
 
   renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {

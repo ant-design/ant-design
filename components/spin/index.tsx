@@ -4,6 +4,7 @@ import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
+import { isValidElement, cloneElement } from '../_util/reactNode';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];
@@ -38,14 +39,14 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
     return null;
   }
 
-  if (React.isValidElement(indicator)) {
-    return React.cloneElement(indicator, {
+  if (isValidElement(indicator)) {
+    return cloneElement(indicator, {
       className: classNames(indicator.props.className, dotClassName),
     });
   }
 
-  if (React.isValidElement(defaultIndicator)) {
-    return React.cloneElement(defaultIndicator as SpinIndicator, {
+  if (isValidElement(defaultIndicator)) {
+    return cloneElement(defaultIndicator as SpinIndicator, {
       className: classNames((defaultIndicator as SpinIndicator).props.className, dotClassName),
     });
   }
