@@ -8,7 +8,7 @@ import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';

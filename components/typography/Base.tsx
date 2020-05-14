@@ -11,7 +11,7 @@ import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';

@@ -6,7 +6,7 @@ import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { Omit } from '../_util/type';
 
 export interface Route {

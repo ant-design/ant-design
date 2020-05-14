@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import CheckboxGroup, { GroupContext } from './Group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;

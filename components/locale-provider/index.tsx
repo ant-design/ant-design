@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
 import { TransferLocale as TransferLocaleForEmpty } from '../empty';

@@ -7,7 +7,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;

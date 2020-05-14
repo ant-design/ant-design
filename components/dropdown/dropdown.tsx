@@ -5,7 +5,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
 
 const Placements = tuple(

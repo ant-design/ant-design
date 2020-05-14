@@ -35,7 +35,7 @@ import defaultLocale from '../locale/en_US';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export { ColumnsType, TablePaginationConfig };

@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
 import collapseMotion from '../_util/motion';

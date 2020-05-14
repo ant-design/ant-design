@@ -9,7 +9,7 @@ import { Omit, LiteralUnion } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {

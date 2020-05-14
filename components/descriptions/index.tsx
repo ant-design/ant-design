@@ -7,7 +7,7 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';

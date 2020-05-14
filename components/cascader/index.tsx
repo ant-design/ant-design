@@ -14,7 +14,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export interface CascaderOptionType {

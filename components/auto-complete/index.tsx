@@ -12,7 +12,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import devWarning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 const { Option } = Select;
 

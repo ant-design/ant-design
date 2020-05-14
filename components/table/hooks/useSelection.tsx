@@ -6,7 +6,7 @@ import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
 import Radio from '../../radio';
-import devWarning from '../../_util/warning';
+import devWarning from '../../_util/devWarning';
 import {
   TableRowSelection,
   Key,
