@@ -68,20 +68,22 @@ const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
 
-config.module.rules.forEach(rule => {
-  // Remove devWarning if needed
-  if (rule.test.test('test.tsx')) {
-    rule.use = [
-      ...rule.use,
-      {
-        loader: 'string-replace-loader',
-        options: {
-          search: 'devWarning(',
-          replace: 'if (process.env.NODE_ENV !== 'production') devWarning(',
+webpackConfig.forEach(config => {
+  config.module.rules.forEach(rule => {
+    // Remove devWarning if needed
+    if (rule.test.test('test.tsx')) {
+      rule.use = [
+        ...rule.use,
+        {
+          loader: 'string-replace-loader',
+          options: {
+            search: 'devWarning(',
+            replace: 'if (process.env.NODE_ENV !== "production") devWarning(',
+          },
         },
-      },
-    ];
-  }
+      ];
+    }
+  });
 });
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
