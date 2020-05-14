@@ -12,7 +12,7 @@ title: 在 create-react-app 中使用
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/)。
 
 ```bash
-$ yarn create react-app antd-demo
+$ yarn create-react-app antd-demo
 
 # or
 
