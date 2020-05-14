@@ -7,6 +7,7 @@ import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
+import { cloneElement } from '../_util/reactNode';
 
 const Placements = tuple(
   'topLeft',
@@ -107,7 +108,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     const fixedModeOverlay =
       typeof overlayNode.type === 'string'
         ? overlay
-        : React.cloneElement(overlayNode, {
+        : cloneElement(overlayNode, {
             mode: 'vertical',
             selectable,
             focusable,
@@ -142,7 +143,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
     const child = React.Children.only(children) as React.ReactElement<any>;
 
-    const dropdownTrigger = React.cloneElement(child, {
+    const dropdownTrigger = cloneElement(child, {
       className: classNames(child.props.className, `${prefixCls}-trigger`, {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       }),

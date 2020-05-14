@@ -16,6 +16,7 @@ import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../conf
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { replaceElement } from '../_util/reactNode';
 
 export interface CascaderOptionType {
   value?: string;
@@ -554,17 +555,21 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
         }
 
-        const inputIcon = (suffixIcon &&
-          (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-            React.cloneElement(suffixIcon, {
+        let inputIcon: React.ReactNode;
+        if (suffixIcon) {
+          inputIcon = replaceElement(
+            suffixIcon,
+            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>,
+            () => ({
               className: classNames({
-                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [(suffixIcon as any).props.className!]: (suffixIcon as any).props.className,
                 [`${prefixCls}-picker-arrow`]: true,
               }),
-            })
-          ) : (
-            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
-          ))) || <DownOutlined className={arrowCls} />;
+            }),
+          );
+        } else {
+          inputIcon = <DownOutlined className={arrowCls} />;
+        }
 
         const input = children || (
           <span style={style} className={pickerCls}>
