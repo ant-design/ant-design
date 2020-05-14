@@ -9,6 +9,11 @@ A custom component for rendering text with a configurable limit. The
 text is broken in a fashion that avoids breaking mid-word, and controls are provided to
 the user that allow them to show more or less text.
 
+## When To Use
+
+When there is too much text for the given area and/or the text is possibly large and comes
+from a datasource.
+
 ## API
 
 | Property      | Description                                   | Type    | Default |

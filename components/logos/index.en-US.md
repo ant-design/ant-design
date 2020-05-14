@@ -7,6 +7,10 @@ cols: 2
 
 AI2 Specific Logos as inline SVG elements.
 
+## When To Use
+
+Whenever you need the official AI2 or project logo.
+
 ## API
 
 ### AI2 Logo
