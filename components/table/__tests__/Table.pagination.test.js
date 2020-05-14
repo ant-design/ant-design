@@ -5,7 +5,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import scrollTo from '../../_util/scrollTo';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 
 describe('Table.pagination', () => {
   const columns = [

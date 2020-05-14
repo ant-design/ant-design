@@ -17,7 +17,7 @@ import { T, fileToObject, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export { UploadProps };
 
@@ -61,7 +61,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       dragState: 'drop',
     };
 
-    warning(
+    devWarning(
       'fileList' in props || !('value' in props),
       'Upload',
       '`value` is not a valid prop, do you mean `fileList`?',

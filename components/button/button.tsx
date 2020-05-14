@@ -7,7 +7,7 @@ import Group from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
 
@@ -186,7 +186,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     ...rest
   } = props;
 
-  warning(
+  devWarning(
     !(typeof icon === 'string' && icon.length > 2),
     'Button',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,

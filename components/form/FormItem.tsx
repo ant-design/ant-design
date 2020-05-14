@@ -8,7 +8,7 @@ import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
@@ -51,7 +51,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
 
 function hasValidName(name?: NamePath): Boolean {
   if (name === null) {
-    warning(false, 'Form.Item', '`null` is passed as `name` property');
+    devWarning(false, 'Form.Item', '`null` is passed as `name` property');
   }
   return !(name === undefined || name === null);
 }
@@ -285,27 +285,27 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
         let childNode: React.ReactNode = null;
         if (Array.isArray(children) && hasName) {
-          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
         } else if (isRenderProps && (!shouldUpdate || hasName)) {
-          warning(
+          devWarning(
             !!shouldUpdate,
             'Form.Item',
             '`children` of render props only work with `shouldUpdate`.',
           );
-          warning(
+          devWarning(
             !hasName,
             'Form.Item',
             "Do not use `name` with `children` of render props since it's not a field.",
           );
         } else if (dependencies && !isRenderProps && !hasName) {
-          warning(
+          devWarning(
             false,
             'Form.Item',
             'Must set `name` or use render props when `dependencies` is set.',
           );
         } else if (React.isValidElement(children)) {
-          warning(
+          devWarning(
             children.props.defaultValue === undefined,
             'Form.Item',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
@@ -334,7 +334,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
         } else if (isRenderProps && shouldUpdate && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
-          warning(
+          devWarning(
             !mergedName.length,
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
