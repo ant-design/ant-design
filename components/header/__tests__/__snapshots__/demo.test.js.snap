@@ -31,7 +31,7 @@ exports[`renders ./components/header/demo/default.md correctly 1`] = `
     layout="hcenter"
   >
     <div
-      class="sc-bdVaJa sc-dnqmqq gRONPY"
+      class="sc-bdVaJa sc-dnqmqq jJDzQX"
     >
       <h5
         class="sc-iwsKbI dTCaBK"
@@ -78,7 +78,7 @@ exports[`renders ./components/header/demo/withLogo.md correctly 1`] = `
       layout="hcenter"
     >
       <div
-        class="sc-bdVaJa sc-dnqmqq MjKqC"
+        class="sc-bdVaJa sc-dnqmqq Fanky"
       >
         <img
           alt="Allen Institute for AI"
@@ -139,7 +139,7 @@ exports[`renders ./components/header/demo/withMenu.md correctly 1`] = `
       layout="hcenter"
     >
       <div
-        class="sc-bdVaJa sc-dnqmqq MjKqC"
+        class="sc-bdVaJa sc-dnqmqq Fanky"
       >
         <img
           alt="Allen Institute for AI"
