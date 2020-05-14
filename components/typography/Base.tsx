@@ -10,7 +10,7 @@ import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
@@ -112,7 +112,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   static getDerivedStateFromProps(nextProps: BlockProps) {
     const { children, editable } = nextProps;
 
-    warning(
+    devWarning(
       !editable || typeof children === 'string',
       'Typography',
       'When `editable` is enabled, the `children` should use string.',
@@ -301,7 +301,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     // Do not measure if css already support ellipsis
     if (this.canUseCSSEllipsis()) return;
 
-    warning(
+    devWarning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
       'Typography',
       '`ellipsis` should use string as children only.',

@@ -8,7 +8,7 @@ import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -118,7 +118,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
       };
     }
 
-    warning(
+    devWarning(
       !pagination || !children,
       'Transfer',
       '`pagination` not support customize render list.',

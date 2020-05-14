@@ -9,7 +9,7 @@ import RcTreeSelect, {
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { AntTreeNodeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
@@ -55,7 +55,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   constructor(props: TreeSelectProps<T>) {
     super(props);
 
-    warning(
+    devWarning(
       props.multiple !== false || !props.treeCheckable,
       'TreeSelect',
       '`multiple` will alway be `true` when `treeCheckable` is true',

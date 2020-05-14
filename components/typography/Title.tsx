@@ -1,5 +1,5 @@
 import * as React from 'react';
-import warning from 'warning';
+import devWarning from '../_util/devWarning';
 import Base, { BlockProps } from './Base';
 import { tupleNum, Omit } from '../_util/type';
 
@@ -14,7 +14,7 @@ const Title: React.FC<TitleProps> = props => {
   if (TITLE_ELE_LIST.indexOf(level) !== -1) {
     component = `h${level}`;
   } else {
-    warning(false, 'Title only accept `1 | 2 | 3 | 4` as `level` value.');
+    devWarning(false, 'Typography.Title', 'Title only accept `1 | 2 | 3 | 4` as `level` value.');
     component = 'h1';
   }
 

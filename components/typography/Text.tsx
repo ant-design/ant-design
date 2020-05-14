@@ -1,5 +1,5 @@
 import * as React from 'react';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import Base, { BlockProps } from './Base';
 
 export interface TextProps extends BlockProps {
@@ -7,7 +7,7 @@ export interface TextProps extends BlockProps {
 }
 
 const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
-  warning(
+  devWarning(
     typeof ellipsis !== 'object',
     'Typography.Text',
     '`ellipsis` only supports boolean value.',
