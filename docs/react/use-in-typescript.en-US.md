@@ -183,7 +183,7 @@ module.exports = override(
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
 
-> You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+> You could also try [craco](https://github.com/gsoft-inc/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
 
 ## Alternative ways
 

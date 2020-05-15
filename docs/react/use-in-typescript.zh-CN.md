@@ -181,7 +181,7 @@ module.exports = override(
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
-> 对于自定义 webpack 配置，你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
+> 对于自定义 webpack 配置，你也可以使用 [craco](https://github.com/gsoft-inc/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
 
 ## 其他方案
 

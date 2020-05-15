@@ -199,7 +199,7 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 We have built-in dark theme and compact theme in antd, you can reference to [Use dark or compact theme](/docs/react/customize-theme#Use-dark-or-compact-theme).
 
-> You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+> You could also try [craco](https://github.com/gsoft-inc/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
 
 > Note: It is recommended to use the latest version of `less`, or a minimum version greater than `3.0.1`.
 
