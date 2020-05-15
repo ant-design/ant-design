@@ -46,4 +46,21 @@ describe('Test ScrollTo function', () => {
     await sleep(20);
     expect(div.scrollTop).toBe(1000);
   });
+
+  it('test getContainer document - option', async () => {
+    scrollTo(1000, {
+      getContainer: () => document,
+    });
+    await sleep(20);
+    expect(document.documentElement.scrollTop).toBe(1000);
+  });
+
+  it('test duration - option', async () => {
+    scrollTo(1000, {
+      duration: 1100,
+      getContainer: () => document,
+    });
+    await sleep(20);
+    expect(document.documentElement.scrollTop).toBe(1000);
+  });
 });
