@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/color/demo/contrast.md correctly 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa ljfMRw"
+  >
+    B1
+  </div>
+  <div
+    class="sc-bdVaJa cPNzdE"
+  >
+    B2
+  </div>
+  <div
+    class="sc-bdVaJa cLPwGr"
+  >
+    B3
+  </div>
+  <div
+    class="sc-bdVaJa gMBaNH"
+  >
+    B4
+  </div>
+  <div
+    class="sc-bdVaJa frvekK"
+  >
+    B5
+  </div>
+  <div
+    class="sc-bdVaJa pfzga"
+  >
+    B6
+  </div>
+  <div
+    class="sc-bdVaJa bkDssW"
+  >
+    B7
+  </div>
+  <div
+    class="sc-bdVaJa kTiCoH"
+  >
+    B8
+  </div>
+  <div
+    class="sc-bdVaJa cgLRAn"
+  >
+    B9
+  </div>
+  <div
+    class="sc-bdVaJa fOEbwt"
+  >
+    B10
+  </div>
+</div>
+`;
+
+exports[`renders ./components/color/demo/direct.md correctly 1`] = `
+<div>
+  <div
+    class="sc-bwzfXH drrIaC"
+  >
+    B8
+  </div>
+  <div
+    class="sc-bwzfXH gouAem"
+  >
+    B7
+  </div>
+  <div
+    class="sc-bwzfXH jSlnkG"
+  >
+    B6
+  </div>
+  <div
+    class="sc-bwzfXH llUTHm"
+  >
+    O8
+  </div>
+  <div
+    class="sc-bwzfXH cfHJIQ"
+  >
+    O7
+  </div>
+  <div
+    class="sc-bwzfXH gSfbEX"
+  >
+    O6
+  </div>
+</div>
+`;
+
+exports[`renders ./components/color/demo/indirect.md correctly 1`] = `
+<div
+  class="sc-htpNat iQUaYT"
+>
+  I cant do that Dave.
+</div>
+`;

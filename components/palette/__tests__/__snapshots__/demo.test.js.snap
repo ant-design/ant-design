@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/palette/demo/default.md correctly 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa bNywJq"
+  >
+    I can do that Dave.
+  </div>
+  <div
+    class="sc-bwzfXH jyoePb"
+  >
+    I cant do that Dave.
+  </div>
+</div>
+`;

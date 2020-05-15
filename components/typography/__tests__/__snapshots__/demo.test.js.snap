@@ -171,6 +171,94 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
 </article>
 `;
 
+exports[`renders ./components/typography/demo/body.md correctly 1`] = `
+<div>
+  <span
+    class="sc-bdVaJa jyvgQN"
+  >
+    BodyJumbo. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-htpNat gzALCe"
+  >
+    BodyBig. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-bwzfXH eLOBxE"
+  >
+    Body. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-bxivhb iwuOmw"
+  >
+    BodyBold. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-ifAKCX crZCKq"
+  >
+    BodySmall. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-EHOje gqZtFv"
+  >
+    BodySmallBold. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-bZQynM iuAkqp"
+  >
+    BodyMicro. The best way to predict the future is to invent it
+  </span>
+  <br />
+  <span
+    class="sc-gzVnrw kpYoWV"
+  >
+    Notification. All your base are belong to us
+  </span>
+  <br />
+  <span
+    class="sc-htoDjs bNwjDS"
+  >
+    NotificationBold. All your base are belong to us
+  </span>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/code.md correctly 1`] = `
+<div>
+  <pre
+    class="sc-gZMcBi flNmMf"
+  >
+    def get_metrics(self, reset: bool = False) -&gt; Dict[str, float]
+  </pre>
+  <pre
+    class="sc-gZMcBi hjErAs"
+  >
+    def get_metrics(self, reset: bool = False) -&gt; Dict[str, float]
+  </pre>
+  The command 
+  <code
+    class="sc-gqjmRU dVlmKG"
+  >
+    get_metrics(self, reset: bool = False)
+  </code>
+   has a default parameter.
+  <br />
+  The command 
+  <code
+    class="sc-gqjmRU eSKIyV"
+  >
+    get_metrics(self, reset: bool = False)
+  </code>
+   has a default parameter.
+</div>
+`;
+
 exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
 <div>
   <div
@@ -284,6 +372,29 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     </span>
     2333
   </p>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/headers.md correctly 1`] = `
+<div>
+  <h1>
+    h1. AI for the Common Good
+  </h1>
+  <h2>
+    h2. AI for the Common Good
+  </h2>
+  <h3>
+    h3. AI for the Common Good
+  </h3>
+  <h4>
+    h4. AI for the Common Good
+  </h4>
+  <h5>
+    h5. AI for the Common Good
+  </h5>
+  <h6>
+    h6. AI for the Common Good
+  </h6>
 </div>
 `;
 
@@ -589,6 +700,22 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </li>
     </ol>
   </div>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/quote.md correctly 1`] = `
+<div>
+  <span
+    class="sc-dnqmqq dHJISb"
+  >
+    “Wit is the unexpected copulation of ideas.”
+  </span>
+  <br />
+  <span
+    class="sc-iwsKbI hAxAIX"
+  >
+    Patrick O'Brian
+  </span>
 </div>
 `;
 
