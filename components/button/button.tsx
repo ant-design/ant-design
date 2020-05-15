@@ -9,6 +9,7 @@ import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import{ useLoading, LoadingType } from './useLoading';
 import LoadingIcon from './LoadingIcon';
 import { cloneElement } from '../_util/reactNode';
 
@@ -88,7 +89,7 @@ export interface BaseButtonProps {
   icon?: React.ReactNode;
   shape?: ButtonShape;
   size?: SizeType;
-  loading?: boolean | { delay?: number };
+  loading?: LoadingType;
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
@@ -123,11 +124,10 @@ interface CompoundedComponent
 
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
   const size = React.useContext(SizeContext);
-  const [loading, setLoading] = React.useState(props.loading);
+  const loading = useLoading(props.loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
-  let delayTimeout: number;
 
   const isNeedInserted = () => {
     const { icon, children, type } = props;
@@ -148,19 +148,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       setHasTwoCNChar(false);
     }
   };
-
-  React.useEffect(() => {
-    if (props.loading && typeof props.loading !== 'boolean') {
-      clearTimeout(delayTimeout);
-    }
-    if (props.loading && typeof props.loading !== 'boolean' && props.loading.delay) {
-      delayTimeout = window.setTimeout(() => {
-        setLoading(props.loading);
-      }, props.loading.delay);
-    } else if (props.loading !== loading) {
-      setLoading(props.loading);
-    }
-  }, [props.loading]);
 
   React.useEffect(() => {
     fixTwoCNChar();
