@@ -587,7 +587,8 @@ Array [
             class="ant-picker-footer"
           >
             <a
-              class="ant-picker-today-btn"
+              aria-disabled="true"
+              class="ant-picker-today-btn ant-picker-today-btn-disabled"
             >
               Today
             </a>
