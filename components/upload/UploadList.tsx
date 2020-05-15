@@ -16,8 +16,6 @@ import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 
-import { red } from '@ant-design/colors';
-
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text' as UploadListType, // or picture
