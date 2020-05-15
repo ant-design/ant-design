@@ -56,10 +56,11 @@ export interface BlockProps extends TypographyProps {
   underline?: boolean;
   delete?: boolean;
   strong?: boolean;
+  keyboard?: boolean;
 }
 
 function wrapperDecorations(
-  { mark, code, underline, delete: del, strong }: BlockProps,
+  { mark, code, underline, delete: del, strong, keyboard }: BlockProps,
   content: React.ReactNode,
 ) {
   let currentContent = content;
@@ -75,6 +76,7 @@ function wrapperDecorations(
   wrap(del, 'del');
   wrap(code, 'code');
   wrap(mark, 'mark');
+  wrap(keyboard, 'kbd');
 
   return currentContent;
 }
@@ -433,6 +435,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       'delete',
       'underline',
       'strong',
+      'keyboard',
       ...configConsumerProps,
     ]);
     const cssEllipsis = this.canUseCSSEllipsis();
