@@ -29,7 +29,7 @@ function loadingTest(Component: React.ComponentType, className: string) {
       expect(wrapper.find(className).length).toBe(1);
       wrapper.setProps({ loading: false });
 
-      // Suppress act warning. 
+      // Suppress act warning.
       // https://github.com/enzymejs/enzyme/issues/2153
       await act(async () => {
         await sleep(50);

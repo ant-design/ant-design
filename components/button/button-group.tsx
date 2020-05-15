@@ -15,12 +15,12 @@ export interface ButtonGroupProps {
 }
 
 const ButtonGroup: React.FC<ButtonGroupProps> = props => {
-  const { 
-    prefixCls: customizePrefixCls, 
+  const {
+    prefixCls: customizePrefixCls,
     size, className,
     loading: propsLoading,
     children,
-    ...others 
+    ...others
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
@@ -58,7 +58,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
     <div {...others} className={classes}>
       {children}
       {loading && <LoadingIcon existIcon={false} prefixCls={prefixCls} loading={loading} />}
-    </div>   
+    </div>
   );
 }
 
