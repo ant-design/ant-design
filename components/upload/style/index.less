@@ -303,6 +303,13 @@
 
       .@{iconfont-css-prefix} {
         font-size: 26px;
+        svg path {
+          fill: @error-hover-color;
+          &:first-child,
+          &:last-child {
+            fill: @error-color;
+          }
+        }
       }
     }
 

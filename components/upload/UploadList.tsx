@@ -88,8 +88,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const fileIcon =
-      isImgUrl && isImgUrl(file) ? <PictureTwoTone twoToneColor={red[4]} /> : <FileTwoTone />;
+    const fileIcon = isImgUrl && isImgUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
