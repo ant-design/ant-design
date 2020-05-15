@@ -1,7 +1,6 @@
 name: Deploy website
 on:
-  release:
-    types: [published]
+  push:
     branches:
       - master
 
