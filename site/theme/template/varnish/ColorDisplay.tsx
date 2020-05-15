@@ -255,23 +255,23 @@ const PrimaryColorBox = styled.div`
     grid-column: 1 / span 3;
 `;
 
-const MicroCol = styled(BodyMicro)`
+const MicroCol = styled(BodyMicro as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     background: ${({ theme }) => theme.palette.background.light};
     padding: ${({ theme }) => theme.spacing.md};
 `;
 
-const PrimaryColorName = styled(MicroCol)`
+const PrimaryColorName = styled(MicroCol as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     grid-column: 1;
     padding-right: 0;
 `;
 
-const PrimaryColorHex = styled(MicroCol)`
+const PrimaryColorHex = styled(MicroCol as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     grid-column: 2;
     text-align: center;
     padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xs}`};
 `;
 
-const PrimaryColorRgb = styled(MicroCol)`
+const PrimaryColorRgb = styled(MicroCol as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     grid-column: 3;
     padding-left: 0;
 `;
@@ -300,11 +300,11 @@ const ExtendedHeadRow = styled.div`
     padding: ${({ theme }) => `${theme.spacing.lg} 0`};
 `;
 
-const Label = styled(BodyJumbo)`
+const Label = styled(BodyJumbo as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     text-transform: capitalize;
 `;
 
-const Col = styled(Body)`
+const Col = styled(Body as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     padding: ${({ theme }) => `${theme.spacing.md} 0`};
     display: inline-block;
     border-top: 1px solid ${({ theme }) => theme.palette.border.main};
@@ -326,20 +326,20 @@ const ColorText = styled.div`
     color: ${props => props.color};
 `;
 
-const ColorBoxWrapper = styled(Col)`
+const ColorBoxWrapper = styled(Col as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     padding: 7px;
     grid-column: 1;
 `;
 
-const ColorName = styled(Col)`
+const ColorName = styled(Col as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     padding-left: ${({ theme }) => theme.spacing.xs};
     grid-column: 2;
 `;
 
-const ColorHex = styled(Col)`
+const ColorHex = styled(Col as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     grid-column: 3;
 `;
 
-const ColorRgb = styled(Col)`
+const ColorRgb = styled(Col as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
     grid-column: 4;
 `;
