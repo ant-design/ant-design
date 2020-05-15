@@ -16,7 +16,7 @@ $ yarn create react-app antd-demo
 
 # or
 
-$ npm init react-app antd-dem
+$ npx create-react-app antd-demo
 ```
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
@@ -88,6 +88,8 @@ export default App;
 
 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [craco](https://github.com/gsoft-inc/craco) （一个对 create-react-app 进行自定义配置的社区解决方案）。
 
+现在我们安装 craco 并修改 `package.json` 里的 `scripts` 属性。
+
 ```bash
 $ yarn add @craco/craco
 ```
@@ -115,7 +117,7 @@ module.exports = {
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 [craco-less](https://github.com/DocSpring/craco-less) 来帮助加载 less 样式和修改变量。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-less](https://github.com/DocSpring/craco-less) 来帮助加载 less 样式和修改变量。
 
 首先修改样式引用为 less 文件。
 

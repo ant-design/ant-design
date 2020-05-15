@@ -26,7 +26,7 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="http://ant.design"
+                  href="https://ant.design"
                 >
                   ant design
                 </a>
@@ -83,7 +83,7 @@ exports[`List Item Layout should render in RTL direction 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="http://ant.design"
+                  href="https://ant.design"
                 >
                   ant design
                 </a>
