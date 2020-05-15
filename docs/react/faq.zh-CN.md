@@ -37,21 +37,6 @@ https://ant.design/components/select/#Select-props
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
-### 我只想使用 `Menu`/`Button` 等，但似乎我必须 import 整个 antd 和它的样式文件。
-
-试试 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或者用下面这种方式来按需加载：
-
-```jsx
-import Menu from 'antd/es/menu';
-import 'antd/es/menu/style/css';
-```
-
-或者（ES6 支持的 tree shaking 方式）：
-
-```jsx
-import { Menu, Breadcrumb, Icon } from 'antd';
-```
-
 ### 如何使用 Day.js 替换 Moment.js 来减小打包大小？
 
 可以参考[替换 Moment.js](/docs/react/replace-moment)。
