@@ -40,7 +40,9 @@ describe('BackTop', () => {
 
   it('invalid target', async () => {
     const onClick = jest.fn();
-    const wrapper = mount(<BackTop onClick={onClick} target={() => ({ documentElement: {} })} />);
+    const wrapper = mount(
+      <BackTop onClick={onClick} visible target={() => ({ documentElement: {} })} />,
+    );
     wrapper.find('.ant-back-top').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
