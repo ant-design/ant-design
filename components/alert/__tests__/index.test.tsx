@@ -74,9 +74,10 @@ describe('Alert', () => {
   });
 
   it('could be used with Tooltip', async () => {
+    const ref = React.createRef<any>();
     jest.useRealTimers();
     const wrapper = mount(
-      <Tooltip title="xxx" mouseEnterDelay={0}>
+      <Tooltip title="xxx" mouseEnterDelay={0} ref={ref}>
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
@@ -85,7 +86,7 @@ describe('Alert', () => {
     );
     wrapper.find('.ant-alert').simulate('mouseenter');
     await sleep(0);
-    expect(wrapper.find<Tooltip>(Tooltip).instance().getPopupDomNode()).toBeTruthy();
+    expect(ref.current.getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
   });
 

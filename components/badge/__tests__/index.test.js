@@ -38,23 +38,21 @@ describe('Badge', () => {
   it('should have an overriden title attribute', () => {
     const badge = mount(<Badge count={10} title="Custom title" />);
     expect(
-      badge
-        .find('.ant-scroll-number')
-        .getDOMNode()
-        .attributes.getNamedItem('title').value,
+      badge.find('.ant-scroll-number').getDOMNode().attributes.getNamedItem('title').value,
     ).toEqual('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626
   it('should be composable with Tooltip', () => {
+    const ref = React.createRef();
     const wrapper = mount(
-      <Tooltip title="Fix the error">
+      <Tooltip title="Fix the error" ref={ref}>
         <Badge status="error" />
       </Tooltip>,
     );
     wrapper.find('Badge').simulate('mouseenter');
     jest.runAllTimers();
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
   });
 
   it('should render when count is changed', () => {
