@@ -14,7 +14,7 @@ title:
 A loading indicator can be added to a button by setting the `loading` property on the `Dropdown.Button`.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
@@ -45,7 +45,7 @@ class App extends React.Component {
   render() {
     const { loadings } = this.state;
     return (
-      <div id="components-dropdown-demo-dropdown-button-loading">
+      <Space direction="vertical">
         <Dropdown.Button type="primary" loading overlay={menu}>
           Submit
         </Dropdown.Button>
@@ -68,20 +68,10 @@ class App extends React.Component {
         >
           Submit
         </Dropdown.Button>
-      </div>
+      </Space>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-```
-
-```css
-#components-dropdown-demo-dropdown-button-loading .ant-dropdown-button {
-  margin: 0 8px 8px 0;
-}
-
-#components-dropdown-demo-dropdown-button-loading .ant-btn-group-rtl.ant-dropdown-button {
-  margin: 0 0 8px 8px;
-}
 ```
