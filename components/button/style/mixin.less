@@ -405,6 +405,49 @@
     border-radius: 50%;
   }
 }
+.btn-loading() {
+  &::before {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    z-index: 1;
+    display: none;
+    background: @component-background;
+    border-radius: inherit;
+    opacity: 0.35;
+    transition: opacity 0.2s;
+    content: '';
+    pointer-events: none;
+  }
+
+  &&-loading {
+    position: relative;
+    &:not([disabled]) {
+      pointer-events: none;
+    }
+
+    &::before {
+      display: block;
+    }
+  }
+
+  & > &-loading-icon {
+    transition: all 0.3s @ease-in-out;
+
+    .@{iconfont-css-prefix} {
+      padding-right: @margin-xs;
+    }
+
+    &:only-child {
+      .@{iconfont-css-prefix} {
+        padding-right: 40px;
+      }
+    }
+  }
+}
+
 // Horizontal button groups style
 // --------------------------------------------------
 .btn-group(@btnClassName: btn) {
@@ -479,5 +522,19 @@
     padding-left: 8px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+.btn-group-loading-szie(@prefix, @icon-size, @padding-horizontal) {
+  @height: @icon-size * @line-height-base;
+
+  & > .@{prefix}-group-loading-icon {
+    font-size: @icon-size;
+    margin-top: -(@height / 2);
+    left: @padding-horizontal;
+  }
+
+  &.@{prefix}-group-loading > .@{prefix}:first-child {
+    padding-left: @padding-horizontal + @icon-size + 4;
   }
 }
