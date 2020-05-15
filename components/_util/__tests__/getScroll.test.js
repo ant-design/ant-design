@@ -1,6 +1,11 @@
 import getScroll from '../getScroll';
 
 describe('getScroll', () => {
+  it('getScroll target null', async () => {
+    expect(getScroll(null, true)).toBe(0);
+    expect(getScroll(null, false)).toBe(0);
+  });
+
   it('getScroll window', async () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       window.pageXOffset = x;
