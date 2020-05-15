@@ -3,7 +3,7 @@ import Animate from 'rc-animate';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
-import PictureOutlined from '@ant-design/icons/PictureOutlined';
+import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
@@ -15,6 +15,8 @@ import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
+
+import defaultLess from '../style/themes/export.ts';
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -88,7 +90,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const fileIcon = isImgUrl && isImgUrl(file) ? <PictureOutlined /> : <FileTwoTone />;
+    const { errorColor } = defaultLess;
+    const fileIcon =
+      isImgUrl && isImgUrl(file) ? <PictureTwoTone twoToneColor={errorColor} /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
