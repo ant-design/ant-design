@@ -16,7 +16,7 @@ import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 
-import defaultLess from '../style/themes/export.ts';
+import { red } from '@ant-design/colors';
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -90,9 +90,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const { errorColor } = defaultLess;
     const fileIcon =
-      isImgUrl && isImgUrl(file) ? <PictureTwoTone twoToneColor={errorColor} /> : <FileTwoTone />;
+      isImgUrl && isImgUrl(file) ? <PictureTwoTone twoToneColor={red[4]} /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
