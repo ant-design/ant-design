@@ -22,6 +22,7 @@
   line-height: @line-height-base;
   .btn;
   .btn-default;
+  .btn-loading;
 
   &-primary {
     .btn-primary;
@@ -102,22 +103,6 @@
     .btn-circle(@btn-prefix-cls);
   }
 
-  &::before {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    z-index: 1;
-    display: none;
-    background: @component-background;
-    border-radius: inherit;
-    opacity: 0.35;
-    transition: opacity 0.2s;
-    content: '';
-    pointer-events: none;
-  }
-
   .@{iconfont-css-prefix} {
     transition: margin-left 0.3s @ease-in-out;
 
@@ -131,33 +116,84 @@
     }
   }
 
-  &&-loading {
-    position: relative;
-    &:not([disabled]) {
-      pointer-events: none;
-    }
-
-    &::before {
-      display: block;
-    }
-  }
-
-  & > &-loading-icon {
-    transition: all 0.3s @ease-in-out;
-
-    .@{iconfont-css-prefix} {
-      padding-right: @margin-xs;
-    }
-
-    &:only-child {
-      .@{iconfont-css-prefix} {
-        padding-right: 0;
-      }
-    }
-  }
-
   &-group {
     .btn-group(@btn-prefix-cls);
+    .btn-loading;
+    .btn-group-loading-szie(@btn-prefix-cls, @font-size-base, @btn-padding-horizontal-base);
+
+    &::before {
+      z-index: 5;
+    }
+
+    & > &-loading-icon {
+      color: @btn-default-color;
+      position: absolute;
+      top: 50%;
+      z-index: 4;
+    }
+
+    &&-loading > .@{btn-prefix-cls} {
+      &-default,
+      &-dashed {
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          color: @btn-default-color;
+          border-color: @btn-default-border;
+        }
+      }
+
+      &-link {
+        &:hover,
+        &:focus,
+        &:active,
+        &:first-child ~ .@{btn-prefix-cls}-group-loading-icon {
+          color: @link-color;
+        }
+      }
+
+      &-primary {
+        &:first-child ~ .@{btn-prefix-cls}-group-loading-icon {
+          color: @btn-primary-color;
+        }
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          background-color: @btn-primary-bg;
+          border-color: @btn-primary-bg;
+        }
+      }
+
+      &-dangerous {
+        &:first ~ .@{btn-prefix-cls}-group-loading-icon {
+          color: @error-color;
+        }
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          color: @error-color;
+          border-color: @error-color;
+
+          &.@{btn-prefix-cls}-primary {
+            color: @btn-danger-color;
+            background-color: @btn-danger-bg;
+          }
+        }
+      }
+    }
+
+    &-lg {
+      .btn-group-loading-szie(@btn-prefix-cls, @btn-font-size-lg, @btn-padding-horizontal-lg);
+    }
+
+    &-sm {
+      .btn-group-loading-szie(@btn-prefix-cls, @btn-font-size-sm, @btn-padding-horizontal-sm);
+    }
   }
 
   // http://stackoverflow.com/a/21281554/3040605
