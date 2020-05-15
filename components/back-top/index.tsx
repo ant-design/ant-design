@@ -21,11 +21,11 @@ export interface BackTopProps {
 const BackTop: React.FC<BackTopProps> = props => {
   const [visible, setVisible] = React.useState(false);
 
-  let scrollEvent: any;
-  let node: HTMLDivElement;
+  const ref = React.createRef<HTMLDivElement>();
+  const scrollEvent = React.useRef<any>();
 
   const getDefaultTarget = () => {
-    return node && node.ownerDocument ? node.ownerDocument : window;
+    return ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
   };
 
   const handleScroll = throttleByAnimationFrame(
@@ -37,13 +37,13 @@ const BackTop: React.FC<BackTopProps> = props => {
   );
 
   const bindScrollEvent = () => {
-    if (scrollEvent) {
-      scrollEvent.remove();
+    if (scrollEvent.current) {
+      scrollEvent.current.remove();
     }
     const { target } = props;
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
-    scrollEvent = addEventListener(container, 'scroll', (e: React.UIEvent<HTMLElement>) => {
+    scrollEvent.current = addEventListener(container, 'scroll', (e: React.UIEvent<HTMLElement>) => {
       handleScroll(e);
     });
     handleScroll({
@@ -54,8 +54,8 @@ const BackTop: React.FC<BackTopProps> = props => {
   React.useEffect(() => {
     bindScrollEvent();
     return () => {
-      if (scrollEvent) {
-        scrollEvent.remove();
+      if (scrollEvent.current) {
+        scrollEvent.current.remove();
       }
       (handleScroll as any).cancel();
     };
@@ -110,7 +110,7 @@ const BackTop: React.FC<BackTopProps> = props => {
   ]);
 
   return (
-    <div {...divProps} className={classString} onClick={scrollToTop}>
+    <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       {renderChildren({ prefixCls })}
     </div>
   );
