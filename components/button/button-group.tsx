@@ -56,8 +56,8 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
  
   return (
     <div {...others} className={classes}>
-      {loading && <LoadingIcon existIcon={false} prefixCls={prefixCls} loading={loading} />}
       {children}
+      {loading && <LoadingIcon existIcon={false} prefixCls={prefixCls} loading={loading} />}
     </div>   
   );
 }
