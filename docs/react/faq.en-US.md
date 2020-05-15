@@ -37,21 +37,6 @@ No, we follow Ant Design specification. https://github.com/ant-design/ant-design
 
 You can override its style but we don't recommend doing so. antd is not only a set of React components but also a design specification.
 
-### I just want to use `Menu`/`Button`(etc.), but it seems that I have to import the whole of antd and its style.
-
-Try [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), or import what you need in this way:
-
-```jsx
-import Menu from 'antd/es/menu';
-import 'antd/es/menu/style/css';
-```
-
-or (ES6 way with tree shaking):
-
-```jsx
-import { Menu, Breadcrumb, Icon } from 'antd';
-```
-
 ### How to replace Moment.js to Day.js to reduce bundle size？
 
 Please refer to [Replace Moment.js](/docs/react/replace-moment).
