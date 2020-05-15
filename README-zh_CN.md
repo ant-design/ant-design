@@ -31,7 +31,7 @@
 - 🌍 数十个国际化语言支持。
 - 🎨 深入每个细节的主题定制能力。
 
-## 🖥 支持环境
+## 🖥 兼容环境
 
 - 现代浏览器和 IE11（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
 - 支持服务端渲染。
