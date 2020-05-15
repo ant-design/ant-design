@@ -3,7 +3,7 @@ import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
@@ -18,7 +18,7 @@ export interface BackTopProps {
   visible?: boolean; // Only for test. Don't use it.
 }
 
-const BackTop = React.forwardRef<unknown, BackTopProps>((props, ref) => {
+const BackTop: React.FC<BackTopProps> = props => {
   const [visible, setVisible] = React.useState(false);
 
   let scrollEvent: any;
@@ -70,13 +70,13 @@ const BackTop = React.forwardRef<unknown, BackTopProps>((props, ref) => {
     }
   };
 
-  throttleByAnimationFrameDecorator();
-
-  const handleScroll = (e: React.UIEvent<HTMLElement> | { target: any }) => {
-    const { visibilityHeight = 0 } = props;
-    const scrollTop = getScroll(e.target, true);
-    setVisible(scrollTop > visibilityHeight);
-  };
+  const handleScroll = throttleByAnimationFrame(
+    (e: React.UIEvent<HTMLElement> | { target: any }) => {
+      const { visibilityHeight = 0 } = props;
+      const scrollTop = getScroll(e.target, true);
+      setVisible(scrollTop > visibilityHeight);
+    },
+  );
 
   const renderChildren = ({ prefixCls }: { prefixCls: string }) => {
     const { children } = props;
@@ -110,11 +110,11 @@ const BackTop = React.forwardRef<unknown, BackTopProps>((props, ref) => {
   ]);
 
   return (
-    <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
+    <div {...divProps} className={classString} onClick={scrollToTop}>
       {renderChildren({ prefixCls })}
     </div>
   );
-});
+};
 
 BackTop.defaultProps = {
   visibilityHeight: 400,

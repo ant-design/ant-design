@@ -18,9 +18,6 @@ describe('BackTop', () => {
     });
     window.scrollTo(0, 400);
     expect(document.documentElement.scrollTop).toBe(400);
-    // trigger scroll manually
-    wrapper.instance().handleScroll();
-    await sleep();
     wrapper.find('.ant-back-top').simulate('click');
     await sleep(500);
     expect(document.documentElement.scrollTop).toBe(0);
@@ -36,29 +33,9 @@ describe('BackTop', () => {
     });
     document.dispatchEvent(new Event('scroll'));
     window.scrollTo(0, 400);
-    // trigger scroll manually
-    wrapper.instance().handleScroll();
-    await sleep();
     wrapper.find('.ant-back-top').simulate('click');
     expect(onClick).toHaveBeenCalled();
     scrollToSpy.mockRestore();
-  });
-
-  it('should be able to update target', async () => {
-    const wrapper = mount(<BackTop />);
-    wrapper.instance().handleScroll = jest.fn();
-    const container = document.createElement('div');
-    wrapper.setProps({ target: () => container });
-    expect(wrapper.instance().handleScroll).toHaveBeenLastCalledWith({
-      target: container,
-    });
-    container.dispatchEvent(new Event('scroll'));
-    expect(wrapper.instance().handleScroll).toHaveBeenLastCalledWith(
-      expect.objectContaining({
-        currentTarget: container,
-        target: container,
-      }),
-    );
   });
 
   it('invalid target', async () => {
