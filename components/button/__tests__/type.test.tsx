@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { act } from 'react-dom/test-utils';
 import { mount, render } from 'enzyme';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
@@ -8,6 +9,40 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 import { SizeType } from '../../config-provider/SizeContext';
 
+function loadingTest(Component: React.ComponentType, className: string) {
+  describe(`Component loading`, () => {
+    it(`component should support to change loading`, async () => {
+      const wrapper = mount(<Component />);
+      wrapper.setProps({ loading: true });
+      wrapper.update();
+      expect(wrapper.find(className).length).toBe(1);
+      wrapper.setProps({ loading: false });
+      wrapper.update();
+      expect(wrapper.find(className).length).toBe(0);
+      wrapper.setProps({ loading: { delay: 50 } });
+      wrapper.update();
+      expect(wrapper.find(className).length).toBe(0);
+      await act(async () => {
+        await sleep(50);
+      });
+      wrapper.update();
+      expect(wrapper.find(className).length).toBe(1);
+      wrapper.setProps({ loading: false });
+
+      // Suppress act warning. 
+      // https://github.com/enzymejs/enzyme/issues/2153
+      await act(async () => {
+        await sleep(50);
+      });
+      wrapper.update();
+      expect(wrapper.find(className).length).toBe(0);
+      expect(() => {
+        wrapper.unmount();
+      }).not.toThrow();
+    });
+  });
+}
+
 describe('Button', () => {
   mountTest(Button);
   mountTest(() => <Button size="large" />);
@@ -16,6 +51,8 @@ describe('Button', () => {
   mountTest(() => <Button.Group size="large" />);
   mountTest(() => <Button.Group size="small" />);
   mountTest(() => <Button.Group size="middle" />);
+  loadingTest(Button, '.ant-btn-loading');
+  loadingTest(Button.Group, '.ant-btn-group-loading');
 
   rtlTest(Button);
   rtlTest(() => <Button size="large" />);
@@ -214,29 +251,6 @@ describe('Button', () => {
     );
 
     expect(wrapper.render()).toMatchSnapshot();
-  });
-
-  it('should support to change loading', async () => {
-    const wrapper = mount(<Button>Button</Button>);
-    wrapper.setProps({ loading: true });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
-    wrapper.setProps({ loading: false });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
-    wrapper.setProps({ loading: { delay: 50 } });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
-    await sleep(50);
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
-    wrapper.setProps({ loading: false });
-    await sleep(50);
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
-    expect(() => {
-      wrapper.unmount();
-    }).not.toThrow();
   });
 
   it('should warning when pass a string as icon props', () => {
