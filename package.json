@@ -13,7 +13,7 @@
     "react-component",
     "ui"
   ],
-  "homepage": "http://ant.design/",
+  "homepage": "https://ant.design/",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
@@ -128,7 +128,7 @@
     "rc-notification": "~4.3.0",
     "rc-pagination": "~2.2.0",
     "rc-picker": "~1.4.0",
-    "rc-progress": "~2.6.0",
+    "rc-progress": "~3.0.0",
     "rc-rate": "~2.6.0",
     "rc-resize-observer": "^0.2.0",
     "rc-select": "~10.3.0",

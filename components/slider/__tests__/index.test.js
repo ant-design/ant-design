@@ -5,6 +5,7 @@ import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import focusTest from '../../../tests/shared/focusTest';
+import SliderTooltip from '../SliderTooltip';
 import { sleep } from '../../../tests/utils';
 
 describe('Slider', () => {
@@ -41,10 +42,19 @@ describe('Slider', () => {
   });
 
   it('should keepAlign by calling forcePopupAlign', async () => {
-    const wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
-    wrapper.find('Tooltip').instance().tooltip.forcePopupAlign = jest.fn();
+    let ref;
+    mount(
+      <SliderTooltip
+        title="30"
+        visible
+        ref={node => {
+          ref = node;
+        }}
+      />,
+    );
+    ref.forcePopupAlign = jest.fn();
     await sleep(20);
-    expect(wrapper.find('Tooltip').instance().tooltip.forcePopupAlign).toHaveBeenCalled();
+    expect(ref.forcePopupAlign).toHaveBeenCalled();
   });
 
   it('tipFormatter should not crash with undefined value', () => {
