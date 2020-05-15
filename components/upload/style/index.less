@@ -303,8 +303,13 @@
 
       .@{iconfont-css-prefix} {
         font-size: 26px;
+      }
+    }
+
+    .@{upload-item}-error .@{upload-item}-thumbnail {
+      .@{iconfont-css-prefix} {
         svg path {
-          fill: @error-hover-color;
+          fill: color(~`colorPalette('@{error-color}', 1) `);
           &:first-child,
           &:last-child {
             fill: @error-color;
