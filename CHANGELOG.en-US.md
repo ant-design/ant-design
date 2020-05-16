@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 4.2.3
+
+`2020-05-16`
+
+- 🐞 Refactor `rc-progress` to resolve `h3g is not defined` error in `<script src="antd.min.js" />`. [#24127](https://github.com/ant-design/ant-design/pull/24127)
+- 📖 Rewrote [Use in create-react-app](https://ant.design/docs/react/use-with-create-react-app). [#24184](https://github.com/ant-design/ant-design/pull/24184)
+- Drawer
+  - 🐞 Fix Drawer `getContainer={false}` height overflow issue. [#24082](https://github.com/ant-design/ant-design/pull/24082)
+  - 🐞 Fix Drawer `mask={false}` animation not working. [#24082](https://github.com/ant-design/ant-design/pull/24082)
+- BackTop
+  - 🛠 Refactor BackTop with hooks. [#23575](https://github.com/ant-design/ant-design/pull/23575)
+  - 🐞 Fix BackTop not working in iframe of Chrome. [#24194](https://github.com/ant-design/ant-design/pull/24194)
+- DatePicker
+  - 🐞 Fix DatePicker with `showToday` not working with `disabledDate`. [#24190](https://github.com/ant-design/ant-design/pull/24190)
+  - 🐞 Fix DatePicker `renderExtraFooter` with long content exceed content width. [#24145](https://github.com/ant-design/ant-design/pull/24145)
+- Button
+  - 🐞 Fix small Button align issue when customize theme. [#24097](https://github.com/ant-design/ant-design/pull/24097)
+  - 🐞 Fix Button children not working with Tooltip. [#24095](https://github.com/ant-design/ant-design/pull/24095)
+- 🛠 Refactor Tooltip with hooks. [#23699](https://github.com/ant-design/ant-design/pull/23699)
+- 🐞 Avoid `disabled` Upload.Dragger being triggered by clicking Form `label`. [#24202](https://github.com/ant-design/ant-design/pull/24202)
+- 🐞 Fix Select selected option not interactive (such as `title` not working). [#24170](https://github.com/ant-design/ant-design/pull/24170)
+- 🐞 Fix Switch shake in Safari and iOS Chrome. [#24122](https://github.com/ant-design/ant-design/pull/24122) [@lexlexa](https://github.com/lexlexa)
+- 🐞 Carousel upgrade to `react-slick@0.26.1` to resolve some problems. [#24067](https://github.com/ant-design/ant-design/pull/24067)
+- 🐞 Cascader will display `defaultValue` instead of empty string when no matched options. [#24058](https://github.com/ant-design/ant-design/pull/24058) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🌎 Improve `zh_TW` localisations. [#24065](https://github.com/ant-design/ant-design/pull/24065) [@wx1322](https://github.com/wx1322)
+- 🐞 Fix Table `onChange` pagination type. [#24114](https://github.com/ant-design/ant-design/pull/24114) [@sorteam](https://github.com/sorteam)
+- 💄 Add less variable `@card-head-extra-color`. [#24189](https://github.com/ant-design/ant-design/pull/24189)
+- 💄 Adjust Pagination simple mode background to transparent. [#24152](https://github.com/ant-design/ant-design/pull/24152)
+- 💄 Fix dark Menu link color. [#24110](https://github.com/ant-design/ant-design/pull/24110)
+- RTL
+  - 💄 Fix Dropdown.Button default menu placement in RTL. [#24150](https://github.com/ant-design/ant-design/pull/24150)
+  - 💄 Fix Menu `border` in RTL. [#24101](https://github.com/ant-design/ant-design/pull/24101)
+  - 💄 Optimize Select multiple tag style in RTL. [#24112](https://github.com/ant-design/ant-design/pull/24112)
+  - 💄 Optimize Typography `expand` style in RTL. [#24084](https://github.com/ant-design/ant-design/pull/24084)
+  - 💄 Optimize Pagination slash style in RTL. [#24154](https://github.com/ant-design/ant-design/pull/24154)
+
 ## 4.2.2
 
 `2020-05-11`
@@ -52,8 +88,8 @@ timeline: true
 - 🐞 Fix Slider `marks` selected problem when dragging. [#23773](https://github.com/ant-design/ant-design/pull/23773)
 - 🛠 Timeline refactors with React Hooks. [#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
 - 🌎 Localization
-  - 🌐 Add Farsi `fa_IR` default locale template localisations. [#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
-  - 🌐 Add default `en` default locale template localisations for Form. [#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
+  - 🇮🇷 Add Farsi `fa_IR` default locale template localisations. [#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
+  - 🇺🇸 Add default `en` default locale template localisations for Form. [#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
 - 📦 Reduce bundle size
   - 🗑 Reduce bundle size via removing `react-lifecycles-compat`. [#23969](https://github.com/ant-design/ant-design/pull/23969)
   - 🛠 Reduce bundle size via excluding `package.json` from source code. [#23957](https://github.com/ant-design/ant-design/pull/23957)
