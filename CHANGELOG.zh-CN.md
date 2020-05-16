@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.26.17
+
+`2020-05-16`
+
+- 🐞 修复 Upload.Dragger 禁用时依然会被 Form `label` 触发的问题。[#24202](https://github.com/ant-design/ant-design/pull/24202)
+- 🐞 修复 Tabs 开启动画时 Safair 下无法显示的问题。[#23151](https://github.com/ant-design/ant-design/pull/23151)
+- 🐞 修复 Form.Item 不设置 `hasFeedback` 时校验图标闪动问题。[#23924](https://github.com/ant-design/ant-design/pull/23924)
+- 🐞 修复 `loading` Button 使用 Badge 时的样式问题。[#23691](https://github.com/ant-design/ant-design/pull/23691)
+
 ## 3.26.16
 
 `2020-04-26`
