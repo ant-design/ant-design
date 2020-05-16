@@ -13,7 +13,6 @@
   line-height: 1;
 
   &-count {
-    z-index: @zindex-badge;
     min-width: @badge-height;
     height: @badge-height;
     padding: 0 6px;
@@ -37,7 +36,6 @@
   }
 
   &-dot {
-    z-index: @zindex-badge;
     width: @badge-dot-size;
     height: @badge-dot-size;
     background: @highlight-color;
@@ -51,6 +49,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: @zindex-badge;
     transform: translate(50%, -50%);
     transform-origin: 100% 0%;
   }
