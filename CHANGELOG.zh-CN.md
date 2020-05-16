@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 4.2.3
+
+`2020-05-16`
+
+- 🐞 重构 `rc-progress` 以解决 `<script src="antd.min.js" />` 会抛出 `h3g is not defined` 的问题。[#24127](https://github.com/ant-design/ant-design/pull/24127)
+- 📖 重写了 [在 create-react-app 中使用](https://ant.design/docs/react/use-with-create-react-app-cn)。[#24184](https://github.com/ant-design/ant-design/pull/24184)
+- Drawer
+  - 🐞 修复 Drawer `getContainer={false}` 时的高度问题。[#24082](https://github.com/ant-design/ant-design/pull/24082)
+  - 🐞 修复 Drawer `mask={false}` 时隐藏动画不生效的问题。[#24082](https://github.com/ant-design/ant-design/pull/24082)
+- BackTop
+  - 🛠 BackTop 使用 hooks 重构。[#23575](https://github.com/ant-design/ant-design/pull/23575)
+  - 🐞 修复 BackTop 在 Chrome 的 iframe 里不生效的问题。[#24194](https://github.com/ant-design/ant-design/pull/24194)
+- DatePicker
+  - 🐞 修复 DatePicker `disabledDate` 不会作用到 `showToday` 上的问题。[#24190](https://github.com/ant-design/ant-design/pull/24190)
+  - 🐞 修复 DatePicker `renderExtraFooter` 内容过长超出容器宽度的问题。[#24145](https://github.com/ant-design/ant-design/pull/24145)
+- Button
+  - 🐞 修复 Button 内图标无法使用 Tooltip 的问题。[#24095](https://github.com/ant-design/ant-design/pull/24095)
+  - 🐞 修复定制主题时小号 Button 错位的问题。[#24097](https://github.com/ant-design/ant-design/pull/24097)
+- 🛠 Tooltip 使用 hooks 重构。[#23699](https://github.com/ant-design/ant-design/pull/23699)
+- 🐞 修复 Upload.Dragger 禁用时依然会被 Form `label` 触发的问题。[#24202](https://github.com/ant-design/ant-design/pull/24202)
+- 🐞 修复 Select 回填选项无法进行交互的问题（如 `title` 不生效）。[#24170](https://github.com/ant-design/ant-design/pull/24170)
+- 🐞 修复 Switch 在 Safari 和 iOS Chrome 上点击时错位的问题。[#24122](https://github.com/ant-design/ant-design/pull/24122) [@lexlexa](https://github.com/lexlexa)
+- 🐞 Carousel 更新依赖到 `react-slick@0.26.1` 以修正一些问题。[#24067](https://github.com/ant-design/ant-design/pull/24067)
+- 🐞 Cascader 没有匹配任何选项时展示 `defaultValue` 而不是空字符串。[#24058](https://github.com/ant-design/ant-design/pull/24058) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🌎 完善繁体中文国际化。[#24065](https://github.com/ant-design/ant-design/pull/24065) [@wx1322](https://github.com/wx1322)
+- 🐞 修复 Table `onChange` pagination 参数定义。[#24114](https://github.com/ant-design/ant-design/pull/24114) [@sorteam](https://github.com/sorteam)
+- 💄 新增 less 变量 `@card-head-extra-color`。[#24189](https://github.com/ant-design/ant-design/pull/24189)
+- 💄 调整 Pagination 简洁模式下按钮的背景色为透明。[#24152](https://github.com/ant-design/ant-design/pull/24152)
+- 💄 修复暗色 Menu 内的链接颜色。[#24110](https://github.com/ant-design/ant-design/pull/24110)
+- RTL
+  - 💄 修复 Dropdown.Button 下拉框在 RTL 模式下默认位置。[#24150](https://github.com/ant-design/ant-design/pull/24150)
+  - 💄 优化 Pagination 分隔符在 RTL 下的样式。[#24154](https://github.com/ant-design/ant-design/pull/24154)
+  - 💄 修复 Menu 在 RTL 下的 `border` 样式。[#24101](https://github.com/ant-design/ant-design/pull/24101)
+  - 💄 优化 Select 多选项在 RTL 模式下样式。[#24112](https://github.com/ant-design/ant-design/pull/24112)
+  - 💄 优化 Typography `expand` 在 RTL 下的样式。[#24084](https://github.com/ant-design/ant-design/pull/24084)
+
 ## 4.2.2
 
 `2020-05-11`
@@ -52,8 +88,8 @@ timeline: true
 - 🐞 修复 Slider 拖拽中选中 `marks` 文本的问题。[#23773](https://github.com/ant-design/ant-design/pull/23773)
 - 🛠 Timeline 使用 React Hooks 重构。[#23631](https://github.com/ant-design/ant-design/pull/23631) [@hengkx](https://github.com/hengkx)
 - 🌎 国际化
-  - 🌐 增加波斯语 `fa_IR` 国际化默认提示模板。[#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
-  - 🌐 增加 Form `en` 国际化默认提示模板[#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
+  - 🇮🇷 增加波斯语 `fa_IR` 国际化默认提示模板。[#23926](https://github.com/ant-design/ant-design/pull/23926) [@NarimanMov](https://github.com/NarimanMov)
+  - 🇺🇸 增加 Form `en` 国际化默认提示模板[#23859](https://github.com/ant-design/ant-design/pull/23859) [@mjfwebb](https://github.com/mjfwebb)
 - 📦 包体积优化
   - 🗑 移除 `react-lifecycles-compat` 依赖以优化包体积。[#23969](https://github.com/ant-design/ant-design/pull/23969)
   - 🛠 源码中不再引用 `package.json` 从而优化了一点包体积。[#23957](https://github.com/ant-design/ant-design/pull/23957)
