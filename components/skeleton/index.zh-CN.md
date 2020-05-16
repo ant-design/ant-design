@@ -26,6 +26,7 @@ cols: 1
 | loading | 为 `true` 时，显示占位图。反之则直接展示子组件 | boolean | - |
 | paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
 | title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| round | 为 `true` 时，段落和标题显示圆角 | boolean | false |
 
 ### SkeletonAvatarProps
 

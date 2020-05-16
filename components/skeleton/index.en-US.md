@@ -25,6 +25,7 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | loading | Display the skeleton when `true` | boolean | - |
 | paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
 | title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| round | Show paragraph and title radius when `true` | boolean | false |
 
 ### SkeletonAvatarProps
 

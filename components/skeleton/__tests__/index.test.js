@@ -28,6 +28,11 @@ describe('Skeleton', () => {
     expect(wrapperSmall.render()).toMatchSnapshot();
   });
 
+  it('should round title and paragraph', () => {
+    const wrapperSmall = genSkeleton({ round: true, title: true, paragraph: true });
+    expect(wrapperSmall.render()).toMatchSnapshot();
+  })
+
   describe('avatar', () => {
     it('size', () => {
       const wrapperSmall = genSkeleton({ avatar: { size: 'small' } });
