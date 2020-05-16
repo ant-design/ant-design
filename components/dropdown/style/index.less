@@ -241,8 +241,10 @@
 }
 
 .@{dropdown-prefix-cls}-trigger,
-.@{dropdown-prefix-cls}-link {
+.@{dropdown-prefix-cls}-link,
+.@{dropdown-prefix-cls}-button {
   > .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
+    vertical-align: baseline;
     .iconfont-size-under-12px(10px);
   }
 }
@@ -254,10 +256,6 @@
     > .@{ant-prefix}-btn:last-child:not(:first-child):not(.@{ant-prefix}-btn-icon-only) {
     padding-right: @padding-xs;
     padding-left: @padding-xs;
-  }
-
-  .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
-    .iconfont-size-under-12px(10px);
   }
 }
 
