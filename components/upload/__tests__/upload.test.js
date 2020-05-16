@@ -34,11 +34,11 @@ describe('Upload', () => {
     expect(ref).toBeDefined();
   });
 
-  it('return promise in beforeUpload', done => {
+  it('return promise in beforeUpload', (done) => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: () => new Promise(resolve => setTimeout(() => resolve('success'), 100)),
+      beforeUpload: () => new Promise((resolve) => setTimeout(() => resolve('success'), 100)),
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
@@ -61,11 +61,11 @@ describe('Upload', () => {
     });
   });
 
-  it('should update progress in IE', done => {
+  it('should update progress in IE', (done) => {
     const originSetInterval = window.setInterval;
     process.env.TEST_IE = true;
     Object.defineProperty(window, 'setInterval', {
-      value: fn => fn(),
+      value: (fn) => fn(),
     });
     const props = {
       action: 'http://upload.com',
@@ -92,7 +92,7 @@ describe('Upload', () => {
     });
   });
 
-  it('beforeUpload can be falsy', done => {
+  it('beforeUpload can be falsy', (done) => {
     const props = {
       action: 'http://upload.com',
       beforeUpload: false,
@@ -116,12 +116,12 @@ describe('Upload', () => {
     });
   });
 
-  it('upload promise return file in beforeUpload', done => {
+  it('upload promise return file in beforeUpload', (done) => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: file =>
-        new Promise(resolve =>
+      beforeUpload: (file) =>
+        new Promise((resolve) =>
           setTimeout(() => {
             const result = file;
             result.name = 'test.png';
@@ -151,7 +151,7 @@ describe('Upload', () => {
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is false', done => {
+  it('should not stop upload when return value of beforeUpload is false', (done) => {
     const fileList = [
       {
         uid: 'bar',
@@ -169,7 +169,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file, fileList: updatedFileList }) => {
         expect(file instanceof File).toBe(true);
-        expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
+        expect(updatedFileList.map((f) => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toHaveBeenCalled();
         done();
       },
@@ -188,7 +188,7 @@ describe('Upload', () => {
     });
   });
 
-  it('should increase percent automatically when call autoUpdateProgress in IE', done => {
+  it('should increase percent automatically when call autoUpdateProgress in IE', (done) => {
     let uploadInstance;
     let lastPercent = -1;
     const props = {
@@ -223,7 +223,7 @@ describe('Upload', () => {
     uploadInstance = wrapper.instance();
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', done => {
+  it('should not stop upload when return value of beforeUpload is not false', (done) => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
@@ -293,7 +293,7 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
-  it('should not have id if upload is disabled, avoid being triggered by label', () => {
+  it('should not have id if Upload is disabled, avoid being triggered by label', () => {
     // eslint-disable-next-line
     class Demo extends React.Component {
       render() {
@@ -310,6 +310,37 @@ describe('Upload', () => {
                 <Upload disabled={disabled}>
                   <div>upload</div>
                 </Upload>,
+              )}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+    const WrappedDemo = Form.create()(Demo);
+    const wrapper = mount(<WrappedDemo />);
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.find('input#upload').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/24197
+  it('should not have id if Upload.Dragger is disabled, avoid being triggered by label', () => {
+    // eslint-disable-next-line
+    class Demo extends React.Component {
+      render() {
+        const {
+          form: { getFieldDecorator },
+          disabled,
+        } = this.props;
+        return (
+          <Form>
+            <Form.Item label="Upload">
+              {getFieldDecorator('upload', {
+                valuePropName: 'fileList',
+              })(
+                <Upload.Dragger disabled={disabled}>
+                  <div>upload</div>
+                </Upload.Dragger>,
               )}
             </Form.Item>
           </Form>
@@ -348,7 +379,7 @@ describe('Upload', () => {
     it('should be able to copy file instance', () => {
       const file = new File([], 'aaa.zip');
       const copiedFile = fileToObject(file);
-      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
+      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach((key) => {
         expect(key in copiedFile).toBe(true);
       });
     });
@@ -455,7 +486,7 @@ describe('Upload', () => {
     expect(linkNode.props().rel).toBe('noopener');
   });
 
-  it('should not stop remove when return value of onRemove is false', done => {
+  it('should not stop remove when return value of onRemove is false', (done) => {
     const mockRemove = jest.fn(() => false);
     const props = {
       onRemove: mockRemove,
@@ -484,13 +515,13 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/18902
-  it('should not abort uploading until return value of onRemove is resolved as true', done => {
+  it('should not abort uploading until return value of onRemove is resolved as true', (done) => {
     let wrapper;
 
     const props = {
       onRemove: () =>
         new Promise(
-          resolve =>
+          (resolve) =>
             setTimeout(() => {
               wrapper.update();
               expect(props.fileList).toHaveLength(1);
@@ -519,7 +550,7 @@ describe('Upload', () => {
     wrapper.find('div.ant-upload-list-item i.anticon-delete').simulate('click');
   });
 
-  it('should not stop download when return use onDownload', done => {
+  it('should not stop download when return use onDownload', (done) => {
     const mockRemove = jest.fn(() => false);
     const props = {
       onRemove: mockRemove,
