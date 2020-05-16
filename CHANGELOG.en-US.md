@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.26.17
+
+`2020-05-16`
+
+- 🐞 Avoid disabled Upload.Dragger being triggered by clicking Form `label`. [#24202](https://github.com/ant-design/ant-design/pull/24202)
+- 🐞 Fix Tabs cannot be displayed in Safair. [#23151](https://github.com/ant-design/ant-design/pull/23151)
+- 🐞 Fix Form.Item control icon shaking when `hasFeedback` is not set. [#23924](https://github.com/ant-design/ant-design/pull/23924)
+- 🐞 Fix `loading` Button using Badge style. [#23691](https://github.com/ant-design/ant-design/pull/23691)
+
 ## 3.26.16
 
 `2020-04-26`
