@@ -81,6 +81,19 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
     </ul>
   </div>
   <div
+    class="ant-typography"
+  >
+    Press 
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+     to exist...
+  </div>
+  <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
   />
@@ -167,6 +180,19 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         </a>
       </li>
     </ul>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    按
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+    键退出阅读……
   </div>
 </article>
 `;
@@ -705,6 +731,18 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       <code>
         Ant Design
       </code>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Ant Design
+      </kbd>
     </span>
   </div>
   <div

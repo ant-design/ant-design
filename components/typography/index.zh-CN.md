@@ -19,13 +19,14 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可设置复制文本以回调函数 | boolean \| { text: string, onCopy: Function } | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
 | ellipsis | 设置自动溢出省略 | boolean | false |  |
 | mark | 添加标记样式 | boolean | false |  |
-| code | 添加代码样式 | boolean | false |  |
+| keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |

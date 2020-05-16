@@ -27,6 +27,7 @@ ReactDOM.render(
     <Text disabled>Ant Design</Text>
     <Text mark>Ant Design</Text>
     <Text code>Ant Design</Text>
+    <Text keyboard>Ant Design</Text>
     <Text underline>Ant Design</Text>
     <Text delete>Ant Design</Text>
     <Text strong>Ant Design</Text>
