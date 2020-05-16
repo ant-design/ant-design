@@ -88,7 +88,7 @@ import { Button, DatePicker } from 'antd';
 const App = () => (
   <>
     <Button type="primary">PRESS ME</Button>
-    <DatePicker />
+    <DatePicker placeholder="select date" />
   </>
 );
 ```
@@ -101,11 +101,11 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript).
+`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
 
 ## 🌍 Internationalization
 
-See [i18n](https://ant.design/docs/react/i18n).
+Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
 
 ## 🔗 Links
 
