@@ -8,6 +8,7 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+import { useCombinedRefs } from '../_util/ref';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -42,6 +43,9 @@ const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
     '`value` is not a valid prop, do you mean `checked`?',
   );
 
+  const innerRef = React.createRef<any>();
+  const mergedRef = useCombinedRefs(ref, innerRef);
+
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -61,16 +65,20 @@ const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
+  const switchNode = (
+    <RcSwitch
+      {...omit(props, ['loading'])}
+      prefixCls={prefixCls}
+      className={classes}
+      disabled={disabled || loading}
+      ref={mergedRef}
+      loadingIcon={loadingIcon}
+    />
+  );
+
   return (
-    <Wave insertExtraNode>
-      <RcSwitch
-        {...omit(props, ['loading'])}
-        prefixCls={prefixCls}
-        className={classes}
-        disabled={disabled || loading}
-        ref={ref}
-        loadingIcon={loadingIcon}
-      />
+    <Wave innerRef={mergedRef as any} insertExtraNode>
+      {switchNode}
     </Wave>
   );
 }) as CompoundedComponent;

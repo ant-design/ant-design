@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
 import TransitionEvents from '@ant-design/css-animation/lib/Event';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig } from '../config-provider';
@@ -23,7 +22,12 @@ function isNotGrey(color: string) {
   return true;
 }
 
-export default class Wave extends React.Component<{ insertExtraNode?: boolean }> {
+interface WaveProps {
+  insertExtraNode?: boolean;
+  innerRef: React.MutableRefObject<unknown>;
+}
+
+export default class Wave extends React.Component<WaveProps> {
   private instance?: {
     cancel: () => void;
   };
@@ -41,7 +45,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   private csp?: CSPConfig;
 
   componentDidMount() {
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.props.innerRef.current as HTMLElement;
     if (!node || node.nodeType !== 1) {
       return;
     }
@@ -105,7 +109,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       return;
     }
 
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.props.innerRef.current as HTMLElement;
     if (!e || e.target !== node || this.animationStart) {
       return;
     }

@@ -269,7 +269,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     return buttonNode;
   }
 
-  return <Wave>{buttonNode}</Wave>;
+  return <Wave innerRef={buttonRef}>{buttonNode}</Wave>;
 };
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;

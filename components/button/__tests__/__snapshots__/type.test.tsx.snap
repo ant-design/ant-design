@@ -320,7 +320,16 @@ exports[`Button should render empty button without errors 1`] = `
   htmlType="button"
   loading={false}
 >
-  <Wave>
+  <Wave
+    innerRef={
+      Object {
+        "current": <button
+          class="ant-btn"
+          type="button"
+        />,
+      }
+    }
+  >
     <button
       className="ant-btn"
       onClick={[Function]}

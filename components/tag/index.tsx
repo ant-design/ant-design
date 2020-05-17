@@ -13,6 +13,7 @@ import {
 } from '../_util/colors';
 import Wave from '../_util/wave';
 import { LiteralUnion } from '../_util/type';
+import { useCombinedRefs } from '../_util/ref';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -38,6 +39,9 @@ export interface TagType
 const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (props, ref) => {
   const configProps = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
+
+  const innerRef = React.useRef<any>(null);
+  const mergedRef = useCombinedRefs(ref, innerRef);
 
   React.useEffect(() => {
     if ('visible' in props) {
@@ -112,7 +116,7 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (props, r
   );
 
   return isNeedWave ? (
-    <Wave>
+    <Wave innerRef={mergedRef}>
       <span {...tagProps} ref={ref} className={getTagClassName(configProps)} style={getTagStyle()}>
         {kids}
         {renderCloseIcon()}
