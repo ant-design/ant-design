@@ -117,9 +117,16 @@ module.exports = {
 
 According to the [Customize Theme documentation](/docs/react/customize-theme), we need to modify less variables via loader like [less-loader](https://github.com/webpack/less-loader). We can use [craco-less](https://github.com/DocSpring/craco-less) to achieve that,
 
-First we should import less other then css.
+First we should modify `src/App.css` to `src/App.less`, then import less file instead.
 
 ```diff
+/* src/App.js */
+- import './App.css';
++ import './App.less';
+```
+
+```diff
+/* src/App.less */
 - @import '~antd/dist/antd.css';
 + @import '~antd/dist/antd.less';
 ```
