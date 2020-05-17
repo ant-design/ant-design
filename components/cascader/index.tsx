@@ -19,7 +19,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { replaceElement } from '../_util/reactNode';
 
 export interface CascaderOptionType {
-  value?: string;
+  value?: string | number;
   label?: React.ReactNode;
   disabled?: boolean;
   isLeaf?: boolean;
@@ -29,18 +29,20 @@ export interface CascaderOptionType {
 }
 
 export interface FieldNamesType {
-  value?: string;
+  value?: string | number;
   label?: string;
   children?: string;
 }
 
 export interface FilledFieldNamesType {
-  value: string;
+  value: string | number;
   label: string;
   children: string;
 }
 
 export type CascaderExpandTrigger = 'click' | 'hover';
+
+export type CascaderValueType = (string | number)[];
 
 export interface ShowSearchType {
   filter?: (inputValue: string, path: CascaderOptionType[], names: FilledFieldNamesType) => boolean;
@@ -64,11 +66,11 @@ export interface CascaderProps {
   /** 可选项数据源 */
   options: CascaderOptionType[];
   /** 默认的选中项 */
-  defaultValue?: string[];
+  defaultValue?: CascaderValueType;
   /** 指定选中项 */
-  value?: string[];
+  value?: CascaderValueType;
   /** 选择完成后的回调 */
-  onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
+  onChange?: (value: CascaderValueType, selectedOptions?: CascaderOptionType[]) => void;
   /** 选择后展示的渲染函数 */
   displayRender?: (label: string[], selectedOptions?: CascaderOptionType[]) => React.ReactNode;
   /** 自定义样式 */
@@ -110,7 +112,7 @@ export interface CascaderProps {
 export interface CascaderState {
   inputFocused: boolean;
   inputValue: string;
-  value: string[];
+  value: CascaderValueType;
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
   prevProps: CascaderProps;
@@ -264,7 +266,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     };
   }
 
-  setValue = (value: string[], selectedOptions: CascaderOptionType[] = []) => {
+  setValue = (value: CascaderValueType, selectedOptions: CascaderOptionType[] = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
