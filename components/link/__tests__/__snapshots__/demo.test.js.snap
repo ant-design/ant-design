@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/link/demo/contrast.md correctly 1`] = `
-<div
-  class="sc-bdVaJa kfHwuK"
->
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic metus. 
-  <a
-    href="./"
-  >
-    Contrast Link
-  </a>
-   lobortis varius. Cras vulputate felis et mauris tincidunt, elementum volutpat.
-</div>
-`;
-
 exports[`renders ./components/link/demo/default.md correctly 1`] = `
 <div>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic metus. 
