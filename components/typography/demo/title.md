@@ -3,6 +3,7 @@ order: 1
 title:
   zh-CN: 标题组件
   en-US: Title Component
+skip: true
 ---
 
 ## zh-CN
