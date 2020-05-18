@@ -4,10 +4,10 @@
 @switch-prefix-cls: ~'@{ant-prefix}-switch';
 @switch-duration: 0.36s;
 
-.@{switch-prefix-cls} {
-  @switch-pin-size: @switch-height - 4px;
-  @switch-sm-pin-size: @switch-sm-height - 4px;
+@switch-pin-size: @switch-height - 4px;
+@switch-sm-pin-size: @switch-sm-height - 4px;
 
+.@{switch-prefix-cls} {
   .reset-component;
 
   position: relative;
@@ -83,6 +83,20 @@
 
   &-checked &-handle {
     left: calc(100% - @switch-pin-size - @switch-padding);
+  }
+
+  &:not(&-disabled):active {
+    .@{switch-prefix-cls}-handle::before {
+      left: 0;
+      right: -30%;
+    }
+
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-handle::before {
+        left: -30%;
+        right: 0;
+      }
+    }
   }
 
   // ======================== Loading =========================
