@@ -1,6 +1,16 @@
-import { Breakpoint } from './spacing';
+import { Spacing, SpacingMap } from './spacing';
 
-export const breakpoints = {
+/**
+ * We don't want breakpoints to change based on the user's default font
+ * size, so for Breakpoints we specifically stringify them as pixels.
+ */
+export class Breakpoint extends Spacing {
+  static fromPixels(px: number) {
+    return new Breakpoint(`${px}px`);
+  }
+}
+
+export const breakpoints: SpacingMap = {
   xs: Breakpoint.fromPixels(480),
   sm: Breakpoint.fromPixels(576),
   md: Breakpoint.fromPixels(768),
