@@ -24,13 +24,6 @@
   transition: all @switch-duration;
   user-select: none;
 
-  &-inner {
-    display: block;
-    margin: 0 @switch-inner-margin-min 0 @switch-inner-margin-max;
-    color: @text-color-inverse;
-    font-size: @font-size-sm;
-  }
-
   &:focus {
     outline: 0;
     box-shadow: 0 0 0 2px fade(@switch-color, 20%);
@@ -42,10 +35,6 @@
 
   &-checked {
     background-color: @switch-color;
-
-    .@{switch-prefix-cls}-inner {
-      margin: 0 @switch-inner-margin-max 0 @switch-inner-margin-min;
-    }
   }
 
   &-loading,
@@ -56,6 +45,19 @@
       box-shadow: none;
       cursor: not-allowed;
     }
+  }
+
+  // ========================= Inner ==========================
+  &-inner {
+    display: block;
+    margin: 0 @switch-inner-margin-min 0 @switch-inner-margin-max;
+    color: @text-color-inverse;
+    font-size: @font-size-sm;
+    transition: margin @switch-duration;
+  }
+
+  &-checked &-inner {
+    margin: 0 @switch-inner-margin-max 0 @switch-inner-margin-min;
   }
 
   // ========================= Handle =========================
