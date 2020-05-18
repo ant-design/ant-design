@@ -68,7 +68,7 @@
   }
 
   &-extra-content {
-    line-height: (@remToPx * @tabs-title-font-size) * @line-height-base +
+    line-height: @tabs-title-font-size * @line-height-base +
       extract(@tabs-horizontal-padding, 1) * 2;
 
     .@{tab-prefix-cls}-new-tab {
@@ -100,13 +100,13 @@
 
   // https://github.com/ant-design/ant-design/issues/17865
   &&-large &-extra-content {
-    line-height: (@remToPx * @tabs-title-font-size-lg) * @line-height-base +
+    line-height: @tabs-title-font-size-lg * @line-height-base +
       extract(@tabs-horizontal-padding-lg, 1) * 2;
   }
 
   // https://github.com/ant-design/ant-design/issues/17865
   &&-small &-extra-content {
-    line-height: (@remToPx * @tabs-title-font-size-sm) * @line-height-base +
+    line-height: @tabs-title-font-size-sm * @line-height-base +
       extract(@tabs-horizontal-padding-sm, 1) * 2;
   }
 

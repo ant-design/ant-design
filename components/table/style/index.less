@@ -126,7 +126,7 @@
       .@{table-prefix-cls}-wrapper:only-child {
         .@{table-prefix-cls} {
           margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-            ceil((@remToPx * @font-size-sm) * 1.4));
+            ceil(@font-size-sm * 1.4));
 
           td {
             background: transparent;
@@ -412,13 +412,13 @@
     float: left;
     box-sizing: border-box;
 
-    width: ceil((@remToPx * @font-size-sm) * 1.4);
-    height: ceil((@remToPx * @font-size-sm) * 1.4);
+    width: ceil(@font-size-sm * 1.4);
+    height: ceil(@font-size-sm * 1.4);
     padding: 0;
     color: inherit;
     line-height: @font-size-sm;
     vertical-align: floor(
-      ((@remToPx * @font-size-base) - ceil((@remToPx * @font-size-sm) * 1.4)) / 2
+      (@font-size-base - ceil(@font-size-sm * 1.4)) / 2
     );
     background: @table-expand-icon-bg;
     border: @border-width-base @border-style-base @border-color-split;
@@ -476,7 +476,7 @@
 
     .@{table-prefix-cls}-row-indent + & {
       margin-top: (
-          (@remToPx * @font-size-base) * @line-height-base - ceil((@remToPx * @font-size-sm) * 1.4)
+          @font-size-base * @line-height-base - ceil(@font-size-sm * 1.4)
         ) / 2;
       margin-right: @padding-xs;
     }

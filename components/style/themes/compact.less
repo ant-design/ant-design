@@ -106,7 +106,7 @@
 @input-padding-vertical-base: 0px +
   round(
     max(
-      round((@input-height-base - (@remToPx * @font-size-base) * @line-height-base) / 2 * 10) / 10 -
+      round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
         @border-width-base,
       2
     )
@@ -235,7 +235,7 @@
 @alert-with-description-padding-vertical: 11px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
   @alert-with-description-padding-vertical 48px;
-@alert-icon-top: 7px + (@remToPx * @font-size-base) * @line-height-base / 2 - @font-size-base / 2;
+@alert-icon-top: 7px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
 @alert-with-description-icon-size: 20px;
 @alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
