@@ -1104,7 +1104,7 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-table-filter-trigger').hasClass('active')).toBeTruthy();
   });
 
-  it('filteredValue with empty array should not show the icon', () => {
+  it('filteredValue with empty array should not active the filtered icon', () => {
     const wrapper = mount(
       createTable({
         columns: [
