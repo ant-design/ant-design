@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.2.4
+
+`2020-05-18`
+
+- 🐞 回滚 Switch 以修复配置 `unCheckedChildren` 时，控制点位置样式问题。[#24242](https://github.com/ant-design/ant-design/pull/24242)
+- 💄 调整 Upload 错误状态图标的颜色默认为红色。[#24160](https://github.com/ant-design/ant-design/pull/24160)
+- 💄 向上微调 Dropdown 箭头位置。[#24215](https://github.com/ant-design/ant-design/pull/24215)
+- 🌐 Form `defaultValidateMessages` 支持 `ru_RU`。[#24219](https://github.com/ant-design/ant-design/pull/24219) [@aivinog1](https://github.com/aivinog1)
+
 ## 4.2.3
 
 `2020-05-16`
