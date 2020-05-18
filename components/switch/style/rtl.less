@@ -12,20 +12,20 @@
   }
 
   .@{switch-prefix-cls}-handle {
-    left: auto;
     right: @switch-padding;
+    left: auto;
   }
 
   &:not(&-disabled):active {
     .@{switch-prefix-cls}-handle::before {
-      left: -30%;
       right: 0;
+      left: -30%;
     }
 
     &.@{switch-prefix-cls}-checked {
       .@{switch-prefix-cls}-handle::before {
-        left: 0;
         right: -30%;
+        left: 0;
       }
     }
   }
