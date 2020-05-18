@@ -306,6 +306,20 @@
       }
     }
 
+    // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
+    .@{upload-item}-error .@{upload-item}-thumbnail {
+      .@{iconfont-css-prefix} {
+        svg path {
+          &[fill='#e6f7ff'] {
+            fill: color(~`colorPalette('@{error-color}', 1) `);
+          }
+          &[fill='#1890ff'] {
+            fill: @error-color;
+          }
+        }
+      }
+    }
+
     .@{upload-item}-icon {
       position: absolute;
       top: 50%;
