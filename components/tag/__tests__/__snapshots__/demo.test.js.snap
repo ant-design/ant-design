@@ -232,12 +232,17 @@ Array [
 `;
 
 exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
-<div>
-  <h4
-    style="margin-bottom:16px"
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Presets:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
   <div>
     <span
       class="ant-tag ant-tag-magenta"
@@ -294,12 +299,17 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     >
       purple
     </span>
-  </div>
-  <h4
-    style="margin:16px 0"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Custom:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
   <div>
     <span
       class="ant-tag ant-tag-has-color"
@@ -325,8 +335,8 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     >
       #108ee9
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
