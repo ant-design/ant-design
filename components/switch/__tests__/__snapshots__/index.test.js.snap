@@ -3,10 +3,13 @@
 exports[`Switch rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
   aria-checked="false"
-  class="ant-switch-rtl ant-switch"
+  class="ant-switch ant-switch-rtl"
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />
@@ -21,6 +24,9 @@ exports[`Switch should has click wave effect 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />

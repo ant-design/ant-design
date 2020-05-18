@@ -190,11 +190,13 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
 <div>
   <button
     aria-checked="true"
-    checked=""
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -207,6 +209,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -217,6 +222,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -227,6 +235,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
