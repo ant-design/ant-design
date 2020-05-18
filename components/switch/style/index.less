@@ -103,8 +103,8 @@
       height: @switch-sm-height - 4px;
     }
 
-    &:active::before,
-    &:active::after {
+    &:not(.@{switch-prefix-cls}-loading):active::before,
+    &:not(.@{switch-prefix-cls}-loading):active::after {
       width: 16px;
     }
   }
@@ -118,6 +118,12 @@
     .@{switch-prefix-cls}-inner {
       margin-right: 18px;
       margin-left: 3px;
+    }
+    &::after {
+      left: calc(100% - @switch-sm-height + 4px);
+    }
+    &:not(.@{switch-prefix-cls}-disabled):active::after {
+      left: calc(100% - @switch-sm-height);
     }
   }
 
@@ -141,9 +147,11 @@
     }
 
     &::after {
-      left: 100%;
+      left: calc(100% - @switch-height + 4px);
       margin-left: -1px;
-      transform: translateX(-100%);
+    }
+    &:not(.@{switch-prefix-cls}-loading):active::after {
+      left: calc(100% - @switch-height - 2px);
     }
   }
 
