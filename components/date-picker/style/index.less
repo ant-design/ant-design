@@ -7,18 +7,18 @@
 
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
-  @font-height: floor((@remToPx * @font-size) * @line-height-base) + 2;
+  @font-height: floor(@font-size * @line-height-base) + 2px;
   @padding-top: max((@input-height - @font-height) / 2, 0);
   @padding-bottom: max(@input-height - @font-height - @padding-top, 0);
   padding: @padding-top @padding-horizontal @padding-bottom;
 }
 
 .@{picker-prefix-cls} {
-  @vertical-fix-base: @input-height-base - ceil((@remToPx * @font-size-base) * @line-height-base) -
+  @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) -
     2 * @input-padding-vertical-base - 2 * @border-width-base;
-  @vertical-fix-lg: @input-height-lg - ceil((@remToPx * @font-size-lg) * @line-height-base) - 2 *
+  @vertical-fix-lg: @input-height-lg - ceil(@font-size-lg * @line-height-base) - 2 *
     @input-padding-vertical-lg - 2 * @border-width-base;
-  @vertical-fix-sm: @input-height-sm - ceil((@remToPx * @font-size-base) * @line-height-base) - 2 *
+  @vertical-fix-sm: @input-height-sm - ceil(@font-size-base * @line-height-base) - 2 *
     @input-padding-vertical-sm - 2 * @border-width-base;
   @arrow-size: 10px;
 

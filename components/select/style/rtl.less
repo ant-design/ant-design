@@ -58,7 +58,7 @@
   &.@{select-prefix-cls}-allow-clear .@{select-prefix-cls}-selector {
     .@{select-prefix-cls}-rtl& {
       padding-right: @input-padding-vertical-base;
-      padding-left: (@remToPx * @font-size-sm) + @control-padding-horizontal;
+      padding-left: @font-size-sm + @control-padding-horizontal;
     }
   }
   // ======================== Selections ========================
@@ -116,7 +116,7 @@
 }
 
 // single
-@selection-item-padding: ceil((@remToPx * @font-size-base) * 1.25);
+@selection-item-padding: ceil(@font-size-base * 1.25);
 
 .@{select-prefix-cls}-single {
   // ========================= Selector =========================
@@ -135,7 +135,7 @@
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
     .@{select-prefix-cls}-rtl& {
       right: @input-padding-horizontal-base;
-      left: @input-padding-horizontal-base + (@remToPx * @font-size-base);
+      left: @input-padding-horizontal-base + @font-size-base;
     }
   }
 
@@ -177,7 +177,7 @@
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
         .@{select-prefix-cls}-rtl& {
           padding-right: 0;
-          padding-left: (@remToPx * @font-size-base) * 1.5;
+          padding-left: @font-size-base * 1.5;
         }
       }
     }

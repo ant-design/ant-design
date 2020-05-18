@@ -1,10 +1,9 @@
-import { convertPixelsToRem } from '../../../_util/varnish/base';
 import { spacing } from './spacing';
 import { color } from './colors';
 import { fontWeight } from './fontWeight';
 
 // general
-const defaultFontSize = convertPixelsToRem(16);
+const defaultFontSize = '16px';
 const defaultFontFamily = 'Lato';
 const fontWeightRegular = fontWeight.regular;
 const fontWeightBold = fontWeight.bold;
@@ -36,37 +35,37 @@ const fallbackDefaultCodeFonts = [
 const headlineFontFamily = defaultFontFamily;
 const h1 = {
   fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(46),
-  lineHeight: convertPixelsToRem(50),
+  fontSize: '46px',
+  lineHeight: 50 / 46,
   fontWeight: fontWeightBold,
 };
 const h2 = {
   fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(36),
+  fontSize: '36px',
   lineHeight: 40 / 36,
   fontWeight: fontWeightBold,
 };
 const h3 = {
   fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(30),
+  fontSize: '30px',
   lineHeight: 36 / 30,
   fontWeight: fontWeightBold,
 };
 const h4 = {
   fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(24),
+  fontSize: '24px',
   lineHeight: 28 / 24,
   fontWeight: fontWeightBold,
 };
 const h5 = {
   fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(18),
+  fontSize: '18px',
   lineHeight: 22 / 18,
   fontWeight: fontWeightBold,
 };
 const h6 = {
   fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(13),
+  fontSize: '13px',
   lineHeight: 18 / 13,
   fontWeight: fontWeightRegular,
 };
@@ -75,17 +74,17 @@ const h6 = {
 const bodyFontFamily = defaultFontFamily;
 const bodyJumbo = {
   fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(24),
+  fontSize: '24px',
   lineHeight: 36 / 24,
 };
 const bodyBig = {
   fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(18),
+  fontSize: '18px',
   lineHeight: 27 / 18,
 };
 const body = {
   fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(16),
+  fontSize: '16px',
   lineHeight: 22 / 16,
 };
 const bodyBold = {
@@ -96,7 +95,7 @@ const bodyBold = {
 };
 const bodySmall = {
   fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(14),
+  fontSize: '14px',
   lineHeight: 20 / 14,
 };
 const bodySmallBold = {
@@ -107,12 +106,12 @@ const bodySmallBold = {
 };
 const bodyMicro = {
   fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(13),
+  fontSize: '13px',
   lineHeight: 18 / 13,
 };
 const notification = {
   fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(14),
+  fontSize: '14px',
   lineHeight: 18 / 14,
 };
 const notificationBold = {
@@ -126,13 +125,13 @@ const notificationBold = {
 const attributionFontFamily = 'Volkhov';
 const quote = {
   fontFamily: [attributionFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(30),
+  fontSize: '30px',
   lineHeight: 42 / 30,
   fontWeight: fontWeightRegular,
 };
 const author = {
   fontFamily: [attributionFontFamily, ...fallbackDefaultFonts].join(', '),
-  fontSize: convertPixelsToRem(18),
+  fontSize: '18px',
   lineHeight: 36 / 18,
 };
 
@@ -140,8 +139,8 @@ const author = {
 const codeFontFamily = 'Roboto Mono';
 const code = {
   fontFamily: [codeFontFamily, ...fallbackDefaultCodeFonts].join(', '),
-  fontSize: convertPixelsToRem(13),
-  lineHeight: convertPixelsToRem(18),
+  fontSize: '13px',
+  lineHeight: 18 / 13,
   contrastBackgroundColor: color.N10,
   contrastColor: color.N5,
   padding: spacing.lg,
