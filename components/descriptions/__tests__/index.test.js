@@ -3,7 +3,7 @@ import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);

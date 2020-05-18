@@ -103,6 +103,7 @@ const Slider = React.forwardRef<unknown, SliderProps>((props, ref) => {
       </SliderTooltip>
     );
   };
+
   const {
     prefixCls: customizePrefixCls,
     tooltipPrefixCls: customizeTooltipPrefixCls,

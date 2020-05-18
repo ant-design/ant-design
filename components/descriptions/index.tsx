@@ -7,10 +7,11 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
+import { cloneElement } from '../_util/reactNode';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
@@ -46,10 +47,10 @@ function getFilledItem(
   let clone = node;
 
   if (span === undefined || span > rowRestCol) {
-    clone = React.cloneElement(node, {
+    clone = cloneElement(node, {
       span: rowRestCol,
     });
-    warning(
+    devWarning(
       span === undefined,
       'Descriptions',
       'Sum of column `span` in a line not match `column` of Descriptions.',

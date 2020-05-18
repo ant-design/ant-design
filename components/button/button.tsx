@@ -7,9 +7,10 @@ import Group from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
+import { cloneElement } from '../_util/reactNode';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -31,7 +32,9 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
     isString(child.type) &&
     isTwoCNChar(child.props.children)
   ) {
-    return React.cloneElement(child, {}, child.props.children.split('').join(SPACE));
+    return cloneElement(child, {
+      children: child.props.children.split('').join(SPACE),
+    });
   }
   if (typeof child === 'string') {
     if (isTwoCNChar(child)) {
@@ -186,7 +189,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     ...rest
   } = props;
 
-  warning(
+  devWarning(
     !(typeof icon === 'string' && icon.length > 2),
     'Button',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
