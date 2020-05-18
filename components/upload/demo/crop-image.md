@@ -28,8 +28,8 @@ const Demo = () => {
     },
   ]);
 
-  const onChange = ({ fileList }) => {
-    setFileList(fileList);
+  const onChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
   };
 
   const onPreview = async file => {
