@@ -1777,11 +1777,13 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
     showLine: 
     <button
       aria-checked="true"
-      checked=""
       class="ant-switch ant-switch-checked"
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
@@ -1795,6 +1797,9 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />

@@ -469,11 +469,13 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
     </span>
     <button
       aria-checked="true"
-      checked=""
       class="ant-switch ant-switch-checked"
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
