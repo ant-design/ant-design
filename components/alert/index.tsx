@@ -69,7 +69,7 @@ const Alert: AlertInterface = props => {
   const [closing, setClosing] = React.useState(false);
   const [closed, setClosed] = React.useState(false);
 
-  const ref = React.createRef<HTMLElement>();
+  const ref = React.useRef<HTMLElement>();
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
