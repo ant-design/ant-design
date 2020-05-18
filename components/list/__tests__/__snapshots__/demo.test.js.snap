@@ -917,7 +917,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   class="ant-list-item-meta-title"
                 >
                   <a
-                    href="http://ant.design"
+                    href="https://ant.design"
                   >
                     ant design part 0
                   </a>
@@ -1086,7 +1086,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   class="ant-list-item-meta-title"
                 >
                   <a
-                    href="http://ant.design"
+                    href="https://ant.design"
                   >
                     ant design part 1
                   </a>
@@ -1255,7 +1255,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   class="ant-list-item-meta-title"
                 >
                   <a
-                    href="http://ant.design"
+                    href="https://ant.design"
                   >
                     ant design part 2
                   </a>

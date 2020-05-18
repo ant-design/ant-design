@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { composeRef } from '../_util/ref';
 
 export interface TypographyProps {
@@ -34,7 +34,7 @@ const Typography: React.RefForwardingComponent<{}, InternalTypographyProps> = (
   let mergedRef = ref;
 
   if (setContentRef) {
-    warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
+    devWarning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
     mergedRef = composeRef(ref, setContentRef);
   }
 

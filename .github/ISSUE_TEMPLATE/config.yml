@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Create new issue
+    url: http://new-issue.ant.design
+    about: The issue which is not created via http://new-issue.ant.design will be closed immediately.

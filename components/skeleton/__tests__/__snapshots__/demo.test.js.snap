@@ -136,6 +136,9 @@ exports[`renders ./components/skeleton/demo/element.md correctly 1`] = `
                 role="switch"
                 type="button"
               >
+                <div
+                  class="ant-switch-handle"
+                />
                 <span
                   class="ant-switch-inner"
                 />
@@ -363,6 +366,9 @@ exports[`renders ./components/skeleton/demo/element.md correctly 1`] = `
                 role="switch"
                 type="button"
               >
+                <div
+                  class="ant-switch-handle"
+                />
                 <span
                   class="ant-switch-inner"
                 />
@@ -571,6 +577,9 @@ exports[`renders ./components/skeleton/demo/element.md correctly 1`] = `
                 role="switch"
                 type="button"
               >
+                <div
+                  class="ant-switch-handle"
+                />
                 <span
                   class="ant-switch-inner"
                 />
@@ -688,6 +697,9 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />

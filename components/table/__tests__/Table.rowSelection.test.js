@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Table from '..';
 import Checkbox from '../../checkbox';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 import ConfigProvider from '../../config-provider';
 
 describe('Table.rowSelection', () => {

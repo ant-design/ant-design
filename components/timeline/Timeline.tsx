@@ -4,6 +4,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 import { ConfigContext } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -64,7 +65,7 @@ const Timeline: TimelineType = props => {
   const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
     const pendingClass = idx === itemsCount - 2 ? lastCls : '';
     const readyClass = idx === itemsCount - 1 ? lastCls : '';
-    return React.cloneElement(ele, {
+    return cloneElement(ele, {
       className: classNames([
         ele.props.className,
         !reverse && !!pending ? pendingClass : readyClass,

@@ -44,14 +44,15 @@ describe('Badge', () => {
 
   // https://github.com/ant-design/ant-design/issues/10626
   it('should be composable with Tooltip', () => {
+    const ref = React.createRef();
     const wrapper = mount(
-      <Tooltip title="Fix the error">
+      <Tooltip title="Fix the error" ref={ref}>
         <Badge status="error" />
       </Tooltip>,
     );
     wrapper.find('Badge').simulate('mouseenter');
     jest.runAllTimers();
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
   });
 
   it('should render when count is changed', () => {

@@ -9,7 +9,7 @@ import { Omit, LiteralUnion } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
@@ -153,7 +153,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   getSnapshotBeforeUpdate(prevProps: InputProps) {
     if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
-      warning(
+      devWarning(
         this.input !== document.activeElement,
         'Input',
         `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
