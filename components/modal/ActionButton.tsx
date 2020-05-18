@@ -12,7 +12,7 @@ export interface ActionButtonProps {
 
 const ActionButton: React.FC<ActionButtonProps> = props => {
   const clickedRef = React.useRef<boolean>(false);
-  const ref = React.createRef<any>();
+  const ref = React.useRef<any>();
   const [loading, setLoading] = React.useState<ButtonProps['loading']>(false);
 
   React.useEffect(() => {
@@ -26,7 +26,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
         clearTimeout(timeoutId);
       }
     };
-  }, [props.autoFocus]);
+  }, []);
 
   const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
     const { closeModal } = props;
