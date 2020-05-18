@@ -168,6 +168,7 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
+    "antd-img-crop": "^3.1.1",
     "antd-pro-merge-less": "^3.0.3",
     "antd-theme-generator": "^1.1.6",
     "babel-eslint": "^10.0.1",
