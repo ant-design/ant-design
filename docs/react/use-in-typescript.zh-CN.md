@@ -121,7 +121,7 @@ module.exports = {
 + @import '~antd/dist/antd.less';
 ```
 
-然后安装 `craco-less` 并修改 `config-overrides.js` 文件如下。
+然后安装 `craco-less` 并修改 `craco.config.js` 文件如下。
 
 ```bash
 $ yarn add craco-less
