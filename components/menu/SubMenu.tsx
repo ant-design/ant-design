@@ -4,6 +4,7 @@ import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import MenuContext, { MenuContextProps } from './MenuContext';
+import { isValidElement } from '../_util/reactNode';
 
 interface TitleEventEntity {
   key: string;
@@ -49,7 +50,7 @@ class SubMenu extends React.Component<SubMenuProps, any> {
     }
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
-    const titleIsSpan = React.isValidElement(title) && title.type === 'span';
+    const titleIsSpan = isValidElement(title) && title.type === 'span';
     return (
       <>
         {icon}

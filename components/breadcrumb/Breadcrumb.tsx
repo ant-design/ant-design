@@ -6,8 +6,9 @@ import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { Omit } from '../_util/type';
+import { cloneElement } from '../_util/reactNode';
 
 export interface Route {
   path: string;
@@ -130,7 +131,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
           return element;
         }
 
-        warning(
+        devWarning(
           element.type &&
             (element.type.__ANT_BREADCRUMB_ITEM === true ||
               element.type.__ANT_BREADCRUMB_SEPARATOR === true),
@@ -138,9 +139,9 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
           "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
         );
 
-        return React.cloneElement(element, {
+        return cloneElement(element, {
           separator,
-          key: index, // eslint-disable-line react/no-array-index-key
+          key: index,
         });
       });
     }

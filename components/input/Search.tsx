@@ -6,6 +6,7 @@ import Input, { InputProps } from './Input';
 import Button from '../button';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { replaceElement, cloneElement } from '../_util/reactNode';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -97,11 +98,9 @@ export default class Search extends React.Component<SearchProps, any> {
 
     if (suffix) {
       return [
-        React.isValidElement(suffix)
-          ? React.cloneElement(suffix, {
-              key: 'suffix',
-            })
-          : null,
+        replaceElement(suffix, null, {
+          key: 'suffix',
+        }),
         icon,
       ];
     }
@@ -125,7 +124,7 @@ export default class Search extends React.Component<SearchProps, any> {
       enterButtonAsElement.type &&
       (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
     if (isAntdButton || enterButtonAsElement.type === 'button') {
-      button = React.cloneElement(enterButtonAsElement, {
+      button = cloneElement(enterButtonAsElement, {
         onMouseDown: this.onMouseDown,
         onClick: this.onSearch,
         key: 'enterButton',
@@ -155,11 +154,9 @@ export default class Search extends React.Component<SearchProps, any> {
     if (addonAfter) {
       return [
         button,
-        React.isValidElement(addonAfter)
-          ? React.cloneElement(addonAfter, {
-              key: 'addonAfter',
-            })
-          : null,
+        replaceElement(addonAfter, null, {
+          key: 'addonAfter',
+        }),
       ];
     }
 

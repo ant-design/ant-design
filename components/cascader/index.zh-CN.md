@@ -26,7 +26,7 @@ subtitle: 级联选择
 | bordered | 是否有边框 | boolean | true |  |
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
-| defaultValue | 默认的选中项 | string\[] | \[] |  |
+| defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |  |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |  |
@@ -43,7 +43,7 @@ subtitle: 级联选择
 | size | 输入框大小 | `large` \| `middle` \| `small` | 无 |  |
 | style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| value | 指定选中项 | string\[] | - |  |
+| value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |  |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |  |
 
@@ -61,7 +61,7 @@ subtitle: 级联选择
 
 ```typescript
 interface Option {
-  value: string;
+  value: string | number;
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Option[];

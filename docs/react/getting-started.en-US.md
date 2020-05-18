@@ -95,60 +95,17 @@ In the real world you will need a development workflow consisting of `compile/bu
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
-## Compatibility
-
-Ant Design React supports all modern browsers and IE11+.
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
-| --- | --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
-
-Polyfills are needed for IE browsers. We recommend [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
-
-Ant Design 3.0 supports both React 15 and 16 but we strongly suggest React 16 for better performance and fewer bugs.
-
-#### IE note
-
-> We drop support of IE8 after `antd@2.0`, IE9/10 after `antd@4.0`,
-
-## Customized Work Flow
-
-If you want to customize your work flow, we recommend using [webpack](http://webpack.github.io/) to build and debug code.
-
-Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in the React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
-
-If you are trying [parcel](https://parceljs.org), here is [a demo repository](https://github.com/ant-design/parcel-antd).
-
-There are some [scaffolds](http://scaffold.ant.design/) which have already integrated antd, so you can try and start with one of these and even contribute.
-
 ## Import on Demand
 
-If you see logs like in the screenshot below, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network performance.
+`antd` supports tree shaking of ES modules, so using `import { Button } from 'antd';` would drop js code you didn't use.
+
+If you see logs like in the screenshot below, you might still be using `webpack@1.x` or have a wrong webpack config which can't support tree shaking.
 
 ```
-You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size. Please upgrade webpack or check the config.
 ```
 
 > ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
-
-However, we can import individual components on demand:
-
-```jsx
-import Button from 'antd/es/button';
-import 'antd/es/button/style'; // or antd/es/button/style/css for css format file
-```
-
-> Note: antd supports ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
-
-We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/es/xxx' way:
-
-```jsx
-import { Button } from 'antd';
-```
-
-And this plugin can load styles too. Read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
-
-> FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
 
 ## Replace momentjs to Day.js
 
@@ -164,7 +121,8 @@ module.exports = {
 };
 ```
 
-## Customization
+## Customized Work Flow
 
-- [Customize Theme](/docs/react/customize-theme)
-- [Local Iconfont](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
+If you want to customize your work flow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plents of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
+
+There are some [scaffolds](http://scaffold.ant.design/) which have already integrated antd, so you can try and start with one of these and even contribute.

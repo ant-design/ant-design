@@ -175,7 +175,7 @@ describe('Button', () => {
 
   it('should support link button', () => {
     const wrapper = mount(
-      <Button target="_blank" href="http://ant.design">
+      <Button target="_blank" href="https://ant.design">
         link button
       </Button>,
     );

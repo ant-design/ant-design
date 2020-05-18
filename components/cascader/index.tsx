@@ -14,11 +14,12 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { replaceElement } from '../_util/reactNode';
 
 export interface CascaderOptionType {
-  value?: string;
+  value?: string | number;
   label?: React.ReactNode;
   disabled?: boolean;
   isLeaf?: boolean;
@@ -28,18 +29,20 @@ export interface CascaderOptionType {
 }
 
 export interface FieldNamesType {
-  value?: string;
+  value?: string | number;
   label?: string;
   children?: string;
 }
 
 export interface FilledFieldNamesType {
-  value: string;
+  value: string | number;
   label: string;
   children: string;
 }
 
 export type CascaderExpandTrigger = 'click' | 'hover';
+
+export type CascaderValueType = (string | number)[];
 
 export interface ShowSearchType {
   filter?: (inputValue: string, path: CascaderOptionType[], names: FilledFieldNamesType) => boolean;
@@ -63,11 +66,11 @@ export interface CascaderProps {
   /** 可选项数据源 */
   options: CascaderOptionType[];
   /** 默认的选中项 */
-  defaultValue?: string[];
+  defaultValue?: CascaderValueType;
   /** 指定选中项 */
-  value?: string[];
+  value?: CascaderValueType;
   /** 选择完成后的回调 */
-  onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
+  onChange?: (value: CascaderValueType, selectedOptions?: CascaderOptionType[]) => void;
   /** 选择后展示的渲染函数 */
   displayRender?: (label: string[], selectedOptions?: CascaderOptionType[]) => React.ReactNode;
   /** 自定义样式 */
@@ -109,7 +112,7 @@ export interface CascaderProps {
 export interface CascaderState {
   inputFocused: boolean;
   inputValue: string;
-  value: string[];
+  value: CascaderValueType;
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
   prevProps: CascaderProps;
@@ -211,7 +214,7 @@ const defaultDisplayRender = (label: string[]) => label.join(' / ');
 function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNamesType = {}) {
   (list || []).forEach(item => {
     const valueFieldName = fieldNames.value || 'value';
-    warning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
+    devWarning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
     warningValueNotExist(item[fieldNames.children || 'children'], fieldNames);
   });
 }
@@ -263,7 +266,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     };
   }
 
-  setValue = (value: string[], selectedOptions: CascaderOptionType[] = []) => {
+  setValue = (value: CascaderValueType, selectedOptions: CascaderOptionType[] = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
@@ -384,7 +387,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         return matchCount >= limit;
       });
     } else {
-      warning(
+      devWarning(
         typeof limit !== 'number',
         'Cascader',
         "'limit' of showSearch should be positive number or false.",
@@ -554,17 +557,21 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
         }
 
-        const inputIcon = (suffixIcon &&
-          (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-            React.cloneElement(suffixIcon, {
+        let inputIcon: React.ReactNode;
+        if (suffixIcon) {
+          inputIcon = replaceElement(
+            suffixIcon,
+            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>,
+            () => ({
               className: classNames({
-                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [(suffixIcon as any).props.className!]: (suffixIcon as any).props.className,
                 [`${prefixCls}-picker-arrow`]: true,
               }),
-            })
-          ) : (
-            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
-          ))) || <DownOutlined className={arrowCls} />;
+            }),
+          );
+        } else {
+          inputIcon = <DownOutlined className={arrowCls} />;
+        }
 
         const input = children || (
           <span style={style} className={pickerCls}>

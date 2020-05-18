@@ -367,7 +367,7 @@ exports[`Button should render empty button without errors 1`] = `
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"
-  href="http://ant.design"
+  href="https://ant.design"
   target="_blank"
 >
   <span>

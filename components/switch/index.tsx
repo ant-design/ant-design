@@ -7,7 +7,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -36,7 +36,7 @@ interface CompoundedComponent
 }
 
 const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
-  warning(
+  devWarning(
     'checked' in props || !('value' in props),
     'Switch',
     '`value` is not a valid prop, do you mean `checked`?',
@@ -53,7 +53,11 @@ const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
   const prefixCls = getPrefixCls('switch', customizePrefixCls);
-  const loadingIcon = loading ? <LoadingOutlined className={`${prefixCls}-loading-icon`} /> : null;
+  const loadingIcon = (
+    <div className={`${prefixCls}-handle`}>
+      {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
+    </div>
+  );
 
   const classes = classNames(className, {
     [`${prefixCls}-small`]: (customizeSize || size) === 'small',

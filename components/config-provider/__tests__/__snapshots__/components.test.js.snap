@@ -19402,6 +19402,9 @@ exports[`ConfigProvider components Switch configProvider 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="config-switch-handle"
+  />
   <span
     class="config-switch-inner"
   />
@@ -19415,6 +19418,9 @@ exports[`ConfigProvider components Switch configProvider componentSize large 1`]
   role="switch"
   type="button"
 >
+  <div
+    class="config-switch-handle"
+  />
   <span
     class="config-switch-inner"
   />
@@ -19428,6 +19434,9 @@ exports[`ConfigProvider components Switch configProvider componentSize middle 1`
   role="switch"
   type="button"
 >
+  <div
+    class="config-switch-handle"
+  />
   <span
     class="config-switch-inner"
   />
@@ -19441,6 +19450,9 @@ exports[`ConfigProvider components Switch normal 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />
@@ -19454,6 +19466,9 @@ exports[`ConfigProvider components Switch prefixCls 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="prefix-Switch-handle"
+  />
   <span
     class="prefix-Switch-inner"
   />

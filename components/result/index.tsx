@@ -6,7 +6,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 import noFound from './noFound';
 import serverError from './serverError';
@@ -52,7 +52,7 @@ const ExceptionStatus = Object.keys(ExceptionMap);
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
-  warning(
+  devWarning(
     !(typeof icon === 'string' && icon.length > 2),
     'Result',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,

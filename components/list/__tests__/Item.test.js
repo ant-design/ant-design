@@ -7,7 +7,7 @@ describe('List Item Layout', () => {
   const data = [
     {
       key: 1,
-      href: 'http://ant.design',
+      href: 'https://ant.design',
       title: `ant design`,
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       description:
