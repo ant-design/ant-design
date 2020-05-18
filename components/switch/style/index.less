@@ -26,6 +26,10 @@
 
   &:focus {
     outline: 0;
+    box-shadow: 0 0 0 2px fade(@disabled-color, 10%);
+  }
+
+  &-checked:focus {
     box-shadow: 0 0 0 2px fade(@switch-color, 20%);
   }
 
