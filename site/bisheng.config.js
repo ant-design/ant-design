@@ -29,7 +29,7 @@ function alertBabelConfig(rules) {
 module.exports = {
   port: 8001,
   hash: true,
-  root: process.env.SITE_ROOT || '/varnish/',
+  root: process.env.SITE_ROOT || '/',
   source: {
     components: './components',
     docs: './docs',
