@@ -65,12 +65,27 @@ interface AlertInterface extends React.FC<AlertProps> {
   ErrorBoundary: typeof ErrorBoundary;
 }
 
-const Alert: AlertInterface = props => {
+const Alert: AlertInterface = ({
+  description,
+  prefixCls: customizePrefixCls,
+  message,
+  banner,
+  className = '',
+  style,
+  onMouseEnter,
+  onMouseLeave,
+  onClick,
+  showIcon,
+  closable,
+  closeText,
+  ...props
+}) => {
   const [closing, setClosing] = React.useState(false);
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -90,14 +105,8 @@ const Alert: AlertInterface = props => {
     props.afterClose?.();
   };
 
-  const getShowIcon = () => {
-    const { banner, showIcon } = props;
-    // banner 模式默认有 Icon
-    return banner && showIcon === undefined ? true : showIcon;
-  };
-
   const getType = () => {
-    const { banner, type } = props;
+    const { type } = props;
     if (type !== undefined) {
       return type;
     }
@@ -105,21 +114,14 @@ const Alert: AlertInterface = props => {
     return banner ? 'warning' : 'info';
   };
 
-  const getClosable = () => {
-    const { closable, closeText } = props;
-    // closeable when closeText is assigned
-    return closeText ? true : closable;
-  };
+  // closeable when closeText is assigned
+  const isClosable = closeText ? true : closable;
+  const type = getType();
 
-  const getIconType = () => {
-    const { description } = props;
-    // use outline icon in alert with description
-    return (description ? iconMapOutlined : iconMapFilled)[getType()] || null;
-  };
-
-  const renderIconNode = ({ prefixCls }: { prefixCls: string }) => {
+  const renderIconNode = () => {
     const { icon } = props;
-    const iconType = getIconType();
+    // use outline icon in alert with description
+    const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
     if (icon) {
       return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
         className: classNames(`${prefixCls}-icon`, {
@@ -130,9 +132,8 @@ const Alert: AlertInterface = props => {
     return React.createElement(iconType, { className: `${prefixCls}-icon` });
   };
 
-  const renderCloseIcon = ({ prefixCls }: { prefixCls: string }) => {
-    const { closeText } = props;
-    return getClosable() ? (
+  const renderCloseIcon = () => {
+    return isClosable ? (
       <button
         type="button"
         onClick={handleClose}
@@ -148,23 +149,8 @@ const Alert: AlertInterface = props => {
     ) : null;
   };
 
-  const {
-    description,
-    prefixCls: customizePrefixCls,
-    message,
-    banner,
-    className = '',
-    style,
-    onMouseEnter,
-    onMouseLeave,
-    onClick,
-  } = props;
-
-  const prefixCls = getPrefixCls('alert', customizePrefixCls);
-
-  const isShowIcon = getShowIcon();
-  const type = getType();
-  const closable = getClosable();
+  // banner 模式默认有 Icon
+  const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
   const alertCls = classNames(
     prefixCls,
@@ -174,17 +160,13 @@ const Alert: AlertInterface = props => {
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
-      [`${prefixCls}-closable`]: closable,
+      [`${prefixCls}-closable`]: isClosable,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
   );
 
-  const closeIcon = renderCloseIcon({ prefixCls });
-
   const dataOrAriaProps = getDataOrAriaProps(props);
-
-  const iconNode = renderIconNode({ prefixCls });
 
   return closed ? null : (
     <Animate
@@ -203,10 +185,10 @@ const Alert: AlertInterface = props => {
         onClick={onClick}
         {...dataOrAriaProps}
       >
-        {isShowIcon ? iconNode : null}
+        {isShowIcon ? renderIconNode() : null}
         <span className={`${prefixCls}-message`}>{message}</span>
         <span className={`${prefixCls}-description`}>{description}</span>
-        {closeIcon}
+        {renderCloseIcon()}
       </div>
     </Animate>
   );
