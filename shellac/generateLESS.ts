@@ -1,16 +1,14 @@
 import { StyleVariables, Style } from './styleVariables';
 import { Theme } from '../components/varnish/Theme';
-// import { getFontImportsURL } from '../components/varnish/typography';
 
 /**
- * Returns the styles required for shellac as a string.
+ * The `less-loader` that's included with antd's build tools has a bug that causes @imports
+ * with absolute URLs to fail. This means we can't use @import with the Google Font URLs that
+ * Varnish depends on. To work around this we hardcoded the font-face declarations.
+ * Here's the fix:
+ * https://github.com/webpack-contrib/less-loader/commit/a3f9601c9439471f7f0ce9b4a59ba4cf9e178c43
  */
-// eslint-disable-next-line import/prefer-default-export
-export function generateLESS() {
-  const vars = StyleVariables.fromTheme(Theme.default, Style.LESS);
-  return `
-// yuck, this is now failing, so hardcodeing to get rolling... need to fix
-// @import (css) url("$ {getFontImportsURL()}");*/
+const fonts = `
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -171,6 +169,16 @@ export function generateLESS() {
   src: local('Volkhov Bold'), local('Volkhov-Bold'), url(https://fonts.gstatic.com/s/volkhov/v11/SlGVmQieoJcKemNeeY4hkHNSbRYXags.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+`;
+
+/**
+ * Returns the styles required for shellac as a string.
+ */
+// eslint-disable-next-line import/prefer-default-export
+export function generateLESS() {
+  const vars = StyleVariables.fromTheme(Theme.default, Style.LESS);
+  return `
+${fonts}
 
 ${vars.toVariables()}
 
