@@ -67,7 +67,23 @@ export const ListContext = React.createContext<ListConsumerProps>({});
 
 export const ListConsumer = ListContext.Consumer;
 
-function List<T>({ pagination, ...props }: ListProps<T>) {
+function List<T>({
+  pagination = false as ListProps<any>['pagination'],
+  prefixCls: customizePrefixCls,
+  bordered = false,
+  split = true,
+  className,
+  children,
+  itemLayout,
+  loadMore,
+  grid,
+  dataSource = [],
+  size,
+  header,
+  footer,
+  loading = false,
+  ...rest
+}: ListProps<T>) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
@@ -99,8 +115,8 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
   const renderItem = (item: any, index: number) => {
-    const { rowKey } = props;
-    if (!props.renderItem) return null;
+    const { rowKey } = rest;
+    if (!rest.renderItem) return null;
 
     let key;
 
@@ -118,16 +134,15 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
 
     keys[index] = key;
 
-    return props.renderItem(item, index);
+    return rest.renderItem(item, index);
   };
 
   const isSomethingAfterLastItem = () => {
-    const { loadMore, footer } = props;
     return !!(loadMore || pagination || footer);
   };
 
   const renderEmptyFunc = (prefixCls: string, renderEmptyHandler: RenderEmptyHandler) => {
-    const { locale } = props;
+    const { locale } = rest;
 
     return (
       <div className={`${prefixCls}-empty-text`}>
@@ -135,23 +150,6 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
       </div>
     );
   };
-
-  const {
-    prefixCls: customizePrefixCls,
-    bordered,
-    split,
-    className,
-    children,
-    itemLayout,
-    loadMore,
-    grid,
-    dataSource = [],
-    size,
-    header,
-    footer,
-    loading,
-    ...rest
-  } = props;
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   let loadingProp = loading;
@@ -265,7 +263,7 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
   const paginationPosition = paginationProps.position || 'bottom';
 
   return (
-    <ListContext.Provider value={{ grid: props.grid, itemLayout: props.itemLayout }}>
+    <ListContext.Provider value={{ grid, itemLayout }}>
       <div className={classString} {...omit(rest, ['rowKey', 'renderItem', 'locale'])}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
@@ -280,14 +278,6 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
     </ListContext.Provider>
   );
 }
-
-List.defaultProps = {
-  dataSource: [],
-  bordered: false,
-  split: true,
-  loading: false,
-  pagination: false as ListProps<any>['pagination'],
-};
 
 List.Item = Item;
 
