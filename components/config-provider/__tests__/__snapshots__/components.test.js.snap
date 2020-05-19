@@ -19481,7 +19481,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
       class="config-spin-container"
     >
       <div
-        class="config-table"
+        class="config-table config-table-empty"
       >
         <div
           class="config-table-container"
@@ -19755,7 +19755,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
       class="config-spin-container"
     >
       <div
-        class="config-table"
+        class="config-table config-table-empty"
       >
         <div
           class="config-table-container"
@@ -20029,7 +20029,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
       class="config-spin-container"
     >
       <div
-        class="config-table config-table-middle"
+        class="config-table config-table-middle config-table-empty"
       >
         <div
           class="config-table-container"
@@ -20303,7 +20303,7 @@ exports[`ConfigProvider components Table normal 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -20577,7 +20577,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="prefix-Table"
+        class="prefix-Table prefix-Table-empty"
       >
         <div
           class="prefix-Table-container"
