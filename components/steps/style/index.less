@@ -146,7 +146,7 @@
 // ===================== Clickable =====================
 .@{steps-prefix-cls} .@{steps-prefix-cls}-item {
   &:not(.@{steps-prefix-cls}-item-active) {
-    & > .@{steps-prefix-cls}-item-container[role='button'] {
+    > .@{steps-prefix-cls}-item-container[role='button'] {
       cursor: pointer;
 
       .@{steps-prefix-cls}-item {
@@ -169,7 +169,7 @@
     }
 
     &:not(.@{steps-prefix-cls}-item-process) {
-      & > .@{steps-prefix-cls}-item-container[role='button']:hover {
+      > .@{steps-prefix-cls}-item-container[role='button']:hover {
         .@{steps-prefix-cls}-item {
           &-icon {
             border-color: @primary-color;

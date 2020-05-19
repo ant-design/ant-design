@@ -16,7 +16,7 @@
 
     &:last-child {
       &,
-      & > .@{collapse-prefix-cls}-header {
+      > .@{collapse-prefix-cls}-header {
         border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
       }
     }
@@ -41,7 +41,7 @@
         font-size: @font-size-sm;
         transform: translateY(-50%);
 
-        & svg {
+        svg {
           transition: transform 0.24s;
         }
       }
@@ -64,7 +64,7 @@
 
   // Expand Icon right
   &-icon-position-right {
-    & > .@{collapse-prefix-cls}-item {
+    > .@{collapse-prefix-cls}-item {
       > .@{collapse-prefix-cls}-header {
         padding: @collapse-header-padding;
         padding-right: @collapse-header-padding-extra;
@@ -127,7 +127,7 @@
 
   & &-item-disabled > &-header {
     &,
-    & > .arrow {
+    > .arrow {
       color: @disabled-color;
       cursor: not-allowed;
     }
