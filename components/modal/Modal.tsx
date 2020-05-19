@@ -121,7 +121,6 @@ export interface ModalLocale {
 
 interface ModalInterface extends React.FC<ModalProps> {
   useModal: typeof useModal;
-  destroyAll: () => void;
 }
 
 const Modal: ModalInterface = props => {
@@ -206,7 +205,6 @@ const Modal: ModalInterface = props => {
 };
 
 Modal.useModal = useModal;
-Modal.destroyAll = () => {};
 
 Modal.defaultProps = {
   width: 520,

@@ -15,7 +15,7 @@ function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));
 }
 
-type Modal = typeof OriginModal & ModalStaticFunctions;
+type Modal = typeof OriginModal & ModalStaticFunctions & { destroyAll: () => void };
 const Modal = OriginModal as Modal;
 
 Modal.info = function infoFn(props: ModalFuncProps) {
