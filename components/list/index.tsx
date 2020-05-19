@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
@@ -82,6 +81,9 @@ function List<T>({
   header,
   footer,
   loading = false,
+  rowKey,
+  renderItem,
+  locale,
   ...rest
 }: ListProps<T>) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
@@ -114,9 +116,8 @@ function List<T>({
 
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
-  const renderItem = (item: any, index: number) => {
-    const { rowKey } = rest;
-    if (!rest.renderItem) return null;
+  const renderInnerItem = (item: any, index: number) => {
+    if (!renderItem) return null;
 
     let key;
 
@@ -134,7 +135,7 @@ function List<T>({
 
     keys[index] = key;
 
-    return rest.renderItem(item, index);
+    return renderItem(item, index);
   };
 
   const isSomethingAfterLastItem = () => {
@@ -142,8 +143,6 @@ function List<T>({
   };
 
   const renderEmptyFunc = (prefixCls: string, renderEmptyHandler: RenderEmptyHandler) => {
-    const { locale } = rest;
-
     return (
       <div className={`${prefixCls}-empty-text`}>
         {(locale && locale.emptyText) || renderEmptyHandler('List')}
@@ -244,7 +243,7 @@ function List<T>({
 
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
-    const items = splitDataSource.map((item: any, index: number) => renderItem(item, index));
+    const items = splitDataSource.map((item: any, index: number) => renderInnerItem(item, index));
     const childrenList = React.Children.map(items, (child: any, index) =>
       cloneElement(child, {
         key: keys[index],
@@ -264,7 +263,7 @@ function List<T>({
 
   return (
     <ListContext.Provider value={{ grid, itemLayout }}>
-      <div className={classString} {...omit(rest, ['rowKey', 'renderItem', 'locale'])}>
+      <div className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
