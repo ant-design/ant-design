@@ -15,6 +15,7 @@ Only card type Tabs support adding & closable. +Use `closable={false}` to disabl
 
 ```jsx
 import { Tabs } from 'antd';
+import { CloseCircleOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 
@@ -81,7 +82,12 @@ class Demo extends React.Component {
         onEdit={this.onEdit}
       >
         {this.state.panes.map(pane => (
-          <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>
+          <TabPane
+            tab={pane.title}
+            key={pane.key}
+            closable={pane.closable}
+            closeIcon={<CloseCircleOutlined />}
+          >
             {pane.content}
           </TabPane>
         ))}

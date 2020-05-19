@@ -44,6 +44,12 @@ const localeValues: Locale = {
     searchPlaceholder: 'Search here',
     itemUnit: 'item',
     itemsUnit: 'items',
+    remove: 'Remove',
+    selectCurrent: 'Select current page',
+    removeCurrent: 'Remove current page',
+    selectAll: 'Select all data',
+    removeAll: 'Remove all data',
+    selectInvert: 'Invert current page',
   },
   Upload: {
     uploading: 'Uploading...',

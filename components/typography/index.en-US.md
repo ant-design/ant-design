@@ -25,6 +25,7 @@ Basic text writing, including headings, body text, lists, and more.
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
 | ellipsis | Display ellipsis when text overflows | boolean | false |  |
 | mark | Marked style | boolean | false |  |
+| keyboard | Keyboard style | boolean | false | 4.3.0 |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | Function(string) | - |  |
 | strong | Bold style | boolean | false |  |
@@ -61,3 +62,13 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Trigger when user edits the content | Function(string) | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+
+## FAQ
+
+### How to use Typography.Link in react-router?
+
+`react-router` support [customize](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md#component-reactcomponent) render component:
+
+```tsx
+<Link to="/" component={Typography.Link} />
+```

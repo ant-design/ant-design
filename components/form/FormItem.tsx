@@ -47,7 +47,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   required?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
-  fieldKey?: number;
+  fieldKey?: React.Key | React.Key[];
 }
 
 function hasValidName(name?: NamePath): Boolean {
@@ -192,6 +192,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
+          'isListField',
           'label',
           'labelAlign',
           'labelCol',
@@ -256,7 +257,8 @@ function FormItem(props: FormItemProps): React.ReactElement {
         if (noStyle) {
           nameRef.current = [...mergedName];
           if (fieldKey) {
-            nameRef.current[nameRef.current.length - 1] = fieldKey;
+            const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
+            nameRef.current = [...mergedName.slice(-1), ...fieldKeys];
           }
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
