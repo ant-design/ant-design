@@ -494,6 +494,9 @@
   // ========================= Placeholder ==========================
   &-tbody > tr&-placeholder {
     text-align: center;
+    .@{table-prefix-cls}-empty & {
+      color: @disabled-color;
+    }
     &:hover {
       > td {
         background: @component-background;
