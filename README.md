@@ -38,7 +38,7 @@ If you'd like to work on Varnish, you can start up a local environment like so:
 ```bash
 git clone git@github.com:allenai/ant-design
 cd ant-design
-npm run shellac:build
+npm run shellac-build
 npm run start
 ```
 
