@@ -1,6 +1,6 @@
-import { VarnishTheme, Color } from '../components/style/themes/varnish/Theme';
-import { Spacing } from '../components/style/themes/varnish/spacing';
-import { Breakpoint } from '../components/style/themes/varnish/breakpoints';
+import { VarnishTheme, Color } from '../components/varnish/Theme';
+import { Spacing } from '../components/varnish/spacing';
+import { Breakpoint } from '../components/varnish/breakpoints';
 
 /**
  * This is a helper function that flattens all theme variables into an array of

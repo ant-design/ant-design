@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { spacing, Spacing as ThemeSpacing } from '../../../../components/style/themes/varnish/spacing';
+import { spacing, Spacing as ThemeSpacing } from '../../../../components/varnish/spacing';
 
 // eslint-disable-next-line import/prefer-default-export
 export class SpacingDisplay extends React.PureComponent {

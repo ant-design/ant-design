@@ -17,28 +17,29 @@ Provides multiple types of text.
 import { Typography } from 'antd';
 
 const { Text } = Typography;
+const text = "The best way to predict the future is to invent it";
 
 ReactDOM.render(
   <div>
-    <Text>Ant Design</Text>
+    <Text>{text}</Text>
     <br />
-    <Text type="secondary">Ant Design</Text>
+    <Text type="secondary">{text}</Text>
     <br />
-    <Text type="warning">Ant Design</Text>
+    <Text type="warning">{text}</Text>
     <br />
-    <Text type="danger">Ant Design</Text>
+    <Text type="danger">{text}</Text>
     <br />
-    <Text disabled>Ant Design</Text>
+    <Text disabled>{text}</Text>
     <br />
-    <Text mark>Ant Design</Text>
+    <Text mark>{text}</Text>
     <br />
-    <Text code>Ant Design</Text>
+    <Text code>{text}</Text>
     <br />
-    <Text underline>Ant Design</Text>
+    <Text underline>{text}</Text>
     <br />
-    <Text delete>Ant Design</Text>
+    <Text delete>{text}</Text>
     <br />
-    <Text strong>Ant Design</Text>
+    <Text strong>{text}</Text>
   </div>,
   mountNode,
 );

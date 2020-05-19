@@ -11,19 +11,20 @@ title:
 
 ## en-US
 
-Display title in different level.
+Instead of dom header elements, you can also use title to displal in different levels.
 
 ```jsx
 import { Typography } from 'antd';
 
 const { Title } = Typography;
+const text = "AI for the Common Good";
 
 ReactDOM.render(
   <div>
-    <Title>h1. Ant Design</Title>
-    <Title level={2}>h2. Ant Design</Title>
-    <Title level={3}>h3. Ant Design</Title>
-    <Title level={4}>h4. Ant Design</Title>
+    <Title>h1. {text}</Title>
+    <Title level={2}>h2. {text}</Title>
+    <Title level={3}>h3. {text}</Title>
+    <Title level={4}>h4. {text}</Title>
   </div>,
   mountNode,
 );

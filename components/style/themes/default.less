@@ -76,10 +76,11 @@ with varnish... would make code cleaner, but merges harder */
 
 @icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
-@heading-color: fade(#000, 85%);
-@heading-color-dark: fade(@white, 100%);
-@text-color-dark: fade(@white, 85%);
-@text-color-secondary-dark: fade(@white, 65%);
+
+@heading-color: @v-palette-text-heading;
+@heading-color-dark: @v-palette-text-contrast;
+@text-color-dark: @v-palette-text-contrast;
+@text-color-secondary-dark: @v-palette-text-contrast;
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';

@@ -80,94 +80,6 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
     </ul>
   </div>
-  <div
-    class="ant-divider ant-divider-horizontal"
-    role="separator"
-  />
-  <h1
-    class="ant-typography"
-  >
-    介绍
-  </h1>
-  <div
-    class="ant-typography"
-  >
-    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
-  </div>
-  <div
-    class="ant-typography"
-  >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
-    <span
-      class="ant-typography"
-    >
-      <mark>
-        『确定』和『自然』
-      </mark>
-    </span>
-    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        更好的用户体验
-      </strong>
-    </span>
-    。
-  </div>
-  <h2
-    class="ant-typography"
-  >
-    设计资源
-  </h2>
-  <div
-    class="ant-typography"
-  >
-    我们提供完善的设计原则、最佳实践和设计资源文件（
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
-    </span>
-     和
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ），来帮助业务快速设计出高质量的产品原型。
-  </div>
-  <div
-    class="ant-typography"
-  >
-    <ul>
-      <li>
-        <a
-          href="/docs/spec/proximity"
-        >
-          设计原则
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/pattern/navigation"
-        >
-          设计模式
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/resource/download"
-        >
-          设计资源
-        </a>
-      </li>
-    </ul>
-  </div>
 </article>
 `;
 
@@ -503,91 +415,6 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </li>
     </ul>
   </div>
-  <h1
-    class="ant-typography"
-    id="intro"
-  >
-    介绍
-  </h1>
-  <div
-    class="ant-typography"
-  >
-    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
-  </div>
-  <div
-    class="ant-typography"
-  >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
-    <span
-      class="ant-typography"
-    >
-      <mark>
-        『确定』和『自然』
-      </mark>
-    </span>
-    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
-    <span
-      class="ant-typography"
-    >
-      <strong>
-        更好的用户体验
-      </strong>
-    </span>
-    。
-  </div>
-  <h2
-    class="ant-typography"
-  >
-    设计资源
-  </h2>
-  <div
-    class="ant-typography"
-  >
-    我们提供完善的设计原则、最佳实践和设计资源文件（
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Sketch
-      </code>
-    </span>
-     和
-    <span
-      class="ant-typography"
-    >
-      <code>
-        Axure
-      </code>
-    </span>
-    ），来帮助业务快速设计出高质量的产品原型。
-  </div>
-  <div
-    class="ant-typography"
-  >
-    <ul>
-      <li>
-        <a
-          href="/docs/spec/proximity"
-        >
-          设计原则
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/pattern/navigation"
-        >
-          设计模式
-        </a>
-      </li>
-      <li>
-        <a
-          href="/docs/resource/download"
-        >
-          设计资源
-        </a>
-      </li>
-    </ul>
-  </div>
   <div
     class="ant-typography"
   >
@@ -668,38 +495,38 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   <span
     class="ant-typography"
   >
-    Ant Design
+    The best way to predict the future is to invent it
   </span>
   <br />
   <span
     class="ant-typography ant-typography-secondary"
   >
-    Ant Design
+    The best way to predict the future is to invent it
   </span>
   <br />
   <span
     class="ant-typography ant-typography-warning"
   >
-    Ant Design
+    The best way to predict the future is to invent it
   </span>
   <br />
   <span
     class="ant-typography ant-typography-danger"
   >
-    Ant Design
+    The best way to predict the future is to invent it
   </span>
   <br />
   <span
     class="ant-typography ant-typography-disabled"
   >
-    Ant Design
+    The best way to predict the future is to invent it
   </span>
   <br />
   <span
     class="ant-typography"
   >
     <mark>
-      Ant Design
+      The best way to predict the future is to invent it
     </mark>
   </span>
   <br />
@@ -707,7 +534,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <code>
-      Ant Design
+      The best way to predict the future is to invent it
     </code>
   </span>
   <br />
@@ -715,7 +542,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <u>
-      Ant Design
+      The best way to predict the future is to invent it
     </u>
   </span>
   <br />
@@ -723,7 +550,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <del>
-      Ant Design
+      The best way to predict the future is to invent it
     </del>
   </span>
   <br />
@@ -731,7 +558,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <strong>
-      Ant Design
+      The best way to predict the future is to invent it
     </strong>
   </span>
 </div>
@@ -742,22 +569,22 @@ exports[`renders ./components/typography/demo/title.md correctly 1`] = `
   <h1
     class="ant-typography"
   >
-    h1. Ant Design
+    h1. AI for the Common Good
   </h1>
   <h2
     class="ant-typography"
   >
-    h2. Ant Design
+    h2. AI for the Common Good
   </h2>
   <h3
     class="ant-typography"
   >
-    h3. Ant Design
+    h3. AI for the Common Good
   </h3>
   <h4
     class="ant-typography"
   >
-    h4. Ant Design
+    h4. AI for the Common Good
   </h4>
 </div>
 `;

@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import { Footer } from '..';
-import { ThemeProvider } from '../../style/themes/varnish';
+import { ThemeProvider } from '../../varnish';
 
 describe('Footer.typescript', () => {
   it('Footer Basic', () => {

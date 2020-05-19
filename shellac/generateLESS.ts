@@ -1,6 +1,6 @@
 import { StyleVariables, Style } from './styleVariables';
-import { Theme } from '../components/style/themes/varnish/Theme';
-// import { getFontImportsURL } from '../components/style/themes/varnish/typography';
+import { Theme } from '../components/varnish/Theme';
+// import { getFontImportsURL } from '../components/varnish/typography';
 
 /**
  * Returns the styles required for shellac as a string.
