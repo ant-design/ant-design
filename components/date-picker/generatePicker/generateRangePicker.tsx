@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
+// import CalendarOutlined from '@ant-design/icons/CalendarOutlined'; // Removed by Varnish
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
@@ -12,6 +12,7 @@ import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
+import { FormCalendarIcon } from '../../icons'; // Added by Varnish
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
@@ -84,7 +85,7 @@ export default function generateRangePicker<DateType>(
                 }
                 ref={this.pickerRef}
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
-                suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+                suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <FormCalendarIcon />} // Changed by Varnish
                 clearIcon={<CloseCircleFilled />}
                 allowClear
                 transitionName="slide-up"
