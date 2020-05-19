@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ThemeProvider } from '../../components/style/themes/varnish';
+import { ThemeProvider } from '../../components/varnish';
 
 // eslint-disable-next-line jest/no-export
 export default function mountTest(Component: React.ComponentType) {

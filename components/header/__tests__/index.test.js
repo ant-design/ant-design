@@ -5,7 +5,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 import { Header, HeaderColumns, HeaderTitle } from '..';
 import { DefaultAppLayoutProvider } from '../../layout';
-import { ThemeProvider } from '../../style/themes/varnish';
+import { ThemeProvider } from '../../varnish';
 
 describe('Header', () => {
   mountTest(Header);

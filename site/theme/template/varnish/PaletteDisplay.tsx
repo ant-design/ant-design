@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Body, BodyMicro } from '../../../../components/typography';
-import { Color } from '../../../../components/style/themes/varnish';
-import { palette } from '../../../../components/style/themes/varnish/palette';
+import { Color } from '../../../../components/varnish';
+import { palette } from '../../../../components/varnish/palette';
 
 // eslint-disable-next-line import/prefer-default-export
 export class PrimaryPalette extends React.PureComponent {

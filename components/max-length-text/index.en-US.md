@@ -1,6 +1,6 @@
 ---
 category: Components
-type: General
+type: Other
 title: Max Length Text
 cols: 2
 ---

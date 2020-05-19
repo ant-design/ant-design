@@ -6,7 +6,7 @@ title:
 
 ## en-US
 
-All headlines use font Lato.
+Simply use dom heading elements.
 
 ```jsx
 const text = "AI for the Common Good";

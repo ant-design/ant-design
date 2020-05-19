@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { BodyJumbo, Body, BodyMicro } from '../../../../components/typography';
-import { Theme, Color } from '../../../../components/style/themes/varnish';
+import { Theme, Color } from '../../../../components/varnish';
 import { dictionaryToArray } from '../../../../components/_util/varnish/base';
 
 const DefaultTheme = Theme.default;

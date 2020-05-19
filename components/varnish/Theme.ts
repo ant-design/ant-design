@@ -1,4 +1,4 @@
-import { Dictionary } from '../../../_util/varnish/base';
+import { Dictionary } from '../_util/varnish/base';
 import { animation } from './animation';
 import { breakpoints } from './breakpoints';
 import { button } from './button';

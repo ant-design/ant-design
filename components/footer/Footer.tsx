@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { palette } from '../style/themes/varnish/palette';
-import { Color } from '../style/themes/varnish/colors';
+import { palette } from '../varnish/palette';
+import { Color } from '../varnish/colors';
 import { contrastLinkColorStyles } from '../link';
 import Layout, { AppLayoutVariant, AppLayoutContext } from '../layout';
 

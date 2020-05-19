@@ -20,7 +20,7 @@ import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 import { Layout as LayoutAntd } from '../../../../components';
 import { DefaultAppLayoutProvider } from '../../../../components/layout';
-import { ThemeProvider } from '../../../../components/style/themes/varnish';
+import { ThemeProvider } from '../../../../components/varnish';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
