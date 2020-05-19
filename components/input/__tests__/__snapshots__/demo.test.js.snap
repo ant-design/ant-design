@@ -78,24 +78,13 @@ Array [
               unselectable="on"
             >
               <span
-                aria-label="down"
-                class="anticon anticon-down"
+                class="anticon no-pointer-events"
                 role="img"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
+                <img
+                  alt=""
+                  src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+                />
               </span>
             </span>
           </div>
@@ -145,24 +134,13 @@ Array [
               unselectable="on"
             >
               <span
-                aria-label="down"
-                class="anticon anticon-down"
+                class="anticon no-pointer-events"
                 role="img"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
+                <img
+                  alt=""
+                  src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+                />
               </span>
             </span>
           </div>
@@ -446,24 +424,13 @@ Array [
         class="ant-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -550,24 +517,13 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down"
+        class="anticon no-pointer-events"
         role="img"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+        />
       </span>
     </span>
   </div>,
@@ -607,24 +563,13 @@ Array [
       unselectable="on"
     >
       <span
-        aria-label="down"
-        class="anticon anticon-down"
+        class="anticon no-pointer-events"
         role="img"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+        />
       </span>
     </span>
   </div>,
@@ -749,24 +694,13 @@ Array [
       class="ant-picker-suffix"
     >
       <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
+        class="anticon no-pointer-events"
         role="img"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+        />
       </span>
     </span>
   </div>,
@@ -788,24 +722,13 @@ Array [
         class="ant-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -1148,24 +1071,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>
@@ -1263,24 +1175,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>
@@ -1395,24 +1296,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            aria-label="calendar"
-            class="anticon anticon-calendar"
+            class="anticon no-pointer-events"
             role="img"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="calendar"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-              />
-            </svg>
+            <img
+              alt=""
+              src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+            />
           </span>
         </span>
       </div>
@@ -1491,24 +1381,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -1554,24 +1433,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>
@@ -1612,24 +1480,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>
@@ -1675,24 +1532,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>
@@ -1761,24 +1607,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>
@@ -1854,24 +1689,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          aria-label="down"
-          class="anticon anticon-down"
+          class="anticon no-pointer-events"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEyIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHdpZHRoPSIxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0uNTc1Njg0IDQuNDI0MjEuODQ4NTI2LS44NDg1MyA0LjU3NTc0IDQuNTc1NzQgNC41NzU3NS00LjU3NTc0Ljg0ODUuODQ4NTMtNS40MjQyNSA1LjQyNDI3eiIgZmlsbD0iIzhkOTM5YyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+          />
         </span>
       </span>
     </div>

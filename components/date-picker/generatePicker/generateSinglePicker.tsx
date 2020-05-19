@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
+// import CalendarOutlined from '@ant-design/icons/CalendarOutlined'; // Removed by Varnish
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import RCPicker from 'rc-picker';
@@ -19,6 +19,7 @@ import {
   getTimeProps,
   Components,
 } from '.';
+import { FormCalendarIcon } from '../../icons'; // Added by Varnish
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>;
@@ -103,7 +104,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   ref={this.pickerRef}
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
                   suffixIcon={
-                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
+                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <FormCalendarIcon /> // Changed by Varnish
                   }
                   clearIcon={<CloseCircleFilled />}
                   allowClear

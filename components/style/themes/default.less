@@ -104,8 +104,8 @@ with varnish... would make code cleaner, but merges harder */
 @padding-xss: @v-spacing-xxs; // more small
 
 // horizontal padding for all form controls
-@control-padding-horizontal: @padding-sm;
-@control-padding-horizontal-sm: @padding-xs;
+@control-padding-horizontal: @padding-md;
+@control-padding-horizontal-sm: @padding-sm;
 
 // vertical margins
 @margin-lg: @v-spacing-lg; // containers
@@ -153,7 +153,7 @@ with varnish... would make code cleaner, but merges harder */
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: @v-palette-border-dark; // base border outline a component
+@border-color-base: @v-color-n5; // base border outline a component
 @border-color-split: @v-palette-border-main; // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
@@ -389,9 +389,9 @@ with varnish... would make code cleaner, but merges harder */
 @input-height-base: @btn-height-base;
 @input-height-lg: @btn-height-lg;
 @input-height-sm: @btn-height-sm;
-@input-padding-horizontal: @control-padding-horizontal - 1px;
+@input-padding-horizontal: @control-padding-horizontal;
 @input-padding-horizontal-base: @input-padding-horizontal;
-@input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
+@input-padding-horizontal-sm: @control-padding-horizontal-sm;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base:
   max(
