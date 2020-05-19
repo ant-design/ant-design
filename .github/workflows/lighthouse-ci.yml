@@ -12,6 +12,9 @@ jobs:
             https://ant.design
             https://ant.design/docs/react/introduce-cn
             https://ant.design/components/button-cn
+          budgetPath: '.github/lighthouse/budget.json'
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
       - name: Save results
         uses: actions/upload-artifact@v1
         with:
