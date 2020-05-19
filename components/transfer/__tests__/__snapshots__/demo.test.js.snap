@@ -1083,6 +1083,9 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
         role="switch"
         type="button"
       >
+        <div
+          class="ant-switch-handle"
+        />
         <span
           class="ant-switch-inner"
         >
@@ -2049,6 +2052,9 @@ Array [
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -2799,6 +2805,9 @@ exports[`renders ./components/transfer/demo/oneWay.md correctly 1`] = `
         role="switch"
         type="button"
       >
+        <div
+          class="ant-switch-handle"
+        />
         <span
           class="ant-switch-inner"
         >
@@ -4233,6 +4242,9 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
     style="margin-top:16px"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -4246,6 +4258,9 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
     style="margin-top:16px"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >

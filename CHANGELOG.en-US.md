@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.2.4
+
+`2020-05-18`
+
+- 🐞 Revert Switch patch to fix handle position style issue with `unCheckedChildren`. [#24242](https://github.com/ant-design/ant-design/pull/24242)
+- 💄 Adjust Upload icon default color to red in error status. [#24160](https://github.com/ant-design/ant-design/pull/24160)
+- 💄 Adjust Dropdown arrow position a little higher. [#24215](https://github.com/ant-design/ant-design/pull/24215)
+- 🌐 Form `defaultValidateMessages` support `ru_RU`. [#24219](https://github.com/ant-design/ant-design/pull/24219) [@aivinog1](https://github.com/aivinog1)
+
 ## 4.2.3
 
 `2020-05-16`

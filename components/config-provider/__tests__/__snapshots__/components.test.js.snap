@@ -23275,6 +23275,9 @@ exports[`ConfigProvider components Switch configProvider 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="config-switch-handle"
+  />
   <span
     class="config-switch-inner"
   />
@@ -23288,6 +23291,9 @@ exports[`ConfigProvider components Switch configProvider componentSize large 1`]
   role="switch"
   type="button"
 >
+  <div
+    class="config-switch-handle"
+  />
   <span
     class="config-switch-inner"
   />
@@ -23301,6 +23307,9 @@ exports[`ConfigProvider components Switch configProvider componentSize middle 1`
   role="switch"
   type="button"
 >
+  <div
+    class="config-switch-handle"
+  />
   <span
     class="config-switch-inner"
   />
@@ -23314,6 +23323,9 @@ exports[`ConfigProvider components Switch configProvider virtual and dropdownMat
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />
@@ -23327,6 +23339,9 @@ exports[`ConfigProvider components Switch normal 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />
@@ -23340,6 +23355,9 @@ exports[`ConfigProvider components Switch prefixCls 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="prefix-Switch-handle"
+  />
   <span
     class="prefix-Switch-inner"
   />
@@ -23357,7 +23375,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
       class="config-spin-container"
     >
       <div
-        class="config-table"
+        class="config-table config-table-empty"
       >
         <div
           class="config-table-container"
@@ -23631,7 +23649,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
       class="config-spin-container"
     >
       <div
-        class="config-table"
+        class="config-table config-table-empty"
       >
         <div
           class="config-table-container"
@@ -23905,7 +23923,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
       class="config-spin-container"
     >
       <div
-        class="config-table config-table-middle"
+        class="config-table config-table-middle config-table-empty"
       >
         <div
           class="config-table-container"
@@ -24179,7 +24197,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -24453,7 +24471,7 @@ exports[`ConfigProvider components Table normal 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -24727,7 +24745,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="prefix-Table"
+        class="prefix-Table prefix-Table-empty"
       >
         <div
           class="prefix-Table-container"

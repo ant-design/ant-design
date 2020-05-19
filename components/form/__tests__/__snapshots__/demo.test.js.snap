@@ -3345,10 +3345,13 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           >
             <button
               aria-checked="false"
-              class="ant-switch-small ant-switch"
+              class="ant-switch ant-switch-small"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -4252,6 +4255,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             role="switch"
             type="button"
           >
+            <div
+              class="ant-switch-handle"
+            />
             <span
               class="ant-switch-inner"
             />

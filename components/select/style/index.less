@@ -198,6 +198,10 @@
     &-hidden {
       display: none;
     }
+
+    &-empty {
+      color: @disabled-color;
+    }
   }
 
   // ========================= Options =========================
@@ -214,6 +218,7 @@
 
   &-item-empty {
     .item();
+    color: @disabled-color;
   }
 
   &-item {

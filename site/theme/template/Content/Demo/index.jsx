@@ -181,10 +181,7 @@ class Demo extends React.Component {
       html,
       js: sourceCode
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
-        .replace(
-          /import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/,
-          'const { $1 } = icons;',
-        )
+        .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
         .replace("import moment from 'moment';", '')
         .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
@@ -252,7 +249,11 @@ import 'antd/dist/antd.css';
 import './index.css';
 ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
 `.trim();
-    const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const indexCssContent = (style || '')
+      .trim()
+      .replace(new RegExp(`#${meta.id}\\s*`, 'g'), '')
+      .replace('</style>', '')
+      .replace('<style>', '');
 
     const codesandboxPackage = {
       name: `${localizedTitle} - Ant Design Demo`,
@@ -299,9 +300,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
-          {style ? (
-            <style dangerouslySetInnerHTML={{ __html: style }} />
-          ) : null}
+          {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">

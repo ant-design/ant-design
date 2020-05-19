@@ -83,6 +83,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -543,7 +546,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           class="ant-spin-container"
         >
           <div
-            class="ant-table"
+            class="ant-table ant-table-empty"
           >
             <div
               class="ant-table-container"
