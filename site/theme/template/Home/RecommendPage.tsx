@@ -16,11 +16,11 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: 'Kitchen「设计资产」重磅更新！',
+    title: '蚂蚁金服体验技术部招聘啦！',
     description:
-      '作为 Ant Design 的好伙伴，Kitchen 已第一时间上架 Ant Design 4.0 最新 Sketch 组件包。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bBKkQILVF2AAAAAAAAAAAABkARQnAQ',
-    href: 'https://kitchen.alipay.com/',
+      '欢迎志同道合的你加入我们，一同在「引领全球体验科技，创造一流用户体验」的愿景指引下前行。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BPVATKTgfXwAAAAAAAAAAABkARQnAQ',
+    href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
     popularize: true,
   },
   {
