@@ -1,17 +1,18 @@
 ---
-order: 0
+order: 99
 title:
-  zh-CN: 基础抽屉
-  en-US: Basic
+  zh-CN: 无遮罩
+  en-US: No mask
+debug: true
 ---
 
 ## zh-CN
 
-基础抽屉，点击触发按钮抽屉从右滑出，点击遮罩区关闭
+通过 `mask={false}` 去掉遮罩。
 
 ## en-US
 
-Basic drawer.
+Remove mask.
 
 ```tsx
 import React, { useState } from 'react';
@@ -31,9 +32,9 @@ const App: React.FC = () => {
         Open
       </Button>
       <Drawer
-        title="Basic Drawer"
+        title="Drawer without mask"
         placement="right"
-        closable={false}
+        mask={false}
         onClose={onClose}
         visible={visible}
       >
@@ -47,9 +48,3 @@ const App: React.FC = () => {
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
-[data-theme='compact'] .ant-drawer-body p {
-  margin-bottom: 0;
-}
-</style>
