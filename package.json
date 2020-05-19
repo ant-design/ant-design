@@ -89,7 +89,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
     "site:test": "jest --config .jest.site.js --cache=false",
-    "test:image": "jest --config .jest.image.js --no-cache",
+    "test:image": "npm install puppeteer@2.1.1 --no-save && jest --config .jest.image.js --no-cache",
     "version": "node ./scripts/generate-version"
   },
   "husky": {
@@ -232,7 +232,6 @@
     "preact-compat": "^3.18.5",
     "prettier": "^2.0.1",
     "pretty-quick": "^2.0.0",
-    "puppeteer": "^2.1.1",
     "querystring": "^0.2.0",
     "rc-footer": "^0.6.0",
     "rc-queue-anim": "^1.6.12",
