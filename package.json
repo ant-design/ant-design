@@ -170,7 +170,7 @@
     "@typescript-eslint/parser": "^2.19.0",
     "antd-img-crop": "^3.1.1",
     "antd-pro-merge-less": "^3.0.3",
-    "antd-theme-generator": "^1.1.6",
+    "antd-theme-generator": "1.2.2",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^1.5.1",
