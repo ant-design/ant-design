@@ -1,6 +1,6 @@
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-unresolved
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import ReactDOMServer from 'react-dom/server';
