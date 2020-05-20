@@ -20,5 +20,6 @@ title: Avatar
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` | `default` |  |
 | src | 图片类头像的资源地址 | string | - |  |
 | srcSet | 设置图片类头像响应式资源地址 | string | - |  |
+| draggable | 设置 img 标签的 draggable 属性 | boolean | - |  |
 | alt | 图像无法显示时的替代文本 | string | - |  |
 | onError | 图片加载失败的事件，返回 false 会关闭组件默认的 fallback 行为 | () => boolean | - |  |
