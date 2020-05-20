@@ -9,6 +9,7 @@ jobs:
       - run: mkdir /tmp/artifacts
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
+        id: lighthouseCheck
         with:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
           outputDirectory: /tmp/artifacts
