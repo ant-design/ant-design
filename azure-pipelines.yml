@@ -74,6 +74,8 @@ stages:
               versionSpec: '12.16.3'
           - script: npm install
             displayName: 'Install modules'
+          - script: npm run dist
+            displayName: 'Run dist'
           - script: npm run test:image
             displayName: 'UI Test'
             continueOnError: true
@@ -84,3 +86,6 @@ stages:
               echo "Deploy to $DEPLOY_DOMAIN"
               npx surge --project ./jest-stare --domain $DEPLOY_DOMAIN
             displayName: 'Deploy Report Site'
+          - script: |
+              node ./scripts/azure-github-comment.js -ui "https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh"
+            displayName: 'Comment on github'
