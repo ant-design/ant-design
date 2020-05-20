@@ -44,6 +44,7 @@ title: Upload
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页。 | Function(file): void | 跳转新标签页 |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | Function(file): `string | Blob | File | Promise<string | Blob | File>` | 无   |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => React.ReactNode | 无 |  |
+| progress | 自定义进度条样式 | [progress props](/components/progress/) | `{ strokeWidth: 2, showInfo: false }` |  |
 
 ### onChange
 
