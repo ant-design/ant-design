@@ -1,21 +1,21 @@
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>shellac</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-    <link rel="icon" href="https://allenai.org/favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.8.11/dist/shellac.min.css"
-    />
-  </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="icon" href="https://allenai.org/favicon.ico">
+    {css}
+    </head>
   <body>
     <div class="banner">
       <div class="content">
         <a href="https://allenai.org">
           <img
-            src="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.8.11/dist/logo-ai2-white-withText-micro.svg"
+            width="177"
+            height="16"
+            src="{logo}"
             alt="Allen Institute for AI"
           />
         </a>
@@ -120,3 +120,4 @@
     </footer>
   </body>
 </html>
+```

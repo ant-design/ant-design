@@ -56,7 +56,7 @@
     "predist": "npm run version",
     "presite": "npm run version",
     "color-less": "node ./scripts/generate-color-less",
-    "compile": "npm run shellac-build && antd-tools run compile",
+    "compile": "npm run shellac:build && antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run compile && npm run site && cp CNAME _site",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
@@ -87,8 +87,8 @@
     "tsc": "tsc",
     "site:test": "jest --config .jest.site.js --cache=false",
     "version": "node ./scripts/generate-version",
-    "shellac-build": "npm run tsc -- --project shellac/tsconfig.json && node shellac/build.js && npm run shellac-optimize",
-    "shellac-optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css"
+    "shellac:build": "npm run tsc -- --project shellac/tsconfig.json && node shellac/build.js && npm run shellac:optimize",
+    "shellac:optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css"
   },
   "husky": {
     "hooks": {

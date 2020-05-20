@@ -96,8 +96,8 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
           }
 
           const menuMode = isMobile ? 'inline' : 'horizontal';
-          const module = pathname.split('/').slice(0, -1).join('/');
-          const activeMenuItem = module || 'home';
+          const basePath = pathname.split('/').shift();
+          const activeMenuItem = basePath || 'home';
 
           const menu: React.ReactElement | null = (
             <PushedUpMenu
@@ -116,6 +116,9 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
                 <CleanLink to={utils.getLocalizedPathname('/components/button/')}>
                   Components
                 </CleanLink>
+              </MenuItem>
+              <MenuItem ismobile={isMobile} key="shellac">
+                <CleanLink to={utils.getLocalizedPathname('/shellac')}>Shellac</CleanLink>
               </MenuItem>
             </PushedUpMenu>
           );
@@ -181,7 +184,8 @@ const MenuItem = styled(Menu.Item)<{ ismobile: boolean }>`
   }
 `;
 
-const HomeTitle = styled(HeaderTitle as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const HomeTitle = styled(HeaderTitle as any)`
+  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   vertical-align: middle;
   margin-left: 10px;
 `;

@@ -36,6 +36,9 @@ module.exports = {
     changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
     'components/form/v3': ['components/form/v3.zh-CN.md', 'components/form/v3.en-US.md'],
     'docs/resources': ['./docs/resources.zh-CN.md', './docs/resources.en-US.md'],
+    /* This makes `shellac/template.md` accessible to the Shellac usage information in
+       `site/theme/template/Shellac/index.tsx`. */
+    shellac: './shellac',
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',

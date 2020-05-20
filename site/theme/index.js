@@ -1,6 +1,7 @@
 const path = require('path');
 
 const homeTmpl = './template/Home/index';
+const shellacTmpl = './template/Shellac/index';
 const contentTmpl = './template/Content/index';
 const resourcesTmpl = './template/Resources/index';
 const appShellTmpl = './template/AppShell';
@@ -100,6 +101,10 @@ module.exports = {
       {
         path: 'docs/resources-cn',
         component: resourcesTmpl,
+      },
+      {
+        path: 'shellac',
+        component: shellacTmpl,
       },
     ],
   },
