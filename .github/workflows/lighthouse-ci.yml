@@ -14,7 +14,7 @@ jobs:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
           outputDirectory: /tmp/artifacts
           emulatedFormFactor: desktop
-          timeout: 600
+          timeout: 1200
           urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
