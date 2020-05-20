@@ -516,6 +516,30 @@
   }
 
   &-root&-inline-collapsed {
+    .@{menu-prefix-cls}-without-icon {
+      &.@{menu-prefix-cls}-item,
+      &.@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
+        padding: 0 (@menu-collapsed-width - @menu-item-height) / 2;
+        .@{ant-prefix}-avatar {
+          position: absolute;
+          width: @menu-item-height;
+          height: @menu-item-height;
+          color: @menu-item-color;
+          line-height: @menu-item-height;
+          background: transparent;
+          &:hover {
+            color: @menu-highlight-color;
+          }
+        }
+      }
+
+      &.@{menu-prefix-cls}-item-selected,
+      &.@{menu-prefix-cls}-submenu-selected .@{menu-prefix-cls}-submenu-title {
+        .@{ant-prefix}-avatar {
+          color: @menu-highlight-color;
+        }
+      }
+    }
   }
 
   &-sub&-inline {

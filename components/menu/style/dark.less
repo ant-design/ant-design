@@ -144,4 +144,26 @@
       }
     }
   }
+
+  // Without icon
+  &-dark&-root&-inline-collapsed {
+    .@{menu-prefix-cls}-without-icon {
+      &.@{menu-prefix-cls}-item,
+      &.@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
+        .@{ant-prefix}-avatar {
+          color: @menu-dark-color;
+          &:hover {
+            color: @menu-dark-highlight-color;
+          }
+        }
+      }
+
+      &.@{menu-prefix-cls}-item-selected,
+      &.@{menu-prefix-cls}-submenu-selected .@{menu-prefix-cls}-submenu-title {
+        .@{ant-prefix}-avatar {
+          color: @menu-dark-highlight-color;
+        }
+      }
+    }
+  }
 }
