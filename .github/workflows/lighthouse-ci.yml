@@ -13,7 +13,7 @@ jobs:
         with:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
           outputDirectory: /tmp/artifacts
-          urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/docs/react/introduce'
+          urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
