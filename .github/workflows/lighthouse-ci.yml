@@ -13,8 +13,7 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
-          apiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
-          urls: 'https://ant.design'
+          urls: 'https://preview-$PR_NUMBER-ant-design.surge.sh'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
