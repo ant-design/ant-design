@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: install
-        run: npm ci
+        run: npm install
 
       - name: dist
         run: npm run dist
