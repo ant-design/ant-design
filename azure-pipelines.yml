@@ -76,9 +76,9 @@ stages:
             displayName: 'Install modules'
           - script: npm run test:image
             displayName: 'UI Test'
+            continueOnError: true
           - script: ls -al jest-stare/
             displayName: 'List report'
-            continueOnError: true
           - script: |
               export DEPLOY_DOMAIN=https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
               echo "Deploy to $DEPLOY_DOMAIN"
