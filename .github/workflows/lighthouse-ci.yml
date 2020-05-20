@@ -14,17 +14,10 @@ jobs:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
           outputDirectory: /tmp/artifacts
           emulatedFormFactor: desktop
+          timeout: 600
           urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
           name: Lighthouse reports
           path: /tmp/artifacts
-      - name: Handle Lighthouse Check results
-        uses: foo-software/lighthouse-check-status-action@master
-        with:
-          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
-          minAccessibilityScore: "50"
-          minBestPracticesScore: "50"
-          minPerformanceScore: "5"
-          minSeoScore: "70"
