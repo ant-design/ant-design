@@ -34,8 +34,8 @@ title: Modal
 | maskStyle | 遮罩样式 | object | {} |
 | okText | 确认按钮文字 | string\|ReactNode | 确定 |
 | okType | 确认按钮类型 | string | primary |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
 | title | 标题 | string\|ReactNode | - |
 | visible | 对话框是否可见 | boolean | - |
@@ -61,24 +61,24 @@ title: Modal
 
 以上均为一个函数，参数为 object，具体属性如下：
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| autoFocusButton | 指定自动获得焦点的按钮 | null\| `ok` \| `cancel` | `ok` |
-| cancelText | 设置 Modal.confirm 取消按钮文字 | string | 取消 |
-| centered | 垂直居中展示 Modal | Boolean | `false` |
-| className | 容器类名 | string | - |
-| content | 内容 | string\|ReactNode | - |
-| icon | 自定义图标（3.12.0 新增） | ReactNode | `<QuestionCircle />` |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
-| okText | 确认按钮文字 | string | 确定 |
-| okType | 确认按钮类型 | string | primary |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
-| title | 标题 | string\|ReactNode | - |
-| width | 宽度 | string\|number | 416 |
-| zIndex | 设置 Modal 的 `z-index` | Number | 1000 |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |
-| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| autoFocusButton | 指定自动获得焦点的按钮 | null\| `ok` \| `cancel` | `ok` |  |
+| cancelText | 设置 Modal.confirm 取消按钮文字 | string | 取消 |  |
+| centered | 垂直居中展示 Modal | Boolean | `false` |  |
+| className | 容器类名 | string | - |  |
+| content | 内容 | string\|ReactNode | - |  |
+| icon | 自定义图标 | ReactNode | [<QuestionCircle /\>](/components/icon/) | 3.12.0 |
+| maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |  |
+| okText | 确认按钮文字 | string | 确定 |  |
+| okType | 确认按钮类型 | string | primary |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| title | 标题 | string\|ReactNode | - |  |
+| width | 宽度 | string\|number | 416 |  |
+| zIndex | 设置 Modal 的 `z-index` | Number | 1000 |  |
+| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
+| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 

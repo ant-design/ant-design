@@ -1104,6 +1104,21 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-table-filter-trigger').hasClass('active')).toBeTruthy();
   });
 
+  it('filteredValue with empty array should not active the filtered icon', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filteredValue: [],
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-trigger').hasClass('active')).toBeFalsy();
+  });
+
   it('with onFilter', () => {
     const onFilter = jest.fn((value, record) => record.key === value);
     const columns = [{ dataIndex: 'key', filteredValue: [5], onFilter }];
@@ -1132,6 +1147,5 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('tbody tr')).toHaveLength(1);
     expect(wrapper.find('tbody tr td').text()).toEqual('Jack');
-    
   });
 });

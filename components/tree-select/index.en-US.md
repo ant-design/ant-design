@@ -23,6 +23,7 @@ Tree selection control.
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | true |  |
+| dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |  |

@@ -83,7 +83,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   const filtered: boolean = !!(
     filterState &&
-    (filterState.filteredKeys || filterState.forceFiltered)
+    (filterState.filteredKeys?.length || filterState.forceFiltered)
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);

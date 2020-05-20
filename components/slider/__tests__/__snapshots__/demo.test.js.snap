@@ -69,10 +69,13 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
   Disabled: 
   <button
     aria-checked="false"
-    class="ant-switch-small ant-switch"
+    class="ant-switch ant-switch-small"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -913,11 +916,13 @@ exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
   Reversed: 
   <button
     aria-checked="true"
-    checked=""
-    class="ant-switch-small ant-switch ant-switch-checked"
+    class="ant-switch ant-switch-small ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />

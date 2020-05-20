@@ -13,6 +13,7 @@ export interface BackTopProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
+  children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   visible?: boolean; // Only for test. Don't use it.

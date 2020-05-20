@@ -11,7 +11,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -1583,6 +1583,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1619,6 +1622,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1655,6 +1661,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1687,11 +1696,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <button
               aria-checked="true"
-              checked=""
               class="ant-switch ant-switch-checked"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1724,11 +1735,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <button
               aria-checked="true"
-              checked=""
               class="ant-switch ant-switch-checked"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1761,11 +1774,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <button
               aria-checked="true"
-              checked=""
               class="ant-switch ant-switch-checked"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1798,11 +1813,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <button
               aria-checked="true"
-              checked=""
               class="ant-switch ant-switch-checked"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1839,6 +1856,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1871,11 +1891,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <button
               aria-checked="true"
-              checked=""
               class="ant-switch ant-switch-checked"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -1912,6 +1934,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />

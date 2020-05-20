@@ -53,7 +53,11 @@ const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
   const prefixCls = getPrefixCls('switch', customizePrefixCls);
-  const loadingIcon = loading ? <LoadingOutlined className={`${prefixCls}-loading-icon`} /> : null;
+  const loadingIcon = (
+    <div className={`${prefixCls}-handle`}>
+      {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
+    </div>
+  );
 
   const classes = classNames(className, {
     [`${prefixCls}-small`]: (customizeSize || size) === 'small',
