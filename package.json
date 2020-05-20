@@ -89,6 +89,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
     "site:test": "jest --config .jest.site.js --cache=false",
+    "test:image": "npm install puppeteer@2.1.1 --no-save && jest --config .jest.image.js --no-cache",
     "version": "node ./scripts/generate-version"
   },
   "husky": {
@@ -159,8 +160,10 @@
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.3",
     "@types/jest": "^25.1.0",
+    "@types/jest-image-snapshot": "^2.12.0",
     "@types/lodash": "^4.14.139",
     "@types/prop-types": "^15.7.1",
+    "@types/puppeteer": "^2.0.1",
     "@types/raf": "^3.4.0",
     "@types/react": "^16.9.21",
     "@types/react-color": "^3.0.1",
@@ -213,6 +216,8 @@
     "inquirer": "^7.1.0",
     "intersection-observer": "^0.10.0",
     "jest": "^26.0.0",
+    "jest-image-snapshot": "^3.1.0",
+    "jest-stare": "^2.0.1",
     "jquery": "^3.4.1",
     "jsdom": "^16.0.0",
     "jsonml.js": "^0.1.0",

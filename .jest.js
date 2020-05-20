@@ -26,7 +26,7 @@ module.exports = {
     '^react-dnd-test-backend$': 'react-dnd-test-backend/dist/cjs',
     '^react-dnd-test-utils$': 'react-dnd-test-utils/dist/cjs',
   },
-  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node'],
+  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js'],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
