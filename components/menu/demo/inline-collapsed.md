@@ -20,11 +20,9 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
 ```jsx
 import { Menu, Button } from 'antd';
 import {
-  AppstoreOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   PieChartOutlined,
-  DesktopOutlined,
   ContainerOutlined,
   MailOutlined,
 } from '@ant-design/icons';

@@ -918,13 +918,13 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       tabindex="0"
     >
       <li
-        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child ant-dropdown-menu-without-icon"
         role="menuitem"
       >
         Select all data
       </li>
       <li
-        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child ant-dropdown-menu-without-icon"
         role="menuitem"
       >
         Invert current page
@@ -1028,13 +1028,13 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                               tabindex="0"
                             >
                               <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child ant-dropdown-menu-without-icon"
                                 role="menuitem"
                               >
                                 Select all data
                               </li>
                               <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child ant-dropdown-menu-without-icon"
                                 role="menuitem"
                               >
                                 Invert current page
@@ -1352,13 +1352,13 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                               tabindex="0"
                             >
                               <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child ant-dropdown-menu-without-icon"
                                 role="menuitem"
                               >
                                 Select all data
                               </li>
                               <li
-                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child ant-dropdown-menu-without-icon"
                                 role="menuitem"
                               >
                                 Invert current page
