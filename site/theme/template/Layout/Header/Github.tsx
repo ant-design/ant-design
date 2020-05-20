@@ -17,7 +17,7 @@ export default ({ responsive }: GithubProps) => {
       })}
       type="stargazers"
       namespace="allenai"
-      repo="ant-design"
+      repo="varnish"
     />
   );
 };
