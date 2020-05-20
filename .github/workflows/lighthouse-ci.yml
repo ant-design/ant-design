@@ -14,11 +14,7 @@ jobs:
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
           apiToken: ${{ secrets.LIGHTHOUSE_CHECK_API_TOKEN }}
-          author: ${{ github.actor }}
-          branch: ${{ github.ref }}
-          outputDirectory: /tmp/artifacts
           urls: 'https://ant.design'
-          sha: ${{ github.sha }}
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
