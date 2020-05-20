@@ -13,6 +13,7 @@ jobs:
         with:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
           outputDirectory: /tmp/artifacts
+          emulatedFormFactor: desktop
           urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
@@ -25,6 +26,6 @@ jobs:
           lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
           minAccessibilityScore: "80"
           minBestPracticesScore: "50"
-          minPerformanceScore: "20"
+          minPerformanceScore: "10"
           minProgressiveWebAppScore: "30"
           minSeoScore: "50"
