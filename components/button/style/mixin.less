@@ -332,15 +332,18 @@
       .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
     }
     & when not (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+      .button-color(~`colorPalette('@{error-color}', 5) `; transparent; ~`colorPalette('@{error-color}', 6) `); // Modified by Varnish
     }
+  }
+  &:hover { // Added by Varnish
+    .button-color(~`colorPalette('@{error-color}', 5) `; ~`colorPalette('@{error-color}', 3) `; transparent); // Added by Varnsih
   }
   &:active {
     & when (@theme = dark) {
       .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
     }
     & when not (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+      .button-color(~`colorPalette('@{error-color}', 7) `; transparent; ~`colorPalette('@{error-color}', 6) `); // Modified by Varnish
     }
   }
   .button-disabled(@disabled-color; transparent; transparent);
@@ -350,9 +353,12 @@
   .button-variant-other(@link-color, transparent, transparent);
   box-shadow: none;
   &:hover,
-  &:focus,
   &:active {
+  // &:focus, // Removed by Varnish
     border-color: transparent;
+  }
+  &:hover {
+    background: @btn-link-ghost-hover-color; // Added by Varnish
   }
   .button-disabled(@disabled-color; transparent; transparent);
 }

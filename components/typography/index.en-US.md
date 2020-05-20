@@ -7,6 +7,10 @@ cols: 1
 
 Basic text writing, including headings, body text, lists, and more.
 
+## Warning
+
+Typography.Title and Typography.Paragraph are not recommended for use.  Instead, we recommend you use standard dom elements; p for paragraph and h1...h6 for titles.
+
 ## When To Use
 
 - When need to display a title or paragraph contents in Articles/Blogs/Notes.

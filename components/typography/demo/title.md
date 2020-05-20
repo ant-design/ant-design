@@ -13,6 +13,8 @@ title:
 
 Instead of dom header elements, you can also use title to displal in different levels.
 
+Warning:  Typography.Title is not recommended for use.  Instead, we recommend you use standard dom elements; h1...h6 for titles.
+
 ```jsx
 import { Typography } from 'antd';
 
