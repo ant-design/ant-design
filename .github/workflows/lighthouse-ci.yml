@@ -8,6 +8,8 @@ jobs:
       - uses: actions/checkout@master
       - run: mkdir /tmp/artifacts
       - name: Run Lighthouse
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         uses: foo-software/lighthouse-check-action@master
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
@@ -15,7 +17,7 @@ jobs:
           author: ${{ github.actor }}
           branch: ${{ github.ref }}
           outputDirectory: /tmp/artifacts
-          urls: 'https://preview-$PR_NUMBER-ant-design.surge.sh,https://preview-$PR_NUMBER-ant-design.surge.sh/components/button'
+          urls: 'https://preview-$PR_NUMBER-ant-design.surge.sh'
           sha: ${{ github.sha }}
       - name: Upload artifacts
         uses: actions/upload-artifact@master
