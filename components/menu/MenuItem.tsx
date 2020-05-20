@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
+import Avatar from '../avatar';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import { isValidElement } from '../_util/reactNode';
 
@@ -39,12 +40,12 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     this.menuItem = menuItem;
   };
 
-  renderItemChildren() {
+  renderItemChildren(inlineCollapsed: boolean) {
     const { icon, children } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (isValidElement(children) && children.type === 'span')) {
-      return children;
+      return inlineCollapsed ? <Avatar>{children}</Avatar> : children;
     }
     return <span>{children}</span>;
   }
@@ -89,7 +90,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
                 ref={this.saveMenuItem}
               >
                 {icon}
-                {this.renderItemChildren()}
+                {this.renderItemChildren(inlineCollapsed)}
               </Item>
             </Tooltip>
           );
