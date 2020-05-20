@@ -27,3 +27,4 @@ jobs:
         PUBLISH_DIR: ./_site
       with:
         emptyCommits: false
+        cname: varnish.allenai.org
