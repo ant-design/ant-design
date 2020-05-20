@@ -11,6 +11,7 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
+          outputDirectory: /tmp/artifacts
           urls: |
             https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh
             https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button
@@ -20,3 +21,12 @@ jobs:
         with:
           name: Lighthouse reports
           path: /tmp/artifacts
+      - name: Handle Lighthouse Check results
+        uses: foo-software/lighthouse-check-status-action@master
+        with:
+          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+          minAccessibilityScore: "80"
+          minBestPracticesScore: "50"
+          minPerformanceScore: "20"
+          minProgressiveWebAppScore: "30"
+          minSeoScore: "50"
