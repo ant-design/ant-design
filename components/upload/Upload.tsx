@@ -72,7 +72,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     this.clearProgressTimer();
   }
 
-  saveUpload = (node: typeof RcUpload) => {
+  saveUpload = (node: any) => {
     this.upload = node;
   };
 
