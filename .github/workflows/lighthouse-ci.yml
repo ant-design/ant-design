@@ -24,8 +24,7 @@ jobs:
         uses: foo-software/lighthouse-check-status-action@master
         with:
           lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
-          minAccessibilityScore: "80"
-          minBestPracticesScore: "50"
-          minPerformanceScore: "10"
-          minProgressiveWebAppScore: "30"
-          minSeoScore: "50"
+          minAccessibilityScore: "70"
+          minBestPracticesScore: "80"
+          minPerformanceScore: "5"
+          minSeoScore: "70"
