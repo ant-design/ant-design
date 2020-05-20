@@ -103,10 +103,74 @@
     }
   }
 
+  // Added by Varnish (overriding tag colors)
+  // even if we redo all the colors, the tags will still need to point at specific tag colors
+  && {
+    &-gray {
+      color: @v-color-n8;
+      background: @v-color-n4;
+    }
+    &-magenta {
+      color: @v-color-m8;
+      background: @v-color-m2;
+      border: none;
+    }
+    &-red {
+      color: @v-color-r8;
+      background: @v-color-r2;
+      border: none;
+    }
+    &-volcano {
+      color: @v-color-r8;
+      background: #ffe5da;
+      border: none;
+    }
+    &-orange {
+      color: @v-color-o9;
+      background: @v-color-o3;
+      border: none;
+    }
+    &-gold {
+      color: @v-color-o8;
+      background: @v-color-o2;
+      border: none;
+    }
+    &-lime {
+      color: @v-color-g7;
+      background: #d6f7c1;
+      border: none;
+    }
+    &-green {
+      color: @v-color-g8;
+      background: @v-color-g2;
+      border: none;
+    }
+    &-cyan {
+      color: @v-color-t8;
+      background: @v-color-t2;
+      border: none;
+    }
+    &-blue {
+      color: @v-color-b7;
+      background: @v-color-b2;
+      border: none;
+    }
+    &-geekblue {
+      color: @v-color-b8;
+      background: #e0ebff;
+      border: none;
+    }
+    &-purple {
+      color: @v-color-p8;
+      background: @v-color-p2;
+      border: none;
+    }
+  }
+
   .make-status-color-classes(@color, @status) {
-    @lightColor: '@{color}-1';
-    @lightBorderColor: '@{color}-3';
-    @darkColor: '@{color}-6';
+    @lightColor: 'v-palette-background-@{color}'; // Changed by Varnish
+    @darkColor: 'v-palette-text-@{color}'; // Changed by Varnish
+    @lightBorderColor: 'v-palette-border-@{color}'; // Changed by Varnish
     &-@{status} {
       color: @@darkColor;
       background: @@lightColor;
@@ -116,10 +180,10 @@
 
   .make-color-classes();
 
-  .make-status-color-classes('green', success);
-  .make-status-color-classes('blue', processing);
-  .make-status-color-classes('red', error);
-  .make-status-color-classes('orange', warning);
+  .make-status-color-classes('success', success);
+  .make-status-color-classes('info', processing); // Changed by Varnish
+  .make-status-color-classes('error', error);
+  .make-status-color-classes('warning', warning);
 
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,

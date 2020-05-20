@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
+import { Row, Col, Menu, Affix } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
-import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
-import ThemeIcon from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import { Footer } from '../../../../components/footer';
@@ -314,9 +312,7 @@ class MainContent extends Component {
           const {
             localizedPageData,
             demos,
-            intl: { formatMessage },
           } = this.props;
-          const { meta } = localizedPageData;
           const activeMenuItem = this.getActiveMenuItem();
           const menuItems = this.getMenuItems();
           const menuItemsForFooterNav = this.getMenuItems({
@@ -339,7 +335,6 @@ class MainContent extends Component {
               {menuItems}
             </Menu>
           );
-          const componentPage = /^\/?components/.test(this.props.location.pathname);
           return (
             <div className="main-wrapper">
               <Row>
@@ -367,40 +362,9 @@ class MainContent extends Component {
                     ) : (
                       <Article {...this.props} content={localizedPageData} />
                     )}
-                    <ContributorsList
-                      className="contributors-list"
-                      fileName={meta.filename}
-                      renderItem={(item, loading) =>
-                        loading ? (
-                          <Avatar style={{ opacity: 0.3 }} />
-                        ) : (
-                          <Tooltip
-                            title={`${formatMessage({ id: 'app.content.contributors' })}: ${
-                              item.username
-                            }`}
-                            key={item.username}
-                          >
-                            <a
-                              href={`https://github.com/${item.username}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Avatar src={item.url}>{item.username}</Avatar>
-                            </a>
-                          </Tooltip>
-                        )
-                      }
-                      repo="ant-design"
-                      owner="ant-design"
-                    />
+                    {/* Contributors removed by Varnish */}
                   </section>
-                  {componentPage && (
-                    <div className="fixed-widgets">
-                      <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
-                        <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
-                      </Dropdown>
-                    </div>
-                  )}
+                  {/* Theme picker removed by Varnish */}
                   <PrevAndNext prev={prev} next={next} />
                   <Footer />
                 </Col>

@@ -7,6 +7,10 @@ title: Grid
 
 24 Grids System。
 
+## Warning
+
+This system is not recommended for use.  Instead, we recommend you use the standard [css grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
+
 ## Design concept
 
 <div class="grid-demo">
