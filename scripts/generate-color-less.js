@@ -38,6 +38,7 @@ genCss(
 );
 
 const options = {
+  antDir: path.join(__dirname, '../node_modules/antd'),
   stylesDir: path.join(__dirname, '../site/theme/static'),
   antdStylesDir: path.join(__dirname, '../components'),
   varFile: path.join(__dirname, '../components/style/themes/default.less'),
