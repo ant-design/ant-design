@@ -43,6 +43,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB. | Function(file): void | Jump to new TAB |  |
 | transformFile   | Customize transform file before request | Function(file): `string | Blob | File | Promise<string | Blob | File>` | - |  |
 | iconRender | custom show icon | (file: UploadFile, listType?: UploadListType) => React.ReactNode | - |  |
+| progress | custom progress bar | [progress props](/components/progress/) | `{ strokeWidth: 2, showInfo: false }` |  |
 
 ### onChange
 
