@@ -11,7 +11,7 @@ import ResponsiveObserve from '../_util/responsiveObserve';
 import MiniSelect from './MiniSelect';
 import Select from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface PaginationProps {
   total?: number;
@@ -53,28 +53,36 @@ export interface PaginationConfig extends PaginationProps {
 
 export type PaginationLocale = any;
 
-export default class Pagination extends React.Component<PaginationProps, {}> {
-  private token: string;
+const Pagination: React.FC<PaginationProps> = ({
+  prefixCls: customizePrefixCls,
+  selectPrefixCls: customizeSelectPrefixCls,
+  className,
+  size,
+  locale: customLocale,
+  ...restProps
+}) => {
+  const inferredSmallRef = React.useRef(false);
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
 
-  private inferredSmall: boolean = false;
-
-  componentDidMount() {
-    this.token = ResponsiveObserve.subscribe(screens => {
+  React.useEffect(() => {
+    const token = ResponsiveObserve.subscribe(screens => {
       const { xs } = screens;
-      const { size, responsive } = this.props;
+      const { responsive } = restProps;
       const inferredSmall = !!(xs && !size && responsive);
-      if (this.inferredSmall !== inferredSmall) {
-        this.inferredSmall = inferredSmall;
-        this.forceUpdate();
+      if (inferredSmallRef.current !== inferredSmall) {
+        inferredSmallRef.current = inferredSmall;
+        forceUpdate();
       }
     });
-  }
+    return () => {
+      ResponsiveObserve.unsubscribe(token);
+    };
+  }, []);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
-  componentWillUnmount() {
-    ResponsiveObserve.unsubscribe(this.token);
-  }
-
-  getIconsProps = (prefixCls: string, direction: 'ltr' | 'rtl' | undefined) => {
+  const getIconsProps = () => {
     let prevIcon = (
       <a className={`${prefixCls}-item-link`}>
         <LeftOutlined />
@@ -123,48 +131,33 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
     };
   };
 
-  renderPagination = (contextLocale: PaginationLocale) => {
-    const {
-      prefixCls: customizePrefixCls,
-      selectPrefixCls: customizeSelectPrefixCls,
-      className,
-      size,
-      locale: customLocale,
-      ...restProps
-    } = this.props;
+  const renderPagination = (contextLocale: PaginationLocale) => {
     const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small' || this.inferredSmall;
-    return (
-      <ConfigConsumer>
-        {({ getPrefixCls, direction }: ConfigConsumerProps) => {
-          const prefixCls = getPrefixCls('pagination', customizePrefixCls);
-          const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
-          const extendedClassName = classNames(className, {
-            mini: isSmall,
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-          });
+    const isSmall = size === 'small' || inferredSmallRef.current;
+    const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+    const extendedClassName = classNames(className, {
+      mini: isSmall,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
 
-          return (
-            <RcPagination
-              {...restProps}
-              prefixCls={prefixCls}
-              selectPrefixCls={selectPrefixCls}
-              {...this.getIconsProps(prefixCls, direction)}
-              className={extendedClassName}
-              selectComponentClass={isSmall ? MiniSelect : Select}
-              locale={locale}
-            />
-          );
-        }}
-      </ConfigConsumer>
+    return (
+      <RcPagination
+        {...restProps}
+        prefixCls={prefixCls}
+        selectPrefixCls={selectPrefixCls}
+        {...getIconsProps()}
+        className={extendedClassName}
+        selectComponentClass={isSmall ? MiniSelect : Select}
+        locale={locale}
+      />
     );
   };
 
-  render() {
-    return (
-      <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
-        {this.renderPagination}
-      </LocaleReceiver>
-    );
-  }
-}
+  return (
+    <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
+      {renderPagination}
+    </LocaleReceiver>
+  );
+};
+
+export default Pagination;
