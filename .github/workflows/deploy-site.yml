@@ -18,7 +18,7 @@ jobs:
       run: npm run predeploy
 
     - name: deploy
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v2
       env:
         # ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
@@ -27,4 +27,3 @@ jobs:
         PUBLISH_DIR: ./_site
       with:
         emptyCommits: false
-        cname: varnish.allenai.org
