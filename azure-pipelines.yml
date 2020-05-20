@@ -60,6 +60,7 @@ stages:
               node ./scripts/azure-github-comment.js "[<img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
   - stage: ui
+    dependsOn: []
     jobs:
       - job: UI_Test
         steps:
