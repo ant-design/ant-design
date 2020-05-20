@@ -10,6 +10,7 @@ jobs:
       - name: Run Lighthouse
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: echo "The PR number is $PR_NUMBER"
         uses: foo-software/lighthouse-check-action@master
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
