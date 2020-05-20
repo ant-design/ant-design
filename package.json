@@ -111,7 +111,7 @@
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.13",
-    "moment": "~2.25.3",
+    "moment": "^2.25.3",
     "omit.js": "^1.0.2",
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",
