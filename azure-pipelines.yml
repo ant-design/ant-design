@@ -78,7 +78,26 @@ stages:
             displayName: 'Run dist'
           - script: npm run test:image
             displayName: 'UI Test'
-            continueOnError: true
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: $(System.DefaultWorkingDirectory)/jest-stare
+              artifactName: jestStare
+            condition: failed()
+      - job: UI_Test_Failed
+        dependsOn: UI_Test
+        condition: failed()
+        steps:
+          - checkout: self
+            displayName: 'Checkout'
+            clean: true
+            fetchDepth: 1
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '12.13.1'
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: jestStare
           - script: ls -al jest-stare/
             displayName: 'List report'
           - script: |
