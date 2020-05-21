@@ -1,9 +1,8 @@
 ---
-order: 999
+order: 15
 title:
   zh-CN: 自定义进度条样式
   en-US: Customize Progress Bar
-debug: true
 ---
 
 ## zh-CN
