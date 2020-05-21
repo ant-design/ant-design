@@ -1,18 +1,17 @@
 ---
-order: 999
+order: 15
 title:
-  zh-CN: Customize Progress Bar
+  zh-CN: 自定义进度条样式
   en-US: Customize Progress Bar
-debug: true
 ---
 
 ## zh-CN
 
-Customize Progress Bar with `progress` props.
+使用 `progress` 属性自定义进度条样式。
 
 ## en-US
 
-Customize Progress Bar with `progress` props.
+Use `progress` for customize progress bar.
 
 ```jsx
 import { Upload, message, Button } from 'antd';
@@ -40,6 +39,7 @@ const props = {
       '100%': '#87d068',
     },
     strokeWidth: 3,
+    format: percent => `${parseFloat(percent.toFixed(2))}%`,
   },
 };
 
