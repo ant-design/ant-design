@@ -13,7 +13,7 @@
     "react-component",
     "ui"
   ],
-  "homepage": "https://varnish.allenai.org/",
+  "homepage": "https://varnish.allenai.org",
   "bugs": {
     "url": "https://github.com/allenai/varnish/issues"
   },
