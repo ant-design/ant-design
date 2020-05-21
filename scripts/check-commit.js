@@ -44,8 +44,8 @@ async function checkCommit({ files }) {
 
 async function checkRemote() {
   const { remote } = await git.fetch('origin', 'master');
-  if (remote.indexOf('allenai/ant-design') === -1) {
-    console.log(chalk.yellow('😓 Your remote origin is not allenai/ant-design, did you fork it?'));
+  if (remote.indexOf('allenai/varnish') === -1) {
+    console.log(chalk.yellow('😓 Your remote origin is not allenai/varnish, did you fork it?'));
     exitProcess();
   }
 }
