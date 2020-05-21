@@ -15,6 +15,7 @@ jobs:
           outputDirectory: /tmp/artifacts
           emulatedFormFactor: desktop
           timeout: 1200
+          prCommentEnabled: false
           urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
