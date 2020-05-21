@@ -190,11 +190,13 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
 <div>
   <button
     aria-checked="true"
-    checked=""
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -207,6 +209,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -217,6 +222,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -227,6 +235,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -275,6 +286,15 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     </span>
      case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
   </div>
+  <p>
+    2333
+    <span
+      class="ant-typography ant-typography-ellipsis"
+    >
+      2333
+    </span>
+    2333
+  </p>
 </div>
 `;
 
@@ -544,6 +564,41 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </a>
       </li>
     </ul>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        I am an unordered item
+      </li>
+      <li>
+        I am an unordered item with an ordered sublist
+        <ol>
+          <li>
+            I am ordered
+          </li>
+        </ol>
+        <ul>
+          <li>
+            I am unordered
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ol>
+      <li>
+        Ordered list item with unordered sublist
+        <ul>
+          <li>
+            I am unordered!
+          </li>
+          <li>
+            I am also unordered!
+          </li>
+        </ul>
+      </li>
+    </ol>
   </div>
 </div>
 `;

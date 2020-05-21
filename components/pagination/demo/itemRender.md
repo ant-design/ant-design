@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 title:
   zh-CN: 上一步和下一步
   en-US: Prev and next

@@ -7,6 +7,7 @@
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
+@select-dropdown-edge-child-vertical-padding: @dropdown-edge-child-vertical-padding;
 
 .select-selector() {
   position: relative;
@@ -20,6 +21,8 @@
   }
 
   .@{select-prefix-cls}-show-search& {
+    cursor: text;
+
     input {
       cursor: auto;
     }
@@ -51,37 +54,50 @@
 
 .@{select-prefix-cls} {
   .reset-component;
-
   position: relative;
   display: inline-block;
+  cursor: pointer;
 
   &:not(.@{select-prefix-cls}-disabled):hover &-selector {
     .hover();
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   // ======================== Selection ========================
   &-selection-item {
+    flex: 1;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        flex: auto;
+      }
+    }
   }
 
   // ======================= Placeholder =======================
   &-selection-placeholder {
+    flex: 1;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     opacity: 0.4;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        flex: auto;
+      }
+    }
   }
 
   // ========================== Arrow ==========================
   &-arrow {
     .iconfont-mixin();
-
     position: absolute;
     top: 53%;
     right: @control-padding-horizontal - 1px;
@@ -92,10 +108,9 @@
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
-    // transform-origin: 50% 50%;
     pointer-events: none;
 
-    .anticon {
+    .@{iconfont-css-prefix} {
       vertical-align: top;
       transition: transform 0.3s;
 
@@ -103,14 +118,9 @@
         vertical-align: top;
       }
 
-      .@{select-prefix-cls}-open &.anticon-down {
-        transform: rotate(180deg);
+      &:not(.@{iconfont-css-prefix}-down) {
+        pointer-events: auto;
       }
-    }
-
-    .@{select-prefix-cls}-rtl & {
-      right: initial;
-      left: @control-padding-horizontal - 1px;
     }
   }
 
@@ -145,25 +155,17 @@
     .@{select-prefix-cls}:hover & {
       opacity: 1;
     }
-
-    .@{select-prefix-cls}-rtl & {
-      right: initial;
-      left: @control-padding-horizontal - 1px;
-    }
   }
 
   // ========================== Popup ==========================
   &-dropdown {
     .reset-component;
-
-    &-rtl {
-      direction: rtl;
-    }
     position: absolute;
     top: -9999px;
     left: -9999px;
     z-index: @zindex-dropdown;
     box-sizing: border-box;
+    padding: @select-dropdown-edge-child-vertical-padding 0;
     overflow: hidden;
     font-size: @font-size-base;
     // Fix select render lag of long text in chrome
@@ -196,13 +198,17 @@
     &-hidden {
       display: none;
     }
+
+    &-empty {
+      color: @disabled-color;
+    }
   }
 
   // ========================= Options =========================
   .item() {
     position: relative;
     display: block;
-    min-height: 32px;
+    min-height: @select-dropdown-height;
     padding: @select-dropdown-vertical-padding @control-padding-horizontal;
     color: @text-color;
     font-weight: normal;
@@ -212,6 +218,7 @@
 
   &-item-empty {
     .item();
+    color: @disabled-color;
   }
 
   &-item {
@@ -224,6 +231,7 @@
     &-group {
       color: @text-color-secondary;
       font-size: @font-size-sm;
+      cursor: default;
     }
 
     // =========== Option ===========
@@ -280,3 +288,5 @@
     box-shadow: none !important;
   }
 }
+
+@import './rtl';

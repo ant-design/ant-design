@@ -67,7 +67,9 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 - **Less**
 
   ```less
-  @import '~antd/es/style/themes/default.less', .selector {
+  @import '~antd/lib/style/themes/default.less';
+
+  .selector {
     color: @blue-5;
     background-color: @gold-2;
   }

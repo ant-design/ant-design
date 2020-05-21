@@ -1,5 +1,7 @@
 @import './index';
 
+@selection-item-padding: ceil(@font-size-base * 1.25);
+
 .@{select-prefix-cls}-single {
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
@@ -22,7 +24,6 @@
       padding: 0;
       line-height: @select-height-without-border;
       transition: all 0.3s;
-      pointer-events: none;
 
       // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
       @supports (-moz-appearance: meterbar) {
@@ -30,15 +31,26 @@
           line-height: @select-height-without-border;
         }
       }
-      .@{select-prefix-cls}-rtl& {
-        right: 0;
-        left: 9px;
-        text-align: right;
-      }
     }
 
+    .@{select-prefix-cls}-selection-item {
+      position: relative;
+      user-select: none;
+    }
+
+    .@{select-prefix-cls}-selection-placeholder {
+      pointer-events: none;
+    }
+
+    // For common baseline align
     &::after,
+    // For '' value baseline align
+    .@{select-prefix-cls}-selection-item::after,
+    // For undefined value baseline align
     .@{select-prefix-cls}-selection-placeholder::after {
+      display: inline-block;
+      width: 0;
+      visibility: hidden;
       content: '\a0';
     }
   }
@@ -46,21 +58,11 @@
   // With arrow should provides `padding-right` to show the arrow
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
     right: @input-padding-horizontal-base + @font-size-base;
-
-    .@{select-prefix-cls}-rtl& {
-      right: @input-padding-horizontal-base;
-      left: @input-padding-horizontal-base + @font-size-base;
-    }
   }
 
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
-    padding-right: @font-size-base;
-
-    .@{select-prefix-cls}-rtl& {
-      padding-right: 0;
-      padding-left: @font-size-base;
-    }
+    padding-right: @selection-item-padding;
   }
 
   // Opacity selection if open
@@ -81,9 +83,6 @@
       height: @input-height-base;
       padding: 0 @input-padding-horizontal-base;
 
-      .@{select-prefix-cls}-rtl& {
-        padding: 0 @input-padding-horizontal-base;
-      }
       .@{select-prefix-cls}-selection-search-input {
         height: @select-height-without-border;
       }
@@ -126,7 +125,7 @@
 
         .@{select-prefix-cls}-selection-item,
         .@{select-prefix-cls}-selection-placeholder {
-          line-height: @input-height;
+          line-height: @input-height - 2 * @border-width-base;
         }
       }
 
@@ -139,7 +138,7 @@
     }
   }
 
-  .select-size('lg', @input-height-lg);
+  .select-size('lg', @select-single-item-height-lg);
   .select-size('sm', @input-height-sm);
 
   // Size small need additional set padding
@@ -157,19 +156,19 @@
       // With arrow should provides `padding-right` to show the arrow
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
         right: @input-padding-horizontal-sm + @font-size-base * 1.5;
-
-        .@{select-prefix-cls}-rtl& {
-          right: 0;
-        }
       }
 
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
         padding-right: @font-size-base * 1.5;
+      }
+    }
+  }
 
-        .@{select-prefix-cls}-rtl& {
-          padding-right: 0;
-        }
+  &.@{select-prefix-cls}-lg {
+    &:not(.@{select-prefix-cls}-customize-input) {
+      .@{select-prefix-cls}-selector {
+        padding: 0 @input-padding-horizontal-lg;
       }
     }
   }

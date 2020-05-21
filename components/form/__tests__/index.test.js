@@ -6,6 +6,7 @@ import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -25,10 +26,7 @@ describe('Form', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   async function change(wrapper, index, value) {
-    wrapper
-      .find(Input)
-      .at(index)
-      .simulate('change', { target: { value } });
+    wrapper.find(Input).at(index).simulate('change', { target: { value } });
     await delay(50);
     wrapper.update();
   }
@@ -74,10 +72,7 @@ describe('Form', () => {
         );
 
         async function operate(className) {
-          wrapper
-            .find(className)
-            .last()
-            .simulate('click');
+          wrapper.find(className).last().simulate('click');
           await delay();
           wrapper.update();
         }
@@ -90,6 +85,7 @@ describe('Form', () => {
 
         await change(wrapper, 1, '');
         wrapper.update();
+        await sleep(300);
         expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
 
         await operate('.remove');
@@ -115,10 +111,7 @@ describe('Form', () => {
 
     it('correct onFinish values', async () => {
       async function click(wrapper, className) {
-        wrapper
-          .find(className)
-          .last()
-          .simulate('click');
+        wrapper.find(className).last().simulate('click');
         await delay();
         wrapper.update();
       }
@@ -405,20 +398,12 @@ describe('Form', () => {
     /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
       await change(wrapper, 0, '');
-      expect(
-        wrapper
-          .find('.ant-form-item-explain')
-          .first()
-          .text(),
-      ).toEqual("'name' is required");
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual("'name' is required");
 
       await change(wrapper, 0, 'p');
-      expect(
-        wrapper
-          .find('.ant-form-item-explain')
-          .first()
-          .text(),
-      ).toEqual('not a p');
+      await delay(100);
+      wrapper.update();
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('not a p');
     }
     /* eslint-enable */
   });
@@ -439,12 +424,7 @@ describe('Form', () => {
 
     const wrapper = mount(<App />);
     wrapper.find('button').simulate('click');
-    expect(
-      wrapper
-        .find('.ant-form-item')
-        .first()
-        .hasClass('ant-form-item-with-help'),
-    ).toBeTruthy();
+    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-with-help')).toBeTruthy();
     expect(wrapper.find('.ant-form-item-explain').text()).toEqual('bamboo');
   });
 
@@ -542,7 +522,7 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/21415
   it('Component.props.onChange is null', () => {
-    // eslint-disable-next-line
+    // eslint-disable-next-line react/prefer-stateless-function
     class CustomComponent extends Component {
       static defaultProps = {
         onChange: null,
@@ -562,5 +542,167 @@ describe('Form', () => {
       );
       wrapper.find(CustomComponent).simulate('change', { value: '123' });
     }).not.toThrow();
+  });
+
+  it('change `help` should not warning', () => {
+    const Demo = () => {
+      const [error, setError] = React.useState(null);
+
+      return (
+        <Form>
+          <Form.Item
+            help={error ? 'This is an error msg' : undefined}
+            validateStatus={error ? 'error' : ''}
+            label="Username"
+            name="username"
+          >
+            <input />
+          </Form.Item>
+
+          <Form.Item>
+            <button type="button" onClick={() => setError(!error)}>
+              Trigger
+            </button>
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('button').simulate('click');
+
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('`label` support template', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }}>
+        <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await delay(100);
+    wrapper.update();
+    await delay(100);
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
+  it('return same form instance', () => {
+    const instances = new Set();
+
+    const App = () => {
+      const [form] = Form.useForm();
+      instances.add(form);
+      const [, forceUpdate] = React.useState({});
+      return (
+        <button
+          type="button"
+          onClick={() => {
+            forceUpdate({});
+          }}
+        >
+          Refresh
+        </button>
+      );
+    };
+
+    const wrapper = mount(<App />);
+    for (let i = 0; i < 5; i += 1) {
+      wrapper.find('button').simulate('click');
+    }
+    expect(instances.size).toEqual(1);
+  });
+
+  it('avoid re-render', async () => {
+    let renderTimes = 0;
+
+    const MyInput = ({ value = '', ...props }) => {
+      renderTimes += 1;
+      return <input value={value} {...props} />;
+    };
+
+    const Demo = () => (
+      <Form>
+        <Form.Item name="username" rules={[{ required: true }]}>
+          <MyInput />
+        </Form.Item>
+      </Form>
+    );
+
+    const wrapper = mount(<Demo />);
+    renderTimes = 0;
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        value: 'a',
+      },
+    });
+
+    await delay();
+
+    expect(renderTimes).toEqual(1);
+    expect(wrapper.find('input').props().value).toEqual('a');
+  });
+
+  it('warning with `defaultValue`', () => {
+    mount(
+      <Form>
+        <Form.Item name="light">
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
+    );
+  });
+
+  it('Remove Field should also reset error', async () => {
+    class Demo extends React.Component {
+      state = {
+        showA: true,
+      };
+
+      render() {
+        return (
+          <Form>
+            {this.state.showA ? (
+              <Form.Item name="a" help="error">
+                <input />
+              </Form.Item>
+            ) : (
+              <Form.Item name="b">
+                <input />
+              </Form.Item>
+            )}
+          </Form>
+        );
+      }
+    }
+
+    const wrapper = mount(<Demo />);
+    await Promise.resolve();
+    expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeTruthy();
+
+    wrapper.setState({ showA: false });
+    await Promise.resolve();
+    wrapper.update();
+    expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
+  });
+
+  it('no warning of initialValue & getValueProps', () => {
+    mount(
+      <Form>
+        <Form.Item initialValue="bamboo" getValueProps={() => null}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });

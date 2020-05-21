@@ -14,13 +14,13 @@ title:
 Set the `itemLayout` property to `vertical` to create a vertical list.
 
 ```jsx
-import { List, Avatar } from 'antd';
+import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
   listData.push({
-    href: 'http://ant.design',
+    href: 'https://ant.design',
     title: `ant design part ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     description:
@@ -31,10 +31,10 @@ for (let i = 0; i < 23; i++) {
 }
 
 const IconText = ({ icon, text }) => (
-  <span>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
+  <Space>
+    {React.createElement(icon)}
     {text}
-  </span>
+  </Space>
 );
 
 ReactDOM.render(

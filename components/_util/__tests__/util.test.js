@@ -8,37 +8,33 @@ import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
 import openAnimation from '../openAnimation';
+import { sleep } from '../../../tests/utils';
+import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
+  focusTest(TransButton);
 
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
-  it('throttle function should work', () => {
+  it('throttle function should work', async () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);
     expect(callback).not.toHaveBeenCalled();
 
     throttled();
     throttled();
+    await sleep(20);
 
-    jest.runAllTimers();
     expect(callback).toHaveBeenCalled();
     expect(callback.mock.calls.length).toBe(1);
   });
 
-  it('throttle function should be canceled', () => {
+  it('throttle function should be canceled', async () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);
 
     throttled();
     throttled.cancel();
+    await sleep(20);
 
-    jest.runAllTimers();
     expect(callback).not.toHaveBeenCalled();
   });
 

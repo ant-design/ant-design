@@ -1,7 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 import {
   TransferItem,
@@ -12,13 +11,14 @@ import {
 } from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
+import { isValidElement } from '../_util/reactNode';
 
 const defaultRender = () => null;
 
 function isRenderResultPlainObject(result: RenderResult) {
   return (
     result &&
-    !React.isValidElement(result) &&
+    !isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
@@ -74,7 +74,10 @@ function renderListNode(renderList: RenderListFunction | undefined, props: Trans
   };
 }
 
-export default class TransferList extends React.Component<TransferListProps, TransferListState> {
+export default class TransferList extends React.PureComponent<
+  TransferListProps,
+  TransferListState
+> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
@@ -90,10 +93,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     this.state = {
       filterValue: '',
     };
-  }
-
-  shouldComponentUpdate(...args: any[]) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   componentWillUnmount() {

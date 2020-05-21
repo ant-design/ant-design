@@ -9,15 +9,15 @@ title:
 
 自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：
 
-> - 提供受控属性 `value` 或其它与 [`valuePropName`](http://ant.design/components/form/#getFieldDecorator-参数) 的值同名的属性。
-> - 提供 `onChange` 事件或 [`trigger`](http://ant.design/components/form/#getFieldDecorator-参数) 的值同名的事件。
+> - 提供受控属性 `value` 或其它与 [`valuePropName`](https://ant.design/components/form/#getFieldDecorator-参数) 的值同名的属性。
+> - 提供 `onChange` 事件或 [`trigger`](https://ant.design/components/form/#getFieldDecorator-参数) 的值同名的事件。
 
 ## en-US
 
 Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
 
-> - It has a controlled property `value` or other name which is equal to the value of [`valuePropName`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
-> - It has event `onChange` or an event which name is equal to the value of [`trigger`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
+> - It has a controlled property `value` or other name which is equal to the value of [`valuePropName`](https://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
+> - It has event `onChange` or an event which name is equal to the value of [`trigger`](https://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
 
 ```tsx
 import React, { useState } from 'react';
@@ -69,9 +69,13 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
         type="text"
         value={value.number || number}
         onChange={onNumberChange}
-        style={{ width: 100, marginRight: 8 }}
+        style={{ width: 100 }}
       />
-      <Select value={value.currency || currency} style={{ width: 80 }} onChange={onCurrencyChange}>
+      <Select
+        value={value.currency || currency}
+        style={{ width: 80, margin: '0 8px' }}
+        onChange={onCurrencyChange}
+      >
         <Option value="rmb">RMB</Option>
         <Option value="dollar">Dollar</Option>
       </Select>

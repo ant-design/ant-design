@@ -9,9 +9,9 @@ A common problem with many of these rich interactions (e.g. Drag and Drop, Inlin
 
 Invitations are the prompts and cues that lead users through an interaction. They often include just-in-time tips or visual affordances that hint at what will happen next in the interface.
 
-> ** Signifiers ** are signals, communication devices. These signs tell you about the possible actions; what to do, and where to do it. Signifiers are often visible, audible or tangible, from the Design of Everyday Things.
+> **Signifiers** are signals, communication devices. These signs tell you about the possible actions; what to do, and where to do it. Signifiers are often visible, audible or tangible, from the Design of Everyday Things.
 
-> ** Affordances ** are the relationships (read: possible actions) between an object and an entity (most often a person). The presence of an affordance is determined by the properties of the object and of the abilities of the entity who's interacting with the object, from the Design of Everyday Things.
+> **Affordances** are the relationships (read: possible actions) between an object and an entity (most often a person). The presence of an affordance is determined by the properties of the object and of the abilities of the entity who's interacting with the object, from the Design of Everyday Things.
 
 ---
 

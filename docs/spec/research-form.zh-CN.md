@@ -34,7 +34,7 @@ title: 表单页
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*R9PIRbGpFfYAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>安全感</h4>
-      <p>合理的操作后果保障机制，列如针对复杂表单提供分布或即时保存机制；针对不同场景任务提供返回、重置、取消、清空、撤销等后悔药和速效药功能。</p>
+      <p>合理的操作后果保障机制，例如针对复杂表单提供分布或即时保存机制；针对不同场景任务提供返回、重置、取消、清空、撤销等后悔药和速效药功能。</p>
     </div>
   </div>
 </div>
@@ -58,7 +58,7 @@ title: 表单页
 
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范" />
 
-预填提示避免正确的废话，列如一个叫姓名的表单项输入提示是“请输入姓名”。
+预填提示避免正确的废话，例如一个叫姓名的表单项输入提示是“请输入姓名”。
 
 <br>
 
@@ -175,8 +175,8 @@ Ant Design 标准注册模板
 
 ### 前期准备
 
-- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](https://ant.design/components/form-cn/)；
-- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](https://ant.design/docs/spec/data-entry-cn/) 确定所使用的组件。
+- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](/components/form-cn/)；
+- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](/docs/spec/data-entry-cn/) 确定所使用的组件。
 
 ### 布局方式
 
@@ -212,7 +212,7 @@ Ant Design 标准注册模板
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
 
-关于使用何种布局方式的判断，和[详情页](https://ant.design/docs/spec/detail-page-cn#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
+关于使用何种布局方式的判断，和[详情页](/docs/spec/detail-page-cn#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
 
 <br>
 
@@ -220,8 +220,8 @@ Ant Design 标准注册模板
 
 ### 会用到哪些模块或组件
 
-- [表单](https://ant.design/components/form-cn/#header)
-- [步骤条](https://ant.design/components/steps-cn/#header)
+- [表单](/components/form-cn/#header)
+- [步骤条](/components/steps-cn/#header)
 
 ### 外部参考文章
 

@@ -39,7 +39,7 @@ class SelectSizesDemo extends React.Component {
   render() {
     const { size } = this.state;
     return (
-      <div>
+      <>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
           <Radio.Button value="large">Large</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>
@@ -72,7 +72,7 @@ class SelectSizesDemo extends React.Component {
         >
           {children}
         </Select>
-      </div>
+      </>
     );
   }
 }
@@ -83,6 +83,10 @@ ReactDOM.render(<SelectSizesDemo />, mountNode);
 ```css
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
+}
+
+.ant-row-rtl .code-box-demo .ant-select {
+  margin: 0 0 10px 8px;
 }
 
 #components-select-demo-search-box .code-box-demo .ant-select {

@@ -37,7 +37,7 @@ class OverlayVisible extends React.Component {
       <Menu onClick={this.handleMenuClick}>
         <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
         <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
-        <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
+        <Menu.Item key="3">Clicking me will close the menu.</Menu.Item>
       </Menu>
     );
     return (

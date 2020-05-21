@@ -36,9 +36,19 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-- Modern browsers and Internet Explorer 11+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| --- | --- | --- | --- | --- | --- |
+| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+
+Polyfills are needed for IE browsers. We recommend [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
+
+`antd@3.x` supports both React 15 and 16 but we strongly suggest React 16 for better performance and fewer bugs.
+
+> We drop support of IE8 after `antd@2.0`, IE9/10 after `antd@4.0`,
 
 ## Version
 
@@ -70,12 +80,13 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 
 > **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
 
-> Note: you should import moment before using antd.js after `3.0`.
+> Note: you should import react/react-dom/moment before using antd.js.
 
 ## Usage
 
 ```jsx
 import { DatePicker } from 'antd';
+
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
@@ -87,42 +98,16 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### Use modularized antd
 
-> Note: antd support ES6 tree shaking by default even without the below plugin.
-
-- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
-
-  ```js
-  // .babelrc or babel-loader option
-  {
-    "plugins": [
-      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
-    ]
-  }
-  ```
-
-  This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
-
-  ```jsx
-  // import js and css modularly, parsed by babel-plugin-import
-  import { DatePicker } from 'antd';
-  ```
-
-- Manually import
-
-  ```jsx
-  import DatePicker from 'antd/es/date-picker'; // for js
-  import 'antd/es/date-picker/style/css'; // for css
-  // import 'antd/es/date-picker/style';         // that will import less
-  ```
+`antd` supports ES modules tree shaking by default for JS part.
 
 ### TypeScript
 
-- Don't use @types/antd, as antd provides a built-in ts definition already.
+`antd` provides a built-in ts definition, don't install @types/antd`.
 
 ## Links
 
-- [Home page](https://ant.design/)
-- [Components](/docs/react/introduce)
+- [Home page](/)
+- [Components](/components/button/)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Change Log](/changelog)
 - [rc-components](http://react-component.github.io/)
@@ -141,6 +126,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
+- [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## Companies using antd
 

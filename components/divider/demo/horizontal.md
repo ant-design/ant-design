@@ -17,7 +17,7 @@ Divider is `horizontal` by default. You can add text within Divider.
 import { Divider } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -32,7 +32,7 @@ ReactDOM.render(
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-  </div>,
+  </>,
   mountNode,
 );
 ```

@@ -6,7 +6,11 @@ title: Icon
 toc: false
 ---
 
-语义化的矢量图形。
+语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+
+```bash
+npm install --save @ant-design/icons
+```
 
 ## 设计师专属
 
@@ -27,6 +31,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| className | 设置图标的样式名 | `string` | - |  |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 | spin | 是否有旋转动画 | boolean | false |  |
 | rotate | 图标旋转角度（IE9 无效） | number | - |  |
@@ -101,7 +106,7 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址 | string | - |  |
+| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址，`@ant-design/icons@4.1.0` 之后支持 `string[]` 类型 | string \| string[] | - |  |
 | extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} |  |
 
 在 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
@@ -134,6 +139,8 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 ```jsx
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+// in create-react-app:
+// import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
 ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 ```

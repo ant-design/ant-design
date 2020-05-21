@@ -3,7 +3,7 @@ import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -215,5 +215,16 @@ describe('Descriptions', () => {
     matchSpan(0, [1, 1, 1, 1]);
     matchSpan(2, [2, 2]);
     matchSpan(4, [3, 1]);
+  });
+
+  it('number value should render correct', () => {
+    const wrapper = mount(
+      <Descriptions bordered>
+        <Descriptions.Item label={0}>{0}</Descriptions.Item>
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
+    expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
   });
 });

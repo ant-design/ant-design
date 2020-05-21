@@ -82,6 +82,26 @@ describe('ConfigProvider', () => {
             ),
           ).toMatchSnapshot();
         });
+
+        it('configProvider componentSize large', () => {
+          expect(
+            render(
+              <ConfigProvider componentSize="large" prefixCls="config">
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
+
+        it('configProvider componentSize middle', () => {
+          expect(
+            render(
+              <ConfigProvider componentSize="middle" prefixCls="config">
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
       });
     }
 
@@ -290,6 +310,7 @@ describe('ConfigProvider', () => {
           <Input {...props} />
           <Input.Search {...props} />
         </Input.Group>
+        <Input.Password {...props} />
         <Input.TextArea {...props} />
       </div>
     ));

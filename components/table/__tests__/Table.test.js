@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 
@@ -85,8 +86,15 @@ describe('Table', () => {
     loading.spinning = true;
     wrapper.setProps({ loading });
     expect(wrapper.find('.ant-spin')).toHaveLength(0);
+    await sleep(500);
+    wrapper.update();
+    expect(wrapper.find('.ant-spin')).toHaveLength(1);
+  });
 
-    await new Promise(resolve => setTimeout(resolve, 500));
+  // https://github.com/ant-design/ant-design/issues/22733
+  it('support loading tip', async () => {
+    const wrapper = mount(<Table loading={{ tip: 'loading...' }} />);
+    await sleep(500);
     wrapper.update();
     expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
@@ -155,5 +163,20 @@ describe('Table', () => {
         dataSource={[]}
       />,
     );
+  });
+
+  it('prevent touch event', () => {
+    const wrapper = mount(
+      <Table
+        columns={[
+          {
+            dataIndex: 'name',
+            children: undefined,
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+    wrapper.simulate('touchmove');
   });
 });

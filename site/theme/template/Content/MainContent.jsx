@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
+import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
-import { DarkIcon, DefaultIcon } from './ThemeIcon';
+import ThemeIcon from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -43,7 +43,7 @@ function getModuleData(props) {
 }
 
 function fileNameToPath(filename) {
-  const snippets = filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
+  const snippets = filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').split('/');
   return snippets[snippets.length - 1];
 }
 
@@ -60,7 +60,7 @@ const getSideBarOpenKeys = nextProps => {
 
 class MainContent extends Component {
   static contextTypes = {
-    theme: PropTypes.oneOf(['default', 'dark']),
+    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
     setTheme: PropTypes.func,
     setIframeTheme: PropTypes.func,
   };
@@ -195,8 +195,10 @@ class MainContent extends Component {
     if (!document.querySelector('.markdown > h2, .code-box')) {
       return;
     }
-    require('intersection-observer'); // eslint-disable-line
-    const scrollama = require('scrollama'); // eslint-disable-line
+    // eslint-disable-next-line global-require
+    require('intersection-observer');
+    // eslint-disable-next-line global-require
+    const scrollama = require('scrollama');
     this.scroller = scrollama();
     this.scroller
       .setup({
@@ -205,7 +207,7 @@ class MainContent extends Component {
       })
       .onStepEnter(({ element }) => {
         [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-          node.className = ''; // eslint-disable-line
+          node.className = '';
         });
         const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
         if (currentNode) {
@@ -232,7 +234,7 @@ class MainContent extends Component {
           </span>,
         ];
     const { disabled } = item;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
     const child = !item.link ? (
       <Link
         to={utils.getLocalizedPathname(
@@ -266,6 +268,24 @@ class MainContent extends Component {
     );
   }
 
+  getThemeSwitchMenu() {
+    const { theme } = this.context;
+    const {
+      intl: { formatMessage },
+    } = this.props;
+    return (
+      <Menu onClick={({ key }) => this.changeThemeMode(key)} selectedKeys={[theme]}>
+        {[
+          { type: 'default', text: formatMessage({ id: 'app.theme.switch.default' }) },
+          { type: 'dark', text: formatMessage({ id: 'app.theme.switch.dark' }) },
+          { type: 'compact', text: formatMessage({ id: 'app.theme.switch.compact' }) },
+        ].map(({ type, text }) => (
+          <Menu.Item key={type}>{text}</Menu.Item>
+        ))}
+      </Menu>
+    );
+  }
+
   flattenMenu(menu) {
     if (!menu) {
       return null;
@@ -279,10 +299,11 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
-  changeTheme = () => {
-    const { theme, setTheme } = this.context;
-    const nextTheme = theme !== 'dark' ? 'dark' : 'default';
-    setTheme(nextTheme);
+  changeThemeMode = theme => {
+    const { setTheme, theme: selectedTheme } = this.context;
+    if (selectedTheme !== theme) {
+      setTheme(theme);
+    }
   };
 
   render() {
@@ -320,7 +341,6 @@ class MainContent extends Component {
             </Menu>
           );
           const componentPage = /^\/?components/.test(this.props.location.pathname);
-
           return (
             <div className="main-wrapper">
               <Row>
@@ -377,21 +397,9 @@ class MainContent extends Component {
                   </section>
                   {componentPage && (
                     <div className="fixed-widgets">
-                      <Tooltip
-                        getPopupContainer={node => node.parentNode}
-                        title={formatMessage({ id: `app.theme.switch.${theme}` })}
-                        overlayClassName="fixed-widgets-tooltip"
-                      >
-                        <Avatar
-                          className={classNames(
-                            'fixed-widgets-avatar',
-                            `fixed-widgets-avatar-${theme}`,
-                          )}
-                          size={44}
-                          onClick={this.changeTheme}
-                          icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
-                        />
-                      </Tooltip>
+                      <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
+                        <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
+                      </Dropdown>
                     </div>
                   )}
                   <PrevAndNext prev={prev} next={next} />

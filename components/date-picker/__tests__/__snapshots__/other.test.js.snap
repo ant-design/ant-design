@@ -53,7 +53,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               <tbody>
                 <tr>
                   <td
-                    class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
+                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
                     title="2000-01"
                   >
                     <div
@@ -788,9 +788,11 @@ exports[`Picker format by locale date 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
       size="12"
+      title="2000-01-01"
       value="2000-01-01"
     />
     <span
@@ -853,9 +855,11 @@ exports[`Picker format by locale dateTime 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
       size="21"
+      title="2000-01-01 00:00:00"
       value="2000-01-01 00:00:00"
     />
     <span
@@ -918,9 +922,11 @@ exports[`Picker format by locale month 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择月份"
       readonly=""
       size="12"
+      title="2000-01"
       value="2000-01"
     />
     <span
@@ -983,9 +989,11 @@ exports[`Picker format by locale week 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择周"
       readonly=""
       size="12"
+      title="1999-52周"
       value="1999-52周"
     />
     <span

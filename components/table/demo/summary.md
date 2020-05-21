@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过 `summary` 设置总结栏。
+通过 `summary` 设置总结栏。使用 `Table.Summary.Cell` 同步 Column 的固定状态。
 
 ## en-US
 
-Set summary content by `summary` prop.
+Set summary content by `summary` prop. Sync column fixed status with `Table.Summary.Cell`.
 
 ```jsx
 import { Table, Typography } from 'antd';
@@ -60,42 +60,82 @@ const data = [
   },
 ];
 
+const fixedColumns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    fixed: true,
+    width: 100,
+  },
+  {
+    title: 'Description',
+    dataIndex: 'description',
+  },
+];
+
+const fixedData = [];
+for (let i = 0; i < 6; i += 1) {
+  fixedData.push({
+    key: i,
+    name: i % 2 ? 'Light' : 'Bamboo',
+    description: 'Everything that has a beginning, has an end.',
+  });
+}
+
 ReactDOM.render(
-  <Table
-    columns={columns}
-    dataSource={data}
-    pagination={false}
-    bordered
-    summary={pageData => {
-      let totalBorrow = 0;
-      let totalRepayment = 0;
+  <>
+    <Table
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+      bordered
+      summary={pageData => {
+        let totalBorrow = 0;
+        let totalRepayment = 0;
 
-      pageData.forEach(({ borrow, repayment }) => {
-        totalBorrow += borrow;
-        totalRepayment += repayment;
-      });
+        pageData.forEach(({ borrow, repayment }) => {
+          totalBorrow += borrow;
+          totalRepayment += repayment;
+        });
 
-      return (
-        <>
-          <tr>
-            <th>Total</th>
-            <td>
-              <Text type="danger">{totalBorrow}</Text>
-            </td>
-            <td>
-              <Text>{totalRepayment}</Text>
-            </td>
-          </tr>
-          <tr>
-            <th>Balance</th>
-            <td colSpan={2}>
-              <Text type="danger">{totalBorrow - totalRepayment}</Text>
-            </td>
-          </tr>
-        </>
-      );
-    }}
-  />,
+        return (
+          <>
+            <Table.Summary.Row>
+              <Table.Summary.Cell>Total</Table.Summary.Cell>
+              <Table.Summary.Cell>
+                <Text type="danger">{totalBorrow}</Text>
+              </Table.Summary.Cell>
+              <Table.Summary.Cell>
+                <Text>{totalRepayment}</Text>
+              </Table.Summary.Cell>
+            </Table.Summary.Row>
+            <Table.Summary.Row>
+              <Table.Summary.Cell>Balance</Table.Summary.Cell>
+              <Table.Summary.Cell colSpan={2}>
+                <Text type="danger">{totalBorrow - totalRepayment}</Text>
+              </Table.Summary.Cell>
+            </Table.Summary.Row>
+          </>
+        );
+      }}
+    />
+
+    <br />
+
+    <Table
+      columns={fixedColumns}
+      dataSource={fixedData}
+      pagination={false}
+      scroll={{ x: 2000 }}
+      bordered
+      summary={() => (
+        <Table.Summary.Row>
+          <Table.Summary.Cell index={0}>Summary</Table.Summary.Cell>
+          <Table.Summary.Cell index={1}>This is a summary content</Table.Summary.Cell>
+        </Table.Summary.Row>
+      )}
+    />
+  </>,
   mountNode,
 );
 ```

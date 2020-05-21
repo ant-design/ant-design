@@ -23,7 +23,7 @@ title: InputNumber
 | formatter | 指定输入框展示值的格式 | function(value: number \| string): string |  |
 | max | 最大值 | number | Infinity |
 | min | 最小值 | number | -Infinity |
-| parser | 指定从 formatter 里转换回数字的方式，和 formatter 搭配使用 | function( string): number |  |
+| parser | 指定从 `formatter` 里转换回数字的方式，和 `formatter` 搭配使用 | function(string): number |  |
 | precision | 数值精度 | number |  |
 | decimalSeparator | 小数点 | string |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | 无 |

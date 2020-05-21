@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/el_GR';
 import DatePicker from '../date-picker/locale/el_GR';
 import TimePicker from '../time-picker/locale/el_GR';
 import Calendar from '../calendar/locale/el_GR';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'el',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'Δεν υπάρχουν δεδομένα',
   },
 };
+
+export default localeValues;

@@ -6,8 +6,9 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import CollapsePanel from './CollapsePanel';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
+import { cloneElement } from '../_util/reactNode';
 
-export type ExpandIconPosition = 'left' | 'right';
+export type ExpandIconPosition = 'left' | 'right' | undefined;
 
 export interface CollapseProps {
   activeKey?: Array<string | number> | string | number;
@@ -40,9 +41,15 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    openAnimation: { ...animation, appear() {} },
-    expandIconPosition: 'left',
   };
+
+  getIconPosition(direction: string = 'ltr') {
+    const { expandIconPosition } = this.props;
+    if (expandIconPosition !== undefined) {
+      return expandIconPosition;
+    }
+    return direction === 'rtl' ? 'right' : 'left';
+  }
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
     const { expandIcon } = this.props;
@@ -52,31 +59,28 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
     )) as React.ReactNode;
 
-    return React.isValidElement(icon)
-      ? React.cloneElement(icon as any, {
-          className: classNames(icon.props.className, `${prefixCls}-arrow`),
-        })
-      : icon;
+    return cloneElement(icon, () => ({
+      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+    }));
   };
 
   renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      className = '',
-      bordered,
-      expandIconPosition,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+    const iconPosition = this.getIconPosition(direction);
     const collapseClassName = classNames(
       {
         [`${prefixCls}-borderless`]: !bordered,
-        [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+        [`${prefixCls}-icon-position-${iconPosition}`]: true,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
+    const openAnimation = { ...animation, appear() {} };
+
     return (
       <RcCollapse
+        openAnimation={openAnimation}
         {...this.props}
         expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
         prefixCls={prefixCls}

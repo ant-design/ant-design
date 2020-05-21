@@ -6,12 +6,8 @@
 .@{statistic-prefix-cls} {
   .reset-component;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-title {
-    margin-bottom: 4px;
+    margin-bottom: @margin-xss;
     color: @text-color-secondary;
     font-size: @statistic-title-font-size;
   }
@@ -22,6 +18,8 @@
     font-family: @statistic-font-family;
 
     &-value {
+      display: inline-block;
+      direction: ltr;
       &-decimal {
         font-size: @statistic-unit-font-size;
       }
@@ -34,21 +32,13 @@
 
     &-prefix {
       margin-right: 4px;
-
-      .@{statistic-prefix-cls}-rtl & {
-        margin-right: 0;
-        margin-left: 4px;
-      }
     }
 
     &-suffix {
       margin-left: 4px;
       font-size: @statistic-unit-font-size;
-
-      .@{statistic-prefix-cls}-rtl & {
-        margin-right: 4px;
-        margin-left: 0;
-      }
     }
   }
 }
+
+@import './rtl';

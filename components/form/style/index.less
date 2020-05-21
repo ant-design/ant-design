@@ -23,10 +23,6 @@
     padding-right: 8px;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   // ================================================================
   // =                             Size                             =
   // ================================================================
@@ -48,11 +44,13 @@
   }
 }
 
-.explainAndExtraDistance(@num) when (@num>=0) {
+.explainAndExtraDistance(@num) when (@num >= 0) {
   padding-top: floor(@num);
 }
-.explainAndExtraDistance(@num) when (@num<0) {
+
+.explainAndExtraDistance(@num) when (@num < 0) {
   margin-top: floor(@num);
+  margin-bottom: floor(@num);
 }
 
 // ================================================================
@@ -73,6 +71,7 @@
   // ==============================================================
   &-label {
     display: inline-block;
+    flex-grow: 0;
     overflow: hidden;
     white-space: nowrap;
     text-align: right;
@@ -87,8 +86,7 @@
       // display: inline;
       display: inline-flex;
       align-items: center;
-      height: 100%;
-      height: @input-height-base;
+      height: @form-item-label-height;
       color: @label-color;
       font-size: @form-item-label-font-size;
 
@@ -136,6 +134,7 @@
   &-control {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
     &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
@@ -226,3 +225,5 @@
     transform: scale(1);
   }
 }
+
+@import './rtl';

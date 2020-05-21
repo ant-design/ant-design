@@ -48,6 +48,6 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
 
 exports[`CheckboxGroup rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-checkbox-group"
+  class="ant-checkbox-group ant-checkbox-group-rtl"
 />
 `;

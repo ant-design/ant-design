@@ -40,7 +40,7 @@ The properties of config are as follows:
 | closeIcon | custom close icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
 | message | The title of notification box (required) | string\|ReactNode | - |
-| onClose | Specify a function that will be called when the close button is clicked | Function | - |
+| onClose | Trigger when notification closed | Function | - |
 | onClick | Specify a function that will be called when the notification is clicked | Function | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
@@ -55,6 +55,7 @@ notification.config({
   placement: 'bottomRight',
   bottom: 50,
   duration: 3,
+  rtl: true,
 });
 ```
 
@@ -66,6 +67,7 @@ notification.config({
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
+| rtl | whether to enable RTL mode | boolean | `false` |
 
 ## FAQ
 
@@ -80,10 +82,10 @@ const [api, contextHolder] = notification.useNotification();
 
 return (
   <Context1.Provider value="Ant">
-    {/* contextHolder is in Context1 which mean api will not get context of Context1 */}
+    {/* contextHolder is inside Context1 which means api will get value of Context1 */}
     {contextHolder}
     <Context2.Provider value="Design">
-      {/* contextHolder is out of Context2 which mean api will not get context of Context2 */}
+      {/* contextHolder is outside Context2 which means api will **not** get value of Context2 */}
     </Context2.Provider>
   </Context1.Provider>
 );

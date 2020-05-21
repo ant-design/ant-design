@@ -23,6 +23,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        unselectable="on"
         value=""
       />
     </span>
@@ -81,6 +82,7 @@ exports[`Select rtl render component should be rendered correctly in RTL directi
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>

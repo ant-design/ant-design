@@ -2,7 +2,7 @@
 declare module '*.svg' {
   import * as React from 'react';
 
-  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 
   const src: string;
   export default src;
@@ -24,7 +24,7 @@ declare module 'rc-animate*';
 
 declare module 'rc-util*';
 
-declare module 'css-animation*';
+declare module '@ant-design/css-animation*';
 
 declare module 'rc-checkbox';
 

@@ -14,14 +14,13 @@ describe('BackTop', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
+      document.documentElement.scrollTop = y;
     });
     window.scrollTo(0, 400);
-    // trigger scroll manually
-    wrapper.instance().handleScroll();
-    await sleep();
+    expect(document.documentElement.scrollTop).toBe(400);
     wrapper.find('.ant-back-top').simulate('click');
     await sleep(500);
-    expect(window.pageYOffset).toBe(0);
+    expect(document.documentElement.scrollTop).toBe(0);
     scrollToSpy.mockRestore();
   });
 
@@ -32,12 +31,19 @@ describe('BackTop', () => {
       window.scrollY = y;
       window.pageYOffset = y;
     });
+    document.dispatchEvent(new Event('scroll'));
     window.scrollTo(0, 400);
-    // trigger scroll manually
-    wrapper.instance().handleScroll();
-    await sleep();
     wrapper.find('.ant-back-top').simulate('click');
     expect(onClick).toHaveBeenCalled();
     scrollToSpy.mockRestore();
+  });
+
+  it('invalid target', async () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <BackTop onClick={onClick} visible target={() => ({ documentElement: {} })} />,
+    );
+    wrapper.find('.ant-back-top').simulate('click');
+    expect(onClick).toHaveBeenCalled();
   });
 });

@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
+import { sleep } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -22,17 +23,15 @@ describe('TextArea', () => {
         },
       }),
     });
-    jest.useFakeTimers();
   });
 
   afterAll(() => {
     Object.defineProperty(window, 'getComputedStyle', {
       value: originalGetComputedStyle,
     });
-    jest.useRealTimers();
   });
 
-  it('should auto calculate height according to content length', () => {
+  it('should auto calculate height according to content length', async () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const wrapper = mount(
@@ -40,10 +39,10 @@ describe('TextArea', () => {
     );
     const mockFunc = jest.spyOn(wrapper.instance().resizableTextArea, 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
-    jest.runAllTimers();
+    await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(1);
     wrapper.setProps({ value: '1111' });
-    jest.runAllTimers();
+    await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(2);
     wrapper.update();
     expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
@@ -143,10 +142,10 @@ describe('TextArea', () => {
     expect(onKeyDown).toHaveBeenCalled();
   });
 
-  it('should trigger onResize', () => {
+  it('should trigger onResize', async () => {
     const onResize = jest.fn();
-    const wrapper = mount(<TextArea onResize={onResize} autosize />);
-
+    const wrapper = mount(<TextArea onResize={onResize} autoSize />);
+    await sleep(100);
     wrapper
       .find('ResizeObserver')
       .instance()
@@ -175,10 +174,7 @@ describe('TextArea allowClear', () => {
     wrapper.find('textarea').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-textarea-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
   });
@@ -187,7 +183,7 @@ describe('TextArea allowClear', () => {
     const wrappers = [null, undefined, ''].map(val => mount(<TextArea allowClear value={val} />));
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-textarea-clear-icon').exists()).toEqual(false);
+      expect(wrapper.find('.ant-input-textarea-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -211,18 +207,10 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<TextArea allowClear defaultValue="111" onChange={onChange} />);
-    wrapper
-      .find('.ant-input-textarea-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(
-      wrapper
-        .find('textarea')
-        .at(0)
-        .getDOMNode().value,
-    ).toBe('');
+    expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('');
   });
 
   it('should trigger event correctly on controlled mode', () => {
@@ -233,38 +221,22 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<TextArea allowClear value="111" onChange={onChange} />);
-    wrapper
-      .find('.ant-input-textarea-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(
-      wrapper
-        .find('textarea')
-        .at(0)
-        .getDOMNode().value,
-    ).toBe('111');
+    expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('111');
   });
 
   it('should focus textarea after clear', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" />, { attachTo: document.body });
-    wrapper
-      .find('.ant-input-textarea-clear-icon')
-      .at(0)
-      .simulate('click');
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('textarea')
-        .at(0)
-        .getDOMNode(),
-    );
+    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
+    expect(document.activeElement).toBe(wrapper.find('textarea').at(0).getDOMNode());
     wrapper.unmount();
   });
 
   it('should not support allowClear when it is disabled', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" disabled />);
-    expect(wrapper.find('.ant-input-textarea-clear-icon').length).toBe(0);
+    expect(wrapper.find('.ant-input-textarea-clear-icon-hidden').exists()).toBeTruthy();
   });
 
   it('not block input when `value` is undefined', () => {
@@ -278,10 +250,38 @@ describe('TextArea allowClear', () => {
     expect(wrapper.find('input').props().value).toEqual('Light');
   });
 
-  it('click outside should also get focus', () => {
-    const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
-    const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
-    wrapper.find('.test-suffix').simulate('mouseUp');
-    expect(onFocus).toHaveBeenCalled();
+  describe('click focus', () => {
+    it('click outside should also get focus', () => {
+      const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
+      const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
+      wrapper.find('.test-suffix').simulate('mouseUp');
+      expect(onFocus).toHaveBeenCalled();
+    });
+
+    it('not get focus if out of component', () => {
+      const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
+      const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
+      const ele = document.createElement('span');
+      document.body.appendChild(ele);
+      wrapper.find('.test-suffix').simulate('mouseUp', {
+        target: ele,
+      });
+      expect(onFocus).not.toHaveBeenCalled();
+      document.body.removeChild(ele);
+    });
+  });
+
+  it('scroll to bottom when autoSize', async () => {
+    const wrapper = mount(<Input.TextArea autoSize />, { attachTo: document.body });
+    wrapper.find('textarea').simulate('focus');
+    wrapper.find('textarea').getDOMNode().focus();
+    const setSelectionRangeFn = jest.spyOn(
+      wrapper.find('textarea').getDOMNode(),
+      'setSelectionRange',
+    );
+    wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    await sleep(100);
+    expect(setSelectionRangeFn).toHaveBeenCalled();
+    wrapper.unmount();
   });
 });

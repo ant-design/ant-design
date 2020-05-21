@@ -22,7 +22,7 @@ exports[`Modal render correctly 1`] = `
           >
             <div
               aria-hidden="true"
-              style="width: 0px; height: 0px; overflow: hidden;"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
               tabindex="0"
             />
             <div
@@ -66,29 +66,27 @@ exports[`Modal render correctly 1`] = `
               <div
                 class="ant-modal-footer"
               >
-                <div>
-                  <button
-                    class="ant-btn"
-                    type="button"
-                  >
-                    <span>
-                      Cancel
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </div>
+                <button
+                  class="ant-btn"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
               </div>
             </div>
             <div
               aria-hidden="true"
-              style="width: 0px; height: 0px; overflow: hidden;"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
               tabindex="0"
             />
           </div>
@@ -121,7 +119,7 @@ exports[`Modal render without footer 1`] = `
           >
             <div
               aria-hidden="true"
-              style="width: 0px; height: 0px; overflow: hidden;"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
               tabindex="0"
             />
             <div
@@ -165,7 +163,7 @@ exports[`Modal render without footer 1`] = `
             </div>
             <div
               aria-hidden="true"
-              style="width: 0px; height: 0px; overflow: hidden;"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
               tabindex="0"
             />
           </div>
@@ -197,7 +195,7 @@ exports[`Modal support closeIcon 1`] = `
     >
       <div
         aria-hidden="true"
-        style="width: 0px; height: 0px; overflow: hidden;"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
         tabindex="0"
       />
       <div
@@ -222,29 +220,27 @@ exports[`Modal support closeIcon 1`] = `
         <div
           class="ant-modal-footer"
         >
-          <div>
-            <button
-              class="ant-btn"
-              type="button"
-            >
-              <span>
-                Cancel
-              </span>
-            </button>
-            <button
-              class="ant-btn ant-btn-primary"
-              type="button"
-            >
-              <span>
-                OK
-              </span>
-            </button>
-          </div>
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              Cancel
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              OK
+            </span>
+          </button>
         </div>
       </div>
       <div
         aria-hidden="true"
-        style="width: 0px; height: 0px; overflow: hidden;"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
         tabindex="0"
       />
     </div>

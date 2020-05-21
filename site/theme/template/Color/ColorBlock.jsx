@@ -8,7 +8,7 @@ export default class ColorBlock extends Component {
     const colorMap = {
       default: ['#fff', 'unset'],
       dark: ['#314659', '#fff'],
-    }
+    };
     const [lastColor, firstColor] = dark ? colorMap.dark : colorMap.default;
     return {
       background: color,

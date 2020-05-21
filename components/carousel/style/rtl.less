@@ -1,0 +1,52 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@carousel-prefix-cls: ~'@{ant-prefix}-carousel';
+
+.@{carousel-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  .slick-track {
+    .@{carousel-prefix-cls}-rtl & {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  .slick-prev {
+    .@{carousel-prefix-cls}-rtl & {
+      right: -25px;
+      left: auto;
+      &::before {
+        content: '→';
+      }
+    }
+  }
+
+  .slick-next {
+    .@{carousel-prefix-cls}-rtl & {
+      right: auto;
+      left: -25px;
+      &::before {
+        content: '←';
+      }
+    }
+  }
+
+  // Dots
+  .slick-dots {
+    .@{carousel-prefix-cls}-rtl& {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.@{ant-prefix}-carousel-vertical {
+  .slick-dots {
+    .@{carousel-prefix-cls}-rtl& {
+      flex-direction: column;
+    }
+  }
+}

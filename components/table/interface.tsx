@@ -1,6 +1,13 @@
-import { GetRowKey, ColumnType as RcColumnType, ExpandableConfig } from 'rc-table/lib/interface';
+import {
+  GetRowKey,
+  ColumnType as RcColumnType,
+  RenderedCell as RcRenderedCell,
+  ExpandableConfig,
+} from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
-import { PaginationConfig } from '../pagination';
+import { PaginationProps } from '../pagination';
+import { Breakpoint } from '../_util/responsiveObserve';
+import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -23,6 +30,9 @@ export interface TableLocale {
   sortTitle?: string;
   expand?: string;
   collapse?: string;
+  triggerDesc?: string;
+  triggerAsc?: string;
+  cancelSort?: string;
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;
@@ -31,7 +41,7 @@ export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
-  value: string;
+  value: string | number | boolean;
   children?: ColumnFilterItem[];
 }
 
@@ -51,7 +61,7 @@ export type ColumnTitle<RecordType> =
 
 export interface FilterDropdownProps {
   prefixCls: string;
-  setSelectedKeys: (selectedKeys: string[]) => void;
+  setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
   confirm: () => void;
   clearFilters?: () => void;
@@ -74,20 +84,25 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
+  showSorterTooltip?: boolean;
 
   // Filter
+  filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;
   filteredValue?: Key[] | null;
   defaultFilteredValue?: Key[] | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
-  onFilter?: (value: any, record: RecordType) => boolean;
+  onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+
+  // Responsive
+  responsive?: Breakpoint[];
 }
 
-export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
+export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>;
 }
 
@@ -113,18 +128,24 @@ export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
-  getCheckboxProps?: (record: T) => Partial<CheckboxProps>;
+  getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  selections?: SelectionItem[] | boolean;
+  selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
+  renderCell?: (
+    value: boolean,
+    record: T,
+    index: number,
+    originNode: React.ReactNode,
+  ) => React.ReactNode | RcRenderedCell<T>;
 }
 
 export type TransformColumns<RecordType> = (
@@ -144,6 +165,14 @@ export interface SorterResult<RecordType> {
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
-export interface TablePaginationConfig extends PaginationConfig {
-  position?: 'top' | 'bottom' | 'both';
+type TablePaginationPosition =
+  | 'topLeft'
+  | 'topCenter'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomCenter'
+  | 'bottomRight';
+
+export interface TablePaginationConfig extends PaginationProps {
+  position?: TablePaginationPosition[];
 }

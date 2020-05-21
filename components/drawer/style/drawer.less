@@ -4,6 +4,8 @@
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
 .@{drawer-prefix-cls} {
+  @drawer-header-close-padding: ceil((@drawer-header-close-size - @font-size-lg) / 2);
+
   position: fixed;
   z-index: @zindex-modal;
   width: 0%;
@@ -15,13 +17,12 @@
       box-shadow @animation-duration-slow @ease-base-out;
   }
 
-  &-rtl {
-    direction: rtl;
-  }
-
   &-content-wrapper {
     position: absolute;
+    width: 100%;
+    height: 100%;
   }
+
   .@{drawer-prefix-cls}-content {
     width: 100%;
     height: 100%;
@@ -38,9 +39,6 @@
     &.@{drawer-prefix-cls}-open {
       width: 100%;
       transition: transform @animation-duration-slow @ease-base-out;
-    }
-    &.@{drawer-prefix-cls}-open.no-mask {
-      width: 0%;
     }
   }
 
@@ -92,9 +90,6 @@
     &.@{drawer-prefix-cls}-open {
       height: 100%;
       transition: transform @animation-duration-slow @ease-base-out;
-    }
-    &.@{drawer-prefix-cls}-open.no-mask {
-      height: 0%;
     }
   }
 
@@ -161,14 +156,12 @@
     right: 0;
     z-index: @zindex-popup-close;
     display: block;
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    color: @text-color-secondary;
+    padding: @drawer-header-close-padding;
+    color: @modal-close-color;
     font-weight: 700;
     font-size: @font-size-lg;
     font-style: normal;
-    line-height: 56px;
+    line-height: 1;
     text-align: center;
     text-transform: none;
     text-decoration: none;
@@ -179,15 +172,16 @@
     transition: color @animation-duration-slow;
     text-rendering: auto;
 
-    .@{drawer-prefix-cls}-rtl & {
-      right: auto;
-      left: 0;
-    }
-
     &:focus,
     &:hover {
       color: @icon-color-hover;
       text-decoration: none;
+    }
+
+    .@{drawer-prefix-cls}-header-no-title & {
+      margin-right: var(--scroll-bar);
+      /* stylelint-disable-next-line function-calc-no-invalid */
+      padding-right: calc(@drawer-header-close-padding - var(--scroll-bar));
     }
   }
 

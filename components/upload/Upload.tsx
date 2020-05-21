@@ -1,8 +1,6 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import uniqBy from 'lodash/uniqBy';
-import findIndex from 'lodash/findIndex';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -19,7 +17,7 @@ import { T, fileToObject, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export { UploadProps };
 
@@ -63,10 +61,10 @@ class Upload extends React.Component<UploadProps, UploadState> {
       dragState: 'drop',
     };
 
-    warning(
+    devWarning(
       'fileList' in props || !('value' in props),
       'Upload',
-      '`value` is not validate prop, do you mean `fileList`?',
+      '`value` is not a valid prop, do you mean `fileList`?',
     );
   }
 
@@ -74,7 +72,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     this.clearProgressTimer();
   }
 
-  saveUpload = (node: typeof RcUpload) => {
+  saveUpload = (node: any) => {
     this.upload = node;
   };
 
@@ -85,7 +83,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const nextFileList = fileList.concat();
 
-    const fileIndex = findIndex(nextFileList, ({ uid }: UploadFile) => uid === targetItem.uid);
+    const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === targetItem.uid);
     if (fileIndex === -1) {
       nextFileList.push(targetItem);
     } else {
@@ -167,7 +165,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       const removedFileList = removeFileItem(file, fileList);
 
       if (removedFileList) {
-        file.status = 'removed'; // eslint-disable-line
+        file.status = 'removed';
 
         if (this.upload) {
           this.upload.abort(file);
@@ -188,7 +186,10 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const { onChange } = this.props;
     if (onChange) {
-      onChange(info);
+      onChange({
+        ...info,
+        fileList: [...info.fileList],
+      });
     }
   };
 
@@ -206,12 +207,17 @@ class Upload extends React.Component<UploadProps, UploadState> {
     }
     const result = beforeUpload(file, fileList);
     if (result === false) {
+      // Get unique file list
+      const uniqueList: UploadFile<any>[] = [];
+      stateFileList.concat(fileList.map(fileToObject)).forEach(f => {
+        if (uniqueList.every(uf => uf.uid !== f.uid)) {
+          uniqueList.push(f);
+        }
+      });
+
       this.onChange({
         file,
-        fileList: uniqBy(
-          stateFileList.concat(fileList.map(fileToObject)),
-          (item: UploadFile) => item.uid,
-        ),
+        fileList: uniqueList,
       });
       return false;
     }
@@ -235,6 +241,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       disabled,
       locale: propLocale,
       iconRender,
+      isImageUrl,
     } = this.props;
     const {
       showRemoveIcon,
@@ -259,6 +266,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         downloadIcon={downloadIcon}
         iconRender={iconRender}
         locale={{ ...locale, ...propLocale }}
+        isImageUrl={isImageUrl}
       />
     );
   };
@@ -291,6 +299,14 @@ class Upload extends React.Component<UploadProps, UploadState> {
     delete rcUploadProps.className;
     delete rcUploadProps.style;
 
+    // Remove id to avoid open by label when trigger is hidden
+    // !children: https://github.com/ant-design/ant-design/issues/14298
+    // disabled: https://github.com/ant-design/ant-design/issues/16478
+    //           https://github.com/ant-design/ant-design/issues/24197
+    if (!children || disabled) {
+      delete rcUploadProps.id;
+    }
+
     const uploadList = showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {this.renderUploadList}
@@ -305,6 +321,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
           [`${prefixCls}-drag-uploading`]: fileList.some(file => file.status === 'uploading'),
           [`${prefixCls}-drag-hover`]: dragState === 'dragover',
           [`${prefixCls}-disabled`]: disabled,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
       );
@@ -332,13 +349,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
-
-    // Remove id to avoid open by label when trigger is hidden
-    // https://github.com/ant-design/ant-design/issues/14298
-    // https://github.com/ant-design/ant-design/issues/16478
-    if (!children || disabled) {
-      delete rcUploadProps.id;
-    }
 
     const uploadButton = (
       <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>

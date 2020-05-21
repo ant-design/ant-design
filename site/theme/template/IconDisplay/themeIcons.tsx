@@ -12,7 +12,7 @@ interface CustomIconComponentProps {
   ['aria-hidden']?: React.AriaAttributes['aria-hidden'];
 }
 
-export const FilledIcon: React.SFC<CustomIconComponentProps> = props => {
+export const FilledIcon: React.FC<CustomIconComponentProps> = props => {
   const path =
     'M864 64H160C107 64 64 107 64 160v' +
     '704c0 53 43 96 96 96h704c53 0 96-43 96-96V16' +
@@ -24,7 +24,7 @@ export const FilledIcon: React.SFC<CustomIconComponentProps> = props => {
   );
 };
 
-export const OutlinedIcon: React.SFC<CustomIconComponentProps> = props => {
+export const OutlinedIcon: React.FC<CustomIconComponentProps> = props => {
   const path =
     'M864 64H160C107 64 64 107 64 160v7' +
     '04c0 53 43 96 96 96h704c53 0 96-43 96-96V160c' +
@@ -38,7 +38,7 @@ export const OutlinedIcon: React.SFC<CustomIconComponentProps> = props => {
   );
 };
 
-export const TwoToneIcon: React.SFC<CustomIconComponentProps> = props => {
+export const TwoToneIcon: React.FC<CustomIconComponentProps> = props => {
   const path =
     'M16 512c0 273.932 222.066 496 496 49' +
     '6s496-222.068 496-496S785.932 16 512 16 16 238.' +

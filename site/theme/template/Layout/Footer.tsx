@@ -98,9 +98,9 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          title: 'Dva',
-          description: <FormattedMessage id="app.footer.dva" />,
-          url: 'https://dvajs.com',
+          title: 'Dumi',
+          description: <FormattedMessage id="app.footer.dumi" />,
+          url: 'https://d.umijs.org',
           openExternal: true,
         },
         {
@@ -123,7 +123,10 @@ class Footer extends React.Component<WrappedComponentProps> {
         },
         {
           title: <FormattedMessage id="app.footer.design-resources" />,
-          url: getLocalizedPathname('/docs/spec/download', isZhCN),
+          url: getLocalizedPathname('/docs/resources', isZhCN, {
+            zhCN: '设计资源',
+            enUS: 'Design-Resources',
+          }),
           LinkComponent: Link,
         },
         {

@@ -56,10 +56,7 @@ describe('Input', () => {
   describe('focus trigger warning', () => {
     it('not trigger', () => {
       const wrapper = mount(<Input suffix="bamboo" />);
-      wrapper
-        .find('input')
-        .instance()
-        .focus();
+      wrapper.find('input').instance().focus();
       wrapper.setProps({
         suffix: 'light',
       });
@@ -67,10 +64,7 @@ describe('Input', () => {
     });
     it('trigger warning', () => {
       const wrapper = mount(<Input />, { attachTo: document.body });
-      wrapper
-        .find('input')
-        .instance()
-        .focus();
+      wrapper.find('input').instance().focus();
       wrapper.setProps({
         suffix: 'light',
       });
@@ -129,10 +123,7 @@ describe('Input allowClear', () => {
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('input').getDOMNode().value).toEqual('111');
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('input').getDOMNode().value).toEqual('');
   });
@@ -141,7 +132,7 @@ describe('Input allowClear', () => {
     const wrappers = [null, undefined, ''].map(val => mount(<Input allowClear value={val} />));
     wrappers.forEach(wrapper => {
       expect(wrapper.find('input').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
+      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -152,7 +143,7 @@ describe('Input allowClear', () => {
     );
     wrappers.forEach(wrapper => {
       expect(wrapper.find('input').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
+      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -165,18 +156,10 @@ describe('Input allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<Input allowClear defaultValue="111" onChange={onChange} />);
-    wrapper
-      .find('.ant-input-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode().value,
-    ).toBe('');
+    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('');
   });
 
   it('should trigger event correctly on controlled mode', () => {
@@ -187,39 +170,23 @@ describe('Input allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<Input allowClear value="111" onChange={onChange} />);
-    wrapper
-      .find('.ant-input-clear-icon')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode().value,
-    ).toBe('111');
+    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('111');
   });
 
   it('should focus input after clear', () => {
     const wrapper = mount(<Input allowClear defaultValue="111" />, { attachTo: document.body });
-    wrapper
-      .find('.ant-input-clear-icon')
-      .at(0)
-      .simulate('click');
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
     wrapper.unmount();
   });
 
   ['disabled', 'readOnly'].forEach(prop => {
     it(`should not support allowClear when it is ${prop}`, () => {
       const wrapper = mount(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
-      expect(wrapper.find('.ant-input-clear-icon').length).toBe(0);
+      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
     });
   });
 });

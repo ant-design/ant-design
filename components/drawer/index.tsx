@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
+import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -21,6 +22,7 @@ type placementType = typeof PlacementTypes[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
+  forceRender?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;
@@ -134,12 +136,31 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     }
   };
 
+  getOffsetStyle() {
+    const { placement, width, height, visible, mask } = this.props;
+    // https://github.com/ant-design/ant-design/issues/24287
+    if (!visible && !mask) {
+      return {};
+    }
+    const offsetStyle: any = {};
+    if (placement === 'left' || placement === 'right') {
+      offsetStyle.width = width;
+    } else {
+      offsetStyle.height = height;
+    }
+    return offsetStyle;
+  }
+
   getRcDrawerStyle = () => {
-    const { zIndex, placement, style } = this.props;
+    const { zIndex, placement, mask, style } = this.props;
     const { push } = this.state;
+    // 当无 mask 时，将 width 应用到外层容器上
+    // 解决 https://github.com/ant-design/ant-design/issues/12401 的问题
+    const offsetStyle = mask ? {} : this.getOffsetStyle();
     return {
       zIndex,
       transform: push ? this.getPushTransform(placement) : undefined,
+      ...offsetStyle,
       ...style,
     };
   };
@@ -178,7 +199,16 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     return (
       closable && (
         // eslint-disable-next-line react/button-has-type
-        <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className={`${prefixCls}-close`}
+          style={
+            {
+              '--scroll-bar': `${getScrollBarSize()}px`,
+            } as any
+          }
+        >
           <CloseOutlined />
         </button>
       )
@@ -223,18 +253,14 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const { prefixCls, placement, className, width, height, mask, direction, ...rest } = this.props;
-    const haveMask = mask ? '' : 'no-mask';
+    const { prefixCls, placement, className, mask, direction, visible, ...rest } = this.props;
     this.parentDrawer = value;
-    const offsetStyle: any = {};
-    if (placement === 'left' || placement === 'right') {
-      offsetStyle.width = width;
-    } else {
-      offsetStyle.height = height;
-    }
-    const drawerClassName = classNames(className, haveMask, {
+    const drawerClassName = classNames(className, {
+      'no-mask': !mask,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
+    const offsetStyle = mask ? this.getOffsetStyle() : {};
+
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
@@ -260,10 +286,12 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
             'csp',
             'pageHeader',
             'autoInsertSpaceInButton',
+            'width',
+            'height',
           ])}
           {...offsetStyle}
           prefixCls={prefixCls}
-          open={this.props.visible}
+          open={visible}
           showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}

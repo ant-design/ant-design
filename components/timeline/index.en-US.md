@@ -29,7 +29,7 @@ Timeline
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |
-| pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<Icon type="loading" />` |
+| pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<LoadingOutlined />` |
 | reverse | reverse nodes or not | boolean | false |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` | - |
 

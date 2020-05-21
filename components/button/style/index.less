@@ -22,17 +22,11 @@
   line-height: @line-height-base;
   .btn;
   .btn-default;
-
-  &-rtl {
-    direction: rtl;
-  }
-  // Make sure that the target of Button's click event always be `button`
-  // Ref: https://github.com/ant-design/ant-design/issues/7034
-  > i,
+  
+  // Fix loading button animation
+  // https://github.com/ant-design/ant-design/issues/24323
   > span {
     display: inline-block;
-    transition: margin-left 0.3s @ease-in-out;
-    pointer-events: none;
   }
 
   &-primary {
@@ -61,17 +55,8 @@
     .@{btn-prefix-cls}-group & + & {
       border-left-color: @btn-group-border;
 
-      .@{btn-prefix-cls}-group-rtl& {
-        border-right-color: @btn-group-border;
-        border-left-color: @btn-default-border;
-      }
       &[disabled] {
         border-left-color: @btn-default-border;
-
-        .@{btn-prefix-cls}-group-rtl& {
-          border-right-color: @btn-default-border;
-          border-left-color: @btn-group-border;
-        }
       }
     }
   }
@@ -108,10 +93,7 @@
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
-
-    > i {
-      vertical-align: middle;
-    }
+    vertical-align: -0.5px;
   }
 
   &-round {
@@ -160,44 +142,22 @@
     &:not([disabled]) {
       pointer-events: none;
     }
-  }
 
-  &&-loading::before {
-    display: block;
-  }
-
-  &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 29px;
-
-    .@{btn-prefix-cls}-rtl& {
-      padding-right: 29px;
-      padding-left: @padding-md - 1px;
-    }
-
-    .@{iconfont-css-prefix}:not(:last-child) {
-      margin-left: -14px;
-
-      .@{btn-prefix-cls}-rtl& {
-        margin-right: -14px;
-        margin-left: 0;
-      }
+    &::before {
+      display: block;
     }
   }
 
-  &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 24px;
-
-    .@{btn-prefix-cls}-rtl& {
-      padding-right: 24px;
-      padding-left: @padding-xs - 1px;
-    }
+  & > &-loading-icon {
+    transition: all 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
-      margin-left: -17px;
+      padding-right: @margin-xs;
+    }
 
-      .@{btn-prefix-cls}-rtl& {
-        margin-right: -17px;
-        margin-left: 0;
+    &:only-child {
+      .@{iconfont-css-prefix} {
+        padding-right: 0;
       }
     }
   }
@@ -215,12 +175,7 @@
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,
   > span + .@{iconfont-css-prefix} {
-    margin-left: 8px;
-
-    .@{btn-prefix-cls}-rtl& {
-      margin-right: 8px;
-      margin-left: 0;
-    }
+    margin-left: @margin-xs;
   }
 
   &-background-ghost {
@@ -265,8 +220,12 @@
   }
 
   // https://github.com/ant-design/ant-design/issues/12681
+  // same method as Select
   &:empty {
-    vertical-align: top;
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+    content: '\a0';
   }
 }
 
@@ -284,3 +243,5 @@ a.@{btn-prefix-cls} {
     line-height: @btn-height-sm - 2px;
   }
 }
+
+@import './rtl';

@@ -100,10 +100,18 @@ describe('Breadcrumb', () => {
         path: 'second',
         breadcrumbName: 'second',
       },
+      {
+        path: 'third',
+      },
     ];
     const wrapper = render(<Breadcrumb routes={routes} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should accept undefined routes', () => {
+    const wrapper = render(<Breadcrumb routes={undefined} />);
+    expect(wrapper).toMatchSnapshot();
+   })
 
   it('props#linkRender and props#nameRender do not warn anymore', () => {
     const linkRender = jest.fn();
@@ -125,6 +133,22 @@ describe('Breadcrumb', () => {
       <Breadcrumb data-custom="custom">
         <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support React.Fragment and falsy children', () => {
+    const wrapper = render(
+      <Breadcrumb>
+        <>
+          <Breadcrumb.Item>yyy</Breadcrumb.Item>
+          <Breadcrumb.Item>yyy</Breadcrumb.Item>
+        </>
+        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+        {0}
+        {null}
+        {undefined}
       </Breadcrumb>,
     );
     expect(wrapper).toMatchSnapshot();

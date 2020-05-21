@@ -88,6 +88,16 @@ describe('notification', () => {
     notification.destroy();
   });
 
+  it('should be able to config rtl', () => {
+    notification.config({
+      rtl: true,
+    });
+    notification.open({
+      message: 'whatever',
+    });
+    expect(document.querySelectorAll('.ant-notification-rtl').length).toBe(1);
+  });
+
   it('should be able to open with icon', async () => {
     const openNotificationWithIcon = async type => {
       const iconPrefix = '.ant-notification-notice-icon';

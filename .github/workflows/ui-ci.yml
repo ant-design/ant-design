@@ -1,0 +1,31 @@
+name: UI-TEST
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/ui')
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: install
+        run: npm install
+
+      - name: dist
+        run: npm run dist
+
+      - name: test
+        run: npm run test:image
+
+      - name: VERCEL Now Deployment
+        uses: amondnet/now-deployment@v2.0.3
+        with:
+          zeit-token: ${{ secrets.VERCEL_TOKEN }}
+          now-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          now-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          working-directory: ./jest-stare
+        if: failure()

@@ -1,11 +1,12 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import { INTERNAL_COL_DEFINE } from 'rc-table';
 import { FixedType } from 'rc-table/lib/interface';
 import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
 import Radio from '../../radio';
-import warning from '../../_util/warning';
+import devWarning from '../../_util/devWarning';
 import {
   TableRowSelection,
   Key,
@@ -15,15 +16,14 @@ import {
   SelectionItem,
   TransformColumns,
   ExpandType,
+  GetPopupContainer,
 } from '../interface';
-import { ConfigContext } from '../../config-provider';
-import defaultLocale from '../../locale/en_US';
 
 const EMPTY_LIST: any[] = [];
 
 // TODO: warning if use ajax!!!
-export const SELECTION_ALL = 'SELECT_ALL';
-export const SELECTION_INVERT = 'SELECT_INVERT';
+export const SELECTION_ALL = 'SELECT_ALL' as const;
+export const SELECTION_INVERT = 'SELECT_INVERT' as const;
 
 function getFixedType<RecordType>(column: ColumnsType<RecordType>[number]): FixedType | undefined {
   return column && column.fixed;
@@ -37,9 +37,15 @@ interface UseSelectionConfig<RecordType> {
   getRecordByKey: (key: Key) => RecordType;
   expandType: ExpandType;
   childrenColumnName: string;
+  expandIconColumnIndex?: number;
+  locale: TableLocale;
+  getPopupContainer?: GetPopupContainer;
 }
 
-type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
+export type INTERNAL_SELECTION_ITEM =
+  | SelectionItem
+  | typeof SELECTION_ALL
+  | typeof SELECTION_INVERT;
 
 function flattenData<RecordType>(
   data: RecordType[] | undefined,
@@ -72,14 +78,13 @@ export default function useSelection<RecordType>(
     onSelectAll,
     onSelectInvert,
     onSelectMultiple,
-    columnWidth: selectionColWidth = 60,
+    columnWidth: selectionColWidth,
     type: selectionType,
     selections,
     fixed,
+    renderCell: customizeRenderCell,
   } = rowSelection || {};
 
-  const { locale = defaultLocale } = React.useContext(ConfigContext);
-  const tableLocale = (locale.Table || {}) as TableLocale;
   const {
     prefixCls,
     data,
@@ -88,6 +93,9 @@ export default function useSelection<RecordType>(
     getRowKey,
     expandType,
     childrenColumnName,
+    locale: tableLocale,
+    expandIconColumnIndex,
+    getPopupContainer,
   } = config;
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
@@ -109,12 +117,21 @@ export default function useSelection<RecordType>(
 
   const setSelectedKeys = React.useCallback(
     (keys: Key[]) => {
-      setInnerSelectedKeys(keys);
+      const availableKeys: Key[] = [];
+      const records: RecordType[] = [];
 
-      const records = keys.map(key => getRecordByKey(key));
+      keys.forEach(key => {
+        const record = getRecordByKey(key);
+        if (record !== undefined) {
+          availableKeys.push(key);
+          records.push(record);
+        }
+      });
+
+      setInnerSelectedKeys(availableKeys);
 
       if (onSelectionChange) {
-        onSelectionChange(keys, records);
+        onSelectionChange(availableKeys, records);
       }
     },
     [setInnerSelectedKeys, getRecordByKey, onSelectionChange],
@@ -170,7 +187,7 @@ export default function useSelection<RecordType>(
             const keys = Array.from(keySet);
             setSelectedKeys(keys);
             if (onSelectInvert) {
-              warning(
+              devWarning(
                 false,
                 'Table',
                 '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
@@ -207,7 +224,7 @@ export default function useSelection<RecordType>(
           process.env.NODE_ENV !== 'production' &&
           ('checked' in checkboxProps || 'defaultChecked' in checkboxProps)
         ) {
-          warning(
+          devWarning(
             false,
             'Table',
             'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
@@ -256,7 +273,7 @@ export default function useSelection<RecordType>(
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
           const menu = (
-            <Menu>
+            <Menu getPopupContainer={getPopupContainer}>
               {mergedSelections.map((selection, index) => {
                 const { key, text, onSelect: onSelectionClick } = selection;
                 return (
@@ -276,7 +293,7 @@ export default function useSelection<RecordType>(
           );
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
-              <Dropdown overlay={menu}>
+              <Dropdown overlay={menu} getPopupContainer={getPopupContainer}>
                 <span>
                   <DownOutlined />
                 </span>
@@ -305,120 +322,146 @@ export default function useSelection<RecordType>(
       }
 
       // Body Cell
-      let renderCell: (_: RecordType, record: RecordType, index: number) => React.ReactNode;
+      let renderCell: (
+        _: RecordType,
+        record: RecordType,
+        index: number,
+      ) => { node: React.ReactNode; checked: boolean };
       if (selectionType === 'radio') {
         renderCell = (_, record, index) => {
           const key = getRowKey(record, index);
+          const checked = keySet.has(key);
 
-          return (
-            <Radio
-              {...checkboxPropsMap.get(key)}
-              checked={keySet.has(key)}
-              onChange={event => {
-                if (!keySet.has(key)) {
-                  triggerSingleSelection(key, true, [key], event.nativeEvent);
-                }
-              }}
-            />
-          );
+          return {
+            node: (
+              <Radio
+                {...checkboxPropsMap.get(key)}
+                checked={checked}
+                onClick={e => e.stopPropagation()}
+                onChange={event => {
+                  if (!keySet.has(key)) {
+                    triggerSingleSelection(key, true, [key], event.nativeEvent);
+                  }
+                }}
+              />
+            ),
+            checked,
+          };
         };
       } else {
         renderCell = (_, record, index) => {
           const key = getRowKey(record, index);
-          const hasKey = keySet.has(key);
+          const checked = keySet.has(key);
 
           // Record checked
-          return (
-            <Checkbox
-              {...checkboxPropsMap.get(key)}
-              checked={hasKey}
-              onChange={({ nativeEvent }) => {
-                const { shiftKey } = nativeEvent;
+          return {
+            node: (
+              <Checkbox
+                {...checkboxPropsMap.get(key)}
+                checked={checked}
+                onClick={e => e.stopPropagation()}
+                onChange={({ nativeEvent }) => {
+                  const { shiftKey } = nativeEvent;
 
-                let startIndex: number = -1;
-                let endIndex: number = -1;
+                  let startIndex: number = -1;
+                  let endIndex: number = -1;
 
-                // Get range of this
-                if (shiftKey) {
-                  const pointKeys = new Set([lastSelectedKey, key]);
+                  // Get range of this
+                  if (shiftKey) {
+                    const pointKeys = new Set([lastSelectedKey, key]);
 
-                  recordKeys.some((recordKey, recordIndex) => {
-                    if (pointKeys.has(recordKey)) {
-                      if (startIndex === -1) {
-                        startIndex = recordIndex;
-                      } else {
-                        endIndex = recordIndex;
-                        return true;
+                    recordKeys.some((recordKey, recordIndex) => {
+                      if (pointKeys.has(recordKey)) {
+                        if (startIndex === -1) {
+                          startIndex = recordIndex;
+                        } else {
+                          endIndex = recordIndex;
+                          return true;
+                        }
                       }
+
+                      return false;
+                    });
+                  }
+
+                  if (endIndex !== -1 && startIndex !== endIndex) {
+                    // Batch update selections
+                    const rangeKeys = recordKeys.slice(startIndex, endIndex + 1);
+                    const changedKeys: Key[] = [];
+
+                    if (checked) {
+                      rangeKeys.forEach(recordKey => {
+                        if (keySet.has(recordKey)) {
+                          changedKeys.push(recordKey);
+                          keySet.delete(recordKey);
+                        }
+                      });
+                    } else {
+                      rangeKeys.forEach(recordKey => {
+                        if (!keySet.has(recordKey)) {
+                          changedKeys.push(recordKey);
+                          keySet.add(recordKey);
+                        }
+                      });
                     }
 
-                    return false;
-                  });
-                }
-
-                if (endIndex !== -1 && startIndex !== endIndex) {
-                  // Batch update selections
-                  const rangeKeys = recordKeys.slice(startIndex, endIndex + 1);
-                  const changedKeys: Key[] = [];
-
-                  if (hasKey) {
-                    rangeKeys.forEach(recordKey => {
-                      if (keySet.has(recordKey)) {
-                        changedKeys.push(recordKey);
-                        keySet.delete(recordKey);
-                      }
-                    });
+                    const keys = Array.from(keySet);
+                    setSelectedKeys(keys);
+                    if (onSelectMultiple) {
+                      onSelectMultiple(
+                        !checked,
+                        keys.map(recordKey => getRecordByKey(recordKey)),
+                        changedKeys.map(recordKey => getRecordByKey(recordKey)),
+                      );
+                    }
                   } else {
-                    rangeKeys.forEach(recordKey => {
-                      if (!keySet.has(recordKey)) {
-                        changedKeys.push(recordKey);
-                        keySet.add(recordKey);
-                      }
-                    });
+                    // Single record selected
+                    if (checked) {
+                      keySet.delete(key);
+                    } else {
+                      keySet.add(key);
+                    }
+
+                    triggerSingleSelection(key, !checked, Array.from(keySet), nativeEvent);
                   }
 
-                  const keys = Array.from(keySet);
-                  setSelectedKeys(keys);
-                  if (onSelectMultiple) {
-                    onSelectMultiple(
-                      !hasKey,
-                      keys.map(recordKey => getRecordByKey(recordKey)),
-                      changedKeys.map(recordKey => getRecordByKey(recordKey)),
-                    );
-                  }
-                } else {
-                  // Single record selected
-                  if (hasKey) {
-                    keySet.delete(key);
-                  } else {
-                    keySet.add(key);
-                  }
-
-                  triggerSingleSelection(key, !hasKey, Array.from(keySet), nativeEvent);
-                }
-
-                setLastSelectedKey(key);
-              }}
-            />
-          );
+                  setLastSelectedKey(key);
+                }}
+              />
+            ),
+            checked,
+          };
         };
       }
+
+      const renderSelectionCell = (_: any, record: RecordType, index: number) => {
+        const { node, checked } = renderCell(_, record, index);
+
+        if (customizeRenderCell) {
+          return customizeRenderCell(checked, record, index, node);
+        }
+
+        return node;
+      };
 
       // Columns
       const selectionColumn = {
         width: selectionColWidth,
         className: `${prefixCls}-selection-column`,
         title: rowSelection.columnTitle || title,
-        render: renderCell,
+        render: renderSelectionCell,
+        [INTERNAL_COL_DEFINE]: {
+          className: `${prefixCls}-selection-col`,
+        },
       };
 
-      if (expandType === 'row' && columns.length) {
+      if (expandType === 'row' && columns.length && !expandIconColumnIndex) {
         const [expandColumn, ...restColumns] = columns;
-        return [
-          expandColumn,
-          { ...selectionColumn, fixed: fixed || getFixedType(restColumns[0]) },
-          ...restColumns,
-        ];
+        const selectionFixed = fixed || getFixedType(restColumns[0]);
+        if (selectionFixed) {
+          expandColumn.fixed = selectionFixed;
+        }
+        return [expandColumn, { ...selectionColumn, fixed: selectionFixed }, ...restColumns];
       }
       return [{ ...selectionColumn, fixed: fixed || getFixedType(columns[0]) }, ...columns];
     },

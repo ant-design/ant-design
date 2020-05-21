@@ -6,7 +6,6 @@ import ColorPatterns from './ColorPatterns';
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
-// eslint-disable-next-line
 export default class ColorPaletteTool extends Component {
   state = {
     primaryColor: '#1890ff',

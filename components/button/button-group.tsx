@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import UnreachableException from '../_util/unreachableException';
 
 export interface ButtonGroupProps {
   size?: SizeType;
@@ -10,7 +11,7 @@ export interface ButtonGroupProps {
   prefixCls?: string;
 }
 
-const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
+const ButtonGroup: React.FC<ButtonGroupProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, size, className, ...others } = props;
@@ -26,8 +27,12 @@ const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
         case 'small':
           sizeCls = 'sm';
           break;
-        default:
+        case 'middle':
+        case undefined:
           break;
+        default:
+          // eslint-disable-next-line no-console
+          console.warn(new UnreachableException(size));
       }
 
       const classes = classNames(

@@ -100,7 +100,7 @@ title: 结果页
 
 #### 补充信息类型
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QjpBRpyx5ecAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*avS5TZcMawwAAAAAAAAAAABkARQnAQ">
 
 ## 延伸阅读
 
@@ -110,7 +110,7 @@ title: 结果页
 
 ### 会用到哪些模块或组件
 
-- [表单页](https://ant.design/components/form-cn/)
+- [表单页](/components/form-cn/)
 
 ### 外部参考文章
 

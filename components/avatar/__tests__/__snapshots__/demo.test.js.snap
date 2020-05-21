@@ -450,7 +450,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
   </span>
   <button
     class="ant-btn ant-btn-sm"
-    style="margin-left:16px;vertical-align:middle"
+    style="margin:0 16px;vertical-align:middle"
     type="button"
   >
     <span>

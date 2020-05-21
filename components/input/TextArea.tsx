@@ -99,7 +99,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     );
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
@@ -107,6 +107,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       <ClearableLabeledInput
         {...this.props}
         prefixCls={prefixCls}
+        direction={direction}
         inputType="text"
         value={fixControlledValue(value)}
         element={this.renderTextArea(prefixCls)}

@@ -195,9 +195,12 @@ describe('Locale Provider', () => {
   it('should change locale of Modal.xxx', () => {
     class ModalDemo extends React.Component {
       componentDidMount() {
+        jest.useFakeTimers();
         Modal.confirm({
           title: 'Hello World!',
         });
+        jest.runAllTimers();
+        jest.useRealTimers();
       }
 
       render() {
@@ -217,7 +220,7 @@ describe('Locale Provider', () => {
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;
       let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
-      if (locale.locale === 'zh-cn') {
+      if (locale.locale.indexOf('zh-') === 0) {
         cancelButtonText = cancelButtonText.replace(' ', '');
         okButtonText = okButtonText.replace(' ', '');
       }

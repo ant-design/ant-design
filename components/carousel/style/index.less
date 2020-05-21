@@ -6,10 +6,6 @@
 .@{carousel-prefix-cls} {
   .reset-component;
 
-  &-rtl {
-    direction: rtl;
-  }
-
   .slick-slider {
     position: relative;
     display: block;
@@ -37,8 +33,19 @@
     .slick-slide {
       pointer-events: none;
 
+      // https://github.com/ant-design/ant-design/issues/23294
+      input.@{ant-prefix}-radio-input,
+      input.@{ant-prefix}-checkbox-input {
+        visibility: hidden;
+      }
+
       &.slick-active {
         pointer-events: auto;
+
+        input.@{ant-prefix}-radio-input,
+        input.@{ant-prefix}-checkbox-input {
+          visibility: visible;
+        }
       }
     }
   }
@@ -52,11 +59,6 @@
     top: 0;
     left: 0;
     display: block;
-
-    .@{carousel-prefix-cls}-rtl & {
-      right: 0;
-      left: auto;
-    }
 
     &::before,
     &::after {
@@ -144,29 +146,12 @@
     &::before {
       content: '←';
     }
-
-    .@{carousel-prefix-cls}-rtl & {
-      right: -25px;
-      left: auto;
-
-      &::before {
-        content: '→';
-      }
-    }
   }
 
   .slick-next {
     right: -25px;
     &::before {
       content: '→';
-    }
-
-    .@{carousel-prefix-cls}-rtl & {
-      right: auto;
-      left: -25px;
-      &::before {
-        content: '←';
-      }
     }
   }
 
@@ -181,12 +166,8 @@
     justify-content: center;
     margin-right: 15%;
     margin-left: 15%;
-    padding-right: 0;
+    padding-left: 0;
     list-style: none;
-
-    .@{carousel-prefix-cls}-rtl& {
-      flex-direction: row-reverse;
-    }
 
     &-bottom {
       bottom: 12px;
@@ -253,10 +234,6 @@
     margin: 0;
     transform: translateY(-50%);
 
-    .@{carousel-prefix-cls}-rtl& {
-      flex-direction: column;
-    }
-
     &-left {
       right: auto;
       left: 12px;
@@ -286,3 +263,5 @@
     }
   }
 }
+
+@import './rtl';

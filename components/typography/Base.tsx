@@ -11,7 +11,7 @@ import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
@@ -40,7 +40,8 @@ interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
-  onExpand?: () => void;
+  onExpand?: React.MouseEventHandler<HTMLElement>;
+  onEllipsis?: (ellipsis: boolean) => void;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -110,7 +111,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   static getDerivedStateFromProps(nextProps: BlockProps) {
     const { children, editable } = nextProps;
 
-    warning(
+    devWarning(
       !editable || typeof children === 'string',
       'Typography',
       'When `editable` is enabled, the `children` should use string.',
@@ -165,13 +166,13 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     raf.cancel(this.rafId);
   }
 
-  // =============== Expend ===============
-  onExpandClick = () => {
+  // =============== Expand ===============
+  onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
     const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
 
     if (onExpand) {
-      onExpand();
+      (onExpand as React.MouseEventHandler<HTMLElement>)(e);
     }
   };
 
@@ -271,11 +272,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
-    const { rows, expandable, suffix } = this.getEllipsis();
+    const { rows, expandable, suffix, onEllipsis } = this.getEllipsis();
 
     if (suffix) return false;
     // Can't use css ellipsis since we need to provide the place for button
-    if (editable || copyable || expandable || !clientRendered) {
+    if (editable || copyable || expandable || !clientRendered || onEllipsis) {
       return false;
     }
 
@@ -288,14 +289,14 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
-    const { rows, suffix } = this.getEllipsis();
+    const { rows, suffix, onEllipsis } = this.getEllipsis();
     const { children } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
 
     // Do not measure if css already support ellipsis
     if (this.canUseCSSEllipsis()) return;
 
-    warning(
+    devWarning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
       'Typography',
       '`ellipsis` should use string as children only.',
@@ -310,6 +311,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     );
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
       this.setState({ ellipsisText: text, ellipsisContent: content, isEllipsis: ellipsis });
+      if (isEllipsis !== ellipsis && onEllipsis) {
+        onEllipsis(ellipsis);
+      }
     }
   }
 

@@ -21,7 +21,7 @@ const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 };
 
 ReactDOM.render(
-  <div>
+  <>
     <Alert
       message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
       type="warning"
@@ -35,7 +35,7 @@ ReactDOM.render(
       closable
       onClose={onClose}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
+      <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
       <Banner />
       <div style={{ maxWidth: 1256, margin: '0 auto' }}>
         <BlockContent title={<FormattedMessage id="app.home.recommend" />}>

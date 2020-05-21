@@ -47,6 +47,7 @@ ReactDOM.render(
 ```
 
 ```css
+[data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
 .site-collapse-custom-collapse .site-collapse-custom-panel {
   background: #f7f7f7;
   border-radius: 2px;

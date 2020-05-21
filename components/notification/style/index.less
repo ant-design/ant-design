@@ -4,8 +4,6 @@
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
 @notification-width: 384px;
-@notification-padding-vertical: 16px;
-@notification-padding-horizontal: 24px;
 @notification-padding: @notification-padding-vertical @notification-padding-horizontal;
 @notification-margin-bottom: 16px;
 
@@ -200,8 +198,8 @@
   0% {
     max-height: 150px;
     margin-bottom: @notification-margin-bottom;
-    padding-top: @notification-padding;
-    padding-bottom: @notification-padding;
+    padding-top: @notification-padding-vertical;
+    padding-bottom: @notification-padding-vertical;
     opacity: 1;
   }
   100% {
@@ -212,3 +210,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl';

@@ -14,6 +14,7 @@ import { previewImage, isImageUrl } from './utils';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -26,6 +27,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     showDownloadIcon: false,
     showPreviewIcon: true,
     previewFile: previewImage,
+    isImageUrl,
   };
 
   componentDidUpdate() {
@@ -81,12 +83,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   handleIconRender = (file: UploadFile) => {
-    const { listType, locale, iconRender } = this.props;
+    const { listType, locale, iconRender, isImageUrl: isImgUrl } = this.props;
     if (iconRender) {
       return iconRender(file, listType);
     }
     const isLoading = file.status === 'uploading';
-    const fileIcon = isImageUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
+    const fileIcon = isImgUrl && isImgUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
@@ -97,8 +99,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   handleActionIconRender = (customIcon: React.ReactNode, callback: () => void, title?: string) => {
-    if (React.isValidElement(customIcon)) {
-      return React.cloneElement(customIcon, {
+    if (isValidElement(customIcon)) {
+      return cloneElement(customIcon, {
         ...customIcon.props,
         title,
         onClick: (e: React.MouseEvent<HTMLElement>) => {
@@ -128,6 +130,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       downloadIcon: customDownloadIcon,
       locale,
       progressAttr,
+      isImageUrl: isImgUrl,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -142,18 +145,19 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           });
           icon = <div className={uploadingClassName}>{iconNode}</div>;
         } else {
-          const thumbnail = isImageUrl(file) ? (
-            <img
-              src={file.thumbUrl || file.url}
-              alt={file.name}
-              className={`${prefixCls}-list-item-image`}
-            />
-          ) : (
-            iconNode
-          );
+          const thumbnail =
+            isImgUrl && isImgUrl(file) ? (
+              <img
+                src={file.thumbUrl || file.url}
+                alt={file.name}
+                className={`${prefixCls}-list-item-image`}
+              />
+            ) : (
+              iconNode
+            );
           const aClassName = classNames({
             [`${prefixCls}-list-item-thumbnail`]: true,
-            [`${prefixCls}-list-item-file`]: !isImageUrl(file),
+            [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
           });
           icon = (
             <a
@@ -310,7 +314,13 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       });
       return (
         <div key={file.uid} className={listContainerNameClass}>
-          {file.status === 'error' ? <Tooltip title={message}>{dom}</Tooltip> : <span>{dom}</span>}
+          {file.status === 'error' ? (
+            <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+              {dom}
+            </Tooltip>
+          ) : (
+            <span>{dom}</span>
+          )}
         </div>
       );
     });

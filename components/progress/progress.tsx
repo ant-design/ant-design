@@ -43,14 +43,14 @@ export interface ProgressProps {
 
 export default class Progress extends React.Component<ProgressProps> {
   static defaultProps = {
-    type: 'line',
+    type: 'line' as ProgressProps['type'],
     percent: 0,
     showInfo: true,
     // null for different theme definition
     trailColor: null,
-    size: 'default',
-    gapDegree: 0,
-    strokeLinecap: 'round',
+    size: 'default' as ProgressProps['size'],
+    gapDegree: undefined,
+    strokeLinecap: 'round' as ProgressProps['strokeLinecap'],
   };
 
   getPercentNumber() {

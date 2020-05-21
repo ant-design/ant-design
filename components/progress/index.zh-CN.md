@@ -52,5 +52,5 @@ title: Progress
 | --- | --- | --- | --- |
 | width | 仪表盘进度条画布宽度，单位 px | number | 132 |
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
-| gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 360 | number | 0 |
-| gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `top` |
+| gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 295 | number | 75 |
+| gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` |

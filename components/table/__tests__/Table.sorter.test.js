@@ -83,13 +83,40 @@ describe('Table.sorter', () => {
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
-  it('can be controlled by sortOrder', () => {
-    const wrapper = mount(
-      createTable({
-        columns: [{ ...column, sortOrder: 'ascend' }],
-      }),
-    );
-    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  describe('can be controlled by sortOrder', () => {
+    it('single', () => {
+      const wrapper = mount(
+        createTable({
+          columns: [{ ...column, sortOrder: 'ascend' }],
+        }),
+      );
+      expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+    });
+
+    it('invalidate mix with single & multiple sorters', () => {
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              sortOrder: 'ascend',
+              sorter: {
+                multiple: 1,
+              },
+            },
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              sortOrder: 'ascend',
+              sorter: {},
+            },
+          ],
+        }),
+      );
+
+      expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    });
   });
 
   it('provides sortOrder in the sorterFn', () => {
@@ -148,6 +175,44 @@ describe('Table.sorter', () => {
     expect(sorter3.order).toBe(undefined);
     expect(sorter3.field).toBe('name');
     expect(sorter3.columnKey).toBe('name');
+  });
+
+  it('hover header show sorter tooltip', () => {
+    // tooltip has delay
+    jest.useFakeTimers();
+    const wrapper = mount(createTable({}));
+    // default show sorter tooltip
+    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseout');
+
+    // set table props showSorterTooltip is false
+    wrapper.setProps({ showSorterTooltip: false });
+    expect(wrapper.find('.ant-table-column-sorters-with-tooltip')).toHaveLength(0);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
+    // set table props showSorterTooltip is false, column showSorterTooltip is true
+    wrapper.setProps({
+      showSorterTooltip: false,
+      columns: [{ ...column, showSorterTooltip: true }],
+    });
+    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters-with-tooltip').simulate('mouseout');
+    // set table props showSorterTooltip is true, column showSorterTooltip is false
+    wrapper.setProps({
+      showSorterTooltip: true,
+      columns: [{ ...column, showSorterTooltip: false }],
+    });
+    expect(wrapper.find('.ant-table-column-sorters-with-tooltip')).toHaveLength(0);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -230,14 +295,8 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
     const getAgeColumn = () => wrapper.find('.ant-table-column-has-sorters').at(1);
-    const getNameIcon = name =>
-      getNameColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
-    const getAgeIcon = name =>
-      getAgeColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
+    const getNameIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
+    const getAgeIcon = name => getAgeColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     // sort name
     getNameColumn().simulate('click');
@@ -290,10 +349,7 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
 
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
-    const getIcon = name =>
-      getNameColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
+    const getIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
@@ -357,10 +413,7 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
 
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
-    const getIcon = name =>
-      getNameColumn()
-        .find(`.ant-table-column-sorter-${name}`)
-        .first();
+    const getIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
@@ -425,61 +478,37 @@ describe('Table.sorter', () => {
     const wrapper = mount(<TableTest />);
     const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
 
     // sort name
     getNameColumn().simulate('click');
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeTruthy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
 
     // sort name
     getNameColumn().simulate('click');
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeTruthy();
 
     // sort name
     getNameColumn().simulate('click');
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-up')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn()
-        .find('.ant-table-column-sorter-down')
-        .at(0)
-        .hasClass('active'),
+      getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
   });
 
@@ -694,10 +723,7 @@ describe('Table.sorter', () => {
       </Table>,
     );
 
-    wrapper
-      .find('th')
-      .first()
-      .simulate('click');
+    wrapper.find('th').first().simulate('click');
 
     expect(wrapper.find('th.ant-table-column-sort')).toHaveLength(1);
   });
@@ -709,17 +735,59 @@ describe('Table.sorter', () => {
       </Table>,
     );
 
+    expect(wrapper.find('.ant-table-column-sorter-up').last().hasClass('active')).toBeTruthy();
+    expect(wrapper.find('.ant-table-column-sorter-down').last().hasClass('active')).toBeFalsy();
+  });
+
+  it('controlled multiple group', () => {
+    const groupColumns = [
+      {
+        title: 'Math Score',
+        dataIndex: 'math1',
+        sortOrder: 'ascend',
+        sorter: { multiple: 1 },
+        children: [
+          {
+            title: 'math',
+            dataIndex: 'math',
+          },
+        ],
+      },
+      {
+        title: 'English Score',
+        dataIndex: 'english',
+        sortOrder: 'descend',
+        sorter: { multiple: 2 },
+      },
+    ];
+
+    const groupData = [
+      {
+        key: '1',
+        name: 'John Brown',
+        chinese: 98,
+        math: 60,
+        english: 70,
+      },
+    ];
+
+    const wrapper = mount(<Table columns={groupColumns} data={groupData} />);
+    wrapper.update();
     expect(
       wrapper
+        .find('.ant-table-column-sorter-full')
+        .first()
         .find('.ant-table-column-sorter-up')
-        .last()
+        .first()
         .hasClass('active'),
     ).toBeTruthy();
     expect(
       wrapper
-        .find('.ant-table-column-sorter-down')
+        .find('.ant-table-column-sorter-full')
         .last()
+        .find('.ant-table-column-sorter-down')
+        .first()
         .hasClass('active'),
-    ).toBeFalsy();
+    ).toBeTruthy();
   });
 });

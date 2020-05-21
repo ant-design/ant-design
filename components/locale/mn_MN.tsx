@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/mn_MN';
 import DatePicker from '../date-picker/locale/mn_MN';
 import TimePicker from '../time-picker/locale/mn_MN';
 import Calendar from '../calendar/locale/mn_MN';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'mn-mn',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'Мэдээлэл байхгүй байна',
   },
 };
+
+export default localeValues;

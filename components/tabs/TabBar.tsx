@@ -8,11 +8,12 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import { TabsProps } from './index';
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
     animated: true,
-    type: 'line',
+    type: 'line' as TabsProps['type'],
   };
 
   renderTabBar = ({ direction }: ConfigConsumerProps) => {
@@ -81,7 +82,7 @@ export default class TabBar extends React.Component<TabsProps> {
       RenderTabBar = <ScrollableInkTabBar {...renderProps} />;
     }
 
-    return React.cloneElement(RenderTabBar);
+    return cloneElement(RenderTabBar);
   };
 
   render() {
