@@ -53,7 +53,7 @@ export default function demoTest(component: string, options: Options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
-      MockDate.set(moment('2016-11-22').toDate());
+      MockDate.set(moment('2016-11-22').valueOf());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
 
