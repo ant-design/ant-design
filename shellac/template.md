@@ -97,8 +97,8 @@
         <div class="form-row">
           <label>What type of treasure is your favorite?</label>
           <ol class="radiolist">
-            <li><input type="radio" name="rad" id="rad1" /><label for="rad1">Value 1</label></li>
-            <li><input type="radio" name="rad" id="rad2" /><label for="rad2">Value 2</label></li>
+            <li><input type="radio" name="rad" id="rad1" /><label for="rad1">Gold Doubloons</label></li>
+            <li><input type="radio" name="rad" id="rad2" /><label for="rad2">Bars of Silver</label></li>
           </ol>
         </div>
       </form>
