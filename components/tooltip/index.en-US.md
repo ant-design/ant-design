@@ -36,6 +36,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | visible | Whether the floating tooltip card is visible or not | boolean | `false` |  |
 | onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |  |
 | align | this value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | Object | - |  |
+| destroyTooltipOnHide | whether destroy tooltip when hidden, parent container of tooltip will be destroyed when `keepParent` is `false` | boolean \| { keepParent?: boolean } | false |  |
 
 ## Note
 
