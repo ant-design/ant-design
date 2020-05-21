@@ -363,6 +363,7 @@ describe('Table.filter', () => {
       {
         currentDataSource: [],
       },
+      'filter',
     );
   });
 
@@ -942,6 +943,7 @@ describe('Table.filter', () => {
       {
         currentDataSource: [],
       },
+      'filter',
     );
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(0);
   });
@@ -973,6 +975,7 @@ describe('Table.filter', () => {
       {
         currentDataSource: [],
       },
+      'filter',
     );
   });
 
@@ -1045,6 +1048,7 @@ describe('Table.filter', () => {
         },
       }),
       expect.anything(),
+      'sort',
     );
 
     // Filter it
@@ -1065,6 +1069,7 @@ describe('Table.filter', () => {
         },
       }),
       expect.anything(),
+      'filter',
     );
   });
 
@@ -1132,6 +1137,5 @@ describe('Table.filter', () => {
 
     expect(wrapper.find('tbody tr')).toHaveLength(1);
     expect(wrapper.find('tbody tr td').text()).toEqual('Jack');
-    
   });
 });

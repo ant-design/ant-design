@@ -132,6 +132,7 @@ describe('Table.pagination', () => {
           { key: 3, name: 'Jerry' },
         ],
       },
+      'paginate',
     );
 
     expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
@@ -245,6 +246,7 @@ describe('Table.pagination', () => {
           { key: 3, name: 'Jerry' },
         ],
       },
+      'paginate',
     );
     expect(onPaginationChange).toHaveBeenCalledWith(2, 10);
 
