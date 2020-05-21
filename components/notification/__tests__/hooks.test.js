@@ -50,4 +50,23 @@ describe('notification.hooks', () => {
     expect(document.querySelectorAll('.my-test-notification-notice').length).toBe(1);
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
+
+  it('should be same hook', () => {
+    let count = 0;
+
+    const Demo = () => {
+      const [, forceUpdate] = React.useState({});
+      const [api] = notification.useNotification();
+
+      React.useEffect(() => {
+        count += 1;
+        expect(count).toEqual(1);
+        forceUpdate();
+      }, [api]);
+
+      return null;
+    };
+
+    mount(<Demo />);
+  });
 });
