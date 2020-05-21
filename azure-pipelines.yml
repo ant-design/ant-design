@@ -99,7 +99,7 @@ stages:
             inputs:
               artifact: jestStare
               path: './'
-          - script: ls -al jestStare/
+          - script: ls -al ./
             displayName: 'List report'
           - script: |
               export DEPLOY_DOMAIN=https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
