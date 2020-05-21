@@ -13,22 +13,19 @@
     "react-component",
     "ui"
   ],
-  "homepage": "https://ant.design/",
+  "homepage": "https://varnish.allenai.org/",
   "bugs": {
-    "url": "https://github.com/allenai/ant-design/issues"
+    "url": "https://github.com/allenai/varnish/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/allenai/ant-design"
+    "url": "https://github.com/allenai/varnish"
   },
   "license": "MIT",
   "contributors": [
-    "ant"
+    "ant",
+    "allenai"
   ],
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/ant-design"
-  },
   "files": [
     "dist",
     "lib",
@@ -42,7 +39,7 @@
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/antd.min.js",
+  "unpkg": "dist/varnish.min.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "api-collection": "antd-tools run api-collection",
@@ -306,5 +303,5 @@
   "tnpm": {
     "mode": "npm"
   },
-  "title": "Ant Design"
+  "title": "Varnish"
 }
