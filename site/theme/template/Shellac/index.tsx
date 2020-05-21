@@ -47,7 +47,12 @@ export default class Shellac extends React.PureComponent<Props> {
       <Layout>
         <Layout.Content>
           <div className="shellac-intro-copy">
-            <h2>Shellac</h2>
+            <h2>
+              <span role="img" aria-label="nail polish">
+                💅
+              </span>{' '}
+              Shellac
+            </h2>
             <p>
               Shellac is a pared down version of Varnish that lets you make a polished, AI2 branded
               website with HTML alone.
