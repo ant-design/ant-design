@@ -225,7 +225,7 @@
     "logrocket": "^1.0.0",
     "logrocket-react": "^4.0.0",
     "lz-string": "^1.4.4",
-    "mockdate": "^2.0.2",
+    "mockdate": "^3.0.0",
     "node-fetch": "^2.6.0",
     "open": "^7.0.3",
     "preact": "^10.0.0",
