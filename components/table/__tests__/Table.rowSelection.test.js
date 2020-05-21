@@ -798,7 +798,7 @@ describe('Table.rowSelection', () => {
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
 
-  it.only('do not cache selected keys', () => {
+  it('do not cache selected keys', () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <Table

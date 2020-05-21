@@ -117,12 +117,21 @@ export default function useSelection<RecordType>(
 
   const setSelectedKeys = React.useCallback(
     (keys: Key[]) => {
-      setInnerSelectedKeys(keys);
+      const availableKeys: Key[] = [];
+      const records: RecordType[] = [];
 
-      const records = keys.map(key => getRecordByKey(key));
+      keys.forEach(key => {
+        const record = getRecordByKey(key);
+        if (record !== undefined) {
+          availableKeys.push(key);
+          records.push(record);
+        }
+      });
+
+      setInnerSelectedKeys(availableKeys);
 
       if (onSelectionChange) {
-        onSelectionChange(keys, records);
+        onSelectionChange(availableKeys, records);
       }
     },
     [setInnerSelectedKeys, getRecordByKey, onSelectionChange],
