@@ -98,13 +98,13 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               artifact: jestStare
-              path: './'
-          - script: ls -al ./
+              path: './jest-stare'
+          - script: ls -al ./jest-stare
             displayName: 'List report'
           - script: |
               export DEPLOY_DOMAIN=https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
               echo "Deploy to $DEPLOY_DOMAIN"
-              npx surge --project ./jestStare --domain $DEPLOY_DOMAIN
+              npx surge --project ./jest-stare --domain $DEPLOY_DOMAIN
             displayName: 'Deploy Report Site'
           - script: |
               node ./scripts/azure-github-comment.js -ui "https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh"
