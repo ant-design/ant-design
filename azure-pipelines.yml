@@ -95,6 +95,8 @@ stages:
             displayName: 'Install Node.js'
             inputs:
               versionSpec: '12.13.1'
+          - script: npm install
+            displayName: 'Install modules'
           - task: DownloadPipelineArtifact@2
             inputs:
               artifact: jestStare
