@@ -48,7 +48,11 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   renderTitle(inlineCollapsed: boolean) {
     const { icon, title, level } = this.props;
     if (!icon) {
-      return inlineCollapsed && level === 1 ? <Avatar>{title}</Avatar> : title;
+      return inlineCollapsed && level === 1 && title && typeof title === 'string' ? (
+        <Avatar>{title.charAt(0)}</Avatar>
+      ) : (
+        title
+      );
     }
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456

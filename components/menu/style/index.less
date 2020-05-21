@@ -1,6 +1,5 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
-@import '../../avatar/index';
 
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 
@@ -518,6 +517,11 @@
 
   &-root&-inline-collapsed {
     .@{menu-prefix-cls}-without-icon {
+      &.@{menu-prefix-cls}-submenu-open.@{menu-prefix-cls}-submenu-active
+        .@{menu-prefix-cls}-submenu-title
+        .@{ant-prefix}-avatar {
+        color: @menu-highlight-color;
+      }
       &.@{menu-prefix-cls}-item,
       &.@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
         padding: 0 (@menu-collapsed-width - @menu-item-height) / 2;

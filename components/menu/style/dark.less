@@ -148,6 +148,11 @@
   // Without icon
   &-dark&-root&-inline-collapsed {
     .@{menu-prefix-cls}-without-icon {
+      &.@{menu-prefix-cls}-submenu-open.@{menu-prefix-cls}-submenu-active
+        .@{menu-prefix-cls}-submenu-title
+        .@{ant-prefix}-avatar {
+        color: @menu-highlight-color;
+      }
       &.@{menu-prefix-cls}-item,
       &.@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
         .@{ant-prefix}-avatar {
