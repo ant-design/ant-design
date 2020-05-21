@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-对于字符型的头像，当字符串较长时，字体大小可以根据头像宽度自动调整。
+对于字符型的头像，当字符串较长时，字体大小可以根据头像宽度自动调整。也可使用 `gap` 来设置字符距离左右两侧边界间隙。
 
 ## en-US
 
-For letter type Avatar, when the letters are too long to display, the font size can be automatically adjusted according to the width of the Avatar.
+For letter type Avatar, when the letters are too long to display, the font size can be automatically adjusted according to the width of the Avatar. You can also use `gap` to set the distance between left and right sides.
 
 ```tsx
 import React, { useState } from 'react';
