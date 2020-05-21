@@ -22,6 +22,12 @@
   line-height: @line-height-base;
   .btn;
   .btn-default;
+  
+  // Fix loading button animation
+  // https://github.com/ant-design/ant-design/issues/24323
+  > span {
+    display: inline-block;
+  }
 
   &-primary {
     .btn-primary;
