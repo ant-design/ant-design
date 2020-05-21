@@ -17,3 +17,4 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | srcSet | a list of sources to use for different screen resolutions | string | - |  |
 | alt | This attribute defines the alternative text describing the image | string | - |  |
 | onError | handler when img load error, return false to prevent default fallback behavior | () => boolean | - |  |
+| gap | Letter type distance between left and right sides | number | 4 | 4.3.0 |

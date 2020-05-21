@@ -439,6 +439,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
+    gap="4"
     style="background-color:#f56a00;vertical-align:middle"
   >
     <span
@@ -454,7 +455,16 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
     type="button"
   >
     <span>
-      Change
+      ChangeUser
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-sm"
+    style="vertical-align:middle"
+    type="button"
+  >
+    <span>
+      changeGap
     </span>
   </button>
 </div>
