@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://allenai.github.io/ant-design">
+  <a href="https://varnish.allenai.org">
     <img src="./varnish.png" width="200" title="Varnish" alt="Varnish">
   </a>
 </p>
@@ -36,8 +36,8 @@ const App = () => (
 If you'd like to work on Varnish, you can start up a local environment like so:
 
 ```bash
-git clone git@github.com:allenai/ant-design
-cd ant-design
+git clone git@github.com:allenai/varnish
+cd varnish
 npm run shellac:build
 npm run start
 ```
@@ -54,4 +54,4 @@ git push --tags origin master
 
 You'll need to specify `$MAJOR`, `$MINOR` and `$PATH` as per [semantic versioning](https://semver.org/).
 
-After the release is out the door you should add [release notes](https://github.com/allenai/ant-design/releases) to the corresponding tag.
+After the release is out the door you should add [release notes](https://github.com/allenai/varnish/releases) to the corresponding tag.
