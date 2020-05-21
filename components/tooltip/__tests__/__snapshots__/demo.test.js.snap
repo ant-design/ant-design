@@ -51,6 +51,12 @@ exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.md correctly 1`] = `
+<span>
+  Tooltip will destroy when hidden.
+</span>
+`;
+
 exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
 <div
   class="demo"
