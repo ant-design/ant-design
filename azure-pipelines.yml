@@ -98,6 +98,7 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               artifact: jestStare
+              path: './'
           - script: ls -al jestStare/
             displayName: 'List report'
           - script: |
