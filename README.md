@@ -19,7 +19,7 @@ Then use it like so:
 
 ```tsx
 import { Header, Button, ThemeProvider } from '@allenai/varnish'
-import 'varnish/dist/varnish.css';
+import '@allenai/varnish/dist/varnish.css';
 
 const App = () => (
   <ThemeProvider>
