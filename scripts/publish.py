@@ -71,7 +71,10 @@ if __name__ == "__main__":
                 subprocess.check_call([ "npm", "pack" ])
             else:
                 # Publish to NPM
-                subprocess.check_call([ "npm", "publish", "--dry-run" if args.dry_run else None ])
+                publish = [ "npm", "publish" ]
+                if args.dry_run:
+                    publish.append("--dry-run")
+                subprocess.check_call(publish)
 
             # Revert the name change
             pkg.seek(0)
