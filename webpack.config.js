@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPluginCom = require('@bundle-analyzer/webpack-plugin');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
@@ -109,6 +110,11 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
           analyzerMode: 'static',
           openAnalyzer: false,
           reportFilename: '../report.html',
+        }),
+      );
+      config.plugins.push(
+        new BundleAnalyzerPluginCom({
+          token: '020c63da2bdb0eb0a4576767fb67fb2bd14e3508',
         }),
       );
     }
