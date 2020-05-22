@@ -88,7 +88,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
-    "test:image": "npm install puppeteer@2.1.1 --no-save && jest --config .jest.image.js --no-cache",
+    "test:image": "jest --config .jest.image.js --no-cache",
     "version": "node ./scripts/generate-version"
   },
   "husky": {
@@ -109,6 +109,7 @@
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
+    "gulp-concat": "^2.6.1",
     "lodash": "^4.17.13",
     "moment": "^2.25.3",
     "omit.js": "^1.0.2",
