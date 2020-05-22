@@ -221,7 +221,7 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 import { ColumnProps } from 'antd/es/table';
 
 interface User {

@@ -14,7 +14,7 @@ title:
 Add or remove form items dynamically. You can ref [this example](https://codesandbox.io/s/wonderful-lichterman-br63z) if you want to support mutiple fields.
 
 ```jsx
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button } from '@allenai/varnish';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const formItemLayout = {

@@ -14,7 +14,7 @@ title:
 Responsive configuration enables perfect presentation on small screen devices.
 
 ```jsx
-import { Descriptions } from 'antd';
+import { Descriptions } from '@allenai/varnish';
 
 const Demo = () => {
   return (

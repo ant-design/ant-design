@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { contrastLinkColorStyles } from '..';
+import Link from '..';
 
 describe('Link.typescript', () => {
   it('contrastLinkColorStyles', () => {
@@ -16,9 +16,9 @@ describe('Link.typescript', () => {
 });
 
 const Contrast = styled.div`
-  background: #1B4596;
+  background: #1b4596;
   padding: 26px 16px 16px;
   a[href] {
-    ${contrastLinkColorStyles()};
+    ${Link.contrastLinkColorStyles()};
   }
 `;

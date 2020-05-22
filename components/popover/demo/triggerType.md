@@ -14,7 +14,7 @@ title:
 Mouse to click, focus and move in.
 
 ```jsx
-import { Popover, Button } from 'antd';
+import { Popover, Button } from '@allenai/varnish';
 
 const content = (
   <div>

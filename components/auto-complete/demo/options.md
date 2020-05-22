@@ -15,7 +15,7 @@ You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of u
 
 ```tsx
 import React, { useState } from 'react';
-import { AutoComplete } from 'antd';
+import { AutoComplete } from '@allenai/varnish';
 
 const { Option } = AutoComplete;
 

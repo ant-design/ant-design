@@ -26,7 +26,7 @@ import {
   InputNumber,
   TreeSelect,
   Switch,
-} from 'antd';
+} from '@allenai/varnish';
 const FormSizeDemo = () => {
   const [componentSize, setComponentSize] = useState('small');
   const onFormLayoutChange = ({ size }) => {

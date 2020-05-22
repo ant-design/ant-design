@@ -14,7 +14,7 @@ title:
 The simplest usage for short messages.
 
 ```tsx
-import { Alert } from 'antd';
+import { Alert } from '@allenai/varnish';
 
 ReactDOM.render(<Alert message="Success Text" type="success" />, mountNode);
 ```

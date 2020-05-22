@@ -26,7 +26,7 @@ You can use a array to set vertical spacing, `[horizontal, vertical]` `[16, { xs
 > vertical gutter was supported after `3.24.0`.
 
 ```jsx
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider } from '@allenai/varnish';
 
 const style = { background: '#0092ff', padding: '8px 0' };
 

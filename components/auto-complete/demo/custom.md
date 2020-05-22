@@ -15,7 +15,7 @@ Customize Input Component
 
 ```tsx
 import React, { useState } from 'react';
-import { AutoComplete, Input } from 'antd';
+import { AutoComplete, Input } from '@allenai/varnish';
 
 const { TextArea } = Input;
 

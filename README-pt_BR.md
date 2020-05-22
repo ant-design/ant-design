@@ -83,7 +83,7 @@ yarn add antd
 ## 🔨 Uso
 
 ```jsx
-import { Button, DatePicker } from 'antd';
+import { Button, DatePicker } from '@allenai/varnish';
 
 const App = () => (
   <>

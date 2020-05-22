@@ -1,5 +1,5 @@
 import React from 'react';
-import { message } from 'antd';
+import { message } from '@allenai/varnish';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { presetDarkPalettes } from '@ant-design/colors';
 

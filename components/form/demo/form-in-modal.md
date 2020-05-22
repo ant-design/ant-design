@@ -15,7 +15,7 @@ When user visit a page with a list of items, and want to create a new item. The 
 
 ```tsx
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input, Radio } from 'antd';
+import { Button, Modal, Form, Input, Radio } from '@allenai/varnish';
 
 interface Values {
   title: string;

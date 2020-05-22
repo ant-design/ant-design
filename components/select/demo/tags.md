@@ -14,7 +14,7 @@ tags select，随意输入的内容（scroll the menu）
 Select with tags, transform input to tag (scroll the menu)
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const { Option } = Select;
 

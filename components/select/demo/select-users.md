@@ -14,7 +14,7 @@ title:
 A complete multiple select sample with remote search, debounce fetch, ajax callback order flow, and loading state.
 
 ```jsx
-import { Select, Spin } from 'antd';
+import { Select, Spin } from '@allenai/varnish';
 import debounce from 'lodash/debounce';
 
 const { Option } = Select;

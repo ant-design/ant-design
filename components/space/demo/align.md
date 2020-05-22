@@ -14,7 +14,7 @@ title:
 Config item align.
 
 ```jsx
-import { Space, Button } from 'antd';
+import { Space, Button } from '@allenai/varnish';
 
 ReactDOM.render(
   <div className="space-align-container">

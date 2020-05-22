@@ -14,19 +14,19 @@ title:
 Clicking on an anchor does not record history.
 
 ```tsx
-import { Anchor } from 'antd';
+import { Anchor } from '@allenai/varnish';
 
 const { Link } = Anchor;
 
 const handleClick = (
-    e: React.MouseEvent<HTMLElement>,
-    link: {
-      title: React.ReactNode;
-      href: string;
-    },
-  ) => {
-    e.preventDefault();
-    console.log(link);
+  e: React.MouseEvent<HTMLElement>,
+  link: {
+    title: React.ReactNode;
+    href: string;
+  },
+) => {
+  e.preventDefault();
+  console.log(link);
 };
 
 ReactDOM.render(

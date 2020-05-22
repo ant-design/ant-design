@@ -16,7 +16,7 @@ DEBUG
 
 ```tsx
 import React, { useState } from 'react';
-import { Affix, Button } from 'antd';
+import { Affix, Button } from '@allenai/varnish';
 
 const Demo: React.FC = () => {
   const [top, setTop] = useState(10);

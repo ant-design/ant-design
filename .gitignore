@@ -25,6 +25,7 @@ nohup.out
 _site
 _data
 dist
+report*.json
 report.html
 /lib
 /es

@@ -14,7 +14,7 @@ title:
 With text and icon.
 
 ```jsx
-import { Switch } from 'antd';
+import { Switch } from '@allenai/varnish';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

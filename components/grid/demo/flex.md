@@ -16,7 +16,7 @@ title:
 Child elements depending on the value of the `start`,`center`, `end`,`space-between`, `space-around`, which are defined in its parent node typesetting mode.
 
 ```jsx
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

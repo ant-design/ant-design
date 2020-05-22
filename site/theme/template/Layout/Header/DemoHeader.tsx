@@ -9,15 +9,13 @@ import { Link } from 'bisheng/router';
 import * as utils from '../../utils';
 import Github from './Github';
 import SiteContext from '../SiteContext';
-import {
-  Header as VarnishHeader,
-  HeaderColumns,
-  HeaderTitle,
-} from '../../../../../components/header';
+import VarnishHeader from '../../../../../components/header';
 import Popover from '../../../../../components/popover';
 import Menu from '../../../../../components/menu';
 
 import LogoSrc from './VarnishLogo.svg';
+
+const { HeaderColumns, HeaderTitle } = VarnishHeader;
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;

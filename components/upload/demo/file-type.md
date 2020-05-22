@@ -15,7 +15,7 @@ title:
 Displays the corresponding by default by type icon
 
 ```jsx
-import { Upload, Modal } from 'antd';
+import { Upload, Modal } from '@allenai/varnish';
 import {
   LoadingOutlined,
   PaperClipOutlined,

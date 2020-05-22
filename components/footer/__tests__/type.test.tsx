@@ -2,8 +2,10 @@
 
 import * as React from 'react';
 
-import { Footer } from '..';
-import { ThemeProvider } from '../../varnish';
+import Footer from '..';
+import Theming from '../../varnish';
+
+const { ThemeProvider } = Theming;
 
 describe('Footer.typescript', () => {
   it('Footer Basic', () => {

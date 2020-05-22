@@ -14,7 +14,7 @@ title:
 Provide additional interactive capacity of editable and copyable.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from '@allenai/varnish';
 
 const { Paragraph } = Typography;
 

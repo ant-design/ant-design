@@ -14,7 +14,7 @@ title:
 Disabled a tab.
 
 ```jsx
-import { Tabs } from 'antd';
+import { Tabs } from '@allenai/varnish';
 
 const { TabPane } = Tabs;
 

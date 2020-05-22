@@ -14,7 +14,7 @@ title:
 `Collapse` is nested inside the `Collapse`.
 
 ```jsx
-import { Collapse } from 'antd';
+import { Collapse } from '@allenai/varnish';
 
 const { Panel } = Collapse;
 

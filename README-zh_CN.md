@@ -83,7 +83,7 @@ yarn add antd
 ## 🔨 示例
 
 ```jsx
-import { Button, DatePicker } from 'antd';
+import { Button, DatePicker } from '@allenai/varnish';
 
 const App = () => (
   <>

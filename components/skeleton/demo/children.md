@@ -14,7 +14,7 @@ title:
 Skeleton contains sub component.
 
 ```jsx
-import { Skeleton, Button } from 'antd';
+import { Skeleton, Button } from '@allenai/varnish';
 
 class Demo extends React.Component {
   state = {

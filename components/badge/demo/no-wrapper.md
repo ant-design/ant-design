@@ -16,7 +16,7 @@ title:
 Used in standalone when children is empty.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

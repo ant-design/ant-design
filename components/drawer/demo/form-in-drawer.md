@@ -14,7 +14,7 @@ title:
 Use a form in Drawer with a submit button.
 
 ```jsx
-import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
+import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from '@allenai/varnish';
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

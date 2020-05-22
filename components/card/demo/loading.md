@@ -14,7 +14,7 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ```jsx
-import { Skeleton, Switch, Card, Avatar } from 'antd';
+import { Skeleton, Switch, Card, Avatar } from '@allenai/varnish';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;

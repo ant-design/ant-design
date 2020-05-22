@@ -1,1 +1,3 @@
-export * from './MaxLengthText';
+import { MaxLengthText } from './MaxLengthText';
+
+export default MaxLengthText;

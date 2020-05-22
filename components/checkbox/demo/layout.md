@@ -14,7 +14,7 @@ Checkbox.Group 内嵌 Checkbox 并与 Grid 组件一起使用，可以实现灵�
 We can use Checkbox and Grid in Checkbox.Group, to implement complex layout.
 
 ```jsx
-import { Checkbox, Row, Col } from 'antd';
+import { Checkbox, Row, Col } from '@allenai/varnish';
 
 function onChange(checkedValues) {
   console.log('checked = ', checkedValues);

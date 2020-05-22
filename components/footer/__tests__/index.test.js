@@ -3,9 +3,11 @@ import { render } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-import { Footer } from '..';
+import Footer from '..';
 import { DefaultAppLayoutProvider } from '../../layout';
-import { ThemeProvider } from '../../varnish';
+import Theming from '../../varnish';
+
+const { ThemeProvider } = Theming;
 
 describe('Footer', () => {
   mountTest(Footer);

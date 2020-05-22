@@ -3,7 +3,9 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import { ThemeProvider } from '../../components/varnish';
+import Theming from '../../components/varnish';
+
+const { ThemeProvider } = Theming;
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -57,11 +59,7 @@ export default function demoTest(component: string, options: Options = {}) {
     testMethod(`renders ${file} correctly`, () => {
       MockDate.set(moment('2016-11-22').toDate());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = render(React.createElement(
-        ThemeProvider,
-        null,
-        demo,
-      ));
+      const wrapper = render(React.createElement(ThemeProvider, null, demo));
 
       // Convert aria related content
       ariaConvert(wrapper);

@@ -14,7 +14,7 @@ title:
 A simple mini version step bar in the vertical direction.
 
 ```jsx
-import { Steps } from 'antd';
+import { Steps } from '@allenai/varnish';
 
 const { Step } = Steps;
 

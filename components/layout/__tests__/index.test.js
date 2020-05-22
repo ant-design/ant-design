@@ -5,7 +5,9 @@ import Icon from '../../icon';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { ThemeProvider } from '../../varnish';
+import Theming from '../../varnish';
+
+const { ThemeProvider } = Theming;
 
 const { Sider, Content } = Layout;
 

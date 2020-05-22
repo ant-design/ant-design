@@ -14,7 +14,7 @@ title:
 The input box comes in three sizes. large is used in the form, while the medium size is the default.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from '@allenai/varnish';
 import moment from 'moment';
 
 ReactDOM.render(

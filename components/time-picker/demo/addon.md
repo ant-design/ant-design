@@ -14,7 +14,7 @@ title:
 Render addon contents to time picker panel's bottom.
 
 ```jsx
-import { TimePicker, Button } from 'antd';
+import { TimePicker, Button } from '@allenai/varnish';
 
 class TimePickerAddonDemo extends React.Component {
   state = { open: false };

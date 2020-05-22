@@ -14,7 +14,7 @@ title:
 The vertical Slider.
 
 ```jsx
-import { Slider } from 'antd';
+import { Slider } from '@allenai/varnish';
 
 const style = {
   display: 'inline-block',

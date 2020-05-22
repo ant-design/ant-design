@@ -27,7 +27,7 @@ import {
   Checkbox,
   Row,
   Col,
-} from 'antd';
+} from '@allenai/varnish';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

@@ -14,7 +14,7 @@ title:
 Spacified the prop name of Option which will be rendered in select box.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const { Option } = Select;
 

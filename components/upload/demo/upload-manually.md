@@ -14,7 +14,7 @@ title:
 Upload files manually after `beforeUpload` returns `false`.
 
 ```jsx
-import { Upload, Button, message } from 'antd';
+import { Upload, Button, message } from '@allenai/varnish';
 import { UploadOutlined } from '@ant-design/icons';
 import reqwest from 'reqwest';
 

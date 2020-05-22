@@ -14,7 +14,7 @@ title:
 Customize Calendar header content.
 
 ```jsx
-import { Calendar, Select, Radio, Col, Row, Typography } from 'antd';
+import { Calendar, Select, Radio, Col, Row, Typography } from '@allenai/varnish';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);
@@ -57,9 +57,7 @@ ReactDOM.render(
         }
         return (
           <div style={{ padding: 8 }}>
-            <Typography.Title level={4}>
-              Custom header
-            </Typography.Title>
+            <Typography.Title level={4}>Custom header</Typography.Title>
             <Row gutter={8}>
               <Col>
                 <Radio.Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>

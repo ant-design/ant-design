@@ -54,7 +54,7 @@ This demo show three typical usages:
 See `Customized Form Controls` demo below for further advanced usage.
 
 ```jsx
-import { Form, Input, Select, Tooltip, Button } from 'antd';
+import { Form, Input, Select, Tooltip, Button } from '@allenai/varnish';
 
 const { Option } = Select;
 

@@ -14,7 +14,7 @@ title:
 The example of infinite load with [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller).
 
 ```jsx
-import { List, message, Avatar, Spin } from 'antd';
+import { List, message, Avatar, Spin } from '@allenai/varnish';
 import reqwest from 'reqwest';
 
 import InfiniteScroll from 'react-infinite-scroller';

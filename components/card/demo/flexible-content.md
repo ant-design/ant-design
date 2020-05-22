@@ -14,7 +14,7 @@ title:
 You can use `Card.Meta` to support more flexible content.
 
 ```jsx
-import { Card } from 'antd';
+import { Card } from '@allenai/varnish';
 
 const { Meta } = Card;
 

@@ -14,7 +14,7 @@ title:
 Responsive grid list. The size property the is as same as [Layout Grid](/components/grid/#Col).
 
 ```jsx
-import { List, Card } from 'antd';
+import { List, Card } from '@allenai/varnish';
 
 const data = [
   {

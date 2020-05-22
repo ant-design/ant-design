@@ -14,7 +14,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Statistic, Row, Col, Button } from 'antd';
+import { Statistic, Row, Col, Button } from '@allenai/varnish';
 
 ReactDOM.render(
   <Row gutter={16}>

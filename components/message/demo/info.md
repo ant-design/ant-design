@@ -14,7 +14,7 @@ title:
 Normal message for information.
 
 ```jsx
-import { message, Button } from 'antd';
+import { message, Button } from '@allenai/varnish';
 
 const info = () => {
   message.info('This is a normal message');

@@ -15,7 +15,7 @@ Table with editable cells.
 
 ```tsx
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { Table, Input, Button, Popconfirm, Form } from '@allenai/varnish';
 
 const EditableContext = React.createContext<any>();
 

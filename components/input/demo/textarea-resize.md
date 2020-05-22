@@ -15,7 +15,7 @@ debug: true
 For multi-line input.
 
 ```jsx
-import { Input, Button } from 'antd';
+import { Input, Button } from '@allenai/varnish';
 
 const { TextArea } = Input;
 

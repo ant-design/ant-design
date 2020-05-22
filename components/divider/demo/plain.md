@@ -14,7 +14,7 @@ title:
 You can use non-heading style of divider text by setting `plain`.
 
 ```jsx
-import { Divider } from 'antd';
+import { Divider } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

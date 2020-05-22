@@ -14,7 +14,7 @@ title:
 The count will be animated as it changes.
 
 ```jsx
-import { Badge, Button, Switch } from 'antd';
+import { Badge, Button, Switch } from '@allenai/varnish';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;

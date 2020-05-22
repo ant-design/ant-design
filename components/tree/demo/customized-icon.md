@@ -14,7 +14,7 @@ title:
 You can customize icons for different nodes.
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree } from '@allenai/varnish';
 import {
   DownOutlined,
   FrownOutlined,

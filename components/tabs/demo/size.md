@@ -14,7 +14,7 @@ title:
 Large size tabs are usually used in page header, and small size could be used in Modal.
 
 ```jsx
-import { Tabs, Radio } from 'antd';
+import { Tabs, Radio } from '@allenai/varnish';
 
 const { TabPane } = Tabs;
 

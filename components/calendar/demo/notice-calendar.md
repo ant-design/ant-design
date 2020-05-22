@@ -14,7 +14,7 @@ title:
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
 ```jsx
-import { Calendar, Badge } from 'antd';
+import { Calendar, Badge } from '@allenai/varnish';
 
 function getListData(value) {
   let listData;

@@ -14,7 +14,7 @@ title:
 To customize the style or font of the close button.
 
 ```jsx
-import { Button, notification } from 'antd';
+import { Button, notification } from '@allenai/varnish';
 
 const close = () => {
   console.log(

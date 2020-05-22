@@ -14,7 +14,7 @@ title:
 customize collapse/expand icon of tree node
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree } from '@allenai/varnish';
 import { DownOutlined } from '@ant-design/icons';
 
 const { TreeNode } = Tree;

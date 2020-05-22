@@ -19,7 +19,7 @@ This demo was created for debugging Menu styles inside Dropdown.
 [#19150](https://github.com/ant-design/ant-design/pull/19150)
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from '@allenai/varnish';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, DownOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

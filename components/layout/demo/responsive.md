@@ -19,8 +19,7 @@ Layout.Sider supports responsive layout.
 
 ```jsx
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import Layout from '..'; // TODO: point this at varnish
-import Menu from '../../menu'; // TODO: point this at varnish
+import { Layout, Menu } from '@allenai/varnish';
 
 const { Header, Content, Footer, Sider } = Layout;
 

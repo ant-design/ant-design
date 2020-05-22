@@ -14,7 +14,7 @@ title:
 Horizontal top navigation menu.
 
 ```jsx
-import { Menu } from 'antd';
+import { Menu } from '@allenai/varnish';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

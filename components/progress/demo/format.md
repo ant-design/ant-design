@@ -14,7 +14,7 @@ title:
 You can set a custom text by setting the `format` prop.
 
 ```jsx
-import { Progress } from 'antd';
+import { Progress } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

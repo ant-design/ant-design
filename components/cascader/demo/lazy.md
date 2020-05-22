@@ -18,7 +18,7 @@ Load options lazily with `loadData`.
 > Note: `loadData` cannot work with `showSearch`.
 
 ```jsx
-import { Cascader } from 'antd';
+import { Cascader } from '@allenai/varnish';
 
 const options = [
   {

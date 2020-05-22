@@ -14,7 +14,7 @@ title:
 There are three sizes available: large, medium, and small. It can coordinate with input box.
 
 ```jsx
-import { Radio } from 'antd';
+import { Radio } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

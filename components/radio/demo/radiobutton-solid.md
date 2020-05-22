@@ -14,7 +14,7 @@ title:
 Solid radio button style.
 
 ```jsx
-import { Radio } from 'antd';
+import { Radio } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

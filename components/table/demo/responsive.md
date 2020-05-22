@@ -14,7 +14,7 @@ title:
 Responsive columns.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 const columns = [
   {

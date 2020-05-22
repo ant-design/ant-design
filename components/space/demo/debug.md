@@ -15,7 +15,7 @@ Debug usage
 Debug usage
 
 ```jsx
-import { Space, Button, Popconfirm } from 'antd';
+import { Space, Button, Popconfirm } from '@allenai/varnish';
 
 ReactDOM.render(
   <Space>

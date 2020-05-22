@@ -24,7 +24,7 @@ import {
   Transfer,
   Table,
   List,
-} from 'antd';
+} from '@allenai/varnish';
 import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (

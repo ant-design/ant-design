@@ -22,7 +22,7 @@ A Solution for displaying large amounts of data with long columns.
 > A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 const columns = [
   {

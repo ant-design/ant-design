@@ -32,7 +32,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 ```jsx
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { ConfigProvider, DatePicker, message } from 'antd';
+import { ConfigProvider, DatePicker, message } from '@allenai/varnish';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
@@ -70,8 +70,8 @@ render(<App />, document.getElementById('root'));
 然后依照演示代码的写法，在之前的 codesandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
 
 ```diff
-- import { ConfigProvider, DatePicker, message } from 'antd';
-+ import { ConfigProvider, DatePicker, message, Alert } from 'antd';
+- import { ConfigProvider, DatePicker, message } from '@allenai/varnish';
++ import { ConfigProvider, DatePicker, message, Alert } from '@allenai/varnish';
 ```
 
 然后在 `render` 内添加相应的 jsx 代码：

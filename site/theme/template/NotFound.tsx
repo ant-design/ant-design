@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'bisheng/router';
-import { Result, Button } from 'antd';
+import { Result, Button } from '@allenai/varnish';
 import { HomeOutlined } from '@ant-design/icons';
 import * as utils from './utils';
 

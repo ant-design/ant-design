@@ -85,7 +85,7 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 ## Usage
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 
 ReactDOM.render(<DatePicker />, mountNode);
 ```

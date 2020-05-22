@@ -15,7 +15,7 @@ Use `Form.Provider` to process data between forms. In this case, submit button i
 
 ```tsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
+import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from '@allenai/varnish';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 
 const layout = {

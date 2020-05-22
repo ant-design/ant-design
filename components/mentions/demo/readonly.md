@@ -14,7 +14,7 @@ title:
 Configurate `disabled` and `readOnly`.
 
 ```jsx
-import { Mentions } from 'antd';
+import { Mentions } from '@allenai/varnish';
 
 const { Option } = Mentions;
 

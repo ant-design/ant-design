@@ -14,7 +14,7 @@ title:
 More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
 
 ```jsx
-import { Collapse, Select } from 'antd';
+import { Collapse, Select } from '@allenai/varnish';
 import { SettingOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;

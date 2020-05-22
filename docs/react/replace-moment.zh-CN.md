@@ -88,7 +88,7 @@ export { default as TimePicker } from './TimePicker';
 修改 `src/App.tsx`，引入 `dayjs` 和自定义的组件。
 
 ```diff
-- import { DatePicker, Calendar } from 'antd';
+- import { DatePicker, Calendar } from '@allenai/varnish';
 - import format from 'moment';
 
 + import { DatePicker, TimePicker, Calendar } from './components';

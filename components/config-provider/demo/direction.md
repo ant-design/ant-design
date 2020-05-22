@@ -33,7 +33,7 @@ import {
   Rate,
   Badge,
   Divider,
-} from 'antd';
+} from '@allenai/varnish';
 
 import {
   SearchOutlined as SearchIcon,

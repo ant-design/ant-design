@@ -14,7 +14,7 @@ title:
 async
 
 ```jsx
-import { Mentions } from 'antd';
+import { Mentions } from '@allenai/varnish';
 import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;

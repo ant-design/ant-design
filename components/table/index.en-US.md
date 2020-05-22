@@ -216,7 +216,7 @@ Properties for row selection.
 ## Using in TypeScript
 
 ```tsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 import { ColumnProps } from 'antd/es/table';
 
 interface User {

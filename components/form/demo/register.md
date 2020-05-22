@@ -26,7 +26,7 @@ import {
   Checkbox,
   Button,
   AutoComplete,
-} from 'antd';
+} from '@allenai/varnish';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -251,7 +251,10 @@ const RegistrationForm = () => {
         name="agreement"
         valuePropName="checked"
         rules={[
-          { validator:(_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
+          {
+            validator: (_, value) =>
+              value ? Promise.resolve() : Promise.reject('Should accept agreement'),
+          },
         ]}
         {...tailFormItemLayout}
       >

@@ -14,7 +14,7 @@ title:
 The default trigger mode is `hover`, you can change it to `contextMenu`.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from '@allenai/varnish';
 
 const menu = (
   <Menu>

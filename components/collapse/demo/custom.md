@@ -14,7 +14,7 @@ title:
 Customize the background, border, margin styles and icon for each panel.
 
 ```jsx
-import { Collapse } from 'antd';
+import { Collapse } from '@allenai/varnish';
 import { CaretRightOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;

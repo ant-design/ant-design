@@ -14,7 +14,7 @@ title:
 Search the options while expanded.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const { Option } = Select;
 

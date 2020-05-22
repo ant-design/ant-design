@@ -18,7 +18,7 @@ Crowded components vertical spacing.
 Can set `width: 100%` fill a row.
 
 ```jsx
-import { Space, Card } from 'antd';
+import { Space, Card } from '@allenai/varnish';
 
 function SpaceVertical() {
   return (

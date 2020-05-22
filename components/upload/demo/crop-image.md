@@ -15,7 +15,7 @@ Use [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) to crop image b
 
 ```jsx
 import React, { useState } from 'react';
-import { Upload } from 'antd';
+import { Upload } from '@allenai/varnish';
 import ImgCrop from 'antd-img-crop';
 
 const Demo = () => {

@@ -14,7 +14,7 @@ title:
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
 ```jsx
-import { Checkbox } from 'antd';
+import { Checkbox } from '@allenai/varnish';
 
 const CheckboxGroup = Checkbox.Group;
 

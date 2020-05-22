@@ -19,7 +19,7 @@ Set the size to `large` and `middle` by setting size to large and middle respect
 
 ```jsx
 import React, { useState } from 'react';
-import { Space, Radio, Button } from 'antd';
+import { Space, Radio, Button } from '@allenai/varnish';
 
 function SpaceSize() {
   const [size, setSize] = useState('small');

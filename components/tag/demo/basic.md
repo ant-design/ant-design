@@ -14,7 +14,7 @@ title:
 Usage of basic Tag, and it could be closable by set `closable` property. Closable Tag supports `onClose` events.
 
 ```jsx
-import { Tag } from 'antd';
+import { Tag } from '@allenai/varnish';
 
 function log(e) {
   console.log(e);

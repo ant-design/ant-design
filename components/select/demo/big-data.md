@@ -14,7 +14,7 @@ Select 使用了[虚拟滚动](https://github.com/react-component/virtual-list)�
 Select use [virtual scroll](https://github.com/react-component/virtual-list) which get better performance [than 3.0](https://codesandbox.io/s/beautiful-banzai-m72lv).
 
 ```jsx
-import { Select, Typography, Divider } from 'antd';
+import { Select, Typography, Divider } from '@allenai/varnish';
 
 const { Title } = Typography;
 

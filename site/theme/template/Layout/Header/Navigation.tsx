@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
 import { UnorderedListOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
+import { Menu } from '@allenai/varnish';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import { SharedProps } from './interface';

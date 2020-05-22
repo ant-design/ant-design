@@ -15,7 +15,7 @@ debug: true
 Basic Usage.
 
 ```jsx
-import { Select, Input, Button } from 'antd';
+import { Select, Input, Button } from '@allenai/varnish';
 
 const { Option } = Select;
 

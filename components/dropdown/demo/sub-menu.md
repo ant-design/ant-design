@@ -14,7 +14,7 @@ title:
 The menu has multiple levels.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from '@allenai/varnish';
 import { DownOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

@@ -14,7 +14,7 @@ title:
 We preset five different colors, you can set color property such as `success`,`processing`,`error`,`default` and `warning` to indicate specific status.
 
 ```jsx
-import { Tag } from 'antd';
+import { Tag } from '@allenai/varnish';
 import {
   CheckCircleOutlined,
   SyncOutlined,

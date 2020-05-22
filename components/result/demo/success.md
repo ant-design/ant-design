@@ -14,7 +14,7 @@ title:
 Show successful results.
 
 ```jsx
-import { Result, Button } from 'antd';
+import { Result, Button } from '@allenai/varnish';
 
 ReactDOM.render(
   <Result

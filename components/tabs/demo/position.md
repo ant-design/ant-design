@@ -14,7 +14,7 @@ title:
 Tab's position: left, right, top or bottom.
 
 ```jsx
-import { Tabs, Select, Space } from 'antd';
+import { Tabs, Select, Space } from '@allenai/varnish';
 
 const { TabPane } = Tabs;
 const { Option } = Select;

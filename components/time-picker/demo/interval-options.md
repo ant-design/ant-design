@@ -14,7 +14,7 @@ title:
 Show stepped options by `hourStep` `minuteStep` `secondStep`.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from '@allenai/varnish';
 
 ReactDOM.render(<TimePicker minuteStep={15} secondStep={10} />, mountNode);
 ```

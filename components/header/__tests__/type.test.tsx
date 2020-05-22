@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-expressions */
 
 import * as React from 'react';
-import { Header, HeaderColumns, HeaderTitle } from '..';
+import Header from '..';
+
+const { HeaderColumns, HeaderTitle } = Header;
 
 describe('Header.typescript', () => {
   it('Header Basic', () => {

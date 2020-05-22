@@ -27,7 +27,7 @@ title: 动效
 
 ```__react
 
-import { Col, Row } from 'antd';
+import { Col, Row } from '@allenai/varnish';
 
 const text = [
   { title: '自然', img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif', content: '自然运动规律，保证视觉连惯，让用户感知到动作是成立的' },

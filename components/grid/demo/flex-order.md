@@ -14,7 +14,7 @@ title:
 To change the element sort by order.
 
 ```jsx
-import { Row, Col } from 'antd';
+import { Row, Col } from '@allenai/varnish';
 
 ReactDOM.render(
   <Row>

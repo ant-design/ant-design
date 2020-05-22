@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from 'antd';
+import { Tooltip } from '@allenai/varnish';
 import { EditOutlined } from '@ant-design/icons';
 
 const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';

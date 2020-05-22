@@ -19,7 +19,7 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Input } from 'antd';
+import { Form, Input } from '@allenai/varnish';
 
 interface FieldData {
   name: string[];

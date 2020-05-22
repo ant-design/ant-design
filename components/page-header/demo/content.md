@@ -14,7 +14,7 @@ title:
 Show all props provided by PageHeader.
 
 ```jsx
-import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
+import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from '@allenai/varnish';
 import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;

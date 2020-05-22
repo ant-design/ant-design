@@ -14,7 +14,7 @@ title:
 Basic list.
 
 ```jsx
-import { List, Avatar } from 'antd';
+import { List, Avatar } from '@allenai/varnish';
 
 const data = [
   {

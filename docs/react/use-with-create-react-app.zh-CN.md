@@ -60,7 +60,7 @@ $ yarn add antd
 
 ```jsx
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@allenai/varnish';
 import './App.css';
 
 const App = () => (

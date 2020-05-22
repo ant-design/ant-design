@@ -7,15 +7,15 @@ title:
 Header inside a layout with a logo and content.
 
 ```jsx
-import { Header, HeaderColumns, HeaderTitle } from '..'; // TODO: point this at varnish
-import Layout from '../../layout'; // TODO: point this at varnish
-import { AI2Logo } from '../../logos'; // TODO: point this at varnish
+import { Header, Layout, Logos } from '@allenai/varnish';
+
+const { HeaderColumns, HeaderTitle } = Header;
 
 ReactDOM.render(
   <Layout bgcolor="N2">
     <Header>
       <HeaderColumns gridTemplateColumns="auto auto 1fr">
-        <AI2Logo includeText={false} />
+        <Logos.AI2Logo includeText={false} />
         <HeaderTitle>Title</HeaderTitle>
       </HeaderColumns>
     </Header>

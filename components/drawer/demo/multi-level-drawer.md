@@ -14,7 +14,7 @@ title:
 Open a new drawer on top of an existing drawer to handle multi branch tasks.
 
 ```jsx
-import { Drawer, Button } from 'antd';
+import { Drawer, Button } from '@allenai/varnish';
 
 class App extends React.Component {
   state = { visible: false, childrenDrawer: false };

@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
-export function contrastLinkColorStyles() {
+export default function contrastLinkColorStyles() {
   return css<{ active?: boolean }>`
     color: ${({ theme, active }) =>
       // eslint-disable-next-line no-nested-ternary

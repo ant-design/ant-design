@@ -7,7 +7,7 @@ title:
 Layout can specify a background Varnish color.
 
 ```jsx
-import Layout from '..'; // TODO: point this at varnish
+import { Layout } from '@allenai/varnish';
 
 ReactDOM.render(
   <Layout bgcolor="B6">

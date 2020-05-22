@@ -14,7 +14,7 @@ title:
 There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 const columns = [
   {

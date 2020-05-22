@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Footer } from '../../../../components/footer';
+import Footer from '../../../../components/footer';
 import Layout from '../../../../components/layout';
 
 export default function Home() {

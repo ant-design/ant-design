@@ -14,7 +14,7 @@ title:
 There are two built-in themes: 'light' and 'dark'. The default value is 'light'.
 
 ```jsx
-import { Menu, Switch } from 'antd';
+import { Menu, Switch } from '@allenai/varnish';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

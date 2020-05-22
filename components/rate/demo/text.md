@@ -14,7 +14,7 @@ title:
 Add copywriting in rate components.
 
 ```jsx
-import { Rate } from 'antd';
+import { Rate } from '@allenai/varnish';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 

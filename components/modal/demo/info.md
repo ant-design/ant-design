@@ -14,7 +14,7 @@ title:
 In the various types of information modal dialog, only one button to close dialog is provided.
 
 ```jsx
-import { Modal, Button, Space } from 'antd';
+import { Modal, Button, Space } from '@allenai/varnish';
 
 function info() {
   Modal.info({

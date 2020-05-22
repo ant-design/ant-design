@@ -14,7 +14,7 @@ title:
 Allows for custom rendering of tags
 
 ```jsx
-import { Select, Tag } from 'antd';
+import { Select, Tag } from '@allenai/varnish';
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 

@@ -19,7 +19,7 @@ import {
   getTimeProps,
   Components,
 } from '.';
-import { FormCalendarIcon } from '../../icons'; // Added by Varnish
+import Icons from '../../icons'; // Added by Varnish
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>;
@@ -104,7 +104,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   ref={this.pickerRef}
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
                   suffixIcon={
-                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <FormCalendarIcon /> // Changed by Varnish
+                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <Icons.FormCalendarIcon /> // Changed by Varnish
                   }
                   clearIcon={<CloseCircleFilled />}
                   allowClear

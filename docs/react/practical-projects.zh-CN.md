@@ -74,7 +74,7 @@ export default defineConfig({
 然后新建 `src/components/ProductList.tsx` 文件：
 
 ```js
-import { Table, Popconfirm, Button } from 'antd';
+import { Table, Popconfirm, Button } from '@allenai/varnish';
 
 const ProductList = ({ onDelete, products }) => {
   const columns = [

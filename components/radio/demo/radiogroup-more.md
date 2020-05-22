@@ -14,7 +14,7 @@ title:
 Vertical Radio.Group, with more radios.
 
 ```jsx
-import { Radio, Input } from 'antd';
+import { Radio, Input } from '@allenai/varnish';
 
 class App extends React.Component {
   state = {

@@ -14,7 +14,7 @@ title:
 Using `reverse` to render slider reversely.
 
 ```jsx
-import { Slider, Switch } from 'antd';
+import { Slider, Switch } from '@allenai/varnish';
 
 class Demo extends React.Component {
   state = {

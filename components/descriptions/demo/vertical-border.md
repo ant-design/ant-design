@@ -14,7 +14,7 @@ title:
 Descriptions with border and background color.
 
 ```jsx
-import { Descriptions, Badge } from 'antd';
+import { Descriptions, Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <Descriptions title="User Info" layout="vertical" bordered>

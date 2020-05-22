@@ -14,7 +14,7 @@ title:
 The badge can be wrapped with `a` tag to make it linkable.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <a href="#">

@@ -14,7 +14,7 @@ title:
 Support set allow to clear star when click again.
 
 ```jsx
-import { Rate } from 'antd';
+import { Rate } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

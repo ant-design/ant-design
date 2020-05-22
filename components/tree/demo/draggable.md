@@ -14,7 +14,7 @@ title:
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree } from '@allenai/varnish';
 
 const x = 3;
 const y = 2;
@@ -71,7 +71,7 @@ class Demo extends React.Component {
           return callback(data[i], i, data);
         }
         if (data[i].children) {
-           loop(data[i].children, key, callback);
+          loop(data[i].children, key, callback);
         }
       }
     };

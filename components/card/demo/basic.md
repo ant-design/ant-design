@@ -14,7 +14,7 @@ title:
 A basic card containing a title, content and an extra corner content. Supports two sizes: `default` and `small`.
 
 ```jsx
-import { Card } from 'antd';
+import { Card } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

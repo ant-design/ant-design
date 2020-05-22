@@ -15,9 +15,7 @@ Both the top navigation and the sidebar, commonly used in application site.
 
 ```jsx
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import Layout from '..'; // TODO: point this at varnish
-import Menu from '../../menu'; // TODO: point this at varnish
-import Breadcrumb from '../../breadcrumb'; // TODO: point this at varnish
+import { Layout, Menu, Breadcrumb } from '@allenai/varnish';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;

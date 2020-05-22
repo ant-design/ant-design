@@ -14,7 +14,7 @@ title:
 A borderless card on a gray background.
 
 ```jsx
-import { Card } from 'antd';
+import { Card } from '@allenai/varnish';
 
 ReactDOM.render(
   <div className="site-card-border-less-wrapper">

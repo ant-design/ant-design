@@ -14,7 +14,7 @@ title:
 `danger` is a property of button after antd 4.0.
 
 ```jsx
-import { Button } from 'antd';
+import { Button } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

@@ -14,7 +14,7 @@ title:
 Controlled page number.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from '@allenai/varnish';
 
 class App extends React.Component {
   state = {

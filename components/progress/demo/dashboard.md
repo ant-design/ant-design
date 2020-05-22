@@ -14,12 +14,13 @@ title:
 By setting `type=dashboard`, you can get a dashboard style of progress easily. Modify `gapDegree` to set the degree of gap.
 
 ```jsx
-import { Progress } from 'antd';
+import { Progress } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>
     <Progress type="dashboard" percent={75} />
     <Progress type="dashboard" percent={75} gapDegree={30} />
-  </div>
-, mountNode);
+  </div>,
+  mountNode,
+);
 ```

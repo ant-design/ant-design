@@ -15,7 +15,7 @@ Basic Usage, set data source of autocomplete with `options` property.
 
 ```tsx
 import React, { useState } from 'react';
-import { AutoComplete } from 'antd';
+import { AutoComplete } from '@allenai/varnish';
 
 const mockVal = (str: string, repeat: number = 1) => {
   return {

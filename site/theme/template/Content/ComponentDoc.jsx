@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Affix, Tooltip } from 'antd';
+import { Row, Col, Affix, Tooltip } from '@allenai/varnish';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { CodeFilled, CodeOutlined, BugFilled, BugOutlined } from '@ant-design/icons';
 import Demo from './Demo';

@@ -7,7 +7,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Footer } from '..'; // TODO: point this at varnish
+import { Footer } from '@allenai/varnish';
 
 ReactDOM.render(<Footer />, mountNode);
 ```

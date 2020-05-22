@@ -7,7 +7,7 @@ debug: true
 ---
 
 ```tsx
-import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
+import { Input, AutoComplete, Form, TreeSelect, Button } from '@allenai/varnish';
 import { SearchOutlined } from '@ant-design/icons';
 
 const formItemLayout = {

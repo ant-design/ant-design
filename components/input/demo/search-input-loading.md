@@ -14,7 +14,7 @@ title:
 Search loading when onSearch.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@allenai/varnish';
 
 const { Search } = Input;
 

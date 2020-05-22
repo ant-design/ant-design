@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import { palette } from '../varnish/palette';
 import { Color } from '../varnish/colors';
-import { contrastLinkColorStyles } from '../link';
+import Link from '../link';
 import Layout, { AppLayoutVariant, AppLayoutContext } from '../layout';
 
 export type FooterVariant = 'default' | 'dark';
@@ -18,7 +18,7 @@ interface Props {
   className?: string;
 }
 
-export class Footer extends React.PureComponent<Props> {
+export default class Footer extends React.PureComponent<Props> {
   static defaultProps = {
     setPageBackground: true,
   };
@@ -70,7 +70,7 @@ const StyledFooter = styled(Layout.Footer)<{ contrast?: boolean; layout?: AppLay
     text-align: ${({ layout }) => (layout !== 'app' ? 'center' : null)};
 
     a[href] {
-      ${({ contrast }) => (contrast ? contrastLinkColorStyles() : null)};
+      ${({ contrast }) => (contrast ? Link.contrastLinkColorStyles() : null)};
     }
   }
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Tabs } from '@allenai/varnish';
 
 const { TabPane } = Tabs;
 

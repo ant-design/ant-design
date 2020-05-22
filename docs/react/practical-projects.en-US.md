@@ -80,7 +80,7 @@ Let's create a `ProductList` component that we can use in multiple places to sho
 Create `src/components/ProductList.tsx` by typing:
 
 ```js
-import { Table, Popconfirm, Button } from 'antd';
+import { Table, Popconfirm, Button } from '@allenai/varnish';
 
 const ProductList = ({ onDelete, products }) => {
   const columns = [

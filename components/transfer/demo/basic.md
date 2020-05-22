@@ -14,7 +14,7 @@ title:
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ```jsx
-import { Transfer, Switch } from 'antd';
+import { Transfer, Switch } from '@allenai/varnish';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {

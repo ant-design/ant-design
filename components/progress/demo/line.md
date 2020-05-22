@@ -14,7 +14,7 @@ title:
 A standard progress bar.
 
 ```jsx
-import { Progress } from 'antd';
+import { Progress } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>
