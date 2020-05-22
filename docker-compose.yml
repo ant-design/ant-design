@@ -9,4 +9,4 @@ services:
       - "./tests:/app/tests"
       - "./jest-stare:/app/jest-stare"
       - "./dist:/app/dist"
-    command: sh -c "node -v && npm run test:image"
+    command: sh -c "node -v && jest --config .jest.image.js --no-cache"
