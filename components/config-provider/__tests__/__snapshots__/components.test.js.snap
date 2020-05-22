@@ -23663,6 +23663,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             style="opacity:0"
                           >
                             <div
+                              class="config-dropdown-arrow"
+                            />
+                            <div
                               class="config-table-filter-dropdown"
                             >
                               <ul
@@ -23936,6 +23939,9 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             class="config-dropdown"
                             style="opacity:0"
                           >
+                            <div
+                              class="config-dropdown-arrow"
+                            />
                             <div
                               class="config-table-filter-dropdown"
                             >
@@ -24211,6 +24217,9 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             style="opacity:0"
                           >
                             <div
+                              class="config-dropdown-arrow"
+                            />
+                            <div
                               class="config-table-filter-dropdown"
                             >
                               <ul
@@ -24484,6 +24493,9 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                             class="ant-dropdown"
                             style="opacity:0"
                           >
+                            <div
+                              class="ant-dropdown-arrow"
+                            />
                             <div
                               class="ant-table-filter-dropdown"
                             >
@@ -24759,6 +24771,9 @@ exports[`ConfigProvider components Table normal 1`] = `
                             style="opacity:0"
                           >
                             <div
+                              class="ant-dropdown-arrow"
+                            />
+                            <div
                               class="ant-table-filter-dropdown"
                             >
                               <ul
@@ -25032,6 +25047,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             class="ant-dropdown"
                             style="opacity:0"
                           >
+                            <div
+                              class="ant-dropdown-arrow"
+                            />
                             <div
                               class="prefix-Table-filter-dropdown"
                             >

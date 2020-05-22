@@ -38,6 +38,9 @@ exports[`Table.filter renders custom content correctly 1`] = `
     class="ant-dropdown ant-dropdown-hidden"
   >
     <div
+      class="ant-dropdown-arrow"
+    />
+    <div
       class="ant-table-filter-dropdown"
     >
       <div
@@ -437,6 +440,9 @@ exports[`Table.filter renders menu correctly 1`] = `
     class="ant-dropdown ant-dropdown-hidden"
   >
     <div
+      class="ant-dropdown-arrow"
+    />
+    <div
       class="ant-table-filter-dropdown"
     >
       <ul
@@ -540,6 +546,9 @@ exports[`Table.filter renders radio filter correctly 1`] = `
   <div
     class="ant-dropdown ant-dropdown-hidden"
   >
+    <div
+      class="ant-dropdown-arrow"
+    />
     <div
       class="ant-table-filter-dropdown"
     >
@@ -711,6 +720,9 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                             class="ant-dropdown"
                             style="opacity: 0;"
                           >
+                            <div
+                              class="ant-dropdown-arrow"
+                            />
                             <div
                               class="ant-table-filter-dropdown"
                             >
@@ -944,6 +956,9 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                             class="ant-dropdown"
                             style="opacity: 0;"
                           >
+                            <div
+                              class="ant-dropdown-arrow"
+                            />
                             <div
                               class="ant-table-filter-dropdown"
                             >
