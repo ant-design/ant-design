@@ -39,6 +39,7 @@ interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
+  symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
 }
@@ -325,7 +326,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   }
 
   renderExpand(forceRender?: boolean) {
-    const { expandable } = this.getEllipsis();
+    const { expandable, symbol } = this.getEllipsis();
     const { expanded, isEllipsis } = this.state;
 
     if (!expandable) return null;
@@ -340,7 +341,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         onClick={this.onExpandClick}
         aria-label={this.expandStr}
       >
-        {this.expandStr}
+        {symbol ? symbol : this.expandStr}
       </a>
     );
   }
