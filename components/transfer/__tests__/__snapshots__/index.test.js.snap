@@ -937,6 +937,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                     ]
                   }
                   afterPopupVisibleChange={[Function]}
+                  autoDestroy={false}
                   blurDelay={0.15}
                   builtinPlacements={
                     Object {
@@ -1642,6 +1643,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                     ]
                   }
                   afterPopupVisibleChange={[Function]}
+                  autoDestroy={false}
                   blurDelay={0.15}
                   builtinPlacements={
                     Object {

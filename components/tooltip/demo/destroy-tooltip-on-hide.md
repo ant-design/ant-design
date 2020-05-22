@@ -1,5 +1,6 @@
 ---
 order: 4
+debug: true
 title:
   zh-CN: 隐藏后销毁
   en-US: Destroy tooltip when hidden
