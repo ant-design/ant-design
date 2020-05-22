@@ -383,6 +383,7 @@ exports[`List.pagination should change page size work 2`] = `
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
+                aria-label="10 / page"
                 aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_0"
                 role="option"
@@ -390,6 +391,7 @@ exports[`List.pagination should change page size work 2`] = `
                 10
               </div>
               <div
+                aria-label="20 / page"
                 aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_1"
                 role="option"
