@@ -40,27 +40,27 @@ const LIST_CN: Recommend[] = [
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'Ant Design 4.0 is out!',
+    title: 'Ant Experience Technology Department Wants You!',
     description:
-      '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
-    href: 'https://github.com/ant-design/ant-design/issues/21656',
+      '⚡️ Our vision is ’To Lead Global Experience Technology, to Create First-Class User Experience.‘. Welcome to join us.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BPVATKTgfXwAAAAAAAAAAABkARQnAQ',
+    href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
     popularize: true,
   },
   {
-    title: 'Introduce AntV',
-    description: '✨ New player of front-end data visualization',
+    title: 'Chart Library G2Plot 1.0 has Come!',
+    description: '📈 G2Plot 1.0 supports 40+ types of charts, including built-in statistic & analysis components and complicated interactions. Now it is ready for use out of the box.',
     img:
-      'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
+      'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
     href:
-      'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
+      'https://zhuanlan.zhihu.com/p/113888415',
   },
   {
-    title: 'G2Plot: a charting library',
-    description: '📊 A charting library based on the grammar of graphics',
+    title: 'Dark Theme of Ant Design',
+    description: '🌃 Let us take a look at how to design the dark theme of Ant Design.',
     img:
-      'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
-    href: 'https://github.com/antvis/G2Plot',
+      'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/112470365',
   },
 ];
 
