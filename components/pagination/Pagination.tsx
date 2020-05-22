@@ -7,11 +7,11 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 
-import ResponsiveObserve from '../_util/responsiveObserve';
 import MiniSelect from './MiniSelect';
 import Select from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext } from '../config-provider';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export interface PaginationProps {
   total?: number;
@@ -61,24 +61,8 @@ const Pagination: React.FC<PaginationProps> = ({
   locale: customLocale,
   ...restProps
 }) => {
-  const inferredSmallRef = React.useRef(false);
-  const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
+  const { xs } = useBreakpoint();
 
-  React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(screens => {
-      const { xs } = screens;
-      const { responsive } = restProps;
-      const inferredSmall = !!(xs && !size && responsive);
-      if (inferredSmallRef.current !== inferredSmall) {
-        inferredSmallRef.current = inferredSmall;
-        forceUpdate();
-      }
-    });
-    return () => {
-      ResponsiveObserve.unsubscribe(token);
-    };
-  }, []);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
@@ -133,7 +117,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const renderPagination = (contextLocale: PaginationLocale) => {
     const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small' || inferredSmallRef.current;
+    const isSmall = size === 'small' || !!(xs && !size && restProps.responsive);
     const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
     const extendedClassName = classNames(className, {
       mini: isSmall,
