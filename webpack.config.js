@@ -114,7 +114,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       );
       config.plugins.push(
         new BundleAnalyzerPluginCom({
-          token: '020c63da2bdb0eb0a4576767fb67fb2bd14e3508',
+          token: process.env.BUNDLE_ANALYZER_TOKEN,
         }),
       );
     }
