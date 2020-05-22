@@ -53,6 +53,14 @@ function injectWarningCondition(config) {
   });
 }
 
+function addBundleAnalyzerPluginCom(config) {
+  config.plugins.push(
+    new BundleAnalyzerPluginCom({
+      token: process.env.BUNDLE_ANALYZER_TOKEN,
+    }),
+  );
+}
+
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -80,6 +88,8 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
     config.plugins.push(new IgnoreEmitPlugin(themeReg));
+
+    addBundleAnalyzerPluginCom(config);
   });
 }
 
@@ -103,21 +113,15 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       config.optimization.minimizer[0] = new EsbuildPlugin();
     }
 
-    // skip codesandbox ci
-    if (!process.env.CSB_REPO) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-          reportFilename: '../report.html',
-        }),
-      );
-      config.plugins.push(
-        new BundleAnalyzerPluginCom({
-          token: process.env.BUNDLE_ANALYZER_TOKEN,
-        }),
-      );
-    }
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: '../report.html',
+      }),
+    );
+
+    addBundleAnalyzerPluginCom(config);
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
