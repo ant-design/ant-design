@@ -54,6 +54,9 @@ function injectWarningCondition(config) {
 }
 
 function addBundleAnalyzerPluginCom(config) {
+  if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
+    return;
+  }
   config.plugins.push(
     new BundleAnalyzerPluginCom({
       token: process.env.BUNDLE_ANALYZER_TOKEN,
