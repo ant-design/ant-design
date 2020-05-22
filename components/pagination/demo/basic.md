@@ -14,7 +14,7 @@ title:
 Basic pagination.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from '@allenai/varnish';
 
 ReactDOM.render(<Pagination defaultCurrent={1} total={50} />, mountNode);
 ```

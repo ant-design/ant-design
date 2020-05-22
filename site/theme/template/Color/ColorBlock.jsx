@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { message } from 'antd';
+import { message } from '@allenai/varnish';
 
 export default class ColorBlock extends Component {
   getTextStyle() {

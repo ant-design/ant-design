@@ -14,7 +14,7 @@ title:
 Try to copy `Lucy,Jack` to the input. Only available in tags and multiple mode.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const { Option } = Select;
 

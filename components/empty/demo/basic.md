@@ -14,7 +14,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Empty } from 'antd';
+import { Empty } from '@allenai/varnish';
 
 ReactDOM.render(<Empty />, mountNode);
 ```

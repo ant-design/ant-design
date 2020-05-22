@@ -14,7 +14,7 @@ title:
 By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
 ```jsx
-import { Collapse } from 'antd';
+import { Collapse } from '@allenai/varnish';
 
 const { Panel } = Collapse;
 

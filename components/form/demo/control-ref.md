@@ -14,7 +14,7 @@ title:
 We recommend use `Form.useForm` to create data control. If you are using class component, you can get it by `ref`.
 
 ```tsx
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, Button, Select } from '@allenai/varnish';
 import { FormInstance } from 'antd/lib/form';
 
 const { Option } = Select;

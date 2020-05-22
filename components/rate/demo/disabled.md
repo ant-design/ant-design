@@ -14,7 +14,7 @@ title:
 Read only, can't use mouse to interact.
 
 ```jsx
-import { Rate } from 'antd';
+import { Rate } from '@allenai/varnish';
 
 ReactDOM.render(<Rate disabled defaultValue={2} />, mountNode);
 ```

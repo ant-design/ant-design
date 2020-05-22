@@ -7,7 +7,9 @@ title:
 This component includes a `size` property.
 
 ```jsx
-import { AI2Logo } from '..'; // TODO: point this at varnish
+import { Logos } from '@allenai/varnish';
+
+const { AI2Logo } = Logos;
 
 ReactDOM.render(
   <div>

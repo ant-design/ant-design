@@ -48,7 +48,7 @@ export { default as Checkbox } from './checkbox';
 
 export { default as Col } from './col';
 
-export * from './columns';
+export { default as Columns } from './columns';
 
 export { default as Comment } from './comment';
 
@@ -66,11 +66,11 @@ export { default as Drawer } from './drawer';
 
 export { default as Empty } from './empty';
 
-export * from './footer';
+export { default as Footer } from './footer';
 
 export { default as Form } from './form';
 
-export * from './header';
+export { default as Header } from './header';
 
 export { default as Grid } from './grid';
 
@@ -80,9 +80,13 @@ export { default as InputNumber } from './input-number';
 
 export { default as Layout } from './layout';
 
+export { default as Link } from './link';
+
 export { default as List } from './list';
 
-export * from './logos';
+export { default as Logos } from './logos';
+
+export { default as MaxLengthText } from './max-length-text';
 
 export { default as message } from './message';
 
@@ -149,5 +153,7 @@ export { default as Tooltip } from './tooltip';
 export { default as Typography } from './typography';
 
 export { default as Upload } from './upload';
+
+export { default as Theming } from './varnish';
 
 export { default as version } from './version';

@@ -14,7 +14,7 @@ title:
 Another type of Tabs, which doesn't support vertical mode.
 
 ```jsx
-import { Tabs } from 'antd';
+import { Tabs } from '@allenai/varnish';
 
 const { TabPane } = Tabs;
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { message } from 'antd';
+import { message } from '@allenai/varnish';
 import { injectIntl } from 'react-intl';
 import CopyableIcon from './CopyableIcon';
 import { ThemeType } from './index';

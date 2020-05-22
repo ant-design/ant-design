@@ -14,7 +14,7 @@ title:
 Add border, title and footer for table.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 const columns = [
   {

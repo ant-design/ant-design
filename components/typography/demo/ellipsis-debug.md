@@ -15,7 +15,7 @@ debug: true
 Multiple line ellipsis support.
 
 ```jsx
-import { Typography, Slider, Switch } from 'antd';
+import { Typography, Slider, Switch } from '@allenai/varnish';
 
 const { Text, Paragraph } = Typography;
 

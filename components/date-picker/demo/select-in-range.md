@@ -15,7 +15,7 @@ A example shows how to select a dynamic range by using `onCalendarChange` and `d
 
 ```jsx
 import React, { useState } from 'react';
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 

@@ -14,7 +14,7 @@ title:
 The most basic step bar.
 
 ```jsx
-import { Steps } from 'antd';
+import { Steps } from '@allenai/varnish';
 
 const { Step } = Steps;
 

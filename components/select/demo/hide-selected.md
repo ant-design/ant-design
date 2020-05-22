@@ -14,7 +14,7 @@ title:
 Hide already selected options in the dropdown.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 

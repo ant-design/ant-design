@@ -18,7 +18,7 @@ As a default behavior, the onChange callback can only get the value of the selec
 The label of the selected item will be packed as an object for passing to the onChange callback.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const { Option } = Select;
 

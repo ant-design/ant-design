@@ -14,7 +14,7 @@ title:
 Use `tipFormatter` to format content of `Tooltip`. If `tipFormatter` is null, hide it.
 
 ```jsx
-import { Slider } from 'antd';
+import { Slider } from '@allenai/varnish';
 
 function formatter(value) {
   return `${value}%`;

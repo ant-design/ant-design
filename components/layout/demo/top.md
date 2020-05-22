@@ -20,9 +20,7 @@ Generally, the mainnav is placed at the top of the page, and includes the logo, 
 Top-bottom structure is conform with the top-bottom viewing habit, it's a classical navigation pattern of websites. This pattern demonstrates efficiency in the main workarea, while using some vertical space. And because the horizontal space of the navigation is limited, this pattern is not suitable for cases when the first level navigation contains many elements or links
 
 ```jsx
-import Layout from '..'; // TODO: point this at varnish
-import Menu from '../../menu'; // TODO: point this at varnish
-import Breadcrumb from '../../breadcrumb'; // TODO: point this at varnish
+import { Layout, Menu, Breadcrumb } from '@allenai/varnish';
 
 const { Header, Content, Footer } = Layout;
 

@@ -14,7 +14,7 @@ title:
 TimePicker of 12 hours format, with default format `h:mm:ss a`.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from '@allenai/varnish';
 
 function onChange(time, timeString) {
   console.log(time, timeString);

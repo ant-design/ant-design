@@ -14,7 +14,7 @@ title:
 Create a grid layout by setting the `grid` property of List.
 
 ```jsx
-import { List, Card } from 'antd';
+import { List, Card } from '@allenai/varnish';
 
 const data = [
   {

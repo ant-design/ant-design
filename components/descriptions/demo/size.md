@@ -14,7 +14,7 @@ title:
 Custom sizes to fit in a variety of containers.
 
 ```jsx
-import { Descriptions, Radio } from 'antd';
+import { Descriptions, Radio } from '@allenai/varnish';
 
 class Demo extends React.Component {
   state = {

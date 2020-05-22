@@ -14,7 +14,7 @@ title:
 Classic page layouts.
 
 ```jsx
-import Layout from '..'; // TODO: point this at varnish
+import { Layout } from '@allenai/varnish';
 
 const { Header, Footer, Sider, Content } = Layout;
 

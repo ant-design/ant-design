@@ -14,7 +14,7 @@ title:
 Support 6 placements.
 
 ```jsx
-import { Menu, Dropdown, Button } from 'antd';
+import { Menu, Dropdown, Button } from '@allenai/varnish';
 
 const menu = (
   <Menu>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix } from 'antd';
+import { Row, Col, Menu, Affix } from '@allenai/varnish';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
@@ -9,7 +9,7 @@ import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
-import { Footer } from '../../../../components/footer';
+import Footer from '../../../../components/footer';
 import SiteContext from '../Layout/SiteContext';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -309,10 +309,7 @@ class MainContent extends Component {
         {({ isMobile }) => {
           const { theme, setIframeTheme } = this.context;
           const { openKeys } = this.state;
-          const {
-            localizedPageData,
-            demos,
-          } = this.props;
+          const { localizedPageData, demos } = this.props;
           const activeMenuItem = this.getActiveMenuItem();
           const menuItems = this.getMenuItems();
           const menuItemsForFooterNav = this.getMenuItems({

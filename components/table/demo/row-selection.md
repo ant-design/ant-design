@@ -19,7 +19,7 @@ Rows can be selectable by making first column as a selectable column. You can us
 
 ```tsx
 import React, { useState } from 'react';
-import { Table, Radio, Divider } from 'antd';
+import { Table, Radio, Divider } from '@allenai/varnish';
 
 const columns = [
   {

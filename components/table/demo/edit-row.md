@@ -15,7 +15,7 @@ Table with editable rows.
 
 ```tsx
 import React, { useState } from 'react';
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
+import { Table, Input, InputNumber, Popconfirm, Form } from '@allenai/varnish';
 
 interface Item {
   key: string;

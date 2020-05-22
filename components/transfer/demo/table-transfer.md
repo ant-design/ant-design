@@ -14,7 +14,7 @@ title:
 Customize render list with Table component.
 
 ```jsx
-import { Transfer, Switch, Table, Tag } from 'antd';
+import { Transfer, Switch, Table, Tag } from '@allenai/varnish';
 import difference from 'lodash/difference';
 
 // Customize Table Transfer

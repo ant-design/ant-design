@@ -14,7 +14,7 @@ title:
 The simplest usage.
 
 ```jsx
-import { Tooltip } from 'antd';
+import { Tooltip } from '@allenai/varnish';
 
 ReactDOM.render(
   <Tooltip title="prompt text">

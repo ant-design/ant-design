@@ -15,7 +15,7 @@ Disabled part of dates and time by `disabledDate` and `disabledTime` respectivel
 
 ```jsx
 import moment from 'moment';
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 

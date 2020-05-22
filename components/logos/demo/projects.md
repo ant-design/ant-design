@@ -7,7 +7,9 @@ title:
 Canonical logos for AI2's projects.
 
 ```jsx
-import { AllenNLP, Aristo, Mosaic, Prior, SemanticScholar, Fairness, Incubator} from '..'; // TODO: point this at varnish
+import { Logos } from '@allenai/varnish';
+
+const { AllenNLP, Aristo, Mosaic, Prior, SemanticScholar, Fairness, Incubator } = Logos;
 
 ReactDOM.render(
   <span>

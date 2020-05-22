@@ -14,7 +14,7 @@ title:
 We can set the date format by `format`.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;

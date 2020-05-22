@@ -14,7 +14,7 @@ title:
 Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and cancel button props.
 
 ```jsx
-import { Modal, Button } from 'antd';
+import { Modal, Button } from '@allenai/varnish';
 
 class App extends React.Component {
   state = { visible: false };

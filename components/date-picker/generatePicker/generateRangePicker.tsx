@@ -12,7 +12,7 @@ import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
-import { FormCalendarIcon } from '../../icons'; // Added by Varnish
+import Icons from '../../icons'; // Added by Varnish
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
@@ -85,7 +85,9 @@ export default function generateRangePicker<DateType>(
                 }
                 ref={this.pickerRef}
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
-                suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <FormCalendarIcon />} // Changed by Varnish
+                suffixIcon={
+                  picker === 'time' ? <ClockCircleOutlined /> : <Icons.FormCalendarIcon />
+                } // Changed by Varnish
                 clearIcon={<CloseCircleFilled />}
                 allowClear
                 transitionName="slide-up"

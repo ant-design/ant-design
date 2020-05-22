@@ -12,7 +12,7 @@ title: useBreakpoint Hook
 Use `useBreakpoint` Hook provide personalized layout.
 
 ```jsx
-import { Grid, Tag } from 'antd';
+import { Grid, Tag } from '@allenai/varnish';
 
 const { useBreakpoint } = Grid;
 

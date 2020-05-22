@@ -7,7 +7,9 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Header, HeaderColumns, HeaderTitle } from '..'; // TODO: point this at varnish
+import { Header } from '@allenai/varnish';
+
+const { HeaderColumns, HeaderTitle } = Header;
 
 ReactDOM.render(
   <Header>

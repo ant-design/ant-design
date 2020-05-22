@@ -15,7 +15,7 @@ Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/s
 
 ```tsx
 import React, { useState } from 'react';
-import { Input, AutoComplete } from 'antd';
+import { Input, AutoComplete } from '@allenai/varnish';
 import { SelectProps } from 'antd/es/select';
 
 function getRandomInt(max: number, min: number = 0) {

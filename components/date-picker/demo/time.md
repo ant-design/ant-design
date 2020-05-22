@@ -14,7 +14,7 @@ title:
 This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 

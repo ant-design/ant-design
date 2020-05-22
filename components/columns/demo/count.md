@@ -7,19 +7,18 @@ title:
 Specify `count` to set number of equal columns.
 
 ```jsx
-import { Columns } from '..'; // TODO: point this at varnish
-import Skeleton from '../../skeleton'; // TODO: point this at varnish
+import { Columns, Skeleton } from '@allenai/varnish';
 
 ReactDOM.render(
-   <div>
-        <Columns count={3}>
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-        </Columns>
-      </div>,
+  <div>
+    <Columns count={3}>
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+    </Columns>
+  </div>,
   mountNode,
 );
 ```

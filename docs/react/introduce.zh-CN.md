@@ -85,7 +85,7 @@ $ yarn add antd
 ## 示例
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 
 ReactDOM.render(<DatePicker />, mountNode);
 ```

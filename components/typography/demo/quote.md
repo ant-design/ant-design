@@ -9,13 +9,15 @@ title:
 Quotes and their authors use Volkhov Regular
 
 ```jsx
-import { Quote, Author } from '..'; // TODO: point this at varnish
+import { Typography } from '@allenai/varnish';
+
+const { Quote, Author } = Typography;
 
 ReactDOM.render(
   <div>
-      <Quote>“Wit is the unexpected copulation of ideas.”</Quote>
-      <br/>
-      <Author>Patrick O&apos;Brian</Author>
+    <Quote>“Wit is the unexpected copulation of ideas.”</Quote>
+    <br />
+    <Author>Patrick O&apos;Brian</Author>
   </div>,
   mountNode,
 );

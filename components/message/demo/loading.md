@@ -14,7 +14,7 @@ title:
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
 ```jsx
-import { message, Button } from 'antd';
+import { message, Button } from '@allenai/varnish';
 
 const success = () => {
   const hide = message.loading('Action in progress..', 0);

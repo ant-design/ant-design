@@ -62,7 +62,7 @@ title: 从 v3 到 v4
 旧版 Icon 使用方式将被废弃：
 
 ```jsx
-import { Icon, Button } from 'antd';
+import { Icon, Button } from '@allenai/varnish';
 
 const Demo = () => (
   <div>
@@ -75,10 +75,10 @@ const Demo = () => (
 4.0 中会采用按需引入的方式：
 
 ```diff
-  import { Button } from 'antd';
+  import { Button } from '@allenai/varnish';
 
   // tree-shaking supported
-- import { Icon } from 'antd';
+- import { Icon } from '@allenai/varnish';
 + import { SmileOutlined } from '@ant-design/icons';
 
   const Demo = () => (
@@ -96,7 +96,7 @@ const Demo = () => (
 你将仍然可以通过兼容包继续使用：
 
 ```jsx
-import { Button } from 'antd';
+import { Button } from '@allenai/varnish';
 import { Icon } from '@ant-design/compatible';
 
 const Demo = () => (
@@ -180,10 +180,10 @@ antd4-codemod src
 #### 将已废弃的 `Form` 和 `Mention` 组件通过 `@ant-design/compatible` 包引入
 
 ```diff
-- import { Form, Input, Button, Mention } from 'antd';
+- import { Form, Input, Button, Mention } from '@allenai/varnish';
 + import { Form, Mention } from '@ant-design/compatible';
 + import '@ant-design/compatible/assets/index.css';
-+ import { Input, Button } from 'antd';
++ import { Input, Button } from '@allenai/varnish';
 
   ReactDOM.render( (
     <div>
@@ -207,7 +207,7 @@ antd4-codemod src
 #### 用新的 `@ant-design/icons` 替换字符串类型的 `icon` 属性值
 
 ```diff
-  import { Avatar, Button, Result } from 'antd';
+  import { Avatar, Button, Result } from '@allenai/varnish';
 + import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
 
   ReactDOM.render(
@@ -231,8 +231,8 @@ antd4-codemod src
 #### 将 v3 Icon 组件转换成 `@ant-design/icons` 中引入
 
 ```diff
-- import { Icon, Input } from 'antd';
-+ import { Input } from 'antd';
+- import { Icon, Input } from '@allenai/varnish';
++ import { Input } from '@allenai/varnish';
 + import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from '@ant-design/icons';
 
   const HeartSvg = () => (
@@ -266,8 +266,8 @@ antd4-codemod src
 #### 将 v3 LocaleProvider 组件转换成 v4 ConfigProvider 组件
 
 ```diff
-- import { LocaleProvider } from 'antd';
-+ import { ConfigProvider } from 'antd';
+- import { LocaleProvider } from '@allenai/varnish';
++ import { ConfigProvider } from '@allenai/varnish';
 
   ReactDOM.render(
 -   <LocaleProvider {...yourConfig}>
@@ -282,7 +282,7 @@ antd4-codemod src
 #### 将 `Modal.method()` 中字符串 icon 属性的调用转换成从 `@ant-design/icons` 中引入
 
 ```diff
-  import { Modal } from 'antd';
+  import { Modal } from '@allenai/varnish';
 + import { AntDesignOutlined } from '@ant-design/icons';
 
   Modal.confirm({

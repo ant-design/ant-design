@@ -15,7 +15,7 @@ title:
 Basic Usage.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
 const smileIcon = <SmileOutlined />;

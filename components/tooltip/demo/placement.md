@@ -14,7 +14,7 @@ title:
 There are 12 placement options available.
 
 ```jsx
-import { Tooltip, Button } from 'antd';
+import { Tooltip, Button } from '@allenai/varnish';
 
 const text = <span>prompt text</span>;
 

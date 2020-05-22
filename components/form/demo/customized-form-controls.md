@@ -21,7 +21,7 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Input, Select, Button } from 'antd';
+import { Form, Input, Select, Button } from '@allenai/varnish';
 
 const { Option } = Select;
 

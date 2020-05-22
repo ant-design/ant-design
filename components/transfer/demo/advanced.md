@@ -16,7 +16,7 @@ Advanced Usage of Transfer.
 You can customize the labels of the transfer buttons, the width and height of the columns, and what should be displayed in the footer.
 
 ```jsx
-import { Transfer, Button } from 'antd';
+import { Transfer, Button } from '@allenai/varnish';
 
 class App extends React.Component {
   state = {

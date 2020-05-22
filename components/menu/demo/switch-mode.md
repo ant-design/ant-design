@@ -14,7 +14,7 @@ title:
 Show the dynamic switching mode (between 'inline' and 'vertical').
 
 ```jsx
-import { Menu, Switch, Divider } from 'antd';
+import { Menu, Switch, Divider } from '@allenai/varnish';
 import {
   MailOutlined,
   CalendarOutlined,

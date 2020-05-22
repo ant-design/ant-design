@@ -14,7 +14,7 @@ title:
 More pages.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from '@allenai/varnish';
 
 ReactDOM.render(<Pagination defaultCurrent={6} total={500} />, mountNode);
 ```

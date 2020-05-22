@@ -8,7 +8,7 @@ import themeSwitcher from 'theme-switcher';
 import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider } from '@allenai/varnish';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
 // eslint-disable-next-line import/no-unresolved
@@ -20,7 +20,9 @@ import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 import { Layout as LayoutAntd } from '../../../../components';
 import { DefaultAppLayoutProvider } from '../../../../components/layout';
-import { ThemeProvider } from '../../../../components/varnish';
+import Theming from '../../../../components/varnish';
+
+const { ThemeProvider } = Theming;
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {

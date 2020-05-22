@@ -14,7 +14,7 @@ title:
 It can be placed inside the ordinary card to display the information of the multilevel structure.
 
 ```jsx
-import { Card } from 'antd';
+import { Card } from '@allenai/varnish';
 
 ReactDOM.render(
   <Card title="Card title">

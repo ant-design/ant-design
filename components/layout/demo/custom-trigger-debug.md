@@ -20,8 +20,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons';
-import Layout from '..'; // TODO: point this at varnish
-import Menu from '../../menu'; // TODO: point this at varnish
+import { Layout, Menu } from '@allenai/varnish';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;

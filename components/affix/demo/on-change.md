@@ -14,7 +14,7 @@ title:
 Callback with affixed state.
 
 ```tsx
-import { Affix, Button } from 'antd';
+import { Affix, Button } from '@allenai/varnish';
 
 ReactDOM.render(
   <Affix offsetTop={120} onChange={affixed => console.log(affixed)}>

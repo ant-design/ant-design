@@ -18,8 +18,9 @@ yarn add @allenai/varnish
 Then use it like so:
 
 ```tsx
-import { Header, Button, ThemeProvider } from '@allenai/varnish'
+import { Header, Button, Theming } from '@allenai/varnish';
 import '@allenai/varnish/dist/varnish.css';
+const { ThemeProvider } = Theming;
 
 const App = () => (
   <ThemeProvider>

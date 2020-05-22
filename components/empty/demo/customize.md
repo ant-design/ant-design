@@ -14,7 +14,7 @@ title:
 Customize image source, image size, description and extra content.
 
 ```jsx
-import { Empty, Button } from 'antd';
+import { Empty, Button } from '@allenai/varnish';
 
 ReactDOM.render(
   <Empty

@@ -8,23 +8,23 @@ To use contrast style, make a styled component using `contrastLinkColorStyles`.
 
 ```jsx
 import styled from 'styled-components';
-import { contrastLinkColorStyles } from '..'; // TODO: point this at varnish
+import { Link } from '@allenai/varnish';
 
 const Contrast = styled.div`
   a[href] {
-    ${contrastLinkColorStyles()};
+    ${Link.contrastLinkColorStyles()};
   }
 
-  background: #1B4596;
+  background: #1b4596;
   padding: 26px 16px 16px;
-  color: #FFF;
+  color: #fff;
 `;
 
 ReactDOM.render(
   <Contrast>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic metus.{' '}
-    <a href="./">Contrast Link</a>{' '}
-    lobortis varius. Cras vulputate felis et mauris tincidunt, elementum volutpat.
+    <a href="./">Contrast Link</a> lobortis varius. Cras vulputate felis et mauris tincidunt,
+    elementum volutpat.
   </Contrast>,
   mountNode,
 );

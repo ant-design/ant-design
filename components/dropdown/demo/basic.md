@@ -14,7 +14,7 @@ title:
 The most basic dropdown menu.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from '@allenai/varnish';
 import { DownOutlined } from '@ant-design/icons';
 
 const menu = (

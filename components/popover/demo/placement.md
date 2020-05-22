@@ -14,7 +14,7 @@ title:
 There are 12 `placement` options available.
 
 ```jsx
-import { Popover, Button } from 'antd';
+import { Popover, Button } from '@allenai/varnish';
 
 const text = <span>Title</span>;
 const content = (

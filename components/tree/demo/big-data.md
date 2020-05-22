@@ -15,7 +15,7 @@ debug: true
 Plenty of tree nodes.
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree } from '@allenai/varnish';
 
 const treeData = [];
 

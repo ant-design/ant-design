@@ -15,9 +15,7 @@ title:
 Fixed Header is generally used to fix the top navigation to facilitate page switching.
 
 ```jsx
-import Layout from '..'; // TODO: point this at varnish
-import Menu from '../../menu'; // TODO: point this at varnish
-import Breadcrumb from '../../breadcrumb'; // TODO: point this at varnish
+import { Layout, Menu, Breadcrumb } from '@allenai/varnish';
 
 const { Header, Content, Footer } = Layout;
 

@@ -14,7 +14,7 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
-import { Select, Divider, Input } from 'antd';
+import { Select, Divider, Input } from '@allenai/varnish';
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

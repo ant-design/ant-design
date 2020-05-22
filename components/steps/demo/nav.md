@@ -14,7 +14,7 @@ title:
 Navigation steps.
 
 ```jsx
-import { Steps } from 'antd';
+import { Steps } from '@allenai/varnish';
 
 const { Step } = Steps;
 

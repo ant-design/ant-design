@@ -14,7 +14,7 @@ title:
 Skeleton button, avatar and input.
 
 ```jsx
-import { Skeleton, Switch, Form, Radio } from 'antd';
+import { Skeleton, Switch, Form, Radio } from '@allenai/varnish';
 
 class Demo extends React.Component {
   state = {

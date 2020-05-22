@@ -14,7 +14,7 @@ title:
 In order to fit in more tabs, they can slide left and right (or up and down).
 
 ```jsx
-import { Tabs, Radio } from 'antd';
+import { Tabs, Radio } from '@allenai/varnish';
 
 const { TabPane } = Tabs;
 

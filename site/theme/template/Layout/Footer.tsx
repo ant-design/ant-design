@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Modal, message } from 'antd';
+import { Modal, message } from '@allenai/varnish';
 import { Link } from 'bisheng/router';
 import RcFooter from 'rc-footer';
 import { presetPalettes } from '@ant-design/colors';

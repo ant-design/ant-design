@@ -14,7 +14,7 @@ title:
 Using pre & post tabs example.
 
 ```jsx
-import { Input, Select } from 'antd';
+import { Input, Select } from '@allenai/varnish';
 import { SettingOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

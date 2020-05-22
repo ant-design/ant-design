@@ -22,7 +22,7 @@ You can control the indent width by setting `indentSize`.
 > Note, no support for recursive selection of tree structure data table yet.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 const columns = [
   {

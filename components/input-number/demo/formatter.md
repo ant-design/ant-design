@@ -14,7 +14,7 @@ title:
 Display value within it's situation with `formatter`, and we usually use `parser` at the same time.
 
 ```jsx
-import { InputNumber } from 'antd';
+import { InputNumber } from '@allenai/varnish';
 
 function onChange(value) {
   console.log('changed', value);

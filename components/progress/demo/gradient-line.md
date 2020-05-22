@@ -14,7 +14,7 @@ title:
 A package of `linear-gradient`. It is recommended to only pass two colors.
 
 ```jsx
-import { Progress } from 'antd';
+import { Progress } from '@allenai/varnish';
 
 const Demo = () => (
   <div>

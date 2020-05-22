@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
-import { Tabs } from 'antd';
+import { Tabs } from '@allenai/varnish';
 import scrollTo from '../../../../components/_util/scrollTo';
 
 import './AffixTabs.less';

@@ -27,7 +27,7 @@ Different from animations usage in typical front-office applications, animations
 
 ```__react
 
-import { Col, Row } from 'antd';
+import { Col, Row } from '@allenai/varnish';
 
 const text = [
   { title: 'Natural', img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif', content: 'The animation should based on law of nature. This assures the animation is smooth by its nature and intuitive to its users.' },

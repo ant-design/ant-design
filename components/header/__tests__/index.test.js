@@ -3,9 +3,13 @@ import { render } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-import { Header, HeaderColumns, HeaderTitle } from '..';
+import Header from '..';
 import { DefaultAppLayoutProvider } from '../../layout';
-import { ThemeProvider } from '../../varnish';
+import Theming from '../../varnish';
+
+const { ThemeProvider } = Theming;
+
+const { HeaderColumns, HeaderTitle } = Header;
 
 describe('Header', () => {
   mountTest(Header);

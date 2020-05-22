@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Row, Col, Typography } from 'antd';
+import { Row, Col, Typography } from '@allenai/varnish';
 import './RecommendPage.less';
 
 const { Title, Paragraph } = Typography;

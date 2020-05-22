@@ -27,7 +27,7 @@ import {
   Select,
   Transfer,
   Radio,
-} from 'antd';
+} from '@allenai/varnish';
 import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';

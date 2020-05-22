@@ -62,7 +62,7 @@ In `antd @ 3.9.0`, we introduced the svg icon ([Why use the svg icon?](https://g
 Legacy Icon usage will be discarded:
 
 ```jsx
-import { Icon, Button } from 'antd';
+import { Icon, Button } from '@allenai/varnish';
 
 const Demo = () => (
   <div>
@@ -75,10 +75,10 @@ const Demo = () => (
 It will be imported on demand in v4:
 
 ```diff
-  import { Button } from 'antd';
+  import { Button } from '@allenai/varnish';
 
   // tree-shaking supported
-- import { Icon } from 'antd';
+- import { Icon } from '@allenai/varnish';
 + import { SmileOutlined } from '@ant-design/icons';
 
   const Demo = () => (
@@ -96,7 +96,7 @@ It will be imported on demand in v4:
 You will still be able to continue using the compatibility pack:
 
 ```jsx
-import { Button } from 'antd';
+import { Button } from '@allenai/varnish';
 import { Icon } from '@ant-design/compatible';
 
 const Demo = () => (
@@ -180,10 +180,10 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 #### Import the obsolete Form and Mention components via @ant-design/compatible package
 
 ```diff
-- import { Form, Input, Button, Mention } from 'antd';
+- import { Form, Input, Button, Mention } from '@allenai/varnish';
 + import { Form, Mention } from '@ant-design/compatible';
 + import '@ant-design/compatible/assets/index.css';
-+ import { Input, Button } from 'antd';
++ import { Input, Button } from '@allenai/varnish';
 
   ReactDOM.render( (
     <div>
@@ -207,7 +207,7 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 #### Replace component's string icon prop with the new `@ant-design/icons`
 
 ```diff
-  import { Avatar, Button, Result } from 'antd';
+  import { Avatar, Button, Result } from '@allenai/varnish';
 + import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
 
   ReactDOM.render(
@@ -231,8 +231,8 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 #### Replace v3 Icon with `@ant-design/icons`
 
 ```diff
-- import { Icon, Input } from 'antd';
-+ import { Input } from 'antd';
+- import { Icon, Input } from '@allenai/varnish';
++ import { Input } from '@allenai/varnish';
 + import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from '@ant-design/icons';
 
   const HeartSvg = () => (
@@ -266,8 +266,8 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 #### Replace v3 LocaleProvider with v4 ConfigProvider
 
 ```diff
-- import { LocaleProvider } from 'antd';
-+ import { ConfigProvider } from 'antd';
+- import { LocaleProvider } from '@allenai/varnish';
++ import { ConfigProvider } from '@allenai/varnish';
 
   ReactDOM.render(
 -   <LocaleProvider {...yourConfig}>
@@ -282,7 +282,7 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 #### Replace `Modal.method()` icon string with `@ant-design/icons`
 
 ```diff
-  import { Modal } from 'antd';
+  import { Modal } from '@allenai/varnish';
 + import { AntDesignOutlined } from '@ant-design/icons';
 
   Modal.confirm({

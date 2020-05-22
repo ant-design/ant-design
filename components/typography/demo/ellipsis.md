@@ -14,7 +14,7 @@ title:
 Multiple line ellipsis support.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from '@allenai/varnish';
 
 const { Paragraph } = Typography;
 

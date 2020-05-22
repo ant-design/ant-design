@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Footer } from '../../../../components/footer';
+import Footer from '../../../../components/footer';
 import Layout from '../../../../components/layout';
 import { generateCSS } from '../../../../shellac/generateCSS';
 import logo from '../../../../components/logos/logo-ai2-white-withText-micro.svg';
@@ -35,7 +35,7 @@ export default class Shellac extends React.PureComponent<Props> {
       // We write the HTML into an `<iframe />` so the styles don't collide with those of
       // the demo application.
       if (this.previewRef.current === null || this.previewRef.current.contentDocument === null) {
-        console.error('No <iframe /> to write content to.'); // eslint-disable-line no-console
+        console.error('No <iframe /> to write content to.');
         return;
       }
       this.previewRef.current.contentDocument.write(html);

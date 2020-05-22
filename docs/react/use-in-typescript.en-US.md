@@ -48,7 +48,7 @@ Modify `src/App.tsx`, import Button component from `antd`.
 
 ```tsx
 import React, { FC } from 'react';
-import { Button } from 'antd';
+import { Button } from '@allenai/varnish';
 import './App.css';
 
 const App: FC = () => (

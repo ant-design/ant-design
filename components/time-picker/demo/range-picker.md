@@ -14,7 +14,7 @@ title:
 Use time range picker with `RangePicker`.
 
 ```jsx
-import { TimePicker } from 'antd';
+import { TimePicker } from '@allenai/varnish';
 
 const { RangePicker } = TimePicker;
 

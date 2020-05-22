@@ -18,7 +18,7 @@ type Dimensions = {
   height: number;
 };
 
-interface Props {
+export interface IconProps {
   color?: ColorVariants;
   includeText?: boolean;
   size?: LogoSize | number;
@@ -91,7 +91,7 @@ export const AI2Logo = ({
   size = 'default',
   includeText = true,
   className,
-}: Props) => {
+}: IconProps) => {
   const { width, height } = getImageDimensions(size, includeText);
   return (
     <VectorImage

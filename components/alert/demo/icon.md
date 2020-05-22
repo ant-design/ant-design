@@ -14,7 +14,7 @@ title:
 A relevant icon will make information clearer and more friendly.
 
 ```tsx
-import { Alert } from 'antd';
+import { Alert } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

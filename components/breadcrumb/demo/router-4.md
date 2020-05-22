@@ -17,7 +17,7 @@ Used together with `react-router@4+` or other router.
 
 ```jsx
 import { HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
-import { Breadcrumb, Alert } from 'antd';
+import { Breadcrumb, Alert } from '@allenai/varnish';
 
 const Apps = () => (
   <ul className="app-list">

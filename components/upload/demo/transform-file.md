@@ -14,7 +14,7 @@ title:
 Use `transformFile` for transform file before request such as add a watermark.
 
 ```jsx
-import { Upload, Button } from 'antd';
+import { Upload, Button } from '@allenai/varnish';
 import { UploadOutlined } from '@ant-design/icons';
 
 const props = {

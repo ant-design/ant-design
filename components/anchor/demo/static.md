@@ -14,7 +14,7 @@ title:
 Do not change state when page is scrolling.
 
 ```tsx
-import { Anchor } from 'antd';
+import { Anchor } from '@allenai/varnish';
 
 const { Link } = Anchor;
 

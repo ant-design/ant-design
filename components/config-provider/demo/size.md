@@ -25,7 +25,7 @@ import {
   Divider,
   Table,
   Card,
-} from 'antd';
+} from '@allenai/varnish';
 
 const FormSizeDemo = () => {
   const [componentSize, setComponentSize] = useState('small');

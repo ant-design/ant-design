@@ -54,7 +54,9 @@ import Transfer from '../../transfer';
 import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
-import { ThemeProvider } from '../../varnish';
+import Theming from '../../varnish';
+
+const { ThemeProvider } = Theming;
 
 jest.mock('rc-util/lib/Portal');
 

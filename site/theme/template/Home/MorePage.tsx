@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col } from '@allenai/varnish';
 import './MorePage.less';
 
 interface MoreProps {

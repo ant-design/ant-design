@@ -14,7 +14,7 @@ title:
 Bordered-less style component.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@allenai/varnish';
 
 const { Option } = Select;
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Popover } from 'antd';
+import { Button, Popover } from '@allenai/varnish';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { PlayCircleFilled } from '@ant-design/icons';

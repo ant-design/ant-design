@@ -14,7 +14,7 @@ title:
 Show a loop banner by using with [react-text-loop](https://npmjs.com/package/react-text-loop).
 
 ```tsx
-import { Alert } from 'antd';
+import { Alert } from '@allenai/varnish';
 import TextLoop from 'react-text-loop';
 
 ReactDOM.render(

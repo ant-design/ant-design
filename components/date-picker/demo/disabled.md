@@ -14,7 +14,7 @@ title:
 A disabled state of the `DatePicker`. You can also set as array to disable one of input.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 import moment from 'moment';
 
 const { MonthPicker, RangePicker } = DatePicker;

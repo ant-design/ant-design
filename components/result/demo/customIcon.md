@@ -14,7 +14,7 @@ title:
 Custom icon.
 
 ```jsx
-import { Result, Button } from 'antd';
+import { Result, Button } from '@allenai/varnish';
 import { SmileOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

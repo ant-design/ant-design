@@ -14,7 +14,7 @@ title:
 Input box with the remove icon, click the icon to delete everything.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@allenai/varnish';
 
 const { TextArea } = Input;
 

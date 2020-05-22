@@ -14,7 +14,7 @@ title:
 Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable).
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 import { Resizable } from 'react-resizable';
 
 const ResizeableTitle = props => {

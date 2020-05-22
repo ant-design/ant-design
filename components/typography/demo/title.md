@@ -13,13 +13,13 @@ title:
 
 Instead of dom header elements, you can also use title to displal in different levels.
 
-Warning:  Typography.Title is not recommended for use.  Instead, we recommend you use standard dom elements; h1...h6 for titles.
+Warning: Typography.Title is not recommended for use. Instead, we recommend you use standard dom elements; h1...h6 for titles.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from '@allenai/varnish';
 
 const { Title } = Typography;
-const text = "AI for the Common Good";
+const text = 'AI for the Common Good';
 
 ReactDOM.render(
   <div>

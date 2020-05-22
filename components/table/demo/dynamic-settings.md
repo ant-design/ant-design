@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form } from 'antd';
+import { Table, Switch, Radio, Form } from '@allenai/varnish';
 import { DownOutlined } from '@ant-design/icons';
 
 const columns = [

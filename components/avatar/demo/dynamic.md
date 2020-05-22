@@ -15,7 +15,7 @@ For letter type Avatar, when the letters are too long to display, the font size 
 
 ```tsx
 import React, { useState } from 'react';
-import { Avatar, Button } from 'antd';
+import { Avatar, Button } from '@allenai/varnish';
 
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
 const ColorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];

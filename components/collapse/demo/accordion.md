@@ -14,7 +14,7 @@ title:
 In accordion mode, only one panel can be expanded at a time.
 
 ```jsx
-import { Collapse } from 'antd';
+import { Collapse } from '@allenai/varnish';
 
 const { Panel } = Collapse;
 

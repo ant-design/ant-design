@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dropdown, Menu, Button } from 'antd';
+import { Dropdown, Menu, Button } from '@allenai/varnish';
 import { FormattedMessage } from 'react-intl';
 import { DownOutlined } from '@ant-design/icons';
 import { SharedProps } from './interface';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from 'antd';
+import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from '@allenai/varnish';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
 import * as AntdIcons from '@ant-design/icons';

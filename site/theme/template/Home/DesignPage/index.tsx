@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Row, Col, Typography, Card } from 'antd';
+import { Row, Col, Typography, Card } from '@allenai/varnish';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'bisheng/router';

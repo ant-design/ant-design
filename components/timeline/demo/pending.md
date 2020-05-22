@@ -14,7 +14,7 @@ title:
 When the timeline is incomplete and ongoing, put a ghost node at last. Set `pending` as truthy value to enable displaying pending item. You can customize the pending content by passing a React Element. Meanwhile, `pendingDot={a React Element}` is used to customize the dot of the pending item. `reverse={true}` is used for reversing nodes.
 
 ```jsx
-import { Timeline, Button } from 'antd';
+import { Timeline, Button } from '@allenai/varnish';
 
 class PendingTimeLine extends React.Component {
   state = {

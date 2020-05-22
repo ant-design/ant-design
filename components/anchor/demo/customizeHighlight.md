@@ -14,7 +14,7 @@ title:
 Customize the anchor highlight.
 
 ```tsx
-import { Anchor } from 'antd';
+import { Anchor } from '@allenai/varnish';
 
 const { Link } = Anchor;
 

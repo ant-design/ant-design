@@ -18,7 +18,16 @@ Input.Group example
 Note: You don't need `Col` to control the width in the `compact` mode.
 
 ```jsx
-import { Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd';
+import {
+  Input,
+  Col,
+  Row,
+  Select,
+  InputNumber,
+  DatePicker,
+  AutoComplete,
+  Cascader,
+} from '@allenai/varnish';
 
 const { Option } = Select;
 

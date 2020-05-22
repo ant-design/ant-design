@@ -14,7 +14,7 @@ title:
 For multi-line input.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@allenai/varnish';
 
 const { TextArea } = Input;
 

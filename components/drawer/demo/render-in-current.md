@@ -14,7 +14,7 @@ title:
 Render in current dom. custom container, check getContainer.
 
 ```jsx
-import { Drawer, Button } from 'antd';
+import { Drawer, Button } from '@allenai/varnish';
 
 class App extends React.Component {
   state = { visible: false };

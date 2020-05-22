@@ -2,7 +2,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
 
-import { Columns } from '../columns';
+import Columns from '../columns';
 import Layout, { AppLayoutContext } from '../layout';
 
 import { AI2Banner } from './AI2Banner';
@@ -18,7 +18,7 @@ interface State {
   currentHeaderHeight: number;
 }
 
-export class Header extends React.PureComponent<Props, State> {
+export default class Header extends React.PureComponent<Props, State> {
   private container: React.Component | null = null;
 
   private banner: React.RefObject<HTMLDivElement>;
@@ -112,7 +112,8 @@ const Sticky = styled(Layout.Header)`
   }
 `;
 
-export const HeaderColumns = styled(Columns as any)` /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+export const HeaderColumns = styled(Columns as any)`
+  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   width: 100%;
   align-items: center;
   padding: 11.5px 0;

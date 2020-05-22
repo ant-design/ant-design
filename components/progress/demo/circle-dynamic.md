@@ -14,7 +14,7 @@ title:
 A dynamic progress bar is better.
 
 ```jsx
-import { Progress, Button } from 'antd';
+import { Progress, Button } from '@allenai/varnish';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;

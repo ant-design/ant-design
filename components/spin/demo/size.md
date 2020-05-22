@@ -14,7 +14,7 @@ title:
 A small `Spin` is used for loading text, default sized `Spin` for loading a card-level block, and large `Spin` used for loading a **page**.
 
 ```jsx
-import { Spin, Space } from 'antd';
+import { Spin, Space } from '@allenai/varnish';
 
 ReactDOM.render(
   <Space size="middle">

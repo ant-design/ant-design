@@ -14,7 +14,7 @@ title:
 Simple mode.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from '@allenai/varnish';
 
 ReactDOM.render(<Pagination simple defaultCurrent={2} total={50} />, mountNode);
 ```

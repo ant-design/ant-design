@@ -14,7 +14,7 @@ title:
 Alternate timeline.
 
 ```jsx
-import { Timeline } from 'antd';
+import { Timeline } from '@allenai/varnish';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

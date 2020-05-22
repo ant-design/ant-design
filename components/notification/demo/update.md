@@ -14,7 +14,7 @@ title:
 Update content with unique key.
 
 ```jsx
-import { Button, notification } from 'antd';
+import { Button, notification } from '@allenai/varnish';
 
 const key = 'updatable';
 

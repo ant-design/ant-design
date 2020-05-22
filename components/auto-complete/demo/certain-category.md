@@ -14,7 +14,7 @@ title:
 Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set options of autocomplete with `options` property.
 
 ```tsx
-import { Input, AutoComplete } from 'antd';
+import { Input, AutoComplete } from '@allenai/varnish';
 import { UserOutlined } from '@ant-design/icons';
 
 const renderTitle = (title: string) => {

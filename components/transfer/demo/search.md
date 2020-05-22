@@ -14,7 +14,7 @@ title:
 Transfer with a search box.
 
 ```jsx
-import { Transfer } from 'antd';
+import { Transfer } from '@allenai/varnish';
 
 class App extends React.Component {
   state = {

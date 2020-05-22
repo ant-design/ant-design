@@ -14,7 +14,7 @@ title:
 Set summary content by `summary` prop. Sync column fixed status with `Table.Summary.Cell`.
 
 ```jsx
-import { Table, Typography } from 'antd';
+import { Table, Typography } from '@allenai/varnish';
 
 const { Text } = Typography;
 

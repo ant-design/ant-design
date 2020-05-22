@@ -14,7 +14,7 @@ Col 提供 `flex` 属性以支持填充。
 Col provides `flex` prop to support fill rest.
 
 ```jsx
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

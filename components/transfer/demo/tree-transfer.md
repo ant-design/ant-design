@@ -14,7 +14,7 @@ title:
 Customize render list with Tree component.
 
 ```jsx
-import { Transfer, Tree } from 'antd';
+import { Transfer, Tree } from '@allenai/varnish';
 
 const { TreeNode } = Tree;
 

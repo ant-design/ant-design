@@ -7,10 +7,9 @@ title:
 Basic usage.
 
 ```jsx
-import { AI2Logo } from '..'; // TODO: point this at varnish
+import { Logos } from '@allenai/varnish';
 
-ReactDOM.render(
-  <AI2Logo />,
-  mountNode,
-);
+const { AI2Logo } = Logos;
+
+ReactDOM.render(<AI2Logo />, mountNode);
 ```

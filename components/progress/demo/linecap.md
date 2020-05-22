@@ -14,7 +14,7 @@ title:
 By setting `strokeLinecap="square"`, you can change the linecaps from round to square.
 
 ```jsx
-import { Progress } from 'antd';
+import { Progress } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

@@ -36,7 +36,7 @@ If you already set up by [Install and Initialization](/docs/react/use-with-creat
 ```jsx
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { DatePicker, message } from 'antd';
+import { DatePicker, message } from '@allenai/varnish';
 import 'antd/dist/antd.css';
 import './index.css';
 
@@ -66,8 +66,8 @@ You can look up components in the side menu of the Components page like the [Ale
 Click the "Open in Editor" icon in the first example to open an editor with source code to use out-of-the-box. Now you can import the `Alert` component into the codesandbox:
 
 ```diff
-- import { DatePicker, message } from 'antd';
-+ import { DatePicker, message, Alert } from 'antd';
+- import { DatePicker, message } from '@allenai/varnish';
++ import { DatePicker, message, Alert } from '@allenai/varnish';
 ```
 
 Add the following jsx into the `render` function.
@@ -97,7 +97,7 @@ In the real world you will need a development workflow consisting of `compile/bu
 
 ## Import on Demand
 
-`antd` supports tree shaking of ES modules, so using `import { Button } from 'antd';` would drop js code you didn't use.
+`antd` supports tree shaking of ES modules, so using `import { Button } from '@allenai/varnish';` would drop js code you didn't use.
 
 If you see logs like in the screenshot below, you might still be using `webpack@1.x` or have a wrong webpack config which can't support tree shaking.
 

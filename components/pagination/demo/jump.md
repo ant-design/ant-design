@@ -14,7 +14,7 @@ title:
 Jump to a page directly.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from '@allenai/varnish';
 
 function onChange(pageNumber) {
   console.log('Page: ', pageNumber);

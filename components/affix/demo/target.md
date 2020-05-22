@@ -15,7 +15,7 @@ Set a `target` for 'Affix', which is listen to scroll event of target element (d
 
 ```tsx
 import React, { useState } from 'react';
-import { Affix, Button } from 'antd';
+import { Affix, Button } from '@allenai/varnish';
 
 const Demo: React.FC = () => {
   const [container, setContainer] = useState(null);

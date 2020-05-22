@@ -20,7 +20,7 @@ This example shows how to fetch and present data from a remote server, and how t
 **Note, this example use [Mock API](https://randomuser.me) that you can look up in Network Console.**
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 import reqwest from 'reqwest';
 
 const columns = [

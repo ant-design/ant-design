@@ -14,7 +14,7 @@ title:
 Comment can be used as an editor, so the user can customize the contents of the component.
 
 ```jsx
-import { Comment, Avatar, Form, Button, List, Input } from 'antd';
+import { Comment, Avatar, Form, Button, List, Input } from '@allenai/varnish';
 import moment from 'moment';
 
 const { TextArea } = Input;

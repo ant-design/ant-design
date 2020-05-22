@@ -14,7 +14,7 @@ title:
 Basic usage of checkbox.
 
 ```jsx
-import { Checkbox } from 'antd';
+import { Checkbox } from '@allenai/varnish';
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);

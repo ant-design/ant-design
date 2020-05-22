@@ -5,7 +5,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import { FormDropdownIcon } from '../../icons'; // Added by Varnish
+import Icons from '../../icons'; // Added by Varnish
 
 export default function getIcons({
   suffixIcon,
@@ -39,7 +39,7 @@ export default function getIcons({
       if (open && showSearch) {
         return <SearchOutlined />;
       }
-      return <FormDropdownIcon /> // Changed by Varnish
+      return <Icons.FormDropdownIcon />; // Changed by Varnish
     };
   }
 

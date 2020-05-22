@@ -14,7 +14,7 @@ title:
 The most basic usage.
 
 ```jsx
-import { TreeSelect } from 'antd';
+import { TreeSelect } from '@allenai/varnish';
 
 const { TreeNode } = TreeSelect;
 

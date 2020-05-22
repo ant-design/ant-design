@@ -14,7 +14,7 @@ title:
 `column.sorter` support `multiple` to config the priority of sort columns. Though `sorter.compare` to customize compare function. You can also leave it empty to use the interactive only.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 const columns = [
   {

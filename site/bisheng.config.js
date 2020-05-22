@@ -111,9 +111,13 @@ module.exports = {
   },
   webpackConfig(config) {
     config.resolve.alias = {
-      'antd/lib': path.join(process.cwd(), 'components'),
-      'antd/es': path.join(process.cwd(), 'components'),
-      antd: path.join(process.cwd(), 'index'),
+      'antd/lib': path.join(process.cwd(), 'components'), // todo: remove?
+      'antd/es': path.join(process.cwd(), 'components'), // todo: remove?
+      antd: path.join(process.cwd(), 'index'), // todo: remove?
+      '@allenai/varnish/lib': path.join(process.cwd(), 'components'), // Added by Varnish
+      '@allenai/varnish/es': path.join(process.cwd(), 'components'), // Added by Varnish
+      '@allenai/varnish': path.join(process.cwd(), 'index'), // Added by Varnish
+      '@allenai/varnish/dist/varnish.css': path.join(process.cwd(), 'dist/antd.css'), // Added by Varnish
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
       'react-intl': 'react-intl/dist',

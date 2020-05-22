@@ -18,7 +18,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import ResizeObserver from 'rc-resize-observer';
 import classNames from 'classnames';
-import { Table } from 'antd';
+import { Table } from '@allenai/varnish';
 
 function VirtualTable(props) {
   const { columns, scroll, className } = props;

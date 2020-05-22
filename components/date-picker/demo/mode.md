@@ -15,7 +15,7 @@ debug: true
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 

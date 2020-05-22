@@ -14,7 +14,7 @@ title:
 There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 
 ```tsx
-import { Alert } from 'antd';
+import { Alert } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ThemeProvider } from '../../components/varnish';
+import Theming from '../../components/varnish';
+
+const { ThemeProvider } = Theming;
 
 // eslint-disable-next-line jest/no-export
 export default function mountTest(Component: React.ComponentType) {

@@ -18,7 +18,7 @@ Call form method with `Form.useForm`.
 > Note that `useForm` is a [React Hooks](https://reactjs.org/docs/hooks-intro.html) that only works in functional component.
 
 ```tsx
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, Button, Select } from '@allenai/varnish';
 
 const { Option } = Select;
 
@@ -35,14 +35,14 @@ const Demo = () => {
 
   const onGenderChange = value => {
     switch (value) {
-      case "male":
-        form.setFieldsValue({ note: "Hi, man!" });
+      case 'male':
+        form.setFieldsValue({ note: 'Hi, man!' });
         return;
-      case "female":
-        form.setFieldsValue({ note: "Hi, lady!" });
+      case 'female':
+        form.setFieldsValue({ note: 'Hi, lady!' });
         return;
-      case "other":
-        form.setFieldsValue({ note: "Hi there!" });
+      case 'other':
+        form.setFieldsValue({ note: 'Hi there!' });
         return;
     }
   };

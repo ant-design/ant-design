@@ -14,7 +14,7 @@ title:
 The most basic usage, tell you how to use checkable, selectable, disabled, defaultExpandKeys, and etc.
 
 ```tsx
-import { Tree } from 'antd';
+import { Tree } from '@allenai/varnish';
 
 const { TreeNode } = Tree;
 

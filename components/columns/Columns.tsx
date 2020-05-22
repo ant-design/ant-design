@@ -6,7 +6,7 @@ export interface Props {
   breakpoint?: string;
 }
 
-export const Columns = styled.div<Props>`
+const Columns = styled.div<Props>`
   display: grid;
   grid-template-columns: ${({ gridTemplateColumns, count }) =>
     gridTemplateColumns || (count ? `repeat(${count}, 1fr)` : null)};
@@ -22,3 +22,5 @@ export const Columns = styled.div<Props>`
     grid-row-gap: ${({ theme }) => theme.spacing.sm};
   }
 `;
+
+export default Columns;
