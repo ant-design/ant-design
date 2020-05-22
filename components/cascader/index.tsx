@@ -91,6 +91,8 @@ export interface CascaderProps {
   disabled?: boolean;
   /** 是否支持清除 */
   allowClear?: boolean;
+  /** 自动获取焦点 */
+  autoFocus?: boolean;
   showSearch?: boolean | ShowSearchType;
   notFoundContent?: React.ReactNode;
   loadData?: (selectedOptions?: CascaderOptionType[]) => void;
