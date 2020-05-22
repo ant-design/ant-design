@@ -91,8 +91,6 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
     config.plugins.push(new IgnoreEmitPlugin(themeReg));
-
-    addBundleAnalyzerPluginCom(config);
   });
 }
 
