@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPluginCom = require('@bundle-analyzer/webpack-plugin');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
@@ -52,6 +53,17 @@ function injectWarningCondition(config) {
   });
 }
 
+function addBundleAnalyzerPluginCom(config) {
+  if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
+    return;
+  }
+  config.plugins.push(
+    new BundleAnalyzerPluginCom({
+      token: process.env.BUNDLE_ANALYZER_TOKEN,
+    }),
+  );
+}
+
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -79,6 +91,8 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
     config.plugins.push(new IgnoreEmitPlugin(themeReg));
+
+    addBundleAnalyzerPluginCom(config);
   });
 }
 
@@ -102,16 +116,15 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       config.optimization.minimizer[0] = new EsbuildPlugin();
     }
 
-    // skip codesandbox ci
-    if (!process.env.CSB_REPO) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-          reportFilename: '../report.html',
-        }),
-      );
-    }
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: '../report.html',
+      }),
+    );
+
+    addBundleAnalyzerPluginCom(config);
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
