@@ -131,7 +131,7 @@
     "rc-progress": "~3.0.0",
     "rc-rate": "~2.6.0",
     "rc-resize-observer": "^0.2.0",
-    "rc-select": "~10.3.0",
+    "rc-select": "~10.3.5",
     "rc-slider": "~9.2.3",
     "rc-steps": "~3.6.0",
     "rc-switch": "~3.1.0",

@@ -114,3 +114,7 @@ title: Select
 ```
 
 注意：`listItemHeight` 和 `listHeight` 为内部属性，如无必要，请勿修改该值。
+
+### 为何无障碍测试会报缺失 `aria-` 属性？
+
+Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行无障碍检测时请先打开下拉后再进行测试。对于 `aria-label` 与 `aria-labelledby` 属性缺失警告，请自行为 Select 组件添加相应无障碍属性。
