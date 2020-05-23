@@ -176,4 +176,26 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     expect(ref.current.getPopupDomNode()).toBeFalsy();
   });
+
+  it('should be closed by pressing ESC', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Popconfirm
+        title="title"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <span>Delete</span>
+      </Popconfirm>,
+    );
+    const triggerNode = wrapper.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
+    wrapper
+      .find('Trigger')
+      .find('.ant-popover-inner-content')
+      .simulate('keydown', { key: 'Escape' });
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
+  });
 });
