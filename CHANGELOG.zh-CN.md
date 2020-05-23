@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 4.2.5
+
+- 🐞 修复 Table 在 `dataSource` 移除条目时，`rowSelection.onChange` 仍然会缓存的问题。[#24338](https://github.com/ant-design/ant-design/pull/24338)
+- 🐞 修复 Table `size="small`。[#24394](https://github.com/ant-design/ant-design/pull/24394)
+- 🐞 修复 Input.Group 内 Input.TextArea `hover` 时清除图标消失的问题。[#24360](https://github.com/ant-design/ant-design/pull/24360) [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
+- 🐞 调整 `useNotification` api 实例在每次渲染时都返回相同实例。[#24337](https://github.com/ant-design/ant-design/pull/24337)
+- 🐞 修复 Button `loading` 切换动画丢失和 Modal `confirmLoading` 按钮未复位的问题。[#24328](https://github.com/ant-design/ant-design/pull/24328)
+- 🐞 修复 Modal 关闭后 `confirmLoading` 按钮没有复位的问题。[#24238](https://github.com/ant-design/ant-design/pull/24238) [@hengkx](https://github.com/hengkx)
+- 🐞 修复 Drawer 关闭后依然会遮挡页面元素的问题。[#24290](https://github.com/ant-design/ant-design/pull/24290)
+- 🐞 修复 Cascader/Select/Table/TreeSelect 空数据时字体的颜色。[#24279](https://github.com/ant-design/ant-design/pull/24279)
+- 💄 优化 InputNumber 操作按钮居中样式 。[#24266](https://github.com/ant-design/ant-design/pull/24266)
+- 🐞 修复 Table 在 `filteredValue` 使用空数组时仍然会高亮过滤图标的问题。[#24263](https://github.com/ant-design/ant-design/pull/24263)
+- 🐞 修复 Cascader 不支持 `number[]` 类型 `value` 的问题。。[#24247](https://github.com/ant-design/ant-design/pull/24247)
+- ⌨️ 修复 Switch `autoFocus` 在 `disabled` 移除后会触发的问题。调整样式以避免切换时额外的抖动。移除鼠标点击失焦逻辑以提升无障碍体验。[#24254](https://github.com/ant-design/ant-design/pull/24254)
+- 💄 增加 Menu 默认 `text-align` 样式定义以修复被外部样式影响的问题。[#24253](https://github.com/ant-design/ant-design/pull/24253)
+- 🚫 重构 List 的代码[#24280](https://github.com/ant-design/ant-design/pull/24280) [@hengkx](https://github.com/hengkx)
+- 🚫 用 hooks 重构 Alert 以支持严格模式。[#24236](https://github.com/ant-design/ant-design/pull/24236) [@hengkx](https://github.com/hengkx)
+- TypeScript
+  - 优化 Cascader 的 TypeScript 定义[#24393](https://github.com/ant-design/ant-design/pull/24393) [@zhangyu1818](https://github.com/zhangyu1818)
+  - 修复 Upload TypeScript 报错：`Could not find a declaration rc-upload`的问题。[#24325](https://github.com/ant-design/ant-design/pull/24325)
+  - 为 BackTop 增加 children 类型。[#24235](https://github.com/ant-design/ant-design/pull/24235)
+
 ## 4.2.4
 
 `2020-05-18`

@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 4.2.5
+
+- 🐞 Fix Table selection arrow out of column when `size` is `small/middle`. [#24394](https://github.com/ant-design/ant-design/pull/24394)
+- 🐞 Fix Input.TextArea clear icon disappears in Input.Group when hover it. [#24360](https://github.com/ant-design/ant-design/pull/24360) [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
+- 🐞 Fixed an issue where the RowSelection.onChange will still be cached when the Table removes entries in `dataSource`. [#24338](https://github.com/ant-design/ant-design/pull/24338)
+- 🐞 Adjust `useNotification` api instance to be same instance for each render. [#24337](https://github.com/ant-design/ant-design/pull/24337)
+- 🐞 Fix Button `loading` transition animation missing and Modal `confirmLoading` not being reset. [#24328](https://github.com/ant-design/ant-design/pull/24328)
+- 🐞 Fix Modal `confirmLoading` button not reset. [#24238](https://github.com/ant-design/ant-design/pull/24238) [@hengkx](https://github.com/hengkx)
+- 🐞 Fix Drawer cover background elements when it is not visible. [#24290](https://github.com/ant-design/ant-design/pull/24290)
+- 🐞 Fix Cascader/Select/Table/TresSelect text color when data empty. [#24279](https://github.com/ant-design/ant-design/pull/24279)
+- 💄 Optimize the center style of InputNumber operation button. [#24266](https://github.com/ant-design/ant-design/pull/24266)
+- 🐞 Fix Table with empty array `filteredValue` still highlight the filtered icon. [#24263](https://github.com/ant-design/ant-design/pull/24263)
+- 🐞 Fix Cascader not support `number[]` value. [#24247](https://github.com/ant-design/ant-design/pull/24247)
+- ⌨️ Fix Switch `autoFocus` trigger when `disabled` removed. Adjust style to avoid switch shaking. Remove blur logic when `onMouseUp` to improve acessibility. [#24254](https://github.com/ant-design/ant-design/pull/24254)
+- 💄 Add Menu default `text-align` style.. [#24253](https://github.com/ant-design/ant-design/pull/24253)
+- 🚫 Refactor List code [#24280](https://github.com/ant-design/ant-design/pull/24280) [@hengkx](https://github.com/hengkx)
+- 🚫 Modify the Alert with hooks to support strict mode. [#24236](https://github.com/ant-design/ant-design/pull/24236) [@hengkx](https://github.com/hengkx)
+- TypeScript
+  - chore: Cascader ts definition update. [#24393](https://github.com/ant-design/ant-design/pull/24393) [@zhangyu1818](https://github.com/zhangyu1818)
+  - Fix TS error of `Could not find a declaration rc-upload`. [#24325](https://github.com/ant-design/ant-design/pull/24325)
+  - Add children type to BackTop. [#24235](https://github.com/ant-design/ant-design/pull/24235)
+
 ## 4.2.4
 
 `2020-05-18`
