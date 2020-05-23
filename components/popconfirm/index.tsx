@@ -49,19 +49,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     }
   }, [props.defaultVisible]);
 
-  const innerContentRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (visible) {
-        innerContentRef.current?.focus();
-      }
-    });
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [visible]);
-
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
@@ -92,7 +79,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Escape' && e.target === innerContentRef.current) {
+    if (e.key === 'Escape' && visible) {
       settingVisible(false, e);
     }
   };
@@ -108,12 +95,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   const renderOverlay = (prefixCls: string, popconfirmLocale: PopconfirmLocale) => {
     const { okButtonProps, cancelButtonProps, title, cancelText, okText, okType, icon } = props;
     return (
-      <div
-        className={`${prefixCls}-inner-content`}
-        onKeyDown={onKeyDown}
-        ref={innerContentRef}
-        tabIndex={-1}
-      >
+      <div className={`${prefixCls}-inner-content`}>
         <div className={`${prefixCls}-message`}>
           {icon}
           <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
@@ -137,7 +119,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, placement, ...restProps } = props;
+  const { prefixCls: customizePrefixCls, placement, children, ...restProps } = props;
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
 
   const overlay = (
@@ -155,7 +137,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       visible={visible}
       overlay={overlay}
       ref={ref as any}
-    />
+    >
+      {React.isValidElement(children)
+        ? React.cloneElement(children, {
+            onKeyDown: (e: React.KeyboardEvent<any>) => {
+              children.props.onKeyDown?.(e);
+              onKeyDown(e);
+            },
+          })
+        : children}
+    </Tooltip>
   );
 });
 
