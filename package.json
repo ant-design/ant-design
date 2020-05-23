@@ -302,6 +302,20 @@
       "maxSize": "65 kB"
     }
   ],
+  "bundle-analyzer": {
+    "files": [
+      {
+        "test": "./dist/antd.min.js",
+         "maxSize": "300 kB",
+        "compression": "gzip"
+      },
+      {
+        "test": "./dist/antd.min.css",
+        "maxSize": "65 kB",
+        "compression": "gzip"
+      }
+    ]
+  },
   "tnpm": {
     "mode": "npm"
   },
