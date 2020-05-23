@@ -21749,6 +21749,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -21869,6 +21870,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -21989,6 +21991,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -22109,6 +22112,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -22229,6 +22233,7 @@ exports[`ConfigProvider components Select normal 1`] = `
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -22349,6 +22354,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
