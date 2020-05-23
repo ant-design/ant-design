@@ -18744,6 +18744,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
         >
           <div
             class="config-popover-inner-content"
+            tabindex="-1"
           >
             <div
               class="config-popover-message"
@@ -18824,6 +18825,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
         >
           <div
             class="config-popover-inner-content"
+            tabindex="-1"
           >
             <div
               class="config-popover-message"
@@ -18904,6 +18906,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
         >
           <div
             class="config-popover-inner-content"
+            tabindex="-1"
           >
             <div
               class="config-popover-message"
@@ -18984,6 +18987,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
         >
           <div
             class="ant-popover-inner-content"
+            tabindex="-1"
           >
             <div
               class="ant-popover-message"
@@ -19064,6 +19068,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
         >
           <div
             class="ant-popover-inner-content"
+            tabindex="-1"
           >
             <div
               class="ant-popover-message"
@@ -19144,6 +19149,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
         >
           <div
             class="prefix-Popconfirm-inner-content"
+            tabindex="-1"
           >
             <div
               class="prefix-Popconfirm-message"
