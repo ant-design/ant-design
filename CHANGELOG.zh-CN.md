@@ -20,7 +20,7 @@ timeline: true
 - 🐞 修复 Table 在 `dataSource` 移除条目时，`rowSelection.onChange` 仍然会缓存的问题。[#24338](https://github.com/ant-design/ant-design/pull/24338)
 - 🐞 修复 Table `size="small`。[#24394](https://github.com/ant-design/ant-design/pull/24394)
 - 🐞 修复 Input.Group 内 Input.TextArea `hover` 时清除图标消失的问题。[#24360](https://github.com/ant-design/ant-design/pull/24360) [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
-- 🐞 调整 `useNotification` api 实例在每次渲染时都返回相同实例。[#24337](https://github.com/ant-design/ant-design/pull/24337)
+- 🐞 修复 Notificiation 使用 `useNotificiation` 时无限 render 的行为。[#24337](https://github.com/ant-design/ant-design/pull/24337)
 - 🐞 修复 Button `loading` 切换动画丢失和 Modal `confirmLoading` 按钮未复位的问题。[#24328](https://github.com/ant-design/ant-design/pull/24328)
 - 🐞 修复 Modal 关闭后 `confirmLoading` 按钮没有复位的问题。[#24238](https://github.com/ant-design/ant-design/pull/24238) [@hengkx](https://github.com/hengkx)
 - 🐞 修复 Drawer 关闭后依然会遮挡页面元素的问题。[#24290](https://github.com/ant-design/ant-design/pull/24290)
