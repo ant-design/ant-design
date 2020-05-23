@@ -111,3 +111,7 @@ Virtual scroll internal set item height as `32px`. You need to adjust `listItemH
 ```
 
 Note: `listItemHeight` and `listHeight` are internal props. Please only modify when necessary.
+
+### Why a11y test report missing `aria-` props?
+
+Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
