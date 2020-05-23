@@ -19,7 +19,10 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
-  onVisibleChange?: (visible: boolean, e?: React.MouseEvent<HTMLElement>) => void;
+  onVisibleChange?: (
+    visible: boolean,
+    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => void;
 }
 
 export interface PopconfirmState {
@@ -46,7 +49,23 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     }
   }, [props.defaultVisible]);
 
-  const settingVisible = (value: boolean, e?: React.MouseEvent<HTMLButtonElement>) => {
+  const innerContentRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (visible) {
+        innerContentRef.current?.focus();
+      }
+    });
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [visible]);
+
+  const settingVisible = (
+    value: boolean,
+    e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => {
     if (!('visible' in props)) {
       setVisible(value);
     }
@@ -72,6 +91,12 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     }
   };
 
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') {
+      settingVisible(false, e);
+    }
+  };
+
   const onVisibleChange = (value: boolean) => {
     const { disabled } = props;
     if (disabled) {
@@ -83,7 +108,12 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   const renderOverlay = (prefixCls: string, popconfirmLocale: PopconfirmLocale) => {
     const { okButtonProps, cancelButtonProps, title, cancelText, okText, okType, icon } = props;
     return (
-      <div className={`${prefixCls}-inner-content`}>
+      <div
+        className={`${prefixCls}-inner-content`}
+        onKeyDown={onKeyDown}
+        ref={innerContentRef}
+        tabIndex={-1}
+      >
         <div className={`${prefixCls}-message`}>
           {icon}
           <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
