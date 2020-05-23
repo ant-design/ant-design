@@ -22,7 +22,6 @@ timeline: true
 - 🐞 Fixed an issue where the `RowSelection.onChange` will still be cached when the Table removes entries in `dataSource`. [#24338](https://github.com/ant-design/ant-design/pull/24338)
 - 🐞 Adjust `useNotification` api instance to be same instance for each render. [#24337](https://github.com/ant-design/ant-design/pull/24337)
 - 🐞 Fix Button `loading` transition animation missing and Modal `confirmLoading` not being reset. [#24328](https://github.com/ant-design/ant-design/pull/24328)
-- 🐞 Fix Modal `confirmLoading` button not reset. [#24238](https://github.com/ant-design/ant-design/pull/24238) [@hengkx](https://github.com/hengkx)
 - 🐞 Fix Drawer cover background elements when it is not visible. [#24290](https://github.com/ant-design/ant-design/pull/24290)
 - 🐞 Fix Cascader/Select/Table/TreeSelect text color when data empty. [#24279](https://github.com/ant-design/ant-design/pull/24279)
 - 💄 Fix InputNumber operation button arrow is not centered. [#24266](https://github.com/ant-design/ant-design/pull/24266)

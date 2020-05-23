@@ -22,7 +22,6 @@ timeline: true
 - 🐞 修复 Input.Group 内 Input.TextArea `hover` 时清除图标消失的问题。[#24360](https://github.com/ant-design/ant-design/pull/24360) [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
 - 🐞 修复 Notificiation 使用 `useNotificiation` 时无限 render 的行为。[#24337](https://github.com/ant-design/ant-design/pull/24337)
 - 🐞 修复 Button `loading` 切换动画丢失和 Modal `confirmLoading` 按钮未复位的问题。[#24328](https://github.com/ant-design/ant-design/pull/24328)
-- 🐞 修复 Modal 关闭后 `confirmLoading` 按钮没有复位的问题。[#24238](https://github.com/ant-design/ant-design/pull/24238) [@hengkx](https://github.com/hengkx)
 - 🐞 修复 Drawer 关闭后依然会遮挡页面元素的问题。[#24290](https://github.com/ant-design/ant-design/pull/24290)
 - 🐞 修复 Cascader/Select/Table/TreeSelect 空数据时字体的颜色。[#24279](https://github.com/ant-design/ant-design/pull/24279)
 - 💄 优化 InputNumber 操作按钮居中样式。[#24266](https://github.com/ant-design/ant-design/pull/24266)
