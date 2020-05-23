@@ -439,7 +439,6 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
-    gap="4"
     style="background-color:#f56a00;vertical-align:middle"
   >
     <span

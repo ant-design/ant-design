@@ -210,7 +210,6 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
     return (
       <span
-        {...others}
         style={{ ...sizeStyle, ...others.style }}
         className={classString}
         ref={(node: HTMLElement) => (this.avatarNode = node)}
