@@ -198,4 +198,23 @@ describe('Popconfirm', () => {
       .simulate('keydown', { key: 'Escape' });
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
+
+  fit('should not close when pressing ESC in other focusable element', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Popconfirm
+        title={<input />}
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <span>Delete</span>
+      </Popconfirm>,
+    );
+    const triggerNode = wrapper.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
+    wrapper.find('Trigger').find('input').simulate('keydown', { key: 'Escape' });
+    expect(onVisibleChange).not.toHaveBeenLastCalledWith(false, eventObject);
+  });
 });

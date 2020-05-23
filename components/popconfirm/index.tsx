@@ -92,7 +92,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && e.target === innerContentRef.current) {
       settingVisible(false, e);
     }
   };
