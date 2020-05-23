@@ -35,7 +35,7 @@ timeline: true
 - TypeScript
   - 优化 Cascader 的 TypeScript 定义[#24393](https://github.com/ant-design/ant-design/pull/24393) [@zhangyu1818](https://github.com/zhangyu1818)
   - 修复 Upload TypeScript 报错：`Could not find a declaration rc-upload`的问题。[#24325](https://github.com/ant-design/ant-design/pull/24325)
-  - 为 BackTop 增加 children 类型。[#24235](https://github.com/ant-design/ant-design/pull/24235)
+  - BackTop 增加 `children` 定义。[#24235](https://github.com/ant-design/ant-design/pull/24235)
 
 ## 4.2.4
 
