@@ -199,7 +199,7 @@ describe('Popconfirm', () => {
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 
-  fit('should not close when pressing ESC in other focusable element', () => {
+  it('should not close when pressing ESC in other focusable element', () => {
     const onVisibleChange = jest.fn();
     const wrapper = mount(
       <Popconfirm
