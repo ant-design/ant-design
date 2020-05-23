@@ -51,7 +51,7 @@ Please find below some of the design resources and tools about Ant Design that w
   - Library of components for Desktop
   - https://www.antforfigma.com
 - Figma Open Source Library
-  - https://i.imgur.com/XoLEWxA.png
+  - https://i.imgur.com/kopdWeX.png
   - Free open source Figma library with complete accrate to code components
   - https://www.figma.com/community/file/831698976089873405
 - Ant Design Chart
