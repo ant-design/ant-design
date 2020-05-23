@@ -56,8 +56,6 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   private lastNodeWidth: number;
 
-  private lastGap: number;
-
   componentDidMount() {
     this.setScale();
     this.setState({ mounted: true });
@@ -87,10 +85,6 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     ) {
       this.lastChildrenWidth = childrenWidth;
       this.lastNodeWidth = nodeWidth;
-    }
-
-    if (this.lastGap !== gap) {
-      this.lastGap = gap;
     }
 
     if (gap * 2 < nodeWidth) {
