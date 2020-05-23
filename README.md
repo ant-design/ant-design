@@ -62,7 +62,7 @@ English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
 ## 🖥 Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
