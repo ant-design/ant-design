@@ -27,7 +27,7 @@ timeline: true
 - 🐞 修复 Cascader/Select/Table/TreeSelect 空数据时字体的颜色。[#24279](https://github.com/ant-design/ant-design/pull/24279)
 - 💄 优化 InputNumber 操作按钮居中样式。[#24266](https://github.com/ant-design/ant-design/pull/24266)
 - 🐞 修复 Table 在 `filteredValue` 使用空数组时仍然会高亮过滤图标的问题。[#24263](https://github.com/ant-design/ant-design/pull/24263)
-- 🐞 修复 Cascader 不支持 `number[]` 类型 `value` 的问题。。[#24247](https://github.com/ant-design/ant-design/pull/24247)
+- 🐞 修复 Cascader 不支持 `number[]` 类型 `value` 的问题。[#24247](https://github.com/ant-design/ant-design/pull/24247)
 - ⌨️ 修复 Switch `autoFocus` 在 `disabled` 移除后会触发的问题。调整样式以避免切换时额外的抖动。移除鼠标点击失焦逻辑以提升无障碍体验。[#24254](https://github.com/ant-design/ant-design/pull/24254)
 - 💄 增加 Menu 默认 `text-align` 样式定义以修复被外部样式影响的问题。[#24253](https://github.com/ant-design/ant-design/pull/24253)
 - 🚫 重构 List 的代码[#24280](https://github.com/ant-design/ant-design/pull/24280) [@hengkx](https://github.com/hengkx)
