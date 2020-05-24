@@ -47,7 +47,7 @@ function fileNameToPath(filename) {
   return snippets[snippets.length - 1];
 }
 
-const getSideBarOpenKeys = nextProps => {
+function getSideBarOpenKeys(nextProps) {
   const { themeConfig } = nextProps;
   const { pathname } = nextProps.location;
   const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
@@ -56,7 +56,17 @@ const getSideBarOpenKeys = nextProps => {
     .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
     .map(m => (m.title && m.title[locale]) || m.title);
   return shouldOpenKeys;
-};
+}
+
+function updateActiveToc(id) {
+  [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
+    node.className = '';
+  });
+  const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${id}"]`)[0];
+  if (currentNode) {
+    currentNode.className = 'current';
+  }
+}
 
 class MainContent extends Component {
   static contextTypes = {
@@ -72,6 +82,7 @@ class MainContent extends Component {
   componentDidMount() {
     this.componentDidUpdate();
     window.addEventListener('load', this.handleInitialHashOnLoad);
+    window.addEventListener('hashchange', this.handleHashChange);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -103,6 +114,8 @@ class MainContent extends Component {
   componentWillUnmount() {
     this.scroller.destroy();
     window.removeEventListener('load', this.handleInitialHashOnLoad);
+    window.removeEventListener('hashchange', this.handleHashChange);
+    clearTimeout(this.timeout);
   }
 
   getMenuItems(footerNavIcons = {}) {
@@ -188,6 +201,12 @@ class MainContent extends Component {
     }, 0);
   };
 
+  handleHashChange = () => {
+    this.timeout = setTimeout(() => {
+      updateActiveToc(window.location.hash.replace(/^#/, ''));
+    });
+  };
+
   bindScroller() {
     if (this.scroller) {
       this.scroller.destroy();
@@ -206,13 +225,7 @@ class MainContent extends Component {
         offset: 0,
       })
       .onStepEnter(({ element }) => {
-        [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-          node.className = '';
-        });
-        const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
-        if (currentNode) {
-          currentNode.className = 'current';
-        }
+        updateActiveToc(element.id);
       });
   }
 
