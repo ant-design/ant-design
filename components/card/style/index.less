@@ -14,7 +14,6 @@
   position: relative;
   background: @card-background;
   border-radius: @card-radius;
-  transition: all 0.3s;
 
   &-rtl {
     direction: rtl;
@@ -22,6 +21,8 @@
 
   &-hoverable {
     cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s;
+
     &:hover {
       border-color: @card-hoverable-hover-border;
       box-shadow: @card-shadow;
