@@ -85,7 +85,7 @@ stages:
               artifactName: jestStare
             condition: failed()
           - script: |
-              node ./scripts/azure-github-comment.js -ui "[<img width="306" src="https://user-images.githubusercontent.com/14831261/82744259-6e5ee200-9da8-11ea-8479-685f6e280b77.jpg">](https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh)"
+              node ./scripts/azure-github-comment.js -ui "[<img width="306" src="https://user-images.githubusercontent.com/14831261/82744259-6e5ee200-9da8-11ea-8479-685f6e280b77.jpg">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Update comment on github'
       - job: UI_Test_Failed
         dependsOn: UI_Test
