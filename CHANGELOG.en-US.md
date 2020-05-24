@@ -32,9 +32,9 @@ timeline: true
 - 🛠 Refactor List code [#24280](https://github.com/ant-design/ant-design/pull/24280) [@hengkx](https://github.com/hengkx)
 - 🛠 Modify the Alert with hooks to support strict mode. [#24236](https://github.com/ant-design/ant-design/pull/24236) [@hengkx](https://github.com/hengkx)
 - TypeScript
-  - chore: Cascader ts definition update. [#24393](https://github.com/ant-design/ant-design/pull/24393) [@zhangyu1818](https://github.com/zhangyu1818)
-  - Fix TS error of `Could not find a declaration rc-upload`. [#24325](https://github.com/ant-design/ant-design/pull/24325)
-  - Add children type to BackTop. [#24235](https://github.com/ant-design/ant-design/pull/24235)
+  - 🛠Cascader ts definition update. [#24393](https://github.com/ant-design/ant-design/pull/24393) [@zhangyu1818](https://github.com/zhangyu1818)
+  - 🐞 Fix TS error of `Could not find a declaration rc-upload`. [#24325](https://github.com/ant-design/ant-design/pull/24325)
+  - 🛠 Add children type to BackTop. [#24235](https://github.com/ant-design/ant-design/pull/24235)
 
 ## 4.2.4
 
