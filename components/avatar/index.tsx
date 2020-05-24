@@ -16,6 +16,7 @@ export interface AvatarProps {
   src?: string;
   /** Srcset of image avatar */
   srcSet?: string;
+  draggable?: boolean;
   /** icon to be used in avatar */
   icon?: React.ReactNode;
   style?: React.CSSProperties;
@@ -106,6 +107,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       icon,
       className,
       alt,
+      draggable,
       ...others
     } = this.props;
 
@@ -142,7 +144,15 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
     let { children } = this.props;
     if (src && isImgExist) {
-      children = <img src={src} srcSet={srcSet} onError={this.handleImgLoadError} alt={alt} />;
+      children = (
+        <img
+          src={src}
+          draggable={draggable}
+          srcSet={srcSet}
+          onError={this.handleImgLoadError}
+          alt={alt}
+        />
+      );
     } else if (icon) {
       children = icon;
     } else {

@@ -14,7 +14,7 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00'));
+    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
@@ -102,7 +102,7 @@ describe('Statistic', () => {
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
 
-        MockDate.set(moment('2019-11-28 00:00:00'));
+        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
         jest.runAllTimers();
 
         expect(onFinish).toHaveBeenCalled();
