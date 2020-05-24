@@ -31,6 +31,7 @@ timeline: true
 - 💄 增加 Menu 默认 `text-align` 样式定义以修复被外部样式影响的问题。[#24253](https://github.com/ant-design/ant-design/pull/24253)
 - 🛠 用 hooks 重构 List。[#24280](https://github.com/ant-design/ant-design/pull/24280) [@hengkx](https://github.com/hengkx)
 - 🛠 用 hooks 重构 Alert 以支持严格模式。[#24236](https://github.com/ant-design/ant-design/pull/24236) [@hengkx](https://github.com/hengkx)
+- 🐞 修复 Card 和 `react-split` 一起使用时卡顿的问题。[#24425](https://github.com/ant-design/ant-design/pull/24425)
 - TypeScript
   - 🛠 优化 Cascader 的 TypeScript 定义。[#24393](https://github.com/ant-design/ant-design/pull/24393) [@zhangyu1818](https://github.com/zhangyu1818)
   - 🐞 修复 Upload TypeScript 报错：`Could not find a declaration rc-upload` 的问题。[#24325](https://github.com/ant-design/ant-design/pull/24325)
