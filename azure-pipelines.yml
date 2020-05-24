@@ -72,11 +72,11 @@ stages:
             displayName: 'Install Node.js'
             inputs:
               versionSpec: '12.16.3'
+          - script: npm install
+            displayName: 'Install modules'
           - script: |
               node ./scripts/azure-github-comment.js -ui "[![UI Testing](https://user-images.githubusercontent.com/14831261/82744255-6bfc8800-9da8-11ea-9017-857933e8433b.gif)](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
-          - script: npm install
-            displayName: 'Install modules'
           - script: npm run test-image
             displayName: 'UI Test'
           - task: PublishPipelineArtifact@1
