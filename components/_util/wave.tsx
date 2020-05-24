@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import TransitionEvents from 'css-animation/lib/Event';
+import TransitionEvents from '@ant-design/css-animation/lib/Event';
+import { createRef } from 'react';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig } from '../config-provider';
 
@@ -16,7 +17,7 @@ function isHidden(element: HTMLElement) {
 
 function isNotGrey(color: string) {
   // eslint-disable-next-line no-useless-escape
-  const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
+  const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\d.]*)?\)/);
   if (match && match[1] && match[2] && match[3]) {
     return !(match[1] === match[2] && match[2] === match[3]);
   }
@@ -36,12 +37,14 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   private animationStart: boolean = false;
 
-  private destroy: boolean = false;
+  private destroyed: boolean = false;
 
   private csp?: CSPConfig;
 
+  private wrapper = createRef<HTMLElement>();
+
   componentDidMount() {
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.wrapper.current;
     if (!node || node.nodeType !== 1) {
       return;
     }
@@ -56,7 +59,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       clearTimeout(this.clickWaveTimeoutId);
     }
 
-    this.destroy = true;
+    this.destroyed = true;
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
@@ -76,7 +79,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       waveColor !== '#ffffff' &&
       waveColor !== 'rgb(255, 255, 255)' &&
       isNotGrey(waveColor) &&
-      !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) && // any transparent rgba color
+      !/rgba\((?:\d*, ){3}0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'
     ) {
       // Add nonce if CSP exist
@@ -101,16 +104,16 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   };
 
   onTransitionStart = (e: AnimationEvent) => {
-    if (this.destroy) return;
-
-    const node = findDOMNode(this) as HTMLElement;
-    if (!e || e.target !== node) {
+    if (this.destroyed) {
       return;
     }
 
-    if (!this.animationStart) {
-      this.resetEffect(node);
+    const node = findDOMNode(this) as HTMLElement;
+    if (!e || e.target !== node || this.animationStart) {
+      return;
     }
+
+    this.resetEffect(node);
   };
 
   onTransitionEnd = (e: AnimationEvent) => {
