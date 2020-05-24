@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
 import { LegacyButtonType, NativeButtonProps, convertLegacyProps } from '../button/button';
@@ -7,6 +8,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
+import { cloneElement } from '../_util/reactNode';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -79,7 +81,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Escape' && visible) {
+    if (e.keyCode === KeyCode.ESC && visible) {
       settingVisible(false, e);
     }
   };
@@ -138,14 +140,12 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       overlay={overlay}
       ref={ref as any}
     >
-      {React.isValidElement(children)
-        ? React.cloneElement(children, {
-            onKeyDown: (e: React.KeyboardEvent<any>) => {
-              children.props.onKeyDown?.(e);
-              onKeyDown(e);
-            },
-          })
-        : children}
+      {cloneElement(children, {
+        onKeyDown: (e: React.KeyboardEvent<any>) => {
+          children?.props.onKeyDown?.(e);
+          onKeyDown(e);
+        },
+      })}
     </Tooltip>
   );
 });
