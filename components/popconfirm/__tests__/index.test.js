@@ -192,7 +192,7 @@ describe('Popconfirm', () => {
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
-    triggerNode.simulate('keydown', { key: 'Escape' });
+    triggerNode.simulate('keydown', { key: 'Escape', keyCode: 27 });
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 });
