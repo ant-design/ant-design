@@ -116,3 +116,99 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
   </div>
 </div>
 `;
+
+exports[`Tree switcherIcon in Tree could be string 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
+  <div
+    role="tree"
+  >
+    <input
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-tree-list"
+  >
+    <div>
+      <div
+        class="ant-tree-list-holder-inner"
+        style="display: flex; flex-direction: column;"
+      >
+        <div
+          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+        >
+          <span
+            class="ant-tree-switcher ant-tree-switcher_open"
+          >
+            switcherIcon
+          </span>
+          <span
+            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+            title="---"
+          >
+            <span
+              class="ant-tree-title"
+            >
+              ---
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+        >
+          <span
+            aria-hidden="true"
+            class="ant-tree-indent"
+          >
+            <span
+              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+            />
+          </span>
+          <span
+            class="ant-tree-switcher ant-tree-switcher-noop"
+          />
+          <span
+            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+            title="node1"
+          >
+            <span
+              class="ant-tree-title"
+            >
+              node1
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+        >
+          <span
+            aria-hidden="true"
+            class="ant-tree-indent"
+          >
+            <span
+              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+            />
+          </span>
+          <span
+            class="ant-tree-switcher ant-tree-switcher-noop"
+          />
+          <span
+            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+            title="node2"
+          >
+            <span
+              class="ant-tree-title"
+            >
+              node2
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

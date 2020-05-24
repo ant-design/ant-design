@@ -3,7 +3,6 @@ import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import isEqual from 'lodash/isEqual';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
