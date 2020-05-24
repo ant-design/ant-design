@@ -333,9 +333,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     // Prevent `Trigger` behaviour.
     if (inputFocused || popupVisible) {
       e.stopPropagation();
-      if (e.nativeEvent.stopImmediatePropagation) {
-        e.nativeEvent.stopImmediatePropagation();
-      }
     }
   };
 
@@ -352,9 +349,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
+    const { inputValue } = this.state;
     e.preventDefault();
     e.stopPropagation();
-    if (!this.state.inputValue) {
+    if (!inputValue) {
       this.setValue([]);
       this.handlePopupVisibleChange(false);
     } else {
@@ -397,7 +395,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       filtered = flattenOptions.filter(path => filter(this.state.inputValue, path, names));
     }
 
-    filtered.sort((a, b) => sort(a, b, inputValue, names));
+    filtered = filtered.sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
       return filtered.map((path: CascaderOptionType[]) => {
@@ -527,10 +525,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
           if (state.inputValue) {
-            const filteredOptions = this.generateFilteredOptions(prefixCls, renderEmpty);
-            options = isEqual(filteredOptions, this.cachedOptions)
-              ? this.cachedOptions
-              : filteredOptions;
+            options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
           options = [

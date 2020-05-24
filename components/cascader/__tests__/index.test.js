@@ -492,4 +492,20 @@ describe('Cascader', () => {
     const wrapper = mount(<Cascader options={options} defaultValue={['options1', 'options2']} />);
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('options1 / options2');
   });
+
+  it('can be selected when showSearch', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Cascader options={options} onChange={onChange} showSearch />);
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'Zh' } });
+    const popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
+    expect(popupWrapper.find('.ant-cascader-menu').length).toBe(1);
+    popupWrapper
+      .find('.ant-cascader-menu')
+      .at(0)
+      .find('.ant-cascader-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
+  });
 });
