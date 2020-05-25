@@ -133,4 +133,9 @@ describe('Progress', () => {
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
   });
+
+  it('should support steps', () => {
+    const wrapper = mount(<Progress steps={3} />);
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
 });

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -43,7 +43,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
@@ -103,7 +103,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -163,12 +163,12 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -210,7 +210,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
         0%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-btn-group"
   >
@@ -268,12 +268,12 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -315,7 +315,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         30%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
@@ -375,7 +375,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -435,12 +435,12 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -482,7 +482,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -524,12 +524,12 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -551,7 +551,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
     >
       0%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-btn-group"
   >
@@ -609,12 +609,12 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/format.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -656,7 +656,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         75 Days
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -698,12 +698,12 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         Done
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -725,7 +725,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     >
       99.9%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
   >
@@ -747,7 +747,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     >
       99.9%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -807,7 +807,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
         90%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -885,12 +885,12 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/line.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -912,7 +912,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     >
       30%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
   >
@@ -934,7 +934,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     >
       50%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
@@ -974,7 +974,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -1014,7 +1014,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
   >
@@ -1030,8 +1030,8 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         />
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
@@ -1166,7 +1166,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 `;
 
 exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1188,7 +1188,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
     >
       75%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1230,7 +1230,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1272,12 +1272,12 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1303,7 +1303,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
     >
       60%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1357,7 +1357,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
         60%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1411,12 +1411,12 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
         60%
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1442,8 +1442,8 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
         50%
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1477,8 +1477,8 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
         30%
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
   >
@@ -1530,6 +1530,6 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
