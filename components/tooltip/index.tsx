@@ -6,6 +6,7 @@ import { BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
+import { PresetColorType, PresetColorTypes } from '../_util/colors';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -38,6 +39,7 @@ export interface TooltipAlignConfig {
 export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
   style?: React.CSSProperties;
   className?: string;
+  color?: PresetColorType;
   placement?: TooltipPlacement;
   builtinPlacements?: BuildInPlacements;
   openClassName?: string;
@@ -71,6 +73,7 @@ const splitObject = (obj: any, keys: string[]) => {
   });
   return { picked, omitted };
 };
+const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 
 // Fix Tooltip won't hide at disabled button
 // mouse events don't trigger at disabled button in Chrome
@@ -205,6 +208,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     getPopupContainer,
     getTooltipContainer,
     overlayClassName,
+    color,
+    overlayInnerStyle,
   } = props;
   const children = props.children as React.ReactElement<any>;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
@@ -225,7 +230,15 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   const customOverlayClassName = classNames(overlayClassName, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
+    [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
   });
+
+  let formattedOverlayInnerStyle;
+  let arrowContentStyle;
+  if (color && !PresetColorRegex.test(color)) {
+    formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };
+    arrowContentStyle = { background: color };
+  }
 
   return (
     <RcTooltip
@@ -239,6 +252,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       visible={tempVisible}
       onVisibleChange={onVisibleChange}
       onPopupAlign={onPopupAlign}
+      overlayInnerStyle={formattedOverlayInnerStyle}
+      arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>

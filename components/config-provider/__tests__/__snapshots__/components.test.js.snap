@@ -18737,7 +18737,11 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
       >
         <div
           class="config-popover-arrow"
-        />
+        >
+          <span
+            class="config-popover-arrow-content"
+          />
+        </div>
         <div
           class="config-popover-inner"
           role="tooltip"
@@ -18817,7 +18821,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
       >
         <div
           class="config-popover-arrow"
-        />
+        >
+          <span
+            class="config-popover-arrow-content"
+          />
+        </div>
         <div
           class="config-popover-inner"
           role="tooltip"
@@ -18897,7 +18905,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
       >
         <div
           class="config-popover-arrow"
-        />
+        >
+          <span
+            class="config-popover-arrow-content"
+          />
+        </div>
         <div
           class="config-popover-inner"
           role="tooltip"
@@ -18977,7 +18989,11 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
       >
         <div
           class="ant-popover-arrow"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-inner"
           role="tooltip"
@@ -19057,7 +19073,11 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
       >
         <div
           class="ant-popover-arrow"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-inner"
           role="tooltip"
@@ -19137,7 +19157,11 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
       >
         <div
           class="prefix-Popconfirm-arrow"
-        />
+        >
+          <span
+            class="prefix-Popconfirm-arrow-content"
+          />
+        </div>
         <div
           class="prefix-Popconfirm-inner"
           role="tooltip"
@@ -19217,7 +19241,11 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
       >
         <div
           class="config-popover-arrow"
-        />
+        >
+          <span
+            class="config-popover-arrow-content"
+          />
+        </div>
         <div
           class="config-popover-inner"
           role="tooltip"
@@ -19249,7 +19277,11 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
       >
         <div
           class="config-popover-arrow"
-        />
+        >
+          <span
+            class="config-popover-arrow-content"
+          />
+        </div>
         <div
           class="config-popover-inner"
           role="tooltip"
@@ -19281,7 +19313,11 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
       >
         <div
           class="config-popover-arrow"
-        />
+        >
+          <span
+            class="config-popover-arrow-content"
+          />
+        </div>
         <div
           class="config-popover-inner"
           role="tooltip"
@@ -19313,7 +19349,11 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
       >
         <div
           class="ant-popover-arrow"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-inner"
           role="tooltip"
@@ -19345,7 +19385,11 @@ exports[`ConfigProvider components Popover normal 1`] = `
       >
         <div
           class="ant-popover-arrow"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-inner"
           role="tooltip"
@@ -19377,7 +19421,11 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
       >
         <div
           class="prefix-Popover-arrow"
-        />
+        >
+          <span
+            class="prefix-Popover-arrow-content"
+          />
+        </div>
         <div
           class="prefix-Popover-inner"
           role="tooltip"
@@ -22630,7 +22678,11 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
       >
         <div
           class="config-tooltip-arrow"
-        />
+        >
+          <span
+            class="config-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="config-tooltip-inner"
           role="tooltip"
@@ -22680,7 +22732,11 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
       >
         <div
           class="config-tooltip-arrow"
-        />
+        >
+          <span
+            class="config-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="config-tooltip-inner"
           role="tooltip"
@@ -22730,7 +22786,11 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
       >
         <div
           class="config-tooltip-arrow"
-        />
+        >
+          <span
+            class="config-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="config-tooltip-inner"
           role="tooltip"
@@ -22780,7 +22840,11 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -22830,7 +22894,11 @@ exports[`ConfigProvider components Slider normal 1`] = `
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -22880,7 +22948,11 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
       >
         <div
           class="prefix-Slider-tooltip-arrow"
-        />
+        >
+          <span
+            class="prefix-Slider-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="prefix-Slider-tooltip-inner"
           role="tooltip"
@@ -34541,7 +34613,11 @@ Array [
       >
         <div
           class="config-tooltip-arrow"
-        />
+        >
+          <span
+            class="config-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="config-tooltip-inner"
           role="tooltip"
@@ -34571,7 +34647,11 @@ Array [
       >
         <div
           class="config-tooltip-arrow"
-        />
+        >
+          <span
+            class="config-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="config-tooltip-inner"
           role="tooltip"
@@ -34601,7 +34681,11 @@ Array [
       >
         <div
           class="config-tooltip-arrow"
-        />
+        >
+          <span
+            class="config-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="config-tooltip-inner"
           role="tooltip"
@@ -34631,7 +34715,11 @@ Array [
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -34661,7 +34749,11 @@ Array [
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -34691,7 +34783,11 @@ Array [
       >
         <div
           class="prefix-Tooltip-arrow"
-        />
+        >
+          <span
+            class="prefix-Tooltip-arrow-content"
+          />
+        </div>
         <div
           class="prefix-Tooltip-inner"
           role="tooltip"

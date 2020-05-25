@@ -964,7 +964,11 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
