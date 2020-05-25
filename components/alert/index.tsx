@@ -49,11 +49,9 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
   handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const dom = ReactDOM.findDOMNode(this) as HTMLElement;
-    dom.style.height = `${dom.offsetHeight}px`;
-    // Magic code
-    // 重复一次后才能正确设置 height
-    dom.style.height = `${dom.offsetHeight}px`;
-
+    requestAnimationFrame(() => {
+      dom.style.height = `${dom.offsetHeight}px`;
+    })
     this.setState({
       closing: false,
     });
