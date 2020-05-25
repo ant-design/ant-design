@@ -66,7 +66,6 @@ const Dropdown: DropdownInterface = props => {
   const getTransitionName = () => {
     const { placement = '', transitionName } = props;
     if (transitionName !== undefined) {
-      console.log('transitionName');
       return transitionName;
     }
     if (placement.indexOf('top') >= 0) {
