@@ -14,7 +14,7 @@ title:
 We preset a series of colorful Badge styles for use in different situations. You can also set it to a hex color string for custom color.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge, Divider } from 'antd';
 
 const colors = [
   'pink',
@@ -34,7 +34,7 @@ const colors = [
 
 ReactDOM.render(
   <div>
-    <h4 style={{ marginBottom: 16 }}>Presets:</h4>
+    <Divider orientation="left">Presets</Divider>
     <div>
       {colors.map(color => (
         <div key={color}>
@@ -42,7 +42,7 @@ ReactDOM.render(
         </div>
       ))}
     </div>
-    <h4 style={{ margin: '16px 0' }}>Custom:</h4>
+    <Divider orientation="left">Custom</Divider>
     <div>
       <Badge color="#f50" text="#f50" />
       <br />

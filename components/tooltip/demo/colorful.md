@@ -14,7 +14,7 @@ title:
 We preset a series of colorful Tooltip styles for use in different situations.
 
 ```jsx
-import { Tooltip, Button } from 'antd';
+import { Tooltip, Button, Divider } from 'antd';
 
 const colors = [
   'pink',
@@ -34,8 +34,8 @@ const colors = [
 const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
 ReactDOM.render(
-  <div>
-    <h4 style={{ marginBottom: 16 }}>Presets:</h4>
+  <>
+    <Divider orientation="left">Presets</Divider>
     <div>
       {colors.map(color => (
         <Tooltip title="prompt text" color={color} key={color}>
@@ -43,7 +43,7 @@ ReactDOM.render(
         </Tooltip>
       ))}
     </div>
-    <h4 style={{ marginBottom: 16 }}>Custom:</h4>
+    <Divider orientation="left">Custom</Divider>
     <div>
       {customColors.map(color => (
         <Tooltip title="prompt text" color={color} key={color}>
@@ -51,7 +51,7 @@ ReactDOM.render(
         </Tooltip>
       ))}
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```
