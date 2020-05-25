@@ -146,4 +146,9 @@ describe('Avatar Render', () => {
     );
     warnSpy.mockRestore();
   });
+
+  it('support size is number', () => {
+    const wrapper = mount(<Avatar size={100}>TestString</Avatar>);
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
 });
