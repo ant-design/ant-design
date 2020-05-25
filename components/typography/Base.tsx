@@ -334,6 +334,13 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     // force render expand icon for measure usage or it will cause dead loop
     if (!forceRender && (expanded || !isEllipsis)) return null;
 
+    let expandContent: React.ReactNode;
+    if (symbol) {
+      expandContent = symbol;
+    } else {
+      expandContent = this.expandStr;
+    }
+
     return (
       <a
         key="expand"
@@ -341,7 +348,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         onClick={this.onExpandClick}
         aria-label={this.expandStr}
       >
-        {symbol ? symbol : this.expandStr}
+        {expandContent}
       </a>
     );
   }
