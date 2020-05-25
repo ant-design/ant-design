@@ -38,9 +38,10 @@ genCss(
 );
 
 const options = {
+  antDir: path.join(__dirname, '../node_modules/antd'),
   stylesDir: path.join(__dirname, '../site/theme/static'),
-  antdStylesDir: path.join(__dirname, '../components'),
-  varFile: path.join(__dirname, '../components/style/themes/default.less'),
+  antdStylesDir: path.join(__dirname, '../node_modules/antd/lib/'),
+  varFile: path.join(__dirname, '../site/theme/static/theme.less'),
   mainLessFile: path.join(__dirname, '../site/theme/static/index.less'),
   themeVariables: ['@primary-color'],
   outputFilePath: path.join(__dirname, '../_site/color.less'),
