@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 1`] = `
-<span
-  class="ant-dropdown-trigger ant-dropdown-rtl"
-/>
-`;
-
-exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-btn-group ant-btn-group-rtl ant-dropdown-button"
 >

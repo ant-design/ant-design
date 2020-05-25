@@ -9436,9 +9436,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
       class="config-comment-content"
     >
       <div
-        class="config-comment-content-author"
-      />
-      <div
         class="config-comment-content-detail"
       >
         Bamboo
@@ -9457,9 +9454,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
         <div
           class="config-comment-content"
         >
-          <div
-            class="config-comment-content-author"
-          />
           <div
             class="config-comment-content-detail"
           >
@@ -9483,9 +9477,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
       class="config-comment-content"
     >
       <div
-        class="config-comment-content-author"
-      />
-      <div
         class="config-comment-content-detail"
       >
         Bamboo
@@ -9504,9 +9495,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
         <div
           class="config-comment-content"
         >
-          <div
-            class="config-comment-content-author"
-          />
           <div
             class="config-comment-content-detail"
           >
@@ -9530,9 +9518,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
       class="config-comment-content"
     >
       <div
-        class="config-comment-content-author"
-      />
-      <div
         class="config-comment-content-detail"
       >
         Bamboo
@@ -9551,9 +9536,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
         <div
           class="config-comment-content"
         >
-          <div
-            class="config-comment-content-author"
-          />
           <div
             class="config-comment-content-detail"
           >
@@ -9577,9 +9559,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
       class="ant-comment-content"
     >
       <div
-        class="ant-comment-content-author"
-      />
-      <div
         class="ant-comment-content-detail"
       >
         Bamboo
@@ -9598,9 +9577,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
         <div
           class="ant-comment-content"
         >
-          <div
-            class="ant-comment-content-author"
-          />
           <div
             class="ant-comment-content-detail"
           >
@@ -9624,9 +9600,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
       class="prefix-Comment-content"
     >
       <div
-        class="prefix-Comment-content-author"
-      />
-      <div
         class="prefix-Comment-content-detail"
       >
         Bamboo
@@ -9645,9 +9618,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
         <div
           class="prefix-Comment-content"
         >
-          <div
-            class="prefix-Comment-content-author"
-          />
           <div
             class="prefix-Comment-content-detail"
           >
