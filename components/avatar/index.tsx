@@ -12,6 +12,7 @@ export interface AvatarProps {
    * or a custom number size
    * */
   size?: 'large' | 'small' | 'default' | number;
+  gap?: number;
   /** Src of image avatar */
   src?: string;
   /** Srcset of image avatar */
@@ -61,9 +62,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   }
 
   componentDidUpdate(prevProps: AvatarProps) {
-    this.setScale();
     if (prevProps.src !== this.props.src) {
       this.setState({ isImgExist: true, scale: 1 });
+    }
+    if (prevProps.children !== this.props.children || prevProps.gap !== this.props.gap) {
+      this.setScale();
     }
   }
 
@@ -73,20 +76,22 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
     const childrenWidth = this.avatarChildren.offsetWidth; // offsetWidth avoid affecting be transform scale
     const nodeWidth = this.avatarNode.offsetWidth;
+    const { gap = 4 } = this.props;
     // denominator is 0 is no meaning
     if (
-      childrenWidth === 0 ||
-      nodeWidth === 0 ||
-      (this.lastChildrenWidth === childrenWidth && this.lastNodeWidth === nodeWidth)
+      childrenWidth !== 0 &&
+      nodeWidth !== 0 &&
+      (this.lastChildrenWidth !== childrenWidth || this.lastNodeWidth !== nodeWidth)
     ) {
-      return;
+      this.lastChildrenWidth = childrenWidth;
+      this.lastNodeWidth = nodeWidth;
     }
-    this.lastChildrenWidth = childrenWidth;
-    this.lastNodeWidth = nodeWidth;
-    // add 4px gap for each side to get better performance
-    this.setState({
-      scale: nodeWidth - 8 < childrenWidth ? (nodeWidth - 8) / childrenWidth : 1,
-    });
+
+    if (gap * 2 < nodeWidth) {
+      this.setState({
+        scale: nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1,
+      });
+    }
   };
 
   handleImgLoadError = () => {
@@ -199,7 +204,6 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
     return (
       <span
-        {...others}
         style={{ ...sizeStyle, ...others.style }}
         className={classString}
         ref={(node: HTMLElement) => (this.avatarNode = node)}
