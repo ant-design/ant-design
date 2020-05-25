@@ -57,6 +57,7 @@
     "presite": "npm run version",
     "color-less": "node ./scripts/generate-color-less",
     "compile": "antd-tools run compile",
+    "compile:less": "antd-tools run compile:less",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r .circleci/ .github/ _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
@@ -88,7 +89,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
-    "test:image": "npm install puppeteer@2.1.1 --no-save && jest --config .jest.image.js --no-cache",
+    "test-image": "npm run compile:less && docker-compose run tests",
     "version": "node ./scripts/generate-version"
   },
   "husky": {
@@ -152,7 +153,7 @@
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^8.2.0",
+    "@ant-design/tools": "^9.0.0",
     "@bundle-analyzer/webpack-plugin": "^0.5.1",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
