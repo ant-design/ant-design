@@ -29,7 +29,7 @@ const Autoset: React.FC = () => {
     setColor(index < ColorList.length - 1 ? ColorList[index + 1] : ColorList[0]);
   };
   return (
-    <div>
+    <>
       <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large">
         {user}
       </Avatar>
@@ -40,7 +40,7 @@ const Autoset: React.FC = () => {
       >
         Change
       </Button>
-    </div>
+    </>
   );
 };
 
