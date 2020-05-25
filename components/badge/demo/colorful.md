@@ -33,7 +33,7 @@ const colors = [
 ];
 
 ReactDOM.render(
-  <div>
+  <>
     <Divider orientation="left">Presets</Divider>
     <div>
       {colors.map(color => (
@@ -52,7 +52,7 @@ ReactDOM.render(
       <br />
       <Badge color="#108ee9" text="#108ee9" />
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```

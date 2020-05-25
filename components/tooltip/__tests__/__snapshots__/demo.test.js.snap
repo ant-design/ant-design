@@ -52,12 +52,17 @@ exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
-<div>
-  <h4
-    style="margin-bottom:16px"
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Presets:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
   <div>
     <button
       class="ant-btn"
@@ -163,12 +168,17 @@ exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
         lime
       </span>
     </button>
-  </div>
-  <h4
-    style="margin-bottom:16px"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Custom:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
   <div>
     <button
       class="ant-btn"
@@ -202,8 +212,8 @@ exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
         #108ee9
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.md correctly 1`] = `
