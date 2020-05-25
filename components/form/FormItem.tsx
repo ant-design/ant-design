@@ -47,7 +47,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   required?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
-  fieldKey?: number;
+  fieldKey?: NamePath;
 }
 
 function hasValidName(name?: NamePath): Boolean {
@@ -254,10 +254,13 @@ function FormItem(props: FormItemProps): React.ReactElement {
         const fieldId = getFieldId(mergedName, formName);
 
         if (noStyle) {
-          nameRef.current = [...mergedName];
           if (fieldKey) {
-            nameRef.current[nameRef.current.length - 1] = fieldKey;
+            const fileKeyArray = toArray(fieldKey);
+            nameRef.current = [...mergedName.slice(0, -1 - fileKeyArray.length), ...fileKeyArray];
+          } else {
+            nameRef.current = [...mergedName];
           }
+
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
 
