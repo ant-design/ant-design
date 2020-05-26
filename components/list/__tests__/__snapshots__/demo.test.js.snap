@@ -37,15 +37,15 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design"
+                  href="https://varnish.allenai.org/"
                 >
-                  Ant Design Title 1
+                  Varnish Title 1
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Varnish, a design language for background applications, is refined by AI2
               </div>
             </div>
           </div>
@@ -74,15 +74,15 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design"
+                  href="https://varnish.allenai.org/"
                 >
-                  Ant Design Title 2
+                  Varnish Title 2
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Varnish, a design language for background applications, is refined by AI2
               </div>
             </div>
           </div>
@@ -111,15 +111,15 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design"
+                  href="https://varnish.allenai.org/"
                 >
-                  Ant Design Title 3
+                  Varnish Title 3
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Varnish, a design language for background applications, is refined by AI2
               </div>
             </div>
           </div>
@@ -148,15 +148,15 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design"
+                  href="https://varnish.allenai.org/"
                 >
-                  Ant Design Title 4
+                  Varnish Title 4
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                Varnish, a design language for background applications, is refined by AI2
               </div>
             </div>
           </div>
@@ -917,15 +917,15 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   class="ant-list-item-meta-title"
                 >
                   <a
-                    href="https://ant.design"
+                    href="https://varnish.allenai.org/"
                   >
-                    ant design part 0
+                    varnish part 0
                   </a>
                 </h4>
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                  Varnish, a design language for background applications, is refined by AI2.
                 </div>
               </div>
             </div>
@@ -1086,15 +1086,15 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   class="ant-list-item-meta-title"
                 >
                   <a
-                    href="https://ant.design"
+                    href="https://varnish.allenai.org/"
                   >
-                    ant design part 1
+                    varnish part 1
                   </a>
                 </h4>
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                  Varnish, a design language for background applications, is refined by AI2.
                 </div>
               </div>
             </div>
@@ -1255,15 +1255,15 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   class="ant-list-item-meta-title"
                 >
                   <a
-                    href="https://ant.design"
+                    href="https://varnish.allenai.org/"
                   >
-                    ant design part 2
+                    varnish part 2
                   </a>
                 </h4>
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                  Varnish, a design language for background applications, is refined by AI2.
                 </div>
               </div>
             </div>
@@ -1405,7 +1405,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
   >
     <div>
       <b>
-        ant design
+        varnish
       </b>
        footer part
     </div>

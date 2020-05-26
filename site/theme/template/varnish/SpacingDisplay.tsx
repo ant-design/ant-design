@@ -41,7 +41,7 @@ class SpacingRow extends React.PureComponent<SpacingRowProps> {
 const SpacingGrid = styled.div`
   display: grid;
   align-items: center;
-  grid-gap: ${({ theme }) => theme.spacing.lg};
+  gap: ${({ theme }) => theme.spacing.lg};
 `;
 
 const Key = styled.div`
@@ -54,7 +54,7 @@ const Px = styled.div`
 
 const Example = styled.div<{ width: string }>`
   display: grid;
-  grid-gap: ${props => props.width};
+  gap: ${props => props.width};
   grid-template-columns: repeat(6, min-content);
   grid-column: 4;
   overflow: hidden;

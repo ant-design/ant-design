@@ -65,7 +65,7 @@ class AsyncMention extends React.Component {
     return (
       <Mentions style={{ width: '100%' }} loading={loading} onSearch={this.onSearch}>
         {users.map(({ login, avatar_url: avatar }) => (
-          <Option key={login} value={login} className="antd-demo-dynamic-option">
+          <Option key={login} value={login} className="varnish-demo-dynamic-option">
             <img src={avatar} alt={login} />
             <span>{login}</span>
           </Option>
@@ -79,7 +79,7 @@ ReactDOM.render(<AsyncMention />, mountNode);
 ```
 
 <style>
-.antd-demo-dynamic-option img {
+.varnish-demo-dynamic-option img {
   width: 20px;
   height: 20px;
   margin-right: 8px;

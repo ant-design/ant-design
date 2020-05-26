@@ -206,14 +206,14 @@ fieldset,
     margin: ${vars.getRefOrError('spacing.md')} 0;
     padding: 0 ${vars.getRefOrError('spacing.md')};
     display: grid;
-    grid-gap: ${vars.getRefOrError('spacing.xxs')};
+    gap: ${vars.getRefOrError('spacing.xxs')};
 }
 
 .checklist li,
 .radiolist li {
     display: grid;
     grid-template-columns: min-content auto;
-    grid-gap: ${vars.getRefOrError('spacing.xxs')};
+    gap: ${vars.getRefOrError('spacing.xxs')};
     align-items: center;
 }
 

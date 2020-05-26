@@ -30,8 +30,8 @@ ReactDOM.render(
       duplication and reduce the efficiency of development.
     </Paragraph>
     <Paragraph>
-      After massive project practice and summaries, Ant Design, a design language for background
-      applications, is refined by Ant UED Team, which aims to
+      After massive project practice and summaries,  Varnish, a design language for background
+      applications, is refined by AI2, which aims to {' '}
       <Text strong>
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and

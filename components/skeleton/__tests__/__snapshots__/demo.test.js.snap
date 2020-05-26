@@ -54,7 +54,7 @@ exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
 >
   <div>
     <h4>
-      Ant Design, a design language
+      Varnish, a design language
     </h4>
     <p>
       We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.

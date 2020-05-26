@@ -168,7 +168,7 @@ ReactDOM.render(
           content
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Varnish ©2020 Created by AI2</Footer>
     </Layout>
   </Layout>,
   mountNode,

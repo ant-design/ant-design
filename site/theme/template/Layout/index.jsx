@@ -208,10 +208,7 @@ export default class Layout extends React.Component {
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
     const { appLocale, direction, isMobile } = this.state;
-    const title =
-      appLocale.locale === 'zh-CN'
-        ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
-        : "Ant Design - The world's second most popular React UI framework";
+    const title = 'Varnish';
     const description =
       appLocale.locale === 'zh-CN'
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'

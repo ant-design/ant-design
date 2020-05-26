@@ -21,21 +21,21 @@ const { Paragraph } = Typography;
 ReactDOM.render(
   <div>
     <Paragraph ellipsis>
-      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-      Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-      a design language for background applications, is refined by Ant UED Team. Ant Design, a
-      design language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team.
+      Varnish, a design language for background applications, is refined by AI2. Varnish, a design
+      language for background applications, is refined by AI2. Varnish, a design language for
+      background applications, is refined by AI2. Varnish, a design language for background
+      applications, is refined by AI2. Varnish, a design language for background applications, is
+      refined by AI2. Varnish, a design language for background applications, is refined by AI2.
+      Varnish, a design language for background applications, is refined by AI2.
     </Paragraph>
 
     <Paragraph ellipsis={{ rows: 3, expandable: true }}>
-      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
-      Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
-      a design language for background applications, is refined by Ant UED Team. Ant Design, a
-      design language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team. Ant Design, a design
-      language for background applications, is refined by Ant UED Team.
+      Varnish, a design language for background applications, is refined by AI2. Varnish, a design
+      language for background applications, is refined by AI2. Varnish, a design language for
+      background applications, is refined by AI2. Varnish, a design language for background
+      applications, is refined by AI2. Varnish, a design language for background applications, is
+      refined by AI2. Varnish, a design language for background applications, is refined by AI2.
+      Varnish, a design language for background applications, is refined by AI2.
     </Paragraph>
   </div>,
   mountNode,

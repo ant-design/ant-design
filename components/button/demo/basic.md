@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-There are `primary` button, `default` button, `dashed` button and `link` button in antd.
+There are `primary` button, `default` button, `dashed` button and `link` button in Varnish.
 
 ```jsx
 import { Button } from '@allenai/varnish';

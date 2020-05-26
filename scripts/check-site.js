@@ -62,14 +62,14 @@ describe('site test', () => {
   it('Basic Pages en', async () => {
     const { status, $ } = await render('/');
     expect($('title').text()).toEqual(
-      `Ant Design - The world's second most popular React UI framework`,
+      `Varnish`,
     );
     expect(status).toBe(200);
   });
 
   it('Basic Pages zh', async () => {
     const { status, $ } = await render('/index-cn');
-    expect($('title').text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
+    expect($('title').text()).toEqual(`Varnish`);
     expect(status).toBe(200);
   });
 

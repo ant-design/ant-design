@@ -18,16 +18,16 @@ import { List, Avatar } from '@allenai/varnish';
 
 const data = [
   {
-    title: 'Ant Design Title 1',
+    title: 'Varnish Title 1',
   },
   {
-    title: 'Ant Design Title 2',
+    title: 'Varnish Title 2',
   },
   {
-    title: 'Ant Design Title 3',
+    title: 'Varnish Title 3',
   },
   {
-    title: 'Ant Design Title 4',
+    title: 'Varnish Title 4',
   },
 ];
 
@@ -39,8 +39,8 @@ ReactDOM.render(
       <List.Item>
         <List.Item.Meta
           avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title={<a href="https://ant.design">{item.title}</a>}
-          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+          title={<a href="https://varnish.allenai.org/">{item.title}</a>}
+          description="Varnish, a design language for background applications, is refined by AI2"
         />
       </List.Item>
     )}

@@ -1,8 +1,8 @@
 ---
 order: 999
 title:
-  zh-CN: 4.0 Debug
-  en-US: 4.0 Debug
+  zh-CN: Debug
+  en-US: Debug
 debug: true
 ---
 
@@ -59,7 +59,7 @@ ReactDOM.render(
       <Option value="Yiminghe">yiminghe</Option>
       <Option value="long">I am super super long!</Option>
     </Select>
-    <span className="debug-align">AntDesign</span>
+    <span className="debug-align">Varnish</span>
     <Button>222</Button>
   </div>,
   mountNode,

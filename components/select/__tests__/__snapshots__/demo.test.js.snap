@@ -276,11 +276,6 @@ Array [
 
 exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
 Array [
-  <h3
-    class="ant-typography"
-  >
-    Ant Design 4.0
-  </h3>,
   <h4
     class="ant-typography"
   >
@@ -365,20 +360,6 @@ Array [
       </span>
     </div>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
-    role="separator"
-  />,
-  <h3
-    class="ant-typography"
-  >
-    Ant Design 3.0
-  </h3>,
-  <iframe
-    src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%;height:300px"
-    title="Ant Design 3.0 Select demo"
-  />,
 ]
 `;
 
@@ -863,7 +844,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
   <span
     class="debug-align"
   >
-    AntDesign
+    Varnish
   </span>
   <button
     class="ant-btn"

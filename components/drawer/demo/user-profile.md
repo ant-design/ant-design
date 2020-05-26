@@ -64,7 +64,7 @@ class App extends React.Component {
                 avatar={
                   <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
                 }
-                title={<a href="https://ant.design/index-cn">{item.name}</a>}
+                title={<a href="https://varnish.allenai.org/">{item.name}</a>}
                 description="Progresser XTech"
               />
             </List.Item>
@@ -86,7 +86,7 @@ class App extends React.Component {
               <DescriptionItem title="Full Name" content="Lily" />
             </Col>
             <Col span={12}>
-              <DescriptionItem title="Account" content="AntDesign@example.com" />
+              <DescriptionItem title="Account" content="Varnish@example.com" />
             </Col>
           </Row>
           <Row>
@@ -143,7 +143,7 @@ class App extends React.Component {
           <p className="site-description-item-profile-p">Contacts</p>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Email" content="AntDesign@example.com" />
+              <DescriptionItem title="Email" content="Varnish@example.com" />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Phone Number" content="+86 181 0000 0000" />
