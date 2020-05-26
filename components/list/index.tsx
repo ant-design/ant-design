@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
@@ -67,7 +66,26 @@ export const ListContext = React.createContext<ListConsumerProps>({});
 
 export const ListConsumer = ListContext.Consumer;
 
-function List<T>({ pagination, ...props }: ListProps<T>) {
+function List<T>({
+  pagination = false as ListProps<any>['pagination'],
+  prefixCls: customizePrefixCls,
+  bordered = false,
+  split = true,
+  className,
+  children,
+  itemLayout,
+  loadMore,
+  grid,
+  dataSource = [],
+  size,
+  header,
+  footer,
+  loading = false,
+  rowKey,
+  renderItem,
+  locale,
+  ...rest
+}: ListProps<T>) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
   const [paginationCurrent, setPaginationCurrent] = React.useState(
@@ -98,9 +116,8 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
 
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
-  const renderItem = (item: any, index: number) => {
-    const { rowKey } = props;
-    if (!props.renderItem) return null;
+  const renderInnerItem = (item: any, index: number) => {
+    if (!renderItem) return null;
 
     let key;
 
@@ -118,40 +135,20 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
 
     keys[index] = key;
 
-    return props.renderItem(item, index);
+    return renderItem(item, index);
   };
 
   const isSomethingAfterLastItem = () => {
-    const { loadMore, footer } = props;
     return !!(loadMore || pagination || footer);
   };
 
   const renderEmptyFunc = (prefixCls: string, renderEmptyHandler: RenderEmptyHandler) => {
-    const { locale } = props;
-
     return (
       <div className={`${prefixCls}-empty-text`}>
         {(locale && locale.emptyText) || renderEmptyHandler('List')}
       </div>
     );
   };
-
-  const {
-    prefixCls: customizePrefixCls,
-    bordered,
-    split,
-    className,
-    children,
-    itemLayout,
-    loadMore,
-    grid,
-    dataSource = [],
-    size,
-    header,
-    footer,
-    loading,
-    ...rest
-  } = props;
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   let loadingProp = loading;
@@ -246,7 +243,7 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
 
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
-    const items = splitDataSource.map((item: any, index: number) => renderItem(item, index));
+    const items = splitDataSource.map((item: any, index: number) => renderInnerItem(item, index));
     const childrenList = React.Children.map(items, (child: any, index) =>
       cloneElement(child, {
         key: keys[index],
@@ -265,8 +262,8 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
   const paginationPosition = paginationProps.position || 'bottom';
 
   return (
-    <ListContext.Provider value={{ grid: props.grid, itemLayout: props.itemLayout }}>
-      <div className={classString} {...omit(rest, ['rowKey', 'renderItem', 'locale'])}>
+    <ListContext.Provider value={{ grid, itemLayout }}>
+      <div className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
@@ -280,14 +277,6 @@ function List<T>({ pagination, ...props }: ListProps<T>) {
     </ListContext.Provider>
   );
 }
-
-List.defaultProps = {
-  dataSource: [],
-  bordered: false,
-  split: true,
-  loading: false,
-  pagination: false as ListProps<any>['pagination'],
-};
 
 List.Item = Item;
 

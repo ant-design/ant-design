@@ -3,7 +3,6 @@ import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import isEqual from 'lodash/isEqual';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
@@ -91,6 +90,8 @@ export interface CascaderProps {
   disabled?: boolean;
   /** 是否支持清除 */
   allowClear?: boolean;
+  /** 自动获取焦点 */
+  autoFocus?: boolean;
   showSearch?: boolean | ShowSearchType;
   notFoundContent?: React.ReactNode;
   loadData?: (selectedOptions?: CascaderOptionType[]) => void;
@@ -331,9 +332,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     // Prevent `Trigger` behaviour.
     if (inputFocused || popupVisible) {
       e.stopPropagation();
-      if (e.nativeEvent.stopImmediatePropagation) {
-        e.nativeEvent.stopImmediatePropagation();
-      }
     }
   };
 
@@ -350,9 +348,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
+    const { inputValue } = this.state;
     e.preventDefault();
     e.stopPropagation();
-    if (!this.state.inputValue) {
+    if (!inputValue) {
       this.setValue([]);
       this.handlePopupVisibleChange(false);
     } else {
@@ -395,7 +394,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       filtered = flattenOptions.filter(path => filter(this.state.inputValue, path, names));
     }
 
-    filtered.sort((a, b) => sort(a, b, inputValue, names));
+    filtered = filtered.sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
       return filtered.map((path: CascaderOptionType[]) => {
@@ -525,17 +524,13 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
           if (state.inputValue) {
-            const filteredOptions = this.generateFilteredOptions(prefixCls, renderEmpty);
-            options = isEqual(filteredOptions, this.cachedOptions)
-              ? this.cachedOptions
-              : filteredOptions;
+            options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
           options = [
             {
               [names.label]: notFoundContent || renderEmpty('Cascader'),
               [names.value]: 'ANT_CASCADER_NOT_FOUND',
-              disabled: true,
             },
           ];
         }
@@ -610,8 +605,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
         const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon', 'bordered']);
-        const rcCascaderRtlPopupClassName = classNames(popupClassName, {
+        const rcCascaderPopupClassName = classNames(popupClassName, {
           [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
+          [`${prefixCls}-menu-empty`]:
+            options.length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND',
         });
         return (
           <RcCascader
@@ -626,7 +623,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             dropdownMenuColumnStyle={dropdownMenuColumnStyle}
             expandIcon={expandIcon}
             loadingIcon={loadingIcon}
-            popupClassName={rcCascaderRtlPopupClassName}
+            popupClassName={rcCascaderPopupClassName}
             popupPlacement={this.getPopupPlacement(direction)}
           >
             {input}

@@ -23,7 +23,7 @@ ReactDOM.render(
     </Button>
     <Button danger>Default</Button>
     <Button type="dashed" danger>
-      link
+      Dashed
     </Button>
     <Button type="link" danger>
       link

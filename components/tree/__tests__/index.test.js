@@ -42,4 +42,16 @@ describe('Tree', () => {
     );
     expect(wrapper.find('.switcherIcon').length).toBe(1);
   });
+
+  it('switcherIcon in Tree could be string', () => {
+    const wrapper = mount(
+      <Tree switcherIcon="switcherIcon" defaultExpandAll>
+        <TreeNode icon="icon">
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          <TreeNode id="node2" title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

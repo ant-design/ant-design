@@ -204,6 +204,11 @@
         background: transparent;
       }
     }
+    .@{cascader-prefix-cls}-menu-empty & {
+      color: @disabled-color;
+      cursor: default;
+      pointer-events: none;
+    }
     &-active:not(&-disabled) {
       &,
       &:hover {
