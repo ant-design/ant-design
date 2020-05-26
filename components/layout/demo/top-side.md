@@ -67,7 +67,7 @@ ReactDOM.render(
         <Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
       </Layout>
     </Content>
-    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+    <Footer style={{ textAlign: 'center' }}>Varnish ©2020 Created by AI2</Footer>
   </Layout>,
   mountNode,
 );

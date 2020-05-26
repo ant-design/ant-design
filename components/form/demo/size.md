@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-设置表单组件尺寸，仅对 antd 组件有效。
+设置表单组件尺寸，仅对 Varnish 组件有效。
 
 ## en-US
 
-Set component size, only works for antd components.
+Set component size, only works for Varnish components.
 
 ```tsx
 import React, { useState } from 'react';

@@ -181,7 +181,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     role="menuitem"
   >
     <a
-      href="https://ant.design"
+      href="https://varnish.allenai.org/"
       rel="noopener noreferrer"
       target="_blank"
     >
@@ -1054,11 +1054,11 @@ Array [
       </span>
       <span>
         <a
-          href="https://ant.design"
+          href="https://varnish.allenai.org/"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Ant Design
+          Varnish
         </a>
       </span>
     </li>

@@ -23,7 +23,7 @@ const renderTitle = (title: string) => {
       {title}
       <a
         style={{ float: 'right' }}
-        href="https://www.google.com/search?q=antd"
+        href="https://www.google.com/search?q=ai2"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -55,15 +55,15 @@ const renderItem = (title: string, count: number) => {
 const options = [
   {
     label: renderTitle('Libraries'),
-    options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
+    options: [renderItem('Varnish', 10000), renderItem('Varnish UI', 10600)],
   },
   {
     label: renderTitle('Solutions'),
-    options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
+    options: [renderItem('Varnish UI FAQ', 60100), renderItem('Varnish FAQ', 30010)],
   },
   {
     label: renderTitle('Articles'),
-    options: [renderItem('AntDesign design language', 100000)],
+    options: [renderItem('Varnish design language', 100000)],
   },
 ];
 

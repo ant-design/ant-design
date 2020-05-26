@@ -47,16 +47,15 @@ class Demo extends React.Component {
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
         {longText ? (
           <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>
-            Ant Design, a design language for background applications, is refined by Ant UED Team.
+            Varnish, a design language for background applications, is refined by AI2.
             This is a nest sample{' '}
             <Text code strong delete>
               Test
             </Text>{' '}
-            case. Bnt Design, a design language for background applications, is refined by Ant UED
-            Team. Cnt Design, a design language for background applications, is refined by Ant UED
-            Team. Dnt Design, a design language for background applications, is refined by Ant UED
-            Team. Ent Design, a design language for background applications, is refined by Ant UED
-            Team.
+            case. BVarnish, a design language for background applications, is refined by AI2
+            . CVarnish, a design language for background applications, is refined by AI2
+            . DVarnish, a design language for background applications, is refined by AI2
+            . EVarnish, a design language for background applications, is refined by AI2.
           </Paragraph>
         ) : (
           <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>

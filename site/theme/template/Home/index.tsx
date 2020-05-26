@@ -9,9 +9,7 @@ export default function Home() {
         <h2> Welcome </h2>
         <br />
         <p>
-          This is a demonstration of <a href="https://github.com/allenai/varnish">Varnish</a>, a
-          custom theme provider for both <a href="https://ant.design">Ant Design</a> and{' '}
-          <a href="https://www.styled-components.com/">Styled-Components</a>.
+          This is a demonstration of <a href="https://github.com/allenai/varnish">Varnish</a>.
         </p>
         <p>Varnish provides common AI2 Styled-Components, components, and utilities.</p>
         <p>

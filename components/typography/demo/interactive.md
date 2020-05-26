@@ -33,7 +33,7 @@ class Demo extends React.Component {
       <div>
         <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>
         <Paragraph copyable>This is a copyable text.</Paragraph>
-        <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+        <Paragraph copyable={{ text: 'Hello, Varnish!' }}>Replace copy text.</Paragraph>
       </div>
     );
   }

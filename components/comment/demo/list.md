@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Displaying a series of comments using the `antd` List Component.
+Displaying a series of comments using the `Varnish` List Component.
 
 ```jsx
 import { Comment, Tooltip, List } from '@allenai/varnish';

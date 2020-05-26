@@ -261,7 +261,7 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design/index-cn"
+                  href="https://varnish.allenai.org/"
                 >
                   Lily
                 </a>
@@ -307,7 +307,7 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design/index-cn"
+                  href="https://varnish.allenai.org/"
                 >
                   Lily
                 </a>

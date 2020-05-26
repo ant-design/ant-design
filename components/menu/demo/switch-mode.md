@@ -79,8 +79,8 @@ class Sider extends React.Component {
             <Menu.Item key="10">Option 10</Menu.Item>
           </SubMenu>
           <Menu.Item key="link" icon={<LinkOutlined />}>
-            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-              Ant Design
+            <a href="https://varnish.allenai.org/" target="_blank" rel="noopener noreferrer">
+              Varnish
             </a>
           </Menu.Item>
         </Menu>

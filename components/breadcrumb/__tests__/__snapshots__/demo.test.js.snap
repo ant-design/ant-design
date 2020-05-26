@@ -71,7 +71,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
     <span
       class="ant-breadcrumb-link"
     >
-      Ant Design
+      Varnish
     </span>
     <span
       class="ant-breadcrumb-separator"

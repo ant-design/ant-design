@@ -443,7 +443,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©2018 Created by Ant UED
+    Varnish ©2020 Created by AI2
   </footer>
 </section>
 `;
@@ -819,7 +819,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©2018 Created by Ant UED
+      Varnish ©2020 Created by AI2
     </footer>
   </section>
 </section>
@@ -1000,7 +1000,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©2018 Created by Ant UED
+      Varnish ©2020 Created by AI2
     </footer>
   </section>
 </section>
@@ -1270,7 +1270,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©2018 Created by Ant UED
+      Varnish ©2020 Created by AI2
     </footer>
   </section>
 </section>
@@ -1442,7 +1442,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©2018 Created by Ant UED
+    Varnish ©2020 Created by AI2
   </footer>
 </section>
 `;
@@ -1789,7 +1789,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©2018 Created by Ant UED
+    Varnish ©2020 Created by AI2
   </footer>
 </section>
 `;

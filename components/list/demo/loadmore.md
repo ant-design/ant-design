@@ -106,8 +106,8 @@ class LoadMoreList extends React.Component {
                 avatar={
                   <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                 }
-                title={<a href="https://ant.design">{item.name.last}</a>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                title={<a href="https://varnish.allenai.org/">{item.name.last}</a>}
+                description="Varnish, a design language for background applications, is refined by AI2"
               />
               <div>content</div>
             </Skeleton>

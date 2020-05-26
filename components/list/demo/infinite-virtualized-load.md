@@ -91,7 +91,7 @@ class VirtualizedExample extends React.Component {
       <List.Item key={key} style={style}>
         <List.Item.Meta
           avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title={<a href="https://ant.design">{item.name.last}</a>}
+          title={<a href="https://varnish.allenai.org/">{item.name.last}</a>}
           description={item.email}
         />
         <div>Content</div>
