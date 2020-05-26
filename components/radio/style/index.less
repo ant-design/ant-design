@@ -211,6 +211,13 @@ span.@{radio-prefix-cls} + * {
       background-color: @border-color-base;
       transition: background-color 0.3s;
       content: '';
+      .@{radio-group-prefix-cls}-dashed & {
+        visibility: hidden;
+      }
+    }
+    .@{radio-group-prefix-cls}-dashed & {
+      margin-left: -1px;
+      border-left-width: 1px;
     }
   }
 
@@ -297,6 +304,10 @@ span.@{radio-prefix-cls} + * {
     &:focus-within {
       box-shadow: @radio-button-focus-shadow;
     }
+  }
+
+  .@{radio-group-prefix-cls}-dashed & {
+    border-style: dashed;
   }
 
   &-disabled {
