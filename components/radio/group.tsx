@@ -11,18 +11,6 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 
-function getCheckedValue(children: React.ReactNode) {
-  let value = null;
-  let matched = false;
-  React.Children.forEach(children, (radio: any) => {
-    if (radio && radio.props && radio.props.checked) {
-      value = radio.props.value;
-      matched = true;
-    }
-  });
-  return matched ? { value } : undefined;
-}
-
 class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     buttonStyle: 'outline' as RadioGroupButtonStyle,
@@ -35,11 +23,6 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
 
     if (nextProps.value !== undefined || prevState.prevPropValue !== nextProps.value) {
       newState.value = nextProps.value;
-    } else {
-      const checkedValue = getCheckedValue(nextProps.children);
-      if (checkedValue) {
-        newState.value = checkedValue.value;
-      }
     }
 
     return newState;
@@ -52,9 +35,6 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
       value = props.value;
     } else if (props.defaultValue !== undefined) {
       value = props.defaultValue;
-    } else {
-      const checkedValue = getCheckedValue(props.children);
-      value = checkedValue && checkedValue.value;
     }
     this.state = {
       value,
@@ -63,7 +43,7 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   }
 
   onRadioChange = (ev: RadioChangeEvent) => {
-    const lastValue = this.state.value;
+    const { value: lastValue } = this.state;
     const { value } = ev.target;
     if (!('value' in this.props)) {
       this.setState({
@@ -78,30 +58,35 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   };
 
   renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { props } = this;
     const {
       prefixCls: customizePrefixCls,
       className = '',
       options,
       buttonStyle,
+      disabled,
+      children,
       size: customizeSize,
-    } = props;
+      style,
+      id,
+      onMouseEnter,
+      onMouseLeave,
+    } = this.props;
+    const { value } = this.state;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
-    let { children } = props;
-
+    let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
-      children = options.map(option => {
+      childrenToRender = options.map(option => {
         if (typeof option === 'string') {
           // 此处类型自动推导为 string
           return (
             <Radio
               key={option}
               prefixCls={prefixCls}
-              disabled={this.props.disabled}
+              disabled={disabled}
               value={option}
-              checked={this.state.value === option}
+              checked={value === option}
             >
               {option}
             </Radio>
@@ -112,9 +97,9 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
           <Radio
             key={`radio-group-value-options-${option.value}`}
             prefixCls={prefixCls}
-            disabled={option.disabled || this.props.disabled}
+            disabled={option.disabled || disabled}
             value={option.value}
-            checked={this.state.value === option.value}
+            checked={value === option.value}
             style={option.style}
           >
             {option.label}
@@ -136,16 +121,15 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
             },
             className,
           );
-
           return (
             <div
               className={classString}
-              style={props.style}
-              onMouseEnter={props.onMouseEnter}
-              onMouseLeave={props.onMouseLeave}
-              id={props.id}
+              style={style}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              id={id}
             >
-              {children}
+              {childrenToRender}
             </div>
           );
         }}

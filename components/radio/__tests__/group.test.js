@@ -35,16 +35,10 @@ describe('Radio Group', () => {
       </RadioGroup>,
     );
 
-    wrapper
-      .find('div')
-      .at(0)
-      .simulate('mouseenter');
+    wrapper.find('div').at(0).simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper
-      .find('div')
-      .at(0)
-      .simulate('mouseleave');
+    wrapper.find('div').at(0).simulate('mouseleave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 
@@ -186,18 +180,22 @@ describe('Radio Group', () => {
       const wrapper = mount(
         <RadioGroup defaultValue="bamboo" value={undefined} options={options} />,
       );
-
-      expect(wrapper.state().value).toEqual('bamboo');
+      expect(wrapper.find('.ant-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+        true,
+      );
     });
 
     [undefined, null].forEach(newValue => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const options = [{ label: 'Bamboo', value: 'bamboo' }];
         const wrapper = mount(<RadioGroup value="bamboo" options={options} />);
-        expect(wrapper.state().value).toEqual('bamboo');
-
+        expect(wrapper.find('.ant-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+          true,
+        );
         wrapper.setProps({ value: newValue });
-        expect(wrapper.state().value).toEqual(newValue);
+        expect(wrapper.find('.ant-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+          false,
+        );
       });
     });
   });
