@@ -52,6 +52,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const { filterOption, children, notFoundContent } = restProps;
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -69,7 +70,6 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   };
 
   const getNotFoundContent = () => {
-    const { notFoundContent } = restProps;
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
@@ -78,7 +78,6 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   };
 
   const getOptions = () => {
-    const { children } = restProps;
     if (loading) {
       return (
         <Option value="ANTD_SEARCHING" disabled>
@@ -91,7 +90,6 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   };
 
   const getFilterOption = (): any => {
-    const { filterOption } = restProps;
     if (loading) {
       return loadingFilterOption;
     }
