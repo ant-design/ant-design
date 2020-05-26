@@ -83,7 +83,6 @@
     "test:update2": "npm test -- -u",
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
-    "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
     "shellac:build": "npm run tsc -- --project shellac/tsconfig.json && node shellac/build.js && npm run shellac:optimize",
     "shellac:optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css",
