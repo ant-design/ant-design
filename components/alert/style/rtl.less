@@ -46,7 +46,9 @@
   &-with-description,
   &-with-description&-closable {
     .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
-      padding: @alert-with-description-padding-rtl;
+      padding: @alert-with-description-padding-vertical @alert-with-description-icon-size * 2 +
+        @alert-with-description-padding-vertical @alert-with-description-no-icon-padding-vertical
+        15px;
     }
   }
 
