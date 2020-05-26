@@ -254,7 +254,6 @@ export default class Layout extends React.Component {
                 <DefaultAppLayoutProvider appLayoutVariant="app">
                   <LayoutAntd>
                     <DemoHeader
-                      ismobile={isMobile}
                       {...restProps}
                       changeDirection={this.changeDirection}
                     />
