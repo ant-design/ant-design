@@ -6,7 +6,7 @@ import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
 import { composeRef } from '../_util/ref';
 
-const { Option } = RcMentions;
+export const { Option } = RcMentions;
 
 function loadingFilterOption() {
   return true;
@@ -125,7 +125,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 };
 
 const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
-
+Mentions.displayName = 'Mentions';
 Mentions.Option = Option;
 
 Mentions.getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
