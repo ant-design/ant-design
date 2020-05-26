@@ -45,14 +45,22 @@ interface CompoundedComponent
 }
 
 const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = (
-  { prefixCls: customizePrefixCls, className, disabled, loading, ...restProps },
+  {
+    prefixCls: customizePrefixCls,
+    className,
+    disabled,
+    loading,
+    filterOption,
+    children,
+    notFoundContent,
+    ...restProps
+  },
   ref,
 ) => {
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
-  const { filterOption, children, notFoundContent } = restProps;
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
