@@ -98,36 +98,35 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
           const activeMenuItem = basePath || 'home';
 
           const menu: React.ReactElement | null = (
-            <PushedUpMenu
-              ismobile={isMobile}
+            <Menu
               className={classNames('menu-site')}
               mode={menuMode}
               selectedKeys={[activeMenuItem]}
               id="nav"
             >
               {isHome ? null : (
-                <MenuItem ismobile={isMobile} key="home" className="hide-in-home-page">
-                  <CleanLink to={utils.getLocalizedPathname('/')}>Home</CleanLink>
-                </MenuItem>
+                <Menu.Item key="home" className="hide-in-home-page">
+                  <Link to={utils.getLocalizedPathname('/')}>Home</Link>
+                </Menu.Item>
               )}
-              <MenuItem ismobile={isMobile} key="components">
-                <CleanLink to={utils.getLocalizedPathname('/components/button/')}>
+              <Menu.Item key="components">
+                <Link to={utils.getLocalizedPathname('/components/button/')}>
                   Components
-                </CleanLink>
-              </MenuItem>
-              <MenuItem ismobile={isMobile} key="shellac">
-                <CleanLink to={utils.getLocalizedPathname('/shellac')}>Shellac</CleanLink>
-              </MenuItem>
-            </PushedUpMenu>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="shellac">
+                <Link to={utils.getLocalizedPathname('/shellac')}>Shellac</Link>
+              </Menu.Item>
+            </Menu>
           );
 
           return (
             <VarnishHeader>
               <HeaderColumns gridTemplateColumns="auto auto 1fr auto auto">
-                <CleanLink ismobile={isMobile} to={utils.getLocalizedPathname('/')}>
+                <Link to={utils.getLocalizedPathname('/')}>
                   <Logo />
                   <HomeTitle>Varnish</HomeTitle>
-                </CleanLink>
+                </Link>
                 <span>{!isMobile && menu}</span>
                 <span />
                 <span>
@@ -159,28 +158,6 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
     );
   }
 }
-
-const CleanLink = styled(Link)`
-  &&& {
-    margin-left: ${({ isMobile }) => (isMobile ? '35px' : null)};
-    padding: 0;
-
-    :hover {
-      text-decoration: none;
-    }
-  }
-`;
-
-const PushedUpMenu = styled(Menu)<{ ismobile: boolean }>`
-  margin-top: ${({ ismobile }) => (!ismobile ? '-24px' : null)};
-  height: ${({ ismobile }) => (!ismobile ? '55px' : null)};
-`;
-
-const MenuItem = styled(Menu.Item)<{ ismobile: boolean }>`
-  ${CleanLink} {
-    line-height: ${({ ismobile }) => (!ismobile ? '79px' : null)};
-  }
-`;
 
 const HomeTitle = styled(HeaderTitle as any)`
   /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */

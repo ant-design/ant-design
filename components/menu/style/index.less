@@ -20,6 +20,12 @@
   transition: background 0.3s, width 0.2s;
   .clearfix;
 
+  &&& {
+    a:hover {
+      text-decoration: none; // Added by Varnish
+    }
+  }
+
   ul,
   ol {
     margin: 0;
@@ -125,11 +131,11 @@
   &-inline,
   &-vertical,
   &-vertical-left {
-    border-right: @border-width-base @border-style-base @border-color-split;
+    border-right: @border-width-base @border-style-base transparent; // Changed by Varnish
   }
 
   &-vertical-right {
-    border-left: @border-width-base @border-style-base @border-color-split;
+    border-left: @border-width-base @border-style-base transparent; // Changed by Varnish
   }
 
   &-vertical&-sub,
@@ -328,10 +334,11 @@
   }
 
   &-horizontal {
+    margin: -12px 0; // Added by Varnish
     line-height: @menu-horizontal-line-height;
     white-space: nowrap;
     border: 0;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-bottom: @border-width-base @border-style-base transparent; // Changed by Varnish
     box-shadow: none;
 
     > .@{menu-prefix-cls}-item,
@@ -339,6 +346,7 @@
       position: relative;
       top: 1px;
       display: inline-block;
+      line-height: @menu-horizontal-line-height; // Added by Varnish
       vertical-align: bottom;
       border-bottom: 2px solid transparent;
 

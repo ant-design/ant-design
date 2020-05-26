@@ -10,6 +10,7 @@ import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
 import collapseMotion from '../_util/motion';
 import MenuContext, { MenuTheme } from './MenuContext';
+import IconMenuItemColumns from './IconMenuItemColumns';
 
 export { MenuItemGroupProps } from 'rc-menu/es/MenuItemGroup';
 
@@ -357,6 +358,8 @@ export default class Menu extends React.Component<MenuProps, {}> {
   static SubMenu = SubMenu;
 
   static ItemGroup = ItemGroup;
+
+  static IconMenuItemColumns = IconMenuItemColumns;
 
   render() {
     return (
