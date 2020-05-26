@@ -11,7 +11,7 @@ module.exports = {
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
-  testRegex: 'image\\.test\\.js$',
+  testRegex: 'image\\.test\\.(j|t)s$',
   testEnvironment: 'node',
   transformIgnorePatterns,
   snapshotSerializers: ['enzyme-to-json/serializer'],

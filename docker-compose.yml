@@ -9,4 +9,5 @@ services:
       - './tests:/app/tests'
       - './jest-stare:/app/jest-stare'
       - './dist:/app/dist'
-    entrypoint: "jest --config .jest.image.js --no-cache"
+      - '.jest.image.js:/app/.jest.image.js'
+    entrypoint: "jest --config .jest.image.js --no-cache -i"
