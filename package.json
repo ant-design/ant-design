@@ -59,7 +59,7 @@
     "predeploy": "antd-tools run clean && npm run compile && npm run site && cp CNAME _site",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
     "dist": "antd-tools run dist",
-    "lint": "npm run tsc && npm run lint:script && npm run lint:demo && npm run lint:style && npm run lint:deps && npm run lint:md",
+    "lint": "npm run lint:tsc && npm run lint:script && npm run lint:demo && npm run lint:style && npm run lint:deps && npm run lint:md",
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo && npm run lint-fix:style",
     "lint-fix:demo": "eslint-tinker ./components/*/demo/*.md",
     "lint-fix:script": "npm run lint:script -- --fix",
