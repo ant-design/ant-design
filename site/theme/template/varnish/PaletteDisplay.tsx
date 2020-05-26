@@ -123,14 +123,14 @@ class ColorRow extends React.PureComponent<ColorRowProps> {
 }
 
 const Col = styled(Body as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   padding: ${({ theme }) => `${theme.spacing.md} 0`};
   display: inline-block;
   border-top: 1px solid ${({ theme }) => theme.palette.border.main};
 `;
 
 const PaletteName = styled(Col as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   grid-column: 1;
   padding-left: ${({ theme }) => theme.spacing.md};
 `;
@@ -146,29 +146,29 @@ const ColorBox = styled.div<{ color: string; useContrastText?: boolean }>`
 `;
 
 const ColorBoxWrapper = styled(Col as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   padding: 7px;
   grid-column: 2;
 `;
 
 const ColorName = styled(Col as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   padding-left: ${({ theme }) => theme.spacing.xs};
   grid-column: 3;
 `;
 
 const ColorHex = styled(Col as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   grid-column: 4;
 `;
 
 const ColorRgb = styled(Col as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   grid-column: 5;
 `;
 
 const Label = styled(Col as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   grid-column: 1 / span 5;
   padding: ${({ theme }) => `${theme.spacing.xl} 0 ${theme.spacing.sm} 0`};
 `;

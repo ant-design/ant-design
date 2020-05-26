@@ -84,8 +84,6 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
 
           const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
 
-          const isHome = ['', 'index', 'index-cn'].includes(pathname);
-
           let responsive: null | 'narrow' | 'crowded' = null;
           if (windowWidth < RESPONSIVE_XS) {
             responsive = 'crowded';
@@ -104,11 +102,6 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
               selectedKeys={[activeMenuItem]}
               id="nav"
             >
-              {isHome ? null : (
-                <Menu.Item key="home" className="hide-in-home-page">
-                  <Link to={utils.getLocalizedPathname('/')}>Home</Link>
-                </Menu.Item>
-              )}
               <Menu.Item key="components">
                 <Link to={utils.getLocalizedPathname('/components/button/')}>
                   Components
@@ -123,10 +116,10 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
           return (
             <VarnishHeader>
               <HeaderColumns gridTemplateColumns="auto auto 1fr auto auto">
-                <Link to={utils.getLocalizedPathname('/')}>
+                <CleanLink to={utils.getLocalizedPathname('/')}>
                   <Logo />
                   <HomeTitle>Varnish</HomeTitle>
-                </Link>
+                </CleanLink>
                 <span>{!isMobile && menu}</span>
                 <span />
                 <span>
@@ -159,8 +152,14 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
   }
 }
 
+const CleanLink = styled(Link)`
+  &&&:hover {
+    text-decoration: none;
+  }
+`;
+
 const HomeTitle = styled(HeaderTitle as any)`
-  /* any fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   vertical-align: middle;
   margin-left: 10px;
 `;
