@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import CollapsePanel from './CollapsePanel';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import animation from '../_util/openAnimation';
 import { cloneElement } from '../_util/reactNode';
 
@@ -36,23 +36,25 @@ interface PanelProps {
   extra?: React.ReactNode;
 }
 
-export default class Collapse extends React.Component<CollapseProps, any> {
-  static Panel = CollapsePanel;
+interface CollapseInterface extends React.FC<CollapseProps> {
+  Panel: typeof CollapsePanel;
+}
 
-  static defaultProps = {
-    bordered: true,
-  };
+const Collapse: CollapseInterface = props => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls, className = '', bordered } = props;
+  const prefixCls = getPrefixCls('collapse', customizePrefixCls);
 
-  getIconPosition(direction: string = 'ltr') {
-    const { expandIconPosition } = this.props;
+  const getIconPosition = () => {
+    const { expandIconPosition } = props;
     if (expandIconPosition !== undefined) {
       return expandIconPosition;
     }
     return direction === 'rtl' ? 'right' : 'left';
-  }
+  };
 
-  renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
-    const { expandIcon } = this.props;
+  const renderExpandIcon = (panelProps: PanelProps = {}) => {
+    const { expandIcon } = props;
     const icon = (expandIcon ? (
       expandIcon(panelProps)
     ) : (
@@ -64,32 +66,32 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     }));
   };
 
-  renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
-    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const iconPosition = this.getIconPosition(direction);
-    const collapseClassName = classNames(
-      {
-        [`${prefixCls}-borderless`]: !bordered,
-        [`${prefixCls}-icon-position-${iconPosition}`]: true,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
-    const openAnimation = { ...animation, appear() {} };
+  const iconPosition = getIconPosition();
+  const collapseClassName = classNames(
+    {
+      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-icon-position-${iconPosition}`]: true,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
+  const openAnimation = { ...animation, appear() {} };
 
-    return (
-      <RcCollapse
-        openAnimation={openAnimation}
-        {...this.props}
-        expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
-        prefixCls={prefixCls}
-        className={collapseClassName}
-      />
-    );
-  };
+  return (
+    <RcCollapse
+      openAnimation={openAnimation}
+      {...props}
+      expandIcon={(panelProps: PanelProps) => renderExpandIcon(panelProps)}
+      prefixCls={prefixCls}
+      className={collapseClassName}
+    />
+  );
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderCollapse}</ConfigConsumer>;
-  }
-}
+Collapse.Panel = CollapsePanel;
+
+Collapse.defaultProps = {
+  bordered: true,
+};
+
+export default Collapse;

@@ -39,6 +39,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
           style="height:0;width:0;overflow:hidden"
         >
           <div
+            aria-label="ReactNode"
             aria-selected="false"
             id="undefined_list_0"
             role="option"

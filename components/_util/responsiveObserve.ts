@@ -26,15 +26,10 @@ const responsiveObserve = {
   matchHandlers: {},
   dispatch(pointMap: ScreenMap) {
     screens = pointMap;
-    if (subscribers.length < 1) {
-      return false;
-    }
-
     subscribers.forEach(item => {
       item.func(screens);
     });
-
-    return true;
+    return subscribers.length >= 1;
   },
   subscribe(func: SubscribeFunc) {
     if (subscribers.length === 0) {

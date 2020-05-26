@@ -44,6 +44,9 @@ export default function focusTest(Component, { refFocus = false } = {}) {
         ele = wrapper.find('button').first();
       }
       if (ele.length === 0) {
+        ele = wrapper.find('textarea').first();
+      }
+      if (ele.length === 0) {
         ele = wrapper.find('div[tabIndex]').first();
       }
       return ele;
@@ -65,7 +68,8 @@ export default function focusTest(Component, { refFocus = false } = {}) {
         expect(onFocus).toHaveBeenCalled();
       });
 
-      it('Ref: blur() and onBlur', () => {
+      it('Ref: blur() and onBlur', async () => {
+        jest.useRealTimers();
         const onBlur = jest.fn();
         const ref = React.createRef();
         const wrapper = mount(
@@ -73,10 +77,12 @@ export default function focusTest(Component, { refFocus = false } = {}) {
             <Component onBlur={onBlur} ref={ref} />
           </div>,
         );
+
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
         getElement(wrapper).simulate('blur');
+        await sleep(0);
         expect(onBlur).toHaveBeenCalled();
       });
 

@@ -170,7 +170,12 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
+          icon: (
+            <img
+              src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png"
+              alt="seeconf"
+            />
+          ),
           title: 'SEE Conf',
           description: <FormattedMessage id="app.footer.seeconf" />,
           url: 'https://seeconf.antfin.com/',

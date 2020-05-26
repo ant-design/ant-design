@@ -137,7 +137,11 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   };
 
   getOffsetStyle() {
-    const { placement, width, height } = this.props;
+    const { placement, width, height, visible, mask } = this.props;
+    // https://github.com/ant-design/ant-design/issues/24287
+    if (!visible && !mask) {
+      return {};
+    }
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
       offsetStyle.width = width;

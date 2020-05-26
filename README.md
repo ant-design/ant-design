@@ -11,6 +11,8 @@ An [AI2](http://allenai.org) branded [React](https://reactjs.org/) component lib
 
 First, install the module:
 
+## 📦 Install
+
 ```bash
 yarn add @allenai/varnish
 ```

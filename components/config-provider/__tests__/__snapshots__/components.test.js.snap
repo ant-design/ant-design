@@ -9271,9 +9271,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
       class="config-comment-content"
     >
       <div
-        class="config-comment-content-author"
-      />
-      <div
         class="config-comment-content-detail"
       >
         Bamboo
@@ -9292,9 +9289,6 @@ exports[`ConfigProvider components Comment configProvider 1`] = `
         <div
           class="config-comment-content"
         >
-          <div
-            class="config-comment-content-author"
-          />
           <div
             class="config-comment-content-detail"
           >
@@ -9318,9 +9312,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
       class="config-comment-content"
     >
       <div
-        class="config-comment-content-author"
-      />
-      <div
         class="config-comment-content-detail"
       >
         Bamboo
@@ -9339,9 +9330,6 @@ exports[`ConfigProvider components Comment configProvider componentSize large 1`
         <div
           class="config-comment-content"
         >
-          <div
-            class="config-comment-content-author"
-          />
           <div
             class="config-comment-content-detail"
           >
@@ -9365,9 +9353,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
       class="config-comment-content"
     >
       <div
-        class="config-comment-content-author"
-      />
-      <div
         class="config-comment-content-detail"
       >
         Bamboo
@@ -9386,9 +9371,6 @@ exports[`ConfigProvider components Comment configProvider componentSize middle 1
         <div
           class="config-comment-content"
         >
-          <div
-            class="config-comment-content-author"
-          />
           <div
             class="config-comment-content-detail"
           >
@@ -9412,9 +9394,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
       class="ant-comment-content"
     >
       <div
-        class="ant-comment-content-author"
-      />
-      <div
         class="ant-comment-content-detail"
       >
         Bamboo
@@ -9433,9 +9412,6 @@ exports[`ConfigProvider components Comment normal 1`] = `
         <div
           class="ant-comment-content"
         >
-          <div
-            class="ant-comment-content-author"
-          />
           <div
             class="ant-comment-content-detail"
           >
@@ -9459,9 +9435,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
       class="prefix-Comment-content"
     >
       <div
-        class="prefix-Comment-content-author"
-      />
-      <div
         class="prefix-Comment-content-detail"
       >
         Bamboo
@@ -9480,9 +9453,6 @@ exports[`ConfigProvider components Comment prefixCls 1`] = `
         <div
           class="prefix-Comment-content"
         >
-          <div
-            class="prefix-Comment-content-author"
-          />
           <div
             class="prefix-Comment-content-detail"
           >
@@ -17537,6 +17507,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -17646,6 +17617,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -17755,6 +17727,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -17864,6 +17837,7 @@ exports[`ConfigProvider components Select normal 1`] = `
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -17973,6 +17947,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
             role="option"
           />
           <div
+            aria-label="Light"
             aria-selected="false"
             id="undefined_list_1"
             role="option"
@@ -18936,7 +18911,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
       class="config-spin-container"
     >
       <div
-        class="config-table"
+        class="config-table config-table-empty"
       >
         <div
           class="config-table-container"
@@ -19210,7 +19185,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
       class="config-spin-container"
     >
       <div
-        class="config-table"
+        class="config-table config-table-empty"
       >
         <div
           class="config-table-container"
@@ -19484,7 +19459,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
       class="config-spin-container"
     >
       <div
-        class="config-table config-table-middle"
+        class="config-table config-table-middle config-table-empty"
       >
         <div
           class="config-table-container"
@@ -19758,7 +19733,7 @@ exports[`ConfigProvider components Table normal 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -20032,7 +20007,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="prefix-Table"
+        class="prefix-Table prefix-Table-empty"
       >
         <div
           class="prefix-Table-container"

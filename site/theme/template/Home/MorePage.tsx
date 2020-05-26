@@ -18,39 +18,39 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: '揭密可视化专家配色秘笈',
+    title: 'Ant Design 4.0 的一些杂事儿 - Space 篇',
     description:
-      '颜色搭配不仅可以传递出美感，颜色还可以通过不同的组合排序，形成一门新的界面语言，讲述数据的故事。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*M7rLR5follIAAAAAAAAAAABkARQnAQ',
-    date: '2020-04-02',
+      '作为前端开发者，我们总是不断的在与样式做斗争。今天，我们聊聊 Ant Design 中新增的 Space 组件。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jHvSR48tRccAAAAAAAAAAABkARQnAQ',
+    date: '2020-04-24',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/112540818',
+    href: 'https://zhuanlan.zhihu.com/p/135446399',
   },
   {
-    title: 'HiTu 插画资产设计分享',
+    title: '编辑器设计系列：每天都在用，你真的了解它么？',
     description:
-      '分享一下我们在做 HiTu 插画设计的一些过程和方法，希望能给同样做插画资产的同学带来帮助与启发。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cJdyS4KVDlgAAAAAAAAAAABkARQnAQ',
+      '提起编辑器，你会想到什么？也许你从来没有意识到，但是从接触计算机开始，你就和各种编辑器打上了交道。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c88yR4TO1z8AAAAAAAAAAABkARQnAQ',
+    date: '2020-04-15',
+    source: 'zhihu',
+    href: 'https://zhuanlan.zhihu.com/p/113961511',
+  },
+  {
+    title: 'Ant Design 4.0 的一些杂事儿 - CI 篇',
+    description: '4.0 正式版的到来之后，在这里想聊聊技术之外的事儿。不用动太多脑子，当个小品阅读即可~',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GhL4Q5oRePsAAAAAAAAAAABkARQnAQ',
     date: '2020-03-16',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/112541651',
+    href: 'https://zhuanlan.zhihu.com/p/113537427',
   },
   {
-    title: '从常用图表到 DashBoard 页面模板，懒人套餐请享用吧！',
-    description: 'Ant Design 4.0 和 AntV 的重磅产品 G2 4.0 发布之际，图表的样式也跟着大升级了哦。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d_D0TLmwFLoAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-11',
-    source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/111373360',
-  },
-  {
-    title: '言之有序',
+    title: 'Ant Design 4.0 ，脱离业务的框架都是耍流氓',
     description:
-      '大到一个系统，小到一个按钮，背后的每一条规则既要思考设计的易用性，同时也要去推敲组织的合理性。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1SBR47PngwAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-03',
+      '作为 Ant Design 的实践案例、业务需求方和同一层楼的小伙伴，一起聊聊「4.0 背后的故事」。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C1-TT7vgidAAAAAAAAAAAABkARQnAQ',
+    date: '2020-03-04',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/110442621',
+    href: 'https://zhuanlan.zhihu.com/p/110863773',
   },
 ];
 

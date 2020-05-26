@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ListGridType, ListContext } from './index';
 import { Col } from '../grid';
@@ -135,10 +134,5 @@ const Item: ListItemTypeProps = props => {
 };
 
 Item.Meta = Meta;
-
-Item.contextTypes = {
-  grid: PropTypes.any,
-  itemLayout: PropTypes.string,
-};
 
 export default Item;

@@ -60,8 +60,7 @@ describe('Alert', () => {
 
   const testIt = process.env.REACT === '15' ? it.skip : it;
   testIt('ErrorBoundary', () => {
-    // TODO: Change to @ts-expect-error once typescript is at 3.9
-    // @ts-ignore
+    // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     const wrapper = mount(

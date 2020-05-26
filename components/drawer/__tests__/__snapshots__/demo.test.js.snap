@@ -57,6 +57,17 @@ exports[`renders ./components/drawer/demo/multi-level-drawer.md correctly 1`] = 
 </button>
 `;
 
+exports[`renders ./components/drawer/demo/no-mask.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open
+  </span>
+</button>
+`;
+
 exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
