@@ -39,6 +39,7 @@ interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
+  symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
 }
@@ -325,13 +326,20 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   }
 
   renderExpand(forceRender?: boolean) {
-    const { expandable } = this.getEllipsis();
+    const { expandable, symbol } = this.getEllipsis();
     const { expanded, isEllipsis } = this.state;
 
     if (!expandable) return null;
 
     // force render expand icon for measure usage or it will cause dead loop
     if (!forceRender && (expanded || !isEllipsis)) return null;
+
+    let expandContent: React.ReactNode;
+    if (symbol) {
+      expandContent = symbol;
+    } else {
+      expandContent = this.expandStr;
+    }
 
     return (
       <a
@@ -340,7 +348,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         onClick={this.onExpandClick}
         aria-label={this.expandStr}
       >
-        {this.expandStr}
+        {expandContent}
       </a>
     );
   }
