@@ -17,6 +17,7 @@ timeline: true
 
 ## 4.2.5
 
+- 🐞 Fix Breadcrumb icon margin missing when using links. [#24490](https://github.com/ant-design/ant-design/pull/24490)
 - 🐞 Fix Table selection arrow out of column when `size` is `small/middle`. [#24394](https://github.com/ant-design/ant-design/pull/24394)
 - 🐞 Fix Input.TextArea clear icon disappears in Input.Group when hover it. [#24360](https://github.com/ant-design/ant-design/pull/24360) [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
 - 🐞 Fixed an issue where the `RowSelection.onChange` will still be cached when the Table removes entries in `dataSource`. [#24338](https://github.com/ant-design/ant-design/pull/24338)
