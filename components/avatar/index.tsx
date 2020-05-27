@@ -197,6 +197,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         );
       }
     }
+
+    // The event is triggered twice from bubbling up the DOM tree.
+    // see https://codesandbox.io/s/kind-snow-9lidz
+    delete others.onError;
+
     return (
       <span
         {...others}
