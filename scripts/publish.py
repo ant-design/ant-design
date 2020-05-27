@@ -67,6 +67,14 @@ if __name__ == "__main__":
                 print(f"renamed {os.path.relpath(antd_name, os.getcwd())} -> " +
                       f"{os.path.relpath(varnish_name, os.getcwd())}")
 
+            # ...and copy the files in `dist_varnish` into `dist`, so they're included too.
+            for filename in os.listdir(os.path.join(root, "dist_varnish")):
+                orig = os.path.join(root, "dist_varnish", filename)
+                new = os.path.join(root, "dist", filename)
+                shutil.move(orig, new)
+                print(f"moved {os.path.relpath(orig, os.getcwd())} -> " +
+                      f"{os.path.relpath(new, os.getcwd())}")
+
             if args.pack:
                 subprocess.check_call([ "npm", "pack" ])
             else:
