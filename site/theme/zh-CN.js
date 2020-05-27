@@ -140,6 +140,5 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.result-tip': '为您匹配到以下图标：',
     'app.docs.components.icon.pic-searcher.th-icon': '图标',
     'app.docs.components.icon.pic-searcher.th-score': '匹配度',
-    'app.docs.components.overview.title': '组件总览',
   },
 };

@@ -353,6 +353,8 @@ class MainContent extends Component {
     if (location.pathname.startsWith('components/overview')) {
       return (
         <ComponentOverview
+          {...this.props}
+          doc={localizedPageData}
           componentsData={getModuleData(this.props).filter(
             ({ meta }) => meta.category === 'Components',
           )}
@@ -382,16 +384,12 @@ class MainContent extends Component {
   }
 
   render() {
+    const { demos, location } = this.props;
+    const { openKeys } = this.state;
+    const { theme, setIframeTheme } = this.context;
     return (
       <SiteContext.Consumer>
-        {({ isMobile, theme, setIframeTheme }) => {
-          const { openKeys } = this.state;
-          const {
-            demos,
-            intl: { locale },
-            location,
-          } = this.props;
-          const isZhCN = locale === 'zh-CN';
+        {({ isMobile }) => {
           const activeMenuItem = this.getActiveMenuItem();
           const menuItems = this.getMenuItems();
           const menuItemsForFooterNav = this.getMenuItems({
@@ -411,11 +409,6 @@ class MainContent extends Component {
               selectedKeys={[activeMenuItem]}
               onOpenChange={this.handleMenuOpenChange}
             >
-              <Menu.Item key="overview">
-                <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN)}>
-                  <FormattedMessage id="app.docs.components.overview.title" />
-                </Link>
-              </Menu.Item>
               {menuItems}
             </Menu>
           );
