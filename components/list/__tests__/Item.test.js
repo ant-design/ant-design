@@ -128,4 +128,54 @@ describe('List Item Layout', () => {
     );
     expect(render(wrapper)).toMatchSnapshot();
   });
+
+  it('rowKey could be string', () => {
+    const dataWithId = [
+      {
+        id: 1,
+        title: `ant design`,
+      },
+      {
+        id: 2,
+        title: `ant design`,
+      },
+      {
+        id: 3,
+        title: `ant design`,
+      },
+    ];
+    const wrapper = mount(
+      <List
+        dataSource={dataWithId}
+        rowKey="id"
+        renderItem={item => <List.Item>{item.title}</List.Item>}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('rowKey could be function', () => {
+    const dataWithId = [
+      {
+        id: 1,
+        title: `ant design`,
+      },
+      {
+        id: 2,
+        title: `ant design`,
+      },
+      {
+        id: 3,
+        title: `ant design`,
+      },
+    ];
+    const wrapper = mount(
+      <List
+        dataSource={dataWithId}
+        rowKey={item => item.id}
+        renderItem={item => <List.Item>{item.title}</List.Item>}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
