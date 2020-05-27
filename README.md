@@ -51,7 +51,7 @@ To release a new version, make sure you're in `master` without any pending chang
 
 ```bash
 npm version $MAJOR.$MINOR.$PATCH
-./scripts/release.py
+./scripts/publish.py
 git push --tags origin master
 ```
 
