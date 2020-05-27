@@ -17,7 +17,6 @@ timeline: true
 
 ## 4.2.5
 
-- 🐞 修复 Breadcrumb 内使用链接时图标间距丢失的问题。 [#24490](https://github.com/ant-design/ant-design/pull/24490)
 - 🐞 修复 Table 在 `dataSource` 移除条目时，`rowSelection.onChange` 仍然会缓存的问题。[#24338](https://github.com/ant-design/ant-design/pull/24338)
 - 🐞 修复 Table 的选中箭头在 `size=small/middle` 时超出的问题。[#24394](https://github.com/ant-design/ant-design/pull/24394)
 - 🐞 修复 Input.Group 内 Input.TextArea `hover` 时清除图标消失的问题。[#24360](https://github.com/ant-design/ant-design/pull/24360) [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
