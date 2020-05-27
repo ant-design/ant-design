@@ -3,19 +3,19 @@ import { List } from 'rc-field-form';
 import { StoreValue } from 'rc-field-form/lib/interface';
 import devWarning from '../_util/devWarning';
 
-interface FieldData {
+export interface FieldData {
   name: number;
   key: number;
   fieldKey: number;
 }
 
-interface Operation {
+export interface Operation {
   add: (defaultValue?: StoreValue) => void;
   remove: (index: number) => void;
   move: (from: number, to: number) => void;
 }
 
-interface FormListProps {
+export interface FormListProps {
   name: string | number | (string | number)[];
   children: (fields: FieldData[], operation: Operation) => React.ReactNode;
 }
