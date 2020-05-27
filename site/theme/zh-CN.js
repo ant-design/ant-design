@@ -12,6 +12,7 @@ module.exports = {
     'app.header.menu.more': '更多',
     'app.header.menu.mobile': '移动版',
     'app.header.menu.pro.v4': 'Ant Design Pro v4',
+    'app.header.menu.charts': 'Ant Design Charts',
     'app.header.menu.ecosystem': '生态',
     'app.header.lang': 'English',
     'app.content.edit-page': '在 GitHub 上编辑此页！',

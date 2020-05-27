@@ -54,6 +54,11 @@ class Footer extends React.Component<WrappedComponentProps> {
       title: <FormattedMessage id="app.footer.resources" />,
       items: [
         {
+          title: 'Ant Design Charts',
+          url: 'https://charts.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Pro',
           url: 'https://pro.ant.design',
           openExternal: true,
