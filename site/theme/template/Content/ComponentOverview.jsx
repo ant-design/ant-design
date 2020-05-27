@@ -19,14 +19,19 @@ const ComponentOverview = ({ componentsData = [] }) => {
         <FormattedMessage id="app.docs.components.overview.title" />
       </h1>
       <div className="components-overview">
-        {componentsData.map(({ meta }) => (
-          <div key={meta.title}>
-            <Link to={utils.getLocalizedPathname(`/components/${meta.title}`, locale === 'zh-CN')}>
-              {meta.type}: {meta.title} {meta.subtitle}
-              <img src={meta.cover} alt={meta.title} />
-            </Link>
-          </div>
-        ))}
+        {componentsData.map(({ meta }) => {
+          const url = meta.filename
+            .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
+            .toLowerCase();
+          return (
+            <div key={meta.title}>
+              <Link to={utils.getLocalizedPathname(url, locale === 'zh-CN')}>
+                {meta.type}: {meta.title} {meta.subtitle}
+                <img src={meta.cover} alt={meta.title} />
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
