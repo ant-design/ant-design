@@ -186,10 +186,10 @@ function List<T>({
 
   const paginationProps = {
     ...defaultPaginationProps,
+    ...(pagination || {}),
     total: dataSource.length,
     current: paginationCurrent,
     pageSize: paginationSize,
-    ...(pagination || {}),
   };
 
   const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
