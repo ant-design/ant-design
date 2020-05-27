@@ -315,6 +315,39 @@ class MainContent extends Component {
     }
   };
 
+  renderContributors() {
+    const {
+      localizedPageData: { meta },
+      intl: { formatMessage },
+    } = this.props;
+    return (
+      <ContributorsList
+        className="contributors-list"
+        fileName={meta.filename}
+        renderItem={(item, loading) =>
+          loading ? (
+            <Avatar style={{ opacity: 0.3 }} />
+          ) : (
+            <Tooltip
+              title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
+              key={item.username}
+            >
+              <a
+                href={`https://github.com/${item.username}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Avatar src={item.url}>{item.username}</Avatar>
+              </a>
+            </Tooltip>
+          )
+        }
+        repo="ant-design"
+        owner="ant-design"
+      />
+    );
+  }
+
   renderMainContent({ theme, setIframeTheme }) {
     const { localizedPageData, demos, location } = this.props;
     if (location.pathname.startsWith('components/overview')) {
@@ -328,16 +361,24 @@ class MainContent extends Component {
     }
     if (demos) {
       return (
-        <ComponentDoc
-          {...this.props}
-          doc={localizedPageData}
-          demos={demos}
-          theme={theme}
-          setIframeTheme={setIframeTheme}
-        />
+        <>
+          <ComponentDoc
+            {...this.props}
+            doc={localizedPageData}
+            demos={demos}
+            theme={theme}
+            setIframeTheme={setIframeTheme}
+          />
+          {this.renderContributors()}
+        </>
       );
     }
-    return <Article {...this.props} content={localizedPageData} />;
+    return (
+      <>
+        <Article {...this.props} content={localizedPageData} />
+        {this.renderContributors()}
+      </>
+    );
   }
 
   render() {
@@ -346,13 +387,11 @@ class MainContent extends Component {
         {({ isMobile, theme, setIframeTheme }) => {
           const { openKeys } = this.state;
           const {
-            localizedPageData,
             demos,
-            intl: { formatMessage, locale },
+            intl: { locale },
             location,
           } = this.props;
           const isZhCN = locale === 'zh-CN';
-          const { meta } = localizedPageData;
           const activeMenuItem = this.getActiveMenuItem();
           const menuItems = this.getMenuItems();
           const menuItemsForFooterNav = this.getMenuItems({
@@ -377,7 +416,6 @@ class MainContent extends Component {
                   <FormattedMessage id="app.docs.components.overview.title" />
                 </Link>
               </Menu.Item>
-
               {menuItems}
             </Menu>
           );
@@ -399,32 +437,6 @@ class MainContent extends Component {
                 <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
                   <section className={mainContainerClass}>
                     {this.renderMainContent({ theme, setIframeTheme })}
-                    <ContributorsList
-                      className="contributors-list"
-                      fileName={meta.filename}
-                      renderItem={(item, loading) =>
-                        loading ? (
-                          <Avatar style={{ opacity: 0.3 }} />
-                        ) : (
-                          <Tooltip
-                            title={`${formatMessage({ id: 'app.content.contributors' })}: ${
-                              item.username
-                            }`}
-                            key={item.username}
-                          >
-                            <a
-                              href={`https://github.com/${item.username}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Avatar src={item.url}>{item.username}</Avatar>
-                            </a>
-                          </Tooltip>
-                        )
-                      }
-                      repo="ant-design"
-                      owner="ant-design"
-                    />
                   </section>
                   {componentPage && (
                     <div className="fixed-widgets">
