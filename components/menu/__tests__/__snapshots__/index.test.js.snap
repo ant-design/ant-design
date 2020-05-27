@@ -149,7 +149,9 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
   <li
     class="ant-menu-item"
     role="menuitem"
-  />
+  >
+    <span />
+  </li>
   <li
     class=" ant-menu-item-group"
   >
