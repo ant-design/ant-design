@@ -39,11 +39,16 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     this.menuItem = menuItem;
   };
 
-  renderItemChildren() {
-    const { icon, children } = this.props;
+  renderItemChildren(inlineCollapsed: boolean) {
+    const { icon, children, level, rootPrefixCls } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
     if (!icon || (isValidElement(children) && children.type === 'span')) {
+      if (children && inlineCollapsed && level === 1 && typeof children === 'string') {
+        return (
+          <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>
+        );
+      }
       return children;
     }
     return <span>{children}</span>;
@@ -89,7 +94,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
                 ref={this.saveMenuItem}
               >
                 {icon}
-                {this.renderItemChildren()}
+                {this.renderItemChildren(inlineCollapsed)}
               </Item>
             </Tooltip>
           );

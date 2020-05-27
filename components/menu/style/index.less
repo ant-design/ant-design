@@ -515,6 +515,16 @@
     box-shadow: none;
   }
 
+  &-root&-inline-collapsed {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
+      > .@{menu-prefix-cls}-inline-collapsed-noicon {
+        font-size: @menu-icon-size-lg;
+        text-align: center;
+      }
+    }
+  }
+
   &-sub&-inline {
     padding: 0;
     border: 0;
