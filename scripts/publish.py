@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # the order here: https://github.com/ant-design/antd-tools/blob/master/lib/gulpfile.js#L387
     # There's a few things we omit `check-git` and `package-diff` as AFAICT they're duplicative
     # of `check-commit`.
-    cmds = [ "check-commit", "test-all", "version", "compile", "dist" ]
+    cmds = [ "check-commit", "shellac:build", "test-all", "version", "compile", "dist" ]
     if args.skip_check_commit:
         cmds = [ c for c in cmds if c != "check-commit" ]
     if args.skip_tests:
