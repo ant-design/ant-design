@@ -9,6 +9,9 @@ import { generateCSS } from './generateCSS';
 import { generateLESS } from './generateLESS';
 
 const distPath = path.join(__dirname, '..', 'dist_varnish');
+if (!fs.existsSync(distPath)) {
+  fs.mkdirSync(distPath);
+}
 
 const lessPath = path.join(distPath, 'varnish.less');
 fs.writeFileSync(lessPath, generateLESS(), 'utf-8');
