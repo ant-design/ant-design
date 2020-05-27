@@ -417,8 +417,6 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       'copyable',
       'ellipsis',
       'mark',
-      'underline',
-      'mark',
       'code',
       'delete',
       'underline',
