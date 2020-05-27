@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
+import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
