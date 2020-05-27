@@ -177,7 +177,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+    class="ant-menu-item ant-menu-item-only-child"
     role="menuitem"
   >
     <a
@@ -217,7 +217,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
   style="width:256px"
 >
   <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-without-icon ant-menu-submenu-open ant-menu-submenu-selected"
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
     role="menuitem"
   >
     <div
@@ -275,14 +275,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon ant-menu-item-selected"
+            class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
             role="menuitem"
             style="padding-left:48px"
           >
             Option 1
           </li>
           <li
-            class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -303,14 +303,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
             Option 3
           </li>
           <li
-            class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -361,7 +361,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     <div />
   </li>
   <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-without-icon"
+    class="ant-menu-submenu ant-menu-submenu-inline"
     role="menuitem"
   >
     <div
@@ -469,7 +469,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       </span>
     </li>
     <li
-      class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+      class="ant-menu-item ant-menu-item-only-child"
       role="menuitem"
       style="padding-left:24px"
     >
@@ -549,28 +549,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         role="menu"
       >
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 5
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 6
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 7
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -579,7 +579,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       </ul>
     </li>
     <li
-      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-without-icon"
+      class="ant-menu-submenu ant-menu-submenu-inline"
       role="menuitem"
     >
       <div
@@ -608,7 +608,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
   style="width:256px"
 >
   <li
-    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-without-icon ant-menu-submenu-open"
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
     role="menuitem"
   >
     <div
@@ -654,28 +654,28 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       role="menu"
     >
       <li
-        class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 1
       </li>
       <li
-        class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 2
       </li>
       <li
-        class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 3
       </li>
       <li
-        class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
@@ -910,21 +910,21 @@ Array [
         role="menu"
       >
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 3
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 4
         </li>
         <li
-          class="ant-menu-submenu ant-menu-submenu-inline ant-menu-without-icon"
+          class="ant-menu-submenu ant-menu-submenu-inline"
           role="menuitem"
         >
           <div
@@ -1092,28 +1092,28 @@ Array [
         role="menu"
       >
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon ant-menu-item-selected"
+          class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 1
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 2
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 3
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child ant-menu-without-icon"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -1250,7 +1250,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-without-icon"
+    class="ant-menu-submenu ant-menu-submenu-vertical"
     role="menuitem"
   >
     <div
