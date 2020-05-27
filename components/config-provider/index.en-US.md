@@ -53,6 +53,10 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 ## FAQ
 
+#### How to contribute a new language?
+
+See [<Adding new language>](/docs/react/i18n#Adding-newplanguage).
+
 #### Does the locale problem still exist in DatePicker even if ConfigProvider `locale` is used?
 
 Please make sure you set moment locale or that you don't have two different versions of moment.

@@ -54,6 +54,10 @@ return (
 
 ## FAQ
 
+#### 如何增加一个新的语言包？
+
+参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
+
 #### 为什么我使用了 ConfigProvider `locale`，时间类组件的国际化还有问题？
 
 请检查是否正确设置了 moment 语言包，或者是否有两个版本的 moment 共存。
