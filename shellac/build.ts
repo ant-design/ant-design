@@ -28,7 +28,7 @@ const markdownPath = path.join(__dirname, 'template.md');
 const markdownContents = fs.readFileSync(markdownPath, 'utf-8');
 
 // Ditch the markdown bits.
-let html = markdownContents.replace(/(^```\n|)(\n```$)/, '');
+let html = markdownContents.replace(/^```\n/, '').replace(/```\n$/, '');
 
 // Inject a link to the CSS. The lack of a version specifier here means it always serves the
 // latest.For more on the CDN we use, see https://www.jsdelivr.com/.
