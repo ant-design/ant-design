@@ -518,7 +518,10 @@
   &-root&-inline-collapsed {
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
-      text-align: center;
+      > p {
+        width: @menu-icon-size-lg;
+        text-align: center;
+      }
     }
   }
 
