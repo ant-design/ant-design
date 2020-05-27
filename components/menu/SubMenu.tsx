@@ -45,10 +45,10 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   };
 
   renderTitle(inlineCollapsed: boolean) {
-    const { icon, title, level } = this.props;
+    const { icon, title, level, rootPrefixCls } = this.props;
     if (!icon) {
       return inlineCollapsed && level === 1 && title && typeof title === 'string' ? (
-        <p>{title.charAt(0)}</p>
+        <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
       ) : (
         title
       );
