@@ -440,7 +440,7 @@ exports[`Table.filter renders menu correctly 1`] = `
         role="menu"
       >
         <li
-          class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+          class="ant-dropdown-menu-item"
           role="menuitem"
         >
           <label
@@ -464,7 +464,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+          class="ant-dropdown-menu-item"
           role="menuitem"
         >
           <label
@@ -488,7 +488,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical ant-dropdown-menu-without-icon"
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
           role="menuitem"
         >
           <div
@@ -544,7 +544,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         role="menu"
       >
         <li
-          class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+          class="ant-dropdown-menu-item"
           role="menuitem"
         >
           <label
@@ -568,7 +568,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+          class="ant-dropdown-menu-item"
           role="menuitem"
         >
           <label
@@ -592,7 +592,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical ant-dropdown-menu-without-icon"
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
           role="menuitem"
         >
           <div
@@ -715,7 +715,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                 role="menu"
                               >
                                 <li
-                                  class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+                                  class="ant-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
@@ -739,7 +739,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+                                  class="ant-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
@@ -763,7 +763,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical ant-dropdown-menu-without-icon"
+                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
                                   role="menuitem"
                                 >
                                   <div
@@ -948,7 +948,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                 role="menu"
                               >
                                 <li
-                                  class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+                                  class="ant-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
@@ -972,7 +972,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-item ant-dropdown-menu-without-icon"
+                                  class="ant-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
@@ -996,7 +996,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical ant-dropdown-menu-without-icon"
+                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
                                   role="menuitem"
                                 >
                                   <div
