@@ -1,63 +1,44 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
-import {
-  RadioGroupProps,
-  RadioGroupState,
-  RadioChangeEvent,
-  RadioGroupButtonStyle,
-} from './interface';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 
-class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
-  static defaultProps = {
-    buttonStyle: 'outline' as RadioGroupButtonStyle,
-  };
+const RadioGroup: React.FC<RadioGroupProps> = props => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
 
-  static getDerivedStateFromProps(nextProps: RadioGroupProps, prevState: RadioGroupState) {
-    const newState: Partial<RadioGroupState> = {
-      prevPropValue: nextProps.value,
-    };
-
-    if (nextProps.value !== undefined || prevState.prevPropValue !== nextProps.value) {
-      newState.value = nextProps.value;
-    }
-
-    return newState;
+  let initValue;
+  if (props.value !== undefined) {
+    initValue = props.value;
+  } else if (props.defaultValue !== undefined) {
+    initValue = props.defaultValue;
   }
+  const [value, setValue] = React.useState(initValue);
+  const [prevPropValue, setPrevPropValue] = React.useState(props.value);
 
-  constructor(props: RadioGroupProps) {
-    super(props);
-    let value;
-    if (props.value !== undefined) {
-      value = props.value;
-    } else if (props.defaultValue !== undefined) {
-      value = props.defaultValue;
+  React.useEffect(() => {
+    setPrevPropValue(props.value);
+    if (props.value !== undefined || prevPropValue !== props.value) {
+      setValue(props.value);
     }
-    this.state = {
-      value,
-      prevPropValue: props.value,
-    };
-  }
+  }, [props.value]);
 
-  onRadioChange = (ev: RadioChangeEvent) => {
-    const { value: lastValue } = this.state;
-    const { value } = ev.target;
-    if (!('value' in this.props)) {
-      this.setState({
-        value,
-      });
+  const onRadioChange = (ev: RadioChangeEvent) => {
+    const lastValue = value;
+    const val = ev.target.value;
+    if (!('value' in props)) {
+      setValue(val);
     }
-
-    const { onChange } = this.props;
-    if (onChange && value !== lastValue) {
+    const { onChange } = props;
+    if (onChange && val !== lastValue) {
       onChange(ev);
     }
   };
 
-  renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  const renderGroup = () => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -70,8 +51,7 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
       id,
       onMouseEnter,
       onMouseLeave,
-    } = this.props;
-    const { value } = this.state;
+    } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
@@ -108,49 +88,45 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
       });
     }
 
+    const mergedSize = customizeSize || size;
+    const classString = classNames(
+      groupPrefixCls,
+      `${groupPrefixCls}-${buttonStyle}`,
+      {
+        [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
+        [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
     return (
-      <SizeContext.Consumer>
-        {size => {
-          const mergedSize = customizeSize || size;
-          const classString = classNames(
-            groupPrefixCls,
-            `${groupPrefixCls}-${buttonStyle}`,
-            {
-              [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
-              [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-            },
-            className,
-          );
-          return (
-            <div
-              className={classString}
-              style={style}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              id={id}
-            >
-              {childrenToRender}
-            </div>
-          );
-        }}
-      </SizeContext.Consumer>
+      <div
+        className={classString}
+        style={style}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        id={id}
+      >
+        {childrenToRender}
+      </div>
     );
   };
 
-  render() {
-    return (
-      <RadioGroupContextProvider
-        value={{
-          onChange: this.onRadioChange,
-          value: this.state.value,
-          disabled: this.props.disabled,
-          name: this.props.name,
-        }}
-      >
-        <ConfigConsumer>{this.renderGroup}</ConfigConsumer>
-      </RadioGroupContextProvider>
-    );
-  }
-}
+  return (
+    <RadioGroupContextProvider
+      value={{
+        onChange: onRadioChange,
+        value,
+        disabled: props.disabled,
+        name: props.name,
+      }}
+    >
+      {renderGroup()}
+    </RadioGroupContextProvider>
+  );
+};
 
-export default RadioGroup;
+RadioGroup.defaultProps = {
+  buttonStyle: 'outline' as RadioGroupButtonStyle,
+};
+
+export default React.memo(RadioGroup);
