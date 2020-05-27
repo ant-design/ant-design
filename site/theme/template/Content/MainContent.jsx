@@ -14,6 +14,7 @@ import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
 import SiteContext from '../Layout/SiteContext';
 import ComponentDoc from './ComponentDoc';
+import ComponentOverview from './ComponentOverview';
 import * as utils from '../utils';
 
 const { SubMenu } = Menu;
@@ -314,6 +315,31 @@ class MainContent extends Component {
     }
   };
 
+  renderMainContent({ theme, setIframeTheme }) {
+    const { localizedPageData, demos, location } = this.props;
+    if (location.pathname.startsWith('components/overview')) {
+      return (
+        <ComponentOverview
+          componentsData={getModuleData(this.props).filter(
+            ({ meta }) => meta.category === 'Components',
+          )}
+        />
+      );
+    }
+    if (demos) {
+      return (
+        <ComponentDoc
+          {...this.props}
+          doc={localizedPageData}
+          demos={demos}
+          theme={theme}
+          setIframeTheme={setIframeTheme}
+        />
+      );
+    }
+    return <Article {...this.props} content={localizedPageData} />;
+  }
+
   render() {
     return (
       <SiteContext.Consumer>
@@ -364,17 +390,7 @@ class MainContent extends Component {
                 )}
                 <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
                   <section className={mainContainerClass}>
-                    {demos ? (
-                      <ComponentDoc
-                        {...this.props}
-                        doc={localizedPageData}
-                        demos={demos}
-                        theme={theme}
-                        setIframeTheme={setIframeTheme}
-                      />
-                    ) : (
-                      <Article {...this.props} content={localizedPageData} />
-                    )}
+                    {this.renderMainContent({ theme, setIframeTheme })}
                     <ContributorsList
                       className="contributors-list"
                       fileName={meta.filename}
