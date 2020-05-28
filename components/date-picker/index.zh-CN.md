@@ -24,7 +24,7 @@ subtitle: 日期选择框
 
 ### 国际化配置
 
-默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[ConfigProvider 国际化](http://ant.design/components/config-provider-cn/)。
+默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[ConfigProvider 国际化](https://ant.design/components/config-provider-cn/)。
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
@@ -146,6 +146,7 @@ import 'moment/locale/zh-cn';
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
+| dateRender | 自定义日期单元格的内容。`info` 参数自 4.3.0 添加 | function(currentDate: moment, today: moment, info: { range: 'start' \| ''end }) => React.ReactNode | - |  |
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | disabled | 禁用起始项 | `[boolean, boolean]` | 无 |  |

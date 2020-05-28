@@ -116,36 +116,37 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |
-| ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean | false |
-| className | 列样式类名 | string | - |
-| colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |
-| dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |
-| defaultFilteredValue | 默认筛选值 | string\[] | - |
-| defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |
-| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
-| filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
-| filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
-| filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |
-| filterIcon | 自定义 filter 图标。 | ReactNode\|(filtered: boolean) => ReactNode | false |
-| filterMultiple | 是否多选 | boolean | true |
-| filters | 表头的筛选菜单项 | object\[] | - |
-| fixed | （IE 下无效）列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
-| key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |
-| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
-| responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - |
-| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
-| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
-| sortDirections | 支持的排序方式，覆盖`Table`中`sortDirections`， 取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |
-| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |
-| width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |
-| onCell | 设置单元格属性 | Function(record, rowIndex) | - |
-| onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
-| onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
-| onHeaderCell | 设置头部单元格属性 | Function(column) | - |
-| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中`showSorterTooltip` | boolean | `true` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
+| ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | showTitle: 4.3.0 |
+| className | 列样式类名 | string | - |  |
+| colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
+| dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
+| defaultFilteredValue | 默认筛选值 | string\[] | - |  |
+| defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |  |
+| filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
+| filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
+| filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
+| filterIcon | 自定义 filter 图标。 | ReactNode\|(filtered: boolean) => ReactNode | false |  |
+| filterMultiple | 是否多选 | boolean | true |  |
+| filters | 表头的筛选菜单项 | object\[] | - |  |
+| fixed | （IE 下无效）列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |  |
+| key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
+| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |  |
+| responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
+| shouldCellUpdate | 自定义单元格渲染时机 | (record) => boolean | - | 4.3.0 |
+| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |  |
+| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |  |
+| sortDirections | 支持的排序方式，覆盖`Table`中`sortDirections`， 取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |  |
+| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
+| width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |  |
+| onCell | 设置单元格属性 | Function(record, rowIndex) | - |  |
+| onFilter | 本地模式下，确定筛选的运行函数 | Function | - |  |
+| onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
+| onHeaderCell | 设置头部单元格属性 | Function(column) | - |  |
+| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中`showSorterTooltip` | boolean | `true` |  |
 
 ### ColumnGroup
 
@@ -297,4 +298,4 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 
 ### 为什么 更新 state 会导致全表渲染？
 
-由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `components` 属性来精确控制子元素的渲染，请参考 [#23763](https://github.com/ant-design/ant-design/issues/23763)。
+由于 `columns` 支持 `render` 方法，因而 Table 无法知道哪些单元会受到影响。你可以通过 `column.shouldCellUpdate` 来控制单元格的渲染。

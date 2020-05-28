@@ -51,6 +51,177 @@ exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
+  <div>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        pink
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        red
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        yellow
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        orange
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        cyan
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        green
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        blue
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        purple
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        geekblue
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        magenta
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        volcano
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        gold
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        lime
+      </span>
+    </button>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
+  <div>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        #f50
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        #2db7f5
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        #87d068
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        #108ee9
+      </span>
+    </button>
+  </div>,
+]
+`;
+
+exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.md correctly 1`] = `
+<span>
+  Tooltip will destroy when hidden.
+</span>
+`;
+
 exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
 <div
   class="demo"

@@ -104,11 +104,7 @@ describe('Transfer', () => {
   it('should move selected keys to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onChange={handleChange} />);
-    wrapper
-      .find(TransferOperation)
-      .find(Button)
-      .at(0)
-      .simulate('click'); // move selected keys to right list
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
@@ -122,22 +118,14 @@ describe('Transfer', () => {
         onChange={handleChange}
       />,
     );
-    wrapper
-      .find(TransferOperation)
-      .find(Button)
-      .at(1)
-      .simulate('click'); // move selected keys to left list
+    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to left list
     expect(handleChange).toHaveBeenCalledWith([], 'left', ['a']);
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
-    wrapper
-      .find(TransferOperation)
-      .find(Button)
-      .at(0)
-      .simulate('click'); // move selected keys to right list
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
@@ -211,20 +199,14 @@ describe('Transfer', () => {
       .at(0)
       .find('input')
       .simulate('change', { target: { value: 'a' } });
-    expect(
-      wrapper
-        .find(TransferList)
-        .at(0)
-        .find(TransferItem)
-        .find(Checkbox),
-    ).toHaveLength(1);
+    expect(wrapper.find(TransferList).at(0).find(TransferItem).find(Checkbox)).toHaveLength(1);
   });
 
   const headerText = wrapper =>
     wrapper
       .find(TransferList)
       .at(0)
-      .find('.ant-transfer-list-header-selected > span')
+      .find('.ant-transfer-list-header-selected')
       .at(0)
       .first()
       .text()
@@ -259,21 +241,11 @@ describe('Transfer', () => {
     expect(headerText(wrapper)).toEqual('0 Person');
 
     expect(
-      wrapper
-        .find(TransferList)
-        .at(0)
-        .find('.ant-transfer-list-search')
-        .at(0)
-        .prop('placeholder'),
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-search').at(0).prop('placeholder'),
     ).toEqual('Search');
 
     expect(
-      wrapper
-        .find(TransferList)
-        .at(0)
-        .find('.ant-transfer-list-body-not-found')
-        .at(0)
-        .text(),
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
     ).toEqual('Nothing');
   });
 
@@ -292,21 +264,11 @@ describe('Transfer', () => {
     );
 
     expect(
-      wrapper
-        .find(TransferList)
-        .at(0)
-        .find('.ant-transfer-list-search')
-        .at(0)
-        .prop('placeholder'),
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-search').at(0).prop('placeholder'),
     ).toEqual('new2');
 
     expect(
-      wrapper
-        .find(TransferList)
-        .at(0)
-        .find('.ant-transfer-list-body-not-found')
-        .at(0)
-        .text(),
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
     ).toEqual('new1');
 
     expect(consoleErrorSpy).not.toHaveBeenCalledWith(
@@ -378,11 +340,7 @@ describe('Transfer', () => {
       .find('.ant-transfer-list-header input[type="checkbox"]')
       .filterWhere(n => !n.prop('checked'))
       .simulate('change');
-    wrapper
-      .find(TransferOperation)
-      .find(Button)
-      .at(0)
-      .simulate('click');
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click');
     expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
 
@@ -423,7 +381,7 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
   });
 
-  it('should show sorted targetkey', () => {
+  it('should show sorted targetKey', () => {
     const sortedTargetKeyProps = {
       dataSource: [
         {
@@ -536,5 +494,52 @@ describe('Transfer', () => {
     ];
     const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
     expect(headerText(wrapper)).toEqual('1 of 2');
+  });
+
+  describe('pagination', () => {
+    it('boolean', () => {
+      const wrapper = mount(<Transfer {...listDisabledProps} pagination />);
+      expect(wrapper.find('Pagination').first().props()).toEqual(
+        expect.objectContaining({
+          pageSize: 10,
+        }),
+      );
+    });
+
+    it('object', () => {
+      const wrapper = mount(<Transfer {...listDisabledProps} pagination={{ pageSize: 1 }} />);
+      expect(
+        wrapper.find('.ant-transfer-list').first().find('.ant-transfer-list-content-item'),
+      ).toHaveLength(1);
+      expect(wrapper.find('Pagination').first().props()).toEqual(
+        expect.objectContaining({
+          pageSize: 1,
+        }),
+      );
+    });
+
+    it('not exceed max size', () => {
+      const wrapper = mount(<Transfer {...listDisabledProps} pagination={{ pageSize: 1 }} />);
+      wrapper.find('.ant-pagination-next .ant-pagination-item-link').first().simulate('click');
+      expect(wrapper.find('Pagination').first().props()).toEqual(
+        expect.objectContaining({
+          current: 2,
+        }),
+      );
+
+      wrapper.setProps({ targetKeys: ['b', 'c'] });
+      expect(wrapper.find('Pagination').first().props()).toEqual(
+        expect.objectContaining({
+          current: 1,
+        }),
+      );
+    });
+  });
+
+  it('remove by click icon', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
+    wrapper.find('.ant-transfer-list-content-item-remove').first().simulate('click');
+    expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 });

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://ant.design">
+  <a href="https://ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
@@ -47,7 +47,7 @@ An enterprise-class UI design language and React UI library.
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](http://ant.design)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
 English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
@@ -62,7 +62,7 @@ English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
 ## 🖥 Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
@@ -88,7 +88,7 @@ import { Button, DatePicker } from 'antd';
 const App = () => (
   <>
     <Button type="primary">PRESS ME</Button>
-    <DatePicker />
+    <DatePicker placeholder="select date" />
   </>
 );
 ```
@@ -99,19 +99,17 @@ And import style manually:
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
-Or use [babel-plugin-import](https://ant.design/docs/react/getting-started#Import-on-Demand).
-
 ### TypeScript
 
-See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript).
+`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
 
 ## 🌍 Internationalization
 
-See [i18n](http://ant.design/docs/react/i18n).
+Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
 
 ## 🔗 Links
 
-- [Home page](http://ant.design/)
+- [Home page](https://ant.design/)
 - [Components](https://ant.design/components/button/)
 - [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](CHANGELOG.en-US.md)
@@ -130,7 +128,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [FAQ](https://ant.design/docs/react/faq)
 - [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [Customize Theme](http://ant.design/docs/react/customize-theme)
+- [Customize Theme](https://ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ Development

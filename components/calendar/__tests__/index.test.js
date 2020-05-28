@@ -16,10 +16,7 @@ describe('Calendar', () => {
   rtlTest(Calendar, true);
 
   function openSelect(wrapper, className) {
-    wrapper
-      .find(className)
-      .find('.ant-select-selector')
-      .simulate('mousedown');
+    wrapper.find(className).find('.ant-select-selector').simulate('mousedown');
   }
 
   function findSelectItem(wrapper) {
@@ -27,18 +24,13 @@ describe('Calendar', () => {
   }
 
   function clickSelectItem(wrapper, index = 0) {
-    findSelectItem(wrapper)
-      .at(index)
-      .simulate('click');
+    findSelectItem(wrapper).at(index).simulate('click');
   }
 
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mount(<Calendar onSelect={onSelect} />);
-    wrapper
-      .find('.ant-picker-cell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-picker-cell').at(0).simulate('click');
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
     const value = onSelect.mock.calls[0][0];
     expect(Moment.isMoment(value)).toBe(true);
@@ -50,14 +42,8 @@ describe('Calendar', () => {
     const wrapper = mount(
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
     );
-    wrapper
-      .find('[title="2018-02-01"]')
-      .at(0)
-      .simulate('click');
-    wrapper
-      .find('[title="2018-02-02"]')
-      .at(0)
-      .simulate('click');
+    wrapper.find('[title="2018-02-01"]').at(0).simulate('click');
+    wrapper.find('[title="2018-02-02"]').at(0).simulate('click');
     expect(onSelect.mock.calls.length).toBe(1);
   });
 
@@ -67,10 +53,7 @@ describe('Calendar', () => {
     const wrapper = mount(
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
     );
-    wrapper
-      .find('[title="2018-02-20"]')
-      .at(0)
-      .simulate('click');
+    wrapper.find('[title="2018-02-20"]').at(0).simulate('click');
     const elem = wrapper.find('[title="2018-02-20"]').hasClass('ant-picker-cell-disabled');
     expect(elem).toEqual(true);
     expect(onSelect.mock.calls.length).toBe(0);
@@ -87,32 +70,13 @@ describe('Calendar', () => {
         mode="year"
       />,
     );
-    expect(
-      wrapper
-        .find('[title="2018-01"]')
-        .at(0)
-        .hasClass('ant-picker-cell-disabled'),
-    ).toBe(true);
-    expect(
-      wrapper
-        .find('[title="2018-02"]')
-        .at(0)
-        .hasClass('ant-picker-cell-disabled'),
-    ).toBe(false);
-    expect(
-      wrapper
-        .find('[title="2018-06"]')
-        .at(0)
-        .hasClass('ant-picker-cell-disabled'),
-    ).toBe(true);
-    wrapper
-      .find('[title="2018-01"]')
-      .at(0)
-      .simulate('click');
-    wrapper
-      .find('[title="2018-03"]')
-      .at(0)
-      .simulate('click');
+    expect(wrapper.find('[title="2018-01"]').at(0).hasClass('ant-picker-cell-disabled')).toBe(true);
+    expect(wrapper.find('[title="2018-02"]').at(0).hasClass('ant-picker-cell-disabled')).toBe(
+      false,
+    );
+    expect(wrapper.find('[title="2018-06"]').at(0).hasClass('ant-picker-cell-disabled')).toBe(true);
+    wrapper.find('[title="2018-01"]').at(0).simulate('click');
+    wrapper.find('[title="2018-03"]').at(0).simulate('click');
     expect(onSelect.mock.calls.length).toBe(1);
   });
 
@@ -155,7 +119,7 @@ describe('Calendar', () => {
   });
 
   it('Calendar should support locale', () => {
-    MockDate.set(Moment('2018-10-19'));
+    MockDate.set(Moment('2018-10-19').valueOf());
     // eslint-disable-next-line global-require
     const zhCN = require('../locale/zh_CN').default;
     const wrapper = mount(<Calendar locale={zhCN} />);
@@ -168,10 +132,7 @@ describe('Calendar', () => {
     const date = new Moment('1990-09-03');
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-    wrapper
-      .find('.ant-picker-cell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.ant-picker-cell').at(0).simulate('click');
 
     expect(onPanelChange).toHaveBeenCalled();
     expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
@@ -242,10 +203,7 @@ describe('Calendar', () => {
       />,
     );
     openSelect(wrapper, '.ant-picker-calendar-year-select');
-    wrapper
-      .find('.ant-select-item-option')
-      .last()
-      .simulate('click');
+    wrapper.find('.ant-select-item-option').last().simulate('click');
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('2'));
   });
 
@@ -283,10 +241,7 @@ describe('Calendar', () => {
         type="date"
       />,
     );
-    wrapper
-      .find('input[type="radio"]')
-      .at(1)
-      .simulate('change');
+    wrapper.find('input[type="radio"]').at(1).simulate('change');
     expect(onTypeChange).toHaveBeenCalledWith('year');
   });
 
@@ -324,9 +279,7 @@ describe('Calendar', () => {
     openSelect(wrapperWithYear, '.ant-select');
     wrapperWithYear.update();
 
-    findSelectItem(wrapperWithYear)
-      .last()
-      .simulate('click');
+    findSelectItem(wrapperWithYear).last().simulate('click');
 
     expect(onYearChange).toHaveBeenCalled();
 
@@ -371,9 +324,7 @@ describe('Calendar', () => {
     openSelect(wrapperWithMonth, '.ant-select');
     wrapperWithMonth.update();
 
-    findSelectItem(wrapperWithMonth)
-      .last()
-      .simulate('click');
+    findSelectItem(wrapperWithMonth).last().simulate('click');
 
     expect(onMonthChange).toHaveBeenCalled();
 
@@ -391,10 +342,7 @@ describe('Calendar', () => {
       <Calendar fullscreen={false} headerRender={headerRenderWithTypeChange} />,
     );
 
-    wrapperWithTypeChange
-      .find('.ant-radio-button-input')
-      .last()
-      .simulate('change');
+    wrapperWithTypeChange.find('.ant-radio-button-input').last().simulate('change');
     expect(onTypeChange).toHaveBeenCalled();
   });
 
@@ -402,23 +350,13 @@ describe('Calendar', () => {
     const wrapper = mount(
       <Calendar dateFullCellRender={() => <div className="light">Bamboo</div>} />,
     );
-    expect(
-      wrapper
-        .find('.light')
-        .first()
-        .text(),
-    ).toEqual('Bamboo');
+    expect(wrapper.find('.light').first().text()).toEqual('Bamboo');
   });
 
   it('monthFullCellRender', () => {
     const wrapper = mount(
       <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
     );
-    expect(
-      wrapper
-        .find('.bamboo')
-        .first()
-        .text(),
-    ).toEqual('Light');
+    expect(wrapper.find('.bamboo').first().text()).toEqual('Light');
   });
 });

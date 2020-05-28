@@ -81,6 +81,19 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
     </ul>
   </div>
   <div
+    class="ant-typography"
+  >
+    Press 
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+     to exist...
+  </div>
+  <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
   />
@@ -168,6 +181,19 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
     </ul>
   </div>
+  <div
+    class="ant-typography"
+  >
+    按
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+    键退出阅读……
+  </div>
 </article>
 `;
 
@@ -190,11 +216,13 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
 <div>
   <button
     aria-checked="true"
-    checked=""
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -207,6 +235,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -217,6 +248,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -227,6 +261,9 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -623,6 +660,7 @@ exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
   </div>
   <div
     class="ant-typography ant-typography-ellipsis"
+    title="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
     To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
   </div>
@@ -630,76 +668,143 @@ exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/typography/demo/text.md correctly 1`] = `
-<div>
-  <span
-    class="ant-typography"
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-secondary"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-warning"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-danger"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-disabled"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography"
-  >
-    <mark>
+    <span
+      class="ant-typography"
+    >
       Ant Design
-    </mark>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <code>
+    <span
+      class="ant-typography ant-typography-secondary"
+    >
       Ant Design
-    </code>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <u>
+    <span
+      class="ant-typography ant-typography-warning"
+    >
       Ant Design
-    </u>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <del>
+    <span
+      class="ant-typography ant-typography-danger"
+    >
       Ant Design
-    </del>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <strong>
+    <span
+      class="ant-typography ant-typography-disabled"
+    >
       Ant Design
-    </strong>
-  </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <mark>
+        Ant Design
+      </mark>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Ant Design
+      </code>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Ant Design
+      </kbd>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <u>
+        Ant Design
+      </u>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <del>
+        Ant Design
+      </del>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        Ant Design
+      </strong>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography"
+      href="https://ant.design"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Ant Design
+    </a>
+  </div>
 </div>
 `;
 

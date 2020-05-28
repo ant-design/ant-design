@@ -360,6 +360,8 @@
 
   table tr th&-selection-column,
   table tr td&-selection-column {
+    padding-right: @padding-xs;
+    padding-left: @padding-xs;
     text-align: center;
 
     .@{ant-prefix}-radio-wrapper {
@@ -494,6 +496,9 @@
   // ========================= Placeholder ==========================
   &-tbody > tr&-placeholder {
     text-align: center;
+    .@{table-prefix-cls}-empty & {
+      color: @disabled-color;
+    }
     &:hover {
       > td {
         background: @component-background;

@@ -4,6 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
 import { InputProps, getInputClassName } from './Input';
 import { SizeType } from '../config-provider/SizeContext';
+import { cloneElement } from '../_util/reactNode';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -103,7 +104,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     } = this.props;
     const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
-      return React.cloneElement(element, {
+      return cloneElement(element, {
         value,
       });
     }
@@ -126,7 +127,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         onMouseUp={this.onInputMouseUp}
       >
         {prefixNode}
-        {React.cloneElement(element, {
+        {cloneElement(element, {
           style: null,
           value,
           className: getInputClassName(prefixCls, size, disabled),
@@ -167,7 +168,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       <span className={mergedGroupClassName} style={style}>
         <span className={mergedWrapperClassName}>
           {addonBeforeNode}
-          {React.cloneElement(labeledElement, { style: null })}
+          {cloneElement(labeledElement, { style: null })}
           {addonAfterNode}
         </span>
       </span>
@@ -177,7 +178,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement<any>) {
     const { value, allowClear, className, style, direction } = this.props;
     if (!allowClear) {
-      return React.cloneElement(element, {
+      return cloneElement(element, {
         value,
       });
     }
@@ -189,7 +190,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     );
     return (
       <span className={affixWrapperCls} style={style}>
-        {React.cloneElement(element, {
+        {cloneElement(element, {
           style: null,
           value,
         })}

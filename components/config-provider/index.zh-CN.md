@@ -48,11 +48,17 @@ return (
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
 | prefixCls | 设置统一样式前缀。`注意：这将不会应用由 antd 提供的默认样式` | string | ant |  |
-| pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | 'true' |  |
+| pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。`false` 时会关闭虚拟滚动 | boolean \| number | - | 4.3.0 |
 
 ## FAQ
+
+#### 如何增加一个新的语言包？
+
+参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
 
 #### 为什么我使用了 ConfigProvider `locale`，时间类组件的国际化还有问题？
 

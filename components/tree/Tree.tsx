@@ -142,7 +142,7 @@ interface CompoundedComponent
 }
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -158,6 +158,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     <RcTree
       itemHeight={20}
       ref={ref}
+      virtual={virtual}
       {...props}
       prefixCls={prefixCls}
       className={classNames(className, {

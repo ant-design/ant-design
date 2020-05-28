@@ -788,6 +788,7 @@ exports[`Picker format by locale date 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
       size="12"
@@ -854,6 +855,7 @@ exports[`Picker format by locale dateTime 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
       size="21"
@@ -920,6 +922,7 @@ exports[`Picker format by locale month 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择月份"
       readonly=""
       size="12"
@@ -986,6 +989,7 @@ exports[`Picker format by locale week 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择周"
       readonly=""
       size="12"

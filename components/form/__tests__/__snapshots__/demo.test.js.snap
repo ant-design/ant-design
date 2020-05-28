@@ -1015,6 +1015,89 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-horizontal"
+  id="dynamic_form_nest_item"
+>
+  <div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-dashed ant-btn-block"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs />
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                 Add field
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -3100,6 +3183,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  autocomplete="off"
                   placeholder="Select date"
                   readonly=""
                   size="12"
@@ -3261,10 +3345,13 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           >
             <button
               aria-checked="false"
-              class="ant-switch-small ant-switch"
+              class="ant-switch ant-switch-small"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -3346,6 +3433,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_date-picker"
                 placeholder="Select date"
                 readonly=""
@@ -3413,6 +3501,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_date-time-picker"
                 placeholder="Select date"
                 readonly=""
@@ -3480,6 +3569,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_month-picker"
                 placeholder="Select month"
                 readonly=""
@@ -3547,6 +3637,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_range-picker"
                 placeholder="Start date"
                 readonly=""
@@ -3587,6 +3678,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="End date"
                 readonly=""
                 size="12"
@@ -3656,6 +3748,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_range-time-picker"
                 placeholder="Start date"
                 readonly=""
@@ -3696,6 +3789,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="End date"
                 readonly=""
                 size="21"
@@ -3765,6 +3859,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 id="time_related_controls_time-picker"
                 placeholder="Select time"
                 readonly=""
@@ -4160,6 +4255,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             role="switch"
             type="button"
           >
+            <div
+              class="ant-switch-handle"
+            />
             <span
               class="ant-switch-inner"
             />
@@ -5550,6 +5648,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -5640,6 +5739,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="Select time"
                 readonly=""
                 size="10"
@@ -5946,6 +6046,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        autocomplete="off"
                         placeholder="Select date"
                         readonly=""
                         size="12"
@@ -6014,6 +6115,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        autocomplete="off"
                         placeholder="Select date"
                         readonly=""
                         size="12"

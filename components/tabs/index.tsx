@@ -10,6 +10,7 @@ import TabBar from './TabBar';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { isFlexSupported } from '../_util/styleChecker';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -51,6 +52,7 @@ export interface TabPaneProps {
   disabled?: boolean;
   forceRender?: boolean;
   key?: string;
+  closeIcon?: React.ReactNode;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
@@ -128,17 +130,24 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (type === 'editable-card') {
       childrenWithClose = [];
       React.Children.forEach(children as React.ReactNode, (child, index) => {
-        if (!React.isValidElement(child)) return child;
+        if (!isValidElement(child)) return child;
         let { closable } = child.props;
+        const { closeIcon: customCloseIcon } = child.props;
         closable = typeof closable === 'undefined' ? true : closable;
-        const closeIcon = closable ? (
+        const customIcon = customCloseIcon ? (
+          React.cloneElement(customCloseIcon, {
+            className: `${prefixCls}-close-x`,
+            onClick: e => this.removeTab(child.key as string, e),
+          })
+        ) : (
           <CloseOutlined
             className={`${prefixCls}-close-x`}
             onClick={e => this.removeTab(child.key as string, e)}
           />
-        ) : null;
+        );
+        const closeIcon = closable ? customIcon : null;
         childrenWithClose.push(
-          React.cloneElement(child, {
+          cloneElement(child, {
             tab: (
               <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
                 {child.props.tab}

@@ -17,11 +17,11 @@ A circular progress bar.
 import { Progress } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Progress type="circle" percent={75} />
     <Progress type="circle" percent={70} status="exception" />
     <Progress type="circle" percent={100} />
-  </div>,
+  </>,
   mountNode,
 );
 ```

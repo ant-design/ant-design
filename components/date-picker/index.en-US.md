@@ -23,7 +23,7 @@ There are five kinds of picker:
 
 ### Localization
 
-The default locale is en-US, if you need to use other languages, recommend to use internationalized components provided by us at the entrance. Look at: [ConfigProvider](http://ant.design/components/config-provider/).
+The default locale is en-US, if you need to use other languages, recommend to use internationalized components provided by us at the entrance. Look at: [ConfigProvider](https://ant.design/components/config-provider/).
 
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
@@ -144,6 +144,7 @@ Added in `4.1.0`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
+| dateRender | Customize date cell. `info` argument is added in 4.3.0 | function(currentDate: moment, today: moment, info: { range: 'start' \| ''end }) => React.ReactNode | - |  |
 | defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
 | disabled | disable start or end | `[boolean, boolean]` | - |  |

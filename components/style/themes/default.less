@@ -219,6 +219,8 @@
 @btn-group-border: @primary-5;
 
 @btn-link-ghost-color: @component-background;
+@btn-link-hover-bg: transparent;
+@btn-text-hover-bg: rgba(0, 0, 0, 0.018);
 
 // Checkbox
 @checkbox-size: 16px;
@@ -235,6 +237,9 @@
 @descriptions-middle-padding: @padding-sm @padding-lg;
 @descriptions-small-padding: @padding-xs @padding-md;
 @descriptions-item-padding-bottom: @padding-md;
+@descriptions-item-trailing-colon: true;
+@descriptions-item-label-colon-margin-right: 8px;
+@descriptions-item-label-colon-margin-left: 2px;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
@@ -294,7 +299,6 @@
 
 // Grid system
 @grid-columns: 24;
-@grid-gutter-width: 0;
 
 // Layout
 @layout-body-background: #f0f2f5;
@@ -396,6 +400,7 @@
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
 @input-icon-hover-color: fade(@black, 85%);
+@input-disabled-color: @disabled-color;
 
 // Mentions
 // ---
@@ -513,7 +518,9 @@
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
+@menu-highlight-danger-color: @error-color;
 @menu-item-active-bg: @primary-1;
+@menu-item-active-danger-bg: @red-1;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 @menu-item-vertical-margin: 4px;
@@ -528,11 +535,13 @@
 
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
+@menu-dark-danger-color: @error-color;
 @menu-dark-bg: @layout-header-background;
 @menu-dark-arrow-color: #fff;
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
+@menu-dark-item-active-danger-bg: @error-color;
 @menu-dark-selected-item-icon-color: @white;
 @menu-dark-selected-item-text-color: @white;
 @menu-dark-item-hover-bg: transparent;
@@ -574,7 +583,7 @@
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
 @table-selection-column-width: 60px;
-@table-selection-extra-right: -10px;
+@table-selection-extra-right: 0;
 
 // Tag
 // --
@@ -650,6 +659,7 @@
   0 5px 12px 4px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-base;
 @card-head-tabs-margin-bottom: -17px;
+@card-head-extra-color: @text-color;
 
 // Comment
 // ---
@@ -717,13 +727,15 @@
 @switch-sm-height: 16px;
 @switch-min-width: 44px;
 @switch-sm-min-width: 28px;
-@switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
 @switch-bg: @component-background;
 @switch-shadow-color: fade(#00230b, 20%);
-@switch-inner-margin-min: 6px;
-@switch-inner-margin-max: 24px;
+@switch-padding: 2px;
+@switch-inner-margin-min: ceil(@switch-height * 0.3);
+@switch-inner-margin-max: ceil(@switch-height * 1.1);
+@switch-sm-inner-margin-min: ceil(@switch-sm-height * 0.3);
+@switch-sm-inner-margin-max: ceil(@switch-sm-height * 1.1);
 
 // Pagination
 // ---
@@ -853,7 +865,8 @@
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
-  @alert-with-description-no-icon-padding-vertical - 1px 64px;
+  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size * 2 +
+  @alert-with-description-padding-vertical;
 @alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
 @alert-with-description-icon-size: 24px;
 @alert-with-description-icon-top: @alert-with-description-padding-vertical;

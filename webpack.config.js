@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPluginCom = require('@bundle-analyzer/webpack-plugin');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
@@ -32,6 +33,35 @@ function externalMoment(config) {
     commonjs: 'moment',
     amd: 'moment',
   };
+}
+
+function injectWarningCondition(config) {
+  config.module.rules.forEach(rule => {
+    // Remove devWarning if needed
+    if (rule.test.test('test.tsx')) {
+      rule.use = [
+        ...rule.use,
+        {
+          loader: 'string-replace-loader',
+          options: {
+            search: 'devWarning(',
+            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
+          },
+        },
+      ];
+    }
+  });
+}
+
+function addBundleAnalyzerPluginCom(config) {
+  if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
+    return;
+  }
+  config.plugins.push(
+    new BundleAnalyzerPluginCom({
+      token: process.env.BUNDLE_ANALYZER_TOKEN,
+    }),
+  );
 }
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
@@ -68,6 +98,10 @@ const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
 
+webpackConfig.forEach(config => {
+  injectWarningCondition(config);
+});
+
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -76,19 +110,19 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
-    if (process.env.CSB_REPO) {
+    if (process.env.ESBUILD) {
       config.optimization.minimizer[0] = new EsbuildPlugin();
     }
-    // skip codesandbox ci
-    if (!process.env.CSB_REPO) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-          reportFilename: '../report.html',
-        }),
-      );
-    }
+
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: '../report.html',
+      }),
+    );
+
+    addBundleAnalyzerPluginCom(config);
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);

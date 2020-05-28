@@ -17,7 +17,7 @@ import { T, fileToObject, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export { UploadProps };
 
@@ -61,7 +61,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       dragState: 'drop',
     };
 
-    warning(
+    devWarning(
       'fileList' in props || !('value' in props),
       'Upload',
       '`value` is not a valid prop, do you mean `fileList`?',
@@ -72,7 +72,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     this.clearProgressTimer();
   }
 
-  saveUpload = (node: typeof RcUpload) => {
+  saveUpload = (node: any) => {
     this.upload = node;
   };
 
@@ -242,6 +242,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       locale: propLocale,
       iconRender,
       isImageUrl,
+      progress,
     } = this.props;
     const {
       showRemoveIcon,
@@ -267,6 +268,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         iconRender={iconRender}
         locale={{ ...locale, ...propLocale }}
         isImageUrl={isImageUrl}
+        progress={progress}
       />
     );
   };
@@ -298,6 +300,14 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     delete rcUploadProps.className;
     delete rcUploadProps.style;
+
+    // Remove id to avoid open by label when trigger is hidden
+    // !children: https://github.com/ant-design/ant-design/issues/14298
+    // disabled: https://github.com/ant-design/ant-design/issues/16478
+    //           https://github.com/ant-design/ant-design/issues/24197
+    if (!children || disabled) {
+      delete rcUploadProps.id;
+    }
 
     const uploadList = showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
@@ -341,13 +351,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
-
-    // Remove id to avoid open by label when trigger is hidden
-    // https://github.com/ant-design/ant-design/issues/14298
-    // https://github.com/ant-design/ant-design/issues/16478
-    if (!children || disabled) {
-      delete rcUploadProps.id;
-    }
 
     const uploadButton = (
       <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>

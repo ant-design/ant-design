@@ -40,19 +40,10 @@ describe('Avatar Render', () => {
     global.document.body.appendChild(div);
 
     const wrapper = mount(<Avatar src="http://error.url">Fallback</Avatar>, { attachTo: div });
-    wrapper.instance().setScale = jest.fn(() => {
-      if (wrapper.state().scale === 0.5) {
-        return;
-      }
-      wrapper.instance().setState({ scale: 0.5 });
-    });
     wrapper.find('img').simulate('error');
-
     const children = wrapper.find('.ant-avatar-string');
     expect(children.length).toBe(1);
     expect(children.text()).toBe('Fallback');
-    expect(wrapper.instance().setScale).toHaveBeenCalled();
-    expect(div.querySelector('.ant-avatar-string').style.transform).toContain('scale(0.5)');
 
     wrapper.detach();
     global.document.body.removeChild(div);
@@ -136,6 +127,11 @@ describe('Avatar Render', () => {
     expect(wrapper.state().scale).toBe(0.32);
   });
 
+  it('should calculate scale of avatar children correctly with gap', () => {
+    const wrapper = mount(<Avatar gap={2}>Avatar</Avatar>);
+    expect(wrapper.state().scale).toBe(0.36);
+  });
+
   it('should warning when pass a string as icon props', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Avatar size={64} icon="aa" />);
@@ -145,5 +141,10 @@ describe('Avatar Render', () => {
       `Warning: [antd: Avatar] \`icon\` is using ReactNode instead of string naming in v4. Please check \`user\` at https://ant.design/components/icon`,
     );
     warnSpy.mockRestore();
+  });
+
+  it('support size is number', () => {
+    const wrapper = mount(<Avatar size={100}>TestString</Avatar>);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

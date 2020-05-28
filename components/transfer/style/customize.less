@@ -4,34 +4,11 @@
 @input-prefix-cls: ~'@{ant-prefix}-input';
 
 .@{transfer-prefix-cls}-customize-list {
-  display: flex;
-
-  .@{transfer-prefix-cls}-operation {
-    flex: none;
-    align-self: center;
-  }
-
   .@{transfer-prefix-cls}-list {
-    flex: auto;
+    flex: 1 1 50%;
     width: auto;
     height: auto;
     min-height: @transfer-list-height;
-
-    &-body {
-      &-with-search {
-        padding-top: 0;
-      }
-
-      // Search box in customize mode do not need fix top
-      &-search-wrapper {
-        position: relative;
-        padding-bottom: 0;
-      }
-
-      &-customize-wrapper {
-        padding: 12px;
-      }
-    }
   }
 
   // =================== Hook Components ===================
