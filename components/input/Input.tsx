@@ -190,7 +190,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
     const { onFocus } = this.props;
-    this.setState({ focused: true });
+    this.setState({ focused: true }, this.clearPasswordValueAttribute);
     if (onFocus) {
       onFocus(e);
     }
@@ -198,7 +198,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
     const { onBlur } = this.props;
-    this.setState({ focused: false });
+    this.setState({ focused: false }, this.clearPasswordValueAttribute);
     if (onBlur) {
       onBlur(e);
     }
