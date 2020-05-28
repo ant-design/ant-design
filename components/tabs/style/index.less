@@ -4,6 +4,7 @@
 @import './rtl';
 @import './position';
 @import './dropdown';
+@import './card';
 
 @tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
@@ -54,8 +55,23 @@
     }
 
     &-add {
-      border: 1px solid green;
-      background: rgba(0, 255, 0, 0.1);
+      margin: 0;
+      padding: 0 @padding-xs;
+      background: @tabs-card-head-background;
+      border: @border-width-base @border-style-base @border-color-split;
+      border-radius: @border-radius-base @border-radius-base 0 0;
+      transition: all @animation-duration-slow @ease-in-out;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        color: @tabs-hover-color;
+      }
+
+      &:active,
+      &:focus {
+        color: @tabs-active-color;
+      }
     }
   }
 
@@ -68,10 +84,6 @@
     position: absolute;
     background: @tabs-ink-bar-color;
     pointer-events: none;
-
-    &-animated {
-      transition: all 0.3s;
-    }
   }
 
   // ============================= Tabs =============================
@@ -84,24 +96,39 @@
     outline: none;
     cursor: pointer;
     position: relative;
+    display: inline-flex;
+    align-items: center;
 
     &-with-remove {
-      padding-right: 32px;
+      // padding-right: 32px;
     }
 
-    &-remove {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
+    & &-remove {
+      flex: none;
+      margin-left: @margin-xs;
+      margin-right: -@margin-xss;
+      font-size: @font-size-sm;
+      color: @text-color-secondary;
+      outline: none;
+      transition: all @animation-duration-slow;
+
+      .@{iconfont-css-prefix} {
+        margin: 0;
+      }
 
       &:hover {
-        color: red;
+        color: @heading-color;
+      }
+
+      &:focus,
+      &:active {
+        color: @tabs-active-color;
       }
     }
 
-    &:focus {
-      color: mix(@tabs-highlight-color, @text-color, 50%);
+    &:focus,
+    &:active {
+      color: @tabs-active-color;
     }
 
     &:hover {
