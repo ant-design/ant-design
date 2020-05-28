@@ -18,7 +18,7 @@ const Steps: React.FC<StepsProps> = props => {
         color = strokeColor;
       }
       const stepStyle = {
-        backgroundColor: `${color}`,
+        ...(color !== undefined && { backgroundColor: `${color}` }),
         width: `${stepWidth}px`,
         height: `${strokeWidth}px`,
       };
