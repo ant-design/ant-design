@@ -26,6 +26,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   name?: string;
   defaultValue?: Array<CheckboxValueType>;
   value?: Array<CheckboxValueType>;
+  type?: 'outline' | 'solid' | undefined;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
 }
 
@@ -119,17 +120,20 @@ class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGrou
 
   renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props, state } = this;
-    const { prefixCls: customizePrefixCls, className, style, options, ...restProps } = props;
+    const { prefixCls: customizePrefixCls, className, style, options, type, ...restProps } = props;
     const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
 
     const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'onChange', 'disabled']);
 
     let { children } = props;
+    const checkboxPrefixCls = type
+      ? getPrefixCls('checkbox-button', customizePrefixCls)
+      : prefixCls;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
         <Checkbox
-          prefixCls={prefixCls}
+          prefixCls={checkboxPrefixCls}
           key={option.value.toString()}
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
@@ -156,6 +160,7 @@ class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGrou
 
     const classString = classNames(groupPrefixCls, className, {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-${type}`]: !!type,
     });
     return (
       <div className={classString} style={style} {...domProps}>

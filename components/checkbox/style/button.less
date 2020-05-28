@@ -1,0 +1,114 @@
+@import '../../style/mixins/index';
+
+@checkbox-prefix-cls: ~'@{ant-prefix}-checkbox';
+@checkbox-group-prefix-cls: ~'@{checkbox-prefix-cls}-group';
+@radio-focus-shadow: 0 0 0 3px fade(@radio-dot-color, 8%);
+@radio-button-focus-shadow: @radio-focus-shadow;
+
+.@{checkbox-group-prefix-cls}-item.@{checkbox-prefix-cls}-button-wrapper {
+  margin-right: 0;
+}
+
+.@{checkbox-prefix-cls}-button-wrapper {
+  position: relative;
+  display: inline-block;
+  height: @btn-height-base;
+  margin: 0;
+  padding: 0 @padding-md - 1px;
+  color: @radio-button-color;
+  line-height: @btn-height-base - 2px;
+  background: @radio-button-bg;
+  border: @border-width-base @border-style-base @border-color-base;
+  border-top-width: @border-width-base + 0.02px;
+  border-left-width: 0;
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+
+  a {
+    color: @radio-button-color;
+  }
+
+  > .@{checkbox-prefix-cls}-button {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: 0;
+  }
+
+  &:not(:first-child) {
+    &::before {
+      position: absolute;
+      top: @border-width-base * -1;
+      left: -1px;
+      display: block;
+      box-sizing: content-box;
+      width: 1px;
+      height: 100%;
+      padding: @border-width-base 0;
+      background-color: @border-color-base;
+      transition: background-color 0.3s;
+      content: '';
+    }
+  }
+
+  &:first-child {
+    border-left: @border-width-base @border-style-base @border-color-base;
+    border-radius: @border-radius-base 0 0 @border-radius-base;
+  }
+
+  &:last-child {
+    border-radius: 0 @border-radius-base @border-radius-base 0;
+  }
+
+  &:first-child:last-child {
+    border-radius: @border-radius-base;
+  }
+
+  &:focus-within {
+    box-shadow: @radio-button-focus-shadow;
+  }
+
+  .@{checkbox-prefix-cls}-button-inner,
+  input[type='checkbox'],
+  input[type='radio'] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &-checked:not(&-disabled) {
+    z-index: 1;
+    color: @radio-dot-color;
+    background: @radio-button-checked-bg;
+    border-color: @radio-dot-color;
+
+    &::before {
+      background-color: @radio-dot-color;
+    }
+
+    &:first-child {
+      border-color: @radio-dot-color;
+    }
+
+    &:hover {
+      color: @radio-button-hover-color;
+      border-color: @radio-button-hover-color;
+      &::before {
+        background-color: @radio-button-hover-color;
+      }
+    }
+
+    &:active {
+      color: @radio-button-active-color;
+      border-color: @radio-button-active-color;
+      &::before {
+        background-color: @radio-button-active-color;
+      }
+    }
+
+    &:focus-within {
+      box-shadow: @radio-button-focus-shadow;
+    }
+  }
+}

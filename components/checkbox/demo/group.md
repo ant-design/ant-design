@@ -20,11 +20,11 @@ function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
 
-const plainOptions = ['Apple', 'Pear', 'Orange'];
+const plainOptions = ['加粗', '下划线', '斜体'];
 const options = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange' },
+  { label: '加粗', value: 'Apple' },
+  { label: '下划线', value: 'Pear' },
+  { label: '斜体', value: 'Orange' },
 ];
 const optionsWithDisabled = [
   { label: 'Apple', value: 'Apple' },
@@ -34,7 +34,12 @@ const optionsWithDisabled = [
 
 ReactDOM.render(
   <div>
-    <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+    <Checkbox.Group
+      type="outline"
+      options={plainOptions}
+      defaultValue={['Apple']}
+      onChange={onChange}
+    />
     <br />
     <br />
     <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
