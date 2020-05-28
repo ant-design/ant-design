@@ -1,0 +1,112 @@
+@import './index';
+
+.@{tab-prefix-cls} {
+  // ========================== Top & Bottom ==========================
+  &-top,
+  &-bottom {
+    flex-direction: column;
+
+    .@{tab-prefix-cls}-ink-bar {
+      height: 2px;
+    }
+  }
+
+  &-top {
+    .@{tab-prefix-cls}-nav {
+      margin: @tabs-vertical-margin;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+
+    .@{tab-prefix-cls}-ink-bar {
+      bottom: 0;
+    }
+  }
+
+  &-bottom {
+    .@{tab-prefix-cls}-nav {
+      order: 1;
+    }
+
+    .@{tab-prefix-cls}-content {
+      order: 0;
+    }
+
+    .@{tab-prefix-cls}-ink-bar {
+      top: 0;
+    }
+  }
+
+  // ========================== Left & Right ==========================
+  &-left,
+  &-right {
+    // >>>>>>>>>>> Tab
+    .@{tab-prefix-cls}-tab {
+      margin: @tabs-vertical-margin;
+      padding: @tabs-vertical-padding;
+      text-align: center;
+    }
+
+    &.@{tab-prefix-cls}-editable .@{tab-prefix-cls}-tab {
+      padding-right: 32px;
+    }
+
+    // >>>>>>>>>>> Nav
+    .@{tab-prefix-cls}-nav-wrap {
+      flex-direction: column;
+    }
+
+    .@{tab-prefix-cls}-ink-bar {
+      width: 2px;
+    }
+
+    .@{tab-prefix-cls}-nav {
+      flex-direction: column;
+      min-width: 50px;
+
+      &-list {
+        flex-direction: column;
+      }
+
+      &-operations {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &-left {
+    .@{tab-prefix-cls}-ink-bar {
+      right: 0;
+    }
+
+    .@{tab-prefix-cls}-content-holder {
+      border-left: @border-width-base @border-style-base @border-color-split;
+      margin-left: -@border-width-base;
+    }
+
+    .@{tab-prefix-cls}-tabpane {
+      padding-left: @padding-lg;
+    }
+  }
+
+  &-right {
+    .@{tab-prefix-cls}-nav {
+      order: 1;
+    }
+
+    .@{tab-prefix-cls}-content {
+      order: 0;
+    }
+
+    .@{tab-prefix-cls}-ink-bar {
+      left: 0;
+    }
+  }
+}
