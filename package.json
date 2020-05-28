@@ -144,12 +144,11 @@
     "rc-trigger": "~4.1.0",
     "rc-upload": "~3.0.4",
     "rc-util": "^4.20.0",
-    "rc-virtual-list": "^1.1.0",
-    "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
     "warning": "~4.0.3"
   },
   "devDependencies": {
+    "rc-virtual-list": "^1.1.0",
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
