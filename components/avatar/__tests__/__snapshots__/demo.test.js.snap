@@ -456,7 +456,7 @@ Array [
     <span>
       ChangeUser
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-sm"
     style="vertical-align:middle"
