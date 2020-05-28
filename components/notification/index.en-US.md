@@ -50,6 +50,10 @@ The properties of config are as follows:
 
 - `notification.config(options)`
 
+  > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+  >
+  > When you want to use it alone, you can start the RTL mode through the following settings.
+
 ```js
 notification.config({
   placement: 'bottomRight',

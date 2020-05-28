@@ -28,6 +28,7 @@ title: Tooltip
 | arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | `false` |  |
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | `true` |  |
 | defaultVisible | 默认是否显隐 | boolean | false |  |
+| color | 背景颜色 | string | - | 4.3.0 |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | Function(triggerNode) | () => document.body |  |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
 | mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
@@ -38,6 +39,7 @@ title: Tooltip
 | visible | 用于手动控制浮层显隐 | boolean | false |  |
 | onVisibleChange | 显示隐藏的回调 | (visible) => void | 无 |  |
 | align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | Object | 无 |  |
+| destroyTooltipOnHide | 关闭后是否销毁 Tooltip，当 `keepParent` 为 `false` 时销毁父容器 | boolean \| { keepParent?: boolean } | false |  |
 
 ## 注意
 

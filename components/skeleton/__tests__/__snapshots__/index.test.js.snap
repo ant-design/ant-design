@@ -450,6 +450,30 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
+exports[`Skeleton should round title and paragraph 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-round"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width: 38%;"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width: 61%;"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`Skeleton should square avatar 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"

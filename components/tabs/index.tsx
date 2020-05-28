@@ -52,6 +52,7 @@ export interface TabPaneProps {
   disabled?: boolean;
   forceRender?: boolean;
   key?: string;
+  closeIcon?: React.ReactNode;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
@@ -131,13 +132,20 @@ export default class Tabs extends React.Component<TabsProps, any> {
       React.Children.forEach(children as React.ReactNode, (child, index) => {
         if (!isValidElement(child)) return child;
         let { closable } = child.props;
+        const { closeIcon: customCloseIcon } = child.props;
         closable = typeof closable === 'undefined' ? true : closable;
-        const closeIcon = closable ? (
+        const customIcon = customCloseIcon ? (
+          React.cloneElement(customCloseIcon, {
+            className: `${prefixCls}-close-x`,
+            onClick: e => this.removeTab(child.key as string, e),
+          })
+        ) : (
           <CloseOutlined
             className={`${prefixCls}-close-x`}
             onClick={e => this.removeTab(child.key as string, e)}
           />
-        ) : null;
+        );
+        const closeIcon = closable ? customIcon : null;
         childrenWithClose.push(
           cloneElement(child, {
             tab: (

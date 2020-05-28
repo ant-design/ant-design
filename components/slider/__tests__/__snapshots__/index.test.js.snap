@@ -64,7 +64,11 @@ exports[`Slider should render in RTL direction 1`] = `
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -91,7 +95,11 @@ exports[`Slider should show tooltip when hovering slider handler 1`] = `
     >
       <div
         class="ant-tooltip-arrow"
-      />
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -113,7 +121,11 @@ exports[`Slider should show tooltip when hovering slider handler 2`] = `
     >
       <div
         class="ant-tooltip-arrow"
-      />
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       <div
         class="ant-tooltip-inner"
         role="tooltip"

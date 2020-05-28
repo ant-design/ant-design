@@ -19,7 +19,7 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text' as UploadListType, // or picture
-    progressAttr: {
+    progress: {
       strokeWidth: 2,
       showInfo: false,
     },
@@ -129,7 +129,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       removeIcon: customRemoveIcon,
       downloadIcon: customDownloadIcon,
       locale,
-      progressAttr,
+      progress: progressProps,
       isImageUrl: isImgUrl,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
@@ -177,7 +177,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         // show loading icon if upload progress listener is disabled
         const loadingProgress =
           'percent' in file ? (
-            <Progress type="line" {...progressAttr} percent={file.percent} />
+            <Progress {...progressProps} type="line" percent={file.percent} />
           ) : null;
 
         progress = (

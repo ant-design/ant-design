@@ -1,40 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/button/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
   >
     <span>
-      Primary
+      Primary Button
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
   >
     <span>
-      Default
+      Default Button
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dashed"
     type="button"
   >
     <span>
-      Dashed
+      Dashed Button
     </span>
-  </button>
+  </button>,
+  <br />,
+  <button
+    class="ant-btn ant-btn-text"
+    type="button"
+  >
+    <span>
+      Text Button
+    </span>
+  </button>,
   <button
     class="ant-btn ant-btn-link"
     type="button"
   >
     <span>
-      Link
+      Link Button
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/button/demo/block.md correctly 1`] = `
@@ -186,6 +195,24 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
+    class="ant-btn ant-btn-text"
+    type="button"
+  >
+    <span>
+      Text
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-text"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Text(disabled)
+    </span>
+  </button>
+  <br />
+  <button
     class="ant-btn ant-btn-link ant-btn-dangerous"
     type="button"
   >
@@ -270,6 +297,14 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
   >
     <span>
       link
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-text ant-btn-background-ghost"
+    type="button"
+  >
+    <span>
+      Text Button
     </span>
   </button>
   <button

@@ -23,19 +23,19 @@ title: Transfer
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| className | 自定义类 | string |  |  |
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外。 | [TransferItem](https://git.io/vMM64)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | (inputValue, option): boolean |  |  |
 | footer | 底部渲染函数 | (props) => ReactNode |  |  |
 | listStyle | 两个穿梭框的自定义样式 | object\|({direction: 'left'\|'right'}) => object |  |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | `{ itemUnit: '项', itemsUnit: '项', searchPlaceholder: '请输入搜索内容' }` |  |
+| oneWay | 展示为单向样式 | boolean | false | 4.3.0 |
 | operations | 操作文案集合，顺序从上至下 | string\[] | \['>', '<'] |  |
+| pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number } | false | 4.3.0 |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode |  |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
-| style | 容器的自定义样式 | CSSProperties |  |  |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | \['', ''] |  |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)[] |  |  |

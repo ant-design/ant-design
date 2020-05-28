@@ -95,8 +95,11 @@ describe('Button', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
-  it('should not insert space to link button', () => {
-    expect(<Button type="link">按钮</Button>).toMatchRenderedSnapshot();
+  it('should not insert space to link or text button', () => {
+    const wrapper1 = mount(<Button type="link">按钮</Button>);
+    expect(wrapper1.text()).toBe('按钮');
+    const wrapper2 = mount(<Button type="text">按钮</Button>);
+    expect(wrapper2.text()).toBe('按钮');
   });
 
   it('should render empty button without errors', () => {
@@ -188,11 +191,31 @@ describe('Button', () => {
     expect(<Button>{false}</Button>).toMatchRenderedSnapshot();
   });
 
-  it('should has click wave effect', async () => {
+  it('should have click wave effect', async () => {
     const wrapper = mount(<Button type="primary">button</Button>);
     wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
-    await new Promise(resolve => setTimeout(resolve, 0));
-    expect(wrapper.render()).toMatchSnapshot();
+    await sleep(0);
+    expect(
+      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+    ).toBe(true);
+  });
+
+  it('should not have click wave effect for link type button', async () => {
+    const wrapper = mount(<Button type="link">button</Button>);
+    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
+    await sleep(0);
+    expect(
+      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+    ).toBe(false);
+  });
+
+  it('should not have click wave effect for text type button', async () => {
+    const wrapper = mount(<Button type="link">button</Button>);
+    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
+    await sleep(0);
+    expect(
+      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+    ).toBe(false);
   });
 
   it('should not render as link button when href is undefined', async () => {
@@ -212,7 +235,6 @@ describe('Button', () => {
         This {'is'} a test {1}
       </Button>,
     );
-
     expect(wrapper.render()).toMatchSnapshot();
   });
 

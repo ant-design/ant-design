@@ -68,7 +68,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link');
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
@@ -131,7 +131,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const isNeedInserted = () => {
     const { icon, children, type } = props;
-    return React.Children.count(children) === 1 && !icon && type !== 'link';
+    return React.Children.count(children) === 1 && !icon && type !== 'link' && type !== 'text';
   };
 
   const fixTwoCNChar = () => {
@@ -265,7 +265,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 
-  if (type === 'link') {
+  if (type === 'link' || type === 'text') {
     return buttonNode;
   }
 
