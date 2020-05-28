@@ -560,15 +560,15 @@ exports[`Progress should support steps 1`] = `
   >
     <div
       class="ant-progress-steps-item"
-      style="background-color:undefined;width:14px;height:8px"
+      style="width:14px;height:8px"
     />
     <div
       class="ant-progress-steps-item"
-      style="background-color:undefined;width:14px;height:8px"
+      style="width:14px;height:8px"
     />
     <div
       class="ant-progress-steps-item"
-      style="background-color:undefined;width:14px;height:8px"
+      style="width:14px;height:8px"
     />
     <span
       class="ant-progress-text"
