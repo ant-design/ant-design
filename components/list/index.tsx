@@ -190,8 +190,6 @@ function List<T>({
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  console.log(pagination);
-
   const paginationProps = {
     ...defaultPaginationProps,
     total: dataSource.length,
