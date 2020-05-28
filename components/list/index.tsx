@@ -106,11 +106,11 @@ function List<T>({
     return (page: number, pageSize: number) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
-      if (pagination && (pagination as any)['current']) {
-        (pagination as any)['current'] = page;
+      if (pagination && (pagination as any).current) {
+        (pagination as any).current = page;
       }
-      if (pagination && (pagination as any)['pageSize']) {
-        (pagination as any)['pageSize'] = pageSize;
+      if (pagination && (pagination as any).pageSize) {
+        (pagination as any).pageSize = pageSize;
       }
       if (pagination && (pagination as any)[eventName]) {
         (pagination as any)[eventName](page, pageSize);
