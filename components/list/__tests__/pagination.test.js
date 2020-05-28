@@ -136,15 +136,6 @@ describe('List.pagination', () => {
     expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
   });
 
-  it('should change pageSize work when set default props', () => {
-    const wrapper = mount(createList({ pagination: { current: 1, showSizeChanger: true } }));
-    wrapper.find('.ant-select-selector').simulate('mousedown');
-    wrapper.find('.ant-select-item-option').at(1).simulate('click');
-    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('20 / page');
-    wrapper.find('.ant-select-item-option').at(0).simulate('click');
-    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('10 / page');
-  });
-
   it('should default work', () => {
     const wrapper = mount(
       createList({
