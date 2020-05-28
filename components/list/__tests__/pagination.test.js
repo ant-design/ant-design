@@ -52,10 +52,7 @@ describe('List.pagination', () => {
     const wrapper = mount(createList());
 
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy']);
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -79,10 +76,7 @@ describe('List.pagination', () => {
       }),
     );
 
-    wrapper
-      .find('Pager')
-      .last()
-      .simulate('click');
+    wrapper.find('Pager').last().simulate('click');
 
     expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
@@ -122,59 +116,33 @@ describe('List.pagination', () => {
 
   it('specify the position of pagination', () => {
     const wrapper = mount(createList({ pagination: { position: 'top' } }));
-    expect(
-      wrapper
-        .find('.ant-list')
-        .childAt(0)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
+    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
     wrapper.setProps({ pagination: { position: 'bottom' } });
-    expect(
-      wrapper
-        .find('.ant-list')
-        .children()
-        .last()
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
+    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
     wrapper.setProps({ pagination: { position: 'both' } });
     expect(wrapper.find('.ant-pagination')).toHaveLength(2);
-    expect(
-      wrapper
-        .find('.ant-list')
-        .childAt(0)
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
-    expect(
-      wrapper
-        .find('.ant-list')
-        .children()
-        .last()
-        .find('.ant-pagination'),
-    ).toHaveLength(1);
+    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
   });
 
   it('should change page size work', () => {
     const wrapper = mount(createList({ pagination: { showSizeChanger: true } }));
-    expect(
-      wrapper
-        .find('Pagination')
-        .first()
-        .render(),
-    ).toMatchSnapshot();
+    expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
-    wrapper
-      .find('.ant-select-item-option')
-      .at(2)
-      .simulate('click');
+    wrapper.find('.ant-select-item-option').at(2).simulate('click');
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
-    expect(
-      wrapper
-        .find('Pagination')
-        .first()
-        .render(),
-    ).toMatchSnapshot();
+    expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
+  });
+
+  it('should change pageSize work when set default props', () => {
+    const wrapper = mount(createList({ pagination: { current: 1, showSizeChanger: true } }));
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('20 / page');
+    wrapper.find('.ant-select-item-option').at(0).simulate('click');
+    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('10 / page');
   });
 
   it('should default work', () => {
@@ -189,12 +157,7 @@ describe('List.pagination', () => {
       }),
     );
 
-    expect(
-      wrapper
-        .find('Pagination')
-        .first()
-        .render(),
-    ).toMatchSnapshot();
+    expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
   });
 
   it('should not crash when pagination is null', () => {
