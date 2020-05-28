@@ -26,6 +26,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | arrowPointAtCenter | Whether the arrow is pointed at the center of target | boolean | `false` |  |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | `true` |  |
 | defaultVisible | Whether the floating tooltip card is visible by default | boolean | `false` |  |
+| color | background color | string | - | 4.3.0 |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | Function(triggerNode) | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
@@ -36,6 +37,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | visible | Whether the floating tooltip card is visible or not | boolean | `false` |  |
 | onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |  |
 | align | this value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | Object | - |  |
+| destroyTooltipOnHide | whether destroy tooltip when hidden, parent container of tooltip will be destroyed when `keepParent` is `false` | boolean \| { keepParent?: boolean } | false |  |
 
 ## Note
 

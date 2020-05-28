@@ -29,7 +29,7 @@ ReactDOM.render(
       language for background applications, is refined by Ant UED Team.
     </Paragraph>
 
-    <Paragraph ellipsis={{ rows: 3, expandable: true }}>
+    <Paragraph ellipsis={{ rows: 3, expandable: true, symbol: 'more' }}>
       Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
       Design, a design language for background applications, is refined by Ant UED Team. Ant Design,
       a design language for background applications, is refined by Ant UED Team. Ant Design, a

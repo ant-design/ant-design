@@ -25,6 +25,9 @@ ReactDOM.render(
     <Button type="dashed" ghost>
       link
     </Button>
+    <Button type="text" ghost>
+      Text Button
+    </Button>
     <Button type="link" ghost>
       link
     </Button>

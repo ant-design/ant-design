@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
 import { LegacyButtonType, NativeButtonProps, convertLegacyProps } from '../button/button';
@@ -7,6 +8,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
+import { cloneElement } from '../_util/reactNode';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -19,7 +21,10 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
-  onVisibleChange?: (visible: boolean, e?: React.MouseEvent<HTMLElement>) => void;
+  onVisibleChange?: (
+    visible: boolean,
+    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => void;
 }
 
 export interface PopconfirmState {
@@ -46,7 +51,10 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     }
   }, [props.defaultVisible]);
 
-  const settingVisible = (value: boolean, e?: React.MouseEvent<HTMLButtonElement>) => {
+  const settingVisible = (
+    value: boolean,
+    e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => {
     if (!('visible' in props)) {
       setVisible(value);
     }
@@ -69,6 +77,12 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
     if (props.onCancel) {
       props.onCancel.call(this, e);
+    }
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.keyCode === KeyCode.ESC && visible) {
+      settingVisible(false, e);
     }
   };
 
@@ -107,7 +121,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, placement, ...restProps } = props;
+  const { prefixCls: customizePrefixCls, placement, children, ...restProps } = props;
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
 
   const overlay = (
@@ -125,7 +139,14 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       visible={visible}
       overlay={overlay}
       ref={ref as any}
-    />
+    >
+      {cloneElement(children, {
+        onKeyDown: (e: React.KeyboardEvent<any>) => {
+          children?.props.onKeyDown?.(e);
+          onKeyDown(e);
+        },
+      })}
+    </Tooltip>
   );
 });
 

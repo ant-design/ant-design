@@ -485,12 +485,17 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
-<div>
-  <h4
-    style="margin-bottom:16px"
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Presets:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
   <div>
     <div>
       <span
@@ -674,12 +679,17 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <h4
-    style="margin:16px 0"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Custom:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
   <div>
     <span
       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -736,8 +746,8 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
         #108ee9
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/badge/demo/dot.md correctly 1`] = `

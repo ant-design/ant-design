@@ -454,7 +454,16 @@ Array [
     type="button"
   >
     <span>
-      Change
+      ChangeUser
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-sm"
+    style="vertical-align:middle"
+    type="button"
+  >
+    <span>
+      changeGap
     </span>
   </button>,
 ]

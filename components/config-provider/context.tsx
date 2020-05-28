@@ -26,6 +26,8 @@ export interface ConfigConsumerProps {
   space?: {
     size?: SizeType | number;
   };
+  virtual?: boolean;
+  dropdownMatchSelectWidth?: boolean;
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({

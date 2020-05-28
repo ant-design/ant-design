@@ -147,7 +147,7 @@
 }
 .button-color(@color; @background; @border) {
   color: @color;
-  background-color: @background;
+  background: @background;
   border-color: @border; // a inside Button which only work in Chrome
   // http://stackoverflow.com/a/17253457
   > a:only-child {
@@ -346,11 +346,33 @@
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);
   box-shadow: none;
+  &:hover {
+    background: @btn-link-hover-bg;
+  }
   &:hover,
   &:focus,
   &:active {
     border-color: transparent;
   }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
+// link button style
+.btn-text() {
+  .button-variant-other(@text-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    color: @text-color;
+    background: @btn-text-hover-bg;
+    border-color: transparent;
+  }
+
+  &:active {
+    color: @text-color;
+    background: fadein(@btn-text-hover-bg, 1%);
+    border-color: transparent;
+  }
+
   .button-disabled(@disabled-color; transparent; transparent);
 }
 // round button

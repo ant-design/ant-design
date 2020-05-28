@@ -79,6 +79,8 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     getPrefixCls,
     renderEmpty,
     direction,
+    virtual,
+    dropdownMatchSelectWidth,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -154,6 +156,8 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
 
           return (
             <RcTreeSelect
+              virtual={virtual}
+              dropdownMatchSelectWidth={dropdownMatchSelectWidth}
               {...selectProps}
               ref={this.selectRef}
               prefixCls={prefixCls}

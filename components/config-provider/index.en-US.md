@@ -47,9 +47,11 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | getTargetContainer | Config Affix, Anchor scroll target container. | () => HTMLElement | () => window | 4.2.0 |
 | locale | language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object |  |
 | prefixCls | set prefix class. `Note:` This will discard default styles from `antd`. | string | ant |  |
-| pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost:boolean } | 'true' |  |
+| pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost:boolean } | true |  |
 | direction | set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | space | set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
 
 ## FAQ
 

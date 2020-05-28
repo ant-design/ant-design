@@ -17,6 +17,7 @@ export interface MenuItemProps
   disabled?: boolean;
   level?: number;
   icon?: React.ReactNode;
+  danger?: boolean;
   title?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
@@ -56,7 +57,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
     const { level, className, children, rootPrefixCls } = this.props;
-    const { title, icon, ...rest } = this.props;
+    const { title, icon, danger, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
@@ -87,6 +88,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
               <Item
                 {...rest}
                 className={classNames(className, {
+                  [`${rootPrefixCls}-item-danger`]: danger,
                   [`${rootPrefixCls}-item-only-child`]:
                     (icon ? childrenLength + 1 : childrenLength) === 1,
                 })}

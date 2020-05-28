@@ -34,6 +34,7 @@ const menu = (
         3rd menu item
       </a>
     </Menu.Item>
+    <Menu.Item danger>a danger item</Menu.Item>
   </Menu>
 );
 
