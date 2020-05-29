@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -27,9 +26,7 @@ export interface SubMenuProps {
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {
-  static contextTypes = {
-    antdMenuTheme: PropTypes.string,
-  };
+  static contextType = MenuContext;
 
   // fix issue:https://github.com/ant-design/ant-design/issues/8666
   static isSubMenu = 1;
