@@ -4,6 +4,7 @@ import { ProgressProps, ProgressSize } from './progress';
 interface StepsProps extends ProgressProps {
   steps: number;
   size?: ProgressSize;
+  strokeColor?: string;
 }
 
 const Steps: React.FC<StepsProps> = props => {
@@ -13,14 +14,10 @@ const Steps: React.FC<StepsProps> = props => {
     const stepWidth = size === 'small' ? 2 : 14;
     const styleSteps = [];
     for (let i = 0; i < steps; i++) {
-      let color;
-      if (i <= current - 1) {
-        color = strokeColor;
-      }
       const stepStyle = {
-        backgroundColor: color,
-        width: `${stepWidth}px`,
-        height: `${strokeWidth}px`,
+        backgroundColor: i <= current - 1 ? strokeColor : undefined,
+        width: stepWidth,
+        height: strokeWidth,
       };
       styleSteps.push(<div key={i} className={`${prefixCls}-steps-item`} style={stepStyle} />);
     }

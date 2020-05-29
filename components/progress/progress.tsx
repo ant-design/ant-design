@@ -99,6 +99,7 @@ export default class Progress extends React.Component<ProgressProps> {
       type,
       steps,
       showInfo,
+      strokeColor,
       ...restProps
     } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
@@ -108,7 +109,12 @@ export default class Progress extends React.Component<ProgressProps> {
     // Render progress shape
     if (type === 'line') {
       progress = steps ? (
-        <Steps {...this.props} prefixCls={prefixCls} steps={steps}>
+        <Steps
+          {...this.props}
+          strokeColor={typeof strokeColor === 'string' ? strokeColor : undefined}
+          prefixCls={prefixCls}
+          steps={steps}
+        >
           {progressInfo}
         </Steps>
       ) : (
