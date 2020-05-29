@@ -12,6 +12,7 @@ title:
 ## en-US
 
 There are two built-in themes: 'light' and 'dark'. The default value is 'light'.
+Warning.  Varnish does not recommend using the `dark` theme, as it does not match AI2 branding.
 
 ```jsx
 import { Menu, Switch } from '@allenai/varnish';

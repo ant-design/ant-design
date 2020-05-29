@@ -4,7 +4,9 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { palette } from '../varnish/palette';
 import { Color } from '../varnish/colors';
 import Link from '../link';
-import Layout, { AppLayoutVariant, AppLayoutContext } from '../layout';
+import Layout, { AppLayoutVariant } from '../layout';
+
+const { AppLayoutContext } = Layout;
 
 export type FooterVariant = 'default' | 'dark';
 

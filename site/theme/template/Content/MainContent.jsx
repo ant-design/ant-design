@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix } from '@allenai/varnish';
+import { Row, Col, Menu, Affix, Layout } from '@allenai/varnish';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
@@ -15,6 +15,7 @@ import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
 const { SubMenu } = Menu;
+const { LeftSider } = Layout;
 
 function getModuleData(props) {
   const { pathname } = props.location;
@@ -353,11 +354,11 @@ class MainContent extends Component {
                     {menuChild}
                   </MobileMenu>
                 ) : (
-                  <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
-                    <Affix>
+                  <Layout className="main-menu">
+                    <LeftSider>
                       <section className="main-menu-inner">{menuChild}</section>
-                    </Affix>
-                  </Col>
+                    </LeftSider>
+                  </Layout>
                 )}
                 <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
                   <section className={mainContainerClass}>
