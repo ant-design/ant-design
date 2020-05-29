@@ -3,6 +3,7 @@ category: Components
 subtitle: 面包屑
 type: 导航
 title: Breadcrumb
+cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。

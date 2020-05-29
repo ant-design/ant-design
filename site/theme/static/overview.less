@@ -1,3 +1,25 @@
+@import '../../../components/style/themes/default.less';
+
+.group-title {
+  margin-bottom: 8px;
+}
 .components-overview {
   padding: 0;
+  .title {
+    color: @text-color;
+  }
+  .img {
+    //background: #000;
+    height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    transition: all @animation-duration-fast @ease-in-out;
+    cursor: pointer;
+    &:hover {
+      box-shadow: @shadow-1-down;
+    }
+  }
 }

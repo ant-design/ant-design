@@ -3,6 +3,7 @@ category: Components
 subtitle: 输入框
 type: 数据录入
 title: Input
+cover: https://gw.alipayobjects.com/zos/alicdn/By8Gcczjz/Input.svg
 ---
 
 通过鼠标或键盘输入内容，是最基础的表单域的包装。

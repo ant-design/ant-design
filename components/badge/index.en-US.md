@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Badge
+cover: https://gw.alipayobjects.com/zos/alicdn/GbBrrwmSs/Badge.png
 ---
 
 Small numerical value or status descriptor for UI elements.

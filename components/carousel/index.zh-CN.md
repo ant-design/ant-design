@@ -3,6 +3,7 @@ category: Components
 type: 数据展示
 title: Carousel
 subtitle: 走马灯
+cover: https://gw.alipayobjects.com/zos/alicdn/DSlU1TyhD/Carousel.png
 ---
 
 旋转木马，一组轮播的区域。

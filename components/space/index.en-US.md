@@ -3,6 +3,7 @@ category: Components
 type: Layout
 title: Space
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/RhH3-BHF5/Space.svg
 ---
 
 Set components spacing.

@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 cols: 1
 title: Calendar
+cover: https://gw.alipayobjects.com/zos/alicdn/IPEqSbkRN/Calendar.png
 ---
 
 Container for displaying data in calendar form.

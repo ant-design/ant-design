@@ -3,6 +3,7 @@ category: Components
 type: 反馈
 title: Spin
 subtitle: 加载中
+cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg
 ---
 
 用于页面和区块的加载中状态。

@@ -3,6 +3,7 @@ category: Components
 subtitle: 统计数值
 type: 数据展示
 title: Statistic
+cover: https://gw.alipayobjects.com/zos/alicdn/EcpAN_1a3/Statistic.png
 ---
 
 展示统计数值。

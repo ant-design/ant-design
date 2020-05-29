@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Statistic
+cover: https://gw.alipayobjects.com/zos/alicdn/EcpAN_1a3/Statistic.png
 ---
 
 Display statistic number.

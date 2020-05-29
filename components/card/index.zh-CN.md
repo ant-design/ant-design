@@ -4,6 +4,7 @@ type: 数据展示
 title: Card
 subtitle: 卡片
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/hfl1Z3gJX/Card.png
 ---
 
 通用卡片容器。

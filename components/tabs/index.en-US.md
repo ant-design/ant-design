@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Tabs
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/3hhzAKX7h/Tabs.png
 ---
 
 Tabs make it easy to switch between different views.

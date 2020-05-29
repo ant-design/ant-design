@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Tree
+cover: https://gw.alipayobjects.com/zos/alicdn/T2Yjro_XQ/Tree.png
 ---
 
 A hierarchical list structure component.

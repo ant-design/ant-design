@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Alert
+cover: https://gw.alipayobjects.com/zos/alicdn/HYUpms3w6/Alert.png
 ---
 
 Alert component for feedback.

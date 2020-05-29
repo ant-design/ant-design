@@ -3,6 +3,7 @@ category: Components
 subtitle: 进度条
 type: 反馈
 title: Progress
+cover: https://gw.alipayobjects.com/zos/alicdn/oCRZOu3Zz/Progress.png
 ---
 
 展示操作的当前进度。

@@ -2,6 +2,7 @@
 category: Components
 type: Navigation
 title: Dropdown
+cover: https://gw.alipayobjects.com/zos/alicdn/TIIiKrsQT/Dropdown.svg
 ---
 
 A dropdown list.

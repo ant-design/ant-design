@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Tag
+cover: https://gw.alipayobjects.com/zos/alicdn/mhS5ozEic/Tag.png
 ---
 
 Tag for categorizing or markup.

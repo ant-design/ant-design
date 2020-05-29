@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Empty
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/HzvSywumz/Empty.svg
 ---
 
 Empty state placeholder.

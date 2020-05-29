@@ -4,6 +4,7 @@ subtitle: 描述列表
 type: 数据展示
 title: Descriptions
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 ---
 
 成组展示多个只读字段。

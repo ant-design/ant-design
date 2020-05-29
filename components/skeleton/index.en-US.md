@@ -3,6 +3,7 @@ category: Components
 type: Feedback
 title: Skeleton
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 ---
 
 Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.

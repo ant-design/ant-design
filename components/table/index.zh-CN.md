@@ -4,6 +4,7 @@ cols: 1
 type: 数据展示
 title: Table
 subtitle: 表格
+cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
 ---
 
 展示行列数据。

@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Progress
+cover: https://gw.alipayobjects.com/zos/alicdn/oCRZOu3Zz/Progress.png
 ---
 
 Display the current progress of an operation flow.

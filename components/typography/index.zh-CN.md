@@ -4,6 +4,7 @@ subtitle: 排版
 type: 通用
 title: Typography
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 ---
 
 文本的基本格式。

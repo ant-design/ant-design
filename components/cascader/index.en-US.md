@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Cascader
+cover: https://gw.alipayobjects.com/zos/alicdn/7jf_5TV1c/Cascader.png
 ---
 
 Cascade selection box.
