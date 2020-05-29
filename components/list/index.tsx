@@ -245,10 +245,17 @@ function List<T>({
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: any, index: number) => renderInnerItem(item, index));
     const childrenList = React.Children.map(items, (child: any, index) =>
-      cloneElement(child, {
-        key: keys[index],
-        colStyle,
-      }),
+      cloneElement(
+        child,
+        grid
+          ? {
+              key: keys[index],
+              colStyle,
+            }
+          : {
+              key: keys[index],
+            },
+      ),
     );
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>{childrenList}</Row>
