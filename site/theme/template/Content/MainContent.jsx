@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
 import { injectIntl } from 'react-intl';
@@ -69,11 +68,7 @@ function updateActiveToc(id) {
 }
 
 class MainContent extends Component {
-  static contextTypes = {
-    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
-    setTheme: PropTypes.func,
-    setIframeTheme: PropTypes.func,
-  };
+  static contextType = SiteContext;
 
   state = {
     openKeys: undefined,
@@ -322,8 +317,7 @@ class MainContent extends Component {
   render() {
     return (
       <SiteContext.Consumer>
-        {({ isMobile }) => {
-          const { theme, setIframeTheme } = this.context;
+        {({ isMobile, theme, setIframeTheme }) => {
           const { openKeys } = this.state;
           const {
             localizedPageData,
