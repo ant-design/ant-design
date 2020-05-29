@@ -2963,7 +2963,8 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
           </button>
           <button
             aria-selected="false"
-            class="ant-tabs-tab"
+            class="ant-tabs-tab ant-tabs-tab-disabled"
+            disabled=""
             role="tab"
             tabindex="0"
             type="button"

@@ -37,10 +37,7 @@ describe('Tabs', () => {
     });
 
     it('add card', () => {
-      wrapper
-        .find('.ant-tabs-new-tab')
-        .hostNodes()
-        .simulate('click');
+      wrapper.find('.ant-tabs-nav-add').first().simulate('click');
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
