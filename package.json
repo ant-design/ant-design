@@ -108,7 +108,7 @@
     "@ant-design/icons": "^4.2.0",
     "@ant-design/react-slick": "~0.26.1",
     "array-tree-filter": "^2.1.0",
-    "classnames": "~2.2.6",
+    "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.13",
     "moment": "^2.25.3",
@@ -132,9 +132,9 @@
     "rc-rate": "~2.7.0",
     "rc-resize-observer": "^0.2.0",
     "rc-select": "~10.3.5",
-    "rc-slider": "~9.2.3",
+    "rc-slider": "~9.3.0",
     "rc-steps": "~3.6.0",
-    "rc-switch": "~3.1.0",
+    "rc-switch": "~3.2.0",
     "rc-table": "~7.7.0",
     "rc-tabs": "~10.1.1",
     "rc-tooltip": "~4.2.0",
@@ -144,7 +144,7 @@
     "rc-upload": "~3.1.0",
     "rc-util": "^5.0.1",
     "scroll-into-view-if-needed": "^2.2.20",
-    "warning": "~4.0.3"
+    "warning": "^4.0.3"
   },
   "devDependencies": {
     "rc-virtual-list": "^1.1.0",
