@@ -74,6 +74,8 @@ export { default as Header } from './header';
 
 export { default as Grid } from './grid';
 
+export { default as Icon } from './icon';
+
 export { default as Input } from './input';
 
 export { default as InputNumber } from './input-number';

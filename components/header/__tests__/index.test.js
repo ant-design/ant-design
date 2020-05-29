@@ -4,10 +4,11 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 import Header from '..';
-import { DefaultAppLayoutProvider } from '../../layout';
+import Layout from '../../layout';
 import Theming from '../../varnish';
 
 const { ThemeProvider } = Theming;
+const { DefaultAppLayoutProvider } = Layout;
 
 const { HeaderColumns, HeaderTitle } = Header;
 

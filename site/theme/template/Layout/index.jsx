@@ -19,10 +19,10 @@ import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 import { Layout as LayoutAntd } from '../../../../components';
-import { DefaultAppLayoutProvider } from '../../../../components/layout';
 import Theming from '../../../../components/varnish';
 
 const { ThemeProvider } = Theming;
+const { DefaultAppLayoutProvider } = LayoutAntd;
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {

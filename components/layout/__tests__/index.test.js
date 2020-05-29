@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
+import Icon from '@ant-design/icons';
+
 import Layout from '..';
-import Icon from '../../icon';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

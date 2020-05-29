@@ -1,3 +1,3 @@
-import contrastLinkColorStyles from './base';
+import * as Link from './base';
 
-export default { contrastLinkColorStyles };
+export default {...Link};

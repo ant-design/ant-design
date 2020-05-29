@@ -3,9 +3,11 @@ import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
 
 import Columns from '../columns';
-import Layout, { AppLayoutContext } from '../layout';
+import Layout from '../layout';
 
 import { AI2Banner } from './AI2Banner';
+
+const { AppLayoutContext } = Layout;
 
 interface Props {
   alwaysVisible?: boolean;
