@@ -2,13 +2,11 @@ import * as React from 'react';
 import RcTabs, { TabPane, TabsProps as RcTabsProps } from 'rc-tabs';
 import { EditableConfig } from 'rc-tabs/lib/interface';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
-import { ConfigConsumer, ConfigConsumerProps, ConfigContext } from '../config-provider';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
@@ -23,7 +21,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
 
 function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
   const { prefixCls: customizePrefixCls } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
 
   let editable: EditableConfig | undefined;
@@ -40,6 +38,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
 
   return (
     <RcTabs
+      direction={direction}
       {...props}
       className={classNames(className, {
         [`${prefixCls}-${size}`]: size,

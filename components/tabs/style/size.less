@@ -4,29 +4,37 @@
 
 .@{tab-prefix-cls} {
   &-small {
-    .@{tab-prefix-cls}-tab {
-      font-size: @tabs-title-font-size-sm;
-      padding: @tabs-horizontal-padding-sm;
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        font-size: @tabs-title-font-size-sm;
+        padding: @tabs-horizontal-padding-sm;
+      }
     }
   }
 
   &-large {
-    .@{tab-prefix-cls}-tab {
-      font-size: @tabs-title-font-size-lg;
-      padding: @tabs-horizontal-padding-lg;
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        font-size: @tabs-title-font-size-lg;
+        padding: @tabs-horizontal-padding-lg;
+      }
     }
   }
 
   &-card {
     &.@{tab-prefix-cls}-small {
-      .@{tab-prefix-cls}-tab {
-        padding: @tabs-card-horizontal-padding-sm;
+      > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-tab {
+          padding: @tabs-card-horizontal-padding-sm;
+        }
       }
     }
 
     &.@{tab-prefix-cls}-large {
-      .@{tab-prefix-cls}-tab {
-        padding: @tabs-card-horizontal-padding-lg;
+      > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-tab {
+          padding: @tabs-card-horizontal-padding-lg;
+        }
       }
     }
   }
