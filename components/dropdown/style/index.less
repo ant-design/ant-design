@@ -48,13 +48,13 @@
   }
 
   // Offset the popover to account for the dropdown arrow
-  &-show-arrow&-placement-top,
+  &-show-arrow&-placement-topCenter,
   &-show-arrow&-placement-topLeft,
   &-show-arrow&-placement-topRight {
     padding-bottom: @popover-distance;
   }
 
-  &-show-arrow&-placement-bottom,
+  &-show-arrow&-placement-bottomCenter,
   &-show-arrow&-placement-bottomLeft,
   &-show-arrow&-placement-bottomRight {
     padding-top: @popover-distance;
@@ -75,7 +75,7 @@
     transform: rotate(45deg);
   }
 
-  &-placement-top > &-arrow,
+  &-placement-topCenter > &-arrow,
   &-placement-topLeft > &-arrow,
   &-placement-topRight > &-arrow {
     bottom: @popover-distance - @popover-arrow-width + 2.2px;
@@ -85,7 +85,7 @@
     border-left-color: transparent;
     box-shadow: 3px 3px 7px fade(@black, 7%);
   }
-  &-placement-top > &-arrow {
+  &-placement-topCenter > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
@@ -96,7 +96,7 @@
     right: 16px;
   }
 
-  &-placement-bottom > &-arrow,
+  &-placement-bottomCenter > &-arrow,
   &-placement-bottomLeft > &-arrow,
   &-placement-bottomRight > &-arrow {
     top: @popover-distance - @popover-arrow-width + 2px;
@@ -106,7 +106,7 @@
     border-left-color: @popover-bg;
     box-shadow: -2px -2px 5px fade(@black, 6%);
   }
-  &-placement-bottom > &-arrow {
+  &-placement-bottomCenter > &-arrow {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
