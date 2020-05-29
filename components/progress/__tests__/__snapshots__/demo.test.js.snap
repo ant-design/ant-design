@@ -1424,16 +1424,16 @@ Array [
       class="ant-progress-steps-outer"
     >
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1451,24 +1451,24 @@ Array [
       class="ant-progress-steps-outer"
     >
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1486,24 +1486,24 @@ Array [
       class="ant-progress-steps-outer"
     >
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <span
         class="ant-progress-text"

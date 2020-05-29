@@ -138,4 +138,25 @@ describe('Progress', () => {
     const wrapper = mount(<Progress steps={3} />);
     expect(wrapper).toMatchRenderedSnapshot();
   });
+
+  it('steps should be changable', () => {
+    const wrapper = mount(<Progress steps={5} percent={60} />);
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
+    wrapper.setProps({ percent: 40 });
+    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+  });
+
+  it('steps should be changable when has strokeColor', () => {
+    const wrapper = mount(<Progress steps={5} percent={60} strokeColor="#1890ff" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(0).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 255)',
+    );
+    wrapper.setProps({ percent: 40 });
+    expect(wrapper.find('.ant-progress-steps-item').at(2).getDOMNode().style.backgroundColor).toBe(
+      '',
+    );
+    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 255)',
+    );
+  });
 });
