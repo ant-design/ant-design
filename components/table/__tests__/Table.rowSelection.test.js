@@ -286,23 +286,12 @@ describe('Table.rowSelection', () => {
     expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
-  it('could hide default selection options', () => {
+  it('could hide selectAll checkbox and custom selection', () => {
     const rowSelection = {
-      hideDefaultSelections: true,
-      selections: [
-        {
-          key: 'odd',
-          text: '奇数项',
-        },
-        {
-          key: 'even',
-          text: '偶数项',
-        },
-      ],
+      hideSelectAll: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
+    expect(wrapper.find('.ant-selection').exists()).toBeFalsy();
   });
 
   it('handle custom selection onSelect correctly when hide default selection options', () => {
