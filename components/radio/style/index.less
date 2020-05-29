@@ -32,6 +32,35 @@
   margin-right: @radio-wrapper-margin-right;
   white-space: nowrap;
   cursor: pointer;
+
+  // mixin to iterate over colors and create CSS class for each one
+  .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
+    .make-color-classes(@i - 1);
+    @color: extract(@preset-colors, @i);
+    @lightColor: '@{color}-1';
+    @darkColor: '@{color}-5';
+    &-@{color} {
+      .@{radio-prefix-cls}-checked .@{radio-prefix-cls}-inner {
+        border-color: @@darkColor;
+      }
+      .@{radio-prefix-cls}-checked::after {
+        border: 1px solid @@darkColor;
+      }
+      .@{radio-prefix-cls}-inner::after {
+        background-color: @@darkColor;
+      }
+      .@{radio-prefix-cls}:hover .@{radio-inner-prefix-cls},
+      .@{radio-prefix-cls}-wrapper:hover,
+      .@{radio-prefix-cls}-input:focus + .@{radio-inner-prefix-cls} {
+        border-color: @@darkColor;
+      }
+      .@{radio-prefix-cls}-input:focus + .@{radio-inner-prefix-cls} {
+        box-shadow: 0 0 0 3px @@lightColor;
+      }
+    }
+  }
+
+  .make-color-classes();
 }
 
 .@{radio-prefix-cls} {

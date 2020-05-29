@@ -41,6 +41,7 @@ const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (prop
   }
   const wrapperClassString = classNames(className, {
     [`${prefixCls}-wrapper`]: true,
+    [`${prefixCls}-wrapper-${radioProps.color}`]: radioProps.color,
     [`${prefixCls}-wrapper-checked`]: radioProps.checked,
     [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
     [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',

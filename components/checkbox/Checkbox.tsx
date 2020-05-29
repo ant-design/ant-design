@@ -25,6 +25,7 @@ export interface AbstractCheckboxProps<T> {
   id?: string;
   autoFocus?: boolean;
   type?: string;
+  color?: string;
 }
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
