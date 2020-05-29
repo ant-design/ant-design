@@ -25,6 +25,31 @@
         right: 0;
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
+
+      &-wrap {
+        &::before,
+        &::after {
+          top: 0;
+          bottom: 0;
+          width: 30px;
+        }
+
+        &::before {
+          left: 0;
+          box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+        }
+        &::after {
+          right: 0;
+          box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+        }
+
+        &-ping-left::before {
+          opacity: 1;
+        }
+        &-ping-right::after {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -66,6 +91,10 @@
       margin: @tabs-vertical-margin;
       padding: @tabs-vertical-padding;
       text-align: center;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
 
     &.@{tab-prefix-cls}-editable .@{tab-prefix-cls}-tab {
@@ -75,6 +104,29 @@
     // >>>>>>>>>>> Nav
     .@{tab-prefix-cls}-nav-wrap {
       flex-direction: column;
+
+      &::before,
+      &::after {
+        left: 0;
+        right: 0;
+        height: 30px;
+      }
+
+      &::before {
+        top: 0;
+        box-shadow: inset 0 10px 8px -8px darken(@shadow-color, 5%);
+      }
+      &::after {
+        bottom: 0;
+        box-shadow: inset 0 -10px 8px -8px darken(@shadow-color, 5%);
+      }
+
+      &-ping-top::before {
+        opacity: 1;
+      }
+      &-ping-bottom::after {
+        opacity: 1;
+      }
     }
 
     .@{tab-prefix-cls}-ink-bar {

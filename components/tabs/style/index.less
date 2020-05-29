@@ -29,6 +29,17 @@
       white-space: nowrap;
       overflow: hidden;
       display: flex;
+
+      // >>>>> Ping shadow
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        transition: opacity @animation-duration-slow;
+        opacity: 0;
+        z-index: 1;
+      }
     }
 
     &-list {
@@ -98,6 +109,11 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+
+    &:last-of-type {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
     &-with-remove {
       // padding-right: 32px;
