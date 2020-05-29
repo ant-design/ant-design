@@ -6,16 +6,7 @@
   &-bottom {
     flex-direction: column;
 
-    .@{tab-prefix-cls}-ink-bar {
-      height: 2px;
-
-      &-animated {
-        transition: width @animation-duration-slow, left @animation-duration-slow,
-          right @animation-duration-slow;
-      }
-    }
-
-    .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav {
       margin: @tabs-bar-margin;
 
       &::before {
@@ -26,7 +17,16 @@
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
 
-      &-wrap {
+      .@{tab-prefix-cls}-ink-bar {
+        height: 2px;
+
+        &-animated {
+          transition: width @animation-duration-slow, left @animation-duration-slow,
+            right @animation-duration-slow;
+        }
+      }
+
+      .@{tab-prefix-cls}-nav-wrap {
         &::before,
         &::after {
           top: 0;
@@ -43,10 +43,10 @@
           box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
         }
 
-        &-ping-left::before {
+        &.@{tab-prefix-cls}-nav-wrap-ping-left::before {
           opacity: 1;
         }
-        &-ping-right::after {
+        &.@{tab-prefix-cls}-nav-wrap-ping-right::after {
           opacity: 1;
         }
       }
@@ -54,17 +54,19 @@
   }
 
   &-top {
-    .@{tab-prefix-cls}-nav::before {
-      bottom: 0;
-    }
+    > .@{tab-prefix-cls}-nav {
+      &::before {
+        bottom: 0;
+      }
 
-    .@{tab-prefix-cls}-ink-bar {
-      bottom: 0;
+      .@{tab-prefix-cls}-ink-bar {
+        bottom: 0;
+      }
     }
   }
 
   &-bottom {
-    .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav {
       order: 1;
       margin-top: @margin-md;
       margin-bottom: 0;
@@ -72,120 +74,113 @@
       &::before {
         top: 0;
       }
+
+      .@{tab-prefix-cls}-ink-bar {
+        top: 0;
+      }
     }
 
-    .@{tab-prefix-cls}-content {
+    > .@{tab-prefix-cls}-content-holder {
       order: 0;
-    }
-
-    .@{tab-prefix-cls}-ink-bar {
-      top: 0;
     }
   }
 
   // ========================== Left & Right ==========================
   &-left,
   &-right {
-    // >>>>>>>>>>> Tab
-    .@{tab-prefix-cls}-tab {
-      margin: @tabs-vertical-margin;
-      padding: @tabs-vertical-padding;
-      text-align: center;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-
-    &.@{tab-prefix-cls}-editable .@{tab-prefix-cls}-tab {
-      padding-right: 32px;
-    }
-
-    // >>>>>>>>>>> Nav
-    .@{tab-prefix-cls}-nav-wrap {
-      flex-direction: column;
-
-      &::before,
-      &::after {
-        left: 0;
-        right: 0;
-        height: 30px;
-      }
-
-      &::before {
-        top: 0;
-        box-shadow: inset 0 10px 8px -8px darken(@shadow-color, 5%);
-      }
-      &::after {
-        bottom: 0;
-        box-shadow: inset 0 -10px 8px -8px darken(@shadow-color, 5%);
-      }
-
-      &-ping-top::before {
-        opacity: 1;
-      }
-      &-ping-bottom::after {
-        opacity: 1;
-      }
-    }
-
-    .@{tab-prefix-cls}-ink-bar {
-      width: 2px;
-
-      &-animated {
-        transition: height @animation-duration-slow, top @animation-duration-slow;
-      }
-    }
-
-    .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav {
       flex-direction: column;
       min-width: 50px;
 
-      &-list {
-        flex-direction: column;
+      // >>>>>>>>>>> Tab
+      .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
+        padding: @tabs-vertical-padding;
+        text-align: center;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
 
-      &-operations {
+      // >>>>>>>>>>> Nav
+      .@{tab-prefix-cls}-nav-wrap {
+        flex-direction: column;
+
+        &::before,
+        &::after {
+          left: 0;
+          right: 0;
+          height: 30px;
+        }
+
+        &::before {
+          top: 0;
+          box-shadow: inset 0 10px 8px -8px darken(@shadow-color, 5%);
+        }
+        &::after {
+          bottom: 0;
+          box-shadow: inset 0 -10px 8px -8px darken(@shadow-color, 5%);
+        }
+
+        &.@{tab-prefix-cls}-nav-wrap-ping-top::before {
+          opacity: 1;
+        }
+        &.@{tab-prefix-cls}-nav-wrap-ping-bottom::after {
+          opacity: 1;
+        }
+      }
+
+      // >>>>>>>>>>> Ink Bar
+      .@{tab-prefix-cls}-ink-bar {
+        width: 2px;
+
+        &-animated {
+          transition: height @animation-duration-slow, top @animation-duration-slow;
+        }
+      }
+
+      .@{tab-prefix-cls}-nav-list,
+      .@{tab-prefix-cls}-nav-operations {
         flex-direction: column;
       }
     }
   }
 
   &-left {
-    .@{tab-prefix-cls}-ink-bar {
-      right: 0;
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-ink-bar {
+        right: 0;
+      }
     }
 
-    .@{tab-prefix-cls}-content-holder {
+    > .@{tab-prefix-cls}-content-holder {
       border-left: @border-width-base @border-style-base @border-color-split;
       margin-left: -@border-width-base;
-    }
 
-    .@{tab-prefix-cls}-tabpane {
-      padding-left: @padding-lg;
+      > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
+        padding-left: @padding-lg;
+      }
     }
   }
 
   &-right {
-    .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav {
       order: 1;
-    }
 
-    .@{tab-prefix-cls}-ink-bar {
-      left: 0;
-    }
-
-    .@{tab-prefix-cls}-content {
-      order: 0;
-
-      &-holder {
-        border-right: @border-width-base @border-style-base @border-color-split;
-        margin-right: -@border-width-base;
+      .@{tab-prefix-cls}-ink-bar {
+        left: 0;
       }
     }
 
-    .@{tab-prefix-cls}-tabpane {
-      padding-right: @padding-lg;
+    > .@{tab-prefix-cls}-content-holder {
+      order: 0;
+      border-right: @border-width-base @border-style-base @border-color-split;
+      margin-right: -@border-width-base;
+
+      > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
+        padding-right: @padding-lg;
+      }
     }
   }
 }

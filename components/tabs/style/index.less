@@ -15,13 +15,13 @@
   overflow: hidden;
 
   // ========================== Navigation ==========================
-  &-nav {
+  > .@{tab-prefix-cls}-nav {
     display: flex;
     flex: none;
     position: relative;
     align-items: center;
 
-    &-wrap {
+    .@{tab-prefix-cls}-nav-wrap {
       transform: translate(0); // Fix chrome render bug
       position: relative;
       display: inline-block;
@@ -42,14 +42,14 @@
       }
     }
 
-    &-list {
+    .@{tab-prefix-cls}-nav-list {
       display: flex;
       position: relative;
       transition: transform @animation-duration-slow;
     }
 
     // >>>>>>>> Operations
-    &-operations {
+    .@{tab-prefix-cls}-nav-operations {
       display: flex;
 
       &-hidden {
@@ -59,13 +59,13 @@
       }
     }
 
-    &-more {
+    .@{tab-prefix-cls}-nav-more {
       border: 0;
       padding: @tabs-card-horizontal-padding;
       background: transparent;
     }
 
-    &-add {
+    .@{tab-prefix-cls}-nav-add {
       margin: 0;
       padding: 0 @padding-xs;
       background: @tabs-card-head-background;
