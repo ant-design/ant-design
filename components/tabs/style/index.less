@@ -51,6 +51,7 @@
     // >>>>>>>> Operations
     .@{tab-prefix-cls}-nav-operations {
       display: flex;
+      align-self: stretch;
 
       &-hidden {
         position: absolute;
@@ -63,6 +64,17 @@
       border: 0;
       padding: @tabs-card-horizontal-padding;
       background: transparent;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 5px;
+        transform: translateY(100%);
+      }
     }
 
     .@{tab-prefix-cls}-nav-add {

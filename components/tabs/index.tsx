@@ -40,6 +40,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
     <RcTabs
       direction={direction}
       {...props}
+      moreTransitionName="slide-up"
       className={classNames(className, {
         [`${prefixCls}-${size}`]: size,
         [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
