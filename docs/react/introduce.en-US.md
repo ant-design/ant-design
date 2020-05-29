@@ -108,8 +108,8 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 - [Home page](/)
 - [Components](/components/button/)
-- [Ant Design Charts](https://charts.ant.design)
 - [Ant Design Pro](https://pro.ant.design/)
+- [Ant Design Charts](https://charts.ant.design)
 - [Change Log](/changelog)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
