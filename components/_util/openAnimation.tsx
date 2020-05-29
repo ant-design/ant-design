@@ -3,7 +3,7 @@
  * If you are creating new component with animation, please use `./motion`.
  */
 import cssAnimation from '@ant-design/css-animation';
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 
 function animate(node: HTMLElement, show: boolean, done: () => void) {
   let height: number;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import raf from 'rc-util/lib/raf';
 import Tooltip, { TooltipProps } from '../tooltip';
 
 function useCombinedRefs(
@@ -29,7 +30,7 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const rafRef = React.useRef<number | null>(null);
 
   function cancelKeepAlign() {
-    window.cancelAnimationFrame(rafRef.current!);
+    raf.cancel(rafRef.current!);
     rafRef.current = null;
   }
 
@@ -38,7 +39,7 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       return;
     }
 
-    rafRef.current = window.requestAnimationFrame(() => {
+    rafRef.current = raf(() => {
       (tooltipRef.current as any).forcePopupAlign();
 
       rafRef.current = null;

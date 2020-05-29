@@ -1,4 +1,4 @@
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 
 export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
   let requestId: number | null;
@@ -21,7 +21,7 @@ export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
 
 export function throttleByAnimationFrameDecorator() {
   // eslint-disable-next-line func-names
-  return function(target: any, key: string, descriptor: any) {
+  return function (target: any, key: string, descriptor: any) {
     const fn = descriptor.value;
     let definingProperty = false;
     return {

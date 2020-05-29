@@ -1,5 +1,5 @@
 import * as React from 'react';
-import raf from 'raf';
+import raf from 'rc-util/lib/raf';
 import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import { ScrollOptions } from './interface';

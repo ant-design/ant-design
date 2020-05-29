@@ -1,7 +1,7 @@
-import raf from 'raf';
 import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
+import raf from 'rc-util/lib/raf';
 import delayRaf from '../raf';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
