@@ -112,6 +112,7 @@ Veja [i18n](https://ant.design/docs/react/i18n).
 - [Página inicial](https://ant.design/)
 - [Componentes](https://ant.design/components/button)
 - [Ant Design Pro](http://pro.ant.design/)
+- [Ant Design Charts](https://charts.ant.design)
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
