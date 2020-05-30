@@ -353,7 +353,7 @@ class MainContent extends Component {
 
   renderMainContent({ theme, setIframeTheme }) {
     const { localizedPageData, demos, location } = this.props;
-    if (location.pathname.startsWith('components/overview')) {
+    if (location.pathname.includes('components/overview')) {
       return (
         <ComponentOverview
           {...this.props}
