@@ -389,66 +389,60 @@ class MainContent extends Component {
   render() {
     const { demos, location } = this.props;
     const { openKeys } = this.state;
-    const { theme, setIframeTheme } = this.context;
+    const { isMobile, theme, setIframeTheme } = this.context;
+    const activeMenuItem = this.getActiveMenuItem();
+    const menuItems = this.getMenuItems();
+    const menuItemsForFooterNav = this.getMenuItems({
+      before: <LeftOutlined className="footer-nav-icon-before" />,
+      after: <RightOutlined className="footer-nav-icon-after" />,
+    });
+    const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
+    const mainContainerClass = classNames('main-container', {
+      'main-container-component': !!demos,
+    });
+    const menuChild = (
+      <Menu
+        inlineIndent={30}
+        className="aside-container menu-site"
+        mode="inline"
+        openKeys={openKeys}
+        selectedKeys={[activeMenuItem]}
+        onOpenChange={this.handleMenuOpenChange}
+      >
+        {menuItems}
+      </Menu>
+    );
+    const componentPage = /^\/?components/.test(location.pathname);
     return (
-      <SiteContext.Consumer>
-        {({ isMobile }) => {
-          const activeMenuItem = this.getActiveMenuItem();
-          const menuItems = this.getMenuItems();
-          const menuItemsForFooterNav = this.getMenuItems({
-            before: <LeftOutlined className="footer-nav-icon-before" />,
-            after: <RightOutlined className="footer-nav-icon-after" />,
-          });
-          const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
-          const mainContainerClass = classNames('main-container', {
-            'main-container-component': !!demos,
-          });
-          const menuChild = (
-            <Menu
-              inlineIndent={30}
-              className="aside-container menu-site"
-              mode="inline"
-              openKeys={openKeys}
-              selectedKeys={[activeMenuItem]}
-              onOpenChange={this.handleMenuOpenChange}
-            >
-              {menuItems}
-            </Menu>
-          );
-          const componentPage = /^\/?components/.test(location.pathname);
-          return (
-            <div className="main-wrapper">
-              <Row>
-                {isMobile ? (
-                  <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
-                    {menuChild}
-                  </MobileMenu>
-                ) : (
-                  <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
-                    <Affix>
-                      <section className="main-menu-inner">{menuChild}</section>
-                    </Affix>
-                  </Col>
-                )}
-                <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-                  <section className={mainContainerClass}>
-                    {this.renderMainContent({ theme, setIframeTheme })}
-                  </section>
-                  {componentPage && (
-                    <div className="fixed-widgets">
-                      <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
-                        <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
-                      </Dropdown>
-                    </div>
-                  )}
-                  <PrevAndNext prev={prev} next={next} />
-                  <Footer />
-                </Col>
-              </Row>
-            </div>
-          );
-        }}
-      </SiteContext.Consumer>
+      <div className="main-wrapper">
+        <Row>
+          {isMobile ? (
+            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
+              {menuChild}
+            </MobileMenu>
+          ) : (
+            <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
+              <Affix>
+                <section className="main-menu-inner">{menuChild}</section>
+              </Affix>
+            </Col>
+          )}
+          <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+            <section className={mainContainerClass}>
+              {this.renderMainContent({ theme, setIframeTheme })}
+            </section>
+            {componentPage && (
+              <div className="fixed-widgets">
+                <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
+                  <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
+                </Dropdown>
+              </div>
+            )}
+            <PrevAndNext prev={prev} next={next} />
+            <Footer />
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
