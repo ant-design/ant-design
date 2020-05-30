@@ -2,7 +2,7 @@
 category: Components
 type: Data Display
 title: Carousel
-cover: https://gw.alipayobjects.com/zos/alicdn/DSlU1TyhD/Carousel.png
+cover: https://gw.alipayobjects.com/zos/antfincdn/gPD1PbCp6X/Carousel.svg
 ---
 
 A carousel component. Scales with its container.

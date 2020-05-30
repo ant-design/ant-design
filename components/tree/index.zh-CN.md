@@ -3,7 +3,7 @@ category: Components
 type: 数据展示
 title: Tree
 subtitle: 树形控件
-cover: https://gw.alipayobjects.com/zos/alicdn/T2Yjro_XQ/Tree.png
+cover: https://gw.alipayobjects.com/zos/antfincdn/xCsdUJjs3GO/Tree.svg
 ---
 
 多层次的结构列表。

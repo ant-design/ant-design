@@ -2,7 +2,7 @@
 category: Components
 type: Data Display
 title: Timeline
-cover: https://gw.alipayobjects.com/zos/alicdn/j_XEKuSyC/Timeline.png
+cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 ---
 
 Vertical display timeline.

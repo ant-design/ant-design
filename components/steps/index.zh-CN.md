@@ -4,7 +4,7 @@ subtitle: 步骤条
 type: 导航
 cols: 1
 title: Steps
-cover: https://gw.alipayobjects.com/zos/alicdn/Xu-dFAozi/Steps.png
+cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 ---
 
 引导用户按照流程完成任务的导航条。

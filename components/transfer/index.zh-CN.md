@@ -4,7 +4,7 @@ subtitle: 穿梭框
 type: 数据录入
 cols: 1
 title: Transfer
-cover: https://gw.alipayobjects.com/zos/alicdn/hTU7BwVl6/Transfer.png
+cover: https://gw.alipayobjects.com/zos/antfincdn/7w84d56hrUo/Transfer.svg
 ---
 
 双栏穿梭选择框。
