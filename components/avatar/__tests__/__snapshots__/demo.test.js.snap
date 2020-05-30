@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
-<div>
+Array [
   <span
     class="avatar-item"
   >
@@ -194,7 +194,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
         </span>
       </sup>
     </span>
-  </span>
+  </span>,
   <span>
     <span
       class="ant-badge"
@@ -228,12 +228,12 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
         data-show="true"
       />
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -332,7 +332,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div>
     <span
       class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -431,12 +431,12 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
     style="background-color:#f56a00;vertical-align:middle"
@@ -447,7 +447,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
     >
       U
     </span>
-  </span>
+  </span>,
   <button
     class="ant-btn ant-btn-sm"
     style="margin:0 16px;vertical-align:middle"
@@ -456,7 +456,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
     <span>
       ChangeUser
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-sm"
     style="vertical-align:middle"
@@ -465,12 +465,12 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
     <span>
       changeGap
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn"
     type="button"
@@ -478,7 +478,7 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
     <span>
       Toggle Avatar visibility
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
@@ -486,7 +486,7 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
     <span>
       Toggle Avatar size
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
@@ -494,9 +494,9 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
     <span>
       Change Avatar scale
     </span>
-  </button>
-  <br />
-  <br />
+  </button>,
+  <br />,
+  <br />,
   <div
     style="text-align:center;transform:scale(1);margin-top:24px"
   >
@@ -542,12 +542,12 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
         />
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-icon"
   >
@@ -571,7 +571,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-avatar ant-avatar-circle"
   >
@@ -581,9 +581,10 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     >
       U
     </span>
-  </span>
+  </span>,
   <span
     class="ant-avatar ant-avatar-circle"
+    style="width:40px;height:40px;line-height:40px;font-size:18px"
   >
     <span
       class="ant-avatar-string"
@@ -591,14 +592,14 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     >
       USER
     </span>
-  </span>
+  </span>,
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-image"
   >
     <img
       src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     />
-  </span>
+  </span>,
   <span
     class="ant-avatar ant-avatar-circle"
     style="color:#f56a00;background-color:#fde3cf"
@@ -609,7 +610,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     >
       U
     </span>
-  </span>
+  </span>,
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-icon"
     style="background-color:#87d068"
@@ -634,6 +635,6 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;

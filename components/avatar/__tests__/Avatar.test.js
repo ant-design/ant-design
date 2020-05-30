@@ -142,4 +142,16 @@ describe('Avatar Render', () => {
     );
     warnSpy.mockRestore();
   });
+
+  it('support size is number', () => {
+    const wrapper = mount(<Avatar size={100}>TestString</Avatar>);
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
+
+  it('support onMouseEnter', () => {
+    const onMouseEnter = jest.fn();
+    const wrapper = mount(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
+    wrapper.simulate('mouseenter');
+    expect(onMouseEnter).toHaveBeenCalled();
+  });
 });

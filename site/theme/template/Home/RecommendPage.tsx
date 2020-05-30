@@ -43,7 +43,7 @@ const LIST_EN: Recommend[] = [
     title: 'Ant Experience Technology Department Wants You!',
     description:
       '⚡️ Our vision is ’To Lead Global Experience Technology, to Create First-Class User Experience.‘. Welcome to join us.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BPVATKTgfXwAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Jd4sQJ9mmaQAAAAAAAAAAABkARQnAQ',
     href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
     popularize: true,
   },

@@ -18,7 +18,7 @@ import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div>
+  <>
     <div>
       <Avatar size={64} icon={<UserOutlined />} />
       <Avatar size="large" icon={<UserOutlined />} />
@@ -31,7 +31,7 @@ ReactDOM.render(
       <Avatar shape="square" icon={<UserOutlined />} />
       <Avatar shape="square" size="small" icon={<UserOutlined />} />
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```

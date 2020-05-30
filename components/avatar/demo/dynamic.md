@@ -35,7 +35,7 @@ const Autoset: React.FC = () => {
     setGap(index < GapList.length - 1 ? GapList[index + 1] : GapList[0]);
   };
   return (
-    <div>
+    <>
       <Avatar style={{ backgroundColor: color, verticalAlign: 'middle' }} size="large" gap={gap}>
         {user}
       </Avatar>
@@ -49,7 +49,7 @@ const Autoset: React.FC = () => {
       <Button size="small" style={{ verticalAlign: 'middle' }} onClick={changeGap}>
         changeGap
       </Button>
-    </div>
+    </>
   );
 };
 

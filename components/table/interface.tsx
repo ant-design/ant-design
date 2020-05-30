@@ -136,7 +136,7 @@ export interface TableRowSelection<T> {
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
-  hideDefaultSelections?: boolean;
+  hideSelectAll?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;

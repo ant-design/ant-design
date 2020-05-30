@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
@@ -53,6 +52,7 @@ export interface HeaderProps {
     locale: string;
   };
   location: { pathname: string };
+  router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
 }
@@ -64,11 +64,7 @@ interface HeaderState {
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
-    direction: PropTypes.string,
-  };
+  static contextType = SiteContext;
 
   state = {
     menuVisible: false,
@@ -77,8 +73,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 
   componentDidMount() {
-    const { intl } = this.props;
-    const { router } = this.context;
+    const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
     initDocSearch(intl.locale);
 

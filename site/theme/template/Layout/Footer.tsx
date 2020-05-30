@@ -59,6 +59,11 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
+          title: 'Ant Design Charts',
+          url: 'https://charts.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Mobile',
           url: 'https://mobile.ant.design',
           openExternal: true,
