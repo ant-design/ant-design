@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'bisheng/router';
 import { useIntl } from 'react-intl';
-import { Divider, Row, Col, Card, Typography } from 'antd';
+import { Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
 
@@ -41,7 +41,10 @@ const ComponentOverview = ({
         .map(group => (
           <div key={group.title} className="components-overview">
             <Title level={2} className="components-overview-group-title">
-              {group.title}
+              <Space align="center">
+                {group.title}
+                <Tag style={{ display: 'block' }}>{group.children.length}</Tag>
+              </Space>
             </Title>
             <Row gutter={[24, 24]}>
               {group.children
