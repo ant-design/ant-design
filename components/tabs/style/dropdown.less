@@ -16,8 +16,10 @@
   }
 
   &-menu {
+    max-height: 200px;
     margin: 0;
     padding: @dropdown-edge-child-vertical-padding 0;
+    overflow-y: auto;
     text-align: left;
     list-style-type: none;
     background-color: @dropdown-menu-bg;
@@ -25,19 +27,17 @@
     border-radius: @border-radius-base;
     outline: none;
     box-shadow: @box-shadow-base;
-    max-height: 200px;
-    overflow-y: auto;
 
     &-item {
+      width: 120px;
       margin: 0;
       padding: @dropdown-vertical-padding @control-padding-horizontal;
+      overflow: hidden;
       color: @text-color;
       font-weight: normal;
       font-size: @dropdown-font-size;
       line-height: @dropdown-line-height;
       white-space: nowrap;
-      width: 120px;
-      overflow: hidden;
       text-overflow: ellipsis;
       cursor: pointer;
       transition: all 0.3s;
@@ -49,8 +49,8 @@
       &-disabled {
         &,
         &:hover {
-          background: transparent;
           color: @disabled-color;
+          background: transparent;
           cursor: not-allowed;
         }
       }

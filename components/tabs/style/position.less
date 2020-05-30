@@ -10,11 +10,11 @@
       margin: @tabs-bar-margin;
 
       &::before {
-        content: '';
         position: absolute;
-        left: 0;
         right: 0;
+        left: 0;
         border-bottom: @border-width-base @border-style-base @border-color-split;
+        content: '';
       }
 
       .@{tab-prefix-cls}-ink-bar {
@@ -109,8 +109,8 @@
 
         &::before,
         &::after {
-          left: 0;
           right: 0;
+          left: 0;
           height: 30px;
         }
 
@@ -155,8 +155,8 @@
     }
 
     > .@{tab-prefix-cls}-content-holder {
-      border-left: @border-width-base @border-style-base @border-color-split;
       margin-left: -@border-width-base;
+      border-left: @border-width-base @border-style-base @border-color-split;
 
       > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
         padding-left: @padding-lg;
@@ -175,8 +175,8 @@
 
     > .@{tab-prefix-cls}-content-holder {
       order: 0;
-      border-right: @border-width-base @border-style-base @border-color-split;
       margin-right: -@border-width-base;
+      border-right: @border-width-base @border-style-base @border-color-split;
 
       > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
         padding-right: @padding-lg;

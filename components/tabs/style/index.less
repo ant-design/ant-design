@@ -16,35 +16,35 @@
 
   // ========================== Navigation ==========================
   > .@{tab-prefix-cls}-nav {
+    position: relative;
     display: flex;
     flex: none;
-    position: relative;
     align-items: center;
 
     .@{tab-prefix-cls}-nav-wrap {
-      transform: translate(0); // Fix chrome render bug
       position: relative;
       display: inline-block;
-      flex: auto;
-      white-space: nowrap;
-      overflow: hidden;
       display: flex;
+      flex: auto;
+      overflow: hidden;
+      white-space: nowrap;
+      transform: translate(0); // Fix chrome render bug
 
       // >>>>> Ping shadow
       &::before,
       &::after {
-        content: '';
         position: absolute;
-        pointer-events: none;
-        transition: opacity @animation-duration-slow;
-        opacity: 0;
         z-index: 1;
+        opacity: 0;
+        transition: opacity @animation-duration-slow;
+        content: '';
+        pointer-events: none;
       }
     }
 
     .@{tab-prefix-cls}-nav-list {
-      display: flex;
       position: relative;
+      display: flex;
       transition: transform @animation-duration-slow;
     }
 
@@ -61,19 +61,19 @@
     }
 
     .@{tab-prefix-cls}-nav-more {
-      border: 0;
+      position: relative;
       padding: @tabs-card-horizontal-padding;
       background: transparent;
-      position: relative;
+      border: 0;
 
       &::after {
         position: absolute;
-        content: '';
-        left: 0;
         right: 0;
         bottom: 0;
+        left: 0;
         height: 5px;
         transform: translateY(100%);
+        content: '';
       }
     }
 
@@ -82,9 +82,9 @@
       background: @tabs-card-head-background;
       border: @border-width-base @border-style-base @border-color-split;
       border-radius: @border-radius-base @border-radius-base 0 0;
-      transition: all @animation-duration-slow @ease-in-out;
       outline: none;
       cursor: pointer;
+      transition: all @animation-duration-slow @ease-in-out;
 
       &:hover {
         color: @tabs-hover-color;
@@ -110,28 +110,28 @@
 
   // ============================= Tabs =============================
   &-tab {
-    border: 0;
-    font-size: @tabs-title-font-size;
-    margin: @tabs-horizontal-margin;
-    padding: @tabs-horizontal-padding;
-    background: transparent;
-    outline: none;
-    cursor: pointer;
     position: relative;
     display: inline-flex;
     align-items: center;
+    margin: @tabs-horizontal-margin;
+    padding: @tabs-horizontal-padding;
+    font-size: @tabs-title-font-size;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
 
     &:last-of-type {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
 
     & &-remove {
       flex: none;
-      margin-left: @margin-xs;
       margin-right: -@margin-xss;
-      font-size: @font-size-sm;
+      margin-left: @margin-xs;
       color: @text-color-secondary;
+      font-size: @font-size-sm;
       outline: none;
       transition: all @animation-duration-slow;
 
@@ -188,8 +188,8 @@
   }
 
   &-tabpane {
-    width: 100%;
     flex: none;
+    width: 100%;
     outline: none;
   }
 }
