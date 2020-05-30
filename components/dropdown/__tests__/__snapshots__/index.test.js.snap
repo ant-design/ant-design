@@ -13,9 +13,6 @@ Array [
       class="ant-dropdown"
       style="opacity:0"
     >
-      <div
-        class="ant-dropdown-arrow"
-      />
       <div>
         menu
       </div>
@@ -37,9 +34,6 @@ Array [
       class="ant-dropdown"
       style="opacity:0"
     >
-      <div
-        class="ant-dropdown-arrow"
-      />
       <span>
         overlayNode
       </span>
