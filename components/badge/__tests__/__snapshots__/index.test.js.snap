@@ -17,9 +17,6 @@ exports[`Badge badge should support float number 1`] = `
 exports[`Badge badge should support float number 2`] = `
 <Badge
   count="3.5"
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -51,7 +48,6 @@ exports[`Badge badge should support float number 2`] = `
           count="3.5"
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title="3.5"
         >
@@ -938,9 +934,6 @@ exports[`Badge should be compatible with borderColor style 1`] = `
 exports[`Badge should render when count is changed 1`] = `
 <Badge
   count={10}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -972,7 +965,6 @@ exports[`Badge should render when count is changed 1`] = `
           count={10}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={10}
         >
@@ -1185,9 +1177,6 @@ exports[`Badge should render when count is changed 1`] = `
 exports[`Badge should render when count is changed 2`] = `
 <Badge
   count={11}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -1219,7 +1208,6 @@ exports[`Badge should render when count is changed 2`] = `
           count={11}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={11}
         >
@@ -1625,9 +1613,6 @@ exports[`Badge should render when count is changed 2`] = `
 exports[`Badge should render when count is changed 3`] = `
 <Badge
   count={11}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -1659,7 +1644,6 @@ exports[`Badge should render when count is changed 3`] = `
           count={11}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={11}
         >
@@ -2065,9 +2049,6 @@ exports[`Badge should render when count is changed 3`] = `
 exports[`Badge should render when count is changed 4`] = `
 <Badge
   count={10}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -2099,7 +2080,6 @@ exports[`Badge should render when count is changed 4`] = `
           count={10}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={10}
         >
@@ -2505,9 +2485,6 @@ exports[`Badge should render when count is changed 4`] = `
 exports[`Badge should render when count is changed 5`] = `
 <Badge
   count={9}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -2539,7 +2516,6 @@ exports[`Badge should render when count is changed 5`] = `
           count={9}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={9}
         >
