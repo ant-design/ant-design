@@ -112,7 +112,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       });
     }
     return (
-      <span title={title} onClick={callback}>
+      <span title={title} onClick={callback} role="button" tabIndex={0}>
         {customIcon}
       </span>
     );
@@ -201,7 +201,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               () => this.handleClose(file),
               locale.removeFile,
             )) || (
-            <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
+            <DeleteOutlined
+              title={locale.removeFile}
+              onClick={() => this.handleClose(file)}
+              tabIndex={0}
+            />
           )
         : null;
 
@@ -216,6 +220,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               <DownloadOutlined
                 title={locale.downloadFile}
                 onClick={() => this.handleDownload(file)}
+                tabIndex={0}
               />
             )
           : null;

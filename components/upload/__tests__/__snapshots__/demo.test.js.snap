@@ -181,7 +181,7 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
               aria-label="delete"
               class="anticon anticon-delete"
               role="img"
-              tabindex="-1"
+              tabindex="0"
               title="Remove file"
             >
               <svg
@@ -380,7 +380,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="-1"
+                    tabindex="0"
                     title="Remove file"
                   >
                     <svg
@@ -459,7 +459,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="-1"
+                    tabindex="0"
                     title="Remove file"
                   >
                     <svg
@@ -537,7 +537,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                   aria-label="delete"
                   class="anticon anticon-delete"
                   role="img"
-                  tabindex="-1"
+                  tabindex="0"
                   title="Remove file"
                 >
                   <svg
@@ -792,7 +792,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 aria-label="delete"
                 class="anticon anticon-delete"
                 role="img"
-                tabindex="-1"
+                tabindex="0"
                 title="Remove file"
               >
                 <svg
@@ -906,7 +906,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 aria-label="delete"
                 class="anticon anticon-delete"
                 role="img"
-                tabindex="-1"
+                tabindex="0"
                 title="Remove file"
               >
                 <svg
@@ -1021,7 +1021,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               aria-label="delete"
               class="anticon anticon-delete"
               role="img"
-              tabindex="-1"
+              tabindex="0"
               title="Remove file"
             >
               <svg
@@ -1135,7 +1135,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               aria-label="delete"
               class="anticon anticon-delete"
               role="img"
-              tabindex="-1"
+              tabindex="0"
               title="Remove file"
             >
               <svg
@@ -1241,7 +1241,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
               aria-label="delete"
               class="anticon anticon-delete"
               role="img"
-              tabindex="-1"
+              tabindex="0"
               title="Remove file"
             >
               <svg
@@ -1418,7 +1418,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="-1"
+                    tabindex="0"
                     title="Remove file"
                   >
                     <svg
@@ -1525,7 +1525,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 aria-label="delete"
                 class="anticon anticon-delete"
                 role="img"
-                tabindex="-1"
+                tabindex="0"
                 title="Remove file"
               >
                 <svg
@@ -1615,7 +1615,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 aria-label="delete"
                 class="anticon anticon-delete"
                 role="img"
-                tabindex="-1"
+                tabindex="0"
                 title="Remove file"
               >
                 <svg
@@ -1705,7 +1705,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 aria-label="delete"
                 class="anticon anticon-delete"
                 role="img"
-                tabindex="-1"
+                tabindex="0"
                 title="Remove file"
               >
                 <svg
@@ -1795,7 +1795,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 aria-label="delete"
                 class="anticon anticon-delete"
                 role="img"
-                tabindex="-1"
+                tabindex="0"
                 title="Remove file"
               >
                 <svg
@@ -1910,7 +1910,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               aria-label="delete"
               class="anticon anticon-delete"
               role="img"
-              tabindex="-1"
+              tabindex="0"
               title="Remove file"
             >
               <svg
@@ -2075,7 +2075,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                       aria-label="delete"
                       class="anticon anticon-delete"
                       role="img"
-                      tabindex="-1"
+                      tabindex="0"
                       title="Remove file"
                     >
                       <svg
@@ -2167,7 +2167,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="-1"
+                    tabindex="0"
                     title="Remove file"
                   >
                     <svg
@@ -2286,7 +2286,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                       aria-label="delete"
                       class="anticon anticon-delete"
                       role="img"
-                      tabindex="-1"
+                      tabindex="0"
                       title="Remove file"
                     >
                       <svg
@@ -2378,7 +2378,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="-1"
+                    tabindex="0"
                     title="Remove file"
                   >
                     <svg
@@ -2618,6 +2618,8 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   title="Download file"
                 >
                   <span
+                    role="button"
+                    tabindex="0"
                     title="Download file"
                   >
                     download 
@@ -2706,6 +2708,8 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   title="Download file"
                 >
                   <span
+                    role="button"
+                    tabindex="0"
                     title="Download file"
                   >
                     download 

@@ -176,16 +176,21 @@
     &-card-actions {
       position: absolute;
       right: 0;
-      opacity: 0;
 
       &.picture {
         top: 25px;
         line-height: 1;
+      }
+      &.picture .@{iconfont-css-prefix} {
         opacity: 1;
       }
       .@{iconfont-css-prefix} {
-        padding-right: 6px;
+        margin-right: 6px;
         color: @upload-actions-color;
+        opacity: 0;
+      }
+      .@{iconfont-css-prefix}:focus {
+        opacity: 1;
       }
     }
 
@@ -223,8 +228,10 @@
       opacity: 0;
       transition: all 0.3s;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: @text-color;
+        opacity: 1;
       }
     }
 
@@ -236,7 +243,7 @@
       opacity: 1;
     }
 
-    &:hover &-card-actions {
+    &:hover &-card-actions .@{iconfont-css-prefix} {
       opacity: 1;
     }
 
@@ -246,10 +253,8 @@
       color: @error-color;
     }
 
-    &-error &-card-actions {
-      .@{iconfont-css-prefix} {
-        color: @error-color;
-      }
+    &-error &-card-actions .@{iconfont-css-prefix} {
+      color: @error-color;
       opacity: 1;
     }
 
