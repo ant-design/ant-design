@@ -127,6 +127,9 @@ class MainContent extends Component {
       themeConfig.typeOrder,
     );
     return menuItems.map(menuItem => {
+      if (menuItem.title === 'overview') {
+        return menuItem.children.map(leaf => this.generateMenuItem(false, leaf, footerNavIcons));
+      }
       if (menuItem.type === 'type') {
         return (
           <Menu.ItemGroup title={menuItem.title} key={menuItem.title}>

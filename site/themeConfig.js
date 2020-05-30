@@ -12,6 +12,7 @@ module.exports = {
   },
   typeOrder: {
     // Component
+    overview: -1,
     General: 0,
     Layout: 1,
     Navigation: 2,
@@ -20,6 +21,8 @@ module.exports = {
     Feedback: 5,
     Other: 6,
     Deprecated: 7,
+
+    组件总览: -1,
     通用: 0,
     布局: 1,
     导航: 2,
