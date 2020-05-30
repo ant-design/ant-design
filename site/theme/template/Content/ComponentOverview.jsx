@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import { Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
+import './ComponentOverview.less';
 
 const { Title } = Typography;
 const ComponentOverview = ({

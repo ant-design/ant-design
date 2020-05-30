@@ -127,7 +127,7 @@ class MainContent extends Component {
       themeConfig.typeOrder,
     );
     return menuItems.map(menuItem => {
-      if (menuItem.title === 'overview') {
+      if (menuItem.title === 'Overview' || menuItem.title === '组件总览') {
         return menuItem.children.map(leaf => this.generateMenuItem(false, leaf, footerNavIcons));
       }
       if (menuItem.type === 'type') {
