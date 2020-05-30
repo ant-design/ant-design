@@ -76,4 +76,13 @@ describe('Tabs', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  it('warning for onNextClick', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Tabs onNextClick={() => {}} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
+    );
+    errorSpy.mockRestore();
+  });
 });

@@ -6,6 +6,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 
@@ -35,6 +36,12 @@ function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
       showAdd: hideAdd !== false,
     };
   }
+
+  devWarning(
+    !('onPrevClick' in props) && !('onNextClick' in props),
+    'Tabs',
+    '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
+  );
 
   return (
     <RcTabs
