@@ -130,7 +130,7 @@
     "rc-picker": "~1.6.0",
     "rc-progress": "~3.0.0",
     "rc-rate": "~2.7.0",
-    "rc-resize-observer": "^0.2.1",
+    "rc-resize-observer": "^0.2.3",
     "rc-select": "~10.4.0",
     "rc-slider": "~9.3.0",
     "rc-steps": "~3.6.0",
