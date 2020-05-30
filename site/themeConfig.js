@@ -12,7 +12,7 @@ module.exports = {
   },
   typeOrder: {
     // Component
-    overview: -1,
+    Overview: -1,
     General: 0,
     Layout: 1,
     Navigation: 2,
