@@ -1,6 +1,6 @@
 import flattenDeep from 'lodash/flattenDeep';
 import flatten from 'lodash/flatten';
-import themeConfig from '../../../site/themeConfig';
+import themeConfig from "../../themeConfig";
 
 interface Meta {
   skip?: boolean;

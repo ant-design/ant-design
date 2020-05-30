@@ -3,7 +3,8 @@ const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const { version } = require('../package.json');
-const themeConfig = require('../site/themeConfig');
+const themeConfig = require("./themeConfig");
+
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
