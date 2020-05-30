@@ -85,7 +85,9 @@ const Dropdown: DropdownInterface = props => {
     } else {
       overlayNode = overlay;
     }
-    overlayNode = React.Children.only(overlayNode) as React.ReactElement<any>;
+    overlayNode = React.Children.only(
+      typeof overlayNode === 'string' ? <span>overlayNode</span> : overlayNode,
+    );
 
     const overlayProps = overlayNode.props;
 
@@ -108,7 +110,7 @@ const Dropdown: DropdownInterface = props => {
 
     const fixedModeOverlay =
       typeof overlayNode.type === 'string'
-        ? overlay
+        ? overlayNode
         : cloneElement(overlayNode, {
             mode: 'vertical',
             selectable,

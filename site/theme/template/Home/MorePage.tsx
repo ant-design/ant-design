@@ -36,21 +36,21 @@ const MORE_LIST: MoreProps[] = [
     href: 'https://zhuanlan.zhihu.com/p/113961511',
   },
   {
-    title: 'Ant Design 4.0 的一些杂事儿 - CI 篇',
-    description: '4.0 正式版的到来之后，在这里想聊聊技术之外的事儿。不用动太多脑子，当个小品阅读即可~',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GhL4Q5oRePsAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-16',
+    title: 'JCD 驱动 - 复杂系统设计应对之道',
+    description: '基于蚂蚁金服CTO线的业务土壤，我们探索出以JCD为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y-xiQoZzBCEAAAAAAAAAAABkARQnAQ',
+    date: '2020-01-17',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/113537427',
+    href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
   {
-    title: 'Ant Design 4.0 ，脱离业务的框架都是耍流氓',
+    title: '折柱饼 +3 个套路，简单图表你真的会用吗？',
     description:
-      '作为 Ant Design 的实践案例、业务需求方和同一层楼的小伙伴，一起聊聊「4.0 背后的故事」。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C1-TT7vgidAAAAAAAAAAAABkARQnAQ',
-    date: '2020-03-04',
+      '本文一句话概括：数据可视化中，如何用最简单的图表高效地传递信息。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q1DMQpLCDQgAAAAAAAAAAABkARQnAQ',
+    date: '2020-11-28',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/110863773',
+    href: 'https://zhuanlan.zhihu.com/p/93808863',
   },
 ];
 

@@ -70,6 +70,23 @@ describe('Input.Password', () => {
     expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
   });
 
+  // https://github.com/ant-design/ant-design/issues/24526
+  it('should not show value attribute in input element after blur it', async () => {
+    const wrapper = mount(<Input.Password />);
+    wrapper
+      .find('input')
+      .at('0')
+      .simulate('change', { target: { value: 'value' } });
+    await sleep();
+    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
+    wrapper.find('input').at('0').simulate('blur');
+    await sleep();
+    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
+    wrapper.find('input').at('0').simulate('focus');
+    await sleep();
+    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
+  });
+
   // https://github.com/ant-design/ant-design/issues/20541
   it('could be unmount without errors', () => {
     expect(() => {

@@ -10,3 +10,17 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
   />
 </span>
 `;
+
+exports[`Avatar Render support size is number 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle"
+  style="width:100px;height:100px;line-height:100px;font-size:18px"
+>
+  <span
+    class="ant-avatar-string"
+    style="opacity:0"
+  >
+    TestString
+  </span>
+</span>
+`;

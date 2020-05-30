@@ -340,11 +340,6 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
   <div
     class="ant-card-body"
   >
-    <p
-      class="site-card-demo-inner-p"
-    >
-      Group title
-    </p>
     <div
       class="ant-card ant-card-bordered ant-card-type-inner"
     >

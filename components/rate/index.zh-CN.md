@@ -19,7 +19,7 @@ title: Rate
 | allowClear | 是否允许再次点击后清除 | boolean | true |
 | allowHalf | 是否允许半选 | boolean | false |
 | autoFocus | 自动获取焦点 | boolean | false |
-| character | 自定义字符 | ReactNode | [<StarFilled /\>](/components/icon-cn/) |
+| character | 自定义字符 | ReactNode | [`<StarFilled />`](/components/icon/) |
 | className | 自定义样式类名 | string |  |
 | count | star 总数 | number | 5 |
 | defaultValue | 默认值 | number | 0 |

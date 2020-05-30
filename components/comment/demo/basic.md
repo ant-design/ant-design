@@ -45,7 +45,7 @@ const Demo = () => {
       </Tooltip>
       <span className="comment-action">{likes}</span>
     </span>,
-    <span key=' key="comment-basic-dislike"'>
+    <span key="comment-basic-dislike">
       <Tooltip title="Dislike">
         {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined, {
           onClick: dislike,
@@ -80,7 +80,7 @@ const Demo = () => {
       }
     />
   );
-}
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ```

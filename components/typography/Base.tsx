@@ -423,7 +423,6 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       type,
       disabled,
       style,
-      title,
       ...restProps
     } = this.props;
     const { direction } = this.context;
@@ -436,8 +435,6 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       'editable',
       'copyable',
       'ellipsis',
-      'mark',
-      'underline',
       'mark',
       'code',
       'delete',
@@ -455,6 +452,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
+      const { title } = restProps;
       ariaLabel = title;
       if (!title && (typeof children === 'string' || typeof children === 'number')) {
         ariaLabel = String(children);

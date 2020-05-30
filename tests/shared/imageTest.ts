@@ -14,7 +14,16 @@ export default function imageTest(component: React.ReactElement) {
     let page: Page;
 
     beforeAll(async () => {
-      browser = await puppeteer.launch();
+      browser = await puppeteer.launch({
+        args: [
+          // Required for Docker version of Puppeteer
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          // This will write shared memory files into /tmp instead of /dev/shm,
+          // because Docker’s default for /dev/shm is 64MB
+          '--disable-dev-shm-usage',
+        ],
+      });
       page = await browser.newPage();
       await page.goto(`file://${process.cwd()}/tests/index.html`);
       await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });

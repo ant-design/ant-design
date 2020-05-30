@@ -83,6 +83,7 @@ export default function useSelection<RecordType>(
     selections,
     fixed,
     renderCell: customizeRenderCell,
+    hideSelectAll,
   } = rowSelection || {};
 
   const {
@@ -151,7 +152,7 @@ export default function useSelection<RecordType>(
   );
 
   const mergedSelections = React.useMemo<SelectionItem[] | null>(() => {
-    if (!selections) {
+    if (!selections || hideSelectAll) {
       return null;
     }
 
@@ -308,7 +309,7 @@ export default function useSelection<RecordType>(
           return checkboxProps.disabled;
         });
 
-        title = (
+        title = !hideSelectAll && (
           <div className={`${prefixCls}-selection`}>
             <Checkbox
               checked={!allDisabled && !!flattedData.length && checkedCurrentAll}

@@ -101,6 +101,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       allowClear,
       direction,
       style,
+      readOnly,
     } = this.props;
     const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
@@ -118,6 +119,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
       [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
       [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+      [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
     });
     return (
       <span

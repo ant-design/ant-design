@@ -13,6 +13,7 @@ title: 可视化
 
 - [G2 可视化引擎](https://g2.antv.vision/zh)
 - [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥
+- [G2Plot React 版](https://charts.ant.design)
 - [G6 图可视化引擎](https://g6.antv.vision/zh)
 - [L7 地理空间数据可视分析引擎](https://l7.antv.vision/zh)
 - [F2 移动端可视化方案](https://f2.antv.vision/zh)

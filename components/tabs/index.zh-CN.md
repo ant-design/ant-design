@@ -39,7 +39,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (targetKey, action): void | 无 |
 | onNextClick | next 按钮被点击的回调 | Function | 无 |
 | onPrevClick | prev 按钮被点击的回调 | Function | 无 |
-| onTabClick | tab 被点击的回调 | Function | 无 |
+| onTabClick | tab 被点击的回调 | Function(key: string, event: MouseEvent) | 无 |
 | keyboard | 开启键盘切换功能 | boolean | true |
 
 ### Tabs.TabPane
