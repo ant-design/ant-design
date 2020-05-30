@@ -1,6 +1,6 @@
 ---
 category: Components
-title: Overview
+title: Components Overview
 type: Overview
 ---
 
