@@ -5,22 +5,24 @@
 }
 .components-overview {
   padding: 0;
-  .title {
-    overflow: hidden;
-    color: @text-color;
-    text-overflow: ellipsis;
-  }
-  .img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 152px;
-  }
-  .card {
-    cursor: pointer;
-    transition: all @animation-duration-base @ease-in-out;
-    &:hover {
-      box-shadow: @shadow-1-down;
+  .components-overview- {
+    &title {
+      overflow: hidden;
+      color: @text-color;
+      text-overflow: ellipsis;
+    }
+    &img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 152px;
+    }
+    &card {
+      cursor: pointer;
+      transition: all @animation-duration-base @ease-in-out;
+      &:hover {
+        box-shadow: @shadow-1-down;
+      }
     }
   }
 }

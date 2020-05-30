@@ -4,8 +4,7 @@ import { Link } from 'bisheng/router';
 import { useIntl } from 'react-intl';
 import { Divider, Row, Col, Card, Typography, Skeleton } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { getMetaDescription, getLocalizedPathname, getThemeConfig } from '../utils';
-import * as utils from '../utils';
+import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
 
 const { Title } = Typography;
 const ComponentOverview = ({
@@ -20,7 +19,7 @@ const ComponentOverview = ({
   const documentTitle = `${title} - Ant Design`;
   const contentChild = getMetaDescription(getChildren(content));
   const themeConfig = getThemeConfig();
-  const menuItems = utils.getMenuItems(
+  const menuItems = getMenuItems(
     componentsData,
     locale,
     themeConfig.categoryOrder,
@@ -53,25 +52,18 @@ const ComponentOverview = ({
                       .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                       .toLowerCase()}/`;
                     return (
-                      <Col
-                        xs={24}
-                        sm={12}
-                        lg={8}
-                        xl={6}
-                        className="container"
-                        key={component.title}
-                      >
+                      <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
                         <Link to={getLocalizedPathname(url, locale === 'zh-CN')}>
                           <Card
                             size="small"
-                            className="card"
+                            className="components-overview-card"
                             title={
-                              <div className="title">
+                              <div className="components-overview-title">
                                 {component.title} {component.subtitle}
                               </div>
                             }
                           >
-                            <div className="img">
+                            <div className="components-overview-img">
                               <img src={component.cover} alt={component.title} />
                             </div>
                           </Card>
