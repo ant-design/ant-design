@@ -39,11 +39,11 @@ const ComponentOverview = ({
       {menuItems
         .filter(i => i.order > -1)
         .map(group => (
-          <div key={group.title}>
-            <Title level={2} className="group-title">
+          <div key={group.title} className="components-overview">
+            <Title level={2} className="components-overview-group-title">
               {group.title}
             </Title>
-            <Row gutter={[24, 24]} className="components-overview">
+            <Row gutter={[24, 24]}>
               {group.children
                 .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
                 .map(component => {
