@@ -271,7 +271,9 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
             >
               <thead>
                 <tr>
-                  <th />
+                  <th
+                    aria-label="empty cell"
+                  />
                   <th>
                     Su
                   </th>
