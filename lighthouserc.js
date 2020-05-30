@@ -8,7 +8,12 @@ module.exports = {
       target: 'temporary-public-storage',
     },
     assert: {
-      preset: 'lighthouse:recommended',
+      assertions: {
+        'categories:performance': ['error', { minScore: 0.1 }],
+        'categories:accessibility': ['error', { minScore: 0.6 }],
+        'categories:best-practices': ['error', { minScore: 0.6 }],
+        'categories:seo': ['error', { minScore: 0.6 }],
+      },
     },
   },
 };
