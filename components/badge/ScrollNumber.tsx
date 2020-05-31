@@ -52,7 +52,7 @@ export interface ScrollNumberState {
 
 const ScrollNumber: React.FC<ScrollNumberProps> = ({
   prefixCls: customizePrefixCls,
-  count: customizeCount = null,
+  count: customizeCount,
   className,
   style,
   title,
@@ -82,9 +82,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       timeout = setTimeout(() => {
         setAnimateStarted(false);
         setCount(customizeCount);
-        if (onAnimated) {
-          onAnimated();
-        }
+        onAnimated();
       });
     }
     return () => {

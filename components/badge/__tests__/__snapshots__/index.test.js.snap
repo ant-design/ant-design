@@ -2048,7 +2048,7 @@ exports[`Badge should render when count is changed 3`] = `
 
 exports[`Badge should render when count is changed 4`] = `
 <Badge
-  count={10}
+  count={111}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -2077,16 +2077,16 @@ exports[`Badge should render when count is changed 4`] = `
       >
         <ScrollNumber
           className="ant-badge-count ant-badge-multiple-words"
-          count={10}
+          count="99+"
           data-show={true}
           key="scrollNumber"
           prefixCls="ant-scroll-number"
-          title={10}
+          title={111}
         >
           <sup
             className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
             data-show={true}
-            title={10}
+            title={111}
           >
             <span
               className="ant-scroll-number-only"
@@ -2483,6 +2483,57 @@ exports[`Badge should render when count is changed 4`] = `
 `;
 
 exports[`Badge should render when count is changed 5`] = `
+<Badge
+  count={10}
+>
+  <span
+    className="ant-badge ant-badge-not-a-wrapper"
+  >
+    <Animate
+      animation={Object {}}
+      component=""
+      componentProps={Object {}}
+      onAppear={[Function]}
+      onEnd={[Function]}
+      onEnter={[Function]}
+      onLeave={[Function]}
+      showProp="data-show"
+      transitionAppear={true}
+      transitionEnter={true}
+      transitionLeave={true}
+      transitionName=""
+    >
+      <AnimateChild
+        animation={Object {}}
+        key="scrollNumber"
+        transitionAppear={true}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName=""
+      >
+        <ScrollNumber
+          className="ant-badge-count ant-badge-multiple-words"
+          count={10}
+          data-show={true}
+          key="scrollNumber"
+          prefixCls="ant-scroll-number"
+          title={10}
+        >
+          <sup
+            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            data-show={true}
+            title={10}
+          >
+            99+
+          </sup>
+        </ScrollNumber>
+      </AnimateChild>
+    </Animate>
+  </span>
+</Badge>
+`;
+
+exports[`Badge should render when count is changed 6`] = `
 <Badge
   count={9}
 >
