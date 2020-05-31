@@ -37634,7 +37634,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -37737,7 +37737,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -37840,7 +37840,7 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -37943,7 +37943,7 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -38046,7 +38046,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -38149,7 +38149,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
