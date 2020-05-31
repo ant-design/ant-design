@@ -77,7 +77,7 @@ exports[`Upload List handle error 1`] = `
                   aria-label="delete"
                   class="anticon anticon-delete"
                   role="img"
-                  tabindex="0"
+                  tabindex="-1"
                   title="Remove file"
                 >
                   <svg
@@ -183,7 +183,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -310,7 +310,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -448,7 +448,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -515,7 +515,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -602,7 +602,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -689,7 +689,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -756,7 +756,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -823,7 +823,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -890,7 +890,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -957,7 +957,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -1024,7 +1024,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
@@ -1091,7 +1091,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
-                    tabindex="0"
+                    tabindex="-1"
                     title="Remove file"
                   >
                     <svg
