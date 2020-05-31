@@ -3,6 +3,7 @@ category: Components
 type: General
 title: Icon
 toc: false
+cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
 ---
 
 Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:

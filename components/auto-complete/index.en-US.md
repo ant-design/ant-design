@@ -3,6 +3,7 @@ category: Components
 type: Data Entry
 cols: 2
 title: AutoComplete
+cover: https://gw.alipayobjects.com/zos/alicdn/gtGCgVDKv/AutoComplete.svg
 ---
 
 Autocomplete function of input field.

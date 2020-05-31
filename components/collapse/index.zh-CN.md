@@ -4,6 +4,7 @@ type: 数据展示
 title: Collapse
 subtitle: 折叠面板
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 ---
 
 可以折叠/展开的内容区域。

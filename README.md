@@ -110,7 +110,7 @@ Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/reac
 ## 🔗 Links
 
 - [Home page](https://ant.design/)
-- [Components](https://ant.design/components/button/)
+- [Components](https://ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [Change Log](CHANGELOG.en-US.md)

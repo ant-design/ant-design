@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: TreeSelect
+cover: https://gw.alipayobjects.com/zos/antfincdn/ENgTVNIP1Hu/TreeSelect.svg
 ---
 
 Tree selection control.

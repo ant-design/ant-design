@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Collapse
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 ---
 
 A content area which can be collapsed and expanded.

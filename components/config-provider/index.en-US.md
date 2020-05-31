@@ -3,6 +3,7 @@ category: Components
 type: Other
 cols: 1
 title: ConfigProvider
+cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
 ---
 
 `ConfigProvider` provides a uniform configuration support for components.

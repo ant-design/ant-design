@@ -3,6 +3,7 @@ category: Components
 type: 数据录入
 title: DatePicker
 subtitle: 日期选择框
+cover: https://gw.alipayobjects.com/zos/alicdn/Xr6CsbN_a/DatePicker.svg
 ---
 
 输入或选择日期的控件。

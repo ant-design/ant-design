@@ -4,6 +4,7 @@ subtitle: 标签页
 type: 数据展示
 title: Tabs
 cols: 1
+cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
 ---
 
 选项卡切换组件。

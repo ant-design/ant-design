@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Rate
+cover: https://gw.alipayobjects.com/zos/alicdn/V-ycROUpN/Rate.svg
 ---
 
 Rate component.

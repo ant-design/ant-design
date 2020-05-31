@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Card
 cols: 1
+cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 ---
 
 Simple rectangular container.

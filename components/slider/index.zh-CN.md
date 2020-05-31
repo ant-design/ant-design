@@ -3,6 +3,7 @@ category: Components
 subtitle: 滑动输入条
 type: 数据录入
 title: Slider
+cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 ---
 
 滑动型输入器，展示当前值和可选范围。

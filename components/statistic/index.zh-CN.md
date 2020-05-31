@@ -3,6 +3,7 @@ category: Components
 subtitle: 统计数值
 type: 数据展示
 title: Statistic
+cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
 ---
 
 展示统计数值。

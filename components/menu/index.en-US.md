@@ -3,6 +3,7 @@ category: Components
 cols: 1
 type: Navigation
 title: Menu
+cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---
 
 A versatile menu for navigation.

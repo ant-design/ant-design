@@ -3,6 +3,7 @@ category: Components
 type: General
 title: Typography
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 ---
 
 Basic text writing, including headings, body text, lists, and more.

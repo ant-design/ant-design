@@ -2,6 +2,7 @@
 category: Components
 type: Navigation
 title: Affix
+cover: https://gw.alipayobjects.com/zos/alicdn/SQGCQ7gOO/Affix.svg
 ---
 
 Wrap Affix around another component to make it stick the viewport.
