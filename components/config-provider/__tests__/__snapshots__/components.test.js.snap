@@ -25178,690 +25178,504 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
 
 exports[`ConfigProvider components Tabs configProvider 1`] = `
 <div
-  class="config-tabs config-tabs-top config-tabs-line"
+  class="config-tabs config-tabs-top"
 >
   <div
-    class="config-tabs-bar config-tabs-top-bar"
+    class="config-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="config-tabs-nav-container"
+      class="config-tabs-nav-wrap"
     >
-      <span
-        class="config-tabs-tab-prev config-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="config-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left config-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="config-tabs-tab-next config-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="config-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right config-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="config-tabs-nav-wrap"
+        class="config-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
-        <div
-          class="config-tabs-nav-scroll"
+        <button
+          aria-selected="false"
+          class="config-tabs-tab"
+          role="tab"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="config-tabs-nav config-tabs-nav-animated"
-          >
-            <div>
-              <div
-                aria-controls="tabpane-Light"
-                aria-disabled="false"
-                aria-selected="true"
-                class="config-tabs-tab-active config-tabs-tab"
-                id="tab-Light"
-                role="tab"
-                tabindex="0"
-              >
-                Bamboo
-              </div>
-            </div>
-            <div
-              class="config-tabs-ink-bar config-tabs-ink-bar-animated"
-            />
-          </div>
-        </div>
+          Bamboo
+        </button>
+        <div
+          class="config-tabs-ink-bar config-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="config-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="config-tabs-content config-tabs-content-animated config-tabs-top-content"
-    style="margin-left:0%"
+    class="config-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="config-tabs-tabpane config-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="config-tabs-content config-tabs-content-top"
+    >
+      <div
+        aria-hidden="true"
+        class="config-tabs-tabpane"
+        role="tabpanel"
+        style="display:none"
+        tabindex="-1"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tabs configProvider componentSize large 1`] = `
 <div
-  class="config-tabs config-tabs-top config-tabs-line"
+  class="config-tabs config-tabs-top"
 >
   <div
-    class="config-tabs-bar config-tabs-top-bar"
+    class="config-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="config-tabs-nav-container"
+      class="config-tabs-nav-wrap"
     >
-      <span
-        class="config-tabs-tab-prev config-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="config-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left config-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="config-tabs-tab-next config-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="config-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right config-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="config-tabs-nav-wrap"
+        class="config-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
-        <div
-          class="config-tabs-nav-scroll"
+        <button
+          aria-selected="false"
+          class="config-tabs-tab"
+          role="tab"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="config-tabs-nav config-tabs-nav-animated"
-          >
-            <div>
-              <div
-                aria-controls="tabpane-Light"
-                aria-disabled="false"
-                aria-selected="true"
-                class="config-tabs-tab-active config-tabs-tab"
-                id="tab-Light"
-                role="tab"
-                tabindex="0"
-              >
-                Bamboo
-              </div>
-            </div>
-            <div
-              class="config-tabs-ink-bar config-tabs-ink-bar-animated"
-            />
-          </div>
-        </div>
+          Bamboo
+        </button>
+        <div
+          class="config-tabs-ink-bar config-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="config-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="config-tabs-content config-tabs-content-animated config-tabs-top-content"
-    style="margin-left:0%"
+    class="config-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="config-tabs-tabpane config-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="config-tabs-content config-tabs-content-top"
+    >
+      <div
+        aria-hidden="true"
+        class="config-tabs-tabpane"
+        role="tabpanel"
+        style="display:none"
+        tabindex="-1"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
 <div
-  class="config-tabs config-tabs-top config-tabs-line"
+  class="config-tabs config-tabs-top"
 >
   <div
-    class="config-tabs-bar config-tabs-top-bar"
+    class="config-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="config-tabs-nav-container"
+      class="config-tabs-nav-wrap"
     >
-      <span
-        class="config-tabs-tab-prev config-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="config-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left config-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="config-tabs-tab-next config-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="config-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right config-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="config-tabs-nav-wrap"
+        class="config-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
-        <div
-          class="config-tabs-nav-scroll"
+        <button
+          aria-selected="false"
+          class="config-tabs-tab"
+          role="tab"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="config-tabs-nav config-tabs-nav-animated"
-          >
-            <div>
-              <div
-                aria-controls="tabpane-Light"
-                aria-disabled="false"
-                aria-selected="true"
-                class="config-tabs-tab-active config-tabs-tab"
-                id="tab-Light"
-                role="tab"
-                tabindex="0"
-              >
-                Bamboo
-              </div>
-            </div>
-            <div
-              class="config-tabs-ink-bar config-tabs-ink-bar-animated"
-            />
-          </div>
-        </div>
+          Bamboo
+        </button>
+        <div
+          class="config-tabs-ink-bar config-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="config-tabs-nav-operations config-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="config-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="config-tabs-content config-tabs-content-animated config-tabs-top-content"
-    style="margin-left:0%"
+    class="config-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="config-tabs-tabpane config-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="config-tabs-content config-tabs-content-top"
+    >
+      <div
+        aria-hidden="true"
+        class="config-tabs-tabpane"
+        role="tabpanel"
+        style="display:none"
+        tabindex="-1"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top"
 >
   <div
-    class="ant-tabs-bar ant-tabs-top-bar"
+    class="ant-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="ant-tabs-nav-container"
+      class="ant-tabs-nav-wrap"
     >
-      <span
-        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right ant-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="ant-tabs-nav-wrap"
+        class="ant-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
-        <div
-          class="ant-tabs-nav-scroll"
+        <button
+          aria-selected="false"
+          class="ant-tabs-tab"
+          role="tab"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="ant-tabs-nav ant-tabs-nav-animated"
-          >
-            <div>
-              <div
-                aria-controls="tabpane-Light"
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                id="tab-Light"
-                role="tab"
-                tabindex="0"
-              >
-                Bamboo
-              </div>
-            </div>
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-          </div>
-        </div>
+          Bamboo
+        </button>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane"
+        role="tabpanel"
+        style="display:none"
+        tabindex="-1"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tabs normal 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top"
 >
   <div
-    class="ant-tabs-bar ant-tabs-top-bar"
+    class="ant-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="ant-tabs-nav-container"
+      class="ant-tabs-nav-wrap"
     >
-      <span
-        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right ant-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="ant-tabs-nav-wrap"
+        class="ant-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
-        <div
-          class="ant-tabs-nav-scroll"
+        <button
+          aria-selected="false"
+          class="ant-tabs-tab"
+          role="tab"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="ant-tabs-nav ant-tabs-nav-animated"
-          >
-            <div>
-              <div
-                aria-controls="tabpane-Light"
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                id="tab-Light"
-                role="tab"
-                tabindex="0"
-              >
-                Bamboo
-              </div>
-            </div>
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-          </div>
-        </div>
+          Bamboo
+        </button>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane"
+        role="tabpanel"
+        style="display:none"
+        tabindex="-1"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tabs prefixCls 1`] = `
 <div
-  class="prefix-Tabs prefix-Tabs-top prefix-Tabs-line"
+  class="prefix-Tabs prefix-Tabs-top"
 >
   <div
-    class="prefix-Tabs-bar prefix-Tabs-top-bar"
+    class="prefix-Tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="prefix-Tabs-nav-container"
+      class="prefix-Tabs-nav-wrap"
     >
-      <span
-        class="prefix-Tabs-tab-prev prefix-Tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="prefix-Tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left prefix-Tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="prefix-Tabs-tab-next prefix-Tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="prefix-Tabs-tab-next-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right prefix-Tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="prefix-Tabs-nav-wrap"
+        class="prefix-Tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
-        <div
-          class="prefix-Tabs-nav-scroll"
+        <button
+          aria-selected="false"
+          class="prefix-Tabs-tab"
+          role="tab"
+          tabindex="0"
+          type="button"
         >
-          <div
-            class="prefix-Tabs-nav prefix-Tabs-nav-animated"
-          >
-            <div>
-              <div
-                aria-controls="tabpane-Light"
-                aria-disabled="false"
-                aria-selected="true"
-                class="prefix-Tabs-tab-active prefix-Tabs-tab"
-                id="tab-Light"
-                role="tab"
-                tabindex="0"
-              >
-                Bamboo
-              </div>
-            </div>
-            <div
-              class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
-            />
-          </div>
-        </div>
+          Bamboo
+        </button>
+        <div
+          class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="prefix-Tabs-nav-operations prefix-Tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="prefix-Tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="prefix-Tabs-content prefix-Tabs-content-animated prefix-Tabs-top-content"
-    style="margin-left:0%"
+    class="prefix-Tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="prefix-Tabs-content prefix-Tabs-content-top"
+    >
+      <div
+        aria-hidden="true"
+        class="prefix-Tabs-tabpane"
+        role="tabpanel"
+        style="display:none"
+        tabindex="-1"
+      />
+    </div>
   </div>
 </div>
 `;

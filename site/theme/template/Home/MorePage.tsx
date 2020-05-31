@@ -37,7 +37,8 @@ const MORE_LIST: MoreProps[] = [
   },
   {
     title: 'JCD 驱动 - 复杂系统设计应对之道',
-    description: '基于蚂蚁金服CTO线的业务土壤，我们探索出以JCD为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循。',
+    description:
+      '基于蚂蚁金服CTO线的业务土壤，我们探索出以JCD为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y-xiQoZzBCEAAAAAAAAAAABkARQnAQ',
     date: '2020-01-17',
     source: 'zhihu',
@@ -45,8 +46,7 @@ const MORE_LIST: MoreProps[] = [
   },
   {
     title: '折柱饼 +3 个套路，简单图表你真的会用吗？',
-    description:
-      '本文一句话概括：数据可视化中，如何用最简单的图表高效地传递信息。',
+    description: '本文一句话概括：数据可视化中，如何用最简单的图表高效地传递信息。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q1DMQpLCDQgAAAAAAAAAAABkARQnAQ',
     date: '2020-11-28',
     source: 'zhihu',
