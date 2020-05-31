@@ -21,7 +21,7 @@ timeline: true
 
 - 🔥 重做 Tabs 以提升多标签在不同环境下的用户体验。[#24552](https://github.com/ant-design/ant-design/pull/24552)
 - 📖 新增组件[总览页面](https://ant.design/components/overview-cn)。[#24491](https://github.com/ant-design/ant-design/pull/24491) [@arvinxx](https://github.com/arvinxx)
-- 🛠 增加大量功能，同时减少了包体积（相比比 `4.2.5` 减少了 2KB）。[#24584](https://github.com/ant-design/ant-design/pull/24584)
+- 🛠 增加大量功能，同时减少了包体积（相比 `4.2.5` 减少了 2KB）。[#24584](https://github.com/ant-design/ant-design/pull/24584)
 - Button
   - 🆕 新增文本类型按钮 `type="text"`。[#22552](https://github.com/ant-design/ant-design/pull/22552)
   - 💄 优化 Button 背景 less 变量的影响范围。[#24372](https://github.com/ant-design/ant-design/pull/24372) [@morenyang](https://github.com/morenyang)
