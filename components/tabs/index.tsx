@@ -33,7 +33,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
       },
       removeIcon: <CloseOutlined />,
       addIcon: <PlusOutlined />,
-      showAdd: hideAdd !== false,
+      showAdd: hideAdd !== true,
     };
   }
 
