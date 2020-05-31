@@ -172,4 +172,16 @@ Added in `4.1.0`.
 
 - [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
 
-- [How to use DatePicker with customize date library like dayjs](/docs/react/replace-moment#DatePicker)
+- [How to use DatePicker with customize date library like dayjs?](/docs/react/replace-moment#DatePicker)
+
+- How to modify start day of week?
+
+  Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: https://codesandbox.io/s/moment-day-of-week-b24k5
+
+  ```js
+  moment.locale('en', {
+    week: {
+      dow: 1,
+    },
+  });
+  ```

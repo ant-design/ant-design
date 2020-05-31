@@ -416,15 +416,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   renderContent() {
     const { ellipsisContent, isEllipsis, expanded } = this.state;
-    const {
-      component,
-      children,
-      className,
-      type,
-      disabled,
-      style,
-      ...restProps
-    } = this.props;
+    const { component, children, className, type, disabled, style, ...restProps } = this.props;
     const { direction } = this.context;
     const { rows, suffix } = this.getEllipsis();
 
