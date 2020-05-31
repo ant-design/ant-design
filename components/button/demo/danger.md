@@ -29,7 +29,7 @@ ReactDOM.render(
       Text
     </Button>
     <Button type="link" danger>
-      link
+      Link
     </Button>
   </>,
   mountNode,
