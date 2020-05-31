@@ -1,7 +1,6 @@
 import * as React from 'react';
-import omit from 'omit.js';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 
 function getNumberArray(num: string | number | undefined | null) {
@@ -51,15 +50,27 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-const ScrollNumber: React.FC<ScrollNumberProps> = props => {
+const ScrollNumber: React.FC<ScrollNumberProps> = ({
+  prefixCls: customizePrefixCls,
+  count: customizeCount,
+  className,
+  style,
+  title,
+  component = 'sup',
+  displayComponent,
+  onAnimated = () => {},
+  ...restProps
+}) => {
   const [animateStarted, setAnimateStarted] = React.useState(true);
-  const [count, setCount] = React.useState(props.count);
-  const [prevCount, setPrevCount] = React.useState(props.count);
-  const [lastCount, setLastCount] = React.useState(props.count);
+  const [count, setCount] = React.useState(customizeCount);
+  const [prevCount, setPrevCount] = React.useState(customizeCount);
+  const [lastCount, setLastCount] = React.useState(customizeCount);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 
-  if (prevCount !== props.count) {
+  if (prevCount !== customizeCount) {
     setAnimateStarted(true);
-    setPrevCount(props.count);
+    setPrevCount(customizeCount);
   }
 
   React.useEffect(() => {
@@ -70,10 +81,8 @@ const ScrollNumber: React.FC<ScrollNumberProps> = props => {
       // performing the transition.
       timeout = setTimeout(() => {
         setAnimateStarted(false);
-        setCount(props.count);
-        if (props.onAnimated) {
-          props.onAnimated();
-        }
+        setCount(customizeCount);
+        onAnimated();
       });
     }
     return () => {
@@ -81,7 +90,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = props => {
         clearTimeout(timeout);
       }
     };
-  }, [animateStarted, count, props.count, props.onAnimated]);
+  }, [animateStarted, customizeCount, onAnimated]);
 
   const getPositionByNum = (num: number, i: number) => {
     const currentCount = Math.abs(Number(count));
@@ -106,7 +115,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = props => {
     return num;
   };
 
-  const renderCurrentNumber = (prefixCls: string, num: number | string, i: number) => {
+  const renderCurrentNumber = (num: number | string, i: number) => {
     if (typeof num === 'number') {
       const position = getPositionByNum(num, i);
       const removeTransition = animateStarted || getNumberArray(lastCount)[i] === undefined;
@@ -133,65 +142,40 @@ const ScrollNumber: React.FC<ScrollNumberProps> = props => {
     );
   };
 
-  const renderNumberElement = (prefixCls: string) => {
+  const renderNumberElement = () => {
     if (count && Number(count) % 1 === 0) {
       return getNumberArray(count)
-        .map((num, i) => renderCurrentNumber(prefixCls, num, i))
+        .map((num, i) => renderCurrentNumber(num, i))
         .reverse();
     }
     return count;
   };
 
-  const renderScrollNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      style,
-      title,
-      component = 'sup',
-      displayComponent,
-    } = props;
-    // fix https://fb.me/react-unknown-prop
-    const restProps = omit(props, [
-      'count',
-      'onAnimated',
-      'component',
-      'prefixCls',
-      'displayComponent',
-    ]);
-    const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
-    const newProps = {
-      ...restProps,
-      className: classNames(prefixCls, className),
-      title: title as string,
-    };
-
-    // allow specify the border
-    // mock border-color by box-shadow for compatible with old usage:
-    // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-    if (style && style.borderColor) {
-      newProps.style = {
-        ...style,
-        boxShadow: `0 0 0 1px ${style.borderColor} inset`,
-      };
-    }
-    if (displayComponent) {
-      return cloneElement(displayComponent, {
-        className: classNames(
-          `${prefixCls}-custom-component`,
-          displayComponent.props && displayComponent.props.className,
-        ),
-      });
-    }
-    return React.createElement(component as any, newProps, renderNumberElement(prefixCls));
+  const newProps = {
+    ...restProps,
+    style,
+    className: classNames(prefixCls, className),
+    title: title as string,
   };
 
-  return <ConfigConsumer>{renderScrollNumber}</ConfigConsumer>;
-};
-
-ScrollNumber.defaultProps = {
-  count: null,
-  onAnimated() {},
+  // allow specify the border
+  // mock border-color by box-shadow for compatible with old usage:
+  // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
+  if (style && style.borderColor) {
+    newProps.style = {
+      ...style,
+      boxShadow: `0 0 0 1px ${style.borderColor} inset`,
+    };
+  }
+  if (displayComponent) {
+    return cloneElement(displayComponent, {
+      className: classNames(
+        `${prefixCls}-custom-component`,
+        displayComponent.props && displayComponent.props.className,
+      ),
+    });
+  }
+  return React.createElement(component as any, newProps, renderNumberElement());
 };
 
 export default ScrollNumber;

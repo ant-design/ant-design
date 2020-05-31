@@ -66,6 +66,9 @@ describe('Badge', () => {
     wrapper.setProps({ count: 11 });
     jest.runAllTimers();
     expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ count: 111 });
+    jest.runAllTimers();
+    expect(wrapper).toMatchSnapshot();
     wrapper.setProps({ count: 10 });
     jest.runAllTimers();
     expect(wrapper).toMatchSnapshot();
