@@ -296,7 +296,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     type="button"
   >
     <span>
-      link
+      Dashed
     </span>
   </button>
   <button
@@ -304,7 +304,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     type="button"
   >
     <span>
-      Text Button
+      Text
     </span>
   </button>
   <button
@@ -312,7 +312,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     type="button"
   >
     <span>
-      link
+      Link
     </span>
   </button>
 </div>
