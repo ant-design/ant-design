@@ -28,7 +28,7 @@ timeline: true
 - Upload
   - 🆕 `data` 属性支持返回 `Promise`。[#24546](https://github.com/ant-design/ant-design/pull/24546) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
   - 🆕 添加 `progress` 属性以支持自定义进度条。[#24319](https://github.com/ant-design/ant-design/pull/24319) [@morenyang](https://github.com/morenyang)
-  - 🐞 修复的进度条类型会被意外覆盖的问题。[#24339](https://github.com/ant-design/ant-design/pull/24339) [@morenyang](https://github.com/morenyang)
+  - 🐞 修复进度条类型会被意外覆盖的问题。[#24339](https://github.com/ant-design/ant-design/pull/24339) [@morenyang](https://github.com/morenyang)
 - Table
   - 🆕 Table 新增 `rowSelection.hideSelectAll` 用于隐藏全选框。[#24592](https://github.com/ant-design/ant-design/pull/24592) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
   - 🆕 `ellipsis` 支持 `showTitle` 以关闭自动设置 `title` 属性。[#24056](https://github.com/ant-design/ant-design/pull/24056) [@lijinke666](https://github.com/lijinke666)
@@ -39,10 +39,10 @@ timeline: true
   - 💄 添加 `@input-disabled-color` less 变量。[#23775](https://github.com/ant-design/ant-design/pull/23775) [@alwaysloseall](https://github.com/alwaysloseall)
 - Form
   - 🆕 Form 添加 `validateTrigger` 支持全局设置子字段校验时机。[#23972](https://github.com/ant-design/ant-design/pull/23972)
-  - 🐞 修复 Form.Item 内联样式下 label 在狭窄空间被挤压的问题。[#24531](https://github.com/ant-design/ant-design/pull/24531)
+  - 🐞 修复 Form.Item 内联样式下 `label` 在狭窄空间被挤压的问题。[#24531](https://github.com/ant-design/ant-design/pull/24531)
   - 🐞 修复 Form.List 字段状态同步逻辑并添加嵌套字段示例。[#24009](https://github.com/ant-design/ant-design/pull/24009)
 - Menu
-  - 🆕 调整 Menu `inline` 模式下未设置 icon 的菜单收起时文字显示第一个字符。[#24330](https://github.com/ant-design/ant-design/pull/24330)
+  - 🆕 调整 Menu `inline` 模式下未设置 `icon` 的菜单收起时文字显示第一个字符。[#24330](https://github.com/ant-design/ant-design/pull/24330)
   - 🆕 Menu.Item 支持 `danger` 属性。[#23785](https://github.com/ant-design/ant-design/pull/23785)
 - Avatar
   - 🆕 Avatar 新增 `gap` 来设置字符类型距离左右两侧边界单位像素。[#24357](https://github.com/ant-design/ant-design/pull/24357)
