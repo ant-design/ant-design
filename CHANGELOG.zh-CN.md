@@ -15,7 +15,76 @@ timeline: true
 
 ---
 
+## 4.3.0
+
+`2020-05-31`
+
+- 🔥 重做 Tabs 以提升多标签在不同环境下的用户体验。[#24552](https://github.com/ant-design/ant-design/pull/24552)
+- Upload
+  - 🐞 解决删除图标键盘无法导航操作的问题。[#24604](https://github.com/ant-design/ant-design/pull/24604) [@morenyang](https://github.com/morenyang)
+  - 🆕 `data` 属性支持返回 `Promise`。[#24546](https://github.com/ant-design/ant-design/pull/24546) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+  - 🐞 修复的进度条类型会被意外覆盖的问题。[#24339](https://github.com/ant-design/ant-design/pull/24339) [@morenyang](https://github.com/morenyang)
+  - 🆕 添加 `progress` 属性以支持自定义进度条。[#24319](https://github.com/ant-design/ant-design/pull/24319) [@morenyang](https://github.com/morenyang)
+- 🐞 修复 Steps `subtitle` hover 渐变过渡。[#24593](https://github.com/ant-design/ant-design/pull/24593)
+- Table
+  - 🆕 Table 新增 `rowSelection.hideSelectAll` 用于隐藏全选框。[#24592](https://github.com/ant-design/ant-design/pull/24592) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+  - 🆕 `ellipsis` 支持 `showTitle` 以关闭自动设置 `title` 属性。[#24056](https://github.com/ant-design/ant-design/pull/24056) [@lijinke666](https://github.com/lijinke666)
+  - 🆕 Table `columns` 支持 `shouldCellUpdate` 属性。[#23872](https://github.com/ant-design/ant-design/pull/23872)
+- 🐞 修复 List 报 `React does not recognize colStyle prop` 的问题。[#24568](https://github.com/ant-design/ant-design/pull/24568)
+- 🐞 修复步骤 Progress `percent` 样式未正确更新的问题。[#24534](https://github.com/ant-design/ant-design/pull/24534) [@ChuckJonas](https://github.com/ChuckJonas)
+- Input
+  - 🐞 修复 Input.Password 一个明文显示 `value` 的问题。[#24535](https://github.com/ant-design/ant-design/pull/24535)
+  - 🆕 Input.Passowrd 支持自定义图标。[#23792](https://github.com/ant-design/ant-design/pull/23792) [@偏右](https://github.com/偏右)
+  - 💄 添加 `@input-disabled-color` less 变量。[#23775](https://github.com/ant-design/ant-design/pull/23775) [@alwaysloseall](https://github.com/alwaysloseall)
+- Form
+  - 🐞 修复 Form.Item 内联样式下 label 在狭窄空间被挤压的问题。[#24531](https://github.com/ant-design/ant-design/pull/24531)
+  - 🐞 修复 Form.List 字段状态同步逻辑并添加嵌套字段示例。[#24009](https://github.com/ant-design/ant-design/pull/24009)
+  - 🆕 Form 添加 `validateTrigger` 支持全局设置子字段校验时机。[#23972](https://github.com/ant-design/ant-design/pull/23972)
+- 🐞 修复 Cascader 下拉框中扩展按钮在禁用时的颜色。[#24521](https://github.com/ant-design/ant-design/pull/24521)
+- Menu
+  - 🆕 调整 Menu `inline` 模式下未设置 icon 的菜单收起时文字显示第一个字符。[#24330](https://github.com/ant-design/ant-design/pull/24330)
+  - 🆕 Menu.Item 支持 `danger` 属性。[#23785](https://github.com/ant-design/ant-design/pull/23785)
+- 🐞 修复 Breadcrumb 内使用链接时图标间距丢失的问题。[#24490](https://github.com/ant-design/ant-design/pull/24490) [@EscapeB](https://github.com/EscapeB)
+- Avatar
+  - 🐞 修复 Avatar `onError` 会触发两次的问题。[#24506](https://github.com/ant-design/ant-design/pull/24506) [@sanonz](https://github.com/sanonz)
+  - 🆕 Avatar 新增 `gap` 来设置字符类型距离左右两侧边界单位像素。[#24357](https://github.com/ant-design/ant-design/pull/24357)
+- 🐞 修复 Alert 关闭按钮 `padding` 样式。[#24471](https://github.com/ant-design/ant-design/pull/24471)
+- 🐞 修复 Tree `@tree-directory-selected-bg` 变量不生效的问题。[#24468](https://github.com/ant-design/ant-design/pull/24468) [@morenyang](https://github.com/morenyang)
+- Typography
+  - 🆕 Typography.Paragraph 支持自定义展开样式。[#24385](https://github.com/ant-design/ant-design/pull/24385) [@fireairforce](https://github.com/fireairforce)
+  - 🐞 修复 Typography 不支持 `title` 属性的问题。[#24440](https://github.com/ant-design/ant-design/pull/24440) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+  - 🆕 Typography.Text 支持 `keyboard` 样式。[#24195](https://github.com/ant-design/ant-design/pull/24195)
+  - 🆕 添加 Link 组件。[#24019](https://github.com/ant-design/ant-design/pull/24019)
+- 🆕 Tooltip 支持配置背景颜色。[#23155](https://github.com/ant-design/ant-design/pull/23155)
+- 🆕 Popconfirm 支持按 `ESC` 关闭。[#24420](https://github.com/ant-design/ant-design/pull/24420)
+- 🆕 Tooltip `destroyTooltipOnHide` 支持 `keepParent` 配置。[#24362](https://github.com/ant-design/ant-design/pull/24362) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- Button
+  - 💄 优化 Button 背景 less 变量的影响范围。[#24372](https://github.com/ant-design/ant-design/pull/24372) [@morenyang](https://github.com/morenyang)
+  - 🆕 新增文本类型按钮 `type="text"`。[#22552](https://github.com/ant-design/ant-design/pull/22552)
+- 🆕 Notification 支持全局配置 `prefixCls`。[#24295](https://github.com/ant-design/ant-design/pull/24295) [@tdida](https://github.com/tdida)
+- 🆕 RangePicker `dateRender` 支持额外参数来判断是 `start` 还是 `end` 字段。[#24278](https://github.com/ant-design/ant-design/pull/24278)
+- 🆕 Skeleton 添加 `round` 属性，允许段落和标题显示圆角。[#24137](https://github.com/ant-design/ant-design/pull/24137) [@xilihuasi](https://github.com/xilihuasi)
+- 🆕 Transfer 支持 `oneWay` 配置单向选择以及 `pagination` 配置分页。[#24041](https://github.com/ant-design/ant-design/pull/24041)
+- 💄 Descriptions 新增 `@descriptions-item-trailing-colon` 等 less 变量。[#24032](https://github.com/ant-design/ant-design/pull/24032) [@hengkx](https://github.com/hengkx)
+- 🆕 Message 支持自定义样式通过使用`className`和`style`。[#24024](https://github.com/ant-design/ant-design/pull/24024) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🆕 ConfigProvider 支持 `virtual` 和 `dropdownMatchSelectWidth` 配置。[#23841](https://github.com/ant-design/ant-design/pull/23841) [@hengkx](https://github.com/hengkx)
+- 🛠 优化依赖以减少总体打包尺寸。[#24584](https://github.com/ant-design/ant-design/pull/24584)
+- 🐞 修复 `@ant-prefix` 变量在部分样式里不生效的问题。[#24459](https://github.com/ant-design/ant-design/pull/24459) [@morenyang](https://github.com/morenyang)
+- 🌐 国际化
+  - 🇫🇮 改进 Typography `fi_FI` 国际化。[#24591](https://github.com/ant-design/ant-design/pull/24591) [@sagge](https://github.com/sagge)
+  - 🇧🇷 改进 `pt_BR` 国际化。[#24518](https://github.com/ant-design/ant-design/pull/24518) [@arturpfb](https://github.com/arturpfb)
+  - 🇬🇧 改进 Form `en_GB` 国际化。[#24404](https://github.com/ant-design/ant-design/pull/24404) [@morenyang](https://github.com/morenyang)
+- RTL
+  - 💄 优化 Tree RTL 模式下选项框样式。[#24563](https://github.com/ant-design/ant-design/pull/24563)
+  - 💄 优化 Calendar 通知事项文字在 RTL 模式下的样式。[#24528](https://github.com/ant-design/ant-design/pull/24528)
+  - 💄 优化 Table 筛选下拉框在 RTL 模式下样式。[#24529](https://github.com/ant-design/ant-design/pull/24529)
+  - 💄 优化 Cascader RTL 模式下拉框的样式。[#24520](https://github.com/ant-design/ant-design/pull/24520)
+- TypeScript
+  - Form 导出 RuleObject 与 RuleRender 定义。[#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
+
 ## 4.2.5
+
+`2020-05-25`
 
 - 🐞 修复 Table 在 `dataSource` 移除条目时，`rowSelection.onChange` 仍然会缓存的问题。[#24338](https://github.com/ant-design/ant-design/pull/24338)
 - 🐞 修复 Table 的选中箭头在 `size=small/middle` 时超出的问题。[#24394](https://github.com/ant-design/ant-design/pull/24394)
