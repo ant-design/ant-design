@@ -81,11 +81,6 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render successColor progress', () => {
-    const wrapper = mount(<Progress status="normal" successColor="#000000" />);
-    expect(wrapper.render()).toMatchSnapshot();
-  });
-
   it('render dashboard zero gapDegree', () => {
     const wrapper = mount(<Progress type="dashboard" gapDegree={0} />);
     expect(wrapper.render()).toMatchSnapshot();
