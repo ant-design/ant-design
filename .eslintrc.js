@@ -118,6 +118,7 @@ module.exports = {
     'unicorn/prefer-trim-start-end': 2,
     'unicorn/expiring-todo-comments': 2,
     'unicorn/no-abusive-eslint-disable': 2,
+    'no-shadow': 0,
   },
   globals: {
     gtag: true,
