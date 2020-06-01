@@ -82,7 +82,7 @@ describe('Progress', () => {
   });
 
   it('render successColor progress', () => {
-    const wrapper = mount(<Progress status="normal" successColor="#ffffff" />);
+    const wrapper = mount(<Progress status="normal" successColor="#000000" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 

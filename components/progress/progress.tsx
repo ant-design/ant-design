@@ -49,6 +49,7 @@ export default class Progress extends React.Component<ProgressProps> {
     showInfo: true,
     // null for different theme definition
     trailColor: null,
+    successColor: null,
     size: 'default' as ProgressProps['size'],
     gapDegree: undefined,
     strokeLinecap: 'round' as ProgressProps['strokeLinecap'],
@@ -149,6 +150,7 @@ export default class Progress extends React.Component<ProgressProps> {
           'status',
           'format',
           'trailColor',
+          'successColor',
           'successPercent',
           'strokeWidth',
           'width',

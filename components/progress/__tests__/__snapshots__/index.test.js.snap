@@ -386,6 +386,7 @@ exports[`Progress render strokeColor 2`] = `
     }
   }
   strokeLinecap="round"
+  successColor={null}
   trailColor={null}
   type="line"
 >
@@ -404,6 +405,7 @@ exports[`Progress render strokeColor 2`] = `
         }
       }
       strokeLinecap="round"
+      successColor={null}
       trailColor={null}
       type="line"
     >
@@ -449,6 +451,7 @@ exports[`Progress render strokeColor 3`] = `
     }
   }
   strokeLinecap="round"
+  successColor={null}
   trailColor={null}
   type="line"
 >
@@ -467,6 +470,7 @@ exports[`Progress render strokeColor 3`] = `
         }
       }
       strokeLinecap="round"
+      successColor={null}
       trailColor={null}
       type="line"
     >
@@ -503,7 +507,6 @@ exports[`Progress render strokeColor 3`] = `
 exports[`Progress render successColor progress 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  successcolor="#ffffff"
 >
   <div
     class="ant-progress-outer"
