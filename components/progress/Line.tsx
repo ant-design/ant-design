@@ -84,18 +84,26 @@ const Line: React.FC<LineProps> = props => {
       backgroundColor: trailColor,
     };
   }
+  let successStyle;
+  if (successColor && typeof successColor === 'string') {
+    successStyle = {
+      backgroundColor: successColor,
+    };
+  }
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
   };
-  const successPercentStyle = {
+  let successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius: strokeLinecap === 'square' ? 0 : '',
-    backgroundColor: successColor || '',
   };
+  if (successStyle) {
+    successPercentStyle = { ...successPercentStyle, ...successStyle };
+  }
   const successSegment =
     successPercent !== undefined ? (
       <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
