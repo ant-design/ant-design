@@ -19,7 +19,7 @@ export interface SliderMarks {
 export type SliderValue = number | [number, number];
 
 interface HandleGeneratorInfo {
-  value: number;
+  value?: number;
   dragging: boolean;
   index: number;
   rest: any[];
@@ -48,7 +48,7 @@ export interface SliderProps {
   vertical?: boolean;
   onChange?: (value: SliderValue) => void;
   onAfterChange?: (value: SliderValue) => void;
-  tipFormatter?: null | ((value: number) => React.ReactNode);
+  tipFormatter?: null | ((value?: number) => React.ReactNode);
   className?: string;
   id?: string;
   style?: React.CSSProperties;
