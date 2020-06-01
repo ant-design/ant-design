@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install && npm install -g @lhci/cli@0.4.x
-      - run: ESBUILD=1 npm run site
+      - run: npm run site
       - run: lhci autorun --upload.target=temporary-public-storage

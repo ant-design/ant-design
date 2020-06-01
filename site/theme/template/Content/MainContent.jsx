@@ -108,7 +108,9 @@ class MainContent extends Component {
   }
 
   componentWillUnmount() {
-    this.scroller.destroy();
+    if (this.scroller) {
+      this.scroller.destroy();
+    }
     window.removeEventListener('load', this.handleInitialHashOnLoad);
     window.removeEventListener('hashchange', this.handleHashChange);
     clearTimeout(this.timeout);
