@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       staticDistDir: './_site',
-      url: ['http://localhost/', 'http://localhost/components/button/'],
+      url: ['http://localhost:8001/', 'http://localhost:8001/components/button/'],
     },
     upload: {
       target: 'temporary-public-storage',
