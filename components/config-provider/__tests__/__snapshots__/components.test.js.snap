@@ -25192,8 +25192,8 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="config-tabs-tab"
+          aria-selected="true"
+          class="config-tabs-tab config-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -25249,11 +25249,10 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       class="config-tabs-content config-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="config-tabs-tabpane"
+        aria-hidden="false"
+        class="config-tabs-tabpane config-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -25276,8 +25275,8 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="config-tabs-tab"
+          aria-selected="true"
+          class="config-tabs-tab config-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -25333,11 +25332,10 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
       class="config-tabs-content config-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="config-tabs-tabpane"
+        aria-hidden="false"
+        class="config-tabs-tabpane config-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -25360,8 +25358,8 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="config-tabs-tab"
+          aria-selected="true"
+          class="config-tabs-tab config-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -25417,11 +25415,10 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
       class="config-tabs-content config-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="config-tabs-tabpane"
+        aria-hidden="false"
+        class="config-tabs-tabpane config-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -25444,8 +25441,8 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="ant-tabs-tab"
+          aria-selected="true"
+          class="ant-tabs-tab ant-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -25501,11 +25498,10 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
       class="ant-tabs-content ant-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -25528,8 +25524,8 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="ant-tabs-tab"
+          aria-selected="true"
+          class="ant-tabs-tab ant-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -25585,11 +25581,10 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       class="ant-tabs-content ant-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -25612,8 +25607,8 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="prefix-Tabs-tab"
+          aria-selected="true"
+          class="prefix-Tabs-tab prefix-Tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -25669,11 +25664,10 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       class="prefix-Tabs-content prefix-Tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="prefix-Tabs-tabpane"
+        aria-hidden="false"
+        class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
