@@ -10,6 +10,7 @@ const IconMenuItemColumns = styled(Columns as any).attrs({
     grid-template-columns: min-content 1fr;
     align-items: center;
     gap: 0;
+    height: 100%;
 `;
 
 export default IconMenuItemColumns;
