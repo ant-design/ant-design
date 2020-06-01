@@ -453,36 +453,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
               </span>
             </span>
           </button>
-          <button
-            aria-label="Add tab"
-            class="ant-tabs-nav-add"
-            type="button"
-          >
-            <span
-              aria-label="plus"
-              class="anticon anticon-plus"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="plus"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <defs />
-                <path
-                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                />
-                <path
-                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                />
-              </svg>
-            </span>
-          </button>
           <div
             class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
           />
@@ -519,36 +489,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             >
               <path
                 d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-              />
-            </svg>
-          </span>
-        </button>
-        <button
-          aria-label="Add tab"
-          class="ant-tabs-nav-add"
-          type="button"
-        >
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <defs />
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>

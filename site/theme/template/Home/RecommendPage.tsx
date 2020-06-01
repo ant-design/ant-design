@@ -99,7 +99,7 @@ const RecommendBlock = ({
       )}
       <div className="recommend-content">
         <Title level={4}>{title}</Title>
-        <Paragraph>{description}</Paragraph>
+        <Paragraph style={{ fontSize: 13 }}>{description}</Paragraph>
       </div>
     </a>
   );

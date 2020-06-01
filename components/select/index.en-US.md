@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Select
+cover: https://gw.alipayobjects.com/zos/alicdn/oCqbyNvbA/Select.svg
 ---
 
 Select component to select value from options.

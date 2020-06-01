@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: List
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 ---
 
 Simple List.

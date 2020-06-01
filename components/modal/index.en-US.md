@@ -2,6 +2,7 @@
 type: Feedback
 category: Components
 title: Modal
+cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 ---
 
 Modal dialogs.

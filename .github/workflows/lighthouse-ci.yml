@@ -1,24 +1,11 @@
-name: Lighthouse Check
-on: [pull_request]
-
+name: CI
+on: [push]
 jobs:
-  lighthouse-check:
+  lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - run: mkdir /tmp/artifacts
-      - name: Run Lighthouse
-        uses: foo-software/lighthouse-check-action@master
-        id: lighthouseCheck
-        with:
-          accessToken: ${{ secrets.GITHUB_TOKEN }}
-          outputDirectory: /tmp/artifacts
-          emulatedFormFactor: desktop
-          timeout: 1200
-          prCommentEnabled: false
-          urls: 'https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh,https://preview-${{ github.event.pull_request.number }}-ant-design.surge.sh/components/button'
-      - name: Upload artifacts
-        uses: actions/upload-artifact@master
-        with:
-          name: Lighthouse reports
-          path: /tmp/artifacts
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install && npm install -g @lhci/cli@0.4.x
+      - run: npm run site
+      - run: lhci autorun --upload.target=temporary-public-storage

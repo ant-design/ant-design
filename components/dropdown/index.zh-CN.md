@@ -3,6 +3,7 @@ category: Components
 subtitle: 下拉菜单
 type: 导航
 title: Dropdown
+cover: https://gw.alipayobjects.com/zos/alicdn/TIIiKrsQT/Dropdown.svg
 ---
 
 向下弹出的列表。

@@ -4,6 +4,7 @@ subtitle: 自动完成
 type: 数据录入
 cols: 2
 title: AutoComplete
+cover: https://gw.alipayobjects.com/zos/alicdn/gtGCgVDKv/AutoComplete.svg
 ---
 
 输入框自动完成功能。

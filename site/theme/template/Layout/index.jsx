@@ -88,8 +88,6 @@ export default class Layout extends React.Component {
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
     };
-
-    this.changeDirection = this.changeDirection.bind(this);
   }
 
   componentDidMount() {
@@ -178,11 +176,11 @@ export default class Layout extends React.Component {
     setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
   };
 
-  changeDirection(direction) {
+  changeDirection = direction => {
     this.setState({
       direction,
     });
-  }
+  };
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;

@@ -3,6 +3,7 @@ type: Feedback
 category: Components
 subtitle:
 title: Drawer
+cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 ---
 
 A panel which slides in from the edge of the screen.

@@ -4,6 +4,7 @@ type: 导航
 title: PageHeader
 cols: 1
 subtitle: 页头
+cover: https://gw.alipayobjects.com/zos/alicdn/Uh-BJWMqm/PageHeader.svg
 ---
 
 页头位于页容器中，页容器顶部，起到了内容概览和引导页级操作的作用。包括由面包屑、标题、页面内容简介、页面级操作等、页面级导航组成。

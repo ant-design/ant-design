@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Upload
+cover: https://gw.alipayobjects.com/zos/alicdn/KIp6oKUun/Upload.svg
 ---
 
 Upload file by selecting or dragging.

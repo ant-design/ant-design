@@ -2,6 +2,7 @@
 category: Components
 type: Layout
 title: Divider
+cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
 ---
 
 A divider line separates different content.

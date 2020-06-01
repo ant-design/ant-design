@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Tooltip
+cover: https://gw.alipayobjects.com/zos/antfincdn/UYRSM99JXl/Tooltip.svg
 ---
 
 A simple text popup tip.

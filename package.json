@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.2.5",
+  "version": "4.3.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -78,7 +78,7 @@
     "pretty-quick": "pretty-quick",
     "pub": "npm run version && antd-tools run pub",
     "prepublishOnly": "antd-tools run guard",
-    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"npm run color-less\"",
+    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"npm run color-less\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
@@ -126,8 +126,8 @@
     "rc-mentions": "~1.2.0",
     "rc-menu": "~8.3.0",
     "rc-notification": "~4.4.0",
-    "rc-pagination": "~2.2.0",
-    "rc-picker": "~1.6.0",
+    "rc-pagination": "~2.2.5",
+    "rc-picker": "~1.6.1",
     "rc-progress": "~3.0.0",
     "rc-rate": "~2.7.0",
     "rc-resize-observer": "^0.2.3",

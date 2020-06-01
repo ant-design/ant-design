@@ -4,6 +4,7 @@ cols: 1
 type: 导航
 title: Menu
 subtitle: 导航菜单
+cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---
 
 为页面和功能提供导航的菜单列表。

@@ -3,6 +3,7 @@ category: Components
 type: Layout
 cols: 1
 title: Grid
+cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 ---
 
 24 Grids System。

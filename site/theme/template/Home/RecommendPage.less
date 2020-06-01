@@ -8,10 +8,17 @@
   border-radius: 2px;
 
   img {
+    position: relative;
+    z-index: -1;
     width: 100%;
     height: 100%;
     vertical-align: top;
     background-clip: cover;
+    transition: all 0.36s ease-out;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
   }
 
   &::before {
@@ -45,7 +52,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 0 20px 24px;
+    padding: 0 16px 16px;
     transform: translateY(100%);
     transition: transform 0.3s;
 
@@ -59,7 +66,7 @@
       top: 0;
       right: 0;
       left: 0;
-      padding: 0 20px 24px;
+      padding: 0 16px 16px;
       transform: translateY(-100%);
       transition: padding 0.3s;
     }

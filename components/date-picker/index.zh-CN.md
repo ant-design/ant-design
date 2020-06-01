@@ -3,6 +3,7 @@ category: Components
 type: 数据录入
 title: DatePicker
 subtitle: 日期选择框
+cover: https://gw.alipayobjects.com/zos/alicdn/Xr6CsbN_a/DatePicker.svg
 ---
 
 输入或选择日期的控件。
@@ -174,4 +175,17 @@ import 'moment/locale/zh-cn';
 
 - [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
 
-- [如何在 DatePicker 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#DatePicker)
+- [如何在 DatePicker 中使用自定义日期库（如 dayjs ）？](/docs/react/replace-moment#DatePicker)
+
+- 如何修改周的起始日？
+
+  请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：https://codesandbox.io/s/moment-day-of-week-b24k5
+
+  ```js
+  moment.locale('en', {
+    // 注意请修改你正在使用的 locale 语言，比如 zh-cn
+    week: {
+      dow: 1,
+    },
+  });
+  ```

@@ -4,6 +4,7 @@ type: 数据展示
 subtitle: 日历
 cols: 1
 title: Calendar
+cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 ---
 
 按照日历形式展示数据的容器。
