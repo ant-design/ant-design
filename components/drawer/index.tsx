@@ -288,6 +288,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
             'autoInsertSpaceInButton',
             'width',
             'height',
+            'dropdownMatchSelectWidth',
           ])}
           {...offsetStyle}
           prefixCls={prefixCls}
