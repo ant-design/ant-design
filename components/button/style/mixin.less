@@ -375,6 +375,29 @@
 
   .button-disabled(@disabled-color; transparent; transparent);
 }
+.btn-danger-text() {
+  .button-variant-other(@error-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    & when (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
+    }
+    & when not (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
+    }
+  }
+
+  &:active {
+    & when (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 5) `; fadein(@btn-text-hover-bg, 1%); transparent);
+    }
+    & when not (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 7) `; fadein(@btn-text-hover-bg, 1%); transparent);
+    }
+  }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
 // round button
 .btn-round(@btnClassName: btn) {
   .button-size(@btn-circle-size; @btn-circle-size / 2; @font-size-base; @btn-circle-size);
