@@ -1,9 +1,23 @@
 ---
 category: Components
 type: General
-title: Links
+title: Link
 cols: 2
 ---
 
 Varnish has default styles for `a[href]` links and provides a base style `contrastLinkColorStyles`
 for use on dark backgrounds.
+
+## Recommended InternalLink
+
+```jsx
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { Link } from '@allenai/varnish';
+
+const { linkColorStyles } = Link
+
+export const InternalLink = styled(NavLink)`
+    ${linkColorStyles()}
+`;
+```

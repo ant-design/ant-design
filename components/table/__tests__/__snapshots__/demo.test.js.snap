@@ -11,7 +11,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"

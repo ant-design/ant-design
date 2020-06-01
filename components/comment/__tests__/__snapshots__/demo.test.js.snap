@@ -144,9 +144,6 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
       class="ant-comment-content"
     >
       <div
-        class="ant-comment-content-author"
-      />
-      <div
         class="ant-comment-content-detail"
       >
         <div
