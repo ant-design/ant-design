@@ -110,11 +110,19 @@ Array [
     </span>
   </button>,
   <button
+    class="ant-btn ant-btn-text ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Text
+    </span>
+  </button>,
+  <button
     class="ant-btn ant-btn-link ant-btn-dangerous"
     type="button"
   >
     <span>
-      link
+      Link
     </span>
   </button>,
 ]
@@ -177,24 +185,6 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn ant-btn-link"
-    type="button"
-  >
-    <span>
-      Link
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-link"
-    disabled=""
-    type="button"
-  >
-    <span>
-      Link(disabled)
-    </span>
-  </button>
-  <br />
-  <button
     class="ant-btn ant-btn-text"
     type="button"
   >
@@ -213,20 +203,20 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn ant-btn-link ant-btn-dangerous"
+    class="ant-btn ant-btn-link"
     type="button"
   >
     <span>
-      Danger Link
+      Link
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-link ant-btn-dangerous"
+    class="ant-btn ant-btn-link"
     disabled=""
     type="button"
   >
     <span>
-      Danger Link(disabled)
+      Link(disabled)
     </span>
   </button>
   <br />
@@ -245,6 +235,42 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   >
     <span>
       Danger Default(disabled)
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-text ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Text
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-text ant-btn-dangerous"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Danger Text(disabled)
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-link ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Link
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-dangerous"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Danger Link(disabled)
     </span>
   </button>
   <div

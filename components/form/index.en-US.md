@@ -259,9 +259,9 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | --- | --- | --- |
 | enum | Match enum value | any[] |
 | len | Length of string, number, array | number |
-| max | Max length of string, number, array | number |
+| max | `type` required: max length of `string`, `number`, `array` | number |
 | message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |
-| min | Min length of string, number, array | number |
+| min | `type` required: min length of `string`, `number`, `array` | number |
 | pattern | Regex pattern | RegExp |
 | required | Required field | boolean |
 | transform | Transform value to the rule before validation | (value) => any |

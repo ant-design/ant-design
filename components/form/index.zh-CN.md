@@ -260,9 +260,9 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | --- | --- | --- |
 | enum | 是否匹配枚举中的值 | any[] |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
-| max | string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
+| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
 | message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
-| min | string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
+| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
 | pattern | 正则表达式匹配 | RegExp |
 | required | 是否为必选字段 | boolean |
 | transform | 将字段值转换成目标值后进行校验 | (value) => any |
