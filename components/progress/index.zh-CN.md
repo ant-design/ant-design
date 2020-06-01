@@ -30,6 +30,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/%24X8q%26OILIY/Progress.svg
 | strokeColor | 进度条的色彩 | string | - |
 | successPercent | 已完成的分段百分比 | number | 0 |
 | trailColor | 未完成的分段的颜色 | string | - |
+| successColor | 已完成的分段的颜色 | string | `#52c41a` |
 
 ### `type="line"`
 

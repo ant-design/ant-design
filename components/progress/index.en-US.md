@@ -29,6 +29,7 @@ Properties that shared by all types.
 | strokeColor | color of progress bar | string | - |
 | successPercent | segmented success percent | number | 0 |
 | trailColor | color of unfilled part | string | - |
+| successColor | color of filled part | string | `#52c41a` |
 
 ### `type="line"`
 

@@ -1293,7 +1293,7 @@ Array [
         />
         <div
           class="ant-progress-success-bg"
-          style="width:30%;height:8px;border-radius:"
+          style="width:30%;height:8px;border-radius:;background-color:"
         />
       </div>
     </div>

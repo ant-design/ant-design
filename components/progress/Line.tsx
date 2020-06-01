@@ -68,6 +68,7 @@ const Line: React.FC<LineProps> = props => {
     strokeLinecap,
     children,
     trailColor,
+    successColor,
   } = props;
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
@@ -93,6 +94,7 @@ const Line: React.FC<LineProps> = props => {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius: strokeLinecap === 'square' ? 0 : '',
+    backgroundColor: successColor || '',
   };
   const successSegment =
     successPercent !== undefined ? (

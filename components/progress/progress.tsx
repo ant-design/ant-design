@@ -33,6 +33,7 @@ export interface ProgressProps {
   strokeLinecap?: 'butt' | 'square' | 'round';
   strokeColor?: string | ProgressGradient;
   trailColor?: string;
+  successColor?: string;
   width?: number;
   style?: React.CSSProperties;
   gapDegree?: number;
