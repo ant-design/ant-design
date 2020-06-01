@@ -46,6 +46,8 @@ function setNotificationConfig(options: ConfigProps) {
   }
   if (placement !== undefined) {
     defaultPlacement = placement;
+  } else if (options.rtl) {
+    defaultPlacement = 'topLeft';
   }
   if (bottom !== undefined) {
     defaultBottom = bottom;
