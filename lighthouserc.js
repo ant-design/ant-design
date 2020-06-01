@@ -3,6 +3,7 @@ module.exports = {
     collect: {
       staticDistDir: './_site',
       startServerCommand: 'npm run site',
+      startServerReadyPattern: 'listen|ready',
     },
     upload: {
       target: 'temporary-public-storage',
