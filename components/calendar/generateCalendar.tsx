@@ -147,7 +147,10 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
       if (!isSameDate(date, mergedValue)) {
         // Trigger when month panel switch month
-        if (panelMode === 'date' && !isSameMonth(date, mergedValue)) {
+        if (
+          (panelMode === 'date' && !isSameMonth(date, mergedValue)) ||
+          (panelMode === 'month' && !isSameYear(date, mergedValue))
+        ) {
           triggerPanelChange(date, mergedMode);
         }
 
