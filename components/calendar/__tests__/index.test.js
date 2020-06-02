@@ -127,15 +127,27 @@ describe('Calendar', () => {
     MockDate.reset();
   });
 
-  it('should trigger onPanelChange when click last month of date', () => {
-    const onPanelChange = jest.fn();
-    const date = new Moment('1990-09-03');
-    const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+  describe('onPanelChange', () => {
+    it('trigger when click last month of date', () => {
+      const onPanelChange = jest.fn();
+      const date = new Moment('1990-09-03');
+      const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-    wrapper.find('.ant-picker-cell').at(0).simulate('click');
+      wrapper.find('.ant-picker-cell').at(0).simulate('click');
 
-    expect(onPanelChange).toHaveBeenCalled();
-    expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+      expect(onPanelChange).toHaveBeenCalled();
+      expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+    });
+
+    it('not trigger when in same month', () => {
+      const onPanelChange = jest.fn();
+      const date = new Moment('1990-09-03');
+      const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+
+      wrapper.find('.ant-picker-cell').at(10).simulate('click');
+
+      expect(onPanelChange).not.toHaveBeenCalled();
+    });
   });
 
   it('switch should work correctly without prop mode', async () => {
