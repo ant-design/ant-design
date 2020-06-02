@@ -63,13 +63,13 @@ export interface CalendarProps<DateType> {
 }
 
 function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
+  function isSameYear(date1: DateType, date2: DateType) {
+    return date1 && date2 && generateConfig.getYear(date1) === generateConfig.getYear(date2);
+  }
+
   function isSameMonth(date1: DateType, date2: DateType) {
     return (
-      date1 === date2 ||
-      (date1 &&
-        date2 &&
-        generateConfig.getYear(date1) === generateConfig.getYear(date2) &&
-        generateConfig.getMonth(date1) === generateConfig.getMonth(date2))
+      isSameYear(date1, date2) && generateConfig.getMonth(date1) === generateConfig.getMonth(date2)
     );
   }
 
@@ -146,7 +146,10 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       setMergedValue(date);
 
       if (!isSameDate(date, mergedValue)) {
-        triggerPanelChange(date, mergedMode);
+        // Trigger when month panel switch month
+        if (panelMode === 'date' && !isSameMonth(date, mergedValue)) {
+          triggerPanelChange(date, mergedMode);
+        }
 
         if (onChange) {
           onChange(date);
