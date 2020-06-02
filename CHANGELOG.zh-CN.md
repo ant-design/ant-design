@@ -35,7 +35,7 @@ timeline: true
 - RTL
   - 💄 调整 Notification RTL 模式下默认弹窗位置为左上。[#24632](https://github.com/ant-design/ant-design/pull/24632)
 - TypeScript
-  - 导出 Tabs `TabPaneProps` 定义。[#24648](https://github.com/ant-design/ant-design/pull/24648)
+  - 🛠 导出 Tabs `TabPaneProps` 定义。[#24648](https://github.com/ant-design/ant-design/pull/24648)
 
 ## 4.3.0
 
@@ -103,7 +103,7 @@ timeline: true
   - 💄 优化 Table 筛选下拉框在 RTL 模式下样式。[#24529](https://github.com/ant-design/ant-design/pull/24529)
   - 💄 优化 Cascader RTL 模式下拉框的样式。[#24520](https://github.com/ant-design/ant-design/pull/24520)
 - TypeScript
-  - Form 导出 `RuleObject` 与 `RuleRender` 定义。[#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
+  - 🛠 Form 导出 `RuleObject` 与 `RuleRender` 定义。[#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
 
 ## 4.2.5
 

@@ -35,7 +35,7 @@ timeline: true
 - RTL
   - 💄 Adjust Notification default placement to `topLeft` in RTL. [#24632](https://github.com/ant-design/ant-design/pull/24632)
 - TypeScript
-  - Export Tabs `TabPaneProps` definition. [#24648](https://github.com/ant-design/ant-design/pull/24648)
+  - 🛠 Export Tabs `TabPaneProps` definition. [#24648](https://github.com/ant-design/ant-design/pull/24648)
 
 ## 4.3.0
 
@@ -103,7 +103,7 @@ timeline: true
   - 💄 Optimize Table filter dropdown style in RTL. [#24529](https://github.com/ant-design/ant-design/pull/24529)
   - 💄 Fix Cascader dropdown style in RTL. [#24520](https://github.com/ant-design/ant-design/pull/24520)
 - TypeScript
-  - Form export `RuleObject` and `RuleRender` types. [#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
+  - 🛠 Form export `RuleObject` and `RuleRender` types. [#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
 
 ## 4.2.5
 
