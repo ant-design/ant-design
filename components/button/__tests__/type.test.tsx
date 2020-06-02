@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { mount, render } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
@@ -163,6 +164,22 @@ describe('Button', () => {
     const wrapper = mount(<DefaultButton />);
     wrapper.simulate('click');
     expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
+  });
+
+  it('reset when loading back of delay', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(<Button loading={{ delay: 1000 }} />);
+    wrapper.update();
+    wrapper.setProps({ loading: false });
+
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-btn-loading')).toHaveLength(0);
+
+    jest.useRealTimers();
   });
 
   it('should not clickable when button is loading', () => {
