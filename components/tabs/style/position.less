@@ -6,7 +6,8 @@
   &-bottom {
     flex-direction: column;
 
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       margin: @tabs-bar-margin;
 
       &::before {
@@ -54,7 +55,8 @@
   }
 
   &-top {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       &::before {
         bottom: 0;
       }
@@ -66,7 +68,8 @@
   }
 
   &-bottom {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       order: 1;
       margin-top: @margin-md;
       margin-bottom: 0;
@@ -80,7 +83,8 @@
       }
     }
 
-    > .@{tab-prefix-cls}-content-holder {
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
       order: 0;
     }
   }
@@ -88,7 +92,8 @@
   // ========================== Left & Right ==========================
   &-left,
   &-right {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       flex-direction: column;
       min-width: 50px;
 
@@ -148,13 +153,15 @@
   }
 
   &-left {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-ink-bar {
         right: 0;
       }
     }
 
-    > .@{tab-prefix-cls}-content-holder {
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
       margin-left: -@border-width-base;
       border-left: @border-width-base @border-style-base @border-color-split;
 
@@ -165,7 +172,8 @@
   }
 
   &-right {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       order: 1;
 
       .@{tab-prefix-cls}-ink-bar {
@@ -173,7 +181,8 @@
       }
     }
 
-    > .@{tab-prefix-cls}-content-holder {
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
       order: 0;
       margin-right: -@border-width-base;
       border-right: @border-width-base @border-style-base @border-color-split;
