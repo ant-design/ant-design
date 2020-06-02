@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import devWarning from '../_util/devWarning';
-import { ConfigContext } from '../config-provider';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -28,6 +27,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     okButtonProps,
     cancelText,
     cancelButtonProps,
+    direction,
   } = props;
 
   devWarning(
@@ -50,8 +50,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
   const transitionName = props.transitionName || 'zoom';
   const maskTransitionName = props.maskTransitionName || 'fade';
-
-  const { direction } = React.useContext(ConfigContext);
 
   const classString = classNames(
     contentPrefixCls,

@@ -111,6 +111,7 @@ export interface ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
+  direction?: string;
 }
 
 export interface ModalLocale {

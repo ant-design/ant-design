@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
+@confirm-prefix-cls: ~'@{ant-prefix}-modal-confirm';
 @dialog-wrap-rtl-cls: ~'@{dialog-prefix-cls}-wrap-rtl';
 
 .@{dialog-prefix-cls} {
@@ -26,6 +27,38 @@
       .@{dialog-wrap-rtl-cls} & {
         margin-right: 8px;
         margin-left: 0;
+      }
+    }
+  }
+
+  &-confirm {
+    &-body {
+      .@{dialog-wrap-rtl-cls} & {
+        direction: rtl;
+      }
+      > .@{iconfont-css-prefix} {
+        .@{dialog-wrap-rtl-cls} & {
+          float: right;
+          margin-right: 0;
+          margin-left: 16px;
+        }
+        + .@{confirm-prefix-cls}-title + .@{confirm-prefix-cls}-content {
+          .@{dialog-wrap-rtl-cls} & {
+            margin-right: 38px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    &-btns {
+      .@{dialog-wrap-rtl-cls} & {
+        float: left;
+      }
+      button + button {
+        .@{dialog-wrap-rtl-cls} & {
+          margin-right: 8px;
+          margin-left: 0;
+        }
       }
     }
   }
