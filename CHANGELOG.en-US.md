@@ -32,6 +32,7 @@ timeline: true
 - 🐞 Adjust Steps to support React.Fragment with `children`. [#24644](https://github.com/ant-design/ant-design/pull/24644)
 - 🐞 Fix Upload delete icon cannot be navigate via keyboard. [#24615](https://github.com/ant-design/ant-design/pull/24615) [@morenyang](https://github.com/morenyang)
 - 🐞 Fix multiple Select search input cursor missing issue. [#24631](https://github.com/ant-design/ant-design/pull/24631)
+- 🐞 Fix Radio.Group using `options` get `Element type is invalid` error. [#24631](https://github.com/ant-design/ant-design/pull/24631)
 - RTL
   - 💄 Adjust Notification default placement to `topLeft` in RTL. [#24632](https://github.com/ant-design/ant-design/pull/24632)
 - TypeScript

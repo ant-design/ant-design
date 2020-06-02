@@ -32,6 +32,7 @@ timeline: true
 - 🐞 调整 Steps 现支持 `children` 下使用 React.Fragment。[#24644](https://github.com/ant-design/ant-design/pull/24644)
 - 🐞 解决 Upload 删除图标键盘无法导航操作的问题。[#24615](https://github.com/ant-design/ant-design/pull/24615) [@morenyang](https://github.com/morenyang)
 - 🐞 修复多选 Select 输入框的光标展示问题。[#24631](https://github.com/ant-design/ant-design/pull/24631)
+- 🐞 修复 Radio.Group 设置 `options` 报错的问题。[#24631](https://github.com/ant-design/ant-design/pull/24631)
 - RTL
   - 💄 调整 Notification RTL 模式下默认弹窗位置为左上。[#24632](https://github.com/ant-design/ant-design/pull/24632)
 - TypeScript
