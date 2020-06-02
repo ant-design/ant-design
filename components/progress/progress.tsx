@@ -8,6 +8,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
+import devWarning from '../_util/devWarning';
 import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';
@@ -45,6 +46,8 @@ export interface ProgressProps {
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
   steps?: number;
+  /** @deprecated Use `success` instead */
+  successPercent?: number;
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -61,8 +64,8 @@ export default class Progress extends React.Component<ProgressProps> {
 
   getPercentNumber() {
     const { percent = 0, success } = this.props;
-    let successPercent;
-    if (success) {
+    let { successPercent } = this.props;
+    if (success && 'progress' in success) {
       successPercent = success.progress;
     }
     return parseInt(
@@ -81,7 +84,7 @@ export default class Progress extends React.Component<ProgressProps> {
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent, success } = this.props;
-    let successPercent;
+    let { successPercent } = this.props;
     if (success && 'progress' in success) {
       successPercent = success.progress;
     }
@@ -119,6 +122,13 @@ export default class Progress extends React.Component<ProgressProps> {
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
+
+    devWarning(
+      'successPercent' in props,
+      'Progress',
+      '`successPercent` is deprecated. Please use `success` instead.',
+    );
+
     let progress;
     // Render progress shape
     if (type === 'line') {
@@ -171,6 +181,7 @@ export default class Progress extends React.Component<ProgressProps> {
           'percent',
           'steps',
           'success',
+          'successPercent',
         ])}
         className={classString}
       >

@@ -104,7 +104,7 @@ const Line: React.FC<LineProps> = props => {
     ...backgroundProps,
   };
 
-  let successPercent;
+  let { successPercent } = props;
   if (success && 'progress' in success) {
     successPercent = success.progress;
   }
