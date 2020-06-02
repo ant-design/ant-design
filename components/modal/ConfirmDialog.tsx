@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import devWarning from '../_util/devWarning';
+import { ConfigContext } from '../config-provider';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -50,9 +51,12 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const transitionName = props.transitionName || 'zoom';
   const maskTransitionName = props.maskTransitionName || 'fade';
 
+  const { direction } = React.useContext(ConfigContext);
+
   const classString = classNames(
     contentPrefixCls,
     `${contentPrefixCls}-${props.type}`,
+    { [`${contentPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
 
