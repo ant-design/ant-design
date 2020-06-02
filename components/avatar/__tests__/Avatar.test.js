@@ -148,6 +148,11 @@ describe('Avatar Render', () => {
     expect(wrapper).toMatchRenderedSnapshot();
   });
 
+  it('support size is object', () => {
+    const wrapper = mount(<Avatar size={{ xs: 30, sm: 50 }} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('support onMouseEnter', () => {
     const onMouseEnter = jest.fn();
     const wrapper = mount(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);

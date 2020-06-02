@@ -3,6 +3,15 @@ import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import ResponsiveObserve, {
+  responsiveArray,
+  Breakpoint,
+  ScreenMap,
+} from '../_util/responsiveObserve';
+
+export type Screens = {
+  [key in Breakpoint]: number | undefined;
+};
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -11,7 +20,7 @@ export interface AvatarProps {
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
    * */
-  size?: 'large' | 'small' | 'default' | number;
+  size?: 'large' | 'small' | 'default' | number | Screens;
   gap?: number;
   /** Src of image avatar */
   src?: string;
@@ -34,6 +43,7 @@ export interface AvatarState {
   scale: number;
   mounted: boolean;
   isImgExist: boolean;
+  screens: ScreenMap;
 }
 
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
@@ -46,6 +56,14 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     scale: 1,
     mounted: false,
     isImgExist: true,
+    screens: {
+      xs: false,
+      sm: false,
+      md: false,
+      lg: false,
+      xl: false,
+      xxl: false,
+    },
   };
 
   private avatarNode: HTMLElement;
@@ -56,9 +74,15 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   private lastNodeWidth: number;
 
+  private token: string;
+
   componentDidMount() {
     this.setScale();
     this.setState({ mounted: true });
+
+    this.token = ResponsiveObserve.subscribe(screens => {
+      this.setState({ screens });
+    });
   }
 
   componentDidUpdate(prevProps: AvatarProps) {
@@ -68,6 +92,10 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     if (prevProps.children !== this.props.children || prevProps.gap !== this.props.gap) {
       this.setScale();
     }
+  }
+
+  componentWillUnmount() {
+    ResponsiveObserve.unsubscribe(this.token);
   }
 
   setScale = () => {
@@ -102,11 +130,22 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
   };
 
+  get size(): AvatarProps['size'] {
+    const { size } = this.props;
+
+    if (typeof size !== 'object') return size;
+
+    const screen = responsiveArray.find(breakpoint => this.state.screens[breakpoint]);
+
+    if (!screen) return Avatar.defaultProps.size;
+
+    return size[screen] || Avatar.defaultProps.size;
+  }
+
   renderAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       shape,
-      size,
       src,
       srcSet,
       icon,
@@ -115,6 +154,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       draggable,
       ...others
     } = this.props;
+
+    const { size } = this;
 
     devWarning(
       !(typeof icon === 'string' && icon.length > 2),
@@ -207,6 +248,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     // see https://codesandbox.io/s/kind-snow-9lidz
     delete others.onError;
     delete others.gap;
+    delete others.size;
 
     return (
       <span

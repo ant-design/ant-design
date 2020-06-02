@@ -24,3 +24,39 @@ exports[`Avatar Render support size is number 1`] = `
   </span>
 </span>
 `;
+
+exports[`Avatar Render support size is object 1`] = `
+<Avatar
+  shape="circle"
+  size={
+    Object {
+      "sm": 50,
+      "xs": 30,
+    }
+  }
+>
+  <span
+    className="ant-avatar ant-avatar-circle"
+    style={
+      Object {
+        "fontSize": 18,
+        "height": 30,
+        "lineHeight": "30px",
+        "width": 30,
+      }
+    }
+  >
+    <span
+      className="ant-avatar-string"
+      style={
+        Object {
+          "WebkitTransform": "scale(0.32) translateX(-50%)",
+          "lineHeight": "30px",
+          "msTransform": "scale(0.32) translateX(-50%)",
+          "transform": "scale(0.32) translateX(-50%)",
+        }
+      }
+    />
+  </span>
+</Avatar>
+`;
