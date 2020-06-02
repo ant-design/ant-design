@@ -7,7 +7,7 @@ export * from './interface';
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
-  Button: typeof Group;
+  Button: typeof Button;
 }
 
 const Radio = InternalRadio as CompoundedComponent;
