@@ -20,9 +20,9 @@ timeline: true
 `2020-06-02`
 
 - Tabs
+  - 🐞 修复 Tabs `hideAdd` 无效的问题。[#24621](https://github.com/ant-design/ant-design/pull/24621)
   - 🐞 修复 Tabs 下拉菜单内在 Firefox 下出现水平滚动条。[#24677](https://github.com/ant-design/ant-design/pull/24677)
   - 🐞 修复 Tabs 配合 `react-sticky` 使用时下划线遗失问题。[#24643](https://github.com/ant-design/ant-design/pull/24643)
-  - 🐞 修复 Tabs `hideAdd` 无效的问题。[#24621](https://github.com/ant-design/ant-design/pull/24621)
   - 💄 调整 Tabs `tabBarStyle` 的展示样式。[#24620](https://github.com/ant-design/ant-design/pull/24620)
 - Button
   - 🐞 修复 Button 将 `loading` 从 `delay` 快速切换至 `false` 时仍然会变成加载状态的问题。[#24678](https://github.com/ant-design/ant-design/pull/24678)

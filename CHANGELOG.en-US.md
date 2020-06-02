@@ -20,9 +20,9 @@ timeline: true
 `2020-06-02`
 
 - Tabs
+  - 🐞 Fix Tabs `hideAdd` not working. [#24621](https://github.com/ant-design/ant-design/pull/24621)
   - 🐞 Fix Tabs dropdown has extra horizontal scrollbar in Firefox. [#24677](https://github.com/ant-design/ant-design/pull/24677)
   - 🐞 Fix Tabs inkbar border lost when use with `react-sticky`. [#24643](https://github.com/ant-design/ant-design/pull/24643)
-  - 🐞 Fix Tabs `hideAdd` not working. [#24621](https://github.com/ant-design/ant-design/pull/24621)
   - 💄 Adjust Tabs `tabBarStyle` style display. [#24620](https://github.com/ant-design/ant-design/pull/24620)
 - Button
   - 🐞 Fix Button quick set `loading` from `delay` to `false` will still change to the loading status. [#24678](https://github.com/ant-design/ant-design/pull/24678)
