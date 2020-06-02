@@ -50,7 +50,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 
 > - `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
 >
-> - `Modal.method()` RTL 模式仅支持 hooks 写法。
+> - `Modal.method()` RTL 模式仅支持 hooks 用法。
 
 ### Modal.method()
 
