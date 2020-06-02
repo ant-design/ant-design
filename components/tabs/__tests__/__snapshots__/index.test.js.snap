@@ -14,12 +14,13 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
       class="ant-tabs-content ant-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
-      />
+        tabindex="0"
+      >
+        foo
+      </div>
     </div>
   </div>
 </div>
@@ -41,8 +42,8 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="ant-tabs-tab"
+          aria-selected="true"
+          class="ant-tabs-tab ant-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -98,11 +99,10 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
       class="ant-tabs-content ant-tabs-content-top"
     >
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
+        tabindex="0"
       />
     </div>
   </div>
@@ -125,8 +125,8 @@ exports[`Tabs tabPosition remove card 1`] = `
         style="transform:translate(0px, 0px)"
       >
         <button
-          aria-selected="false"
-          class="ant-tabs-tab"
+          aria-selected="true"
+          class="ant-tabs-tab ant-tabs-tab-active"
           role="tab"
           tabindex="0"
           type="button"
@@ -187,12 +187,13 @@ exports[`Tabs tabPosition remove card 1`] = `
       class="ant-tabs-content ant-tabs-content-left"
     >
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
-        style="display:none"
-        tabindex="-1"
-      />
+        tabindex="0"
+      >
+        foo
+      </div>
     </div>
   </div>
 </div>

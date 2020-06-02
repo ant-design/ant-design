@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RcTabs, { TabPane, TabsProps as RcTabsProps } from 'rc-tabs';
+import { TabPaneProps } from 'rc-tabs/lib/sugar/TabPane';
 import { EditableConfig } from 'rc-tabs/lib/interface';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
@@ -12,6 +13,8 @@ import { SizeType } from '../config-provider/SizeContext';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
+
+export { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   type?: TabsType;
