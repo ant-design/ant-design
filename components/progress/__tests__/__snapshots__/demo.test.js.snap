@@ -1280,7 +1280,6 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
-    success="[object Object]"
   >
     <div
       class="ant-progress-outer"
@@ -1307,7 +1306,6 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
-    success="[object Object]"
   >
     <div
       class="ant-progress-inner"
@@ -1362,7 +1360,6 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
-    success="[object Object]"
   >
     <div
       class="ant-progress-inner"
