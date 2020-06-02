@@ -43,6 +43,7 @@ export interface LocaleProviderProps {
 }
 
 const LocaleProvider: React.FC<LocaleProviderProps> = ({ locale = {}, children, _ANT_MARK__ }) => {
+  changeConfirmLocale(locale && locale.Modal);
   devWarning(
     _ANT_MARK__ === ANT_MARK,
     'LocaleProvider',
