@@ -83,7 +83,7 @@ const columns = [
 | size | 表格大小 | `default` \| `middle` \| `small` | default |
 | summary | 总结栏 | (currentData) => ReactNode | - |
 | title | 表格标题 | Function(currentPageData) | - |
-| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) | - |
+| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }), action: `paginate` \| `sort` \| `filter` | - |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |
 | onRow | 设置行属性 | Function(record, index) | - |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
@@ -292,6 +292,8 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 前端过滤时通常条目总数会减少，从而导致总页数小于筛选前的当前页数，为了防止当前页面没有数据，我们默认会返回第一页。
 
 如果你在使用远程分页，很可能需要保持当前页面，你可以参照这个 [受控例子](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) 控制当前页面不变。
+
+您還可以使用操作參數來確定何時返回首頁。
 
 ### 表格分页为何会出现 size 切换器？
 
