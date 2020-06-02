@@ -20,12 +20,17 @@ export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
+
+export interface SuccessProps {
+  progress?: number;
+  strokeColor?: string;
+}
+
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
   type?: ProgressType;
   percent?: number;
-  successPercent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
   status?: typeof ProgressStatuses[number];
   showInfo?: boolean;
@@ -33,8 +38,8 @@ export interface ProgressProps {
   strokeLinecap?: 'butt' | 'square' | 'round';
   strokeColor?: string | ProgressGradient;
   trailColor?: string;
-  successColor?: string;
   width?: number;
+  success?: SuccessProps;
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
@@ -49,14 +54,17 @@ export default class Progress extends React.Component<ProgressProps> {
     showInfo: true,
     // null for different theme definition
     trailColor: null,
-    successColor: null,
     size: 'default' as ProgressProps['size'],
     gapDegree: undefined,
     strokeLinecap: 'round' as ProgressProps['strokeLinecap'],
   };
 
   getPercentNumber() {
-    const { successPercent, percent = 0 } = this.props;
+    const { percent = 0, success } = this.props;
+    let successPercent;
+    if (success) {
+      successPercent = success.progress;
+    }
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
@@ -72,7 +80,11 @@ export default class Progress extends React.Component<ProgressProps> {
   }
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo, format, type, percent, successPercent } = this.props;
+    const { showInfo, format, type, percent, success } = this.props;
+    let successPercent;
+    if (success && 'progress' in success) {
+      successPercent = success.progress;
+    }
     if (!showInfo) return null;
 
     let text;
@@ -150,8 +162,6 @@ export default class Progress extends React.Component<ProgressProps> {
           'status',
           'format',
           'trailColor',
-          'successColor',
-          'successPercent',
           'strokeWidth',
           'width',
           'gapDegree',

@@ -61,15 +61,15 @@ const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
     percent,
-    successPercent,
     strokeWidth,
     size,
     strokeColor,
     strokeLinecap,
     children,
     trailColor,
-    successColor,
+    success,
   } = props;
+
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
     backgroundProps = handleGradient(strokeColor);
@@ -78,12 +78,19 @@ const Line: React.FC<LineProps> = props => {
       background: strokeColor,
     };
   }
+
   let trailStyle;
   if (trailColor && typeof trailColor === 'string') {
     trailStyle = {
       backgroundColor: trailColor,
     };
   }
+
+  let successColor;
+  if (success && 'strokeColor' in success) {
+    successColor = success.strokeColor;
+  }
+
   let successStyle;
   if (successColor && typeof successColor === 'string') {
     successStyle = {
@@ -96,6 +103,12 @@ const Line: React.FC<LineProps> = props => {
     borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
   };
+
+  let successPercent;
+  if (success && 'progress' in success) {
+    successPercent = success.progress;
+  }
+
   let successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
