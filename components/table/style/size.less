@@ -1,7 +1,9 @@
 @import './index';
 
-.table-size(@size, @padding-vertical, @padding-horizontal) {
+.table-size(@size, @padding-vertical, @padding-horizontal, @font-size) {
   .@{table-prefix-cls}.@{table-prefix-cls}-@{size} {
+    font-size: @font-size;
+
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
     .@{table-prefix-cls}-thead > tr > th,
@@ -48,12 +50,12 @@
 // ================================================================
 // =                            Middle                            =
 // ================================================================
-.table-size(~'middle', @table-padding-vertical-md, @table-padding-horizontal-md);
+.table-size(~'middle', @table-padding-vertical-md, @table-padding-horizontal-md, @table-font-size-md);
 
 // ================================================================
 // =                            Small                             =
 // ================================================================
-.table-size(~'small', @table-padding-vertical-sm, @table-padding-horizontal-sm);
+.table-size(~'small', @table-padding-vertical-sm, @table-padding-horizontal-sm, @table-font-size-sm);
 
 .@{table-prefix-cls}-small {
   .@{table-prefix-cls}-thead > tr > th {
