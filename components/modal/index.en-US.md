@@ -44,7 +44,9 @@ When requiring users to interact with the application, but without jumping to a 
 
 #### Note
 
-> The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state everytime, set `destroyOnClose` on it.
+> - The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state everytime, set `destroyOnClose` on it.
+>
+> - `Modal.method()` RTL mode only supports hooks.
 
 ### Modal.method()
 
