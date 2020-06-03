@@ -170,6 +170,8 @@ describe('Button', () => {
     jest.useFakeTimers();
     const wrapper = mount(<Button loading={{ delay: 1000 }} />);
     wrapper.update();
+    wrapper.setProps({ loading: { delay: 2000 } });
+    wrapper.update();
     wrapper.setProps({ loading: false });
 
     act(() => {
