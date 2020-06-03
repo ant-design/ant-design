@@ -48,7 +48,6 @@ const Demo = () => {
         Focus Form.Item
       </Button>
       <Button
-        type="button"
         onClick={() => {
           form.getFieldInstance(['list', 0]).focus();
         }}
