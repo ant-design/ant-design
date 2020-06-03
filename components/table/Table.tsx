@@ -42,6 +42,8 @@ export { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 
+export type TableAction = 'paginate' | 'sort' | 'filter';
+
 interface ChangeEventInfo<RecordType> {
   pagination: {
     current?: number;
@@ -76,7 +78,7 @@ export interface TableProps<RecordType>
     filters: Record<string, Key[] | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
-    action: 'paginate' | 'sort' | 'filter',
+    action: TableAction,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
 
@@ -181,7 +183,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const triggerOnChange = (
     info: Partial<ChangeEventInfo<RecordType>>,
-    action: 'paginate' | 'sort' | 'filter',
+    action: TableAction,
     reset: boolean = false,
   ) => {
     const changeInfo = {
