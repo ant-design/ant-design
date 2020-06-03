@@ -121,6 +121,8 @@ interface CompoundedComponent
   __ANT_BUTTON: boolean;
 }
 
+type Loading = number | boolean;
+
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
   const {
     loading,
@@ -138,7 +140,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   } = props;
 
   const size = React.useContext(SizeContext);
-  const [innerLoading, setLoading] = React.useState(loading);
+  const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
@@ -163,16 +165,24 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     }
   };
 
+  // =============== Update Loading ===============
+  let loadingOrDelay: Loading;
+  if (typeof loading === 'object' && loading.delay) {
+    loadingOrDelay = loading.delay || true;
+  } else {
+    loadingOrDelay = !!loading;
+  }
+
   React.useEffect(() => {
-    if (typeof loading === 'object' && loading.delay) {
+    clearTimeout(delayTimeoutRef.current);
+    if (typeof loadingOrDelay === 'number') {
       delayTimeoutRef.current = window.setTimeout(() => {
-        setLoading(loading);
-      }, loading.delay);
+        setLoading(loadingOrDelay);
+      }, loadingOrDelay);
     } else {
-      clearTimeout(delayTimeoutRef.current);
-      setLoading(loading);
+      setLoading(loadingOrDelay);
     }
-  }, [loading]);
+  }, [loadingOrDelay]);
 
   React.useEffect(() => {
     fixTwoCNChar();
@@ -230,7 +240,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     icon && !innerLoading ? (
       icon
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
 
   const kids =
