@@ -16,11 +16,14 @@ export interface FormContextProps {
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
+  itemReferable?: boolean;
+  itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
 }
 
 export const FormContext = React.createContext<FormContextProps>({
   labelAlign: 'right',
   vertical: false,
+  itemRef: (() => {}) as any,
 });
 
 /**

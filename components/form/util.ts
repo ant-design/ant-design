@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRef } from 'react';
 import raf from 'raf';
 import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -14,7 +15,7 @@ export function useCacheErrors(
   changeTrigger: (visible: boolean) => void,
   directly: boolean,
 ): [boolean, React.ReactNode[]] {
-  const cacheRef = React.useRef({
+  const cacheRef = useRef({
     errors,
     visible: !!errors.length,
   });
@@ -68,19 +69,35 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
 
 export interface FormInstance extends RcFormInstance {
   scrollToField: (name: string | number | InternalNamePath, options?: ScrollOptions) => void;
+  /** This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
+    /** No! Do not use this in your code! */
     name?: string;
+    /** No! Do not use this in your code! */
+    itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   };
+  getFieldInstance: (name: string | number | InternalNamePath) => any;
+}
+
+function toNamePathStr(name: string | number | (string | number)[]) {
+  const namePath = toArray(name);
+  return namePath.join('_');
 }
 
 export function useForm(form?: FormInstance): [FormInstance] {
   const [rcForm] = useRcForm();
+  const itemsRef = useRef<Record<string, React.ReactElement>>({});
 
   const wrapForm: FormInstance = React.useMemo(
     () =>
       form || {
         ...rcForm,
-        __INTERNAL__: {},
+        __INTERNAL__: {
+          itemRef: (name: (string | number)[]) => (node: React.ReactElement) => {
+            const namePathStr = toNamePathStr(name);
+            itemsRef.current[namePathStr] = node;
+          },
+        },
         scrollToField: (name: string, options: ScrollOptions = {}) => {
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
@@ -93,6 +110,10 @@ export function useForm(form?: FormInstance): [FormInstance] {
               ...options,
             });
           }
+        },
+        getFieldInstance: (name: string) => {
+          const namePathStr = toNamePathStr(name);
+          return itemsRef.current[namePathStr];
         },
       },
     [form, rcForm],
@@ -107,9 +128,9 @@ export function useFrameState<ValueType>(
   defaultValue: ValueType,
 ): [ValueType, (updater: Updater<ValueType>) => void] {
   const [value, setValue] = React.useState(defaultValue);
-  const frameRef = React.useRef<number | null>(null);
-  const batchRef = React.useRef<Updater<ValueType>[]>([]);
-  const destroyRef = React.useRef(false);
+  const frameRef = useRef<number | null>(null);
+  const batchRef = useRef<Updater<ValueType>[]>([]);
+  const destroyRef = useRef(false);
 
   React.useEffect(
     () => () => {
