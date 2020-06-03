@@ -117,6 +117,14 @@
         }
       }
 
+      > .@{iconfont-css-prefix} + span > a {
+        color: @text-color;
+        transition: all 0.3s;
+        &:hover {
+          color: @text-color;
+        }
+      }
+
       &:first-child {
         & when (@dropdown-edge-child-vertical-padding = 0) {
           border-radius: @border-radius-base @border-radius-base 0 0;
