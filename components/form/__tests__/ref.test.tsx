@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+
 import React from 'react';
 import { mount } from 'enzyme';
 import Form from '..';
@@ -26,7 +28,7 @@ describe('Form.Ref', () => {
         <Form.List name="list">
           {fields =>
             fields.map(field => (
-              <Form.Item key={field.key} {...field} referable={referable}>
+              <Form.Item {...field} referable={referable}>
                 <Input ref={ref} />
               </Form.Item>
             ))
