@@ -8,6 +8,13 @@ import rtlTest from '../../../tests/shared/rtlTest';
 describe('Badge', () => {
   mountTest(Badge);
   rtlTest(Badge);
+  rtlTest(() => (
+    <Badge count={5} offset={[10, 10]}>
+      <a href="#" className="head-example">
+        head
+      </a>
+    </Badge>
+  ));
 
   beforeEach(() => {
     jest.useFakeTimers();
