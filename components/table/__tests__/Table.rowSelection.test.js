@@ -812,12 +812,12 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
     });
 
-    it('cache with preserveKeys', () => {
+    it('cache with preserveSelectedRowKeys', () => {
       const onChange = jest.fn();
       const wrapper = mount(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
-          rowSelection={{ onChange, preserveKeys: true }}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true }}
           rowKey="name"
         />,
       );

@@ -72,7 +72,7 @@ export default function useSelection<RecordType>(
   config: UseSelectionConfig<RecordType>,
 ): [TransformColumns<RecordType>, Set<Key>] {
   const {
-    preserveKeys,
+    preserveSelectedRowKeys,
     selectedRowKeys,
     getCheckboxProps,
     onChange: onSelectionChange,
@@ -127,8 +127,8 @@ export default function useSelection<RecordType>(
       let availableKeys: Key[];
       let records: RecordType[];
 
-      if (preserveKeys) {
-        // Keep key if mark as preserveKeys
+      if (preserveSelectedRowKeys) {
+        // Keep key if mark as preserveSelectedRowKeys
         const newCache = new Map<Key, RecordType>();
         availableKeys = keys;
         records = keys.map(key => {
@@ -165,7 +165,7 @@ export default function useSelection<RecordType>(
         onSelectionChange(availableKeys, records);
       }
     },
-    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, preserveKeys],
+    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
 
   // ====================== Selections ======================

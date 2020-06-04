@@ -190,7 +190,7 @@ Properties for row selection.
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | `false` | 4.3 |
-| preserveKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4 |
+| preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4 |
 | renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
 | selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |  |
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |  |
