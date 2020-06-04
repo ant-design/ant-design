@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
-import { composeRef } from 'rc-util/lib/ref';
+import { composeRef, supportRef } from 'rc-util/lib/ref';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -46,7 +46,6 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   required?: boolean;
-  referable?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
@@ -76,14 +75,13 @@ function FormItem(props: FormItemProps): React.ReactElement {
     children,
     required,
     label,
-    referable,
     trigger = 'onChange',
     validateTrigger = 'onChange',
     ...restProps
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName, itemReferable, itemRef } = React.useContext(FormContext);
+  const { name: formName, itemRef } = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
@@ -96,8 +94,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
   }
 
   const hasName = hasValidName(name);
-
-  const injectRef = referable !== undefined ? referable : itemReferable;
 
   // Cache Field NamePath
   const nameRef = React.useRef<(string | number)[]>([]);

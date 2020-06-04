@@ -7,20 +7,12 @@ import Input from '../../input';
 import Button from '../../button';
 
 describe('Form.Ref', () => {
-  const Test = ({
-    itemReferable,
-    referable,
-    onRef,
-  }: {
-    itemReferable?: boolean;
-    referable?: boolean;
-    onRef: (node: React.ReactElement) => void;
-  }) => {
+  const Test = ({ onRef }: { onRef: (node: React.ReactElement) => void }) => {
     const [form] = Form.useForm();
     const ref = React.useRef<any>();
 
     return (
-      <Form form={form} initialValues={{ list: ['light'] }} itemReferable={itemReferable}>
+      <Form form={form} initialValues={{ list: ['light'] }}>
         <Form.Item name="test" label="test" referable={referable}>
           <Input ref={ref} />
         </Form.Item>

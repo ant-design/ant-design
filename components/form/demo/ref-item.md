@@ -24,7 +24,7 @@ const Demo = () => {
   const ref = React.useRef();
 
   return (
-    <Form form={form} initialValues={{ list: ['light'] }} itemReferable>
+    <Form form={form} initialValues={{ list: ['light'] }}>
       <Form.Item name="test" label="test">
         <Input ref={ref} />
       </Form.Item>

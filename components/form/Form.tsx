@@ -7,7 +7,7 @@ import { ColProps } from '../grid/col';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
 import { FormLabelAlign } from './interface';
-import { useForm, FormInstance } from './util';
+import useForm, { FormInstance } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -24,7 +24,6 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
   form?: FormInstance;
   size?: SizeType;
   scrollToFirstError?: boolean;
-  itemReferable?: boolean;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props, ref) => {
@@ -42,7 +41,6 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     labelAlign,
     labelCol,
     wrapperCol,
-    itemReferable,
     hideRequiredMark,
     layout = 'horizontal',
     scrollToFirstError,
@@ -75,7 +73,6 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       wrapperCol,
       vertical: layout === 'vertical',
       colon,
-      itemReferable,
       itemRef: __INTERNAL__.itemRef,
     }),
     [name, labelAlign, labelCol, wrapperCol, layout, colon],

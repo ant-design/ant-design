@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { useRef } from 'react';
 import raf from 'raf';
-import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
-import scrollIntoView from 'scroll-into-view-if-needed';
-import { ScrollOptions } from './interface';
-
-type InternalNamePath = (string | number)[];
+import { InternalNamePath } from './interface';
 
 /**
  * Always debounce error to avoid [error -> null -> error] blink
@@ -65,61 +61,6 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
 
   const mergedId = namePath.join('_');
   return formName ? `${formName}_${mergedId}` : mergedId;
-}
-
-export interface FormInstance extends RcFormInstance {
-  scrollToField: (name: string | number | InternalNamePath, options?: ScrollOptions) => void;
-  /** This is an internal usage. Do not use in your prod */
-  __INTERNAL__: {
-    /** No! Do not use this in your code! */
-    name?: string;
-    /** No! Do not use this in your code! */
-    itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
-  };
-  getFieldInstance: (name: string | number | InternalNamePath) => any;
-}
-
-function toNamePathStr(name: string | number | (string | number)[]) {
-  const namePath = toArray(name);
-  return namePath.join('_');
-}
-
-export function useForm(form?: FormInstance): [FormInstance] {
-  const [rcForm] = useRcForm();
-  const itemsRef = useRef<Record<string, React.ReactElement>>({});
-
-  const wrapForm: FormInstance = React.useMemo(
-    () =>
-      form || {
-        ...rcForm,
-        __INTERNAL__: {
-          itemRef: (name: (string | number)[]) => (node: React.ReactElement) => {
-            const namePathStr = toNamePathStr(name);
-            itemsRef.current[namePathStr] = node;
-          },
-        },
-        scrollToField: (name: string, options: ScrollOptions = {}) => {
-          const namePath = toArray(name);
-          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
-
-          if (node) {
-            scrollIntoView(node, {
-              scrollMode: 'if-needed',
-              block: 'nearest',
-              ...options,
-            });
-          }
-        },
-        getFieldInstance: (name: string) => {
-          const namePathStr = toNamePathStr(name);
-          return itemsRef.current[namePathStr];
-        },
-      },
-    [form, rcForm],
-  );
-
-  return [wrapForm];
 }
 
 type Updater<ValueType> = (prev?: ValueType) => ValueType;
