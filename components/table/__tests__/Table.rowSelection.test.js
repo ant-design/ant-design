@@ -812,12 +812,12 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
     });
 
-    it('cache with dirty', () => {
+    it('cache with reserveKeys', () => {
       const onChange = jest.fn();
       const wrapper = mount(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
-          rowSelection={{ onChange, dirty: true }}
+          rowSelection={{ onChange, reserveKeys: true }}
           rowKey="name"
         />,
       );

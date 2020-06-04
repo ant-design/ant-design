@@ -71,7 +71,7 @@ export default function useSelection<RecordType>(
   config: UseSelectionConfig<RecordType>,
 ): [TransformColumns<RecordType>, Set<Key>] {
   const {
-    dirty,
+    reserveKeys,
     selectedRowKeys,
     getCheckboxProps,
     onChange: onSelectionChange,
@@ -122,8 +122,8 @@ export default function useSelection<RecordType>(
       let availableKeys: Key[];
       let records: RecordType[];
 
-      // Keep key if mark as dirty
-      if (dirty) {
+      // Keep key if mark as reserveKeys
+      if (reserveKeys) {
         availableKeys = keys;
         records = keys.map(key => getRecordByKey(key));
       } else {
@@ -145,7 +145,7 @@ export default function useSelection<RecordType>(
         onSelectionChange(availableKeys, records);
       }
     },
-    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, dirty],
+    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, reserveKeys],
   );
 
   // Trigger single `onSelect` event

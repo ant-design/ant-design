@@ -192,11 +192,11 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |  |
 | columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |  |
-| dirty | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4 |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3 |
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | Function(checked, record, index, originNode) {} | - | 4.1 |
+| reserveKeys | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4 |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |  |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |  |
