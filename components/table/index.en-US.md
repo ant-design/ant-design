@@ -185,19 +185,20 @@ Properties for row selection.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| columnWidth | Set the width of the selection column | string\|number | `60px` | 4.0 |
-| columnTitle | Set the title of the selection column | string\|React.ReactNode | - | 4.0 |
-| fixed | Fixed selection column on the left | boolean | - | 4.0 |
-| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - | 4.0 |
+| columnWidth | Set the width of the selection column | string\|number | `60px` |  |
+| columnTitle | Set the title of the selection column | string\|React.ReactNode | - |  |
+| fixed | Fixed selection column on the left | boolean | - |  |
+| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | `false` | 4.3 |
+| preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4 |
 | renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
-| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] | 4.0 |
-| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - | 4.0 |
-| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` | 4.0 |
-| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - | 4.0 |
-| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
-| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - | 4.0 |
-| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRowKeys) | - | 4.0 |
+| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |  |
+| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |  |
+| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
+| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |  |
+| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |  |
+| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |  |
+| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRowKeys) | - |  |
 
 ### scroll
 

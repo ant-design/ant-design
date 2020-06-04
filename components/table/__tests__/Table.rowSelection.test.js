@@ -787,27 +787,56 @@ describe('Table.rowSelection', () => {
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
 
-  it('do not cache selected keys', () => {
-    const onChange = jest.fn();
-    const wrapper = mount(
-      <Table
-        dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
-        rowSelection={{ onChange }}
-        rowKey="name"
-      />,
-    );
+  describe('cache with selected keys', () => {
+    it('default not cache', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange }}
+          rowKey="name"
+        />,
+      );
 
-    wrapper
-      .find('tbody input')
-      .first()
-      .simulate('change', { target: { checked: true } });
-    expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
 
-    wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
-    wrapper
-      .find('tbody input')
-      .first()
-      .simulate('change', { target: { checked: true } });
-    expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
+      wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
+    });
+
+    it('cache with preserveSelectedRowKeys', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true }}
+          rowKey="name"
+        />,
+      );
+
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
+
+      wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(
+        ['light', 'bamboo'],
+        [{ name: 'light' }, { name: 'bamboo' }],
+      );
+    });
   });
 });

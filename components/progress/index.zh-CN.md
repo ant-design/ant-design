@@ -28,8 +28,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/%24X8q%26OILIY/Progress.svg
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - |
 | strokeLinecap | - | `round` \| `square` | `round` |
 | strokeColor | 进度条的色彩 | string | - |
-| successPercent | 已完成的分段百分比 | number | 0 |
 | trailColor | 未完成的分段的颜色 | string | - |
+| success | 成功进度条相关配置 | { progress: number, strokeColor: string } | - |
 
 ### `type="line"`
 
