@@ -71,6 +71,7 @@ export default function useSelection<RecordType>(
   config: UseSelectionConfig<RecordType>,
 ): [TransformColumns<RecordType>, Set<Key>] {
   const {
+    dirty,
     selectedRowKeys,
     getCheckboxProps,
     onChange: onSelectionChange,
@@ -118,16 +119,25 @@ export default function useSelection<RecordType>(
 
   const setSelectedKeys = React.useCallback(
     (keys: Key[]) => {
-      const availableKeys: Key[] = [];
-      const records: RecordType[] = [];
+      let availableKeys: Key[];
+      let records: RecordType[];
 
-      keys.forEach(key => {
-        const record = getRecordByKey(key);
-        if (record !== undefined) {
-          availableKeys.push(key);
-          records.push(record);
-        }
-      });
+      // Keep key if mark as dirty
+      if (dirty) {
+        availableKeys = keys;
+        records = keys.map(key => getRecordByKey(key));
+      } else {
+        availableKeys = [];
+        records = [];
+
+        keys.forEach(key => {
+          const record = getRecordByKey(key);
+          if (record !== undefined) {
+            availableKeys.push(key);
+            records.push(record);
+          }
+        });
+      }
 
       setInnerSelectedKeys(availableKeys);
 
@@ -135,7 +145,7 @@ export default function useSelection<RecordType>(
         onSelectionChange(availableKeys, records);
       }
     },
-    [setInnerSelectedKeys, getRecordByKey, onSelectionChange],
+    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, dirty],
   );
 
   // Trigger single `onSelect` event
