@@ -190,19 +190,20 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` | 4.0 |
-| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - | 4.0 |
-| fixed | 把选择框列固定在左边 | boolean | - | 4.0 |
-| getCheckboxProps | 选择框的默认属性配置 | Function(record) | - | 4.0 |
+| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |  |
+| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |  |
+| fixed | 把选择框列固定在左边 | boolean | - |  |
+| getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3 |
+| preserveSelectedRowKeys | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4 |
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | Function(checked, record, index, originNode) {} | - | 4.1 |
-| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] | 4.0 |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true | 4.0 |
-| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` | 4.0 |
-| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - | 4.0 |
-| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
-| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - | 4.0 |
-| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRowKeys) | - | 4.0 |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] |  |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |  |
+| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |  |
+| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |  |
+| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |  |
+| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |  |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRowKeys) | - |  |
 
 ### scroll
 
