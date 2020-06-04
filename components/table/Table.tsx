@@ -37,12 +37,13 @@ import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import devWarning from '../_util/devWarning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import { tuple } from '../_util/type';
 
 export { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 
-export type TableAction = 'paginate' | 'sort' | 'filter';
+export const TableActions = tuple('paginate', 'sort', 'filter');
 
 interface ChangeEventInfo<RecordType> {
   pagination: {
@@ -78,7 +79,7 @@ export interface TableProps<RecordType>
     filters: Record<string, Key[] | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
-    action: TableAction,
+    action: typeof TableActions[number],
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
 
@@ -183,7 +184,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const triggerOnChange = (
     info: Partial<ChangeEventInfo<RecordType>>,
-    action: TableAction,
+    action: typeof TableActions[number],
     reset: boolean = false,
   ) => {
     const changeInfo = {
