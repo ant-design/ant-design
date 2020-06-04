@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import { FixedType } from 'rc-table/lib/interface';
@@ -71,7 +72,7 @@ export default function useSelection<RecordType>(
   config: UseSelectionConfig<RecordType>,
 ): [TransformColumns<RecordType>, Set<Key>] {
   const {
-    reserveKeys,
+    preserveKeys,
     selectedRowKeys,
     getCheckboxProps,
     onChange: onSelectionChange,
@@ -100,15 +101,19 @@ export default function useSelection<RecordType>(
     getPopupContainer,
   } = config;
 
-  const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
+  // ======================== Caches ========================
+  const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
+
+  // ========================= Keys =========================
+  const [innerSelectedKeys, setInnerSelectedKeys] = useState<Key[]>();
   const mergedSelectedKeys = selectedRowKeys || innerSelectedKeys || EMPTY_LIST;
-  const mergedSelectedKeySet = React.useMemo(() => {
+  const mergedSelectedKeySet = useMemo(() => {
     const keys = selectionType === 'radio' ? mergedSelectedKeys.slice(0, 1) : mergedSelectedKeys;
     return new Set(keys);
   }, [mergedSelectedKeys, selectionType]);
 
   // Save last selected key to enable range selection
-  const [lastSelectedKey, setLastSelectedKey] = React.useState<Key | null>(null);
+  const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);
 
   // Reset if rowSelection reset
   React.useEffect(() => {
@@ -117,16 +122,31 @@ export default function useSelection<RecordType>(
     }
   }, [!!rowSelection]);
 
-  const setSelectedKeys = React.useCallback(
+  const setSelectedKeys = useCallback(
     (keys: Key[]) => {
       let availableKeys: Key[];
       let records: RecordType[];
 
-      // Keep key if mark as reserveKeys
-      if (reserveKeys) {
+      if (preserveKeys) {
+        // Keep key if mark as preserveKeys
+        const newCache = new Map<Key, RecordType>();
         availableKeys = keys;
-        records = keys.map(key => getRecordByKey(key));
+        records = keys.map(key => {
+          let record = getRecordByKey(key);
+
+          if (!record && preserveRecordsRef.current.has(key)) {
+            record = preserveRecordsRef.current.get(key)!;
+          }
+
+          newCache.set(key, record);
+
+          return record;
+        });
+
+        // Refresh to new cache
+        preserveRecordsRef.current = newCache;
       } else {
+        // Filter key which not exist in the `dataSource`
         availableKeys = [];
         records = [];
 
@@ -145,11 +165,12 @@ export default function useSelection<RecordType>(
         onSelectionChange(availableKeys, records);
       }
     },
-    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, reserveKeys],
+    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, preserveKeys],
   );
 
+  // ====================== Selections ======================
   // Trigger single `onSelect` event
-  const triggerSingleSelection = React.useCallback(
+  const triggerSingleSelection = useCallback(
     (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
         const rows = keys.map(k => getRecordByKey(k));
@@ -161,7 +182,7 @@ export default function useSelection<RecordType>(
     [onSelect, getRecordByKey, setSelectedKeys],
   );
 
-  const mergedSelections = React.useMemo<SelectionItem[] | null>(() => {
+  const mergedSelections = useMemo<SelectionItem[] | null>(() => {
     if (!selections || hideSelectAll) {
       return null;
     }
@@ -212,7 +233,8 @@ export default function useSelection<RecordType>(
     });
   }, [selections, mergedSelectedKeySet, pageData, getRowKey]);
 
-  const transformColumns = React.useCallback(
+  // ======================= Columns ========================
+  const transformColumns = useCallback(
     (columns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
       if (!rowSelection) {
         return columns;

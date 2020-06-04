@@ -126,7 +126,7 @@ export type SelectionSelectFn<T> = (
 
 export interface TableRowSelection<T> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
-  reserveKeys?: boolean;
+  preserveKeys?: boolean;
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;

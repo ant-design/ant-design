@@ -812,12 +812,12 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
     });
 
-    it('cache with reserveKeys', () => {
+    it('cache with preserveKeys', () => {
       const onChange = jest.fn();
       const wrapper = mount(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
-          rowSelection={{ onChange, reserveKeys: true }}
+          rowSelection={{ onChange, preserveKeys: true }}
           rowKey="name"
         />,
       );
@@ -833,7 +833,10 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['light', 'bamboo'], [undefined, { name: 'bamboo' }]);
+      expect(onChange).toHaveBeenCalledWith(
+        ['light', 'bamboo'],
+        [{ name: 'light' }, { name: 'bamboo' }],
+      );
     });
   });
 });
