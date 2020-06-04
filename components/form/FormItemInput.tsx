@@ -10,7 +10,7 @@ import CSSMotion from 'rc-animate/lib/CSSMotion';
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext } from './context';
-import { useCacheErrors } from './util';
+import useCacheErrors from './hooks/useCacheErrors';
 
 interface FormItemInputMiscProps {
   prefixCls: string;

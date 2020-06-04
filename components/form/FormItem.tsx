@@ -13,8 +13,9 @@ import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
-import { toArray, getFieldId, useFrameState } from './util';
+import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
+import useFrameState from './hooks/useFrameState';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
