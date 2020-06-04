@@ -4,7 +4,6 @@ title:
   zh-CN: 引用字段
   en-US: Ref item
 debug: true
-only: true
 ---
 
 ## zh-CN
