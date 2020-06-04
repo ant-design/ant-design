@@ -125,6 +125,29 @@
     padding-top: 4px;
   }
 
+  &-ghost {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &-ghost > &-item {
+    border-bottom: 0;
+  }
+
+  &-ghost > &-item > &-content {
+    border-top: 0;
+  }
+
+  &-ghost > &-item:last-child,
+  &-ghost > &-item:last-child &-header {
+    border-radius: 0;
+  }
+
+  &-ghost > &-item > &-content {
+    background-color: transparent;
+    border-top: 0;
+  }
+
   & &-item-disabled > &-header {
     &,
     & > .arrow {
