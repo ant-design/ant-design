@@ -83,7 +83,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName, itemRef } = React.useContext(FormContext);
+  const { name: formName } = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
