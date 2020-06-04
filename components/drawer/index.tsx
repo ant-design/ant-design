@@ -306,7 +306,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
                 ])}
                 getContainer={
                   // 有可能为 false，所以不能直接判断
-                  rest.getContainer === undefined ? getPopupContainer : rest.getContainer
+                  rest.getContainer === undefined
+                    ? () => (getPopupContainer ? getPopupContainer(document.body) : undefined)
+                    : rest.getContainer
                 }
                 {...offsetStyle}
                 prefixCls={prefixCls}
