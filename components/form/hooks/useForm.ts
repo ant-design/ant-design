@@ -32,7 +32,11 @@ export default function useForm(form?: FormInstance): [FormInstance] {
         __INTERNAL__: {
           itemRef: (name: InternalNamePath) => (node: React.ReactElement) => {
             const namePathStr = toNamePathStr(name);
-            itemsRef.current[namePathStr] = node;
+            if (node) {
+              itemsRef.current[namePathStr] = node;
+            } else {
+              delete itemsRef.current[namePathStr];
+            }
           },
         },
         scrollToField: (name: string, options: ScrollOptions = {}) => {

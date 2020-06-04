@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
-import { composeRef, supportRef } from 'rc-util/lib/ref';
+import { supportRef } from 'rc-util/lib/ref';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -16,6 +16,7 @@ import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
+import useItemRef from './hooks/useItemRef';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -121,6 +122,9 @@ function FormItem(props: FormItemProps): React.ReactElement {
           }));
         }
       };
+
+  // ===================== Children Ref =====================
+  const getItemRef = useItemRef();
 
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -317,8 +321,8 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
           const childProps = { ...children.props, ...mergedControl };
 
-          if (injectRef) {
-            childProps.ref = composeRef((children as any).ref, itemRef(mergedName));
+          if (supportRef(children)) {
+            childProps.ref = getItemRef(mergedName, children);
           }
 
           // We should keep user origin event handler
