@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/dropdown/demo/arrow.md correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomLeft
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomCenter
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomRight
+    </span>
+  </button>,
+  <br />,
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topLeft
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topCenter
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topRight
+    </span>
+  </button>,
+]
+`;
+
 exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
