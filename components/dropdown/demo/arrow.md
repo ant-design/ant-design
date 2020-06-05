@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 箭头
   en-US: Arrow
@@ -7,15 +7,14 @@ title:
 
 ## zh-CN
 
-asd 可以展示一个箭头。
+可以展示一个箭头。
 
 ## en-US
 
 You could display an arrow.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (
   <Menu>
@@ -34,16 +33,43 @@ const menu = (
         3rd menu item
       </a>
     </Menu.Item>
-    <Menu.Item danger>Log Out</Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(
-  <Dropdown overlay={menu} arrow placement="bottomRight">
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover Me <DownOutlined />
-    </a>
-  </Dropdown>,
+  <div>
+    <Dropdown overlay={menu} placement="bottomLeft" arrow>
+      <Button>bottomLeft</Button>
+    </Dropdown>
+    <Dropdown overlay={menu} placement="bottomCenter" arrow>
+      <Button>bottomCenter</Button>
+    </Dropdown>
+    <Dropdown overlay={menu} placement="bottomRight" arrow>
+      <Button>bottomRight</Button>
+    </Dropdown>
+    <br />
+    <Dropdown overlay={menu} placement="topLeft" arrow>
+      <Button>topLeft</Button>
+    </Dropdown>
+    <Dropdown overlay={menu} placement="topCenter" arrow>
+      <Button>topCenter</Button>
+    </Dropdown>
+    <Dropdown overlay={menu} placement="topRight" arrow>
+      <Button>topRight</Button>
+    </Dropdown>
+  </div>,
   mountNode,
 );
+```
+
+```css
+#components-dropdown-demo-arrow .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.ant-row-rtl #components-dropdown-demo-arrow .ant-btn {
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
+}
 ```
