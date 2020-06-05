@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 
 import { ConfigConsumerProps } from '../config-provider';
-import { withConfigConsumer } from '../config-provider/context';
+import { withConfigConsumer, ConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
 
 const DrawerContext = React.createContext<Drawer | null>(null);
@@ -253,54 +253,77 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const { prefixCls, placement, className, mask, direction, visible, ...rest } = this.props;
     this.parentDrawer = value;
-    const drawerClassName = classNames(className, {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
-    const offsetStyle = mask ? this.getOffsetStyle() : {};
 
     return (
-      <DrawerContext.Provider value={this}>
-        <RcDrawer
-          handler={false}
-          {...omit(rest, [
-            'zIndex',
-            'style',
-            'closable',
-            'destroyOnClose',
-            'drawerStyle',
-            'headerStyle',
-            'bodyStyle',
-            'footerStyle',
-            'footer',
-            'locale',
-            'title',
-            'push',
-            'visible',
-            'getPopupContainer',
-            'rootPrefixCls',
-            'getPrefixCls',
-            'renderEmpty',
-            'csp',
-            'pageHeader',
-            'autoInsertSpaceInButton',
-            'width',
-            'height',
-            'dropdownMatchSelectWidth',
-          ])}
-          {...offsetStyle}
-          prefixCls={prefixCls}
-          open={visible}
-          showMask={mask}
-          placement={placement}
-          style={this.getRcDrawerStyle()}
-          className={drawerClassName}
-        >
-          {this.renderBody()}
-        </RcDrawer>
-      </DrawerContext.Provider>
+      <ConfigConsumer>
+        {({ getPopupContainer, getPrefixCls }) => {
+          const {
+            prefixCls: customizePrefixCls,
+            placement,
+            className,
+            mask,
+            direction,
+            visible,
+            ...rest
+          } = this.props;
+
+          const prefixCls = getPrefixCls('select', customizePrefixCls);
+          const drawerClassName = classNames(className, {
+            'no-mask': !mask,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
+          const offsetStyle = mask ? this.getOffsetStyle() : {};
+
+          return (
+            <DrawerContext.Provider value={this}>
+              <RcDrawer
+                handler={false}
+                {...omit(rest, [
+                  'zIndex',
+                  'style',
+                  'closable',
+                  'destroyOnClose',
+                  'drawerStyle',
+                  'headerStyle',
+                  'bodyStyle',
+                  'footerStyle',
+                  'footer',
+                  'locale',
+                  'title',
+                  'push',
+                  'visible',
+                  'getPopupContainer',
+                  'rootPrefixCls',
+                  'getPrefixCls',
+                  'renderEmpty',
+                  'csp',
+                  'pageHeader',
+                  'autoInsertSpaceInButton',
+                  'width',
+                  'height',
+                  'dropdownMatchSelectWidth',
+                ])}
+                getContainer={
+                  // 有可能为 false，所以不能直接判断
+                  rest.getContainer === undefined
+                    ? () => (getPopupContainer ? getPopupContainer(document.body) : undefined)
+                    : rest.getContainer
+                }
+                {...offsetStyle}
+                prefixCls={prefixCls}
+                open={visible}
+                showMask={mask}
+                placement={placement}
+                style={this.getRcDrawerStyle()}
+                className={drawerClassName}
+              >
+                {this.renderBody()}
+              </RcDrawer>
+            </DrawerContext.Provider>
+          );
+        }}
+      </ConfigConsumer>
     );
   };
 

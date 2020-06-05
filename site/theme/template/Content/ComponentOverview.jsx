@@ -7,6 +7,13 @@ import { getChildren } from 'jsonml.js/lib/utils';
 import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
 import './ComponentOverview.less';
 
+const onClickCard = href => {
+  window.gtag('event', '点击', {
+    event_category: '组件总览卡片',
+    event_label: href,
+  });
+};
+
 const { Title } = Typography;
 const ComponentOverview = ({
   componentsData = [],
@@ -54,9 +61,10 @@ const ComponentOverview = ({
                   const url = `${component.filename
                     .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                     .toLowerCase()}/`;
+                  const href = getLocalizedPathname(url, locale === 'zh-CN');
                   return (
                     <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
-                      <Link to={getLocalizedPathname(url, locale === 'zh-CN')}>
+                      <Link to={href} onClick={() => onClickCard(href)}>
                         <Card
                           size="small"
                           className="components-overview-card"

@@ -58,7 +58,6 @@
     border-radius: @border-radius-base;
     outline: none;
     box-shadow: @box-shadow-base;
-    -webkit-transform: translate3d(0, 0, 0);
 
     &-item-group-title {
       padding: 5px @control-padding-horizontal;
@@ -111,6 +110,14 @@
         display: block;
         margin: -5px -@control-padding-horizontal;
         padding: 5px @control-padding-horizontal;
+        color: @text-color;
+        transition: all 0.3s;
+        &:hover {
+          color: @text-color;
+        }
+      }
+
+      > .@{iconfont-css-prefix} + span > a {
         color: @text-color;
         transition: all 0.3s;
         &:hover {
@@ -268,7 +275,8 @@
   }
   .@{dropdown-prefix-cls}-menu-item,
   .@{dropdown-prefix-cls}-menu-submenu-title,
-  .@{dropdown-prefix-cls}-menu-item > a {
+  .@{dropdown-prefix-cls}-menu-item > a,
+  .@{dropdown-prefix-cls}-menu-item > .@{iconfont-css-prefix} + span > a {
     color: @text-color-secondary-dark;
     .@{dropdown-prefix-cls}-menu-submenu-arrow::after {
       color: @text-color-secondary-dark;

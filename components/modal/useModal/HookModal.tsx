@@ -3,6 +3,7 @@ import { ModalFuncProps } from '../Modal';
 import ConfirmDialog from '../ConfirmDialog';
 import defaultLocale from '../../locale/default';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import { ConfigContext } from '../../config-provider';
 
 export interface HookModalProps {
   afterClose: () => void;
@@ -26,6 +27,7 @@ const HookModal: React.RefForwardingComponent<HookModalRef, HookModalProps> = (
 ) => {
   const [visible, setVisible] = React.useState(true);
   const [innerConfig, setInnerConfig] = React.useState(config);
+  const { direction } = React.useContext(ConfigContext);
 
   function close() {
     setVisible(false);
@@ -53,6 +55,7 @@ const HookModal: React.RefForwardingComponent<HookModalRef, HookModalProps> = (
             innerConfig.okText ||
             (innerConfig.okCancel ? modalLocale.okText : modalLocale.justOkText)
           }
+          direction={direction}
           cancelText={innerConfig.cancelText || modalLocale.cancelText}
         />
       )}

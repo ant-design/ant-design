@@ -121,16 +121,32 @@ interface CompoundedComponent
   __ANT_BUTTON: boolean;
 }
 
+type Loading = number | boolean;
+
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+  const {
+    loading,
+    prefixCls: customizePrefixCls,
+    type,
+    danger,
+    shape,
+    size: customizeSize,
+    className,
+    children,
+    icon,
+    ghost,
+    block,
+    ...rest
+  } = props;
+
   const size = React.useContext(SizeContext);
-  const [loading, setLoading] = React.useState(props.loading);
+  const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
-  let delayTimeout: number;
+  const delayTimeoutRef = React.useRef<number>();
 
   const isNeedInserted = () => {
-    const { icon, children, type } = props;
     return React.Children.count(children) === 1 && !icon && type !== 'link' && type !== 'text';
   };
 
@@ -149,18 +165,24 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     }
   };
 
+  // =============== Update Loading ===============
+  let loadingOrDelay: Loading;
+  if (typeof loading === 'object' && loading.delay) {
+    loadingOrDelay = loading.delay || true;
+  } else {
+    loadingOrDelay = !!loading;
+  }
+
   React.useEffect(() => {
-    if (props.loading && typeof props.loading !== 'boolean') {
-      clearTimeout(delayTimeout);
+    clearTimeout(delayTimeoutRef.current);
+    if (typeof loadingOrDelay === 'number') {
+      delayTimeoutRef.current = window.setTimeout(() => {
+        setLoading(loadingOrDelay);
+      }, loadingOrDelay);
+    } else {
+      setLoading(loadingOrDelay);
     }
-    if (props.loading && typeof props.loading !== 'boolean' && props.loading.delay) {
-      delayTimeout = window.setTimeout(() => {
-        setLoading(props.loading);
-      }, props.loading.delay);
-    } else if (props.loading !== loading) {
-      setLoading(props.loading);
-    }
-  }, [props.loading]);
+  }, [loadingOrDelay]);
 
   React.useEffect(() => {
     fixTwoCNChar();
@@ -168,26 +190,13 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;
-    if (loading) {
+    if (innerLoading) {
       return;
     }
     if (onClick) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }
   };
-  const {
-    prefixCls: customizePrefixCls,
-    type,
-    danger,
-    shape,
-    size: customizeSize,
-    className,
-    children,
-    icon,
-    ghost,
-    block,
-    ...rest
-  } = props;
 
   devWarning(
     !(typeof icon === 'string' && icon.length > 2),
@@ -212,7 +221,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       break;
   }
 
-  const iconType = loading ? 'loading' : icon;
+  const iconType = innerLoading ? 'loading' : icon;
 
   const classes = classNames(prefixCls, className, {
     [`${prefixCls}-${type}`]: type,
@@ -220,7 +229,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     [`${prefixCls}-${sizeCls}`]: sizeCls,
     [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
     [`${prefixCls}-background-ghost`]: ghost,
-    [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-loading`]: innerLoading,
     [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
     [`${prefixCls}-block`]: block,
     [`${prefixCls}-dangerous`]: !!danger,
@@ -228,10 +237,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   });
 
   const iconNode =
-    icon && !loading ? (
+    icon && !innerLoading ? (
       icon
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={loading} />
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
 
   const kids =

@@ -23,14 +23,23 @@ class App extends React.Component {
   };
 
   enterLoading = index => {
-    const newLoadings = [...this.state.loadings];
-    newLoadings[index] = true;
-    this.setState({
-      loadings: newLoadings,
+    this.setState(({ loadings }) => {
+      const newLoadings = [...loadings];
+      newLoadings[index] = true;
+
+      return {
+        loadings: newLoadings,
+      };
     });
     setTimeout(() => {
-      newLoadings[index] = false;
-      this.setState({ loadings: newLoadings });
+      this.setState(({ loadings }) => {
+        const newLoadings = [...loadings];
+        newLoadings[index] = false;
+
+        return {
+          loadings: newLoadings,
+        };
+      });
     }, 6000);
   };
 

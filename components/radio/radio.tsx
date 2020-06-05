@@ -1,18 +1,10 @@
 import * as React from 'react';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
-import RadioGroup from './group';
-import RadioButton from './radioButton';
 import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext from './context';
 import { composeRef } from '../_util/ref';
-
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLElement>> {
-  Group: typeof RadioGroup;
-  Button: typeof RadioButton;
-}
 
 const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (props, ref) => {
   const context = React.useContext(RadioGroupContext);
@@ -60,10 +52,9 @@ const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (prop
   );
 };
 
-const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio) as CompoundedComponent;
+const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
 Radio.displayName = 'Radio';
-Radio.Group = RadioGroup;
-Radio.Button = RadioButton;
+
 Radio.defaultProps = {
   type: 'radio',
 };

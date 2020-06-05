@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 4.3.1
+
+`2020-06-02`
+
+- Tabs
+  - 🐞 Fix Tabs `hideAdd` not working. [#24621](https://github.com/ant-design/ant-design/pull/24621)
+  - 🐞 Fix Tabs dropdown has extra horizontal scrollbar in Firefox. [#24677](https://github.com/ant-design/ant-design/pull/24677)
+  - 🐞 Fix Tabs inkbar border lost when use with `react-sticky`. [#24643](https://github.com/ant-design/ant-design/pull/24643)
+  - 💄 Adjust Tabs `tabBarStyle` style display. [#24620](https://github.com/ant-design/ant-design/pull/24620)
+- Button
+  - 🐞 Fix Button quick set `loading` from `delay` to `false` will still change to the loading status. [#24678](https://github.com/ant-design/ant-design/pull/24678)
+  - 🐞 Fix the inconsistent style of Text Button in `danger`. [#24622](https://github.com/ant-design/ant-design/pull/24622) [@morenyang](https://github.com/morenyang)
+- 🐞 Fix Table no showing scrollbar inside Row. [#24661](https://github.com/ant-design/ant-design/pull/24661) [@zt123123](https://github.com/zt123123)
+- 🐞 Fix Drawer get `dropdownMatchSelectWidth` as dom prop warning. [#24651](https://github.com/ant-design/ant-design/pull/24651)
+- 🐞 Adjust Steps to support React.Fragment with `children`. [#24644](https://github.com/ant-design/ant-design/pull/24644)
+- 🐞 Fix Upload delete icon cannot be navigate via keyboard. [#24615](https://github.com/ant-design/ant-design/pull/24615) [@morenyang](https://github.com/morenyang)
+- 🐞 Fix multiple Select search input cursor missing issue. [#24631](https://github.com/ant-design/ant-design/pull/24631)
+- 🐞 Fix Radio.Group using `options` get `Element type is invalid` error. [#24631](https://github.com/ant-design/ant-design/pull/24631)
+- RTL
+  - 💄 Adjust Notification default placement to `topLeft` in RTL. [#24632](https://github.com/ant-design/ant-design/pull/24632)
+- TypeScript
+  - 🛠 Export Tabs `TabPaneProps` definition. [#24648](https://github.com/ant-design/ant-design/pull/24648)
+
 ## 4.3.0
 
 `2020-05-31`
@@ -81,7 +104,7 @@ timeline: true
   - 💄 Optimize Table filter dropdown style in RTL. [#24529](https://github.com/ant-design/ant-design/pull/24529)
   - 💄 Fix Cascader dropdown style in RTL. [#24520](https://github.com/ant-design/ant-design/pull/24520)
 - TypeScript
-  - Form export `RuleObject` and `RuleRender` types. [#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
+  - 🛠 Form export `RuleObject` and `RuleRender` types. [#24541](https://github.com/ant-design/ant-design/pull/24541) [@sorteam](https://github.com/sorteam)
 
 ## 4.2.5
 

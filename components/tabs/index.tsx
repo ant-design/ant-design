@@ -1,6 +1,5 @@
 import * as React from 'react';
-import RcTabs, { TabPane, TabsProps as RcTabsProps } from 'rc-tabs';
-import { TabPaneProps } from 'rc-tabs/lib/sugar/TabPane';
+import RcTabs, { TabPane, TabsProps as RcTabsProps, TabPaneProps } from 'rc-tabs';
 import { EditableConfig } from 'rc-tabs/lib/interface';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';

@@ -62,7 +62,7 @@ const columns = [
 | --- | --- | --- | --- |
 | tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |
 | bordered | Whether to show all table borders | boolean | `false` |
-| columns | Columns of table | [ColumnProps](#Column)\[] | - |
+| columns | Columns of table | [ColumnsType](#Column)\[] | - |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
 | dataSource | Data record array to be displayed | object\[] | - |
 | expandable | Config expandable content | [expandable](#expandable) | - |
@@ -220,14 +220,14 @@ Properties for row selection.
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnProps } from 'antd/es/table';
+import { ColumnsType } from 'antd/es/table';
 
 interface User {
   key: number,
   name: string;
 }
 
-const columns: ColumnProps<User>[] = [{
+const columns: ColumnsType<User>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',

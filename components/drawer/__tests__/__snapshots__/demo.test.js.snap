@@ -11,6 +11,21 @@ exports[`renders ./components/drawer/demo/basic-right.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/drawer/demo/config-provider.md correctly 1`] = `
+<div
+  class="site-drawer-render-in-current-wrapper"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
