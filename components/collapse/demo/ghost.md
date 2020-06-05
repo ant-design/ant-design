@@ -39,15 +39,3 @@ ReactDOM.render(
   mountNode,
 );
 ```
-
-<style>
-[data-theme="compact"] p, p {
-  margin: 0;
-}
-</style>
-
-ReactDOM.render(<Demo />, mountNode);
-
-```
-
-```
