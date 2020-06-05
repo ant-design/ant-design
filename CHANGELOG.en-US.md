@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.3.2
+
+`2020-06-06`
+
+- 🐞 Fix Tag.CheckableTag don't support `onClick`. [#24743](https://github.com/ant-design/ant-design/pull/24743)
+- 🐞 Fix Drawer support set `getPopupContainer` and `getPrefixCls` by ConfigProvider [#24727](https://github.com/ant-design/ant-design/pull/24727)
+- 🐞 Fix Button `loading.delay` repeat trigger when parent re-render. [#24713](https://github.com/ant-design/ant-design/pull/24713)
+- 🐞 Fix Dropdown menu link color when has `icon`. [#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
+- 🐞 Fix Select virtual scroll display abnormally in compact mode. [#24706](https://github.com/ant-design/ant-design/pull/24706)
+- 🛠 refactor: Adjust Tabs export TabPaneProps position. [#3315921](https://github.com/ant-design/ant-design/commit/3315921)
+- 🐞 Fix Calendar trigger `onPanelChange` even when in the same panel. [#24695](https://github.com/ant-design/ant-design/pull/24695)
+- 🐞 Fix `Input` component height issue in IE11. [#24673](https://github.com/ant-design/ant-design/pull/24673) [@xiaosongxiaosong](https://github.com/xiaosongxiaosong)
+- 🐞 fix: Radio typescript error typo. [#24693](https://github.com/ant-design/ant-design/pull/24693) [@hengkx](https://github.com/hengkx)
+- 🌐 chore: Adds Hebrew localisations for Form. [#24716](https://github.com/ant-design/ant-design/pull/24716) [@israelKusayev](https://github.com/israelKusayev)
+- 💄 Add less variable `@table-font-size`, `@table-font-size-md` and `@table-font-size-sm` to customize the size of Table text. [#24714](https://github.com/ant-design/ant-design/pull/24714) [@morenyang](https://github.com/morenyang)
+- RTL
+  - 💄 Optimize Tabs dropdown style in RTL. [#24715](https://github.com/ant-design/ant-design/pull/24715)
+  - 💄 Add `Modal.method()` RTL supports only use hooks. [#24682](https://github.com/ant-design/ant-design/pull/24682)
+
 ## 4.3.1
 
 `2020-06-02`
