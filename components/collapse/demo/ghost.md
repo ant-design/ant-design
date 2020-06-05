@@ -45,6 +45,6 @@ ReactDOM.render(
 <style>
 .site-collapse-ghost-wrapper {
   padding: 26px 16px 16px;
-  background: rgb(190, 200, 200);
+  background: #f5f5f5;
 }
 </style>

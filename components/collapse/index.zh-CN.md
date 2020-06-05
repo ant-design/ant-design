@@ -43,6 +43,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 
 <style>
 [data-theme="dark"] .site-collapse-ghost-wrapper {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
 }
 </style>
