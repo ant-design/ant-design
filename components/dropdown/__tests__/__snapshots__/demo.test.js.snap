@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/dropdown/demo/arrow.md correctly 1`] = `
-<div>
+<>
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -51,14 +51,14 @@ exports[`renders ./components/dropdown/demo/arrow.md correctly 1`] = `
       topRight
     </span>
   </button>
-</div>
+</>
 `;
 
 exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Hover me 
+  Hover me
   <span
     aria-label="down"
     class="anticon anticon-down"
@@ -254,7 +254,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     type="button"
   >
     <span>
-      Button 
+      Button
     </span>
     <span
       aria-label="down"
@@ -284,7 +284,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Hover me, Click menu item 
+  Hover me, Click menu item
   <span
     aria-label="down"
     class="anticon anticon-down"
@@ -312,7 +312,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Hover me 
+  Hover me
   <span
     aria-label="down"
     class="anticon anticon-down"
@@ -340,7 +340,7 @@ exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Hover to check menu style 
+  Hover to check menu style
   <span
     aria-label="down"
     class="anticon anticon-down"
@@ -368,7 +368,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Hover me 
+  Hover me
   <span
     aria-label="down"
     class="anticon anticon-down"
@@ -450,7 +450,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Cascading menu 
+  Cascading menu
   <span
     aria-label="down"
     class="anticon anticon-down"
@@ -478,7 +478,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
 >
-  Click me 
+  Click me
   <span
     aria-label="down"
     class="anticon anticon-down"
