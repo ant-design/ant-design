@@ -3,7 +3,7 @@ category: Components
 type: 通用
 title: Button
 subtitle: 按钮
-cover: https://gw.alipayobjects.com/zos/antfincdn/qZWIjVIkQ7/Button.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 ---
 
 按钮用于开始一个即时操作。

@@ -2,7 +2,7 @@
 category: Components
 type: Data Entry
 title: Checkbox
-cover: https://gw.alipayobjects.com/zos/alicdn/p7QZthygf/Checkbox.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
 ---
 
 Checkbox component.

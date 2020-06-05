@@ -4,7 +4,7 @@ type: Navigation
 title: PageHeader
 cols: 1
 subtitle:
-cover: https://gw.alipayobjects.com/zos/alicdn/Uh-BJWMqm/PageHeader.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg
 ---
 
 A header with common actions and design elements built in.
