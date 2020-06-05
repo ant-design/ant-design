@@ -27,6 +27,7 @@ A content area which can be collapsed and expanded.
 | expandIcon | allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | `false` |  |
+| ghost | make the collapse borderless and its background transparent | boolean | `false` | 4.4.0 |
 
 ### Collapse.Panel
 
@@ -38,3 +39,9 @@ A content area which can be collapsed and expanded.
 | key | Unique key identifying the panel from among its siblings | string\|number | - |  |
 | showArrow | If `false`, panel will not show arrow icon | boolean | `true` |  |
 | extra | extra element in the corner | ReactNode | - |  |
+
+<style>
+[data-theme="dark"] .site-collapse-ghost-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+}
+</style>

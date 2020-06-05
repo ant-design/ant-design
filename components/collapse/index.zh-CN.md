@@ -28,6 +28,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
 | expandIconPosition | 设置图标位置 | `left` \| `right` | - |  |
 | destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` |  |
+| ghost | 使折叠面板透明且无边框 | boolean | `false` | 4.4.0 |
 
 ### Collapse.Panel
 
@@ -39,3 +40,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | key         | 对应 activeKey                             | string\|number    | 无     |      |
 | showArrow   | 是否展示当前面板上的箭头                   | boolean           | `true` |      |
 | extra       | 自定义渲染每个面板右上角的内容             | ReactNode         | -      |      |
+
+<style>
+[data-theme="dark"] .site-collapse-ghost-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+}
+</style>
