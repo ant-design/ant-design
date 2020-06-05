@@ -3,7 +3,7 @@ category: Components
 type: Feedback
 noinstant: true
 title: Message
-cover: https://gw.alipayobjects.com/zos/alicdn/XPT_Hem-_/Message.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 ---
 
 Display global messages as feedback in response to user operations.
