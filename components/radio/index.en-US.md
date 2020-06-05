@@ -2,7 +2,7 @@
 category: Components
 type: Data Entry
 title: Radio
-cover: https://gw.alipayobjects.com/zos/alicdn/jhSTlg4WQ/Radio.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/8cYb5seNB/Radio.svg
 ---
 
 Radio.

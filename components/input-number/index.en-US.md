@@ -2,7 +2,7 @@
 category: Components
 type: Data Entry
 title: InputNumber
-cover: https://gw.alipayobjects.com/zos/alicdn/SPEln9WgK/InputNumber.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 ---
 
 Enter a number within certain range with the mouse or keyboard.

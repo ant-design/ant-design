@@ -2,7 +2,7 @@
 category: Components
 type: Data Entry
 title: TimePicker
-cover: https://gw.alipayobjects.com/zos/alicdn/5YIZctT1O/TimePicker.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
 ---
 
 To select/input a time.

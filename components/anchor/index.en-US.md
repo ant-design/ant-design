@@ -3,7 +3,7 @@ category: Components
 type: Other
 cols: 2
 title: Anchor
-cover: https://gw.alipayobjects.com/zos/alicdn/ep_L42LFy/Anchor.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
 ---
 
 Hyperlinks to scroll on one page.

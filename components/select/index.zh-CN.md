@@ -3,7 +3,7 @@ category: Components
 subtitle: 选择器
 type: 数据录入
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/oCqbyNvbA/Select.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 ---
 
 下拉选择器。

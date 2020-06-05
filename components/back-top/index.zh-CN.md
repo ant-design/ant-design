@@ -3,7 +3,7 @@ category: Components
 type: 其他
 subtitle: 回到顶部
 title: BackTop
-cover: https://gw.alipayobjects.com/zos/alicdn/Ji3PnAAMT/BackTop.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 ---
 
 返回页面顶部的操作按钮。

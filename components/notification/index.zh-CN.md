@@ -4,7 +4,7 @@ type: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
-cover: https://gw.alipayobjects.com/zos/alicdn/KiuspIW60/Notification.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 ---
 
 全局展示通知提醒信息。

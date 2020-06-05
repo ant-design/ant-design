@@ -3,7 +3,7 @@ category: Components
 subtitle: 上传
 type: 数据录入
 title: Upload
-cover: https://gw.alipayobjects.com/zos/alicdn/KIp6oKUun/Upload.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 ---
 
 文件选择上传和拖拽上传控件。
