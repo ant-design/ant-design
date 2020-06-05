@@ -48,7 +48,7 @@ const MORE_LIST: MoreProps[] = [
     title: '折柱饼 +3 个套路，简单图表你真的会用吗？',
     description: '本文一句话概括：数据可视化中，如何用最简单的图表高效地传递信息。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q1DMQpLCDQgAAAAAAAAAAABkARQnAQ',
-    date: '2020-11-28',
+    date: '2019-11-28',
     source: 'zhihu',
     href: 'https://zhuanlan.zhihu.com/p/93808863',
   },
