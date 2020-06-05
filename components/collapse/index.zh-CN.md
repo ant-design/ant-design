@@ -40,3 +40,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | key         | 对应 activeKey                             | string\|number    | 无     |      |
 | showArrow   | 是否展示当前面板上的箭头                   | boolean           | `true` |      |
 | extra       | 自定义渲染每个面板右上角的内容             | ReactNode         | -      |      |
+
+<style>
+[data-theme="dark"] .site-collapse-ghost-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+}
+</style>
