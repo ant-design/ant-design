@@ -110,7 +110,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
-    if (process.env.ESBUILD) {
+    if (process.env.ESBUILD || process.env.CSB_REPO) {
       config.optimization.minimizer[0] = new EsbuildPlugin();
     }
 

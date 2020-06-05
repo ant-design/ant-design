@@ -125,6 +125,24 @@
     padding-top: 4px;
   }
 
+  &-ghost {
+    background-color: transparent;
+    border: 0;
+    > .@{collapse-prefix-cls}-item {
+      border-bottom: 0;
+      &:last-child {
+        border-radius: 0;
+        .@{collapse-prefix-cls}-header {
+          border-radius: 0;
+        }
+      }
+      > .@{collapse-prefix-cls}-content {
+        background-color: transparent;
+        border-top: 0;
+      }
+    }
+  }
+
   & &-item-disabled > &-header {
     &,
     & > .arrow {

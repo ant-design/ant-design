@@ -3,7 +3,8 @@
 @import './index';
 
 .@{tab-prefix-cls}-card {
-  > .@{tab-prefix-cls}-nav {
+  > .@{tab-prefix-cls}-nav,
+  > div > .@{tab-prefix-cls}-nav {
     .@{tab-prefix-cls}-tab {
       margin: 0;
       padding: @tabs-card-horizontal-padding;
@@ -25,7 +26,8 @@
   // ========================== Top & Bottom ==========================
   &.@{tab-prefix-cls}-top,
   &.@{tab-prefix-cls}-bottom {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab:not(:last-of-type) {
         margin-right: @tabs-card-gutter;
       }
@@ -33,7 +35,8 @@
   }
 
   &.@{tab-prefix-cls}-top {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab {
         border-radius: @border-radius-base @border-radius-base 0 0;
 
@@ -44,7 +47,8 @@
     }
   }
   &.@{tab-prefix-cls}-bottom {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab {
         border-radius: 0 0 @border-radius-base @border-radius-base;
 
@@ -58,7 +62,8 @@
   // ========================== Left & Right ==========================
   &.@{tab-prefix-cls}-left,
   &.@{tab-prefix-cls}-right {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab:not(:last-of-type) {
         margin-bottom: @tabs-card-gutter;
       }
@@ -66,7 +71,8 @@
   }
 
   &.@{tab-prefix-cls}-left {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab {
         border-radius: @border-radius-base 0 0 @border-radius-base;
 
@@ -77,7 +83,8 @@
     }
   }
   &.@{tab-prefix-cls}-right {
-    > .@{tab-prefix-cls}-nav {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab {
         border-radius: 0 @border-radius-base @border-radius-base 0;
 

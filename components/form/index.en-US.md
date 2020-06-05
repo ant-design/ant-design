@@ -185,21 +185,22 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 ### FormInstance
 
-| Name | Description | Type |
-| --- | --- | --- |
-| getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
-| getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string[] |
-| getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
-| isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |
-| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
-| isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |
-| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
-| scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |
-| setFields | Set fields status | (fields: [FieldData](#FieldData)[]) => void |
-| setFieldsValue | Set fields value | (values) => void |
-| submit | Submit the form. It's same as click `submit` button | () => void |
-| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)[]) => Promise |
+| Name | Description | Type | Version |
+| --- | --- | --- | --- |
+| getFieldInstance | Get field instance | (name: [NamePath](#NamePath)) => any | 4.4.0 |
+| getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |  |
+| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string[] |  |
+| getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |  |
+| isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
+| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |  |
+| isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |  |
+| scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| setFields | Set fields status | (fields: [FieldData](#FieldData)[]) => void |  |
+| setFieldsValue | Set fields value | (values) => void |  |
+| submit | Submit the form. It's same as click `submit` button | () => void |  |
+| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)[]) => Promise |  |
 
 #### validateFields return sample
 

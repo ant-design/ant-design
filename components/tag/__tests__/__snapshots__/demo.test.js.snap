@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
-<div>
+Array [
   <div
     style="margin-bottom:16px"
   >
@@ -97,7 +97,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <span
     class="ant-tag site-tag-plus"
   >
@@ -126,17 +126,17 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
       </svg>
     </span>
      New Tag
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag"
   >
     Tag 1
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -145,7 +145,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     >
       Link
     </a>
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -171,7 +171,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -197,8 +197,8 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
@@ -340,14 +340,14 @@ Array [
 `;
 
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag edit-tag"
   >
     <span>
       Unremovable
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag edit-tag"
   >
@@ -375,7 +375,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag edit-tag"
   >
@@ -403,7 +403,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag site-tag-plus"
   >
@@ -432,12 +432,12 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
       </svg>
     </span>
      New Tag
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag"
   >
@@ -463,8 +463,8 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-  <br />
+  </span>,
+  <br />,
   <button
     class="ant-btn ant-btn-sm"
     type="button"
@@ -472,12 +472,12 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
     <span>
       Toggle
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#55acee"
@@ -505,7 +505,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       Twitter
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#cd201f"
@@ -533,7 +533,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       Youtube
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#3b5999"
@@ -561,7 +561,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       Facebook
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#55acee"
@@ -589,8 +589,8 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       LinkedIn
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/status.md correctly 1`] = `

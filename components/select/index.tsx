@@ -90,7 +90,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       className,
       size: customizeSize,
       listHeight = 256,
-      listItemHeight = 32,
+      listItemHeight = 24,
       getPopupContainer,
       dropdownClassName,
       bordered,

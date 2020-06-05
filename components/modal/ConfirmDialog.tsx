@@ -27,6 +27,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     okButtonProps,
     cancelText,
     cancelButtonProps,
+    direction,
   } = props;
 
   devWarning(
@@ -53,6 +54,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const classString = classNames(
     contentPrefixCls,
     `${contentPrefixCls}-${props.type}`,
+    { [`${contentPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
 

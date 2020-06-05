@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import { supportRef } from 'rc-util/lib/ref';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -12,8 +13,10 @@ import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
-import { toArray, getFieldId, useFrameState } from './util';
+import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
+import useFrameState from './hooks/useFrameState';
+import useItemRef from './hooks/useItemRef';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -80,7 +83,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const formContext = React.useContext(FormContext);
+  const { name: formName } = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
@@ -92,7 +95,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
     }
   }
 
-  const { name: formName } = formContext;
   const hasName = hasValidName(name);
 
   // Cache Field NamePath
@@ -120,6 +122,9 @@ function FormItem(props: FormItemProps): React.ReactElement {
           }));
         }
       };
+
+  // ===================== Children Ref =====================
+  const getItemRef = useItemRef();
 
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -315,6 +320,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
           );
 
           const childProps = { ...children.props, ...mergedControl };
+
+          if (supportRef(children)) {
+            childProps.ref = getItemRef(mergedName, children);
+          }
 
           // We should keep user origin event handler
           const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
