@@ -806,13 +806,13 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-collapse-item ant-collapse-item-disabled"
+      class="ant-collapse-item"
     >
       <div
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
-        tabindex="-1"
+        tabindex="0"
       >
         <span
           aria-label="right"
