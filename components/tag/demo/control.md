@@ -78,7 +78,7 @@ class EditableTagGroup extends React.Component {
   render() {
     const { tags, inputVisible, inputValue, editInputIndex, editInputValue } = this.state;
     return (
-      <div>
+      <>
         {tags.map((tag, index) => {
           if (editInputIndex === index) {
             return (
@@ -143,7 +143,7 @@ class EditableTagGroup extends React.Component {
             <PlusOutlined /> New Tag
           </Tag>
         )}
-      </div>
+      </>
     );
   }
 }
