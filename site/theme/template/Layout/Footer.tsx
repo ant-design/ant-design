@@ -20,6 +20,7 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
+import { version as antdVersion } from '../../../../package.json';
 import ColorPicker from '../Color/ColorPicker';
 
 class Footer extends React.Component<WrappedComponentProps> {
@@ -381,7 +382,7 @@ class Footer extends React.Component<WrappedComponentProps> {
         });
     };
 
-    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less/3.10.3/dist/less.min.js';
+    const lessUrl = `https://gw.alipayobjects.com/os/lib/less/${antdVersion}/dist/less.min.js`;
 
     if (this.lessLoaded) {
       changeColor();
