@@ -1,17 +1,17 @@
 ---
 order: 2
 title:
-  zh-CN: 骨架按钮、头像和输入框。
-  en-US: Skeleton button, avatar and input.
+  zh-CN: 骨架按钮、头像、输入框和图像。
+  en-US: Skeleton button, avatar, input and Image.
 ---
 
 ## zh-CN
 
-骨架按钮、头像和输入框。
+骨架按钮、头像、输入框和图像。
 
 ## en-US
 
-Skeleton button, avatar and input.
+Skeleton button, avatar, input and Image.
 
 ```jsx
 import { Skeleton, Switch, Form, Radio } from 'antd';
@@ -24,6 +24,7 @@ class Demo extends React.Component {
     buttonSize: 'default',
     avatarSize: 'default',
     inputSize: 'default',
+    imageSize: 'default',
     buttonShape: 'default',
     avatarShape: 'circle',
   };
@@ -48,6 +49,7 @@ class Demo extends React.Component {
       buttonSize,
       avatarSize,
       inputSize,
+      imageSize,
       buttonShape,
       avatarShape,
     } = this.state;
@@ -112,6 +114,19 @@ class Demo extends React.Component {
             </Form.Item>
           </Form>
           <Skeleton.Input style={{ width: '300px' }} active={inputActive} size={inputSize} />
+        </div>
+        <br />
+        <div>
+          <Form layout="inline" style={{ marginBottom: 16 }}>
+            <Form.Item label="ImageSize">
+              <Radio.Group value={imageSize} onChange={this.handleSizeChange('imageSize')}>
+                <Radio.Button value="default">Default</Radio.Button>
+                <Radio.Button value="large">Large</Radio.Button>
+                <Radio.Button value="small">Small</Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+          </Form>
+          <Skeleton.Image size={imageSize} />
         </div>
       </div>
     );
