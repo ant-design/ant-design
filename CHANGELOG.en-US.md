@@ -20,7 +20,7 @@ timeline: true
 `2020-06-06`
 
 - 🐞 Fix Tag.CheckableTag don't support `onClick`. [#24743](https://github.com/ant-design/ant-design/pull/24743)
-- 🐞 Fix Drawer support set `getPopupContainer` and `getPrefixCls` by ConfigProvider [#24727](https://github.com/ant-design/ant-design/pull/24727)
+- 🐞 Fix Drawer support set `getPopupContainer` and `getPrefixCls` by ConfigProvider. [#24727](https://github.com/ant-design/ant-design/pull/24727)
 - 🐞 Fix Button `loading.delay` repeat trigger when parent re-render. [#24713](https://github.com/ant-design/ant-design/pull/24713)
 - 🐞 Fix Dropdown menu link color when has `icon`. [#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
 - 🐞 Fix Select virtual scroll display abnormally in compact mode. [#24706](https://github.com/ant-design/ant-design/pull/24706)
