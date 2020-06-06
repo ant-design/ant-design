@@ -197,6 +197,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: left"
@@ -235,6 +236,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: right"

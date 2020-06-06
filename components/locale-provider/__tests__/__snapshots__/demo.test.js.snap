@@ -70,6 +70,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: left"
@@ -1957,6 +1958,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <i
           aria-label="图标: left"

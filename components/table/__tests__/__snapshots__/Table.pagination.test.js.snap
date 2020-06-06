@@ -108,6 +108,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: left"
@@ -146,6 +147,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: right"
@@ -262,6 +264,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: left"

@@ -103,6 +103,7 @@ exports[`Table.expand click to expand 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: left"
@@ -141,6 +142,7 @@ exports[`Table.expand click to expand 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: right"
@@ -218,6 +220,7 @@ exports[`Table.expand should support expandIconColumnIndex 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: left"
@@ -256,6 +259,7 @@ exports[`Table.expand should support expandIconColumnIndex 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <i
               aria-label="icon: right"

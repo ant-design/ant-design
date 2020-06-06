@@ -119,7 +119,7 @@
     "rc-mentions": "~0.4.0",
     "rc-menu": "~7.5.1",
     "rc-notification": "~3.3.1",
-    "rc-pagination": "~1.20.11",
+    "rc-pagination": "~1.21.1",
     "rc-progress": "~2.5.0",
     "rc-rate": "~2.5.0",
     "rc-resize-observer": "^0.1.0",
