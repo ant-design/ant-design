@@ -82,6 +82,26 @@ describe('Statistic', () => {
       expect(onFinish).not.toHaveBeenCalled();
     });
 
+    it('responses hover events', () => {
+      const onMouseEnter = jest.fn();
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(<Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      wrapper.simulate('mouseenter');
+      expect(onMouseEnter).toHaveBeenCalled();
+      wrapper.simulate('mouseleave');
+      expect(onMouseLeave).toHaveBeenCalled();
+    });
+
+    it('responses hover events for Countdown', () => {
+      const onMouseEnter = jest.fn();
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(<Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      wrapper.simulate('mouseenter');
+      expect(onMouseEnter).toHaveBeenCalled();
+      wrapper.simulate('mouseleave');
+      expect(onMouseLeave).toHaveBeenCalled();
+    });
+
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
