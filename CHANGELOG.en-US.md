@@ -15,6 +15,32 @@ timeline: true
 
 ---
 
+## 4.3.2
+
+`2020-06-06`
+
+- 🐞 Fix Tag.CheckableTag don't support `onClick`. [#24743](https://github.com/ant-design/ant-design/pull/24743)
+- 🐞 Fix Drawer support set `getPopupContainer` and `getPrefixCls` by ConfigProvider. [#24727](https://github.com/ant-design/ant-design/pull/24727)
+- 🐞 Fix Button `loading.delay` repeat trigger when parent compoent re-render. [#24713](https://github.com/ant-design/ant-design/pull/24713)
+- 🐞 Fix Dropdown menu link color when has `icon`. [#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
+- Select
+  - 🐞 Fix Select virtual scroll display abnormally in compact mode. [#24706](https://github.com/ant-design/ant-design/pull/24706)
+  - ⚡️ Optimize Select multiple mode performence. [#24785](https://github.com/ant-design/ant-design/pull/24785) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 Fix Calendar trigger `onPanelChange` even when in the same panel. [#24695](https://github.com/ant-design/ant-design/pull/24695)
+- 🐞 Fix Input component height issue in IE11. [#24673](https://github.com/ant-design/ant-design/pull/24673) [@xiaosongxiaosong](https://github.com/xiaosongxiaosong)
+- 🐞 Fix Radio typescript error typo. [#24693](https://github.com/ant-design/ant-design/pull/24693) [@hengkx](https://github.com/hengkx)
+- 🐞 Fix Statistic don't work with Tooltip. [#24782](https://github.com/ant-design/ant-design/pull/24782)
+- 🐞 Fix TimePicker.RangePicker `bordered={false}` not working when has `className`. [#24781](https://github.com/ant-design/ant-design/pull/24781)
+- 🐞 Fix List cannot trigger `onChange` in pagination. [#24514](https://github.com/ant-design/ant-design/pull/24514)
+- 🌐 Localization
+  - 🇮🇱 Add Hebrew localisations for Form. [#24716](https://github.com/ant-design/ant-design/pull/24716) [@israelKusayev](https://github.com/israelKusayev)
+  - 🇰🇷 Add ko_KR localizations for Form. [#24783](https://github.com/ant-design/ant-design/pull/24783) [@Jaewoook](https://github.com/Jaewoook)
+- 💄 Add less variable `@table-font-size`, `@table-font-size-md` and `@table-font-size-sm` to customize the size of Table text. [#24714](https://github.com/ant-design/ant-design/pull/24714) [@morenyang](https://github.com/morenyang)
+- RTL
+  - 💄 Optimize Tabs dropdown style in RTL. [#24715](https://github.com/ant-design/ant-design/pull/24715)
+  - 💄 Add `Modal.method()` RTL supports only use hooks. [#24682](https://github.com/ant-design/ant-design/pull/24682)
+  - 💄 Fix Badge offset in RTL. [#24724](https://github.com/ant-design/ant-design/pull/24724)
+
 ## 4.3.1
 
 `2020-06-02`
