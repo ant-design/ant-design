@@ -25,9 +25,14 @@ timeline: true
 - 🐞 Fix Dropdown menu link color when has `icon`. [#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
 - 🐞 Fix Select virtual scroll display abnormally in compact mode. [#24706](https://github.com/ant-design/ant-design/pull/24706)
 - 🐞 Fix Calendar trigger `onPanelChange` even when in the same panel. [#24695](https://github.com/ant-design/ant-design/pull/24695)
-- 🐞 Fix `Input` component height issue in IE11. [#24673](https://github.com/ant-design/ant-design/pull/24673) [@xiaosongxiaosong](https://github.com/xiaosongxiaosong)
+- 🐞 Fix Input component height issue in IE11. [#24673](https://github.com/ant-design/ant-design/pull/24673) [@xiaosongxiaosong](https://github.com/xiaosongxiaosong)
 - 🐞 Fix Radio typescript error typo. [#24693](https://github.com/ant-design/ant-design/pull/24693) [@hengkx](https://github.com/hengkx)
-- 🌐 Add Hebrew localisations for Form. [#24716](https://github.com/ant-design/ant-design/pull/24716) [@israelKusayev](https://github.com/israelKusayev)
+- 🐞 Fix Statistic don't work with Tooltip. [#24782](https://github.com/ant-design/ant-design/pull/24782)
+- 🐞 Fix TimePicker.RangePicker `bordered={false}` not working when has `className`. [#24781](https://github.com/ant-design/ant-design/pull/24781)
+- 🐞 Fix List cannot trigger `onChange` in pagination. [#24514](https://github.com/ant-design/ant-design/pull/24514)
+- 🌐 Localization
+  - 🇮🇱 Add Hebrew localisations for Form. [#24716](https://github.com/ant-design/ant-design/pull/24716) [@israelKusayev](https://github.com/israelKusayev)
+  - 🇰🇷 Add ko_KR localizations for Form. [#24783](https://github.com/ant-design/ant-design/pull/24783) [@Jaewoook](https://github.com/Jaewoook)
 - 💄 Add less variable `@table-font-size`, `@table-font-size-md` and `@table-font-size-sm` to customize the size of Table text. [#24714](https://github.com/ant-design/ant-design/pull/24714) [@morenyang](https://github.com/morenyang)
 - RTL
   - 💄 Optimize Tabs dropdown style in RTL. [#24715](https://github.com/ant-design/ant-design/pull/24715)
