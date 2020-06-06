@@ -32,6 +32,7 @@ timeline: true
 - RTL
   - 💄 优化 Tabs 标签下拉框在 RTL 模式下样式。[#24715](https://github.com/ant-design/ant-design/pull/24715)
   - 💄 增加 `Modal.method()` RTL 模式支持，仅限 hooks 用法。[#24682](https://github.com/ant-design/ant-design/pull/24682)
+  - 💄 修复 Badge RTL 模式位置偏移量设置。[#24724](https://github.com/ant-design/ant-design/pull/24724)
 
 ## 4.3.1
 

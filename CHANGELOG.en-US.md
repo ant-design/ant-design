@@ -32,6 +32,7 @@ timeline: true
 - RTL
   - 💄 Optimize Tabs dropdown style in RTL. [#24715](https://github.com/ant-design/ant-design/pull/24715)
   - 💄 Add `Modal.method()` RTL supports only use hooks. [#24682](https://github.com/ant-design/ant-design/pull/24682)
+  - 💄 Fix Badge offset in RTL. [#24724](https://github.com/ant-design/ant-design/pull/24724)
 
 ## 4.3.1
 
