@@ -775,7 +775,7 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="left:-10px;margin-top:10px"
+    style="left:10px;margin-top:10px"
     title="5"
   >
     <span
