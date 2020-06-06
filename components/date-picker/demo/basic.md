@@ -21,7 +21,7 @@ function onChange(date, dateString) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker onChange={onChange} />
     <br />
     <DatePicker onChange={onChange} picker="week" />
@@ -31,7 +31,7 @@ ReactDOM.render(
     <DatePicker onChange={onChange} picker="quarter" />
     <br />
     <DatePicker onChange={onChange} picker="year" />
-  </div>,
+  </>,
   mountNode,
 );
 ```

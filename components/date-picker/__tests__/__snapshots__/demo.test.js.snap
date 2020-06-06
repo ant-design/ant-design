@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -41,8 +41,8 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -82,8 +82,8 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -123,8 +123,8 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -164,8 +164,8 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -205,12 +205,12 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker ant-picker-borderless"
   >
@@ -250,8 +250,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-borderless"
   >
@@ -291,8 +291,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-borderless"
   >
@@ -332,8 +332,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-borderless"
   >
@@ -373,8 +373,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range ant-picker-borderless"
   >
@@ -457,8 +457,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range ant-picker-borderless"
   >
@@ -541,8 +541,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range ant-picker-borderless"
   >
@@ -625,8 +625,8 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range ant-picker-borderless"
   >
@@ -709,12 +709,12 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -754,7 +754,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -837,12 +837,12 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker ant-picker-disabled"
   >
@@ -883,8 +883,8 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-disabled"
   >
@@ -925,8 +925,8 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range ant-picker-disabled"
   >
@@ -1011,8 +1011,8 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -1120,12 +1120,12 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -1165,8 +1165,8 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -1206,8 +1206,8 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -1290,7 +1290,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -1373,12 +1373,12 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -1418,8 +1418,8 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -1459,8 +1459,8 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -1543,8 +1543,8 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -1627,8 +1627,8 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -1668,12 +1668,12 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -1737,8 +1737,8 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -1802,8 +1802,8 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -1867,8 +1867,8 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -1975,12 +1975,12 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -2020,8 +2020,8 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2104,12 +2104,12 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2192,8 +2192,8 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2276,12 +2276,12 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2364,8 +2364,8 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2448,8 +2448,8 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2532,8 +2532,8 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2616,8 +2616,8 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -2700,8 +2700,8 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] = `
@@ -2791,7 +2791,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
 `;
 
 exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -2853,9 +2853,9 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         Small
       </span>
     </label>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-picker ant-picker-default"
   >
@@ -2895,8 +2895,8 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-default"
   >
@@ -2936,8 +2936,8 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range ant-picker-default"
   >
@@ -3020,8 +3020,8 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-default"
   >
@@ -3061,12 +3061,12 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -3106,7 +3106,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-picker"
   >
@@ -3146,12 +3146,12 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -3191,8 +3191,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -3232,8 +3232,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -3316,8 +3316,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -3357,8 +3357,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -3379,8 +3379,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         ab
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -3401,8 +3401,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         ab
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -3466,8 +3466,8 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
     >
       ab
     </span>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker"
   >
@@ -3488,12 +3488,12 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         ab
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-picker"
   >
@@ -3533,8 +3533,8 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-picker ant-picker-range"
   >
@@ -3617,6 +3617,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;

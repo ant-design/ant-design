@@ -25,7 +25,7 @@ function onChange(dates, dateStrings) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <RangePicker
       ranges={{
         Today: [moment(), moment()],
@@ -43,7 +43,7 @@ ReactDOM.render(
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onChange}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```
