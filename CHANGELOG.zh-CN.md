@@ -21,7 +21,7 @@ timeline: true
 
 - 🐞 修复 Tag.CheckableTag 不支持 `onClick` 和 `stopPropagation` 的问题。[#24743](https://github.com/ant-design/ant-design/pull/24743)
 - 🐞 修复 Drawer 支持通过 ConfigProvider 来全局设置 `getPrefixCls` 和 `getPopupContainer`。[#24727](https://github.com/ant-design/ant-design/pull/24727)
-- 🐞 修复 Button 在重新渲染时 `loading.delay` 会重复触发的问题。[#24713](https://github.com/ant-design/ant-design/pull/24713)
+- 🐞 修复 Button 在父组件重新渲染时 `loading.delay` 会重复触发的问题。[#24713](https://github.com/ant-design/ant-design/pull/24713)
 - 🐞 修复 Dropdown 带图标 `icon` 菜单项的链接色彩。[#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
 - Select
   - 🐞 修复 Select 在紧凑模式下表现不正常。[#24706](https://github.com/ant-design/ant-design/pull/24706)
