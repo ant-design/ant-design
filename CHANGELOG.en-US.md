@@ -23,7 +23,9 @@ timeline: true
 - 🐞 Fix Drawer support set `getPopupContainer` and `getPrefixCls` by ConfigProvider. [#24727](https://github.com/ant-design/ant-design/pull/24727)
 - 🐞 Fix Button `loading.delay` repeat trigger when parent re-render. [#24713](https://github.com/ant-design/ant-design/pull/24713)
 - 🐞 Fix Dropdown menu link color when has `icon`. [#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
-- 🐞 Fix Select virtual scroll display abnormally in compact mode. [#24706](https://github.com/ant-design/ant-design/pull/24706)
+- Select
+  - 🐞 Fix Select virtual scroll display abnormally in compact mode. [#24706](https://github.com/ant-design/ant-design/pull/24706)
+  - 💄 Optimize Select multiple mode performence. [#24785](https://github.com/ant-design/ant-design/pull/24785) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
 - 🐞 Fix Calendar trigger `onPanelChange` even when in the same panel. [#24695](https://github.com/ant-design/ant-design/pull/24695)
 - 🐞 Fix Input component height issue in IE11. [#24673](https://github.com/ant-design/ant-design/pull/24673) [@xiaosongxiaosong](https://github.com/xiaosongxiaosong)
 - 🐞 Fix Radio typescript error typo. [#24693](https://github.com/ant-design/ant-design/pull/24693) [@hengkx](https://github.com/hengkx)
