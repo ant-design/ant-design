@@ -21,7 +21,7 @@ const { MonthPicker, RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
     <br />
     <MonthPicker defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
@@ -35,7 +35,7 @@ ReactDOM.render(
       defaultValue={[moment('2019-09-03', dateFormat), moment('2019-11-22', dateFormat)]}
       disabled={[false, true]}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

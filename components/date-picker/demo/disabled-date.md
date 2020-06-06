@@ -56,7 +56,7 @@ function disabledRangeTime(_, type) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
       disabledDate={disabledDate}
@@ -76,7 +76,7 @@ ReactDOM.render(
       }}
       format="YYYY-MM-DD HH:mm:ss"
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

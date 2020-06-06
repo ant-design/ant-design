@@ -87,6 +87,15 @@ const Badge: React.FC<BadgeProps> = ({
   };
 
   const getStyleWithOffset = () => {
+    if (direction === 'rtl') {
+      return offset
+        ? {
+            left: parseInt(offset[0] as string, 10),
+            marginTop: offset[1],
+            ...style,
+          }
+        : style;
+    }
     return offset
       ? {
           right: -parseInt(offset[0] as string, 10),

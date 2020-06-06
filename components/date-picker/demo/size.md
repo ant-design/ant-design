@@ -30,7 +30,7 @@ class PickerSizesDemo extends React.Component {
   render() {
     const { size } = this.state;
     return (
-      <div>
+      <>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
           <Radio.Button value="large">Large</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>
@@ -45,7 +45,7 @@ class PickerSizesDemo extends React.Component {
         <RangePicker size={size} />
         <br />
         <DatePicker size={size} picker="week" />
-      </div>
+      </>
     );
   }
 }

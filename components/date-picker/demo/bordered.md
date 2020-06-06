@@ -19,7 +19,7 @@ import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker bordered={false} />
     <br />
     <DatePicker picker="week" bordered={false} />
@@ -35,7 +35,7 @@ ReactDOM.render(
     <RangePicker picker="month" bordered={false} />
     <br />
     <RangePicker picker="year" bordered={false} />
-  </div>,
+  </>,
   mountNode,
 );
 ```

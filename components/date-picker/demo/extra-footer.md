@@ -19,7 +19,7 @@ import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
     <br />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
@@ -29,7 +29,7 @@ ReactDOM.render(
     <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
     <br />
     <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
-  </div>,
+  </>,
   mountNode,
 );
 ```

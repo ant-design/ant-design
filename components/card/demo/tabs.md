@@ -66,7 +66,7 @@ class TabsCard extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Card
           style={{ width: '100%' }}
           title="Card title"
@@ -92,7 +92,7 @@ class TabsCard extends React.Component {
         >
           {contentListNoTitle[this.state.noTitleKey]}
         </Card>
-      </div>
+      </>
     );
   }
 }
