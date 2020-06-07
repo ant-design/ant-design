@@ -19,8 +19,8 @@ timeline: true
 
 `2020-06-07`
 
-- 🐞 Fix Menu.SubMenu cannot scroll. [#24806](https://github.com/ant-design/ant-design/pull/24806)
 - 🐞 Fix Drawer cannot open. [#24802](https://github.com/ant-design/ant-design/pull/24802)
+- 🐞 Fix Menu.SubMenu cannot scroll. [#24806](https://github.com/ant-design/ant-design/pull/24806)
 
 ## 4.3.2
 

@@ -19,8 +19,8 @@ timeline: true
 
 `2020-06-07`
 
-- 🐞 修复 Menu.SubMenu 滚动区域无法交互的问题。[#24806](https://github.com/ant-design/ant-design/pull/24806)
 - 🐞 修复 Drawer 无法显示的问题。[#24802](https://github.com/ant-design/ant-design/pull/24802)
+- 🐞 修复 Menu.SubMenu 滚动区域无法交互的问题。[#24806](https://github.com/ant-design/ant-design/pull/24806)
 
 ## 4.3.2
 
