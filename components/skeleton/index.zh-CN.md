@@ -64,3 +64,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 | ------ | ---------------- | ------------------------------- | ------ |
 | active | 是否展示动画效果 | boolean                         | false  |
 | size   | 设置输入框的大小 | `large` \| `small` \| `default` | -      |
+
+### SkeletonImageProps
+
+| 属性 | 说明           | 类型                            | 默认值 |
+| ---- | -------------- | ------------------------------- | ------ |
+| size | 设置图像的大小 | `large` \| `small` \| `default` | -      |
