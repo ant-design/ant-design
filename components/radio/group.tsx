@@ -1,7 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
-import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import {
+  RadioGroupProps,
+  RadioChangeEvent,
+  RadioGroupComponent,
+  RadioGroupButtonStyle,
+} from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
@@ -43,6 +48,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       prefixCls: customizePrefixCls,
       className = '',
       options,
+      component,
       buttonStyle,
       disabled,
       children,
@@ -53,6 +59,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       onMouseLeave,
     } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
+    const optionsPrefixCls = component === 'button' ? `${prefixCls}-button` : prefixCls;
     const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用
@@ -63,7 +70,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
           return (
             <Radio
               key={option}
-              prefixCls={prefixCls}
+              prefixCls={optionsPrefixCls}
               disabled={disabled}
               value={option}
               checked={value === option}
@@ -76,7 +83,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
         return (
           <Radio
             key={`radio-group-value-options-${option.value}`}
-            prefixCls={prefixCls}
+            prefixCls={optionsPrefixCls}
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}
@@ -127,6 +134,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
 
 RadioGroup.defaultProps = {
   buttonStyle: 'outline' as RadioGroupButtonStyle,
+  component: 'default' as RadioGroupComponent,
 };
 
 export default React.memo(RadioGroup);
