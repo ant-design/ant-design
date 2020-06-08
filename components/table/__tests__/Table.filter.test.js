@@ -362,8 +362,8 @@ describe('Table.filter', () => {
       {},
       {
         currentDataSource: [],
+        action: 'filter',
       },
-      'filter',
     );
   });
 
@@ -942,8 +942,8 @@ describe('Table.filter', () => {
       {},
       {
         currentDataSource: [],
+        action: 'filter',
       },
-      'filter',
     );
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(0);
   });
@@ -974,8 +974,8 @@ describe('Table.filter', () => {
       {},
       {
         currentDataSource: [],
+        action: 'filter',
       },
-      'filter',
     );
   });
 
@@ -1047,8 +1047,10 @@ describe('Table.filter', () => {
           title: 'Name',
         },
       }),
-      expect.anything(),
-      'sort',
+      {
+        currentDataSource: expect.anything(),
+        action: 'sort',
+      },
     );
 
     // Filter it
@@ -1068,8 +1070,10 @@ describe('Table.filter', () => {
           title: 'Name',
         },
       }),
-      expect.anything(),
-      'filter',
+      {
+        currentDataSource: expect.anything(),
+        action: 'filter',
+      },
     );
   });
 

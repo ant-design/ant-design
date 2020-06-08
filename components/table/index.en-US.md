@@ -78,7 +78,7 @@ const columns = [
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | summary | Summary content | (currentData) => ReactNode | - |
 | title | Table title renderer | Function(currentPageData) | - |
-| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }, action: `paginate` \| `sort` \| `filter`) | - |
+| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |

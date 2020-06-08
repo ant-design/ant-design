@@ -24,6 +24,7 @@ import {
   TablePaginationConfig,
   SortOrder,
   TableLocale,
+  TableAction,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
@@ -37,14 +38,10 @@ import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import devWarning from '../_util/devWarning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import { tuple } from '../_util/type';
 
 export { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
-
-const TableActions = tuple('paginate', 'sort', 'filter');
-export type TableAction = typeof TableActions[number];
 
 interface ChangeEventInfo<RecordType> {
   pagination: {
@@ -80,7 +77,6 @@ export interface TableProps<RecordType>
     filters: Record<string, Key[] | null>,
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
-    action: TableAction,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
 
@@ -223,8 +219,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
             getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
             changeInfo.filterStates!,
           ),
+          action,
         },
-        action,
       );
     }
   };
