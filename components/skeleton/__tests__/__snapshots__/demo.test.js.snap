@@ -686,6 +686,149 @@ exports[`renders ./components/skeleton/demo/element.md correctly 1`] = `
       />
     </div>
   </div>
+  <br />
+  <div>
+    <form
+      class="ant-form ant-form-inline"
+      style="margin-bottom:16px"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="ListActive"
+          >
+            ListActive
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <button
+                aria-checked="false"
+                class="ant-switch"
+                role="switch"
+                type="button"
+              >
+                <div
+                  class="ant-switch-handle"
+                />
+                <span
+                  class="ant-switch-inner"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="ListSize"
+          >
+            ListSize
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+              >
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                >
+                  <span
+                    class="ant-radio-button ant-radio-button-checked"
+                  >
+                    <input
+                      checked=""
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="default"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Default
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="large"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Large
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="small"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Small
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      class="ant-skeleton ant-skeleton-element"
+    >
+      <span
+        class="ant-skeleton-list"
+        style="width:300px"
+      />
+    </div>
+  </div>
 </div>
 `;
 
