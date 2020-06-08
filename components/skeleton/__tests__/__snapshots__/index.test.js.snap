@@ -350,6 +350,46 @@ exports[`Skeleton input element size 3`] = `
 </div>
 `;
 
+exports[`Skeleton list element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-list"
+  />
+</div>
+`;
+
+exports[`Skeleton list element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-list"
+  />
+</div>
+`;
+
+exports[`Skeleton list element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-list ant-skeleton-list-lg"
+  />
+</div>
+`;
+
+exports[`Skeleton list element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-list ant-skeleton-list-sm"
+  />
+</div>
+`;
+
 exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"
