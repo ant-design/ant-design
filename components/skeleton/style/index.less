@@ -7,6 +7,7 @@
 @skeleton-paragraph-prefix-cls: ~'@{skeleton-prefix-cls}-paragraph';
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 @skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
+@skeleton-list-prefix-cls: ~'@{skeleton-prefix-cls}-list';
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -99,6 +100,9 @@
     .@{skeleton-input-prefix-cls} {
       .skeleton-color();
     }
+    .@{skeleton-list-prefix-cls} {
+      .skeleton-color();
+    }
   }
 
   // Skeleton element
@@ -114,6 +118,9 @@
 
     .@{skeleton-input-prefix-cls} {
       .skeleton-element-input();
+    }
+    .@{skeleton-list-prefix-cls} {
+      .skeleton-element-list();
     }
   }
 }
@@ -168,6 +175,24 @@
   }
 }
 
+// List
+.skeleton-element-list() {
+  display: inline-block;
+  vertical-align: top;
+  background: @skeleton-color;
+  border-radius: @border-radius-base;
+
+  .skeleton-element-list-size(@btn-height-base);
+
+  &-lg {
+    .skeleton-element-list-size(@btn-height-lg);
+  }
+
+  &-sm {
+    .skeleton-element-list-size(@btn-height-sm);
+  }
+}
+
 .skeleton-element-avatar-size(@size) {
   width: @size;
   .skeleton-element-common-size(@size);
@@ -196,6 +221,10 @@
   .skeleton-element-common-size(@size);
 }
 
+.skeleton-element-list-size(@size) {
+  width: 100%;
+  .skeleton-element-common-size(@size);
+}
 .skeleton-element-common-size(@size) {
   height: @size;
   line-height: @size;

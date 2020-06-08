@@ -131,7 +131,7 @@ class Demo extends React.Component {
               </Radio.Group>
             </Form.Item>
           </Form>
-          <Skeleton.List style={{ width: '300px' }} active={listActive} size={listSize} />
+          <Skeleton.List style={{ width: '100%' }} active={listActive} size={listSize} />
         </div>
       </div>
     );
