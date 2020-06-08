@@ -108,7 +108,7 @@ export interface CascaderProps {
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
-  dropdownRender?: (orginContent: React.ReactElement) => React.ReactElement
+  dropdownRender?: (menus: React.ReactNode) => React.ReactNode
 }
 
 export interface CascaderState {
