@@ -1,3 +1,3 @@
-import vi_VN from '../../date-picker/locale/vi_VN';
+import viVN from '../../date-picker/locale/vi_VN';
 
-export default vi_VN;
+export default viVN;
