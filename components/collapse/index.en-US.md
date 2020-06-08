@@ -39,9 +39,3 @@ A content area which can be collapsed and expanded.
 | key | Unique key identifying the panel from among its siblings | string\|number | - |  |
 | showArrow | If `false`, panel will not show arrow icon | boolean | `true` |  |
 | extra | extra element in the corner | ReactNode | - |  |
-
-<style>
-[data-theme="dark"] .site-collapse-ghost-wrapper {
-  background: rgba(255, 255, 255, 0.08);
-}
-</style>

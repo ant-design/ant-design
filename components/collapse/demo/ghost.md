@@ -25,26 +25,17 @@ const text = `
 `;
 
 ReactDOM.render(
-  <div className="site-collapse-ghost-wrapper">
-    <Collapse defaultActiveKey={['1']} ghost>
-      <Panel header="This is panel header 1" key="1">
-        <p>{text}</p>
-      </Panel>
-      <Panel header="This is panel header 2" key="2">
-        <p>{text}</p>
-      </Panel>
-      <Panel header="This is panel header 3" key="3">
-        <p>{text}</p>
-      </Panel>
-    </Collapse>
-  </div>,
+  <Collapse defaultActiveKey={['1']} ghost>
+    <Panel header="This is panel header 1" key="1">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 2" key="2">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 3" key="3">
+      <p>{text}</p>
+    </Panel>
+  </Collapse>,
   mountNode,
 );
 ```
-
-<style>
-.site-collapse-ghost-wrapper {
-  padding: 26px 16px 16px;
-  background: #f5f5f5;
-}
-</style>
