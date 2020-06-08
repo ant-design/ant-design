@@ -21,11 +21,13 @@ class Demo extends React.Component {
     buttonActive: false,
     avatarActive: false,
     inputActive: false,
+    listActive: false,
     buttonSize: 'default',
     avatarSize: 'default',
     inputSize: 'default',
     buttonShape: 'default',
     avatarShape: 'circle',
+    listSize: 'default',
   };
 
   handleActiveChange = prop => checked => {
@@ -50,6 +52,8 @@ class Demo extends React.Component {
       inputSize,
       buttonShape,
       avatarShape,
+      listSize,
+      listActive,
     } = this.state;
     return (
       <div>
@@ -112,6 +116,22 @@ class Demo extends React.Component {
             </Form.Item>
           </Form>
           <Skeleton.Input style={{ width: '300px' }} active={inputActive} size={inputSize} />
+        </div>
+        <br />
+        <div>
+          <Form layout="inline" style={{ marginBottom: 16 }}>
+            <Form.Item label="ListActive">
+              <Switch checked={listActive} onChange={this.handleActiveChange('listActive')} />
+            </Form.Item>
+            <Form.Item label="ListSize">
+              <Radio.Group value={listSize} onChange={this.handleSizeChange('listSize')}>
+                <Radio.Button value="default">Default</Radio.Button>
+                <Radio.Button value="large">Large</Radio.Button>
+                <Radio.Button value="small">Small</Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+          </Form>
+          <Skeleton.List />
         </div>
       </div>
     );
