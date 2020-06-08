@@ -238,7 +238,7 @@ class Demo extends React.Component {
     const importReactReg = /import(\D*)from 'react';/;
     const matchImportReact = parsedSourceCode.match(importReactReg);
     if (matchImportReact) {
-      importReactContent = matchImportReact[0];
+      [importReactContent] = matchImportReact;
       parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
     }
 

@@ -116,8 +116,11 @@ Result.defaultProps = {
   status: 'info',
 };
 
+// eslint-disable-next-line prefer-destructuring
 Result.PRESENTED_IMAGE_403 = ExceptionMap[403];
+// eslint-disable-next-line prefer-destructuring
 Result.PRESENTED_IMAGE_404 = ExceptionMap[404];
+// eslint-disable-next-line prefer-destructuring
 Result.PRESENTED_IMAGE_500 = ExceptionMap[500];
 
 export default Result;
