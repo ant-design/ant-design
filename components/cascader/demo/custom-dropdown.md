@@ -51,12 +51,12 @@ const options = [
   },
 ];
 
-function dropdownRender (originContent) {
+function dropdownRender(menus) {
   return (
     <div>
-      { originContent }
-      <Divider style={{ margin: 0 }}/>
-      <div style={{ margin: 8 }}>The footer is not very short.</div>
+      {menus}
+      <Divider style={{ margin: 0 }} />
+      <div style={{ padding: 8 }}>The footer is not very short.</div>
     </div>
   );
 }
