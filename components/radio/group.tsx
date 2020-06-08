@@ -1,12 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
-import {
-  RadioGroupProps,
-  RadioChangeEvent,
-  RadioGroupComponent,
-  RadioGroupButtonStyle,
-} from './interface';
+import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
@@ -59,7 +54,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       onMouseLeave,
     } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const optionsPrefixCls = component === 'button' ? `${prefixCls}-button` : prefixCls;
+    const Component = component;
     const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用
@@ -68,29 +63,29 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
         if (typeof option === 'string') {
           // 此处类型自动推导为 string
           return (
-            <Radio
+            <Component
               key={option}
-              prefixCls={optionsPrefixCls}
+              prefixCls={prefixCls}
               disabled={disabled}
               value={option}
               checked={value === option}
             >
               {option}
-            </Radio>
+            </Component>
           );
         }
         // 此处类型自动推导为 { label: string value: string }
         return (
-          <Radio
+          <Component
             key={`radio-group-value-options-${option.value}`}
-            prefixCls={optionsPrefixCls}
+            prefixCls={prefixCls}
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}
             style={option.style}
           >
             {option.label}
-          </Radio>
+          </Component>
         );
       });
     }
@@ -134,7 +129,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
 
 RadioGroup.defaultProps = {
   buttonStyle: 'outline' as RadioGroupButtonStyle,
-  component: 'default' as RadioGroupComponent,
+  component: Radio,
 };
 
 export default React.memo(RadioGroup);

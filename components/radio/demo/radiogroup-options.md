@@ -77,7 +77,7 @@ class App extends React.Component {
           options={options}
           onChange={this.onChange3}
           value={value3}
-          component="button"
+          component={Radio.Button}
         />
         <br />
         <br />
@@ -85,7 +85,7 @@ class App extends React.Component {
           options={optionsWithDisabled}
           onChange={this.onChange4}
           value={value4}
-          component="button"
+          component={Radio.Button}
           buttonStyle="solid"
         />
       </>
