@@ -21,6 +21,8 @@ export interface StatisticProps extends FormatConfig {
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
@@ -35,22 +37,19 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     prefix,
     suffix,
     direction,
+    onMouseEnter,
+    onMouseLeave,
   } = props;
-
-  let valueNode: React.ReactNode = <StatisticNumber {...props} value={value} />;
-
-  if (valueRender) {
-    valueNode = valueRender(valueNode);
-  }
+  const valueNode = <StatisticNumber {...props} value={value} />;
   const cls = classNames(prefixCls, className, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
   return (
-    <div className={cls} style={style}>
+    <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <div style={valueStyle} className={`${prefixCls}-content`}>
         {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-        {valueNode}
+        {valueRender ? valueRender(valueNode) : valueNode}
         {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
       </div>
     </div>

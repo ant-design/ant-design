@@ -63,6 +63,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   componentDidUpdate(prevProps: AvatarProps) {
     if (prevProps.src !== this.props.src) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ isImgExist: true, scale: 1 });
     }
     if (prevProps.children !== this.props.children || prevProps.gap !== this.props.gap) {
@@ -179,7 +180,9 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         children = (
           <span
             className={`${prefixCls}-string`}
-            ref={(node: HTMLElement) => (this.avatarChildren = node)}
+            ref={(node: HTMLElement) => {
+              this.avatarChildren = node;
+            }}
             style={{ ...sizeChildrenStyle, ...childrenStyle }}
           >
             {children}
@@ -195,7 +198,9 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
           <span
             className={`${prefixCls}-string`}
             style={{ opacity: 0 }}
-            ref={(node: HTMLElement) => (this.avatarChildren = node)}
+            ref={(node: HTMLElement) => {
+              this.avatarChildren = node;
+            }}
           >
             {children}
           </span>
@@ -213,7 +218,9 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         {...others}
         style={{ ...sizeStyle, ...others.style }}
         className={classString}
-        ref={(node: HTMLElement) => (this.avatarNode = node)}
+        ref={(node: HTMLElement) => {
+          this.avatarNode = node;
+        }}
       >
         {children}
       </span>

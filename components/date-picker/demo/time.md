@@ -28,7 +28,7 @@ function onOk(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker showTime onChange={onChange} onOk={onOk} />
     <br />
     <RangePicker
@@ -37,7 +37,7 @@ ReactDOM.render(
       onChange={onChange}
       onOk={onOk}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

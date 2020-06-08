@@ -15,6 +15,39 @@ timeline: true
 
 ---
 
+## 4.3.3
+
+`2020-06-07`
+
+- 🐞 修复 Drawer 无法显示的问题。[#24802](https://github.com/ant-design/ant-design/pull/24802)
+- 🐞 修复 Menu.SubMenu 滚动区域无法交互的问题。[#24806](https://github.com/ant-design/ant-design/pull/24806)
+
+## 4.3.2
+
+`2020-06-06`
+
+- 🐞 修复 Tag.CheckableTag 不支持 `onClick` 和 `stopPropagation` 的问题。[#24743](https://github.com/ant-design/ant-design/pull/24743)
+- 🐞 修复 Drawer 支持通过 ConfigProvider 来全局设置 `getPrefixCls` 和 `getPopupContainer`。[#24727](https://github.com/ant-design/ant-design/pull/24727)
+- 🐞 修复 Button 在父组件重新渲染时 `loading.delay` 会重复触发的问题。[#24713](https://github.com/ant-design/ant-design/pull/24713)
+- 🐞 修复 Dropdown 带图标 `icon` 菜单项的链接色彩。[#24707](https://github.com/ant-design/ant-design/pull/24707) [#24702](https://github.com/ant-design/ant-design/pull/24702)
+- Select
+  - 🐞 修复 Select 在紧凑模式下表现不正常。[#24706](https://github.com/ant-design/ant-design/pull/24706)
+  - ⚡️ 优化 Select 多选模式的性能。[#24785](https://github.com/ant-design/ant-design/pull/24785) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 修复 Calendar 在同一个面板下选择日期也会触发 `onPanelChange` 的问题。[#24695](https://github.com/ant-design/ant-design/pull/24695)
+- 🐞 修复 Input 组件在 IE11 中高度异常问题。[#24673](https://github.com/ant-design/ant-design/pull/24673) [@xiaosongxiaosong](https://github.com/xiaosongxiaosong)
+- 🐞 修复 Radio 的 TypeScript 定义错误。[#24693](https://github.com/ant-design/ant-design/pull/24693) [@hengkx](https://github.com/hengkx)
+- 🐞 修复 Statistic 不能包裹 Tooltip 的问题。[#24782](https://github.com/ant-design/ant-design/pull/24782)
+- 🐞 修复 TimePicker.RangePicker 指定 `className` 后无边框样式失效的问题。[#24781](https://github.com/ant-design/ant-design/pull/24781)
+- 🐞 修复 List 翻页时 `onChange` 不触发的问题。[#24514](https://github.com/ant-design/ant-design/pull/24514)
+- 🌐 国际化
+  - 🇮🇱 Form 校验文案增加希伯来语（以色列）。[#24716](https://github.com/ant-design/ant-design/pull/24716) [@israelKusayev](https://github.com/israelKusayev)
+  - 🇰🇷 Form 校验文案增加韩文。[#24783](https://github.com/ant-design/ant-design/pull/24783) [@Jaewoook](https://github.com/Jaewoook)
+- 💄 新增 less 变量 `@table-font-size`，`@table-font-size-md` 和 `@table-font-size-sm`，用于自定义 Table 文字大小。[#24714](https://github.com/ant-design/ant-design/pull/24714) [@morenyang](https://github.com/morenyang)
+- RTL
+  - 💄 优化 Tabs 标签下拉框在 RTL 模式下样式。[#24715](https://github.com/ant-design/ant-design/pull/24715)
+  - 💄 增加 `Modal.method()` RTL 模式支持，仅限 hooks 用法。[#24682](https://github.com/ant-design/ant-design/pull/24682)
+  - 💄 修复 Badge RTL 模式位置偏移量设置。[#24724](https://github.com/ant-design/ant-design/pull/24724)
+
 ## 4.3.1
 
 `2020-06-02`

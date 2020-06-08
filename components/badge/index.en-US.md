@@ -13,22 +13,12 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 ## API
 
-```jsx
-<Badge count={5}>
-  <a href="#" className="head-example" />
-</Badge>
-```
-
-```jsx
-<Badge count={5} />
-```
-
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | color | Customize Badge dot color | string | - |  |
 | count | Number to show in badge | ReactNode |  |  |
 | dot | Whether to display a red dot instead of `count` | boolean | `false` |  |
-| offset | set offset of the badge dot, like`[x, y]` | `[number, number]` | - |  |
+| offset | set offset of the badge dot | `[number, number]` | - |  |
 | overflowCount | Max count to show | number | 99 |  |
 | showZero | Whether to show badge when `count` is zero | boolean | `false` |  |
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` |  |

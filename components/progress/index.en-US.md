@@ -2,7 +2,7 @@
 category: Components
 type: Feedback
 title: Progress
-cover: https://gw.alipayobjects.com/zos/antfincdn/%24X8q%26OILIY/Progress.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 ---
 
 Display the current progress of an operation flow.

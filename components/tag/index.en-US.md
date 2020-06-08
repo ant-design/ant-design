@@ -2,7 +2,7 @@
 category: Components
 type: Data Display
 title: Tag
-cover: https://gw.alipayobjects.com/zos/antfincdn/RkyisJo2r%267/Tag.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 ---
 
 Tag for categorizing or markup.
@@ -19,7 +19,6 @@ Tag for categorizing or markup.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| afterClose | Callback executed when close animation is completed, please use `onClose`, we will remove this in the next version | () => void | - |
 | closable | Whether the Tag can be closed | boolean | `false` |
 | color | Color of the Tag | string | - |
 | onClose | Callback executed when tag is closed | (e) => void | - |

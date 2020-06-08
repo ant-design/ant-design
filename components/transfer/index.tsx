@@ -222,7 +222,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
 
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
-    const value = e.target.value;
+    const { value } = e.target;
     if (onSearch) {
       onSearch(direction, value);
     }

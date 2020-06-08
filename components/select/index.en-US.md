@@ -2,7 +2,7 @@
 category: Components
 type: Data Entry
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/oCqbyNvbA/Select.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 ---
 
 Select component to select value from options.
@@ -32,7 +32,7 @@ Select component to select value from options.
 | disabled | Whether disabled select | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | true |  |
-| dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
+| dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | style of dropdown menu | CSSProperties | - |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |

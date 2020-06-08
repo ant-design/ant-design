@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { UserOutlined } from '@ant-design/icons';
 import notification from '..';
 
 describe('notification', () => {
@@ -159,5 +160,24 @@ describe('notification', () => {
       closeIcon: <span className="test-customize-icon" />,
     });
     expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
+  });
+
+  it('support config duration', () => {
+    notification.config({
+      duration: 0,
+    });
+    notification.open({
+      message: 'whatever',
+    });
+    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+  });
+
+  it('support icon', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      icon: <UserOutlined />,
+    });
+    expect(document.querySelectorAll('.anticon-user').length).toBe(1);
   });
 });

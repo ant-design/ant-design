@@ -77,11 +77,11 @@ class ControlledRangePicker extends React.Component {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <ControlledDatePicker />
     <br />
     <ControlledRangePicker />
-  </div>,
+  </>,
   mountNode,
 );
 ```

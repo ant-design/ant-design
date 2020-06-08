@@ -307,7 +307,8 @@ describe('Anchor Render', () => {
       let start = 0;
 
       const handler = () => {
-        return (start += 1000);
+        start += 1000;
+        return start;
       };
 
       return jest.spyOn(Date, 'now').mockImplementation(handler);
@@ -384,7 +385,8 @@ describe('Anchor Render', () => {
       let start = 0;
 
       const handler = () => {
-        return (start += 1000);
+        start += 1000;
+        return start;
       };
 
       return jest.spyOn(Date, 'now').mockImplementation(handler);
@@ -432,7 +434,8 @@ describe('Anchor Render', () => {
       let start = 0;
 
       const handler = () => {
-        return (start += 1000);
+        start += 1000;
+        return start;
       };
 
       return jest.spyOn(Date, 'now').mockImplementation(handler);
