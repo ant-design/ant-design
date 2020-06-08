@@ -2,7 +2,7 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const BundleAnalyzerPluginCom = require('@bundle-analyzer/webpack-plugin');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');

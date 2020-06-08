@@ -53,7 +53,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
     isValidElement(childNodes[0]) &&
     !isSelectOptionOrSelectOptGroup(childNodes[0])
   ) {
-    customizeInput = childNodes[0];
+    [customizeInput] = childNodes;
   }
 
   const getInputElement = (): React.ReactElement => customizeInput;

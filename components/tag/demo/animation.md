@@ -53,7 +53,9 @@ class EditableTagGroup extends React.Component {
     });
   };
 
-  saveInputRef = input => (this.input = input);
+  saveInputRef = input => {
+    this.input = input;
+  };
 
   forMap = tag => {
     const tagElem = (

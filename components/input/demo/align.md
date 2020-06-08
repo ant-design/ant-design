@@ -23,9 +23,7 @@ import {
 } from 'antd';
 
 const { Text } = Typography;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
-const Option = Select.Option;
+const { Option } = Select;
 const { MonthPicker, RangePicker } = DatePicker;
 
 const narrowStyle = {
@@ -91,10 +89,10 @@ ReactDOM.render(
     <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} />
     <RangePicker />
     <MonthPicker />
-    <RadioGroup defaultValue="a">
-      <RadioButton value="a">Hangzhou</RadioButton>
-      <RadioButton value="b">Shanghai</RadioButton>
-    </RadioGroup>
+    <Radio.Group defaultValue="a">
+      <Radio.Button value="a">Hangzhou</Radio.Button>
+      <Radio.Button value="b">Shanghai</Radio.Button>
+    </Radio.Group>
     <AutoComplete style={{ width: 100 }} placeholder="input here" />
     <br />
     <Input prefix="$" addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />

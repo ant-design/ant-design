@@ -1,3 +1,3 @@
-import da_DK from '../../date-picker/locale/da_DK';
+import daDK from '../../date-picker/locale/da_DK';
 
-export default da_DK;
+export default daDK;
