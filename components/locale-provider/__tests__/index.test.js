@@ -17,6 +17,7 @@ import {
   Select,
   Transfer,
 } from '../..';
+import gaIE from '../ga_IE';
 import arEG from '../ar_EG';
 import bgBG from '../bg_BG';
 import caES from '../ca_ES';
@@ -70,6 +71,7 @@ import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
 const locales = [
+  gaIE,
   arEG,
   bgBG,
   caES,
