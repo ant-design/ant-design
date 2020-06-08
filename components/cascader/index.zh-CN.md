@@ -45,6 +45,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/cOHaAyTQ3u/Cascader.svg
 | style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | value | 指定选中项 | string\[] \| number\[] | - |  |
+| dropdownRender | 自定义下拉框内容 | `(menus: ReactNode) => ReactNode` | - | 4.4.0 |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |  |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |  |
 

@@ -44,6 +44,7 @@ Cascade selection box.
 | style | additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | selected value | string\[] \| number\[] | - |  |
+| dropdownRender | Customize dropdown content | `(menus: ReactNode) => ReactNode` | - | 4.4.0 |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |  |
 | onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |  |
 

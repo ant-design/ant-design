@@ -108,6 +108,7 @@ export interface CascaderProps {
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
+  dropdownRender?: (menus: React.ReactNode) => React.ReactNode
 }
 
 export interface CascaderState {
@@ -461,6 +462,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           notFoundContent,
           popupClassName,
           bordered,
+          dropdownRender,
           ...otherProps
         } = props;
         const mergedSize = customizeSize || size;
@@ -625,6 +627,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             loadingIcon={loadingIcon}
             popupClassName={rcCascaderPopupClassName}
             popupPlacement={this.getPopupPlacement(direction)}
+            dropdownRender={dropdownRender}
           >
             {input}
           </RcCascader>
