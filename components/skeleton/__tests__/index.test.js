@@ -14,7 +14,6 @@ describe('Skeleton', () => {
   const genSkeletonButton = props => mount(<Skeleton.Button {...props} />);
   const genSkeletonAvatar = props => mount(<Skeleton.Avatar {...props} />);
   const genSkeletonInput = props => mount(<Skeleton.Input {...props} />);
-  const genSkeletonList = props => mount(<Skeleton.List {...props} />);
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
@@ -134,21 +133,6 @@ describe('Skeleton', () => {
       expect(wrapperDefault.render()).toMatchSnapshot();
       const wrapperLarge = genSkeletonInput({ size: 'large' });
       expect(wrapperLarge.render()).toMatchSnapshot();
-    });
-  });
-
-  describe('list element', () => {
-    it('active', () => {
-      const wrapper = genSkeletonList({ active: true });
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-    it('size', () => {
-      const wrapperDefault = genSkeletonList({ size: 'default' });
-      expect(wrapperDefault.render()).toMatchSnapshot();
-      const wrapperLarge = genSkeletonList({ size: 'large' });
-      expect(wrapperLarge.render()).toMatchSnapshot();
-      const wrapperSmall = genSkeletonList({ size: 'small' });
-      expect(wrapperSmall.render()).toMatchSnapshot();
     });
   });
 });
