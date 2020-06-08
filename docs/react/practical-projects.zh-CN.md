@@ -19,11 +19,11 @@ title: 项目实战
 
 ```bash
 $ mkdir myapp && cd myapp
-$ yarn create @umijs/umi-app
+$ yarn create umi
 $ yarn
 ```
 
-> 如果你使用 npm，可执行 `npx @umijs/create-umi-app`，效果一致。
+> 如果你使用 npm，可执行 `npx create-umi`，效果一致。
 
 ## 安装插件集
 
@@ -73,10 +73,13 @@ export default defineConfig({
 
 然后新建 `src/components/ProductList.tsx` 文件：
 
-```js
+```tsx
 import { Table, Popconfirm, Button } from 'antd';
 
-const ProductList = ({ onDelete, products }) => {
+const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
+  onDelete,
+  products,
+}) => {
   const columns = [
     {
       title: 'Name',
@@ -99,67 +102,57 @@ const ProductList = ({ onDelete, products }) => {
 export default ProductList;
 ```
 
-## 定义 dva Model
+## 简易数据管理方案
 
-完成 UI 后，现在开始处理数据和逻辑。
+`@umijs/plugin-model` 是一种基于 hooks 范式的简单数据流方案，可以在一定情况下替代 dva 来进行中台的全局数据流。我们约定在 `src/models`目录下的文件为项目定义的 model 文件。每个文件需要默认导出一个 function，该 function 定义了一个 Hook，不符合规范的文件我们会过滤掉。
 
-dva 通过 `model` 的概念把一个领域的模型管理起来，包含同步更新 state 的 reducers，处理异步逻辑的 effects，订阅数据源的 subscriptions 。
+文件名则对应最终 model 的 name，你可以通过插件提供的 API 来消费 model 中的数据。
 
-新建 model `src/models/products.ts`，
+我们以一个简单的表格作为示例。首先需要新建文件 `src/models/useProductList.ts`。
 
-```js
-export default {
-  namespace: 'products',
-  state: [
-    { name: 'dva', id: 'dva' },
-    { name: 'antd', id: 'antd' },
-  ],
-  reducers: {
-    delete(state, { payload: id }) {
-      return state.filter(item => item.id !== id);
-    },
-  },
-};
+```tsx
+import { useRequest } from 'umi';
+import { queryProductList } from '@/services/product';
+
+export default function useProductList(params: { pageSize: number; current: number }) {
+  const msg = useRequest(() => queryUserList(params));
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      msg.run();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  return {
+    dataSource: msg.data,
+    reload: msg.run,
+    loading: msg.loading,
+    deleteProducts,
+  };
+}
 ```
-
-这个 model 里：
-
-- `namespace` 表示在全局 state 上的 key
-- `state` 是初始值，在这里是空数组
-- `reducers` 等同于 redux 里的 reducer，接收 action，同步更新 state
-
-umi 里约定 `src/models` 下的 model 会被自动注入，你无需手动注入。
-
-## connect 起来
-
-到这里，我们已经单独完成了 model 和 component，那么他们如何串联起来呢?
-
-dva 提供了 `connect` 方法。如果你熟悉 redux，这个 connect 来自 react-redux。
 
 编辑 `src/pages/products.tsx`，替换为以下内容：
 
-```js
-import { connect } from 'umi';
+```tsx
+import { useModel } from 'umi';
 import ProductList from '@/components/ProductList';
 
-const Products = ({ dispatch, products }) => {
-  function handleDelete(id) {
-    dispatch({
-      type: 'products/delete',
-      payload: id,
-    });
-  }
+const Products = () => {
+  const { dataSource, reload, deleteProducts } = useModel('useUserList');
   return (
     <div>
-      <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={products} />
+      <a onClick={() => reload()}>reload</a>
+      <ProductList onDelete={deleteProducts} products={dataSource} />
     </div>
   );
 };
 
-export default connect(({ products }) => ({
-  products,
-}))(Products);
+export default Products;
 ```
 
 执行启动命令：
@@ -171,6 +164,58 @@ $ yarn start
 访问 [http://localhost:8000](http://localhost:8000/)，应该能看到以下效果：
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/dPsy4tFHN3/umi.gif" />
+
+### ProTable
+
+一个中后台页面中很多数据都不需要跨页面共享，models 在一些时候也是不需要的。
+
+```tsx
+import ProTable from '@ant-design/pro-table';
+import { queryProductList } from '@/services/product';
+
+const Products = () => {
+  const actionRef = useRef<ActionType>();
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      actionRef.current?.reload();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Actions',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
+    },
+  ];
+
+  return (
+    <ProTable<{ name: string }>
+      headerTitle="查询表格"
+      actionRef={actionRef}
+      rowKey="name"
+      request={(params, sorter, filter) => queryProductList({ ...params, sorter, filter })}
+      columns={columns}
+    />
+  );
+};
+```
+
+ProTable 提供了预设逻辑来处理 loading 和分页,
 
 ## 构建应用
 
