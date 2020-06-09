@@ -21,19 +21,19 @@ export function useCacheErrors(
 
   const [, forceUpdate] = React.useState({});
 
-  const update = () => {
+  const update = (newErrors: React.ReactNode[]) => {
     const prevVisible = cacheRef.current.visible;
-    const newVisible = !!errors.length;
+    const newVisible = !!newErrors.length;
 
     const prevErrors = cacheRef.current.errors;
-    cacheRef.current.errors = errors;
+    cacheRef.current.errors = newErrors;
     cacheRef.current.visible = newVisible;
 
     if (prevVisible !== newVisible) {
       changeTrigger(newVisible);
     } else if (
-      prevErrors.length !== errors.length ||
-      prevErrors.some((prevErr, index) => prevErr !== errors[index])
+      prevErrors.length !== newErrors.length ||
+      prevErrors.some((prevErr, index) => prevErr !== newErrors[index])
     ) {
       forceUpdate({});
     }
@@ -41,13 +41,17 @@ export function useCacheErrors(
 
   React.useEffect(() => {
     if (!directly) {
-      const timeout = setTimeout(update, 10);
-      return () => clearTimeout(timeout);
+      const timeout = setTimeout(() => {
+        update(errors);
+      }, 10);
+      return () => {
+        clearTimeout(timeout);
+      };
     }
   }, [errors]);
 
   if (directly) {
-    update();
+    update(errors);
   }
 
   return [cacheRef.current.visible, cacheRef.current.errors];

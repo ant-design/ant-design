@@ -10,11 +10,6 @@ import { sleep } from '../../../tests/utils';
 
 jest.mock('scroll-into-view-if-needed');
 
-const delay = (timeout = 0) =>
-  new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-
 describe('Form', () => {
   mountTest(Form);
   mountTest(Form.Item);
@@ -27,7 +22,7 @@ describe('Form', () => {
 
   async function change(wrapper, index, value) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
-    await delay(50);
+    await sleep(100);
     wrapper.update();
   }
 
@@ -43,133 +38,6 @@ describe('Form', () => {
   afterAll(() => {
     errorSpy.mockRestore();
     scrollIntoView.mockRestore();
-  });
-
-  describe('List', () => {
-    function testList(name, renderField) {
-      it(name, async () => {
-        const wrapper = mount(
-          <Form>
-            <Form.List name="list">
-              {(fields, { add, remove }) => (
-                <>
-                  {fields.map(field => renderField(field))}
-                  <Button className="add" onClick={add}>
-                    Add
-                  </Button>
-                  <Button
-                    className="remove"
-                    onClick={() => {
-                      remove(1);
-                    }}
-                  >
-                    Remove
-                  </Button>
-                </>
-              )}
-            </Form.List>
-          </Form>,
-        );
-
-        async function operate(className) {
-          wrapper.find(className).last().simulate('click');
-          await delay();
-          wrapper.update();
-        }
-
-        await operate('.add');
-        expect(wrapper.find(Input).length).toBe(1);
-
-        await operate('.add');
-        expect(wrapper.find(Input).length).toBe(2);
-
-        await change(wrapper, 1, '');
-        wrapper.update();
-        await sleep(300);
-        expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
-
-        await operate('.remove');
-        wrapper.update();
-        expect(wrapper.find(Input).length).toBe(1);
-        expect(wrapper.find('.ant-form-item-explain').length).toBe(0);
-      });
-    }
-
-    testList('operation correctly', field => (
-      <Form.Item {...field} rules={[{ required: true }]}>
-        <Input />
-      </Form.Item>
-    ));
-
-    testList('nest noStyle', field => (
-      <Form.Item key={field.key}>
-        <Form.Item noStyle {...field} rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-      </Form.Item>
-    ));
-
-    it('correct onFinish values', async () => {
-      async function click(wrapper, className) {
-        wrapper.find(className).last().simulate('click');
-        await delay();
-        wrapper.update();
-      }
-
-      const onFinish = jest.fn().mockImplementation(() => {});
-
-      const wrapper = mount(
-        <Form
-          onFinish={v => {
-            if (typeof v.list[0] === 'object') {
-              /* old version led to SyntheticEvent be passed as an value here
-                that led to weird infinite loop somewhere and OutOfMemory crash */
-              v = new Error('We expect value to be a primitive here');
-            }
-            onFinish(v);
-          }}
-        >
-          <Form.List name="list">
-            {(fields, { add, remove }) => (
-              <>
-                {fields.map(field => (
-                  // key is in a field
-                  // eslint-disable-next-line react/jsx-key
-                  <Form.Item {...field}>
-                    <Input />
-                  </Form.Item>
-                ))}
-                <Button className="add" onClick={add}>
-                  Add
-                </Button>
-                <Button className="remove" onClick={() => remove(0)}>
-                  Remove
-                </Button>
-              </>
-            )}
-          </Form.List>
-        </Form>,
-      );
-
-      await click(wrapper, '.add');
-      await change(wrapper, 0, 'input1');
-      wrapper.find('form').simulate('submit');
-      await delay();
-      expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1'] });
-
-      await click(wrapper, '.add');
-      await change(wrapper, 1, 'input2');
-      await click(wrapper, '.add');
-      await change(wrapper, 2, 'input3');
-      wrapper.find('form').simulate('submit');
-      await delay();
-      expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1', 'input2', 'input3'] });
-
-      await click(wrapper, '.remove'); // will remove first input
-      wrapper.find('form').simulate('submit');
-      await delay();
-      expect(onFinish).toHaveBeenLastCalledWith({ list: ['input2', 'input3'] });
-    });
   });
 
   it('noStyle Form.Item', async () => {
@@ -300,7 +168,7 @@ describe('Form', () => {
 
     expect(scrollIntoView).not.toHaveBeenCalled();
     wrapper.find('form').simulate('submit');
-    await delay(50);
+    await sleep(50);
     expect(scrollIntoView).toHaveBeenCalled();
     expect(onFinishFailed).toHaveBeenCalled();
 
@@ -401,7 +269,7 @@ describe('Form', () => {
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual("'name' is required");
 
       await change(wrapper, 0, 'p');
-      await delay(100);
+      await sleep(100);
       wrapper.update();
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('not a p');
     }
@@ -585,9 +453,9 @@ describe('Form', () => {
     );
 
     wrapper.find('form').simulate('submit');
-    await delay(100);
+    await sleep(100);
     wrapper.update();
-    await delay(100);
+    await sleep(100);
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
@@ -642,7 +510,7 @@ describe('Form', () => {
       },
     });
 
-    await delay();
+    await sleep();
 
     expect(renderTimes).toEqual(1);
     expect(wrapper.find('input').props().value).toEqual('a');
