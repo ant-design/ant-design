@@ -12,6 +12,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
+      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
@@ -97,6 +98,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
+      style="margin-right:-000%"
     >
       <div
         aria-hidden="false"
@@ -185,6 +187,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-left"
+      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
