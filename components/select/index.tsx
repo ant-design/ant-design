@@ -4,11 +4,14 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import OptionProps from 'rc-select/lib/Option';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 type RawValue = string | number;
+
+export type OptionProps = typeof OptionProps;
 
 export type OptionType = typeof Option;
 
@@ -19,15 +22,6 @@ export interface LabeledValue {
 }
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
-
-export interface OptionProps {
-  disabled?: boolean;
-  value?: string | number;
-  title?: string;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
