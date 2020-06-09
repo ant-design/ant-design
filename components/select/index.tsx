@@ -20,6 +20,15 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
+export interface OptionProps {
+  disabled?: boolean;
+  value?: string | number;
+  title?: string;
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
