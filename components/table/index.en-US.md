@@ -289,7 +289,7 @@ Table total page count usually reduce after filter data, we defaultly return to 
 
 You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
 
-Also you can use the action param to determine when return to first page.
+Also you can use the action from extra param to determine when return to first page.
 
 ### Why Table pagination show size changer?
 
