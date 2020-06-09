@@ -42,7 +42,7 @@ import moment from 'moment';
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | minuteStep | 分钟选项间隔 | number | 1 |  |
 | open | 面板是否打开 | boolean | false |  |
-| placeholder | 没有值的时候显示的内容 | string | "请选择时间" |  |
+| placeholder | 没有值的时候显示的内容 | string \| \[string, string] | "请选择时间" |  |
 | popupClassName | 弹出层类名 | string | - |  |
 | popupStyle | 弹出层样式对象 | object | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
