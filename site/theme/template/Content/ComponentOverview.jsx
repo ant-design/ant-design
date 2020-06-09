@@ -77,7 +77,7 @@ const ComponentOverview = ({
             component =>
               !search.trim() ||
               component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
-              component.subtitle.toLowerCase().includes(search.trim().toLowerCase()),
+              (component.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
           return (
             <div key={group.title} className="components-overview">
