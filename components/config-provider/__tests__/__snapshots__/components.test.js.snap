@@ -25247,7 +25247,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
@@ -25331,7 +25330,6 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
@@ -25415,7 +25413,6 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
@@ -25499,7 +25496,6 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
@@ -25583,7 +25579,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"
@@ -25667,7 +25662,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   >
     <div
       class="prefix-Tabs-content prefix-Tabs-content-top"
-      style="margin-left:-000%"
     >
       <div
         aria-hidden="false"

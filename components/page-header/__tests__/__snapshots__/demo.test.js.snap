@@ -1253,7 +1253,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         >
           <div
             class="ant-tabs-content ant-tabs-content-top"
-            style="margin-left:-000%"
           >
             <div
               aria-hidden="false"
