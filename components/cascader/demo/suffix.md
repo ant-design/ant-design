@@ -1,5 +1,6 @@
 ---
 order: 11
+debug: true
 title:
   zh-CN: 自定义图标
   en-US: Custom Icons
