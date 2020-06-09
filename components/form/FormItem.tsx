@@ -258,7 +258,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           nameRef.current = [...mergedName];
           if (fieldKey) {
             const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
-            nameRef.current = [...mergedName.slice(-1), ...fieldKeys];
+            nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
