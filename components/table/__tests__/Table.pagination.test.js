@@ -131,6 +131,7 @@ describe('Table.pagination', () => {
           { key: 2, name: 'Tom' },
           { key: 3, name: 'Jerry' },
         ],
+        action: 'paginate',
       },
     );
 
@@ -244,6 +245,7 @@ describe('Table.pagination', () => {
           { key: 2, name: 'Tom' },
           { key: 3, name: 'Jerry' },
         ],
+        action: 'paginate',
       },
     );
     expect(onPaginationChange).toHaveBeenCalledWith(2, 10);

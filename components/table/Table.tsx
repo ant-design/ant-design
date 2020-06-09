@@ -24,6 +24,7 @@ import {
   TablePaginationConfig,
   SortOrder,
   TableLocale,
+  TableAction,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
@@ -178,7 +179,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Events =============================
   const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
-  const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>, reset: boolean = false) => {
+  const triggerOnChange = (
+    info: Partial<ChangeEventInfo<RecordType>>,
+    action: TableAction,
+    reset: boolean = false,
+  ) => {
     const changeInfo = {
       ...changeEventInfo,
       ...info,
@@ -205,12 +210,18 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
-        currentDataSource: getFilterData(
-          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-          changeInfo.filterStates!,
-        ),
-      });
+      onChange(
+        changeInfo.pagination!,
+        changeInfo.filters!,
+        changeInfo.sorter!,
+        {
+          currentDataSource: getFilterData(
+            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+            changeInfo.filterStates!,
+          ),
+          action,
+        },
+      );
     }
   };
 
@@ -231,6 +242,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         sorter,
         sorterStates,
       },
+      'sort',
       false,
     );
   };
@@ -260,6 +272,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         filters,
         filterStates,
       },
+      'filter',
       true,
     );
   };
@@ -288,9 +301,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
-    triggerOnChange({
-      pagination: { ...changeEventInfo.pagination, current, pageSize },
-    });
+    triggerOnChange(
+      {
+        pagination: { ...changeEventInfo.pagination, current, pageSize },
+      },
+      'paginate',
+    );
   };
 
   const [mergedPagination, resetPagination] = usePagination(

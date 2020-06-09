@@ -83,7 +83,7 @@ const columns = [
 | size | 表格大小 | `default` \| `middle` \| `small` | default |
 | summary | 总结栏 | (currentData) => ReactNode | - |
 | title | 表格标题 | Function(currentPageData) | - |
-| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) | - |
+| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |
 | onRow | 设置行属性 | Function(record, index) | - |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` |

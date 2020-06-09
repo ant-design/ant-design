@@ -8,6 +8,8 @@ import { CheckboxProps } from '../checkbox';
 import { PaginationProps } from '../pagination';
 import { Breakpoint } from '../_util/responsiveObserve';
 import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import { tuple } from '../_util/type';
+// import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -36,6 +38,9 @@ export interface TableLocale {
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;
+
+const TableActions = tuple('paginate', 'sort', 'filter');
+export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -156,6 +161,7 @@ export type TransformColumns<RecordType> = (
 
 export interface TableCurrentDataSource<RecordType> {
   currentDataSource: RecordType[];
+  action: TableAction;
 }
 
 export interface SorterResult<RecordType> {

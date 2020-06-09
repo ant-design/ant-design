@@ -78,7 +78,7 @@ const columns = [
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | summary | Summary content | (currentData) => ReactNode | - |
 | title | Table title renderer | Function(currentPageData) | - |
-| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) | - |
+| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
@@ -289,6 +289,8 @@ You can set `hideOnSinglePage` with `pagination` prop.
 Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
 
 You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
+
+Also you can use the action from extra param to determine when return to first page.
 
 ### Why Table pagination show size changer?
 
