@@ -24,7 +24,7 @@ Tag for categorizing or markup.
 | closeIcon | custom close icon                    | ReactNode   | -       | 4.4.0   |
 | onClose   | Callback executed when tag is closed | (e) => void | -       |         |
 | visible   | Whether the Tag is closed or not     | boolean     | `true`  |         |
-| icon      | Set the icon of tag                  | ReactNode   | -       |         |  |
+| icon      | Set the icon of tag                  | ReactNode   | -       |         |
 
 ### Tag.CheckableTag
 

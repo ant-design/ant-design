@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-可用过 `closeIcon` 自定义关闭按钮。
+可用 `closeIcon` 自定义关闭按钮。
 
 ## en-US
 
