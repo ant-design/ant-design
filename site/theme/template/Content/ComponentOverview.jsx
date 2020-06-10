@@ -25,7 +25,7 @@ const reportSearch = debounce(value => {
       event_label: value,
     });
   }
-}, 500);
+}, 2000);
 
 const { Title } = Typography;
 const ComponentOverview = ({
