@@ -57,7 +57,7 @@ ReactDOM.render(
     </Paragraph>
 
     <Paragraph>
-      Press <Text keyboard>Esc</Text> to exist...
+      Press <Text keyboard>Esc</Text> to exit...
     </Paragraph>
 
     <Divider />
