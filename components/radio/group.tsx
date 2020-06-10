@@ -1,7 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
-import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import {
+  RadioGroupProps,
+  RadioChangeEvent,
+  RadioGroupButtonStyle,
+  RadioGroupOptionType,
+} from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
@@ -43,7 +48,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       prefixCls: customizePrefixCls,
       className = '',
       options,
-      component,
+      optionType,
       buttonStyle,
       disabled,
       children,
@@ -54,7 +59,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       onMouseLeave,
     } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const Component = component;
+    const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
     const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用
@@ -63,29 +68,29 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
         if (typeof option === 'string') {
           // 此处类型自动推导为 string
           return (
-            <Component
+            <Radio
               key={option}
-              prefixCls={prefixCls}
+              prefixCls={optionsPrefixCls}
               disabled={disabled}
               value={option}
               checked={value === option}
             >
               {option}
-            </Component>
+            </Radio>
           );
         }
         // 此处类型自动推导为 { label: string value: string }
         return (
-          <Component
+          <Radio
             key={`radio-group-value-options-${option.value}`}
-            prefixCls={prefixCls}
+            prefixCls={optionsPrefixCls}
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}
             style={option.style}
           >
             {option.label}
-          </Component>
+          </Radio>
         );
       });
     }
@@ -129,7 +134,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
 
 RadioGroup.defaultProps = {
   buttonStyle: 'outline' as RadioGroupButtonStyle,
-  component: Radio,
+  optionType: 'default' as RadioGroupOptionType,
 };
 
 export default React.memo(RadioGroup);

@@ -38,7 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8cYb5seNB/Radio.svg
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | 无 |  |
 | value | 用于设置当前选中的值 | any |  |  |
 | onChange | 选项变化时的回调函数 | Function(e:Event) |  |  |
-| component | 用于设置 Radio 类型 | `default` \| `button` | `default` | 4.4.0 |
+| optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |
 
 ## 方法

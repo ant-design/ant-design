@@ -37,7 +37,7 @@ Radio group can wrap a group of `Radio`。
 | size | size for radio button style | `large` \| `middle` \| `small` |  |  |
 | value | Used for setting the currently selected value. | any |  |  |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) |  |  |
-| component | set Radio component | `default` \| `button` | `default` | 4.4.0 |
+| optionType | set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | buttonStyle | style type of radio button | `outline` \| `solid` | `outline` |  |
 
 ## Methods
