@@ -1,5 +1,6 @@
 ---
 order: 8
+debug: true
 title:
   zh-CN: 自定义关闭按钮
   en-US: Customize close

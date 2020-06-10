@@ -102,11 +102,11 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
   const renderCloseIcon = () => {
     if (closable) {
       return closeIcon ? (
-        <div className={`${prefixCls}-customize-close`} onClick={handleCloseClick}>
+        <div className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
           {closeIcon}
         </div>
       ) : (
-        <CloseOutlined onClick={handleCloseClick} />
+        <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
       );
     }
     return null;
