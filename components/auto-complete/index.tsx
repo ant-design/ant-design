@@ -37,7 +37,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (props, ref) => {
+const AutoComplete: React.ForwardRefRenderFunction<Select, AutoCompleteProps> = (props, ref) => {
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 

@@ -46,7 +46,7 @@ export const ConfigConsumer = ConfigContext.Consumer;
 // =========================== withConfigConsumer ===========================
 // We need define many types here. So let's put in the block region
 type IReactComponent<P = any> =
-  | React.StatelessComponent<P>
+  | React.FC<P>
   | React.ComponentClass<P>
   | React.ClassicComponentClass<P>;
 
