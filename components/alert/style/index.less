@@ -36,35 +36,35 @@
   }
 
   &-success {
-    background-color: @alert-success-bg-color;
-    border: @border-width-base @border-style-base @alert-success-border-color;
+    background-color: var(--alert-success-bg-color);
+    border: @border-width-base @border-style-base var(--alert-success-border-color);
     .@{alert-prefix-cls}-icon {
-      color: @alert-success-icon-color;
+      color: var(--alert-success-icon-color);
     }
   }
 
   &-info {
-    background-color: @alert-info-bg-color;
-    border: @border-width-base @border-style-base @alert-info-border-color;
+    background-color: var(--alert-info-bg-color);
+    border: @border-width-base @border-style-base var(--alert-info-border-color);
     .@{alert-prefix-cls}-icon {
-      color: @alert-info-icon-color;
+      color: var(--alert-info-icon-color);
     }
   }
 
   &-warning {
-    background-color: @alert-warning-bg-color;
-    border: @border-width-base @border-style-base @alert-warning-border-color;
+    background-color: var(--alert-warning-bg-color);
+    border: @border-width-base @border-style-base var(--alert-warning-border-color);
     .@{alert-prefix-cls}-icon {
-      color: @alert-warning-icon-color;
+      color: var(--alert-warning-icon-color);
     }
   }
 
   &-error {
-    background-color: @alert-error-bg-color;
-    border: @border-width-base @border-style-base @alert-error-border-color;
+    background-color: var(--alert-error-bg-color);
+    border: @border-width-base @border-style-base var(--alert-error-border-color);
 
     .@{alert-prefix-cls}-icon {
-      color: @alert-error-icon-color;
+      color: var(--alert-error-icon-color);
     }
 
     .@{alert-prefix-cls}-description > pre {
@@ -87,26 +87,26 @@
     cursor: pointer;
 
     .@{iconfont-css-prefix}-close {
-      color: @alert-close-color;
+      color: var(--alert-close-color);
       transition: color 0.3s;
       &:hover {
-        color: @alert-close-hover-color;
+        color: var(--alert-close-hover-color);
       }
     }
   }
 
   &-close-text {
-    color: @alert-close-color;
+    color: var(--alert-close-color);
     transition: color 0.3s;
     &:hover {
-      color: @alert-close-hover-color;
+      color: var(--alert-close-hover-color);
     }
   }
 
   &-with-description {
     position: relative;
     padding: @alert-with-description-padding;
-    color: @alert-text-color;
+    color: var(--alert-text-color);
     line-height: @line-height-base;
     border-radius: @border-radius-base;
   }
@@ -133,12 +133,12 @@
   &-with-description &-message {
     display: block;
     margin-bottom: 4px;
-    color: @alert-message-color;
+    color: var(--alert-message-color);
     font-size: @font-size-lg;
   }
 
   &-message {
-    color: @alert-message-color;
+    color: var(--alert-message-color);
   }
 
   &-with-description &-description {
