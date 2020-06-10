@@ -13,7 +13,7 @@
     margin-left: -4px;
     padding-left: 4px;
     overflow: auto;
-    background-color: @anchor-bg;
+    background-color: var(--anchor-bg);
   }
 
   &-ink {
@@ -27,7 +27,7 @@
       width: @anchor-border-width;
       height: 100%;
       margin: 0 auto;
-      background-color: @anchor-border-color;
+      background-color: var(--anchor-border-color);
       content: ' ';
     }
     &-ball {
@@ -36,8 +36,8 @@
       display: none;
       width: 8px;
       height: 8px;
-      background-color: @component-background;
-      border: 2px solid @primary-color;
+      background-color: var(--component-background);
+      border: 2px solid var(--primary-color);
       border-radius: 8px;
       transform: translateX(-50%);
       transition: top 0.3s ease-in-out;
@@ -60,7 +60,7 @@
       display: block;
       margin-bottom: 6px;
       overflow: hidden;
-      color: @text-color;
+      color: var(--text-color);
       white-space: nowrap;
       text-overflow: ellipsis;
       transition: all 0.3s;
@@ -71,7 +71,7 @@
     }
 
     &-active > &-title {
-      color: @primary-color;
+      color: var(--primary-color);
     }
   }
 
