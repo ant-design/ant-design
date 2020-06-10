@@ -21,7 +21,7 @@ interface ModalLocale {
   justOkText: string;
 }
 
-const HookModal: React.RefForwardingComponent<HookModalRef, HookModalProps> = (
+const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
   { afterClose, config },
   ref,
 ) => {
