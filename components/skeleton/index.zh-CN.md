@@ -63,4 +63,4 @@ cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 | 属性   | 说明             | 类型                            | 默认值 |
 | ------ | ---------------- | ------------------------------- | ------ |
 | active | 是否展示动画效果 | boolean                         | false  |
-| size   | 设置按钮的大小   | `large` \| `small` \| `default` | -      |
+| size   | 设置输入框的大小 | `large` \| `small` \| `default` | -      |

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { DeleteOutlined } from '@ant-design/icons';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { TransferItem, TransferLocale } from '.';
 import defaultLocale from '../locale/default';
 import Checkbox from '../checkbox';

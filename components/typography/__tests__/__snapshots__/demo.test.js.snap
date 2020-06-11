@@ -91,7 +91,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         Esc
       </kbd>
     </span>
-     to exist...
+     to exit...
   </div>
   <div
     class="ant-divider ant-divider-horizontal"

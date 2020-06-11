@@ -19,7 +19,7 @@ interface InternalTypographyProps extends TypographyProps {
   setContentRef?: (node: HTMLElement) => void;
 }
 
-const Typography: React.RefForwardingComponent<{}, InternalTypographyProps> = (
+const Typography: React.ForwardRefRenderFunction<{}, InternalTypographyProps> = (
   {
     prefixCls: customizePrefixCls,
     component = 'article',
