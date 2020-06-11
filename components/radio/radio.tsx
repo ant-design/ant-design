@@ -5,12 +5,17 @@ import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext from './context';
 import { composeRef } from '../_util/ref';
+import devWarning from '../_util/devWarning';
 
 const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (props, ref) => {
   const context = React.useContext(RadioGroupContext);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
+
+  React.useEffect(() => {
+    devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
+  }, []);
 
   const onChange = (e: RadioChangeEvent) => {
     if (props.onChange) {

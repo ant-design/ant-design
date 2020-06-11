@@ -59,11 +59,11 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       onMouseLeave,
     } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
     const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
+      const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
       childrenToRender = options.map(option => {
         if (typeof option === 'string') {
           // 此处类型自动推导为 string
@@ -134,7 +134,6 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
 
 RadioGroup.defaultProps = {
   buttonStyle: 'outline' as RadioGroupButtonStyle,
-  optionType: 'default' as RadioGroupOptionType,
 };
 
 export default React.memo(RadioGroup);
