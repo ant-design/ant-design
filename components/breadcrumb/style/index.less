@@ -6,7 +6,7 @@
 .@{breadcrumb-prefix-cls} {
   .reset-component;
 
-  color: @breadcrumb-base-color;
+  color: var(--breadcrumb-base-color);
   font-size: @breadcrumb-font-size;
 
   .@{iconfont-css-prefix} {
@@ -14,17 +14,17 @@
   }
 
   a {
-    color: @breadcrumb-link-color;
+    color: var(--breadcrumb-link-color);
     transition: color 0.3s;
     &:hover {
-      color: @breadcrumb-link-color-hover;
+      color: var(--breadcrumb-link-color-hover);
     }
   }
 
   & > span:last-child {
-    color: @breadcrumb-last-item-color;
+    color: var(--breadcrumb-last-item-color);
     a {
-      color: @breadcrumb-last-item-color;
+      color: var(--breadcrumb-last-item-color);
     }
   }
 
@@ -34,7 +34,7 @@
 
   &-separator {
     margin: @breadcrumb-separator-margin;
-    color: @breadcrumb-separator-color;
+    color: var(--breadcrumb-separator-color);
   }
 
   &-link {
