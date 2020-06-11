@@ -67,6 +67,18 @@ function flattenData<RecordType>(
   return list;
 }
 
+function traverseWithCallback<RecordType>(
+  children: RecordType[],
+  callback: (child: RecordType) => void,
+): void {
+  children.forEach(child => {
+    callback(child);
+    if ((child as any).children as RecordType[]) {
+      traverseWithCallback((child as any).children, callback);
+    }
+  });
+}
+
 export default function useSelection<RecordType>(
   rowSelection: TableRowSelection<RecordType> | undefined,
   config: UseSelectionConfig<RecordType>,
@@ -86,6 +98,7 @@ export default function useSelection<RecordType>(
     fixed,
     renderCell: customizeRenderCell,
     hideSelectAll,
+    checkStrictly,
   } = rowSelection || {};
 
   const {
@@ -196,7 +209,7 @@ export default function useSelection<RecordType>(
           key: 'all',
           text: tableLocale.selectionAll,
           onSelect() {
-            setSelectedKeys(data.map((record, index) => getRowKey(record, index)));
+            setSelectedKeys(data.map(record => getRowKey(record)));
           },
         };
       }
@@ -206,8 +219,8 @@ export default function useSelection<RecordType>(
           text: tableLocale.selectInvert,
           onSelect() {
             const keySet = new Set(mergedSelectedKeySet);
-            pageData.forEach((record, index) => {
-              const key = getRowKey(record, index);
+            pageData.forEach(record => {
+              const key = getRowKey(record);
 
               if (keySet.has(key)) {
                 keySet.delete(key);
@@ -248,8 +261,8 @@ export default function useSelection<RecordType>(
 
       // Get all checkbox props
       const checkboxPropsMap = new Map<Key, Partial<CheckboxProps>>();
-      flattedData.forEach((record, index) => {
-        const key = getRowKey(record, index);
+      flattedData.forEach(record => {
+        const key = getRowKey(record);
         const checkboxProps = (getCheckboxProps ? getCheckboxProps(record) : null) || {};
         checkboxPropsMap.set(key, checkboxProps);
 
@@ -335,8 +348,8 @@ export default function useSelection<RecordType>(
           );
         }
 
-        const allDisabled = flattedData.every((record, index) => {
-          const key = getRowKey(record, index);
+        const allDisabled = flattedData.every(record => {
+          const key = getRowKey(record);
           const checkboxProps = checkboxPropsMap.get(key) || {};
           return checkboxProps.disabled;
         });
@@ -361,8 +374,8 @@ export default function useSelection<RecordType>(
         index: number,
       ) => { node: React.ReactNode; checked: boolean };
       if (selectionType === 'radio') {
-        renderCell = (_, record, index) => {
-          const key = getRowKey(record, index);
+        renderCell = (_, record) => {
+          const key = getRowKey(record);
           const checked = keySet.has(key);
 
           return {
@@ -382,8 +395,8 @@ export default function useSelection<RecordType>(
           };
         };
       } else {
-        renderCell = (_, record, index) => {
-          const key = getRowKey(record, index);
+        renderCell = (_, record) => {
+          const key = getRowKey(record);
           const checked = keySet.has(key);
 
           // Record checked
@@ -449,10 +462,25 @@ export default function useSelection<RecordType>(
                     }
                   } else {
                     // Single record selected
+                    const affectedKeys = [key];
+                    if (checkStrictly && ((record as any).children as RecordType[])) {
+                      traverseWithCallback((record as any).children, (childRecord: RecordType) => {
+                        const disabled = getCheckboxProps
+                          ? !!getCheckboxProps(childRecord).disabled
+                          : false;
+                        if (!disabled) {
+                          affectedKeys.push(getRowKey(childRecord));
+                        }
+                      });
+                    }
                     if (checked) {
-                      keySet.delete(key);
+                      affectedKeys.forEach(affectedKey => {
+                        keySet.delete(affectedKey);
+                      });
                     } else {
-                      keySet.add(key);
+                      affectedKeys.forEach(affectedKey => {
+                        keySet.add(affectedKey);
+                      });
                     }
 
                     triggerSingleSelection(key, !checked, Array.from(keySet), nativeEvent);

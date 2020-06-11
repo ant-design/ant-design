@@ -111,6 +111,7 @@ const data = [
 
 // rowSelection objects indicates the need for row selection
 const rowSelection = {
+  checkStrictly: true,
   onChange: (selectedRowKeys, selectedRows) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
