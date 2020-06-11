@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以使用 `{index} => ReactNode` 的方式自定义每一个字符。
+可以使用 `({ index }) => ReactNode` 的方式自定义每一个字符。
 
 ## en-US
 
-Can customize each character using `{index} => ReactNode`.
+Can customize each character using `({ index }) => ReactNode`.
 
 ```jsx
 import { Rate } from 'antd';
