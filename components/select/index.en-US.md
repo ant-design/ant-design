@@ -46,7 +46,7 @@ Select component to select value from options.
 | notFoundContent | Specify content to show when no result matches.. | ReactNode | 'Not Found' |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }[] | - |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
-| optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` for `combobox`, `children` for other modes |  |
+| optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | 'children' |  |
 | placeholder | Placeholder of select | string\|ReactNode | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true |  |
 | showSearch | Whether show search input in single mode. | boolean | false |  |
@@ -59,7 +59,7 @@ Select component to select value from options.
 | value | Current selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | virtual | Disable virtual scroll when set to `false` | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
-| onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array&lt;Option>) | - |  |
+| onChange | Called when select an option or input value change | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | Called when a option is deselected, param is the selected option's value. Only called for multiple or tags, effective in multiple or tags mode only. | function(string\|number\|LabeledValue) | - |  |
 | onFocus | Called when focus | function | - |  |
 | onInputKeyDown | Called when key pressed | function | - |  |
