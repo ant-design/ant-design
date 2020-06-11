@@ -5,7 +5,7 @@
 
 .@{comment-prefix-cls} {
   position: relative;
-  background-color: @comment-bg;
+  background-color: var(--comment-bg);
 
   &-inner {
     display: flex;
@@ -46,19 +46,19 @@
       }
 
       &-name {
-        color: @comment-author-name-color;
+        color: var(--comment-author-name-color);
         font-size: @comment-font-size-base;
         transition: color 0.3s;
         > * {
-          color: @comment-author-name-color;
+          color: var(--comment-author-name-color);
           &:hover {
-            color: @comment-author-name-color;
+            color: var(--comment-author-name-color);
           }
         }
       }
 
       &-time {
-        color: @comment-author-time-color;
+        color: var(--comment-author-time-color);
         white-space: nowrap;
         cursor: auto;
       }
@@ -77,17 +77,17 @@
 
     > li {
       display: inline-block;
-      color: @comment-action-color;
+      color: var(--comment-action-color);
       > span {
         padding-right: 10px;
-        color: @comment-action-color;
+        color: var(--comment-action-color);
         font-size: @comment-font-size-sm;
         cursor: pointer;
         transition: color 0.3s;
         user-select: none;
 
         &:hover {
-          color: @comment-action-hover-color;
+          color: var(--comment-action-hover-color);
         }
       }
     }
