@@ -47,7 +47,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/block.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-block"
     type="button"
@@ -55,7 +55,7 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     <span>
       Primary
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-block"
     type="button"
@@ -63,7 +63,7 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     <span>
       Default
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dashed ant-btn-block"
     type="button"
@@ -71,7 +71,7 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     <span>
       Dashed
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-link ant-btn-block"
     type="button"
@@ -79,8 +79,8 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     <span>
       Link
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/button/demo/danger.md correctly 1`] = `
@@ -129,7 +129,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -137,7 +137,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Primary
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary"
     disabled=""
@@ -146,8 +146,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Primary(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn"
     type="button"
@@ -155,7 +155,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Default
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     disabled=""
@@ -164,8 +164,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Default(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-dashed"
     type="button"
@@ -173,7 +173,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Dashed
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dashed"
     disabled=""
@@ -182,8 +182,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Dashed(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-text"
     type="button"
@@ -191,7 +191,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Text
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-text"
     disabled=""
@@ -200,8 +200,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Text(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-link"
     type="button"
@@ -209,7 +209,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Link
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-link"
     disabled=""
@@ -218,8 +218,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Link(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-dangerous"
     type="button"
@@ -227,7 +227,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Danger Default
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dangerous"
     disabled=""
@@ -236,8 +236,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Danger Default(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-text ant-btn-dangerous"
     type="button"
@@ -245,7 +245,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Danger Text
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-text ant-btn-dangerous"
     disabled=""
@@ -254,8 +254,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Danger Text(disabled)
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-link ant-btn-dangerous"
     type="button"
@@ -263,7 +263,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Danger Link
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-link ant-btn-dangerous"
     disabled=""
@@ -272,7 +272,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     <span>
       Danger Link(disabled)
     </span>
-  </button>
+  </button>,
   <div
     class="site-button-ghost-wrapper"
   >
@@ -293,8 +293,8 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
         Ghost(disabled)
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
@@ -345,7 +345,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 `;
 
 exports[`renders ./components/button/demo/icon.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
     type="button"
@@ -370,7 +370,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary ant-btn-circle"
     type="button"
@@ -378,7 +378,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     <span>
       A
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -406,7 +406,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     <span>
       Search
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-circle ant-btn-icon-only"
     type="button"
@@ -431,7 +431,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
@@ -459,8 +459,8 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     <span>
       Search
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-circle ant-btn-icon-only"
     type="button"
@@ -485,7 +485,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
@@ -513,7 +513,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     <span>
       Search
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dashed ant-btn-circle ant-btn-icon-only"
     type="button"
@@ -538,7 +538,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dashed"
     type="button"
@@ -566,12 +566,12 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     <span>
       Search
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
-<div>
+Array [
   <div>
     <div
       class="ant-btn-group ant-btn-group-sm"
@@ -650,8 +650,8 @@ exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
         </span>
       </button>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div>
     <div
       class="ant-btn-group"
@@ -730,8 +730,8 @@ exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
         </span>
       </button>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div>
     <div
       class="ant-btn-group ant-btn-group-lg"
@@ -810,8 +810,8 @@ exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
         </span>
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/button/demo/loading.md correctly 1`] = `
@@ -975,7 +975,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -983,7 +983,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     <span>
       primary
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn"
     type="button"
@@ -991,7 +991,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     <span>
       secondary
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -1019,12 +1019,12 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/button/demo/size.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -1086,9 +1086,9 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         Small
       </span>
     </label>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <button
     class="ant-btn ant-btn-primary ant-btn-lg"
     type="button"
@@ -1096,7 +1096,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     <span>
       Primary
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-lg"
     type="button"
@@ -1104,7 +1104,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     <span>
       Default
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-dashed ant-btn-lg"
     type="button"
@@ -1112,8 +1112,8 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     <span>
       Dashed
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-link ant-btn-lg"
     type="button"
@@ -1121,8 +1121,8 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     <span>
       Link
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
@@ -1147,7 +1147,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
     type="button"
@@ -1172,7 +1172,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-icon-only"
     type="button"
@@ -1197,7 +1197,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         />
       </svg>
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg"
     type="button"
@@ -1225,7 +1225,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     <span>
       Download
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-btn-primary ant-btn-lg"
     type="button"
@@ -1253,6 +1253,6 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     <span>
       Download
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
