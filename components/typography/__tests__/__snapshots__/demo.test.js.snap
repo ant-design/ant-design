@@ -198,22 +198,22 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </div>
+  </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -228,7 +228,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     >
       Long Text
     </span>
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
@@ -241,7 +241,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
@@ -254,7 +254,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
@@ -267,7 +267,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <div
     class="ant-slider"
   >
@@ -294,7 +294,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
   >
@@ -311,7 +311,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       </code>
     </span>
      case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
-  </div>
+  </div>,
   <p>
     2333
     <span
@@ -320,12 +320,12 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       2333
     </span>
     2333
-  </p>
-</div>
+  </p>,
+]
 `;
 
 exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-typography"
   >
@@ -358,7 +358,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -391,7 +391,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -424,22 +424,22 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] = `
-<div>
+Array [
   <h1
     class="ant-typography"
   >
     Introduction
-  </h1>
+  </h1>,
   <div
     class="ant-typography"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -452,12 +452,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </strong>
     </span>
     .
-  </div>
+  </div>,
   <h2
     class="ant-typography"
   >
     Guidelines and Resources
-  </h2>
+  </h2>,
   <div
     class="ant-typography"
   >
@@ -478,7 +478,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </code>
     </span>
     ), to help people create their product prototypes beautifully and efficiently.
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -505,18 +505,18 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </a>
       </li>
     </ul>
-  </div>
+  </div>,
   <h1
     class="ant-typography"
     id="intro"
   >
     介绍
-  </h1>
+  </h1>,
   <div
     class="ant-typography"
   >
     蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -537,12 +537,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </strong>
     </span>
     。
-  </div>
+  </div>,
   <h2
     class="ant-typography"
   >
     设计资源
-  </h2>
+  </h2>,
   <div
     class="ant-typography"
   >
@@ -563,7 +563,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </code>
     </span>
     ），来帮助业务快速设计出高质量的产品原型。
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -590,7 +590,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </a>
       </li>
     </ul>
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -625,12 +625,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </ul>
       </li>
     </ol>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-slider"
   >
@@ -657,14 +657,14 @@ exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
     title="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
     To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/text.md correctly 1`] = `
@@ -809,26 +809,26 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
 `;
 
 exports[`renders ./components/typography/demo/title.md correctly 1`] = `
-<div>
+Array [
   <h1
     class="ant-typography"
   >
     h1. Ant Design
-  </h1>
+  </h1>,
   <h2
     class="ant-typography"
   >
     h2. Ant Design
-  </h2>
+  </h2>,
   <h3
     class="ant-typography"
   >
     h3. Ant Design
-  </h3>
+  </h3>,
   <h4
     class="ant-typography"
   >
     h4. Ant Design
-  </h4>
-</div>
+  </h4>,
+]
 `;
