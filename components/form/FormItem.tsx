@@ -283,7 +283,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
         // ======================= Children =======================
         const mergedControl: typeof control = {
           ...control,
-          id: fieldId,
         };
 
         let childNode: React.ReactNode = null;
@@ -315,6 +314,9 @@ function FormItem(props: FormItemProps): React.ReactElement {
           );
 
           const childProps = { ...children.props, ...mergedControl };
+          if (!childProps.id) {
+            childProps.id = fieldId;
+          }
 
           // We should keep user origin event handler
           const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
