@@ -28,7 +28,7 @@
 
     position: relative;
     display: inline-block;
-    background-color: @cascader-bg;
+    background-color: var(--cascader-bg);
     border-radius: @border-radius-base;
     outline: 0;
     cursor: pointer;
@@ -39,8 +39,8 @@
     }
 
     &-disabled {
-      color: @disabled-color;
-      background: @input-disabled-bg;
+      color: var(--disabled-color);
+      background: var(--input-disabled-bg);
       cursor: not-allowed;
       .@{cascader-prefix-cls}-input {
         cursor: not-allowed;
@@ -57,7 +57,7 @@
     }
 
     &-show-search&-focused {
-      color: @disabled-color;
+      color: var(--disabled-color);
     }
 
     &-label {
@@ -82,15 +82,15 @@
       width: 12px;
       height: 12px;
       margin-top: -6px;
-      color: @disabled-color;
+      color: var(--disabled-color);
       font-size: @font-size-sm;
       line-height: 12px;
-      background: @component-background;
+      background: var(--component-background);
       cursor: pointer;
       opacity: 0;
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
-        color: @text-color-secondary;
+        color: var(--text-color-secondary);
       }
     }
 
@@ -107,7 +107,7 @@
       width: 12px;
       height: 12px;
       margin-top: -6px;
-      color: @disabled-color;
+      color: var(--disabled-color);
       font-size: 12px;
       line-height: 12px;
       transition: transform 0.2s;
@@ -132,9 +132,9 @@
     z-index: @zindex-dropdown;
     font-size: @cascader-dropdown-font-size;
     white-space: nowrap;
-    background: @cascader-menu-bg;
+    background: var(--cascader-menu-bg);
     border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+    box-shadow: var(--box-shadow-base);
 
     ul,
     ol {
@@ -173,7 +173,7 @@
     overflow: auto;
     vertical-align: top;
     list-style: none;
-    border-right: @border-width-base @border-style-base @cascader-menu-border-color-split;
+    border-right: @border-width-base @border-style-base var(--cascader-menu-border-color-split);
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &:first-child {
@@ -195,17 +195,17 @@
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      background: @item-hover-bg;
+      background: var(--item-hover-bg);
     }
     &-disabled {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: not-allowed;
       &:hover {
         background: transparent;
       }
     }
     .@{cascader-prefix-cls}-menu-empty & {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: default;
       pointer-events: none;
     }
@@ -213,7 +213,7 @@
       &,
       &:hover {
         font-weight: @select-item-selected-font-weight;
-        background-color: @cascader-item-selected-bg;
+        background-color: var(--cascader-item-selected-bg);
       }
     }
     &-expand {
@@ -227,15 +227,15 @@
 
       position: absolute;
       right: @control-padding-horizontal;
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
 
       .@{cascader-prefix-cls}-menu-item-disabled& {
-        color: @disabled-color;
+        color: var(--disabled-color);
       }
     }
 
     & &-keyword {
-      color: @highlight-color;
+      color: var(--highlight-color);
     }
   }
 }
