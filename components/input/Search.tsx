@@ -6,7 +6,7 @@ import Input, { InputProps } from './Input';
 import Button from '../button';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { replaceElement, cloneElement } from '../_util/reactNode';
+import { cloneElement, replaceElement } from '../_util/reactNode';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -22,10 +22,12 @@ export interface SearchProps extends InputProps {
 }
 
 const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
+  const inputRef = (ref as any) || React.createRef<Input>();
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange: customOnChange, onSearch } = props;
-    if (e && e.target && e.type === 'click' && onSearch) {
-      onSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
+    const { onChange: customOnChange, onSearch: customOnSearch } = props;
+    if (e && e.target && e.type === 'click' && customOnSearch) {
+      customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
     }
     if (customOnChange) {
       customOnChange(e);
@@ -33,7 +35,7 @@ const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
   };
 
   const onMouseDown: React.MouseEventHandler<HTMLElement> = e => {
-    if (document.activeElement === ref.current.input) {
+    if (document.activeElement === inputRef.current.input) {
       e.preventDefault();
     }
   };
@@ -44,7 +46,7 @@ const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
       return;
     }
     if (customOnSearch) {
-      customOnSearch(ref.current.input.value, e);
+      customOnSearch(inputRef.current.input.value, e);
     }
   };
 
@@ -181,7 +183,7 @@ const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
       <SizeContext.Consumer>
         {size => (
           <Input
-            ref={ref}
+            ref={inputRef}
             onPressEnter={onSearch}
             {...restProps}
             size={customizeSize || size}

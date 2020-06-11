@@ -7,7 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Input.Search', () => {
-  focusTest(Search, true);
+  focusTest(Search, { refFocus: true });
   mountTest(Search);
   rtlTest(Search);
 
