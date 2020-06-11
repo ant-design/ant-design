@@ -371,7 +371,6 @@ export default function useSelection<RecordType>(
       let renderCell: (
         _: RecordType,
         record: RecordType,
-        index: number,
       ) => { node: React.ReactNode; checked: boolean };
       if (selectionType === 'radio') {
         renderCell = (_, record) => {
@@ -496,7 +495,7 @@ export default function useSelection<RecordType>(
       }
 
       const renderSelectionCell = (_: any, record: RecordType, index: number) => {
-        const { node, checked } = renderCell(_, record, index);
+        const { node, checked } = renderCell(_, record);
 
         if (customizeRenderCell) {
           return customizeRenderCell(checked, record, index, node);
