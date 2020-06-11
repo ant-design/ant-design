@@ -99,7 +99,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     const { onError } = this.props;
     const errorFlag = onError ? onError() : undefined;
     if (errorFlag !== false) {
-      this.setState({ isImgExist: false });
+      this.setState({ isImgExist: false }, () => {
+        if (this.props.children) {
+          this.setScale();
+        }
+      });
     }
   };
 
