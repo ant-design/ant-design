@@ -17,18 +17,18 @@
     min-width: @badge-height;
     height: @badge-height;
     padding: 0 6px;
-    color: @badge-text-color;
+    color: var(--badge-text-color);
     font-weight: @badge-font-weight;
     font-size: @badge-font-size;
     line-height: @badge-height;
     white-space: nowrap;
     text-align: center;
-    background: @highlight-color;
+    background: var(--highlight-color);
     border-radius: @badge-height / 2;
-    box-shadow: 0 0 0 1px @shadow-color-inverse;
+    box-shadow: 0 0 0 1px var(--shadow-color-inverse);
     a,
     a:hover {
-      color: @badge-text-color;
+      color: var(--badge-text-color);
     }
   }
 
@@ -40,9 +40,9 @@
     z-index: @zindex-badge;
     width: @badge-dot-size;
     height: @badge-dot-size;
-    background: @highlight-color;
+    background: var(--highlight-color);
     border-radius: 100%;
-    box-shadow: 0 0 0 1px @shadow-color-inverse;
+    box-shadow: 0 0 0 1px var(--shadow-color-inverse);
   }
 
   &-count,
@@ -69,47 +69,48 @@
       border-radius: 50%;
     }
     &-success {
-      background-color: @success-color;
+      background-color: var(--success-color);
     }
     &-processing {
       position: relative;
-      background-color: @processing-color;
+      background-color: var(--processing-color);
       &::after {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid @processing-color;
+        border: 1px solid var(--processing-color);
         border-radius: 50%;
         animation: antStatusProcessing 1.2s infinite ease-in-out;
         content: '';
       }
     }
     &-default {
-      background-color: @normal-color;
+      background-color: var(--normal-color);
     }
     &-error {
-      background-color: @error-color;
+      background-color: var(--error-color);
     }
     &-warning {
-      background-color: @warning-color;
+      background-color: var(--warning-color);
     }
 
     // mixin to iterate over colors and create CSS class for each one
     .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
       .make-color-classes(@i - 1);
       @color: extract(@preset-colors, @i);
-      @darkColor: '@{color}-6';
+
+      @darkColor: 'var(--@{color}-6)';
       &-@{color} {
-        background: @@darkColor;
+        background: --var(@darkColor);
       }
     }
     .make-color-classes();
 
     &-text {
       margin-left: 8px;
-      color: @text-color;
+      color: var(--text-color);
       font-size: @font-size-base;
     }
   }
