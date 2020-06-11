@@ -43,20 +43,6 @@ const Avatar: React.FC<AvatarProps> = props => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  React.useEffect(() => {
-    setScaleParam();
-    setMounted(true);
-  }, []);
-
-  React.useEffect(() => {
-    setIsImgExist(true);
-    setScale(1);
-  }, [props.src]);
-
-  React.useEffect(() => {
-    setScaleParam();
-  }, [props.children, props.gap]);
-
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {
       return;
@@ -78,6 +64,20 @@ const Avatar: React.FC<AvatarProps> = props => {
       setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
     }
   };
+
+  React.useEffect(() => {
+    setScaleParam();
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    setIsImgExist(true);
+    setScale(1);
+  }, [props.src]);
+
+  React.useEffect(() => {
+    setScaleParam();
+  }, [props.children, props.gap]);
 
   const handleImgLoadError = () => {
     const { onError } = props;
