@@ -7,7 +7,7 @@
 .@{divider-prefix-cls} {
   .reset-component;
 
-  border-top: 1px solid @border-color-split;
+  border-top: 1px solid var(--border-color-split);
 
   &-vertical {
     position: relative;
@@ -17,7 +17,7 @@
     margin: 0 8px;
     vertical-align: middle;
     border-top: 0;
-    border-left: 1px solid @border-color-split;
+    border-left: 1px solid var(--border-color-split);
   }
 
   &-horizontal {
@@ -31,7 +31,7 @@
   &-horizontal&-with-text {
     display: flex;
     margin: 16px 0;
-    color: @heading-color;
+    color: var(--heading-color);
     font-weight: 500;
     font-size: @font-size-lg;
     white-space: nowrap;
@@ -42,7 +42,7 @@
       position: relative;
       top: 50%;
       width: 50%;
-      border-top: 1px solid @border-color-split;
+      border-top: 1px solid var(--border-color-split);
       transform: translateY(50%);
       content: '';
     }
@@ -77,7 +77,7 @@
 
   &-dashed {
     background: none;
-    border-color: @border-color-split;
+    border-color: var(--border-color-split);
     border-style: dashed;
     border-width: 1px 0 0;
   }
@@ -95,7 +95,7 @@
   }
 
   &-plain&-with-text {
-    color: @text-color;
+    color: var(--text-color);
     font-weight: normal;
     font-size: @font-size-base;
   }
