@@ -15,15 +15,7 @@ Replace the default star to other character like alphabet, digit, iconfont or ev
 
 ```jsx
 import { Rate } from 'antd';
-import { HeartOutlined, FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
-
-const customIcons = {
-  1: <FrownOutlined />,
-  2: <FrownOutlined />,
-  3: <MehOutlined />,
-  4: <SmileOutlined />,
-  5: <SmileOutlined />,
-};
+import { HeartOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <>
@@ -32,18 +24,6 @@ ReactDOM.render(
     <Rate character="A" allowHalf style={{ fontSize: 36 }} />
     <br />
     <Rate character="好" allowHalf />
-    <br />
-    <Rate
-      character={({ index }) => {
-        return index + 1;
-      }}
-    />
-    <br />
-    <Rate
-      character={({ index }) => {
-        return customIcons[index + 1];
-      }}
-    />
   </>,
   mountNode,
 );
