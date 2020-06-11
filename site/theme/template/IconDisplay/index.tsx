@@ -114,7 +114,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             allowClear
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
-            autoFocus
             suffix={<IconPicSearcher />}
           />
         </div>
