@@ -22,15 +22,6 @@ const SkeletonImage = (props: SkeletonImageProps) => {
       [`${prefixCls}-image-sm`]: size === 'small',
     });
 
-    const sizeStyle: React.CSSProperties =
-      typeof size === 'number'
-        ? {
-            width: size,
-            height: size,
-            lineHeight: `${size}px`,
-          }
-        : {};
-
     return (
       <div className={cls}>
         <span className={classNames(`${prefixCls}-image`, className, imageSizeCls)}>
@@ -38,7 +29,7 @@ const SkeletonImage = (props: SkeletonImageProps) => {
             viewBox="0 0 1024 1024"
             xmlns="http://www.w3.org/2000/svg"
             className={`${prefixCls}-image-svg`}
-            style={{ ...sizeStyle, ...style }}
+            style={{ ...style }}
           >
             <path d={path} className={`${prefixCls}-image-path`} />
           </svg>
