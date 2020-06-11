@@ -2,7 +2,6 @@
 @import '../../style/mixins/index';
 
 @divider-prefix-cls: ~'@{ant-prefix}-divider';
-@divider-text-padding: 1em;
 
 .@{divider-prefix-cls} {
   .reset-component;
@@ -51,22 +50,22 @@
   &-horizontal&-with-text-left {
     &::before {
       top: 50%;
-      width: 5%;
+      width: @divider-orientation-margin;
     }
     &::after {
       top: 50%;
-      width: 95%;
+      width: 100% - @divider-orientation-margin;
     }
   }
 
   &-horizontal&-with-text-right {
     &::before {
       top: 50%;
-      width: 95%;
+      width: 100% - @divider-orientation-margin;
     }
     &::after {
       top: 50%;
-      width: 5%;
+      width: @divider-orientation-margin;
     }
   }
 

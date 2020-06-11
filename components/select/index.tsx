@@ -4,11 +4,14 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 type RawValue = string | number;
+
+export { OptionProps };
 
 export type OptionType = typeof Option;
 

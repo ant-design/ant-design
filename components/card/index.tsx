@@ -57,7 +57,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   tabProps?: TabsProps;
 }
 
-interface CardInterface extends React.FC<CardProps> {
+export interface CardInterface extends React.FC<CardProps> {
   Grid: typeof Grid;
   Meta: typeof Meta;
 }
