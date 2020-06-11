@@ -53,15 +53,15 @@
     padding: @dropdown-edge-child-vertical-padding 0;
     text-align: left;
     list-style-type: none;
-    background-color: @dropdown-menu-bg;
+    background-color: var(--dropdown-menu-bg);
     background-clip: padding-box;
     border-radius: @border-radius-base;
     outline: none;
-    box-shadow: @box-shadow-base;
+    box-shadow: var(--box-shadow-base);
 
     &-item-group-title {
       padding: 5px @control-padding-horizontal;
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
       transition: all 0.3s;
     }
 
@@ -91,7 +91,7 @@
       clear: both;
       margin: 0;
       padding: @dropdown-vertical-padding @control-padding-horizontal;
-      color: @text-color;
+      color: var(--text-color);
       font-weight: normal;
       font-size: @dropdown-font-size;
       line-height: @dropdown-line-height;
@@ -110,18 +110,18 @@
         display: block;
         margin: -5px -@control-padding-horizontal;
         padding: 5px @control-padding-horizontal;
-        color: @text-color;
+        color: var(--text-color);
         transition: all 0.3s;
         &:hover {
-          color: @text-color;
+          color: var(--text-color);
         }
       }
 
       > .@{iconfont-css-prefix} + span > a {
-        color: @text-color;
+        color: var(--text-color);
         transition: all 0.3s;
         &:hover {
-          color: @text-color;
+          color: var(--text-color);
         }
       }
 
@@ -139,21 +139,21 @@
 
       &-selected,
       &-selected > a {
-        color: @dropdown-selected-color;
-        background-color: @item-active-bg;
+        color: var(--dropdown-selected-color);
+        background-color: var(--item-active-bg);
       }
 
       &:hover {
-        background-color: @item-hover-bg;
+        background-color: var(--item-hover-bg);
       }
 
       &-disabled {
-        color: @disabled-color;
+        color: var(--disabled-color);
         cursor: not-allowed;
 
         &:hover {
-          color: @disabled-color;
-          background-color: @dropdown-menu-submenu-disabled-bg;
+          color: var(--disabled-color);
+          background-color: var(--dropdown-menu-submenu-disabled-bg);
           cursor: not-allowed;
         }
       }
@@ -163,7 +163,7 @@
         margin: 4px 0;
         overflow: hidden;
         line-height: 0;
-        background-color: @border-color-split;
+        background-color: var(--border-color-split);
       }
 
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
@@ -172,7 +172,7 @@
 
         &-icon {
           margin-right: 0 !important;
-          color: @text-color-secondary;
+          color: var(--text-color-secondary);
           font-style: normal;
           .iconfont-size-under-12px(10px);
         }
@@ -205,15 +205,15 @@
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
       &,
       .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
-        color: @disabled-color;
-        background-color: @dropdown-menu-submenu-disabled-bg;
+        color: var(--disabled-color);
+        background-color: var(--dropdown-menu-submenu-disabled-bg);
         cursor: not-allowed;
       }
     }
 
     // https://github.com/ant-design/ant-design/issues/19264
     &-submenu-selected &-submenu-title {
-      color: @primary-color;
+      color: var(--primary-color);
     }
   }
 
@@ -271,18 +271,18 @@
 .@{dropdown-prefix-cls}-menu-dark {
   &,
   .@{dropdown-prefix-cls}-menu {
-    background: @menu-dark-bg;
+    background: var(--menu-dark-bg);
   }
   .@{dropdown-prefix-cls}-menu-item,
   .@{dropdown-prefix-cls}-menu-submenu-title,
   .@{dropdown-prefix-cls}-menu-item > a,
   .@{dropdown-prefix-cls}-menu-item > .@{iconfont-css-prefix} + span > a {
-    color: @text-color-secondary-dark;
+    color: var(--text-color-secondary-dark);
     .@{dropdown-prefix-cls}-menu-submenu-arrow::after {
-      color: @text-color-secondary-dark;
+      color: var(--text-color-secondary-dark);
     }
     &:hover {
-      color: @text-color-inverse;
+      color: var(--text-color-inverse);
       background: transparent;
     }
   }
@@ -290,8 +290,8 @@
     &,
     &:hover,
     > a {
-      color: @text-color-inverse;
-      background: @primary-color;
+      color: var(--text-color-inverse);
+      background: var(--primary-color);
     }
   }
 }
