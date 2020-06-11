@@ -6,13 +6,13 @@
 .@{collapse-prefix-cls} {
   .reset-component;
 
-  background-color: @collapse-header-bg;
-  border: @border-width-base @border-style-base @border-color-base;
+  background-color: var(--collapse-header-bg);
+  border: @border-width-base @border-style-base var(--border-color-base);
   border-bottom: 0;
   border-radius: @collapse-panel-border-radius;
 
   & > &-item {
-    border-bottom: @border-width-base @border-style-base @border-color-base;
+    border-bottom: @border-width-base @border-style-base var(--border-color-base);
 
     &:last-child {
       &,
@@ -25,7 +25,7 @@
       position: relative;
       padding: @collapse-header-padding;
       padding-left: @collapse-header-padding-extra;
-      color: @heading-color;
+      color: var(--heading-color);
       line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s;
@@ -83,9 +83,9 @@
 
   &-content {
     overflow: hidden;
-    color: @text-color;
-    background-color: @collapse-content-bg;
-    border-top: @border-width-base @border-style-base @border-color-base;
+    color: var(--text-color);
+    background-color: var(--collapse-content-bg);
+    border-top: @border-width-base @border-style-base var(--border-color-base);
 
     & > &-box {
       padding: @collapse-content-padding;
@@ -103,12 +103,12 @@
   }
 
   &-borderless {
-    background-color: @collapse-header-bg;
+    background-color: var(--collapse-header-bg);
     border: 0;
   }
 
   &-borderless > &-item {
-    border-bottom: 1px solid @border-color-base;
+    border-bottom: 1px solid var(--border-color-base);
   }
 
   &-borderless > &-item:last-child,
@@ -128,7 +128,7 @@
   & &-item-disabled > &-header {
     &,
     & > .arrow {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: not-allowed;
     }
   }
