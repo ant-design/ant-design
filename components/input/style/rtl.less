@@ -80,9 +80,7 @@
 .input-group(@inputClass) {
   > .@{inputClass}-rtl:first-child,
   &-rtl &-addon:first-child {
-    border-radius: @border-radius-base;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0 @border-radius-base @border-radius-base 0;
   }
 
   &-addon:first-child {
@@ -102,28 +100,20 @@
   > .@{inputClass}:last-child,
   &-addon:last-child {
     .@{inputClass}-group-rtl & {
-      border-radius: @border-radius-base;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
     }
   }
 
   .@{inputClass}-affix-wrapper {
     &:not(:first-child) {
       .@{inputClass}-group-rtl& {
-        border-top-left-radius: @border-radius-base;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: @border-radius-base;
+        border-radius: @border-radius-base 0 0 @border-radius-base;
       }
     }
 
     &:not(:last-child) {
       .@{inputClass}-group-rtl& {
-        border-top-left-radius: 0;
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
-        border-bottom-left-radius: 0;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
       }
     }
   }
@@ -145,10 +135,7 @@
     & > .@{ant-prefix}-mention-wrapper:first-child .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker:first-child .@{ant-prefix}-time-picker-input {
       .@{inputClass}-group-rtl& {
-        border-top-left-radius: 0;
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
-        border-bottom-left-radius: 0;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
       }
     }
 
@@ -162,10 +149,7 @@
     & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
       .@{inputClass}-group-rtl& {
         border-left-width: @border-width-base;
-        border-top-left-radius: @border-radius-base;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: @border-radius-base;
+        border-radius: @border-radius-base 0 0 @border-radius-base;
       }
     }
   }
@@ -243,10 +227,7 @@
       .@{search-rtl-cls}& {
         .@{search-prefix}-button {
           width: 100%;
-          border-top-left-radius: @border-radius-base;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-          border-bottom-left-radius: @border-radius-base;
+          border-radius: @border-radius-base 0 0 @border-radius-base;
         }
       }
     }
