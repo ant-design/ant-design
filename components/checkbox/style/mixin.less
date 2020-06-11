@@ -18,7 +18,7 @@
     .@{checkbox-prefix-cls}-wrapper:hover &-inner,
     &:hover &-inner,
     &-input:focus + &-inner {
-      border-color: @checkbox-color;
+      border-color: var(--checkbox-color);
     }
 
     &-checked::after {
@@ -27,7 +27,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 1px solid @checkbox-color;
+      border: 1px solid var(--checkbox-color);
       border-radius: @border-radius-base;
       visibility: hidden;
       animation: antCheckboxEffect 0.36s ease-in-out;
@@ -48,8 +48,8 @@
       width: @checkbox-size;
       height: @checkbox-size;
       direction: ltr;
-      background-color: @checkbox-check-bg;
-      border: @checkbox-border-width @border-style-base @border-color-base;
+      background-color: var(--checkbox-check-bg);
+      border: @checkbox-border-width @border-style-base var(--border-color-base);
       border-radius: @border-radius-base;
       // Fix IE checked style
       // https://github.com/ant-design/ant-design/issues/12597
@@ -66,7 +66,7 @@
         display: table;
         width: @check-width;
         height: @check-height;
-        border: 2px solid @checkbox-check-color;
+        border: 2px solid var(--checkbox-check-color);
         border-top: 0;
         border-left: 0;
         transform: rotate(45deg) scale(0) translate(-50%, -50%);
@@ -94,7 +94,7 @@
   .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}::after {
     position: absolute;
     display: table;
-    border: 2px solid @checkbox-check-color;
+    border: 2px solid var(--checkbox-check-color);
     border-top: 0;
     border-left: 0;
     transform: rotate(45deg) scale(1) translate(-50%, -50%);
@@ -105,8 +105,8 @@
 
   .@{checkbox-prefix-cls}-checked {
     .@{checkbox-inner-prefix-cls} {
-      background-color: @checkbox-color;
-      border-color: @checkbox-color;
+      background-color: var(--checkbox-color);
+      border-color: var(--checkbox-color);
     }
   }
 
@@ -115,7 +115,7 @@
 
     &.@{checkbox-prefix-cls}-checked {
       .@{checkbox-inner-prefix-cls}::after {
-        border-color: @disabled-color;
+        border-color: var(--disabled-color);
         animation-name: none;
       }
     }
@@ -125,17 +125,17 @@
     }
 
     .@{checkbox-inner-prefix-cls} {
-      background-color: @input-disabled-bg;
-      border-color: @border-color-base !important;
+      background-color: var(--input-disabled-bg);
+      border-color: var(--border-color-base) !important;
       &::after {
-        border-color: @input-disabled-bg;
+        border-color: var(--input-disabled-bg);
         border-collapse: separate;
         animation-name: none;
       }
     }
 
     & + span {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: not-allowed;
     }
 
@@ -184,8 +184,8 @@
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
-      background-color: @checkbox-check-bg;
-      border-color: @border-color-base;
+      background-color: var(--checkbox-check-bg);
+      border-color: var(--border-color-base);
     }
     .@{checkbox-inner-prefix-cls}::after {
       @indeterminate-width: @checkbox-size - 8px;
@@ -195,7 +195,7 @@
       left: 50%;
       width: @indeterminate-width;
       height: @indeterminate-height;
-      background-color: @checkbox-color;
+      background-color: var(--checkbox-color);
       border: 0;
       transform: translate(-50%, -50%) scale(1);
       opacity: 1;
@@ -203,8 +203,8 @@
     }
 
     &.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}::after {
-      background-color: @disabled-color;
-      border-color: @disabled-color;
+      background-color: var(--disabled-color);
+      border-color: var(--disabled-color);
     }
   }
 }
