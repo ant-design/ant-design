@@ -11,6 +11,51 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 </span>
 `;
 
+exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `
+<span
+  className="ant-avatar-string"
+  style={
+    Object {
+      "WebkitTransform": "scale(0.72) translateX(-50%)",
+      "msTransform": "scale(0.72) translateX(-50%)",
+      "transform": "scale(0.72) translateX(-50%)",
+    }
+  }
+>
+  Avatar
+</span>
+`;
+
+exports[`Avatar Render should calculate scale of avatar children correctly 2`] = `
+<span
+  className="ant-avatar-string"
+  style={
+    Object {
+      "WebkitTransform": "scale(0.72) translateX(-50%)",
+      "msTransform": "scale(0.72) translateX(-50%)",
+      "transform": "scale(0.72) translateX(-50%)",
+    }
+  }
+>
+  xx
+</span>
+`;
+
+exports[`Avatar Render should calculate scale of avatar children correctly with gap 1`] = `
+<span
+  className="ant-avatar-string"
+  style={
+    Object {
+      "WebkitTransform": "scale(0.36) translateX(-50%)",
+      "msTransform": "scale(0.36) translateX(-50%)",
+      "transform": "scale(0.36) translateX(-50%)",
+    }
+  }
+>
+  Avatar
+</span>
+`;
+
 exports[`Avatar Render support size is number 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
