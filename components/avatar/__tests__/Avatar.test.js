@@ -80,6 +80,7 @@ describe('Avatar Render', () => {
     // https://github.com/jsdom/jsdom/issues/1816
     wrapper.find('img').simulate('error');
 
+    expect(wrapper).toMatchSnapshot();
     expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_SUCCESS_SRC);
 
     wrapper.detach();
@@ -97,12 +98,14 @@ describe('Avatar Render', () => {
     const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
     wrapper.find('img').simulate('error');
 
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-string').length).toBe(1);
 
     // simulate successful src url
     wrapper.setProps({ src: LOAD_SUCCESS_SRC });
     wrapper.update();
 
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-image').length).toBe(1);
 
     // cleanup
