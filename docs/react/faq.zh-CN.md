@@ -75,7 +75,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ### 在我的网络环境下没法获取到 `icon` 文件。
 
