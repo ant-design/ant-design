@@ -15,7 +15,7 @@ Array [
           Tag 1
           <span
             aria-label="close"
-            class="anticon anticon-close"
+            class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
           >
@@ -45,7 +45,7 @@ Array [
           Tag 2
           <span
             aria-label="close"
-            class="anticon anticon-close"
+            class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
           >
@@ -75,7 +75,7 @@ Array [
           Tag 3
           <span
             aria-label="close"
-            class="anticon anticon-close"
+            class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
           >
@@ -152,7 +152,7 @@ Array [
     Tag 2
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -178,7 +178,7 @@ Array [
     Prevent Default
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -356,7 +356,7 @@ Array [
     </span>
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -384,7 +384,7 @@ Array [
     </span>
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -444,7 +444,7 @@ Array [
     Movies
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -483,7 +483,7 @@ Array [
   >
     Tag1
     <div
-      class="ant-tag-customize-close"
+      class="ant-tag-close-icon"
     >
       关 闭
     </div>
@@ -493,7 +493,7 @@ Array [
   >
     Tag2
     <div
-      class="ant-tag-customize-close"
+      class="ant-tag-close-icon"
     >
       <span
         aria-label="close-circle"
