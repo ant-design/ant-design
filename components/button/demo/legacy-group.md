@@ -36,13 +36,13 @@ function getGroup(props) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     {getGroup({ size: 'small' })}
     <br />
     {getGroup()}
     <br />
     {getGroup({ size: 'large' })}
-  </div>,
+  </>,
   mountNode,
 );
 ```
