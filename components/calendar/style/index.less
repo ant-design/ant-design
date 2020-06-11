@@ -6,7 +6,7 @@
 
 .@{calendar-prefix-cls} {
   .reset-component;
-  background: @calendar-full-bg;
+  background: var(--calendar-full-bg);
 
   // ========================= Header =========================
   &-header {
@@ -29,9 +29,9 @@
   }
 
   .@{calendar-picker-prefix-cls}-panel {
-    background: @calendar-full-panel-bg;
+    background: var(--calendar-full-panel-bg);
     border: 0;
-    border-top: @border-width-base @border-style-base @border-color-split;
+    border-top: @border-width-base @border-style-base var(--border-color-split);
     border-radius: 0;
 
     .@{calendar-picker-prefix-cls}-month-panel,
@@ -78,7 +78,7 @@
       display: block;
       width: 100%;
       text-align: right;
-      background: @calendar-full-bg;
+      background: var(--calendar-full-bg);
       border: 0;
 
       .@{calendar-picker-prefix-cls}-body {
@@ -102,7 +102,7 @@
 
         &:hover {
           .@{calendar-prefix-cls}-date {
-            background: @item-hover-bg;
+            background: var(--item-hover-bg);
           }
         }
 
@@ -114,10 +114,10 @@
         &-selected:hover {
           .@{calendar-prefix-cls}-date,
           .@{calendar-prefix-cls}-date-today {
-            background: @calendar-item-active-bg;
+            background: var(--calendar-item-active-bg);
 
             .@{calendar-prefix-cls}-date-value {
-              color: @primary-color;
+              color: var(--primary-color);
             }
           }
         }
@@ -131,7 +131,7 @@
         margin: 0 @padding-xs / 2;
         padding: @padding-xs / 2 @padding-xs 0;
         border: 0;
-        border-top: 2px solid @border-color-split;
+        border-top: 2px solid var(--border-color-split);
         border-radius: 0;
         transition: background 0.3s;
 
@@ -145,16 +145,16 @@
           width: auto;
           height: 86px;
           overflow-y: auto;
-          color: @text-color;
+          color: var(--text-color);
           line-height: @line-height-base;
           text-align: left;
         }
 
         &-today {
-          border-color: @primary-color;
+          border-color: var(--primary-color);
 
           .@{calendar-prefix-cls}-date-value {
-            color: @text-color;
+            color: var(--text-color);
           }
         }
       }
