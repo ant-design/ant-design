@@ -66,7 +66,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 1. `npm start` 在本地运行 Ant Design 的网站。
 2. `npm run lint` 检查代码风格。
-3. `npm test` 运行测试。
+3. `npm test` 运行测试。(在运行测试前请确保 `NODE_ENV` 环境变量没有被设定，否则可能会引发一些问题)
 4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
 5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
 
