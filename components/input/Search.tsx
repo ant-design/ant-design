@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useRef } from 'react';
 import classNames from 'classnames';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
@@ -22,9 +21,7 @@ export interface SearchProps extends InputProps {
   loading?: boolean;
 }
 
-const Search = (props: SearchProps) => {
-  const input = useRef<Input>(null);
-
+const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { onChange: customOnChange, onSearch } = props;
     if (e && e.target && e.type === 'click' && onSearch) {
@@ -36,7 +33,7 @@ const Search = (props: SearchProps) => {
   };
 
   const onMouseDown: React.MouseEventHandler<HTMLElement> = e => {
-    if (document.activeElement === input.current.input) {
+    if (document.activeElement === ref.current.input) {
       e.preventDefault();
     }
   };
@@ -47,16 +44,8 @@ const Search = (props: SearchProps) => {
       return;
     }
     if (customOnSearch) {
-      customOnSearch(input.current.input.value, e);
+      customOnSearch(ref.current.input.value, e);
     }
-  };
-
-  const focus = () => {
-    input.current.focus();
-  };
-
-  const blur = () => {
-    input.current.blur();
   };
 
   const renderLoading = (prefixCls: string) => {
@@ -192,6 +181,7 @@ const Search = (props: SearchProps) => {
       <SizeContext.Consumer>
         {size => (
           <Input
+            ref={ref}
             onPressEnter={onSearch}
             {...restProps}
             size={customizeSize || size}
@@ -199,7 +189,6 @@ const Search = (props: SearchProps) => {
             addonAfter={renderAddonAfter(prefixCls, customizeSize || size)}
             suffix={renderSuffix(prefixCls)}
             onChange={onChange}
-            ref={input}
             className={getClassName(customizeSize || size)}
           />
         )}
@@ -208,7 +197,7 @@ const Search = (props: SearchProps) => {
   };
 
   return <ConfigConsumer>{renderSearch}</ConfigConsumer>;
-};
+});
 
 Search.defaultProps = {
   enterButton: false,
