@@ -12,7 +12,7 @@
   .reset-component;
 
   position: relative;
-  background: @card-background;
+  background: var(--card-background);
   border-radius: @card-radius;
 
   &-rtl {
@@ -30,18 +30,18 @@
   }
 
   &-bordered {
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @border-width-base @border-style-base var(--border-color-split);
   }
 
   &-head {
     min-height: @card-head-height;
     margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     padding: 0 @card-padding-base;
-    color: @card-head-color;
+    color: var(--card-head-color);
     font-weight: 500;
     font-size: @card-head-font-size;
-    background: @card-head-background;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    background: var(--card-head-background);
+    border-bottom: @border-width-base @border-style-base var(--border-color-split);
     border-radius: @card-radius @card-radius 0 0;
     .clearfix;
 
@@ -62,12 +62,12 @@
     .@{ant-prefix}-tabs {
       clear: both;
       margin-bottom: @card-head-tabs-margin-bottom;
-      color: @text-color;
+      color: var(--text-color);
       font-weight: normal;
       font-size: @font-size-base;
 
       &-bar {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base var(--border-color-split);
       }
     }
   }
@@ -77,7 +77,7 @@
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
     padding: @card-head-padding 0;
-    color: @card-head-extra-color;
+    color: var(--card-head-extra-color);
     font-weight: normal;
     font-size: @font-size-base;
 
@@ -103,9 +103,9 @@
     padding: @card-padding-base;
     border: 0;
     border-radius: 0;
-    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split,
-      1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
-      0 1px 0 0 @border-color-split inset;
+    box-shadow: 1px 0 0 0 var(--border-color-split), 0 1px 0 0 var(--border-color-split),
+      1px 1px 0 0 var(--border-color-split), 1px 0 0 0 var(--border-color-split) inset,
+      0 1px 0 0 var(--border-color-split) inset;
     transition: all 0.3s;
 
     .@{card-prefix-cls}-rtl & {
@@ -116,7 +116,7 @@
       &:hover {
         position: relative;
         z-index: 1;
-        box-shadow: @card-shadow;
+        box-shadow: var(--card-shadow);
       }
     }
   }
@@ -148,14 +148,14 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    background: @card-actions-background;
-    border-top: @border-width-base @border-style-base @border-color-split;
+    background: var(--card-actions-background);
+    border-top: @border-width-base @border-style-base var(--border-color-split);
     .clearfix;
 
     & > li {
       float: left;
       margin: @card-actions-li-margin;
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
       text-align: center;
 
       .@{card-prefix-cls}-rtl & {
@@ -171,7 +171,7 @@
         cursor: pointer;
 
         &:hover {
-          color: @primary-color;
+          color: var(--primary-color);
           transition: color 0.3s;
         }
 
@@ -179,12 +179,12 @@
         > .anticon {
           display: inline-block;
           width: 100%;
-          color: @text-color-secondary;
+          color: var(--text-color-secondary);
           line-height: 22px;
           transition: color 0.3s;
 
           &:hover {
-            color: @primary-color;
+            color: var(--primary-color);
           }
         }
 
@@ -195,14 +195,14 @@
       }
 
       &:not(:last-child) {
-        border-right: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base var(--border-color-split);
       }
     }
   }
 
   &-type-inner &-head {
     padding: 0 @card-padding-base;
-    background: @background-color-light;
+    background: var(--background-color-light);
 
     &-title {
       padding: @card-inner-head-padding 0;
@@ -242,7 +242,7 @@
 
     &-title {
       overflow: hidden;
-      color: @card-head-color;
+      color: var(--card-head-color);
       font-weight: 500;
       font-size: @font-size-lg;
       white-space: nowrap;
@@ -250,7 +250,7 @@
     }
 
     &-description {
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
     }
   }
 
