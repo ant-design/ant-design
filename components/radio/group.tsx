@@ -1,12 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
-import {
-  RadioGroupProps,
-  RadioChangeEvent,
-  RadioGroupButtonStyle,
-  RadioGroupOptionType,
-} from './interface';
+import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
