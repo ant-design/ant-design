@@ -123,13 +123,6 @@ class Demo extends React.Component {
             <Form.Item label="ListActive">
               <Switch checked={listActive} onChange={this.handleActiveChange('listActive')} />
             </Form.Item>
-            <Form.Item label="ListSize">
-              <Radio.Group value={listSize} onChange={this.handleSizeChange('listSize')}>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
           </Form>
           <Skeleton.List style={{ width: '100%' }} active={listActive} size={listSize} />
           <Skeleton.List style={{ width: '100%' }} active={listActive} size={listSize} />

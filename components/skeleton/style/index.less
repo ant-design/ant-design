@@ -181,16 +181,6 @@
   vertical-align: top;
   background: @skeleton-color;
   border-radius: @border-radius-base;
-
-  .skeleton-element-list-size(@btn-height-base);
-
-  &-lg {
-    .skeleton-element-list-size(@btn-height-lg);
-  }
-
-  &-sm {
-    .skeleton-element-list-size(@btn-height-sm);
-  }
 }
 
 .skeleton-element-avatar-size(@size) {
@@ -221,10 +211,6 @@
   .skeleton-element-common-size(@size);
 }
 
-.skeleton-element-list-size(@size) {
-  width: 100%;
-  .skeleton-element-common-size(@size);
-}
 .skeleton-element-common-size(@size) {
   height: @size;
   line-height: @size;
