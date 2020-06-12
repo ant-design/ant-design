@@ -67,6 +67,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 
 ### SkeletonImageProps
 
-| 属性 | 说明           | 类型                            | 默认值 |
-| ---- | -------------- | ------------------------------- | ------ |
-| size | 设置图像的大小 | `large` \| `small` \| `default` | -      |
+| 属性 | 说明 | 类型 | 默认值 |
+| ---- | ---- | ---- | ------ |
+

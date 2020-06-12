@@ -138,13 +138,9 @@ describe('Skeleton', () => {
   });
 
   describe('image element', () => {
-    it('size', () => {
-      const wrapperSmall = genSkeletonImage({ size: 'small' });
-      expect(wrapperSmall.render()).toMatchSnapshot();
-      const wrapperDefault = genSkeletonImage({ size: 'default' });
-      expect(wrapperDefault.render()).toMatchSnapshot();
-      const wrapperLarge = genSkeletonImage({ size: 'large' });
-      expect(wrapperLarge.render()).toMatchSnapshot();
+    it('should render normal', () => {
+      const wrapper = genSkeletonImage();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 });

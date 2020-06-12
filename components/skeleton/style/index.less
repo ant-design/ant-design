@@ -187,30 +187,14 @@
 
   .skeleton-element-image-size(@image-size-base*2);
 
-  &-lg {
-    .skeleton-element-image-size(@image-size-lg*2);
-  }
-
-  &-sm {
-    .skeleton-element-image-size(@image-size-sm*2);
-  }
-
   &-path {
     fill: #bfbfbf;
   }
 
   &-svg {
     .skeleton-element-image-size(@image-size-base);
-    max-width: @image-size-lg * 2;
-    max-height: @image-size-lg * 2;
-  }
-
-  &-svg-lg {
-    .skeleton-element-image-size(@image-size-lg);
-  }
-
-  &-svg-sm {
-    .skeleton-element-image-size(@image-size-sm);
+    max-width: @image-size-base * 4;
+    max-height: @image-size-base * 4;
   }
 }
 

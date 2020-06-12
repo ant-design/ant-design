@@ -24,7 +24,6 @@ class Demo extends React.Component {
     buttonSize: 'default',
     avatarSize: 'default',
     inputSize: 'default',
-    imageSize: 'default',
     buttonShape: 'default',
     avatarShape: 'circle',
   };
@@ -49,7 +48,6 @@ class Demo extends React.Component {
       buttonSize,
       avatarSize,
       inputSize,
-      imageSize,
       buttonShape,
       avatarShape,
     } = this.state;
@@ -117,16 +115,7 @@ class Demo extends React.Component {
         </div>
         <br />
         <div>
-          <Form layout="inline" style={{ marginBottom: 16 }}>
-            <Form.Item label="ImageSize">
-              <Radio.Group value={imageSize} onChange={this.handleSizeChange('imageSize')}>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-          </Form>
-          <Skeleton.Image size={imageSize} />
+          <Skeleton.Image />
         </div>
       </div>
     );
