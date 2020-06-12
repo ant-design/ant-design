@@ -249,19 +249,11 @@ function List<T>({
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: any, index: number) => renderInnerItem(item, index));
-    const childrenList = React.Children.map(items, (child: any, index) =>
-      cloneElement(
-        child,
-        grid
-          ? {
-              key: keys[index],
-              colStyle,
-            }
-          : {
-              key: keys[index],
-            },
-      ),
-    );
+    const childrenList = React.Children.map(items, (child: any, index) => (
+      <div key={keys[index]} style={colStyle}>
+        {child}
+      </div>
+    ));
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>{childrenList}</Row>
     ) : (

@@ -13,44 +13,46 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
       <ul
         class="ant-list-items"
       >
-        <li
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-meta"
+        <div>
+          <li
+            class="ant-list-item"
           >
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta"
             >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  ant design
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-list-item-meta-content"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
               </div>
             </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                Action
-              </a>
-            </li>
-          </ul>
-          <span>
-            extra
-          </span>
-        </li>
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <a>
+                  Action
+                </a>
+              </li>
+            </ul>
+            <span>
+              extra
+            </span>
+          </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -96,33 +98,39 @@ exports[`List Item Layout rowKey could be function 1`] = `
           <ul
             className="ant-list-items"
           >
-            <Item
+            <div
               key="1/.0"
             >
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </div>
+            <div
               key="2/.1"
             >
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </div>
+            <div
               key="3/.2"
             >
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </div>
           </ul>
         </div>
       </div>
@@ -170,33 +178,39 @@ exports[`List Item Layout rowKey could be string 1`] = `
           <ul
             className="ant-list-items"
           >
-            <Item
+            <div
               key="1/.0"
             >
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </div>
+            <div
               key="2/.1"
             >
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </div>
+            <div
               key="3/.2"
             >
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </div>
           </ul>
         </div>
       </div>
@@ -218,44 +232,46 @@ exports[`List Item Layout should render in RTL direction 1`] = `
       <ul
         class="ant-list-items"
       >
-        <li
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-meta"
+        <div>
+          <li
+            class="ant-list-item"
           >
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta"
             >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  ant design
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-list-item-meta-content"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
               </div>
             </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                Action
-              </a>
-            </li>
-          </ul>
-          <span>
-            extra
-          </span>
-        </li>
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <a>
+                  Action
+                </a>
+              </li>
+            </ul>
+            <span>
+              extra
+            </span>
+          </li>
+        </div>
       </ul>
     </div>
   </div>
