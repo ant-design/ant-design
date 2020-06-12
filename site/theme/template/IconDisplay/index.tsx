@@ -26,6 +26,7 @@ interface IconDisplayProps {
 interface IconDisplayState {
   theme: ThemeType;
   searchKey: string;
+  isAutoFocus: boolean;
 }
 
 class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
@@ -36,6 +37,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   state: IconDisplayState = {
     theme: ThemeType.Outlined,
     searchKey: '',
+    isAutoFocus: true,
   };
 
   constructor(props: IconDisplayProps) {
@@ -89,6 +91,9 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     const {
       intl: { messages },
     } = this.props;
+    this.setState({
+      isAutoFocus: false,
+    });
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -114,6 +119,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             allowClear
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
+            autoFocus={this.state.isAutoFocus}
             suffix={<IconPicSearcher />}
           />
         </div>
