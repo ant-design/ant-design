@@ -99,6 +99,7 @@ describe('Avatar Render', () => {
 
     expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(false);
     expect(wrapper.find('.ant-avatar-string').length).toBe(1);
+    expect(wrapper.find('.ant-avatar-string').prop('style')).not.toHaveProperty('opacity', 0);
 
     // simulate successful src url
     wrapper.setProps({ src: LOAD_SUCCESS_SRC });
