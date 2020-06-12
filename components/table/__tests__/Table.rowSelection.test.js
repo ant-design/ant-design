@@ -830,7 +830,7 @@ describe('Table.rowSelection', () => {
         dataSource: dataWithChildren,
         defaultExpandAllRows: true,
         rowSelection: {
-          checkStrictly: true,
+          checkStrictly: false,
         },
       });
       const wrapper = mount(table);
@@ -838,8 +838,8 @@ describe('Table.rowSelection', () => {
 
       checkboxes.at(4).simulate('change', { target: { checked: true } });
       expect(getSelections(wrapper)).toEqual([3, 4, 5, 6, 7, 8, 9]);
-      checkboxes.at(4).simulate('change', { target: { checked: true } });
-      expect(getSelections(wrapper)).toEqual([]);
+      checkboxes.at(7).simulate('change', { target: { checked: true } });
+      expect(getSelections(wrapper)).toEqual([4, 5]);
     });
   });
 
