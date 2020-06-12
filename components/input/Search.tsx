@@ -205,4 +205,6 @@ Search.defaultProps = {
   enterButton: false,
 };
 
+Search.displayName = 'Search';
+
 export default Search;
