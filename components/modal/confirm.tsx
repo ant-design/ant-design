@@ -133,6 +133,7 @@ export function withError(props: ModalFuncProps): ModalFuncProps {
 export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   return {
     type: 'confirm',
+    icon: <ExclamationCircleOutlined />,
     okCancel: true,
     ...props,
   };
