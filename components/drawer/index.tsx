@@ -303,6 +303,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
                   'width',
                   'height',
                   'dropdownMatchSelectWidth',
+                  'getTargetContainer',
                 ])}
                 getContainer={
                   // 有可能为 false，所以不能直接判断
