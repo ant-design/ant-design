@@ -39,6 +39,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 | onFocus | 获得焦点时触发 | () => void |  |
 | onBlur | 失去焦点时触发 | () => void |  |
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement |  |
+| autoSize | 自适应内容高度，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }`。 | boolean\|object | false |
+| onResize | resize 回调 | function({ width, height }) |  |
 
 ### Mentions 方法
 
