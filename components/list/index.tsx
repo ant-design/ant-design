@@ -7,7 +7,6 @@ import { RenderEmptyHandler, ConfigContext } from '../config-provider';
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
-import { cloneElement } from '../_util/reactNode';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
