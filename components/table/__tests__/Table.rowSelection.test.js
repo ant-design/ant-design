@@ -807,6 +807,20 @@ describe('Table.rowSelection', () => {
           {
             key: 6,
             name: 'Jerry Tom',
+            children: [
+              {
+                key: 7,
+                name: 'Jerry Tom Jack',
+              },
+              {
+                key: 8,
+                name: 'Jerry Tom Lucy',
+              },
+              {
+                key: 9,
+                name: 'Jerry Tom Tom',
+              },
+            ],
           },
         ],
       },
@@ -823,7 +837,7 @@ describe('Table.rowSelection', () => {
       const checkboxes = wrapper.find('input');
 
       checkboxes.at(4).simulate('change', { target: { checked: true } });
-      expect(getSelections(wrapper)).toEqual([3, 4, 5, 6]);
+      expect(getSelections(wrapper)).toEqual([3, 4, 5, 6, 7, 8, 9]);
       checkboxes.at(4).simulate('change', { target: { checked: true } });
       expect(getSelections(wrapper)).toEqual([]);
     });
