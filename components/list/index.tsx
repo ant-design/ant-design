@@ -256,7 +256,7 @@ function List<T>({
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>{childrenList}</Row>
     ) : (
-      <ul className={`${prefixCls}-items`}>{childrenList}</ul>
+      <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
     childrenContent = renderEmptyFunc(prefixCls, renderEmpty);

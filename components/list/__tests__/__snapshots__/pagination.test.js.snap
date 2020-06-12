@@ -13,20 +13,16 @@ exports[`List.pagination renders pagination correctly 1`] = `
       <ul
         class="ant-list-items"
       >
-        <div>
-          <li
-            class="ant-list-item ant-list-item-no-flex"
-          >
-            Jack
-          </li>
-        </div>
-        <div>
-          <li
-            class="ant-list-item ant-list-item-no-flex"
-          >
-            Lucy
-          </li>
-        </div>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          Jack
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          Lucy
+        </li>
       </ul>
     </div>
   </div>
