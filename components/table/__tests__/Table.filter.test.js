@@ -1148,4 +1148,32 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr')).toHaveLength(1);
     expect(wrapper.find('tbody tr td').text()).toEqual('Jack');
   });
+
+  it(`shouldn't keep status when controlled filteredValue isn't change`, () => {
+    const filterControlledColumn = {
+      title: 'Name',
+      dataIndex: 'name',
+      filteredValue: null,
+      filters: [
+        { text: 'Boy', value: 'boy' },
+        { text: 'Girl', value: 'girl' },
+      ],
+      onFilter: filterFn,
+    };
+    const wrapper = mount(createTable({ columns: [filterControlledColumn] }));
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('FilterDropdown').find('MenuItem').first().simulate('click');
+    wrapper // close drodown
+      .find('FilterDropdown')
+      .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
+      .simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click'); // reopen
+    const checkbox = wrapper
+      .find('FilterDropdown')
+      .find('MenuItem')
+      .first()
+      .find('Checkbox')
+      .first();
+    expect(checkbox.props().checked).toEqual(false);
+  });
 });
