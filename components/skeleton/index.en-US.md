@@ -63,9 +63,3 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | -------- | --------------------- | ------------------------------- | ------- |
 | active   | Show animation effect | boolean                         | false   |
 | size     | Set the size of input | `large` \| `small` \| `default` | -       |
-
-### SkeletonImageProps
-
-| Property | Description            | Type                            | Default |
-| -------- | ---------------------- | ------------------------------- | ------- |
-| size     | Set the size of image | `large` \| `small` \| `default` | -       |
