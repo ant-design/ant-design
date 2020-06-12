@@ -182,125 +182,141 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
+          style="width:25%;max-width:25%"
         >
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 1
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 1
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
+          style="width:25%;max-width:25%"
         >
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 2
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 2
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
+          style="width:25%;max-width:25%"
         >
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 3
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 3
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;width:25%;max-width:25%;flex:1 1 auto"
+          style="width:25%;max-width:25%"
         >
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 4
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 4
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
@@ -309,6 +325,698 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders ./components/list/demo/grid-test.md correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-8px;margin-right:-8px"
+        >
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 1
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 2
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 3
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 4
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 6
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-8px;margin-right:-8px"
+        >
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-8px;margin-right:-8px"
+        >
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
@@ -450,188 +1158,200 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         class="ant-row"
         style="margin-left:-8px;margin-right:-8px"
       >
-        <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
-        >
+        <div>
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 1
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 1
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
-        >
+        <div>
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 2
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 2
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
-        >
+        <div>
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 3
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 3
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
-        >
+        <div>
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 4
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 4
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
-        >
+        <div>
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 5
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 5
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="ant-col"
-          style="padding-left:8px;padding-right:8px;flex:1 1 auto"
-        >
+        <div>
           <div
-            class="ant-list-item"
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item"
             >
               <div
-                class="ant-card-head"
+                class="ant-card ant-card-bordered"
               >
                 <div
-                  class="ant-card-head-wrapper"
+                  class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Title 6
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 6
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="ant-card-body"
-              >
-                Card content
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
               </div>
             </div>
           </div>
