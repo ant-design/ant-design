@@ -100,7 +100,7 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item').last().simulate('click');
-    expect(scrollTo).toHaveBeenCalledTimes(2);
+    expect(scrollTo).toHaveBeenCalledTimes(3);
   });
 
   it('fires change event', () => {
