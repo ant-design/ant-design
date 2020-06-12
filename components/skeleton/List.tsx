@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import Element, { SkeletonElementProps } from './Element';
+import ElementList, { SkeletonElementProps } from './ElementList';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SkeletonListProps extends Omit<SkeletonElementProps, 'size'> {
@@ -18,7 +18,7 @@ const SkeletonList = (props: SkeletonListProps) => {
     });
     return (
       <div className={cls}>
-        <Element prefixCls={`${prefixCls}-list`} {...otherProps} />
+        <ElementList prefixCls={`${prefixCls}-list`} {...otherProps} />
       </div>
     );
   };

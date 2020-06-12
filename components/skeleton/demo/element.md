@@ -132,6 +132,7 @@ class Demo extends React.Component {
             </Form.Item>
           </Form>
           <Skeleton.List style={{ width: '100%' }} active={listActive} size={listSize} />
+          <Skeleton.List style={{ width: '100%' }} active={listActive} size={listSize} />
         </div>
       </div>
     );
