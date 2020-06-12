@@ -45,6 +45,12 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
   }
 
+  componentDidMount() {
+    this.setState({
+      isAutoFocus: false,
+    });
+  }
+
   handleChangeTheme = (e: RadioChangeEvent) => {
     this.setState({
       theme: e.target.value as ThemeType,
@@ -91,9 +97,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     const {
       intl: { messages },
     } = this.props;
-    this.setState({
-      isAutoFocus: false,
-    });
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
