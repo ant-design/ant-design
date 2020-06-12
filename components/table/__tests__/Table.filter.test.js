@@ -1150,7 +1150,6 @@ describe('Table.filter', () => {
   });
 
   it(`shouldn't keep status when controlled filteredValue isn't change`, () => {
-    jest.useFakeTimers();
     const filterControlledColumn = {
       title: 'Name',
       dataIndex: 'name',
