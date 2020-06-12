@@ -19,10 +19,11 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   type?: TabsType;
   size?: SizeType;
   hideAdd?: boolean;
+  centered?: boolean;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
 }
 
-function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
+function Tabs({ type, className, size, onEdit, hideAdd, centered, ...props }: TabsProps) {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
@@ -54,6 +55,7 @@ function Tabs({ type, className, size, onEdit, hideAdd, ...props }: TabsProps) {
         [`${prefixCls}-${size}`]: size,
         [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
         [`${prefixCls}-editable-card`]: type === 'editable-card',
+        [`${prefixCls}-centered`]: centered,
       })}
       editable={editable}
       moreIcon={<EllipsisOutlined />}
