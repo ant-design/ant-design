@@ -1,8 +1,15 @@
 ---
 order: 1
 title:
+  zh-CN: Centered
   en-US: Centered
 ---
+
+## zh-CN
+
+Centered tabs.
+
+## en-US
 
 Centered tabs.
 
