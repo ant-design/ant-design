@@ -102,14 +102,14 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
     </div>
@@ -219,14 +219,14 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
     </div>
@@ -347,14 +347,14 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -523,7 +523,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -639,14 +639,14 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -757,14 +757,14 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
     </div>
@@ -875,14 +875,14 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
     </div>
@@ -1106,14 +1106,14 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
     </div>
@@ -1235,14 +1235,14 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
     </div>
@@ -1374,12 +1374,13 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
+      style="margin-left:-100%"
     >
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane"
         role="tabpanel"
-        style="display:none"
+        style="visibility:hidden;height:0;overflow-y:hidden"
         tabindex="-1"
       />
       <div
@@ -1953,12 +1954,13 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             >
               <div
                 class="ant-tabs-content ant-tabs-content-top"
+                style="margin-left:-100%"
               >
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
@@ -1973,126 +1975,126 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
                   class="ant-tabs-tabpane"
                   role="tabpanel"
-                  style="display:none"
+                  style="visibility:hidden;height:0;overflow-y:hidden"
                   tabindex="-1"
                 />
               </div>
@@ -2103,7 +2105,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -2288,14 +2290,14 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -2471,14 +2473,14 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -2585,14 +2587,14 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>
@@ -2980,12 +2982,13 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     >
       <div
         class="ant-tabs-content ant-tabs-content-top"
+        style="margin-left:-100%"
       >
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
@@ -3000,196 +3003,196 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
           class="ant-tabs-tabpane"
           role="tabpanel"
-          style="display:none"
+          style="visibility:hidden;height:0;overflow-y:hidden"
           tabindex="-1"
         />
       </div>

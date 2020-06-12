@@ -258,7 +258,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           nameRef.current = [...mergedName];
           if (fieldKey) {
             const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
-            nameRef.current = [...mergedName.slice(-1), ...fieldKeys];
+            nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
@@ -283,7 +283,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
         // ======================= Children =======================
         const mergedControl: typeof control = {
           ...control,
-          id: fieldId,
         };
 
         let childNode: React.ReactNode = null;
@@ -315,6 +314,9 @@ function FormItem(props: FormItemProps): React.ReactElement {
           );
 
           const childProps = { ...children.props, ...mergedControl };
+          if (!childProps.id) {
+            childProps.id = fieldId;
+          }
 
           // We should keep user origin event handler
           const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
