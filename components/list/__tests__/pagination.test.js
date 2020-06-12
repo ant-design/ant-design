@@ -136,8 +136,9 @@ describe('List.pagination', () => {
     expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
   });
 
+  //github.com/ant-design/ant-design/issues/24913
   // https://github.com/ant-design/ant-design/issues/24501
-  it('should onChange called when pageSize change', () => {
+  https: it('should onChange called when pageSize change', () => {
     const handlePaginationChange = jest.fn();
     const handlePageSizeChange = () => {};
     const wrapper = mount(
@@ -153,6 +154,7 @@ describe('List.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(handlePaginationChange).toBeCalled();
     expect(handlePaginationChange).toHaveBeenCalledWith(1, 10);
   });
 

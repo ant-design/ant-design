@@ -121,7 +121,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
 | defaultFilteredValue | Default filtered values | string\[] | - |  |  |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
-| filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |  |
+| filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
@@ -186,7 +186,7 @@ Properties for row selection.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | columnWidth | Set the width of the selection column | string\|number | `60px` |  |
-| columnTitle | Set the title of the selection column | string\|React.ReactNode | - |  |
+| columnTitle | Set the title of the selection column | string\|ReactNode | - |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | `false` | 4.3 |
@@ -213,7 +213,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | key | Unique key of this selection | string | - |
-| text | Display text of this selection | string\|React.ReactNode | - |
+| text | Display text of this selection | string\|ReactNode | - |
 | onSelect | Callback executed when this selection is clicked | Function(changeableRowKeys) | - |
 
 ## Using in TypeScript
