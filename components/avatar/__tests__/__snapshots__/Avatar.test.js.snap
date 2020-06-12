@@ -91,7 +91,9 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
       className="ant-avatar-string"
       style={
         Object {
-          "opacity": 0,
+          "WebkitTransform": "scale(0.72) translateX(-50%)",
+          "msTransform": "scale(0.72) translateX(-50%)",
+          "transform": "scale(0.72) translateX(-50%)",
         }
       }
     >
