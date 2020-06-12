@@ -129,7 +129,7 @@ class Input extends React.Component<InputProps, InputState> {
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
-      focused: false,
+      focused: true,
       // eslint-disable-next-line react/no-unused-state
       prevValue: props.value,
     };

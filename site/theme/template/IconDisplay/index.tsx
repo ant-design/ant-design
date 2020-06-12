@@ -26,7 +26,6 @@ interface IconDisplayProps {
 interface IconDisplayState {
   theme: ThemeType;
   searchKey: string;
-  isAutoFocus: boolean;
 }
 
 class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
@@ -34,10 +33,11 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   static newIconNames: string[] = [];
 
+  input: HTMLInputElement;
+
   state: IconDisplayState = {
     theme: ThemeType.Outlined,
     searchKey: '',
-    isAutoFocus: true,
   };
 
   constructor(props: IconDisplayProps) {
@@ -45,11 +45,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
   }
 
-  componentDidMount() {
-    this.setState({
-      isAutoFocus: false,
-    });
-  }
+  componentDidMount() {}
 
   handleChangeTheme = (e: RadioChangeEvent) => {
     this.setState({
@@ -116,13 +112,14 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
               <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
             </Radio.Button>
           </Radio.Group>
+
           <Input.Search
             placeholder={messages['app.docs.components.icon.search.placeholder']}
             style={{ margin: '0 10px', flex: 1 }}
             allowClear
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
-            autoFocus={this.state.isAutoFocus}
+            autoFocus={false}
             suffix={<IconPicSearcher />}
           />
         </div>
