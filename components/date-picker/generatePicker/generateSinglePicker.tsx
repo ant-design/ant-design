@@ -74,7 +74,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         } = this.props;
         const { format, showTime } = this.props as any;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
-
         const additionalProps = {
           showToday: true,
         };

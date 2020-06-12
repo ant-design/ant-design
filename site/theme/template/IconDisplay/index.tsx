@@ -33,8 +33,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   static newIconNames: string[] = [];
 
-  input: HTMLInputElement;
-
   state: IconDisplayState = {
     theme: ThemeType.Outlined,
     searchKey: '',
@@ -44,8 +42,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     super(props);
     this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
   }
-
-  componentDidMount() {}
 
   handleChangeTheme = (e: RadioChangeEvent) => {
     this.setState({
