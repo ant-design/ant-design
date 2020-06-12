@@ -79,6 +79,12 @@ const Avatar: React.FC<AvatarProps> = props => {
     setScaleParam();
   }, [props.children, props.gap]);
 
+  React.useEffect(() => {
+    if (props.children) {
+      setScaleParam();
+    }
+  }, [isImgExist]);
+
   const handleImgLoadError = () => {
     const { onError } = props;
     const errorFlag = onError ? onError() : undefined;

@@ -100,6 +100,8 @@ describe('Avatar Render', () => {
 
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-string').length).toBe(1);
+    // children should show, when image load error without onError return false
+    expect(wrapper.find('.ant-avatar-string').prop('style')).not.toHaveProperty('opacity', 0);
 
     // simulate successful src url
     wrapper.setProps({ src: LOAD_SUCCESS_SRC });
