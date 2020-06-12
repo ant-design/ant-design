@@ -198,7 +198,6 @@ describe('Table.pagination', () => {
     wrapper.find('.ant-select-selector').simulate('mousedown');
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     wrapper.find('.ant-select-item-option').at(1).simulate('click');
-    expect(onChange).toBeCalled();
     expect(onChange).toHaveBeenCalledWith(1, 20);
   });
 
