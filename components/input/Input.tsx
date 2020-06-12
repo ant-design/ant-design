@@ -129,7 +129,7 @@ class Input extends React.Component<InputProps, InputState> {
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
-      focused: true,
+      focused: false,
       // eslint-disable-next-line react/no-unused-state
       prevValue: props.value,
     };
@@ -144,6 +144,9 @@ class Input extends React.Component<InputProps, InputState> {
   }
 
   componentDidMount() {
+    this.setState({
+      focused: true,
+    });
     this.clearPasswordValueAttribute();
   }
 
