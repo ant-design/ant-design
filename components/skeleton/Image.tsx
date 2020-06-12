@@ -17,12 +17,11 @@ const SkeletonImage = (props: SkeletonImageProps) => {
 
     return (
       <div className={cls}>
-        <div className={classNames(`${prefixCls}-image`, className)}>
+        <div className={classNames(`${prefixCls}-image`, className)} style={style}>
           <svg
             viewBox="0 0 1098 1024"
             xmlns="http://www.w3.org/2000/svg"
             className={`${prefixCls}-image-svg`}
-            style={{ ...style }}
           >
             <path d={path} className={`${prefixCls}-image-path`} />
           </svg>
