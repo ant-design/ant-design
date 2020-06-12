@@ -184,4 +184,24 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search addonAfter={[]} enterButton />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should prevent search button mousedown event', async () => {
+    const ref = React.createRef();
+    const wrapper = mount(<Search ref={ref} enterButton="button text" />, {
+      attachTo: document.body,
+    });
+    let prevented = false;
+
+    ref.current.focus();
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
+
+    wrapper.find('button').simulate('mousedown', {
+      preventDefault: () => {
+        prevented = true;
+      },
+    });
+    expect(prevented).toBeTruthy();
+
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
+  });
 });
