@@ -191,17 +191,14 @@ describe('Input.Search', () => {
       attachTo: document.body,
     });
     let prevented = false;
-
     ref.current.focus();
     expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
-
     wrapper.find('button').simulate('mousedown', {
       preventDefault: () => {
         prevented = true;
       },
     });
     expect(prevented).toBeTruthy();
-
     expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
   });
 });
