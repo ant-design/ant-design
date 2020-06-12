@@ -43,7 +43,7 @@ describe('Table.rowSelection', () => {
       .find('BodyRow')
       .map(row => {
         const { key } = row.props().record;
-        if (!row.find('input').props().checked) {
+        if (!row.find('input').at(0).props().checked) {
           return null;
         }
 
@@ -785,6 +785,48 @@ describe('Table.rowSelection', () => {
       .last()
       .simulate('change', { target: { checked: true } });
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
+  });
+
+  describe('support children', () => {
+    const dataWithChildren = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy' },
+      { key: 2, name: 'Tom' },
+      {
+        key: 3,
+        name: 'Jerry',
+        children: [
+          {
+            key: 4,
+            name: 'Jerry Jack',
+          },
+          {
+            key: 5,
+            name: 'Jerry Lucy',
+          },
+          {
+            key: 6,
+            name: 'Jerry Tom',
+          },
+        ],
+      },
+    ];
+    it('supports checkStrictly', () => {
+      const table = createTable({
+        dataSource: dataWithChildren,
+        defaultExpandAllRows: true,
+        rowSelection: {
+          checkStrictly: true,
+        },
+      });
+      const wrapper = mount(table);
+      const checkboxes = wrapper.find('input');
+
+      checkboxes.at(4).simulate('change', { target: { checked: true } });
+      expect(getSelections(wrapper)).toEqual([3, 4, 5, 6]);
+      checkboxes.at(4).simulate('change', { target: { checked: true } });
+      expect(getSelections(wrapper)).toEqual([]);
+    });
   });
 
   describe('cache with selected keys', () => {
