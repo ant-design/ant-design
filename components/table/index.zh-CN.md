@@ -126,7 +126,7 @@ const columns = [
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultFilteredValue | 默认筛选值 | string\[] | - |  |
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
-| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |  |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
@@ -191,7 +191,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |  |
-| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |  |
+| columnTitle | 自定义列表选择框标题 | string\|ReactNode | - |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3 |
@@ -218,7 +218,7 @@ const columns = [
 | 参数     | 说明                       | 类型                        | 默认值 |
 | -------- | -------------------------- | --------------------------- | ------ |
 | key      | React 需要的 key，建议设置 | string                      | -      |
-| text     | 选择项显示的文字           | string\|React.ReactNode     | -      |
+| text     | 选择项显示的文字           | string\|ReactNode           | -      |
 | onSelect | 选择项点击回调             | Function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用
