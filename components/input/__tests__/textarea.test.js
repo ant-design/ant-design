@@ -1,9 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-// eslint-disable-next-line import/no-unresolved
+import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 import { sleep } from '../../../tests/utils';
 
 const { TextArea } = Input;
@@ -78,56 +77,14 @@ describe('TextArea', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('calculateNodeStyling works correctly', () => {
-    const wrapper = document.createElement('textarea');
-    wrapper.id = 'test';
-    wrapper.wrap = 'wrap';
-    calculateNodeStyling(wrapper, true);
-    const value = calculateNodeStyling(wrapper, true);
-    expect(value).toEqual({
-      borderSize: 2,
-      boxSizing: 'border-box',
-      paddingSize: 4,
-      sizingStyle:
-        'letter-spacing:normal;line-height:normal;padding-top:2px;padding-bottom:2px;font-family:-webkit-small-control;font-weight:;font-size:;font-variant:;text-rendering:auto;text-transform:none;width:;text-indent:0;padding-left:2px;padding-right:2px;border-width:1px;box-sizing:border-box',
-    });
-  });
-
-  it('boxSizing === "border-box"', () => {
-    const wrapper = document.createElement('textarea');
-    wrapper.style.boxSizing = 'border-box';
-    const { height } = calculateNodeHeight(wrapper);
-    expect(height).toBe(2);
-  });
-
-  it('boxSizing === "content-box"', () => {
-    const wrapper = document.createElement('textarea');
-    wrapper.style.boxSizing = 'content-box';
-    const { height } = calculateNodeHeight(wrapper);
-    expect(height).toBe(-4);
-  });
-
-  it('minRows or maxRows is not null', () => {
-    const wrapper = document.createElement('textarea');
-    expect(calculateNodeHeight(wrapper, 1, 1)).toEqual({
-      height: 2,
-      maxHeight: 9007199254740991,
-      minHeight: 2,
-      overflowY: undefined,
-    });
-    wrapper.style.boxSizing = 'content-box';
-    expect(calculateNodeHeight(wrapper, 1, 1)).toEqual({
-      height: -4,
-      maxHeight: 9007199254740991,
-      minHeight: -4,
-      overflowY: undefined,
-    });
-  });
-
-  it('when prop value not in this.props, resizeTextarea should be called', () => {
+  it('when prop value not in this.props, resizeTextarea should be called', async () => {
     const wrapper = mount(<TextArea aria-label="textarea" />);
     const resizeTextarea = jest.spyOn(wrapper.instance().resizableTextArea, 'resizeTextarea');
-    wrapper.find('textarea').simulate('change', 'test');
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'test',
+      },
+    });
     expect(resizeTextarea).toHaveBeenCalled();
   });
 
@@ -137,7 +94,7 @@ describe('TextArea', () => {
     const wrapper = mount(
       <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
     );
-    wrapper.instance().handleKeyDown({ keyCode: 13 });
+    wrapper.find(RcTextArea).instance().handleKeyDown({ keyCode: 13 });
     expect(onPressEnter).toHaveBeenCalled();
     expect(onKeyDown).toHaveBeenCalled();
   });
