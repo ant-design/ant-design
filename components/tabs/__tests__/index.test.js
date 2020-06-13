@@ -77,19 +77,6 @@ describe('Tabs', () => {
     });
   });
 
-  describe('centered', () => {
-    it('center tabs', () => {
-      const wrapper = render(
-        <Tabs centered>
-          <TabPane tab="foo" key="1">
-            foo
-          </TabPane>
-        </Tabs>,
-      );
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
-
   it('warning for onNextClick', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Tabs onNextClick={() => {}} />);

@@ -1,13 +1,13 @@
 ---
-order: 1
+order: 2
 title:
-  zh-CN: Centered
+  zh-CN: 居中
   en-US: Centered
 ---
 
 ## zh-CN
 
-Centered tabs.
+标签居中展示。
 
 ## en-US
 
@@ -18,12 +18,8 @@ import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-function callback(key) {
-  console.log(key);
-}
-
 const Demo = () => (
-  <Tabs defaultActiveKey="1" onChange={callback} centered>
+  <Tabs defaultActiveKey="1" centered>
     <TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1
     </TabPane>
