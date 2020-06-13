@@ -2,11 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { Breakpoint } from '../_util/responsiveObserve';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
 
 type FlexType = number | 'none' | 'auto' | string;
+type OrderType = ColSpanType | Partial<Record<Breakpoint, number>>;
 
 export interface ColSize {
   span?: ColSpanType;
@@ -18,7 +20,7 @@ export interface ColSize {
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span?: ColSpanType;
-  order?: ColSpanType;
+  order?: OrderType;
   offset?: ColSpanType;
   push?: ColSpanType;
   pull?: ColSpanType;
@@ -43,6 +45,11 @@ function parseFlex(flex: FlexType): string {
 
   return flex;
 }
+
+/**
+ * 实现思路：
+ * 本质上还是需要利用screens这个来监听一下现在处于啥状态 -> xs、sm、md、lg、xl、xxl
+ */
 
 export default class Col extends React.Component<ColProps, {}> {
   renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
