@@ -24,7 +24,11 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper.instance().getGutter()).toEqual([8, 0]);
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginLeft: -4,
+      marginRight: -4,
+    });
   });
 
   it('when typeof gutter is object array', () => {
@@ -36,22 +40,13 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(wrapper.instance().getGutter()).toEqual([8, 8]);
-  });
-
-  it('when typeof gutter is object array in large screen', () => {
-    const wrapper = mount(
-      <Row
-        gutter={[
-          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
-          { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
-        ]}
-      />,
-    );
-    wrapper.setState({
-      screens: { md: true, lg: true, xl: true },
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginTop: -4,
+      marginRight: -4,
+      marginBottom: 4,
+      marginLeft: -4,
     });
-    expect(wrapper.instance().getGutter()).toEqual([40, 400]);
   });
 
   it('renders wrapped Col correctly', () => {
@@ -65,13 +60,6 @@ describe('Grid', () => {
       </Row>,
     );
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('when component has been unmounted, componentWillUnmount should be called', () => {
-    const wrapper = mount(<Row />);
-    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
-    wrapper.unmount();
-    expect(willUnmount).toHaveBeenCalled();
   });
 
   it('should work correct when gutter is object', () => {

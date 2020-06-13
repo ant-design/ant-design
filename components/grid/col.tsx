@@ -44,9 +44,8 @@ function parseFlex(flex: FlexType): string {
   return flex;
 }
 
-export default class Col extends React.Component<ColProps, {}> {
-  renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { props } = this;
+const Col: React.FC<ColProps> = props => {
+  const renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       span,
@@ -132,7 +131,7 @@ export default class Col extends React.Component<ColProps, {}> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderCol}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderCol}</ConfigConsumer>;
+};
+
+export default Col;
