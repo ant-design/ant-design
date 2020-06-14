@@ -17,7 +17,7 @@
   height: @switch-height;
   line-height: @switch-height;
   vertical-align: middle;
-  background-color: @disabled-color;
+  background-color: var(--disabled-color);
   border: 0;
   border-radius: 100px;
   cursor: pointer;
@@ -26,11 +26,11 @@
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px fade(@disabled-color, 10%);
+    box-shadow: 0 0 0 2px var(--switch-focus-shadow-color);
   }
 
   &-checked:focus {
-    box-shadow: 0 0 0 2px fade(@switch-color, 20%);
+    box-shadow: 0 0 0 2px var(--switch-checked-focus-shadow-color);
   }
 
   &:focus:hover {
@@ -38,7 +38,7 @@
   }
 
   &-checked {
-    background-color: @switch-color;
+    background-color: var(--switch-color);
   }
 
   &-loading,
@@ -55,7 +55,7 @@
   &-inner {
     display: block;
     margin: 0 @switch-inner-margin-min 0 @switch-inner-margin-max;
-    color: @text-color-inverse;
+    color: var(--text-color-inverse);
     font-size: @font-size-sm;
     transition: margin @switch-duration;
   }
@@ -79,9 +79,9 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: @switch-bg;
+      background-color: var(--switch-bg);
       border-radius: @switch-pin-size / 2;
-      box-shadow: 0 2px 4px 0 @switch-shadow-color;
+      box-shadow: 0 2px 4px 0 var(--switch-shadow-color);
       transition: all @switch-duration @ease-in-out-circ;
       content: '';
     }
@@ -115,7 +115,7 @@
   }
 
   &-checked &-loading-icon {
-    color: @switch-color;
+    color: var(--switch-color);
   }
 
   // ========================== Size ==========================
