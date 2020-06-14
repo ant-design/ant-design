@@ -23,18 +23,18 @@
     overflow-y: auto;
     text-align: left;
     list-style-type: none;
-    background-color: @dropdown-menu-bg;
+    background-color: var(--dropdown-menu-bg);
     background-clip: padding-box;
     border-radius: @border-radius-base;
     outline: none;
-    box-shadow: @box-shadow-base;
+    box-shadow: var(--box-shadow-base);
 
     &-item {
       width: 120px;
       margin: 0;
       padding: @dropdown-vertical-padding @control-padding-horizontal;
       overflow: hidden;
-      color: @text-color;
+      color: var(--text-color);
       font-weight: normal;
       font-size: @dropdown-font-size;
       line-height: @dropdown-line-height;
@@ -44,13 +44,13 @@
       transition: all 0.3s;
 
       &:hover {
-        background: @item-hover-bg;
+        background: var(--item-hover-bg);
       }
 
       &-disabled {
         &,
         &:hover {
-          color: @disabled-color;
+          color: var(--disabled-color);
           background: transparent;
           cursor: not-allowed;
         }

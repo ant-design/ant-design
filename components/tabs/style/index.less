@@ -81,20 +81,20 @@
 
     .@{tab-prefix-cls}-nav-add {
       padding: 0 @padding-xs;
-      background: @tabs-card-head-background;
-      border: @border-width-base @border-style-base @border-color-split;
+      background: var(--tabs-card-head-background);
+      border: @border-width-base @border-style-base var(--border-color-split);
       border-radius: @border-radius-base @border-radius-base 0 0;
       outline: none;
       cursor: pointer;
       transition: all @animation-duration-slow @ease-in-out;
 
       &:hover {
-        color: @tabs-hover-color;
+        color: var(--tabs-hover-color);
       }
 
       &:active,
       &:focus {
-        color: @tabs-active-color;
+        color: var(--tabs-active-color);
       }
     }
   }
@@ -106,7 +106,7 @@
   // ============================ InkBar ============================
   &-ink-bar {
     position: absolute;
-    background: @tabs-ink-bar-color;
+    background: var(--tabs-ink-bar-color);
     pointer-events: none;
   }
 
@@ -132,7 +132,7 @@
       flex: none;
       margin-right: -@margin-xss;
       margin-left: @margin-xs;
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
       font-size: @font-size-sm;
       outline: none;
       transition: all @animation-duration-slow;
@@ -142,31 +142,31 @@
       }
 
       &:hover {
-        color: @heading-color;
+        color: var(--heading-color);
       }
 
       &:focus,
       &:active {
-        color: @tabs-active-color;
+        color: var(--tabs-active-color);
       }
     }
 
     &:focus,
     &:active {
-      color: @tabs-active-color;
+      color: var(--tabs-active-color);
     }
 
     &:hover {
-      color: @tabs-hover-color;
+      color: var(--tabs-hover-color);
     }
 
     &&-active {
-      color: @tabs-highlight-color;
+      color: var(--tabs-highlight-color);
       font-weight: 500;
     }
 
     &&-disabled {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: not-allowed;
     }
 

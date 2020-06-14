@@ -14,7 +14,7 @@
         position: absolute;
         right: 0;
         left: 0;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base var(--border-color-split);
         content: '';
       }
 
@@ -37,11 +37,11 @@
 
         &::before {
           left: 0;
-          box-shadow: inset 10px 0 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset 10px 0 8px -8px var(--tabs-shadow-color);
         }
         &::after {
           right: 0;
-          box-shadow: inset -10px 0 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset -10px 0 8px -8px var(--tabs-shadow-color);
         }
 
         &.@{tab-prefix-cls}-nav-wrap-ping-left::before {
@@ -121,11 +121,11 @@
 
         &::before {
           top: 0;
-          box-shadow: inset 0 10px 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset 0 10px 8px -8px var(--tabs-shadow-color);
         }
         &::after {
           bottom: 0;
-          box-shadow: inset 0 -10px 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset 0 -10px 8px -8px var(--tabs-shadow-color);
         }
 
         &.@{tab-prefix-cls}-nav-wrap-ping-top::before {
@@ -163,7 +163,7 @@
     > .@{tab-prefix-cls}-content-holder,
     > div > .@{tab-prefix-cls}-content-holder {
       margin-left: -@border-width-base;
-      border-left: @border-width-base @border-style-base @border-color-split;
+      border-left: @border-width-base @border-style-base var(--border-color-split);
 
       > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
         padding-left: @padding-lg;
@@ -185,7 +185,7 @@
     > div > .@{tab-prefix-cls}-content-holder {
       order: 0;
       margin-right: -@border-width-base;
-      border-right: @border-width-base @border-style-base @border-color-split;
+      border-right: @border-width-base @border-style-base var(--border-color-split);
 
       > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
         padding-right: @padding-lg;

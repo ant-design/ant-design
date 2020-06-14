@@ -8,13 +8,13 @@
     .@{tab-prefix-cls}-tab {
       margin: 0;
       padding: @tabs-card-horizontal-padding;
-      background: @tabs-card-head-background;
-      border: @border-width-base @border-style-base @border-color-split;
+      background: var(--tabs-card-head-background);
+      border: @border-width-base @border-style-base var(--border-color-split);
       transition: all @animation-duration-slow @ease-in-out;
 
       &-active {
-        color: @tabs-card-active-color;
-        background: @component-background;
+        color: var(--tabs-card-active-color);
+        background: var(--component-background);
       }
     }
 
@@ -41,7 +41,7 @@
         border-radius: @border-radius-base @border-radius-base 0 0;
 
         &-active {
-          border-bottom-color: @component-background;
+          border-bottom-color: var(--component-background);
         }
       }
     }
@@ -53,7 +53,7 @@
         border-radius: 0 0 @border-radius-base @border-radius-base;
 
         &-active {
-          border-top-color: @component-background;
+          border-top-color: var(--component-background);
         }
       }
     }
@@ -77,7 +77,7 @@
         border-radius: @border-radius-base 0 0 @border-radius-base;
 
         &-active {
-          border-right-color: @component-background;
+          border-right-color: var(--component-background);
         }
       }
     }
@@ -89,7 +89,7 @@
         border-radius: 0 @border-radius-base @border-radius-base 0;
 
         &-active {
-          border-left-color: @component-background;
+          border-left-color: var(--component-background);
         }
       }
     }
