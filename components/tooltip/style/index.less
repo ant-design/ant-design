@@ -54,13 +54,13 @@
     min-width: 30px;
     min-height: 32px;
     padding: 6px 8px;
-    color: @tooltip-color;
+    color: var(--tooltip-color);
     text-align: left;
     text-decoration: none;
     word-wrap: break-word;
-    background-color: @tooltip-bg;
+    background-color: var(--tooltip-bg);
     border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+    box-shadow: var(--box-shadow-base);
   }
 
   // Arrows
@@ -83,7 +83,7 @@
       width: @tooltip-arrow-width;
       height: @tooltip-arrow-width;
       margin: auto;
-      background-color: @tooltip-bg;
+      background-color: var(--tooltip-bg);
       content: '';
       pointer-events: auto;
     }
@@ -189,14 +189,14 @@
 .generator-tooltip-preset-color(@i: length(@preset-colors)) when (@i > 0) {
   .generator-tooltip-preset-color(@i - 1);
   @color: extract(@preset-colors, @i);
-  @lightColor: '@{color}-6';
+  @lightColor: ~'var(--@{color}-6)';
   .@{tooltip-prefix-cls}-@{color} {
     .@{tooltip-prefix-cls}-inner {
-      background-color: @@lightColor;
+      background-color: @lightColor;
     }
     .@{tooltip-prefix-cls}-arrow {
       &-content {
-        background-color: @@lightColor;
+        background-color: @lightColor;
       }
     }
   }
