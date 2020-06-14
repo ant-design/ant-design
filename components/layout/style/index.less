@@ -9,7 +9,7 @@
   flex-direction: column;
   /* fix firefox can't set height smaller than content on flex item */
   min-height: 0;
-  background: @layout-body-background;
+  background: var(--layout-body-background);
 
   &,
   * {
@@ -32,16 +32,16 @@
   &-header {
     height: @layout-header-height;
     padding: @layout-header-padding;
-    color: @layout-header-color;
+    color: var(--layout-header-color);
     line-height: @layout-header-height;
-    background: @layout-header-background;
+    background: var(--layout-header-background);
   }
 
   &-footer {
     padding: @layout-footer-padding;
-    color: @text-color;
+    color: var(--text-color);
     font-size: @font-size-base;
-    background: @layout-footer-background;
+    background: var(--layout-footer-background);
   }
 
   &-content {
@@ -55,7 +55,7 @@
 
     /* fix firefox can't set width smaller than content on flex item */
     min-width: 0;
-    background: @layout-sider-background;
+    background: var(--layout-sider-background);
     transition: all 0.2s;
 
     &-children {
@@ -80,10 +80,10 @@
       bottom: 0;
       z-index: 1;
       height: @layout-trigger-height;
-      color: @layout-trigger-color;
+      color: var(--layout-trigger-color);
       line-height: @layout-trigger-height;
       text-align: center;
-      background: @layout-trigger-background;
+      background: var(--layout-trigger-background);
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -100,17 +100,17 @@
         z-index: 1;
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
-        color: @layout-trigger-color;
+        color: var(--layout-trigger-color);
         font-size: @layout-zero-trigger-width / 2;
         line-height: @layout-zero-trigger-height;
         text-align: center;
-        background: @layout-sider-background;
+        background: var(--layout-sider-background);
         border-radius: 0 @border-radius-base @border-radius-base 0;
         cursor: pointer;
         transition: background 0.3s ease;
 
         &:hover {
-          background: tint(@layout-sider-background, 10%);
+          background: var(--layout-sider-hover-background);
         }
 
         &-right {
