@@ -5,9 +5,6 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
-@table-header-icon-color: #bfbfbf;
-@table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
-@table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 
 .@{table-prefix-cls}-wrapper {
   max-width: 100%;
@@ -20,7 +17,7 @@
   z-index: 0;
   clear: both;
   font-size: @table-font-size;
-  background: @table-bg;
+  background: var(--table-bg);
   border-radius: @border-radius-base;
 
   // https://github.com/ant-design/ant-design/issues/17611
@@ -69,19 +66,19 @@
   // ============================ Footer ============================
   &-footer {
     padding: @table-padding-vertical @table-padding-horizontal;
-    color: @table-footer-color;
-    background: @table-footer-bg;
+    color: var(--table-footer-color);
+    background: var(--table-footer-bg);
   }
 
   // ============================ Header ============================
   &-thead {
     > tr {
       > th {
-        color: @table-header-color;
+        color: var(--table-header-color);
         font-weight: 500;
         text-align: left;
-        background: @table-header-bg;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        background: var(--table-header-bg);
+        border-bottom: @border-width-base @border-style-base var(--border-color-split);
         transition: background 0.3s ease;
 
         &[colspan]:not([colspan='1']) {
@@ -101,25 +98,25 @@
   &-tbody {
     > tr {
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base var(--border-color-split);
         transition: background 0.3s;
       }
 
       &.@{table-prefix-cls}-row:hover {
         > td {
-          background: @table-row-hover-bg;
+          background: var(--table-row-hover-bg);
         }
       }
 
       &.@{table-prefix-cls}-row-selected {
         > td {
-          background: @table-selected-row-bg;
+          background: var(--table-selected-row-bg);
           border-color: rgba(0, 0, 0, 0.03);
         }
 
         &:hover {
           > td {
-            background: @table-selected-row-hover-bg;
+            background: var(--table-selected-row-hover-bg);
           }
         }
       }
@@ -152,7 +149,7 @@
     > tr {
       > th,
       > td {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base var(--border-color-split);
       }
     }
   }
@@ -187,19 +184,19 @@
     transition: all 0.3s;
 
     &:hover {
-      background: @table-header-sort-active-bg;
+      background: var(--table-header-sort-active-bg);
 
       .@{table-prefix-cls}-filter-trigger-container {
-        background: @table-header-sort-active-filter-bg;
+        background: var(--table-header-sort-active-filter-bg);
       }
     }
   }
 
   &-thead th.@{table-prefix-cls}-column-sort {
-    background: @table-header-sort-bg;
+    background: var(--table-header-sort-bg);
   }
   td&-column-sort {
-    background: @table-body-sort-bg;
+    background: var(--table-body-sort-bg);
   }
 
   &-column-sorters-with-tooltip {
@@ -217,7 +214,7 @@
     margin-top: 0.15em;
     margin-bottom: -0.15em;
     margin-left: @padding-xs;
-    color: @table-header-icon-color;
+    color: var(--table-header-icon-color);
 
     &-full {
       margin-top: -0.2em;
@@ -235,7 +232,7 @@
       .iconfont-size-under-12px(11px);
 
       &.active {
-        color: @primary-color;
+        color: var(--primary-color);
       }
     }
 
@@ -282,14 +279,14 @@
     &-open,
     &:hover,
     .@{table-prefix-cls}-thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
-      background: @table-header-filter-active-bg;
+      background: var(--table-header-filter-active-bg);
     }
   }
 
   &-filter-trigger {
     display: block;
     width: 2.3em;
-    color: @table-header-icon-color;
+    color: var(--table-header-icon-color);
     font-size: @font-size-sm;
     transition: color 0.3s;
 
@@ -302,11 +299,11 @@
 
     .@{table-prefix-cls}-filter-trigger-container-open &,
     &:hover {
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
     }
 
     &.active {
-      color: @primary-color;
+      color: var(--primary-color);
     }
   }
 
@@ -325,10 +322,10 @@
     }
 
     min-width: 120px;
-    background-color: @table-filter-dropdown-bg;
+    background-color: var(--table-filter-dropdown-bg);
 
     border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+    box-shadow: var(--box-shadow-base);
 
     &-submenu > ul {
       max-height: calc(100vh - 130px);
@@ -350,8 +347,8 @@
       justify-content: space-between;
       padding: 7px 8px 7px 3px;
       overflow: hidden;
-      background-color: @table-filter-btns-bg;
-      border-top: @border-width-base @border-style-base @border-color-split;
+      background-color: var(--table-filter-btns-bg);
+      border-top: @border-width-base @border-style-base var(--border-color-split);
     }
   }
 
@@ -383,10 +380,10 @@
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);
-        color: @table-header-icon-color;
+        color: var(--table-header-icon-color);
 
         &:hover {
-          color: @table-header-icon-color-hover;
+          color: var(--table-header-icon-color-hover);
         }
       }
     }
@@ -419,8 +416,8 @@
     color: inherit;
     line-height: @font-size-sm;
     vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
-    background: @table-expand-icon-bg;
-    border: @border-width-base @border-style-base @border-color-split;
+    background: var(--table-expand-icon-bg);
+    border: @border-width-base @border-style-base var(--border-color-split);
     border-radius: @border-radius-base;
     outline: none;
     transition: all 0.3s;
@@ -483,7 +480,7 @@
     &,
     &:hover {
       > td {
-        background: @table-expanded-row-bg;
+        background: var(--table-expanded-row-bg);
       }
     }
   }
@@ -499,11 +496,11 @@
   &-tbody > tr&-placeholder {
     text-align: center;
     .@{table-prefix-cls}-empty & {
-      color: @disabled-color;
+      color: var(--disabled-color);
     }
     &:hover {
       > td {
-        background: @component-background;
+        background: var(--component-background);
       }
     }
   }
@@ -514,7 +511,7 @@
     position: -webkit-sticky !important;
     position: sticky !important;
     z-index: 2;
-    background: @table-bg;
+    background: var(--table-bg);
   }
 
   &-cell-fix-left-first::after,
@@ -568,13 +565,13 @@
       position: relative;
 
       &::before {
-        box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+        box-shadow: inset 10px 0 8px -8px var(--table-shadow-color);
       }
     }
 
     .@{table-prefix-cls}-cell-fix-left-first::after,
     .@{table-prefix-cls}-cell-fix-left-last::after {
-      box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      box-shadow: inset 10px 0 8px -8px var(--table-shadow-color);
     }
   }
 
@@ -583,13 +580,13 @@
       position: relative;
 
       &::after {
-        box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+        box-shadow: inset -10px 0 8px -8px var(--table-shadow-color);
       }
     }
 
     .@{table-prefix-cls}-cell-fix-right-first::after,
     .@{table-prefix-cls}-cell-fix-right-last::after {
-      box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+      box-shadow: inset -10px 0 8px -8px var(--table-shadow-color);
     }
   }
 }

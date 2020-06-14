@@ -1,7 +1,7 @@
 @import './index';
 @import './size';
 
-@table-border: @border-width-base @border-style-base @border-color-split;
+@table-border: @border-width-base @border-style-base var(--border-color-split);
 
 .@{table-prefix-cls}.@{table-prefix-cls}-bordered {
   // ============================ Title =============================
@@ -27,7 +27,7 @@
   table > {
     thead {
       > tr:not(:last-child) > th {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-bottom: @border-width-base @border-style-base var(--border-color-split);
       }
     }
   }
