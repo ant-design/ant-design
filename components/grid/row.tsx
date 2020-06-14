@@ -33,13 +33,13 @@ const Row: React.FC<RowProps> = props => {
   let token: string;
 
   React.useEffect(() => {
-    token = ResponsiveObserve.subscribe(screens => {
+    token = ResponsiveObserve.subscribe(screen => {
       const { gutter } = props;
       if (
         (!Array.isArray(gutter) && typeof gutter === 'object') ||
         (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
       ) {
-        setScreens(screens);
+        setScreens(screen);
       }
     });
   }, []);
