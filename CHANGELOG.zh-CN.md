@@ -19,8 +19,8 @@ timeline: true
 
 `2020-06-14`
 
-- 🐞 修正了 Tree `AntTreeNodeProps.children` 的类型。[#24429](https://github.com/ant-design/ant-design/pull/24429)
-- 🇮🇪 添加爱尔兰语国际化支持。[#24849](https://github.com/ant-design/ant-design/pull/24849)
+- 🐞 修正了 Tree `AntTreeNodeProps.children` 的类型。[#24429](https://github.com/ant-design/ant-design/pull/24429) [@fireairforce](https://github.com/fireairforce)
+- 🇮🇪 添加爱尔兰语国际化支持。[#24849](https://github.com/ant-design/ant-design/pull/24849) [@AbhijeetGaware](https://github.com/AbhijeetGaware)
 
 ## 3.26.17
 
