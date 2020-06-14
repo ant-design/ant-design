@@ -24,16 +24,13 @@ timeline: true
   - 🐞 Fix Form.Item still replace component `id` when `id` configured. [#24929](https://github.com/ant-design/ant-design/pull/24929)
   - 🐞 Fix Form.List error message display not correct when nested with `noStyle`. [#24867](https://github.com/ant-design/ant-design/pull/24867)
 - Table
-  - 🐞 Remove `emptyText` from Table `TableProps`. [#24948](https://github.com/ant-design/ant-design/pull/24948) [@hehex9](https://github.com/hehex9)
   - 🐞 Fix Table `shouldCellUpdate` missing `prevRecord` param. [#24963](https://github.com/ant-design/ant-design/pull/24963)
   - 🐞 Fix Table's filter dropdown's display value doesn't sync with controlled `filteredValue`. [#24952](https://github.com/ant-design/ant-design/pull/24952)
   - 🐞 Fix Table `onChange` get wrong state with multiple sorter operation. [#24852](https://github.com/ant-design/ant-design/pull/24852)
-- 🐞 Fix Search has no `displayName`. [#24965](https://github.com/ant-design/ant-design/pull/24965) [@Rustin-Liu](https://github.com/Rustin-Liu)
 - 🐞 Fix Modal `confirm()` has no default icon. [#24956](https://github.com/ant-design/ant-design/pull/24956)
 - 🐞 Fix List `grid` not working in React.Fragment or wrapped List.Item. [#24955](https://github.com/ant-design/ant-design/pull/24955)
 - 🐞 Fix Avatar fallback to children when loading image with error. [#24944](https://github.com/ant-design/ant-design/pull/24944) [@sosohime](https://github.com/sosohime)
 - 🐞 Fix Drawer doesn't omit prop `getTargetContainer`. [#24938](https://github.com/ant-design/ant-design/pull/24938)
-- 🐞 Fix Upload doesn't support HTTP patch method. [#24936](https://github.com/ant-design/ant-design/pull/24936) [@miclle](https://github.com/miclle)
 - 🐞 Fix Tabs dropdown clip text when tab title too long. [#24928](https://github.com/ant-design/ant-design/pull/24928)
 - 🐞 Fix Carousel under Tabs shaking when tab switch. [#24873](https://github.com/ant-design/ant-design/pull/24873)
 - 🐞 Fix Transfer package size will increase if tree shaking is disabled. [#24847](https://github.com/ant-design/ant-design/pull/24847) [@DavidSichau](https://github.com/DavidSichau)
@@ -44,6 +41,8 @@ timeline: true
 - TypeScript
   - 🛠 Export Select `OptionProps` interface. [#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
   - 🛠 Export Card `CardInterface` interface. [#24866](https://github.com/ant-design/ant-design/pull/24866) [@THPubs](https://github.com/THPubs)
+  - 🛠 Remove `emptyText` from Table `TableProps`. [#24948](https://github.com/ant-design/ant-design/pull/24948) [@hehex9](https://github.com/hehex9)
+  - 🛠 Add `patch` type on Upload `method` prop. [#24936](https://github.com/ant-design/ant-design/pull/24936) [@miclle](https://github.com/miclle)
 
 ## 4.3.3
 
