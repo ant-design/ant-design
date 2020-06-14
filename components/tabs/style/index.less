@@ -103,6 +103,17 @@
     flex: none;
   }
 
+  &-centered {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-nav-wrap {
+        &:not([class*='@{tab-prefix-cls}-nav-wrap-ping']) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+
   // ============================ InkBar ============================
   &-ink-bar {
     position: absolute;

@@ -28,6 +28,7 @@ Ant Design has 3 types of Tabs for different situations.
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set. | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | `false` |  |
 | size | preset tab bar size | `large` \| `default` \| `small` | `default` |  |
+| centered | Centers tabs | boolean | false | 4.4.0 |
 | tabBarExtraContent | Extra content in tab bar | React.ReactNode | - |  |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | object | - |  |
