@@ -13,7 +13,7 @@
       .@{timeline-prefix-cls}-rtl & {
         right: 4px;
         left: auto;
-        border-right: @timeline-width solid @timeline-color;
+        border-right: @timeline-width solid var(--timeline-color);
         border-left: none;
       }
     }
@@ -103,7 +103,7 @@
 
   &&-pending &-item-last &-item-tail {
     .@{timeline-prefix-cls}-rtl& {
-      border-right: 2px dotted @timeline-color;
+      border-right: 2px dotted var(--timeline-color);
       border-left: none;
     }
   }
@@ -111,7 +111,7 @@
   &&-reverse &-item-pending {
     .@{timeline-prefix-cls}-item-tail {
       .@{timeline-prefix-cls}-rtl& {
-        border-right: 2px dotted @timeline-color;
+        border-right: 2px dotted var(--timeline-color);
         border-left: none;
       }
     }

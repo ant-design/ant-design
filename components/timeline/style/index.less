@@ -22,7 +22,7 @@
       top: 10px;
       left: 4px;
       height: calc(100% - 10px);
-      border-left: @timeline-width solid @timeline-color;
+      border-left: @timeline-width solid var(--timeline-color);
     }
 
     &-pending &-head {
@@ -38,28 +38,28 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: @timeline-dot-bg;
+      background-color: var(--timeline-dot-bg);
       border: @timeline-dot-border-width solid transparent;
       border-radius: 100px;
 
       &-blue {
-        color: @primary-color;
-        border-color: @primary-color;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
       }
 
       &-red {
-        color: @error-color;
-        border-color: @error-color;
+        color: var(--error-color);
+        border-color: var(--error-color);
       }
 
       &-green {
-        color: @success-color;
-        border-color: @success-color;
+        color: var(--success-color);
+        border-color: var(--success-color);
       }
 
       &-gray {
-        color: @disabled-color;
-        border-color: @disabled-color;
+        color: var(--disabled-color);
+        border-color: var(--disabled-color);
       }
     }
 
@@ -148,7 +148,7 @@
   &&-pending &-item-last &-item-tail {
     display: block;
     height: calc(100% - 14px);
-    border-left: 2px dotted @timeline-color;
+    border-left: 2px dotted var(--timeline-color);
   }
 
   &&-reverse &-item-last &-item-tail {
@@ -160,7 +160,7 @@
       top: 15px;
       display: block;
       height: calc(100% - 15px);
-      border-left: 2px dotted @timeline-color;
+      border-left: 2px dotted var(--timeline-color);
     }
     .@{timeline-prefix-cls}-item-content {
       min-height: 48px;
