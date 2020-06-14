@@ -585,4 +585,16 @@ describe('Form', () => {
 
     expect(wrapper.find('input').prop('id')).toEqual('bamboo');
   });
+
+  it('Form validateTrigger', () => {
+    const wrapper = mount(
+      <Form validateTrigger="onBlur">
+        <Form.Item name="light">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('input').prop('onBlur')).toBeTruthy();
+  });
 });
