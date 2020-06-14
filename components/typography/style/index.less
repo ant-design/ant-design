@@ -5,22 +5,22 @@
 
 // =============== Basic ===============
 .@{typography-prefix-cls} {
-  color: @text-color;
+  color: var(--text-color);
 
   &&-secondary {
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
   }
 
   &&-warning {
-    color: @warning-color;
+    color: var(--warning-color);
   }
 
   &&-danger {
-    color: @error-color;
+    color: var(--error-color);
   }
 
   &&-disabled {
-    color: @disabled-color;
+    color: var(--disabled-color);
     cursor: not-allowed;
     user-select: none;
   }
@@ -88,7 +88,7 @@
     }
 
     &[disabled] {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: not-allowed;
       pointer-events: none;
     }
@@ -115,7 +115,7 @@
 
   mark {
     padding: 0;
-    background-color: @gold-3;
+    background-color: var(--gold-3);
   }
 
   u,
@@ -146,7 +146,7 @@
     &,
     &:hover,
     &:focus {
-      color: @success-color;
+      color: var(--success-color);
     }
   }
 
@@ -165,7 +165,7 @@
       position: absolute;
       right: 10px;
       bottom: 8px;
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
       pointer-events: none;
     }
 
