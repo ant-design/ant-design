@@ -33,7 +33,7 @@
       width: 100%;
       height: @skeleton-title-height;
       margin-top: @margin-md;
-      background: @skeleton-color;
+      background: var(--skeleton-color);
 
       + .@{skeleton-paragraph-prefix-cls} {
         margin-top: @skeleton-title-paragraph-margin-top;
@@ -48,7 +48,7 @@
         width: 100%;
         height: @skeleton-paragraph-li-height;
         list-style: none;
-        background: @skeleton-color;
+        background: var(--skeleton-color);
 
         &:last-child:not(:first-child):not(:nth-child(2)) {
           width: 61%;
@@ -121,7 +121,7 @@
 .skeleton-element-button() {
   display: inline-block;
   vertical-align: top;
-  background: @skeleton-color;
+  background: var(--skeleton-color);
   border-radius: @border-radius-base;
 
   .skeleton-element-button-size(@btn-height-base);
@@ -138,7 +138,7 @@
 .skeleton-element-avatar() {
   display: inline-block;
   vertical-align: top;
-  background: @skeleton-color;
+  background: var(--skeleton-color);
 
   .skeleton-element-avatar-size(@avatar-size-base);
 
@@ -155,7 +155,7 @@
 .skeleton-element-input() {
   display: inline-block;
   vertical-align: top;
-  background: @skeleton-color;
+  background: var(--skeleton-color);
 
   .skeleton-element-input-size(@input-height-base);
 
@@ -204,9 +204,9 @@
 .skeleton-color() {
   background: linear-gradient(
     90deg,
-    @skeleton-color 25%,
-    @skeleton-to-color 37%,
-    @skeleton-color 63%
+    var(--skeleton-color) 25%,
+    var(--skeleton-to-color) 37%,
+    var(--skeleton-color) 63%
   );
   background-size: 400% 100%;
   animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
