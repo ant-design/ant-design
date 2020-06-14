@@ -13,8 +13,8 @@
   font-size: @tag-font-size;
   line-height: @tag-line-height;
   white-space: nowrap;
-  background: @tag-default-bg;
-  border: @border-width-base @border-style-base @border-color-base;
+  background: var(--tag-default-bg);
+  border: @border-width-base @border-style-base var(--border-color-base);
   border-radius: @border-radius-base;
   cursor: default;
   opacity: 1;
@@ -27,7 +27,7 @@
   &,
   a,
   a:hover {
-    color: @tag-default-color;
+    color: var(--tag-default-color);
   }
 
   > a:first-child:last-child {
@@ -40,13 +40,13 @@
     .iconfont-size-under-12px(10px);
 
     margin-left: 3px;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s @ease-in-out-circ;
 
     &:hover {
-      color: @heading-color;
+      color: var(--heading-color);
     }
   }
 
@@ -57,7 +57,7 @@
     a:hover,
     .@{iconfont-css-prefix}-close,
     .@{iconfont-css-prefix}-close:hover {
-      color: @text-color-inverse;
+      color: var(--text-color-inverse);
     }
   }
 
@@ -66,17 +66,17 @@
     border-color: transparent;
     cursor: pointer;
     &:not(&-checked):hover {
-      color: @primary-color;
+      color: var(--primary-color);
     }
     &:active,
     &-checked {
-      color: @text-color-inverse;
+      color: var(--text-color-inverse);
     }
     &-checked {
-      background-color: @primary-6;
+      background-color: var(--primary-6);
     }
     &:active {
-      background-color: @primary-7;
+      background-color: var(--primary-7);
     }
   }
 
@@ -88,29 +88,29 @@
   .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
     .make-color-classes(@i - 1);
     @color: extract(@preset-colors, @i);
-    @lightColor: '@{color}-1';
-    @lightBorderColor: '@{color}-3';
-    @darkColor: '@{color}-6';
+    @lightColor: ~'var(--@{color}-1)';
+    @lightBorderColor: ~'var(--@{color}-3)';
+    @darkColor: ~'var(--@{color}-6)';
     &-@{color} {
-      color: @@darkColor;
-      background: @@lightColor;
-      border-color: @@lightBorderColor;
+      color: @darkColor;
+      background: @lightColor;
+      border-color: @lightBorderColor;
     }
     &-@{color}-inverse {
       color: @text-color-inverse;
-      background: @@darkColor;
-      border-color: @@darkColor;
+      background: @darkColor;
+      border-color: @darkColor;
     }
   }
 
   .make-status-color-classes(@color, @status) {
-    @lightColor: '@{color}-1';
-    @lightBorderColor: '@{color}-3';
-    @darkColor: '@{color}-6';
+    @lightColor: ~'var(--@{color}-1)';
+    @lightBorderColor: ~'var(--@{color}-3)';
+    @darkColor: ~'var(--@{color}-6)';
     &-@{status} {
-      color: @@darkColor;
-      background: @@lightColor;
-      border-color: @@lightBorderColor;
+      color: @darkColor;
+      background: @lightColor;
+      border-color: @lightBorderColor;
     }
   }
 
