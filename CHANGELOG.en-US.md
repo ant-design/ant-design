@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.18
+
+`2020-06-14`
+
+- 🇮🇪 Add Irish(ga_IE) locale. [#24849](https://github.com/ant-design/ant-design/pull/24849)
+- 🐞 Fix Tree `AntTreeNodeProps.children` type. [#24429](https://github.com/ant-design/ant-design/pull/24429)
+
 ## 3.26.17
 
 `2020-05-16`
