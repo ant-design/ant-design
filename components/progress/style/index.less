@@ -25,11 +25,11 @@
       flex-shrink: 0;
       min-width: 2px;
       margin-right: 2px;
-      background: @progress-steps-item-bg;
+      background: var(--progress-steps-item-bg);
       transition: all 0.3s;
 
       &-active {
-        background: @progress-default-color;
+        background: var(--progress-default-color);
       }
     }
   }
@@ -56,12 +56,12 @@
     width: 100%;
     overflow: hidden;
     vertical-align: middle;
-    background-color: @progress-remaining-color;
+    background-color: var(--progress-remaining-color);
     border-radius: @progress-radius;
   }
 
   &-circle-trail {
-    stroke: @progress-remaining-color;
+    stroke: var(--progress-remaining-color);
   }
 
   &-circle-path {
@@ -70,14 +70,14 @@
 
   &-inner:not(.@{ant-prefix}-progress-circle-gradient) {
     .@{ant-prefix}-progress-circle-path {
-      stroke: @progress-default-color;
+      stroke: var(--progress-default-color);
     }
   }
 
   &-success-bg,
   &-bg {
     position: relative;
-    background-color: @progress-default-color;
+    background-color: var(--progress-default-color);
     border-radius: @progress-radius;
     transition: all 0.4s @ease-out-circ 0s;
   }
@@ -86,14 +86,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: @success-color;
+    background-color: var(--success-color);
   }
 
   &-text {
     display: inline-block;
     width: 2em;
     margin-left: 8px;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     font-size: @progress-text-font-size;
     line-height: 1;
     white-space: nowrap;
@@ -112,7 +112,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background: @component-background;
+      background: var(--component-background);
       border-radius: 10px;
       opacity: 0;
       animation: ~'@{ant-prefix}-progress-active' 2.4s @ease-out-quint infinite;
@@ -122,31 +122,31 @@
 
   &-status-exception {
     .@{progress-prefix-cls}-bg {
-      background-color: @error-color;
+      background-color: var(--error-color);
     }
     .@{progress-prefix-cls}-text {
-      color: @error-color;
+      color: var(--error-color);
     }
   }
 
   &-status-exception &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
-      stroke: @error-color;
+      stroke: var(--error-color);
     }
   }
 
   &-status-success {
     .@{progress-prefix-cls}-bg {
-      background-color: @success-color;
+      background-color: var(--success-color);
     }
     .@{progress-prefix-cls}-text {
-      color: @success-color;
+      color: var(--success-color);
     }
   }
 
   &-status-success &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
-      stroke: @success-color;
+      stroke: var(--success-color);
     }
   }
 
@@ -163,7 +163,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    color: @progress-text-color;
+    color: var(--progress-text-color);
     font-size: @progress-circle-text-font-size;
     line-height: 1;
     white-space: normal;
@@ -177,12 +177,12 @@
 
   &-circle&-status-exception {
     .@{progress-prefix-cls}-text {
-      color: @error-color;
+      color: var(--error-color);
     }
   }
   &-circle&-status-success {
     .@{progress-prefix-cls}-text {
-      color: @success-color;
+      color: var(--success-color);
     }
   }
 }
