@@ -32,12 +32,12 @@
   @custom-tree-node-prefix-cls: ~'@{custom-tree-prefix-cls}-treenode';
   .@{custom-tree-prefix-cls} {
     .reset-component;
-    background: @tree-bg;
+    background: var(--tree-bg);
     border-radius: @border-radius-base;
     transition: background-color 0.3s;
 
     &-focused:not(:hover):not(&-active-focused) {
-      background: @primary-1;
+      background: var(--primary-1);
     }
 
     // =================== Virtual List ===================
@@ -66,7 +66,7 @@
       &-disabled {
         // >>> Title
         .@{custom-tree-prefix-cls}-node-content-wrapper {
-          color: @disabled-color;
+          color: var(--disabled-color);
           cursor: not-allowed;
 
           &:hover {
@@ -76,7 +76,7 @@
       }
 
       &-active .@{custom-tree-prefix-cls}-node-content-wrapper {
-        background: @tree-node-hover-bg;
+        background: var(--tree-node-hover-bg);
       }
     }
 
@@ -117,7 +117,7 @@
       }
 
       &-loading-icon {
-        color: @primary-color;
+        color: var(--primary-color);
       }
     }
 
@@ -140,11 +140,11 @@
       transition: all 0.3s;
 
       &:hover {
-        background-color: @tree-node-hover-bg;
+        background-color: var(--tree-node-hover-bg);
       }
 
       &.@{custom-tree-prefix-cls}-node-selected {
-        background-color: @tree-node-selected-bg;
+        background-color: var(--tree-node-selected-bg);
       }
 
       // Icon
@@ -172,18 +172,18 @@
     .@{custom-tree-node-prefix-cls}.drag-over {
       > [draggable] {
         color: white;
-        background-color: @primary-color;
+        background-color: var(--primary-color);
         opacity: 0.8;
       }
     }
     .@{custom-tree-node-prefix-cls}.drag-over-gap-top {
       > [draggable] {
-        border-top-color: @primary-color;
+        border-top-color: var(--primary-color);
       }
     }
     .@{custom-tree-node-prefix-cls}.drag-over-gap-bottom {
       > [draggable] {
-        border-bottom-color: @primary-color;
+        border-bottom-color: var(--primary-color);
       }
     }
 
@@ -200,7 +200,7 @@
             top: calc(100% - 4px);
             right: -@tree-title-height / 2;
             bottom: -@tree-title-height - 4px;
-            border-right: 1px solid @border-color-base;
+            border-right: 1px solid var(--border-color-base);
             content: '';
           }
 
@@ -224,7 +224,7 @@
       // ============== Cover Background ==============
       .@{custom-tree-prefix-cls}-switcher {
         z-index: 1;
-        background: @component-background;
+        background: var(--component-background);
       }
     }
   }

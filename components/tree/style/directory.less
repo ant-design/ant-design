@@ -21,7 +21,7 @@
 
     &:hover {
       &::before {
-        background: @item-hover-bg;
+        background: var(--item-hover-bg);
       }
     }
 
@@ -45,7 +45,7 @@
       }
 
       &.@{tree-prefix-cls}-node-selected {
-        color: @tree-directory-selected-color;
+        color: var(--tree-directory-selected-color);
         background: transparent;
       }
     }
@@ -54,17 +54,17 @@
     &-selected {
       &:hover::before,
       &::before {
-        background: @tree-directory-selected-bg;
+        background: var(--tree-directory-selected-bg);
       }
 
       // >>> Switcher
       .@{tree-prefix-cls}-switcher {
-        color: @tree-directory-selected-color;
+        color: var(--tree-directory-selected-color);
       }
 
       // >>> Title
       .@{tree-prefix-cls}-node-content-wrapper {
-        color: @tree-directory-selected-color;
+        color: var(--tree-directory-selected-color);
         background: transparent;
       }
     }
