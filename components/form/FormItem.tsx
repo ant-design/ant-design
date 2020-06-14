@@ -3,6 +3,7 @@ import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
+import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import omit from 'omit.js';
@@ -78,7 +79,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     required,
     label,
     trigger = 'onChange',
-    validateTrigger = 'onChange',
+    validateTrigger,
     ...restProps
   } = props;
   const destroyRef = React.useRef(false);
@@ -88,6 +89,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
+
+  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
+  const mergedValidateTrigger =
+    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
   function setDomErrorVisible(visible: boolean) {
     if (!destroyRef.current) {
@@ -248,7 +253,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       {...props}
       messageVariables={variables}
       trigger={trigger}
-      validateTrigger={validateTrigger}
+      validateTrigger={mergedValidateTrigger}
       onReset={() => {
         setDomErrorVisible(false);
       }}
@@ -288,7 +293,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
         // ======================= Children =======================
         const mergedControl: typeof control = {
           ...control,
-          id: fieldId,
         };
 
         let childNode: React.ReactNode = null;
@@ -320,13 +324,19 @@ function FormItem(props: FormItemProps): React.ReactElement {
           );
 
           const childProps = { ...children.props, ...mergedControl };
+          if (!childProps.id) {
+            childProps.id = fieldId;
+          }
 
           if (supportRef(children)) {
             childProps.ref = getItemRef(mergedName, children);
           }
 
           // We should keep user origin event handler
-          const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
+          const triggers = new Set<string>([
+            ...toArray(trigger),
+            ...toArray(mergedValidateTrigger),
+          ]);
 
           triggers.forEach(eventName => {
             childProps[eventName] = (...args: any[]) => {

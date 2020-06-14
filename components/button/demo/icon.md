@@ -22,7 +22,7 @@ import { Button, Tooltip } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div>
+  <>
     <Tooltip title="search">
       <Button type="primary" shape="circle" icon={<SearchOutlined />} />
     </Tooltip>
@@ -47,7 +47,7 @@ ReactDOM.render(
     <Button type="dashed" icon={<SearchOutlined />}>
       Search
     </Button>
-  </div>,
+  </>,
   mountNode,
 );
 ```

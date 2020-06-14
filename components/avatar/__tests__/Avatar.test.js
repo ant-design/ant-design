@@ -75,11 +75,12 @@ describe('Avatar Render', () => {
     }
 
     const wrapper = mount(<Foo />, { attachTo: div });
+    expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_FAILURE_SRC);
     // mock img load Error, since jsdom do not load resource by default
     // https://github.com/jsdom/jsdom/issues/1816
     wrapper.find('img').simulate('error');
 
-    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(true);
+    expect(wrapper).toMatchSnapshot();
     expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_SUCCESS_SRC);
 
     wrapper.detach();
@@ -97,14 +98,16 @@ describe('Avatar Render', () => {
     const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
     wrapper.find('img').simulate('error');
 
-    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(false);
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-string').length).toBe(1);
+    // children should show, when image load error without onError return false
+    expect(wrapper.find('.ant-avatar-string').prop('style')).not.toHaveProperty('opacity', 0);
 
     // simulate successful src url
     wrapper.setProps({ src: LOAD_SUCCESS_SRC });
     wrapper.update();
 
-    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(true);
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-image').length).toBe(1);
 
     // cleanup
@@ -114,7 +117,8 @@ describe('Avatar Render', () => {
 
   it('should calculate scale of avatar children correctly', () => {
     const wrapper = mount(<Avatar>Avatar</Avatar>);
-    expect(wrapper.state().scale).toBe(0.72);
+    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
         if (this.className === 'ant-avatar-string') {
@@ -124,12 +128,12 @@ describe('Avatar Render', () => {
       },
     });
     wrapper.setProps({ children: 'xx' });
-    expect(wrapper.state().scale).toBe(0.32);
+    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
   });
 
   it('should calculate scale of avatar children correctly with gap', () => {
     const wrapper = mount(<Avatar gap={2}>Avatar</Avatar>);
-    expect(wrapper.state().scale).toBe(0.36);
+    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
   });
 
   it('should warning when pass a string as icon props', () => {

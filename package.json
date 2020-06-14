@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.3.3",
+  "version": "4.3.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -135,7 +135,7 @@
     "rc-slider": "~9.3.0",
     "rc-steps": "~4.0.0",
     "rc-switch": "~3.2.0",
-    "rc-table": "~7.7.2",
+    "rc-table": "~7.8.0",
     "rc-tabs": "~11.4.1",
     "rc-textarea": "~0.2.2",
     "rc-tooltip": "~4.2.0",
@@ -158,7 +158,7 @@
     "@types/classnames": "^2.2.8",
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.3",
-    "@types/jest": "^25.1.0",
+    "@types/jest": "^26.0.0",
     "@types/jest-image-snapshot": "^3.1.0",
     "@types/lodash": "^4.14.139",
     "@types/puppeteer": "^3.0.0",

@@ -77,7 +77,7 @@ Please check [And Design Mobile](http://mobile.ant.design) for details. `antd` h
 
 ### Does `antd` supply standalone files like 'React'?
 
-Yes, you can [import `antd` with script tag](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser). But we recommend using `npm` to import `antd`, it is simple and easy to maintain.
+Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#Import-in-Browser). But we recommend using `npm` to import `antd`, it is simple and easy to maintain.
 
 ### I can't visit `icon` in my network environment.
 

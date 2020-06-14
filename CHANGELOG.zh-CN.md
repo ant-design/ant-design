@@ -15,6 +15,35 @@ timeline: true
 
 ---
 
+## 4.3.4
+
+`2020-06-14`
+
+- Form
+  - 🐞 修复 Form 中配置 `validateTrigger` 无效的问题。[#24979](https://github.com/ant-design/ant-design/pull/24979)
+  - 🐞 修复 Form.Item 在组件设置 `id` 时仍然会替换它的问题。[#24929](https://github.com/ant-design/ant-design/pull/24929)
+  - 🐞 修复 Form.List 嵌套使用 `noStyle` 时，错误信息展示混乱的问题。[#24867](https://github.com/ant-design/ant-design/pull/24867)
+- Table
+  - 🐞 修复 Table 的 `shouldCellUpdate` 缺少 `prevRecord` 参数的问题。[#24963](https://github.com/ant-design/ant-design/pull/24963)
+  - 🐞 修复 Table 受控状态下列的过滤菜单显示的值和 `filteredValue` 不同步的问题。[#24952](https://github.com/ant-design/ant-design/pull/24952)
+  - 🐞 修复 Table 在多列排序时 `onChange` 获得错误排序状态的问题。[#24852](https://github.com/ant-design/ant-design/pull/24852)
+- 🐞 修复 Modal 缺少 `confirm()` 默认图标。[#24956](https://github.com/ant-design/ant-design/pull/24956)
+- 🐞 修复 List `grid` 属性在 React.Framgment 或者封装了的 List.Item 上失效的问题。[#24955](https://github.com/ant-design/ant-design/pull/24955)
+- 🐞 修复 Avatar 图片加载错误的显示问题。[#24944](https://github.com/ant-design/ant-design/pull/24944) [@sosohime](https://github.com/sosohime)
+- 🐞 修复 Drawer `getTargetContainer` 属性没有被忽略的问题。[#24938](https://github.com/ant-design/ant-design/pull/24938)
+- 🐞 修复 Tabs 下拉框标题过长时被截断的问题。[#24928](https://github.com/ant-design/ant-design/pull/24928)
+- 🐞 修复 Carousel 在 Tabs 下切换时会跳跃的问题。[#24873](https://github.com/ant-design/ant-design/pull/24873)
+- 🐞 修复 Transfer 在关闭 tree shaking 后打包尺寸增加的问题。[#24847](https://github.com/ant-design/ant-design/pull/24847) [@DavidSichau](https://github.com/DavidSichau)
+- 💄 新增 `@rate-star-hover-scale` 控制 Rate 鼠标悬浮放大比例。[#24917](https://github.com/ant-design/ant-design/pull/24917)
+- 💄 新增 `@divider-orientation-margin` less 变量，以控制 Divider 设置了 `orientation` 时的左侧距离。[#24877](https://github.com/ant-design/ant-design/pull/24877)
+- 🌐 Localization
+  - 🇫🇷 改进 fr_FR 语言包。[#24962](https://github.com/ant-design/ant-design/pull/24962) [@sharkyze](https://github.com/sharkyze)
+- TypeScript
+  - 🛠 导出 Select 的 `OptionProps` 接口。[#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
+  - 🛠 导出 Card 的 `CardInterface` 接口。[#24866](https://github.com/ant-design/ant-design/pull/24866) [@THPubs](https://github.com/THPubs)
+  - 🛠 从 Table `TableProps` 中去除 `emptyText` 定义。[#24948](https://github.com/ant-design/ant-design/pull/24948) [@hehex9](https://github.com/hehex9)
+  - 🛠 为 Upload `method` 属性添加 `patch` 类型。[#24936](https://github.com/ant-design/ant-design/pull/24936) [@miclle](https://github.com/miclle)
+
 ## 4.3.3
 
 `2020-06-07`

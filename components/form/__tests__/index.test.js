@@ -573,4 +573,28 @@ describe('Form', () => {
     );
     expect(errorSpy).not.toHaveBeenCalled();
   });
+
+  it('should customize id work', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="light">
+          <Input id="bamboo" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('input').prop('id')).toEqual('bamboo');
+  });
+
+  it('Form validateTrigger', () => {
+    const wrapper = mount(
+      <Form validateTrigger="onBlur">
+        <Form.Item name="light">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('input').prop('onBlur')).toBeTruthy();
+  });
 });

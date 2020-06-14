@@ -96,27 +96,21 @@ exports[`List Item Layout rowKey could be function 1`] = `
           <ul
             className="ant-list-items"
           >
-            <Item
-              key="1/.0"
-            >
+            <Item>
               <li
                 className="ant-list-item"
               >
                 ant design
               </li>
             </Item>
-            <Item
-              key="2/.1"
-            >
+            <Item>
               <li
                 className="ant-list-item"
               >
                 ant design
               </li>
             </Item>
-            <Item
-              key="3/.2"
-            >
+            <Item>
               <li
                 className="ant-list-item"
               >
@@ -170,27 +164,21 @@ exports[`List Item Layout rowKey could be string 1`] = `
           <ul
             className="ant-list-items"
           >
-            <Item
-              key="1/.0"
-            >
+            <Item>
               <li
                 className="ant-list-item"
               >
                 ant design
               </li>
             </Item>
-            <Item
-              key="2/.1"
-            >
+            <Item>
               <li
                 className="ant-list-item"
               >
                 ant design
               </li>
             </Item>
-            <Item
-              key="3/.2"
-            >
+            <Item>
               <li
                 className="ant-list-item"
               >

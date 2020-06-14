@@ -66,7 +66,7 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 
 1. `npm start` runs Ant Design website locally.
 1. `npm run lint` checks the code style.
-1. `npm test` runs the complete test suite.
+1. `npm test` runs the complete test suite. (Make sure the `NODE_ENV` environment variable is unset, or it may causing some problems.)
 1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
 1. `npm run dist` creates UMD build of antd.
 

@@ -20,7 +20,7 @@ interface BasicProps {
   inputType: typeof ClearableInputType[number];
   value?: any;
   allowClear?: boolean;
-  element: React.ReactElement<any>;
+  element: React.ReactElement;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   className?: string;
   style?: object;
@@ -89,7 +89,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return null;
   }
 
-  renderLabeledIcon(prefixCls: string, element: React.ReactElement<any>) {
+  renderLabeledIcon(prefixCls: string, element: React.ReactElement) {
     const {
       focused,
       value,
@@ -139,7 +139,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     );
   }
 
-  renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement<any>) {
+  renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement) {
     const { addonBefore, addonAfter, style, size, className, direction } = this.props;
     // Not wrap when there is not addons
     if (!addonBefore && !addonAfter) {
@@ -177,7 +177,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     );
   }
 
-  renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement<any>) {
+  renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
     const { value, allowClear, className, style, direction } = this.props;
     if (!allowClear) {
       return cloneElement(element, {
