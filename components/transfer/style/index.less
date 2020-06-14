@@ -18,7 +18,7 @@
 
   &-disabled {
     .@{transfer-prefix-cls}-list {
-      background: @transfer-disabled-bg;
+      background: var(--transfer-disabled-bg);
     }
   }
 
@@ -27,7 +27,7 @@
     flex-direction: column;
     width: 180px;
     height: @transfer-list-height;
-    border: @border-width-base @border-style-base @border-color-base;
+    border: @border-width-base @border-style-base var(--border-color-base);
     border-radius: @border-radius-base;
 
     &-with-pagination {
@@ -44,15 +44,15 @@
         right: 12px;
         bottom: 12px;
         width: 28px;
-        color: @disabled-color;
+        color: var(--disabled-color);
         line-height: @input-height-base;
         text-align: center;
 
         .@{iconfont-css-prefix} {
-          color: @disabled-color;
+          color: var(--disabled-color);
           transition: all 0.3s;
           &:hover {
-            color: @text-color-secondary;
+            color: var(--text-color-secondary);
           }
         }
         span& {
@@ -69,9 +69,9 @@
       // border-top is on the transfer dom. We should minus 1px for this
       padding: (@transfer-header-vertical-padding - 1px) @control-padding-horizontal
         @transfer-header-vertical-padding;
-      color: @text-color;
-      background: @component-background;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
+      color: var(--text-color);
+      background: var(--component-background);
+      border-bottom: @border-width-base @border-style-base var(--border-color-split);
       border-radius: @border-radius-base @border-radius-base 0 0;
 
       > *:not(:last-child) {
@@ -144,7 +144,7 @@
         &-remove {
           .operation-unit();
           position: relative;
-          color: @border-color-base;
+          color: var(--border-color-base);
 
           &::after {
             position: absolute;
@@ -156,19 +156,19 @@
           }
 
           &:hover {
-            color: @link-hover-color;
+            color: var(--link-hover-color);
           }
         }
       }
 
       &-item:not(&-item-disabled) {
         &:hover {
-          background-color: @transfer-item-hover-bg;
+          background-color: var(--transfer-item-hover-bg);
           cursor: pointer;
         }
 
         &.@{transfer-prefix-cls}-list-content-item-checked:hover {
-          background-color: darken(@item-active-bg, 2%);
+          background-color: var(--transfer-item-checked-hover-bg);
         }
       }
 
@@ -179,11 +179,11 @@
       }
 
       &-item-checked {
-        background-color: @item-active-bg;
+        background-color: var(--item-active-bg);
       }
 
       &-item-disabled {
-        color: @btn-disable-color;
+        color: var(--btn-disable-color);
         cursor: not-allowed;
       }
     }
@@ -198,12 +198,12 @@
       flex: none;
       width: 100%;
       margin: auto 0;
-      color: @disabled-color;
+      color: var(--disabled-color);
       text-align: center;
     }
 
     &-footer {
-      border-top: @border-width-base @border-style-base @border-color-split;
+      border-top: @border-width-base @border-style-base var(--border-color-split);
     }
   }
 

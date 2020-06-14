@@ -20,11 +20,11 @@
       > .@{table-prefix-cls}-content {
         // Header background color
         > .@{table-prefix-cls}-body > table > .@{table-prefix-cls}-thead > tr > th {
-          background: @table-header-bg;
+          background: var(--table-header-bg);
         }
 
         .@{table-prefix-cls}-row:last-child td {
-          border-bottom: @border-width-base @border-style-base @border-color-split;
+          border-bottom: @border-width-base @border-style-base var(--border-color-split);
         }
       }
 
