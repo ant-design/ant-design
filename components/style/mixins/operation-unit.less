@@ -1,7 +1,7 @@
 @import '../../style/themes/default';
 
 .operation-unit() {
-  color: @link-color;
+  color: var(--link-color);
   text-decoration: none;
   outline: none;
   cursor: pointer;
@@ -9,10 +9,10 @@
 
   &:focus,
   &:hover {
-    color: @link-hover-color;
+    color: var(--link-hover-color);
   }
 
   &:active {
-    color: @link-active-color;
+    color: var(--link-active-color);
   }
 }

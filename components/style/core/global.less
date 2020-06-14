@@ -57,12 +57,12 @@ input::-ms-reveal {
 body {
   margin: 0; // 1
   color: var(--text-color);
-  font-size: var(--font-size-base);
-  font-family: var(--font-family);
-  font-variant: var(--font-variant-base);
-  line-height: var(--line-height-base);
+  font-size: @font-size-base;
+  font-family: @font-family;
+  font-variant: @font-variant-base;
+  line-height: @line-height-base;
   background-color: var(--body-background); // 2
-  font-feature-settings: var(--font-feature-settings-base);
+  font-feature-settings: @font-feature-settings-base;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -209,7 +209,7 @@ sup {
 
 a {
   color: var(--link-color);
-  text-decoration: var(--link-decoration);
+  text-decoration: @link-decoration;
   background-color: transparent; // remove the gray background on active links in IE 10.
   outline: none;
   cursor: pointer;
@@ -226,14 +226,14 @@ a {
 
   &:active,
   &:hover {
-    text-decoration: var(--link-hover-decoration);
+    text-decoration: @link-hover-decoration;
     outline: 0;
   }
 
   // https://github.com/ant-design/ant-design/issues/22503
   &:focus {
-    text-decoration: var(--link-focus-decoration);
-    outline: var(--link-focus-outline);
+    text-decoration: @link-focus-decoration;
+    outline: @link-focus-outline;
   }
 
   &[disabled] {
@@ -252,7 +252,7 @@ code,
 kbd,
 samp {
   font-size: 1em; // Correct the odd `em` font sizing in all browsers.
-  font-family: var(--code-family);
+  font-family: @code-family;
 }
 
 pre {
