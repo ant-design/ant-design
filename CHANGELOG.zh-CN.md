@@ -19,6 +19,20 @@ timeline: true
 
 `2020-06-14`
 
+- 🐞 修复 Form 中配置 `validateTrigger` 无效的问题。[#24979](https://github.com/ant-design/ant-design/pull/24979)
+- 🐞 从 Table `TableProps` 中去除 `emptyText` 定义。[#24948](https://github.com/ant-design/ant-design/pull/24948) [@hehex9](https://github.com/hehex9)
+- 🐞 为 Search 组件添加 `displayName`。[#24965](https://github.com/ant-design/ant-design/pull/24965) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- 🌐 改进 fr_FR i18n。[#24962](https://github.com/ant-design/ant-design/pull/24962) [@sharkyze](https://github.com/sharkyze)
+- 🐞 修复 Table 的 `shouldCellUpdate` 缺少 `prevRecord` 参数的问题。[#24963](https://github.com/ant-design/ant-design/pull/24963)
+- 🆕 Modal `confirm()` 新增默认图标。[#24956](https://github.com/ant-design/ant-design/pull/24956)
+- 🐞 修复 List `grid` 属性在 React.Framgment 或者封装了的 List.Item 上失效的问题。[#24955](https://github.com/ant-design/ant-design/pull/24955)
+- 🐞 修正了受控状态下 Table 列的过滤菜单显示的值和 `filteredValue` 不同步的问题。[#24952](https://github.com/ant-design/ant-design/pull/24952) [@07akioni](https://github.com/07akioni)
+- 🐞 修复 Avatar 图片加载错误的显示问题。[#24944](https://github.com/ant-design/ant-design/pull/24944) [@sosohime](https://github.com/sosohime)
+- 🐞 修正了 `getTargetContainer` 属性没有在 Drawer 被忽略的问题。[#24938](https://github.com/ant-design/ant-design/pull/24938) [@07akioni](https://github.com/07akioni)
+- 🆕 Upload 支持 HTTP patch 方法。[#24936](https://github.com/ant-design/ant-design/pull/24936) [@miclle](https://github.com/miclle)
+- 🐞 修复 Form.Item 在组件设置 `id` 时仍然会替换它的问题。[#24929](https://github.com/ant-design/ant-design/pull/24929)
+- 🐞 修复 Tabs 下拉框标题过长时被截断的问题。[#24928](https://github.com/ant-design/ant-design/pull/24928)
+- 💄 新增 `@rate-star-hover-scale` 控制 Rate 鼠标悬浮放大比例。[#24917](https://github.com/ant-design/ant-design/pull/24917)
 - 🐞 导出 Select 的 `OptionProps` 接口。[#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
 - 💄 新增 `@divider-orientation-margin` less 变量，以控制 Divider 设置了 `orientation` 时的左侧距离。[#24877](https://github.com/ant-design/ant-design/pull/24877)
 - 🐞 修复 Carousel 在 Tabs 下切换时会跳跃的问题。[#24873](https://github.com/ant-design/ant-design/pull/24873)

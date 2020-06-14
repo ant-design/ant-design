@@ -19,6 +19,20 @@ timeline: true
 
 `2020-06-14`
 
+- 🐞 Fix `validateTrigger` not works on Form. [#24979](https://github.com/ant-design/ant-design/pull/24979)
+- 🐞 Remove `emptyText` from Table `TableProps`. [#24948](https://github.com/ant-design/ant-design/pull/24948) [@hehex9](https://github.com/hehex9)
+- 🐞 Add `displayName` for Search. [#24965](https://github.com/ant-design/ant-design/pull/24965) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- 🌐 Improve fr_FR i18n. [#24962](https://github.com/ant-design/ant-design/pull/24962) [@sharkyze](https://github.com/sharkyze)
+- 🐞 Fix Table `shouldCellUpdate` missing `prevRecord` param. [#24963](https://github.com/ant-design/ant-design/pull/24963)
+- 🆕 Add Modal `confirm()` default icon. [#24956](https://github.com/ant-design/ant-design/pull/24956)
+- 🐞 Fix List `grid` not working in React.Fragment or wrapped List.Item. [#24955](https://github.com/ant-design/ant-design/pull/24955)
+- 🐞 Fix the problem that Table's filter dropdown's display value doesn't sync with controlled `filteredValue`. [#24952](https://github.com/ant-design/ant-design/pull/24952) [@07akioni](https://github.com/07akioni)
+- 🐞 Fix Avatar fallback to children when loading image with error. [#24944](https://github.com/ant-design/ant-design/pull/24944) [@sosohime](https://github.com/sosohime)
+- 🐞 Fix the problem that `getTargetContainer` is not omit in Drawer. [#24938](https://github.com/ant-design/ant-design/pull/24938) [@07akioni](https://github.com/07akioni)
+- 🆕 Upload support HTTP patch method. [#24936](https://github.com/ant-design/ant-design/pull/24936) [@miclle](https://github.com/miclle)
+- 🐞 Fix Form.Item still replace component `id` when `id` configured. [#24929](https://github.com/ant-design/ant-design/pull/24929)
+- 🐞 Fix Tabs dropdown clip text when tab title too long. [#24928](https://github.com/ant-design/ant-design/pull/24928)
+- 💄 Add `@rate-star-hover-scale` to control Rate scale when cursor hover. [#24917](https://github.com/ant-design/ant-design/pull/24917)
 - 🐞 Export Select `OptionProps` interface. [#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
 - 💄 Add `@divider-orientation-margin` less variable to control Divider's left margin when `orientation` is set. [#24877](https://github.com/ant-design/ant-design/pull/24877)
 - 🐞 Fix Carousel under Tabs shaking when tab switch. [#24873](https://github.com/ant-design/ant-design/pull/24873)
