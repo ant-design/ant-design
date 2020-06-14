@@ -23,7 +23,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
-| ellipsis | Display ellipsis when text overflows | boolean | false |  |
+| ellipsis | Display ellipsis when text overflows. Should set width when ellipsis needed | boolean | false |  |
 | mark | Marked style | boolean | false |  |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | underline | Underlined style | boolean | false |  |

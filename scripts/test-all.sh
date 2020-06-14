@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cho "[TEST ALL] check-commit" && \
+npm run check-commit
 echo "[TEST ALL] lint" && \
 npm run lint && \
 echo "[TEST ALL] dist" && \
