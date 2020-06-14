@@ -9,6 +9,8 @@ export interface DescriptionsItemProps {
   span?: number;
 }
 
-const DescriptionsItem: React.FC<DescriptionsItemProps> = ({ children }) => <div>{children}</div>;
+const DescriptionsItem: React.FC<DescriptionsItemProps> = ({ children }) => (
+  <div style={{ display: 'inline' }}>{children}</div>
+);
 
 export default DescriptionsItem;
