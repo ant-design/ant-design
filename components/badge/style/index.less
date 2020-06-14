@@ -101,9 +101,9 @@
       .make-color-classes(@i - 1);
       @color: extract(@preset-colors, @i);
 
-      @darkColor: 'var(--@{color}-6)';
+      @darkColor: ~'var(--@{color}-6)';
       &-@{color} {
-        background: --var(@darkColor);
+        background: @darkColor;
       }
     }
     .make-color-classes();
