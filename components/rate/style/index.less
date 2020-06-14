@@ -9,7 +9,7 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  color: @rate-star-color;
+  color: var(--rate-star-color);
   font-size: @rate-star-size;
   line-height: unset;
   list-style: none;
@@ -48,7 +48,7 @@
 
     &-first,
     &-second {
-      color: @rate-star-bg;
+      color: var(--rate-star-bg);
       transition: all 0.3s;
       user-select: none;
       .@{iconfont-css-prefix} {
