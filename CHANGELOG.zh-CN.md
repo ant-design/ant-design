@@ -19,10 +19,10 @@ timeline: true
 
 `2020-06-14`
 
-- 🐞 导出 Select 的 OptionProps 接口。[#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
-- 💄 新增 `@divider-orientation-margin` less 变量，用以控制 Divider 设置了 orientation 的左侧距离。[#24877](https://github.com/ant-design/ant-design/pull/24877)
+- 🐞 导出 Select 的 `OptionProps` 接口。[#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
+- 💄 新增 `@divider-orientation-margin` less 变量，以控制 Divider 设置了 `orientation` 时的左侧距离。[#24877](https://github.com/ant-design/ant-design/pull/24877)
 - 🐞 修复 Carousel 在 Tabs 下切换时会跳跃的问题。[#24873](https://github.com/ant-design/ant-design/pull/24873)
-- 🐞 导出 Card 的 CardInterface 接口。[#24866](https://github.com/ant-design/ant-design/pull/24866) [@THPubs](https://github.com/THPubs)
+- 🐞 导出 Card 的 `CardInterface` 接口。[#24866](https://github.com/ant-design/ant-design/pull/24866) [@THPubs](https://github.com/THPubs)
 - 🐞 修复 Form.List 嵌套使用 `noStyle` 时，错误信息展示混乱的问题。[#24867](https://github.com/ant-design/ant-design/pull/24867)
 - 🐞 修复 Table 在多列排序时 `onChange` 获得错误排序状态的问题。[#24852](https://github.com/ant-design/ant-design/pull/24852)
 - 🐞 修复在关闭 tree shaking 后 Transfer 打包尺寸增加的问题。[#24847](https://github.com/ant-design/ant-design/pull/24847) [@DavidSichau](https://github.com/DavidSichau)

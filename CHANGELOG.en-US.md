@@ -19,10 +19,10 @@ timeline: true
 
 `2020-06-14`
 
-- 🐞 Export Select OptionProps interface. [#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
-- 💄 Add `@divider-orientation-margin` less variable to control Divider's left margin when setting orientation. [#24877](https://github.com/ant-design/ant-design/pull/24877)
+- 🐞 Export Select `OptionProps` interface. [#24870](https://github.com/ant-design/ant-design/pull/24870) [@nitinknolder](https://github.com/nitinknolder)
+- 💄 Add `@divider-orientation-margin` less variable to control Divider's left margin when `orientation` is set. [#24877](https://github.com/ant-design/ant-design/pull/24877)
 - 🐞 Fix Carousel under Tabs shaking when tab switch. [#24873](https://github.com/ant-design/ant-design/pull/24873)
-- 🐞 Export Card CardInterface interface. [#24866](https://github.com/ant-design/ant-design/pull/24866) [@THPubs](https://github.com/THPubs)
+- 🐞 Export Card `CardInterface` interface. [#24866](https://github.com/ant-design/ant-design/pull/24866) [@THPubs](https://github.com/THPubs)
 - 🐞 Fix Form.List error message display not correct when nested with `noStyle`. [#24867](https://github.com/ant-design/ant-design/pull/24867)
 - 🐞 Fix Table `onChange` get wrong state with multiple sorter operation. [#24852](https://github.com/ant-design/ant-design/pull/24852)
 - 🐞 Fix Transfer's package size will increase if tree shaking is disabled. [#24847](https://github.com/ant-design/ant-design/pull/24847) [@DavidSichau](https://github.com/DavidSichau)
