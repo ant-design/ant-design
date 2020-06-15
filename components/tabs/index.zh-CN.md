@@ -25,6 +25,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| addIcon | 自定义添加按钮 | ReactNode | - | 4.4.0 |
 | activeKey | 当前激活 tab 面板的 key | string | - |  |
 | animated | 是否使用动画切换 Tabs，在 `tabPosition=top|bottom` 时有效 | boolean \| {inkBar:boolean, tabPane:boolean} | true, 当 type="card" 时为 false |  |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
