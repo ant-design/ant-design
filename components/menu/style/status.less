@@ -3,31 +3,31 @@
 .@{menu-prefix-cls} {
   // Danger
   &-item-danger&-item {
-    color: @menu-highlight-danger-color;
+    color: var(--menu-highlight-danger-color);
 
     &:hover,
     &-active {
-      color: @menu-highlight-danger-color;
+      color: var(--menu-highlight-danger-color);
     }
 
     &:active {
-      background: @menu-item-active-danger-bg;
+      background: var(--menu-item-active-danger-bg);
     }
 
     &-selected {
-      color: @menu-highlight-danger-color;
+      color: var(--menu-highlight-danger-color);
       > a,
       > a:hover {
-        color: @menu-highlight-danger-color;
+        color: var(--menu-highlight-danger-color);
       }
     }
 
     .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-horizontal) &-selected {
-      background-color: @menu-item-active-danger-bg;
+      background-color: var(--menu-item-active-danger-bg);
     }
 
     .@{menu-prefix-cls}-inline &::after {
-      border-right-color: @menu-highlight-danger-color;
+      border-right-color: var(--menu-highlight-danger-color);
     }
   }
 
@@ -36,12 +36,12 @@
     &,
     &:hover,
     & > a {
-      color: @menu-dark-danger-color;
+      color: var(--menu-dark-danger-color);
     }
   }
 
   &-dark&-dark:not(&-horizontal) &-item-danger&-item-selected {
-    color: @menu-dark-highlight-color;
-    background-color: @menu-dark-item-active-danger-bg;
+    color: var(--menu-dark-highlight-color);
+    background-color: var(--menu-dark-item-active-danger-bg);
   }
 }

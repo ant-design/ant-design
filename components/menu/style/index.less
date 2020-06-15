@@ -10,14 +10,14 @@
 
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
-  color: @menu-item-color;
+  color: var(--menu-item-color);
   font-size: @menu-item-font-size;
   line-height: 0; // Fix display inline-block gap
   text-align: left;
   list-style: none;
-  background: @menu-bg;
+  background: var(--menu-bg);
   outline: none;
-  box-shadow: @box-shadow-base;
+  box-shadow: var(--box-shadow-base);
   transition: background 0.3s, width 0.2s;
   .clearfix;
 
@@ -35,7 +35,7 @@
   &-item-group-title {
     height: @menu-item-group-height;
     padding: 8px 16px;
-    color: @menu-item-group-title-color;
+    color: var(--menu-item-group-title-color);
     font-size: @menu-item-group-title-font-size;
     line-height: @menu-item-group-height;
     transition: all 0.3s;
@@ -48,12 +48,12 @@
   }
 
   &-submenu-selected {
-    color: @menu-highlight-color;
+    color: var(--menu-highlight-color);
   }
 
   &-item:active,
   &-submenu-title:active {
-    background: @menu-item-active-bg;
+    background: var(--menu-item-active-bg);
   }
 
   &-submenu &-sub {
@@ -62,9 +62,9 @@
   }
 
   &-item a {
-    color: @menu-item-color;
+    color: var(--menu-item-color);
     &:hover {
-      color: @menu-highlight-color;
+      color: var(--menu-highlight-color);
     }
     &::before {
       position: absolute;
@@ -79,9 +79,9 @@
 
   // https://github.com/ant-design/ant-design/issues/19809
   &-item > .@{ant-prefix}-badge a {
-    color: @menu-item-color;
+    color: var(--menu-item-color);
     &:hover {
-      color: @menu-highlight-color;
+      color: var(--menu-highlight-color);
     }
   }
 
@@ -89,7 +89,7 @@
     height: 1px;
     overflow: hidden;
     line-height: 0;
-    background-color: @border-color-split;
+    background-color: var(--border-color-split);
   }
 
   &-item:hover,
@@ -97,7 +97,7 @@
   &:not(&-inline) &-submenu-open,
   &-submenu-active,
   &-submenu-title:hover {
-    color: @menu-highlight-color;
+    color: var(--menu-highlight-color);
   }
 
   &-horizontal &-item,
@@ -112,25 +112,25 @@
   }
 
   &-item-selected {
-    color: @menu-highlight-color;
+    color: var(--menu-highlight-color);
     a,
     a:hover {
-      color: @menu-highlight-color;
+      color: var(--menu-highlight-color);
     }
   }
 
   &:not(&-horizontal) &-item-selected {
-    background-color: @menu-item-active-bg;
+    background-color: var(--menu-item-active-bg);
   }
 
   &-inline,
   &-vertical,
   &-vertical-left {
-    border-right: @border-width-base @border-style-base @border-color-split;
+    border-right: @border-width-base @border-style-base var(--border-color-split);
   }
 
   &-vertical-right {
-    border-left: @border-width-base @border-style-base @border-color-split;
+    border-left: @border-width-base @border-style-base var(--border-color-split);
   }
 
   &-vertical&-sub,
@@ -201,7 +201,7 @@
     padding: 0;
     overflow: hidden;
     line-height: 0;
-    background-color: @border-color-split;
+    background-color: var(--border-color-split);
   }
 
   &-submenu {
@@ -233,7 +233,7 @@
     }
 
     > .@{menu-prefix-cls} {
-      background-color: @menu-bg;
+      background-color: var(--menu-bg);
       border-radius: @border-radius-base;
       &-submenu-title::after {
         transition: transform 0.3s @ease-in-out;
@@ -241,7 +241,7 @@
     }
 
     &-popup > .@{menu-prefix-cls} {
-      background-color: @menu-popup-bg;
+      background-color: var(--menu-popup-bg);
     }
 
     &-vertical,
@@ -323,9 +323,9 @@
   &-vertical &-submenu-selected,
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
-    color: @menu-highlight-color;
+    color: var(--menu-highlight-color);
     a {
-      color: @menu-highlight-color;
+      color: var(--menu-highlight-color);
     }
   }
 
@@ -333,7 +333,7 @@
     line-height: @menu-horizontal-line-height;
     white-space: nowrap;
     border: 0;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-bottom: @border-width-base @border-style-base var(--border-color-split);
     box-shadow: none;
 
     > .@{menu-prefix-cls}-item,
@@ -348,23 +348,23 @@
       &-active,
       &-open,
       &-selected {
-        color: @menu-highlight-color;
-        border-bottom: 2px solid @menu-highlight-color;
+        color: var(--menu-highlight-color);
+        border-bottom: 2px solid var(--menu-highlight-color);
       }
     }
 
     > .@{menu-prefix-cls}-item {
       a {
-        color: @menu-item-color;
+        color: var(--menu-item-color);
         &:hover {
-          color: @menu-highlight-color;
+          color: var(--menu-highlight-color);
         }
         &::before {
           bottom: -2px;
         }
       }
       &-selected a {
-        color: @menu-highlight-color;
+        color: var(--menu-highlight-color);
       }
     }
 
@@ -387,7 +387,7 @@
         top: 0;
         right: 0;
         bottom: 0;
-        border-right: @menu-item-active-border-width solid @menu-highlight-color;
+        border-right: @menu-item-active-border-width solid var(--menu-highlight-color);
         transform: scaleY(0.0001);
         opacity: 0;
         transition: transform 0.15s @ease-out, opacity 0.15s @ease-out;
@@ -488,7 +488,7 @@
         display: none;
       }
       a {
-        color: @text-color-dark;
+        color: var(--text-color-dark);
       }
     }
 
@@ -548,21 +548,21 @@
   // Disabled state sets text to gray and nukes hover/tab effects
   &-item-disabled,
   &-submenu-disabled {
-    color: @disabled-color !important;
+    color: var(--disabled-color) !important;
     background: none;
     border-color: transparent !important;
     cursor: not-allowed;
     a {
-      color: @disabled-color !important;
+      color: var(--disabled-color) !important;
       pointer-events: none;
     }
     > .@{menu-prefix-cls}-submenu-title {
-      color: @disabled-color !important;
+      color: var(--disabled-color) !important;
       cursor: not-allowed;
       > .@{menu-prefix-cls}-submenu-arrow {
         &::before,
         &::after {
-          background: @disabled-color !important;
+          background: var(--disabled-color) !important;
         }
       }
     }

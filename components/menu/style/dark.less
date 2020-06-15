@@ -2,14 +2,14 @@
   // dark theme
   &&-dark,
   &-dark &-sub {
-    color: @menu-dark-color;
-    background: @menu-dark-bg;
+    color: var(--menu-dark-color);
+    background: var(--menu-dark-bg);
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       opacity: 0.45;
       transition: all 0.3s;
       &::after,
       &::before {
-        background: @menu-dark-arrow-color;
+        background: var(--menu-dark-arrow-color);
       }
     }
   }
@@ -19,7 +19,7 @@
   }
 
   &-dark &-inline&-sub {
-    background: @menu-dark-submenu-bg;
+    background: var(--menu-dark-submenu-bg);
   }
 
   &-dark&-horizontal {
@@ -30,7 +30,7 @@
   &-dark&-horizontal > &-submenu {
     top: 0;
     margin-top: 0;
-    border-color: @menu-dark-bg;
+    border-color: var(--menu-dark-bg);
     border-bottom: 0;
   }
 
@@ -42,7 +42,7 @@
   &-dark &-item-group-title,
   &-dark &-item > a,
   &-dark &-item > span > a {
-    color: @menu-dark-color;
+    color: var(--menu-dark-color);
   }
 
   &-dark&-inline,
@@ -75,11 +75,11 @@
   &-dark &-submenu-open,
   &-dark &-submenu-selected,
   &-dark &-submenu-title:hover {
-    color: @menu-dark-highlight-color;
+    color: var(--menu-dark-highlight-color);
     background-color: transparent;
     > a,
     > span > a {
-      color: @menu-dark-highlight-color;
+      color: var(--menu-dark-highlight-color);
     }
     > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu-title:hover {
@@ -87,21 +87,21 @@
         opacity: 1;
         &::after,
         &::before {
-          background: @menu-dark-highlight-color;
+          background: var(--menu-dark-highlight-color);
         }
       }
     }
   }
   &-dark &-item:hover {
-    background-color: @menu-dark-item-hover-bg;
+    background-color: var(--menu-dark-item-hover-bg);
   }
 
   &-dark&-dark:not(&-horizontal) &-item-selected {
-    background-color: @menu-dark-item-active-bg;
+    background-color: var(--menu-dark-item-active-bg);
   }
 
   &-dark &-item-selected {
-    color: @menu-dark-highlight-color;
+    color: var(--menu-dark-highlight-color);
     border-right: 0;
     &::after {
       border-right: 0;
@@ -110,19 +110,19 @@
     > span > a,
     > a:hover,
     > span > a:hover {
-      color: @menu-dark-highlight-color;
+      color: var(--menu-dark-highlight-color);
     }
     .@{iconfont-css-prefix} {
-      color: @menu-dark-selected-item-icon-color;
+      color: var(--menu-dark-selected-item-icon-color);
     }
     .@{iconfont-css-prefix} + span {
-      color: @menu-dark-selected-item-text-color;
+      color: var(--menu-dark-selected-item-text-color);
     }
   }
 
   &&-dark &-item-selected,
   &-submenu-popup&-dark &-item-selected {
-    background-color: @menu-dark-item-active-bg;
+    background-color: var(--menu-dark-item-active-bg);
   }
 
   // Disabled state sets text to dark gray and nukes hover/tab effects
@@ -131,15 +131,15 @@
     &,
     > a,
     > span > a {
-      color: @disabled-color-dark !important;
+      color: var(--disabled-color-dark) !important;
       opacity: 0.8;
     }
     > .@{menu-prefix-cls}-submenu-title {
-      color: @disabled-color-dark !important;
+      color: var(--disabled-color-dark) !important;
       > .@{menu-prefix-cls}-submenu-arrow {
         &::before,
         &::after {
-          background: @disabled-color-dark !important;
+          background: var(--disabled-color-dark) !important;
         }
       }
     }
