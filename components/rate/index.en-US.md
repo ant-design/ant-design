@@ -19,7 +19,7 @@ Rate component.
 | allowClear | whether to allow clear when click again | boolean | true |  |
 | allowHalf | whether to allow semi selection | boolean | false |  |
 | autoFocus | get focus when component mounted | boolean | false |  |
-| character | custom character of rate | ReactNode \| ({ index }) => ReactNode | [`<StarFilled />`](/components/icon/) | Function(): 4.4.0 |
+| character | custom character of rate | ReactNode \| (RateProps) => ReactNode | [`<StarFilled />`](/components/icon/) | Function(): 4.4.0 |
 | className | custom class name of rate | string |  |  |
 | count | star count | number | 5 |  |
 | defaultValue | default value | number | 0 |  |
