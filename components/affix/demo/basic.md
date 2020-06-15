@@ -25,7 +25,7 @@ const Demo: React.FC = () => {
     <>
       <Affix offsetTop={top}>
         <Button type="primary" onClick={() => setTop(top + 10)}>
-          git Affix top
+          Affix top
         </Button>
       </Affix>
       <br />
