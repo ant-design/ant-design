@@ -37,11 +37,11 @@
 
   &:first-child {
     .@{radio-prefix-cls-button-wrapper}.@{radio-prefix-cls-button-wrapper}-rtl& {
-      border-right: @border-width-base @border-style-base @border-color-base;
+      border-right: @border-width-base @border-style-base var(--border-color-base);
       border-radius: 0 @border-radius-base @border-radius-base 0;
     }
     .@{radio-prefix-cls-button-wrapper}-checked:not([class*=~"' @{radio-prefix-cls}-button-wrapper-disabled'"])& {
-      border-right-color: @radio-button-hover-color;
+      border-right-color: var(--radio-button-hover-color);
     }
   }
 
@@ -54,7 +54,7 @@
   &-disabled {
     &:first-child {
       .@{radio-prefix-cls-button-wrapper}.@{radio-prefix-cls-button-wrapper}-rtl& {
-        border-right-color: @border-color-base;
+        border-right-color: var(--border-color-base);
       }
     }
   }
