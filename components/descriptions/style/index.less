@@ -98,7 +98,7 @@
 
   &-bordered {
     .@{descriptions-prefix-cls}-view {
-      border: 1px solid @border-color-split;
+      border: 1px solid var(--border-color-split);
       > table {
         table-layout: auto;
       }
@@ -107,7 +107,7 @@
     .@{descriptions-prefix-cls}-item-label,
     .@{descriptions-prefix-cls}-item-content {
       padding: @descriptions-default-padding;
-      border-right: 1px solid @border-color-split;
+      border-right: 1px solid var(--border-color-split);
 
       &:last-child {
         border-right: none;
@@ -115,14 +115,14 @@
     }
 
     .@{descriptions-prefix-cls}-item-label {
-      background-color: @descriptions-bg;
+      background-color: var(--descriptions-bg);
       &::after {
         display: none;
       }
     }
 
     .@{descriptions-prefix-cls}-row {
-      border-bottom: 1px solid @border-color-split;
+      border-bottom: 1px solid var(--border-color-split);
       &:last-child {
         border-bottom: none;
       }
