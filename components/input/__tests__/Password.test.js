@@ -6,6 +6,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+import Password from '../Password';
 
 describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });
@@ -20,6 +21,12 @@ describe('Input.Password', () => {
     expect(ref.current.input instanceof HTMLInputElement).toBe(true);
     wrapper.find('input').simulate('select');
     expect(onSelect).toHaveBeenCalled();
+  });
+
+  it('should support size', () => {
+    const wrapper = mount(<Password size="large" />);
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should change type when click', () => {
