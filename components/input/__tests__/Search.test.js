@@ -185,7 +185,7 @@ describe('Input.Search', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('should prevent search button mousedown event', async () => {
+  it('should prevent search button mousedown event', () => {
     const ref = React.createRef();
     const wrapper = mount(<Search ref={ref} enterButton="button text" />, {
       attachTo: document.body,
