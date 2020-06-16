@@ -90,10 +90,8 @@ export default function useSelection<RecordType>(
     fixed,
     renderCell: customizeRenderCell,
     hideSelectAll,
-    checkStrictly: rawCheckStrictly,
+    checkStrictly = true,
   } = rowSelection || {};
-
-  const checkStrictly = rawCheckStrictly === undefined ? true : rawCheckStrictly;
 
   const {
     prefixCls,
@@ -120,8 +118,8 @@ export default function useSelection<RecordType>(
     checkedKeys: mergedSelectedKeys,
     halfCheckedKeys: mergedHalfSelectedKeys,
   } = parseCheckedKeys(selectedRowKeys || innerSelectedKeys || EMPTY_LIST);
-  mergedSelectedKeys = mergedSelectedKeys || []; // ??
-  mergedHalfSelectedKeys = mergedHalfSelectedKeys || []; // ?? why undefined
+  mergedSelectedKeys = mergedSelectedKeys || [];
+  mergedHalfSelectedKeys = mergedHalfSelectedKeys || [];
   const mergedSelectedKeySet: Set<Key> = useMemo(() => {
     const keys = selectionType === 'radio' ? mergedSelectedKeys.slice(0, 1) : mergedSelectedKeys;
     return new Set(keys);
@@ -132,9 +130,10 @@ export default function useSelection<RecordType>(
   }, [mergedHalfSelectedKeys, selectionType]);
 
   // Caveat need to modify rc-trees, for rowKey evaluation...
-  const { keyEntities } = useMemo(() => convertDataToEntities((data as unknown) as DataNode[]), [
-    data,
-  ]);
+  const { keyEntities } = useMemo(
+    () => convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey),
+    [data, getRowKey],
+  );
 
   // Save last selected key to enable range selection
   const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);
