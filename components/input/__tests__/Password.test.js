@@ -109,7 +109,7 @@ describe('Input.Password', () => {
   });
 
   // https://github.com/ant-design/ant-design/pull/20544#issuecomment-569861679
-  it('should not contain value attribute in input element with defautValue', async () => {
+  it('should not contain value attribute in input element with defaultValue', async () => {
     const wrapper = mount(<Input.Password defaultValue="value" />);
     await sleep();
     expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
