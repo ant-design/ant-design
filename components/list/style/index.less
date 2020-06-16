@@ -39,7 +39,7 @@
 
   &-empty-text {
     padding: @list-empty-text-padding;
-    color: @disabled-color;
+    color: var(--disabled-color);
     font-size: @font-size-base;
     text-align: center;
   }
@@ -57,7 +57,7 @@
     padding: @list-item-padding;
 
     &-content {
-      color: @text-color;
+      color: var(--text-color);
     }
 
     &-meta {
@@ -74,19 +74,19 @@
       }
       &-title {
         margin-bottom: 4px;
-        color: @text-color;
+        color: var(--text-color);
         font-size: @font-size-base;
         line-height: @line-height-base;
         > a {
-          color: @text-color;
+          color: var(--text-color);
           transition: all 0.3s;
           &:hover {
-            color: @primary-color;
+            color: var(--primary-color);
           }
         }
       }
       &-description {
-        color: @text-color-secondary;
+        color: var(--text-color-secondary);
         font-size: @list-item-meta-description-font-size;
         line-height: @line-height-base;
       }
@@ -102,7 +102,7 @@
         position: relative;
         display: inline-block;
         padding: 0 @padding-xs;
-        color: @text-color-secondary;
+        color: var(--text-color-secondary);
         font-size: @font-size-base;
         line-height: @line-height-base;
         text-align: center;
@@ -118,17 +118,17 @@
         width: 1px;
         height: 14px;
         margin-top: -7px;
-        background-color: @border-color-split;
+        background-color: var(--border-color-split);
       }
     }
   }
 
   &-header {
-    background: @list-header-background;
+    background: var(--list-header-background);
   }
 
   &-footer {
-    background: @list-footer-background;
+    background: var(--list-footer-background);
   }
 
   &-header,
@@ -139,24 +139,24 @@
 
   &-empty {
     padding: @padding-md 0;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     font-size: 12px;
     text-align: center;
   }
 
   &-split &-item {
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: 1px solid var(--border-color-split);
     &:last-child {
       border-bottom: none;
     }
   }
 
   &-split &-header {
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: 1px solid var(--border-color-split);
   }
 
   &-split&-empty &-footer {
-    border-top: 1px solid @border-color-split;
+    border-top: 1px solid var(--border-color-split);
   }
 
   &-loading &-spin-nested-loading {
@@ -164,7 +164,7 @@
   }
 
   &-split&-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: 1px solid var(--border-color-split);
   }
 
   &-lg &-item {
@@ -192,7 +192,7 @@
 
       &-title {
         margin-bottom: @list-item-meta-title-margin-bottom;
-        color: @heading-color;
+        color: var(--heading-color);
         font-size: @font-size-lg;
         line-height: 24px;
       }
