@@ -10441,6 +10441,11 @@ Array [
           class="ant-table ant-table-bordered"
         >
           <div
+            class="ant-table-title"
+          >
+            cool
+          </div>
+          <div
             class="ant-table-container"
           >
             <div
@@ -10657,6 +10662,11 @@ Array [
                 </tbody>
               </table>
             </div>
+          </div>
+          <div
+            class="ant-table-footer"
+          >
+            cool
           </div>
         </div>
         <ul
