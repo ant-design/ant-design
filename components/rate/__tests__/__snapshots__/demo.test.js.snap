@@ -1925,7 +1925,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       aria-posinset="1"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-rate-star-first"
@@ -1985,7 +1985,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       aria-posinset="2"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-rate-star-first"
@@ -2045,7 +2045,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       aria-posinset="3"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-rate-star-first"
@@ -2105,7 +2105,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       aria-posinset="4"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-rate-star-first"
@@ -2165,7 +2165,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       aria-posinset="5"
       aria-setsize="5"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-rate-star-first"
