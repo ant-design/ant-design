@@ -170,7 +170,7 @@ describe('Cascader', () => {
         showSearch={{ filter: customFilter }}
       />,
     );
-    wrapper.find('inpu').simulate('click');
+    wrapper.find('input').simulate('click');
     wrapper.find('input').simulate('change', { target: { value: 'z' } });
     expect(wrapper.state('inputValue')).toBe('z');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
