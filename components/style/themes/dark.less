@@ -262,6 +262,7 @@
 @input-number-handler-bg: transparent;
 @input-number-handler-active-bg: @item-hover-bg;
 @input-icon-hover-color: fade(@white, 85%);
+@input-active-color: ~`colorPalette('@{outline-color}', 5) `;
 
 // Select
 // ---
@@ -430,3 +431,8 @@
 // Mentions
 // ---
 @mentions-dropdown-bg: @popover-background;
+
+// Form
+// ---
+@form-warning-active-color: ~`colorPalette('@{warning-color}', 5) `;
+@form-error-active-color: ~`colorPalette('@{error-color}', 5) `;

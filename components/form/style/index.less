@@ -87,7 +87,7 @@
       display: inline-flex;
       align-items: center;
       height: @form-item-label-height;
-      color: @label-color;
+      color: var(--label-color);
       font-size: @form-item-label-font-size;
 
       > .@{iconfont-css-prefix} {
@@ -98,7 +98,7 @@
       &.@{form-item-prefix-cls}-required::before {
         display: inline-block;
         margin-right: 4px;
-        color: @label-required-color;
+        color: var(--label-required-color);
         font-size: @form-item-label-font-size;
         font-family: SimSun, sans-serif;
         line-height: 1;
@@ -158,7 +158,7 @@
     clear: both;
     min-height: @form-item-margin-bottom;
     .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition

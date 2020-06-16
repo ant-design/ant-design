@@ -1,6 +1,6 @@
 @import '../../input/style/mixin';
 
-.form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
+.form-control-validation(@text-color: var(--input-color); @border-color: var(--input-border-color); @background-color: var(--input-bg)) {
   .@{ant-prefix}-form-item-explain,
   .@{ant-prefix}-form-item-split {
     color: @text-color;
@@ -58,11 +58,11 @@
     width: 100%;
     margin-bottom: 20px;
     padding: 0;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     font-size: @font-size-lg;
     line-height: inherit;
     border: 0;
-    border-bottom: @border-width-base @border-style-base @border-color-base;
+    border-bottom: @border-width-base @border-style-base var(--border-color-base);
   }
 
   label {
@@ -108,7 +108,7 @@
   output {
     display: block;
     padding-top: 15px;
-    color: @input-color;
+    color: var(--input-color);
     font-size: @font-size-base;
     line-height: @line-height-base;
   }

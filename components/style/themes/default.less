@@ -367,6 +367,10 @@
 @form-item-label-colon-margin-right: 8px;
 @form-item-label-colon-margin-left: 2px;
 @form-error-input-bg: @input-bg;
+@form-warning-active-color: @warning-color;
+@form-warning-active-shadow-color: fade(@warning-color, @outline-fade);
+@form-error-active-color: @error-color;
+@form-error-active-shadow-color: fade(@error-color, @outline-fade);
 
 // Input
 // ---
@@ -404,6 +408,8 @@
 @input-outline-offset: 0 0;
 @input-icon-hover-color: fade(@black, 85%);
 @input-disabled-color: @disabled-color;
+@input-active-color: @outline-color;
+@input-active-shadow-color: fade(@outline-color, @outline-fade);
 
 // Mentions
 // ---
