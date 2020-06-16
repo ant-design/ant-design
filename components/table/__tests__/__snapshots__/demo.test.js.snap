@@ -1748,7 +1748,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
 `;
 
 exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
-<div>
+Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
     style="margin-bottom:16px"
@@ -2600,7 +2600,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </form>
+  </form>,
   <div
     class="ant-table-wrapper"
   >
@@ -3767,8 +3767,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         </ul>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
