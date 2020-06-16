@@ -52,17 +52,16 @@
   }
 
   &-inner {
-    background-color: @popover-bg;
+    background-color: var(--popover-bg);
     background-clip: padding-box;
     border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
-    box-shadow: ~'0 0 8px @{shadow-color} \9';
+    box-shadow: var(--box-shadow-base);
   }
 
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     /* IE10+ */
     &-inner {
-      box-shadow: @box-shadow-base;
+      box-shadow: var(--box-shadow-base);
     }
   }
 
@@ -71,20 +70,20 @@
     min-height: @popover-min-height;
     margin: 0; // reset heading margin
     padding: 5px @popover-padding-horizontal 4px;
-    color: @heading-color;
+    color: var(--heading-color);
     font-weight: 500;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: 1px solid var(--border-color-split);
   }
 
   &-inner-content {
     padding: @padding-sm @popover-padding-horizontal;
-    color: @popover-color;
+    color: var(--popover-color);
   }
 
   &-message {
     position: relative;
     padding: 4px 0 12px;
-    color: @popover-color;
+    color: var(--popover-color);
     font-size: @font-size-base;
     > .@{iconfont-css-prefix} {
       position: absolute;
@@ -125,8 +124,8 @@
   &-placement-topRight > &-content > &-arrow {
     bottom: @popover-distance - @popover-arrow-width + 2.2px;
     border-top-color: transparent;
-    border-right-color: @popover-bg;
-    border-bottom-color: @popover-bg;
+    border-right-color: var(--popover-bg);
+    border-bottom-color: var(--popover-bg);
     border-left-color: transparent;
     box-shadow: 3px 3px 7px fade(@black, 7%);
   }
@@ -147,8 +146,8 @@
     left: @popover-distance - @popover-arrow-width + 2px;
     border-top-color: transparent;
     border-right-color: transparent;
-    border-bottom-color: @popover-bg;
-    border-left-color: @popover-bg;
+    border-bottom-color: var(--popover-bg);
+    border-left-color: var(--popover-bg);
     box-shadow: -3px 3px 7px fade(@black, 7%);
   }
   &-placement-right > &-content > &-arrow {
@@ -166,10 +165,10 @@
   &-placement-bottomLeft > &-content > &-arrow,
   &-placement-bottomRight > &-content > &-arrow {
     top: @popover-distance - @popover-arrow-width + 2px;
-    border-top-color: @popover-bg;
+    border-top-color: var(--popover-bg);
     border-right-color: transparent;
     border-bottom-color: transparent;
-    border-left-color: @popover-bg;
+    border-left-color: var(--popover-bg);
     box-shadow: -2px -2px 5px fade(@black, 6%);
   }
   &-placement-bottom > &-content > &-arrow {
@@ -187,8 +186,8 @@
   &-placement-leftTop > &-content > &-arrow,
   &-placement-leftBottom > &-content > &-arrow {
     right: @popover-distance - @popover-arrow-width + 2px;
-    border-top-color: @popover-bg;
-    border-right-color: @popover-bg;
+    border-top-color: var(--popover-bg);
+    border-right-color: var(--popover-bg);
     border-bottom-color: transparent;
     border-left-color: transparent;
     box-shadow: 3px -3px 7px fade(@black, 7%);
