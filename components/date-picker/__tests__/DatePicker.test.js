@@ -5,6 +5,7 @@ import MockDate from 'mockdate';
 import DatePicker from '..';
 import { selectDate, openPanel, clearInput, nextYear, nextMonth, hasSelected } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+import { sleep } from '../../../tests/utils';
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -236,5 +237,23 @@ describe('DatePicker', () => {
         'Warning: [antd: DatePicker] `value` provides invalidate moment time. If you want to set empty value, use `null` instead.',
       );
     });
+  });
+
+  // Fix https://github.com/ant-design/ant-design/issues/11249
+  it('onFocus and onBlur should be only called once when focus and blur', async () => {
+    const onFocus = jest.fn();
+    const onBlur = jest.fn();
+    const wrapper = mount(<DatePicker onFocus={onFocus} onBlur={onBlur} />, {
+      attachTo: document.body,
+    });
+    openPanel(wrapper);
+    await sleep(100);
+    expect(onFocus).toBeCalledTimes(1);
+    expect(onBlur).toBeCalledTimes(0);
+    openPanel(wrapper);
+    await sleep(100);
+    expect(onFocus).toBeCalledTimes(1);
+    expect(onBlur).toBeCalledTimes(1);
+    wrapper.unmount();
   });
 });

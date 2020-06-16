@@ -56,6 +56,11 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
     private prefixCls?: string;
 
+    // Avoid triggering multiple times on different inputs
+    private focused: boolean;
+
+    private triggerFocusOrBlur: boolean;
+
     constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
@@ -114,11 +119,45 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       }
     };
 
+    handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      const {
+        props: { onFocus },
+        state: { open },
+        focused,
+        triggerFocusOrBlur,
+      } = this;
+      if ((!focused && open) || triggerFocusOrBlur) {
+        this.focused = true;
+        this.triggerFocusOrBlur = false;
+        if (onFocus) {
+          onFocus(e);
+        }
+      }
+    };
+
+    handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      const {
+        props: { onBlur },
+        state: { open },
+        focused,
+        triggerFocusOrBlur,
+      } = this;
+      if ((focused && !open) || triggerFocusOrBlur) {
+        this.focused = false;
+        this.triggerFocusOrBlur = false;
+        if (onBlur) {
+          onBlur(e);
+        }
+      }
+    };
+
     focus() {
+      this.triggerFocusOrBlur = true;
       this.input.focus();
     }
 
     blur() {
+      this.triggerFocusOrBlur = true;
       this.input.blur();
     }
 
@@ -246,8 +285,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           id={props.id}
           className={classNames(props.className, props.pickerClass)}
           style={{ ...pickerStyle, ...props.style }}
-          onFocus={props.onFocus}
-          onBlur={props.onBlur}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
           onMouseEnter={props.onMouseEnter}
           onMouseLeave={props.onMouseLeave}
         >
