@@ -4,7 +4,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import { conductCheck } from 'rc-tree/es/utils/conductUtil';
 import { parseCheckedKeys, arrAdd, arrDel } from 'rc-tree/es/util';
-import { DataNode } from 'rc-tree/es/interface';
+import { DataNode, GetCheckDisabled } from 'rc-tree/es/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import { FixedType } from 'rc-table/lib/interface';
 import Checkbox, { CheckboxProps } from '../../checkbox';
@@ -129,9 +129,8 @@ export default function useSelection<RecordType>(
     return new Set(keys);
   }, [mergedHalfSelectedKeys, selectionType]);
 
-  // Caveat need to modify rc-trees, for rowKey evaluation...
   const { keyEntities } = useMemo(
-    () => convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey),
+    () => convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey as any),
     [data, getRowKey],
   );
 
@@ -498,8 +497,15 @@ export default function useSelection<RecordType>(
                         nativeEvent,
                       );
                     } else {
+                      const isCheckboxDisabled: GetCheckDisabled<RecordType> = (r: RecordType) =>
+                        !!checkboxPropsMap.get(getRowKey(r))?.disabled;
                       // Always fill first
-                      const result = conductCheck([...oriCheckedKeys, key], true, keyEntities);
+                      const result = conductCheck(
+                        [...oriCheckedKeys, key],
+                        true,
+                        keyEntities,
+                        isCheckboxDisabled as any,
+                      );
                       let { checkedKeys, halfCheckedKeys } = result;
 
                       // If remove, we do it again to correction
@@ -510,6 +516,7 @@ export default function useSelection<RecordType>(
                           Array.from(tempKeySet),
                           { checked: false, halfCheckedKeys },
                           keyEntities,
+                          isCheckboxDisabled as any,
                         ));
                       }
 

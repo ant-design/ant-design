@@ -925,6 +925,105 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(wrapper)).toEqual([3]);
         expect(onChange.mock.calls[1][0]).toEqual(['Jerry Jack', 'Jerry Lucy']);
       });
+      it('works with disabled checkbox', () => {
+        const onChange = jest.fn();
+
+        const table = createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            onChange,
+            getCheckboxProps(record) {
+              return {
+                disabled: record.name === 'Jerry Tom',
+              };
+            },
+          },
+        });
+        const wrapper = mount(table);
+        const checkboxes = wrapper.find('input');
+
+        checkboxes.at(10).simulate('change', { target: { checked: true } });
+        checkboxes.at(4).simulate('change', { target: { checked: true } });
+        expect(getSelections(wrapper).sort()).toEqual([3, 4, 5, 9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([3, 4, 5, 9]);
+        checkboxes.at(4).simulate('change', { target: { checked: false } });
+        expect(getSelections(wrapper)).toEqual([9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        expect(onChange.mock.calls[2][0]).toEqual([9]);
+      });
+      it('works with disabled checkbox and function rowkey', () => {
+        const onChange = jest.fn();
+
+        const table = createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            onChange,
+            getCheckboxProps(record) {
+              return {
+                disabled: record.name === 'Jerry Tom',
+              };
+            },
+          },
+          rowKey: entity => entity.name,
+        });
+        const wrapper = mount(table);
+        const checkboxes = wrapper.find('input');
+
+        checkboxes.at(10).simulate('change', { target: { checked: true } });
+        checkboxes.at(4).simulate('change', { target: { checked: true } });
+        expect(getSelections(wrapper).sort()).toEqual([3, 4, 5, 9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
+          'Jerry',
+          'Jerry Jack',
+          'Jerry Lucy',
+          'Jerry Tom Tom',
+        ]);
+        checkboxes.at(4).simulate('change', { target: { checked: false } });
+        expect(getSelections(wrapper)).toEqual([9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
+      });
+      it('works with disabled checkbox and string rowkey', () => {
+        const onChange = jest.fn();
+
+        const table = createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            onChange,
+            getCheckboxProps(record) {
+              return {
+                disabled: record.name === 'Jerry Tom',
+              };
+            },
+          },
+          rowKey: 'name',
+        });
+        const wrapper = mount(table);
+        const checkboxes = wrapper.find('input');
+
+        checkboxes.at(10).simulate('change', { target: { checked: true } });
+        checkboxes.at(4).simulate('change', { target: { checked: true } });
+        expect(getSelections(wrapper).sort()).toEqual([3, 4, 5, 9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
+          'Jerry',
+          'Jerry Jack',
+          'Jerry Lucy',
+          'Jerry Tom Tom',
+        ]);
+        checkboxes.at(4).simulate('change', { target: { checked: false } });
+        expect(getSelections(wrapper)).toEqual([9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
+      });
     });
   });
 
