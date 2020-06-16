@@ -13,7 +13,7 @@
   width: 90px;
   margin: 0;
   padding: 0;
-  border: @border-width-base @border-style-base @border-color-base;
+  border: @border-width-base @border-style-base var(--border-color-base);
   border-radius: @border-radius-base;
 
   &-handler {
@@ -22,17 +22,17 @@
     width: 100%;
     height: 50%;
     overflow: hidden;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     font-weight: bold;
     line-height: 0;
     text-align: center;
     transition: all 0.1s linear;
     &:active {
-      background: @input-number-handler-active-bg;
+      background: var(--input-number-handler-active-bg);
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
-      color: @input-number-handler-hover-bg;
+      color: var(--input-number-handler-hover-bg);
     }
   }
 
@@ -44,7 +44,7 @@
     right: 4px;
     width: 12px;
     height: 12px;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     line-height: 12px;
     transition: all 0.1s linear;
     user-select: none;
@@ -116,8 +116,8 @@
     right: 0;
     width: 22px;
     height: 100%;
-    background: @input-number-handler-bg;
-    border-left: @border-width-base @border-style-base @input-number-handler-border-color;
+    background: var(--input-number-handler-bg);
+    border-left: @border-width-base @border-style-base var(--input-number-handler-border-color);
     border-radius: 0 @border-radius-base @border-radius-base 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
@@ -159,7 +159,7 @@
 
   &-handler-down {
     top: 0;
-    border-top: @border-width-base @border-style-base @border-color-base;
+    border-top: @border-width-base @border-style-base var(--border-color-base);
     border-bottom-right-radius: @border-radius-base;
     cursor: pointer;
     &-inner {
@@ -179,7 +179,7 @@
 
   &-handler-up-disabled:hover &-handler-up-inner,
   &-handler-down-disabled:hover &-handler-down-inner {
-    color: @disabled-color;
+    color: var(--disabled-color);
   }
 }
 
