@@ -483,7 +483,6 @@ export default function useSelection<RecordType>(
                     // Single record selected
                     const oriCheckedKeys = mergedSelectedKeys;
                     const oriHalfCheckedKeys = mergedHalfSelectedKeys;
-                    // let checkedObj;
                     if (checkStrictly) {
                       const checkedKeys = checked
                         ? arrDel(oriCheckedKeys, key)
