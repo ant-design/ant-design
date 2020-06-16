@@ -133,6 +133,9 @@ const Demo = () => (
   - 在没有 `columns` 时仍然会保留一列。
   - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
 - Pagination 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+- Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
+  - Dom 结构变化，如有覆盖样式需要仔细检查。
+  - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
 
 ```diff
 <Table
