@@ -840,7 +840,7 @@ describe('Table.rowSelection', () => {
       },
     ];
     describe('supports checkStrictly', () => {
-      it('use date entity key', () => {
+      it('use data entity key', () => {
         const onChange = jest.fn();
 
         const table = createTable({
