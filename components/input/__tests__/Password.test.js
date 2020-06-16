@@ -6,18 +6,21 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+import Search from '../Search';
 
 describe('Input.Password', () => {
-  focusTest(Input.Password);
+  focusTest(Input.Password, { refFocus: true });
   mountTest(Input.Password);
   rtlTest(Input.Password);
 
   it('should get input element from ref', () => {
-    const wrapper = mount(<Input.Password />);
-    expect(wrapper.instance().input instanceof HTMLInputElement).toBe(true);
-    expect(() => {
-      wrapper.instance().select();
-    }).not.toThrow();
+    const ref = React.createRef();
+    const onSelect = jest.fn();
+
+    const wrapper = mount(<Input.Password onSelect={onSelect} ref={ref} />);
+    expect(ref.current.input instanceof HTMLInputElement).toBe(true);
+    wrapper.find('input').simulate('select');
+    expect(onSelect).toHaveBeenCalled();
   });
 
   it('should change type when click', () => {
