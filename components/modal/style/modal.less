@@ -25,7 +25,7 @@
 
   &-title {
     margin: 0;
-    color: @modal-heading-color;
+    color: var(--modal-heading-color);
     font-weight: 500;
     font-size: @font-size-lg;
     line-height: 22px;
@@ -34,11 +34,11 @@
 
   &-content {
     position: relative;
-    background-color: @modal-content-bg;
+    background-color: var(--modal-content-bg);
     background-clip: padding-box;
     border: 0;
     border-radius: @border-radius-base;
-    box-shadow: @shadow-2;
+    box-shadow: var(--shadow-2);
     pointer-events: auto;
   }
 
@@ -48,7 +48,7 @@
     right: 0;
     z-index: @zindex-popup-close;
     padding: 0;
-    color: @modal-close-color;
+    color: var(--modal-close-color);
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
@@ -72,16 +72,16 @@
 
     &:focus,
     &:hover {
-      color: @icon-color-hover;
+      color: var(--icon-color-hover);
       text-decoration: none;
     }
   }
 
   &-header {
     padding: @modal-header-padding;
-    color: @text-color;
-    background: @modal-header-bg;
-    border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;
+    color: var(--text-color);
+    background: var(--modal-header-bg);
+    border-bottom: @border-width-base @border-style-base var(--modal-header-border-color-split);
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -95,8 +95,8 @@
   &-footer {
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
-    background: @modal-footer-bg;
-    border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
+    background: var(--modal-footer-bg);
+    border-top: @border-width-base @border-style-base var(--modal-footer-border-color-split);
     border-radius: 0 0 @border-radius-base @border-radius-base;
 
     button + button {
@@ -121,7 +121,7 @@
     left: 0;
     z-index: @zindex-modal-mask;
     height: 100%;
-    background-color: @modal-mask-bg;
+    background-color: var(--modal-mask-bg);
     filter: ~'alpha(opacity=50)';
 
     &-hidden {
