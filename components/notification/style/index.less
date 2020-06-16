@@ -37,9 +37,9 @@
     position: relative;
     margin-bottom: @notification-margin-bottom;
     overflow: hidden;
-    background: @notification-bg;
+    background: var(--notification-bg);
     border-radius: @border-radius-base;
-    box-shadow: @shadow-2;
+    box-shadow: var(--shadow-2);
   }
 
   &-hook-holder > &-notice {
@@ -54,7 +54,7 @@
     &-message {
       display: inline-block;
       margin-bottom: 8px;
-      color: @heading-color;
+      color: var(--heading-color);
       font-size: @font-size-lg;
       line-height: 24px;
 
@@ -103,16 +103,16 @@
 
     .@{iconfont-css-prefix}&-icon {
       &-success {
-        color: @success-color;
+        color: var(--success-color);
       }
       &-info {
-        color: @info-color;
+        color: var(--info-color);
       }
       &-warning {
-        color: @warning-color;
+        color: var(--warning-color);
       }
       &-error {
-        color: @error-color;
+        color: var(--error-color);
       }
     }
 
@@ -120,16 +120,11 @@
       position: absolute;
       top: 16px;
       right: 22px;
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
       outline: none;
 
       &:hover {
-        & when (@theme = dark) {
-          color: fade(@white, 85%);
-        }
-        & when not (@theme = dark) {
-          color: shade(@text-color-secondary, 40%);
-        }
+        color: var(--notification-close-hover-color);
       }
     }
 
