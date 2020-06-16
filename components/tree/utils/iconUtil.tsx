@@ -11,7 +11,7 @@ import { isValidElement, cloneElement } from '../../_util/reactNode';
 export default function renderSwitcherIcon(
   prefixCls: string,
   switcherIcon: React.ReactNode | null | undefined,
-  showLine: boolean | undefined,
+  showLine: boolean | { hideLeafIcon: boolean } | undefined,
   { isLeaf, expanded, loading }: AntTreeNodeProps,
 ) {
   if (loading) {

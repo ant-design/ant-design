@@ -91,8 +91,8 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
-  showLine?: boolean;
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine'> {
+  showLine?: boolean | { hideLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
