@@ -11,8 +11,8 @@
 
 .select-selector() {
   position: relative;
-  background-color: @select-background;
-  border: @border-width-base @border-style-base @select-border-color;
+  background-color: var(--select-background);
+  border: @border-width-base @border-style-base var(--select-border-color);
   border-radius: @border-radius-base;
   transition: all 0.3s @ease-in-out;
 
@@ -33,8 +33,8 @@
   }
 
   .@{select-prefix-cls}-disabled& {
-    color: @disabled-color;
-    background: @input-disabled-bg;
+    color: var(--disabled-color);
+    background: var(--input-disabled-bg);
     cursor: not-allowed;
 
     input {
@@ -106,7 +106,7 @@
     width: @font-size-sm;
     height: @font-size-sm;
     margin-top: -@font-size-sm / 2;
-    color: @disabled-color;
+    color: var(--disabled-color);
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
@@ -136,13 +136,13 @@
     width: @font-size-sm;
     height: @font-size-sm;
     margin-top: -@font-size-sm / 2;
-    color: @disabled-color;
+    color: var(--disabled-color);
     font-size: @font-size-sm;
     font-style: normal;
     line-height: 1;
     text-align: center;
     text-transform: none;
-    background: @select-clear-background;
+    background: var(--select-clear-background);
     cursor: pointer;
     opacity: 0;
     transition: color 0.3s ease, opacity 0.15s ease;
@@ -151,7 +151,7 @@
       display: block;
     }
     &:hover {
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
     }
 
     .@{select-prefix-cls}:hover & {
@@ -174,7 +174,7 @@
     // https://github.com/ant-design/ant-design/issues/11456
     // https://github.com/ant-design/ant-design/issues/11843
     font-variant: initial;
-    background-color: @select-dropdown-bg;
+    background-color: var(--select-dropdown-bg);
     border-radius: @border-radius-base;
     outline: none;
     box-shadow: @box-shadow-base;
@@ -202,7 +202,7 @@
     }
 
     &-empty {
-      color: @disabled-color;
+      color: var(--disabled-color);
     }
   }
 
@@ -212,7 +212,7 @@
     display: block;
     min-height: @select-dropdown-height;
     padding: @select-dropdown-vertical-padding @control-padding-horizontal;
-    color: @text-color;
+    color: var(--text-color);
     font-weight: normal;
     font-size: @select-dropdown-font-size;
     line-height: @select-dropdown-line-height;
@@ -220,7 +220,7 @@
 
   &-item-empty {
     .item();
-    color: @disabled-color;
+    color: var(--disabled-color);
   }
 
   &-item {
@@ -231,7 +231,7 @@
 
     // =========== Group ============
     &-group {
-      color: @text-color-secondary;
+      color: var(--text-color-secondary);
       font-size: @font-size-sm;
       cursor: default;
     }
@@ -252,21 +252,21 @@
       }
 
       &-active:not(&-disabled) {
-        background-color: @select-item-active-bg;
+        background-color: var(--select-item-active-bg);
       }
 
       &-selected:not(&-disabled) {
-        color: @text-color;
+        color: var(--text-color);
         font-weight: @select-item-selected-font-weight;
-        background-color: @select-item-selected-bg;
+        background-color: var(--select-item-selected-bg);
 
         .@{select-prefix-cls}-item-option-state {
-          color: @primary-color;
+          color: var(--primary-color);
         }
       }
 
       &-disabled {
-        color: @disabled-color;
+        color: var(--disabled-color);
         cursor: not-allowed;
       }
 

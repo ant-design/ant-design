@@ -57,8 +57,8 @@
       margin-bottom: @select-multiple-item-spacing-half;
       padding: 0 (@padding-xs / 2) 0 @padding-xs;
       line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
-      background: @select-selection-item-bg;
-      border: 1px solid @select-selection-item-border-color;
+      background: var(--select-selection-item-bg);
+      border: 1px solid var(--select-selection-item-border-color);
       border-radius: @border-radius-base;
       cursor: default;
       transition: font-size 0.3s, line-height 0.3s, height 0.3s;
@@ -76,7 +76,7 @@
       &-remove {
         .iconfont-mixin();
         display: inline-block;
-        color: @text-color-secondary;
+        color: var(--text-color-secondary);
         font-weight: bold;
         font-size: @font-size-sm;
         line-height: inherit;
@@ -88,7 +88,7 @@
         }
 
         &:hover {
-          color: @icon-color-hover;
+          color: var(--icon-color-hover);
         }
       }
     }
