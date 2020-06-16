@@ -6,6 +6,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+
 describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });
   mountTest(Input.Password);
