@@ -15,10 +15,6 @@ export interface PasswordProps extends InputProps {
   iconRender?: (visible: boolean) => React.ReactNode;
 }
 
-export interface PasswordState {
-  visible: boolean;
-}
-
 const ActionMap: Record<string, string> = {
   click: 'onClick',
   hover: 'onMouseOver',
