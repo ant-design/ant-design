@@ -23,19 +23,19 @@
 }
 
 // == when hoverd
-.hover(@color: @input-hover-border-color) {
+.hover(@color: var(--input-hover-border-color)) {
   border-color: @color;
   border-right-width: @border-width-base !important;
 }
 
 .disabled() {
-  color: @input-disabled-color;
-  background-color: @input-disabled-bg;
+  color: var(--input-disabled-color);
+  background-color: var(--input-disabled-bg);
   cursor: not-allowed;
   opacity: 1;
 
   &:hover {
-    .hover(@input-border-color);
+    .hover(var(--input-border-color));
   }
 }
 
@@ -46,12 +46,12 @@
   width: 100%;
   min-width: 0;
   padding: @input-padding-vertical-base @input-padding-horizontal-base;
-  color: @input-color;
+  color: var(--input-color);
   font-size: @font-size-base;
   line-height: @line-height-base;
-  background-color: @input-bg;
+  background-color: var(--input-bg);
   background-image: none;
-  border: @border-width-base @border-style-base @input-border-color;
+  border: @border-width-base @border-style-base var(--input-border-color);
   border-radius: @border-radius-base;
   transition: all 0.3s;
   .placeholder(); // Reset placeholder
@@ -157,12 +157,12 @@
   &-addon {
     position: relative;
     padding: 0 @input-padding-horizontal-base;
-    color: @input-color;
+    color: var(--input-color);
     font-weight: normal;
     font-size: @font-size-base;
     text-align: center;
-    background-color: @input-addon-bg;
-    border: @border-width-base @border-style-base @input-border-color;
+    background-color: var(--input-addon-bg);
+    border: @border-width-base @border-style-base var(--input-border-color);
     border-radius: @border-radius-base;
     transition: all 0.3s;
 
@@ -180,7 +180,7 @@
       &-open,
       &-focused {
         .@{ant-prefix}-select-selector {
-          color: @primary-color;
+          color: var(--primary-color);
         }
       }
     }

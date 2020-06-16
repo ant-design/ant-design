@@ -87,7 +87,7 @@
 
   &-addon:first-child {
     .@{inputClass}-group-rtl & {
-      border-right: @border-width-base @border-style-base @input-border-color;
+      border-right: @border-width-base @border-style-base var(--input-border-color);
       border-left: 0;
     }
   }
@@ -95,7 +95,7 @@
   &-addon:last-child {
     .@{inputClass}-group-rtl & {
       border-right: 0;
-      border-left: @border-width-base @border-style-base @input-border-color;
+      border-left: @border-width-base @border-style-base var(--input-border-color);
     }
   }
 
@@ -196,7 +196,7 @@
       .@{search-rtl-cls} & {
         right: auto;
         left: 0;
-        border-right: @border-width-base @border-style-base @input-border-color;
+        border-right: @border-width-base @border-style-base var(--input-border-color);
         transition: all 0.3s;
       }
     }
@@ -212,28 +212,28 @@
   &-enter-button {
     input {
       .@{search-rtl-cls}& {
-        border-right: @border-width-base @border-style-base @input-border-color;
+        border-right: @border-width-base @border-style-base var(--input-border-color);
         border-left: 0;
       }
 
       &:hover,
       &:focus {
         .@{search-rtl-cls}& {
-          border-color: @input-hover-border-color;
+          border-color: var(--input-hover-border-color);
         }
       }
     }
 
     &.@{ant-prefix}-input-affix-wrapper {
       .@{search-rtl-cls}& {
-        border-right: @border-width-base @border-style-base @input-border-color;
+        border-right: @border-width-base @border-style-base var(--input-border-color);
         border-left: 0;
       }
 
       &:hover,
       &:focus {
         .@{search-rtl-cls}& {
-          border-color: @input-hover-border-color;
+          border-color: var(--input-hover-border-color);
         }
       }
     }

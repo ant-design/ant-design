@@ -32,11 +32,11 @@
 .@{search-prefix} {
   &-icon {
     margin-left: 0.5em;
-    color: @text-color-secondary;
+    color: var(--text-color-secondary);
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      color: @input-icon-hover-color;
+      color: var(--input-icon-hover-color);
     }
 
     &::before {
@@ -44,7 +44,7 @@
       top: 0;
       bottom: 0;
       display: block;
-      border-left: @border-width-base @border-style-base @input-border-color;
+      border-left: @border-width-base @border-style-base var(--input-border-color);
       transition: all 0.3s;
       content: '';
     }
@@ -68,7 +68,7 @@
 
       &:hover,
       &:focus {
-        border-color: @input-hover-border-color;
+        border-color: var(--input-hover-border-color);
       }
     }
 
