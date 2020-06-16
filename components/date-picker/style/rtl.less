@@ -162,7 +162,7 @@
       .@{picker-prefix-cls}-panel-rtl & {
         right: 6px;
         left: 0;
-        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-right: @border-width-base dashed var(--picker-date-hover-range-border-color);
         border-left: none;
         border-top-left-radius: 0;
         border-top-right-radius: @border-radius-base;
@@ -180,7 +180,7 @@
         right: 0;
         left: 6px;
         border-right: none;
-        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-left: @border-width-base dashed var(--picker-date-hover-range-border-color);
         border-top-left-radius: @border-radius-base;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
@@ -192,7 +192,7 @@
     &-in-view&-range-hover-start&-in-view&-range-hover-end::after {
       .@{picker-prefix-cls}-panel-rtl & {
         right: 6px;
-        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-right: @border-width-base dashed var(--picker-date-hover-range-border-color);
         border-top-right-radius: @border-radius-base;
         border-bottom-right-radius: @border-radius-base;
       }
@@ -201,7 +201,7 @@
     tr > &-in-view&-range-hover-end:first-child::after {
       .@{picker-prefix-cls}-panel-rtl & {
         left: 6px;
-        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-left: @border-width-base dashed var(--picker-date-hover-range-border-color);
         border-top-left-radius: @border-radius-base;
         border-bottom-left-radius: @border-radius-base;
       }

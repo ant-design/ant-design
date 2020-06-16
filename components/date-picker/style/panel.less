@@ -13,13 +13,13 @@
     display: inline-flex;
     flex-direction: column;
     text-align: center;
-    background: @calendar-bg;
-    border: @border-width-base @border-style-base @picker-border-color;
+    background: var(--calendar-bg);
+    border: @border-width-base @border-style-base var(--picker-border-color);
     border-radius: @border-radius-base;
     outline: none;
 
     &-focused {
-      border-color: @primary-color;
+      border-color: var(--primary-color);
     }
   }
 
@@ -42,8 +42,8 @@
   &-header {
     display: flex;
     padding: 0 @padding-xs;
-    color: @heading-color;
-    border-bottom: @border-width-base @border-style-base @picker-border-color;
+    color: var(--heading-color);
+    border-bottom: @border-width-base @border-style-base var(--picker-border-color);
 
     > * {
       flex: none;
@@ -51,7 +51,7 @@
 
     button {
       padding: 0;
-      color: @disabled-color;
+      color: var(--disabled-color);
       line-height: @picker-text-height;
       background: transparent;
       border: 0;
@@ -64,7 +64,7 @@
       font-size: @font-size-base;
 
       &:hover {
-        color: @text-color;
+        color: var(--text-color);
       }
     }
 
@@ -82,7 +82,7 @@
         }
 
         &:hover {
-          color: @primary-color;
+          color: var(--primary-color);
         }
       }
     }
@@ -151,7 +151,7 @@
 
     th {
       height: 30px;
-      color: @text-color;
+      color: var(--text-color);
       line-height: 30px;
     }
   }
@@ -184,7 +184,7 @@
     &:hover:not(&-in-view),
     &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
       .@{cellClassName} {
-        background: @picker-basic-cell-hover-color;
+        background: var(--picker-basic-cell-hover-color);
       }
     }
 
@@ -197,7 +197,7 @@
         bottom: 0;
         left: 0;
         z-index: 1;
-        border: @border-width-base @border-style-base @primary-color;
+        border: @border-width-base @border-style-base var(--primary-color);
         border-radius: @border-radius-base;
         content: '';
       }
@@ -208,7 +208,7 @@
       position: relative;
 
       &::before {
-        background: @picker-basic-cell-active-with-range-color;
+        background: var(--picker-basic-cell-active-with-range-color);
       }
     }
 
@@ -216,14 +216,14 @@
     &-in-view&-selected .@{cellClassName},
     &-in-view&-range-start .@{cellClassName},
     &-in-view&-range-end .@{cellClassName} {
-      color: @text-color-inverse;
-      background: @primary-color;
+      color: var(--text-color-inverse);
+      background: var(--primary-color);
     }
 
     &-in-view&-range-start:not(&-range-start-single),
     &-in-view&-range-end:not(&-range-end-single) {
       &::before {
-        background: @picker-basic-cell-active-with-range-color;
+        background: var(--picker-basic-cell-active-with-range-color);
       }
     }
 
@@ -246,8 +246,8 @@
         top: 50%;
         z-index: 0;
         height: 24px;
-        border-top: @border-width-base dashed @picker-date-hover-range-border-color;
-        border-bottom: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-top: @border-width-base dashed var(--picker-date-hover-range-border-color);
+        border-bottom: @border-width-base dashed var(--picker-date-hover-range-border-color);
         transform: translateY(-50%);
         content: '';
       }
@@ -273,7 +273,7 @@
     .@{picker-prefix-cls}-panel
       > :not(.@{picker-prefix-cls}-date-panel)
       &-in-view&-in-range&-range-hover-end::before {
-      background: @picker-date-hover-range-color;
+      background: var(--picker-date-hover-range-color);
     }
 
     // range start border-radius
@@ -293,7 +293,7 @@
         top: 0;
         bottom: 0;
         z-index: -1;
-        background: @picker-date-hover-range-color;
+        background: var(--picker-date-hover-range-color);
         content: '';
       }
     }
@@ -322,7 +322,7 @@
     &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
     &-in-view&-range-hover-start::after {
       left: 6px;
-      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-left: @border-width-base dashed var(--picker-date-hover-range-border-color);
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
     }
@@ -333,7 +333,7 @@
     &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
     &-in-view&-range-hover-end::after {
       right: 6px;
-      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-right: @border-width-base dashed var(--picker-date-hover-range-border-color);
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
     }
@@ -343,27 +343,27 @@
       pointer-events: none;
 
       .@{cellClassName} {
-        color: @disabled-color;
+        color: var(--disabled-color);
         background: transparent;
       }
 
       &::before {
-        background: @picker-basic-cell-disabled-bg;
+        background: var(--picker-basic-cell-disabled-bg);
       }
     }
     &-disabled&-today .@{cellClassName}::before {
-      border-color: @disabled-color;
+      border-color: var(--disabled-color);
     }
   }
 
   &-cell {
     padding: 3px 0;
-    color: @disabled-color;
+    color: var(--disabled-color);
     cursor: pointer;
 
     // In view
     &-in-view {
-      color: @text-color;
+      color: var(--text-color);
     }
 
     // Disabled
@@ -388,7 +388,7 @@
 
     .@{picker-prefix-cls}-cell {
       &-disabled .@{picker-cell-inner-cls} {
-        background: @picker-basic-cell-disabled-bg;
+        background: var(--picker-basic-cell-disabled-bg);
       }
     }
   }
@@ -408,7 +408,7 @@
     border-bottom: @border-width-base @border-style-base transparent;
 
     .@{picker-prefix-cls}-panel & {
-      border-top: @border-width-base @border-style-base @picker-border-color;
+      border-top: @border-width-base @border-style-base var(--picker-border-color);
     }
 
     &-extra {
@@ -417,7 +417,7 @@
       text-align: left;
 
       &:not(:last-child) {
-        border-bottom: @border-width-base @border-style-base @picker-border-color;
+        border-bottom: @border-width-base @border-style-base var(--picker-border-color);
       }
     }
   }
@@ -427,18 +427,18 @@
   }
 
   &-today-btn {
-    color: @link-color;
+    color: var(--link-color);
 
     &:hover {
-      color: @link-hover-color;
+      color: var(--link-hover-color);
     }
 
     &:active {
-      color: @link-active-color;
+      color: var(--link-active-color);
     }
 
     &&-disabled {
-      color: @disabled-color;
+      color: var(--disabled-color);
       cursor: not-allowed;
     }
   }
@@ -476,23 +476,23 @@
 
     .@{picker-prefix-cls}-cell-range-hover-start::after {
       left: @hover-cell-fixed-distance;
-      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-left: @border-width-base dashed var(--picker-date-hover-range-border-color);
       border-radius: @border-radius-base 0 0 @border-radius-base;
 
       .@{picker-prefix-cls}-panel-rtl & {
         right: @hover-cell-fixed-distance;
-        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-right: @border-width-base dashed var(--picker-date-hover-range-border-color);
         border-radius: 0 @border-radius-base @border-radius-base 0;
       }
     }
     .@{picker-prefix-cls}-cell-range-hover-end::after {
       right: @hover-cell-fixed-distance;
-      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-right: @border-width-base dashed var(--picker-date-hover-range-border-color);
       border-radius: 0 @border-radius-base @border-radius-base 0;
 
       .@{picker-prefix-cls}-panel-rtl & {
         left: @hover-cell-fixed-distance;
-        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-left: @border-width-base dashed var(--picker-date-hover-range-border-color);
         border-radius: @border-radius-base 0 0 @border-radius-base;
       }
     }
@@ -519,23 +519,23 @@
       }
 
       &:hover td {
-        background: @picker-basic-cell-hover-color;
+        background: var(--picker-basic-cell-hover-color);
       }
 
       &-selected td,
       &-selected:hover td {
-        background: @primary-color;
+        background: var(--primary-color);
 
         &.@{picker-prefix-cls}-cell-week {
           color: fade(@text-color-inverse, 50%);
         }
 
         &.@{picker-prefix-cls}-cell-today .@{picker-cell-inner-cls}::before {
-          border-color: @text-color-inverse;
+          border-color: var(--text-color-inverse);
         }
 
         .@{picker-cell-inner-cls} {
-          color: @text-color-inverse;
+          color: var(--text-color-inverse);
         }
       }
     }
@@ -561,7 +561,7 @@
     display: flex;
 
     .@{picker-prefix-cls}-time-panel {
-      border-left: @border-width-base @border-style-base @picker-border-color;
+      border-left: @border-width-base @border-style-base var(--picker-border-color);
     }
 
     .@{picker-prefix-cls}-date-panel,
@@ -604,11 +604,11 @@
       transition: background @animation-duration-slow;
 
       &:not(:first-child) {
-        border-left: @border-width-base @border-style-base @picker-border-color;
+        border-left: @border-width-base @border-style-base var(--picker-border-color);
       }
 
       &-active {
-        background: fade(@calendar-item-active-bg, 20%);
+        background: var(--picker-panel-active-background);
       }
 
       &:hover {
@@ -626,7 +626,7 @@
             height: @picker-time-panel-cell-height;
             margin: 0;
             padding: 0;
-            color: @text-color;
+            color: var(--text-color);
             line-height: @picker-time-panel-cell-height;
             text-align: center;
             border-radius: 0;
@@ -634,19 +634,19 @@
             transition: background @animation-duration-slow;
 
             &:hover {
-              background: @item-hover-bg;
+              background: var(--item-hover-bg);
             }
           }
 
           &-selected {
             .@{picker-prefix-cls}-time-panel-cell-inner {
-              background: @calendar-item-active-bg;
+              background: var(--calendar-item-active-bg);
             }
           }
 
           &-disabled {
             .@{picker-prefix-cls}-time-panel-cell-inner {
-              color: @disabled-color;
+              color: var(--disabled-color);
               background: transparent;
               cursor: not-allowed;
             }
