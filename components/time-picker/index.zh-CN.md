@@ -53,6 +53,7 @@ import moment from 'moment';
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |  |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean): void | 无 |  |
+| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
 ## 方法
 
