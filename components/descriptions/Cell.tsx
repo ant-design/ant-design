@@ -63,11 +63,7 @@ const Cell: React.FC<CellProps> = ({
           {label}
         </span>
       )}
-      {content && (
-        <span className={classNames(`${itemPrefixCls}-item-content`)}>
-          <div>{content}</div>
-        </span>
-      )}
+      {content && <span className={classNames(`${itemPrefixCls}-item-content`)}>{content}</span>}
     </Component>
   );
 };
