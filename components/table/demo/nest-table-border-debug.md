@@ -113,6 +113,8 @@ function NestedTable() {
         </Form.Item>
       </Form>
       <Table
+        title={() => 'cool'}
+        footer={() => 'cool'}
         className="components-table-demo-nested"
         columns={columns}
         expandable={{ expandedRowRender: createExpandedRowRender(childTableBordered) }}

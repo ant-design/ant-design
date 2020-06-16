@@ -108,3 +108,11 @@
     border-top: 0;
   }
 }
+
+.@{table-prefix-cls}-cell {
+  // ============================ Nested ============================
+  .@{table-prefix-cls}-container:first-child {
+    // :first-child to avoid the case when bordered and title is set
+    border-top: 0;
+  }
+}
