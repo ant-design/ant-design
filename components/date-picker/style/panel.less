@@ -605,8 +605,11 @@
 
       &::after {
         display: block;
-        height: 224px - @picker-time-panel-cell-height + 2 * @border-width-base;
+        height: 224px - @picker-time-panel-cell-height;
         content: '';
+        .@{picker-prefix-cls}-datetime-panel & {
+          height: 224px - @picker-time-panel-cell-height + 2 * @border-width-base;
+        }
       }
 
       &:not(:first-child) {
