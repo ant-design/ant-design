@@ -339,7 +339,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 `;
 
 exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -347,7 +347,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
     <span>
       bottomLeft
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -355,7 +355,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
     <span>
       bottomCenter
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -363,8 +363,8 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
     <span>
       bottomRight
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -372,7 +372,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
     <span>
       topLeft
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -380,7 +380,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
     <span>
       topCenter
     </span>
-  </button>
+  </button>,
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
@@ -388,8 +388,8 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
     <span>
       topRight
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
