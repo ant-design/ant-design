@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Search from '../search';
 import Transfer from '../index';
 
-describe('Search', () => {
+describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -25,6 +25,7 @@ describe('Search', () => {
   });
 
   it('onSearch', () => {
+    jest.useFakeTimers();
     const dataSource = [
       {
         key: 'a',
@@ -59,7 +60,7 @@ describe('Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    expect(onSearch).toBeCalledWith('left', 'a');
+    expect(onSearch).toHaveBeenCalledWith('left', 'a');
 
     onSearch.mockReset();
 
@@ -67,10 +68,11 @@ describe('Search', () => {
       .find('.ant-transfer-list-search-action')
       .at(0)
       .simulate('click');
-    expect(onSearch).toBeCalledWith('left', '');
+    expect(onSearch).toHaveBeenCalledWith('left', '');
+    jest.useRealTimers();
   });
 
-  it('legacy onSearchChange', () => {
+  it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
 
     const wrapper = mount(
@@ -82,10 +84,7 @@ describe('Search', () => {
       .at(0)
       .simulate('change', { target: { value: 'a' } });
 
-    expect(errorSpy.mock.calls[0][0]).toMatch(
-      'Warning: [antd: Transfer] `onSearchChange` is deprecated. Please use `onSearch` instead.',
-    );
-    expect(onSearchChange.mock.calls[0][0]).toEqual('left');
-    expect(onSearchChange.mock.calls[0][1].target.value).toEqual('a');
+    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(onSearchChange).not.toHaveBeenCalled();
   });
 });

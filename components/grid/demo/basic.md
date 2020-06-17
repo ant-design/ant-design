@@ -17,11 +17,14 @@ From the stack to the horizontal arrangement.
 
 You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns (Col) must be placed in `Row`.
 
-````jsx
+```jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
+    <Row>
+      <Col span={24}>col</Col>
+    </Row>
     <Row>
       <Col span={12}>col-12</Col>
       <Col span={12}>col-12</Col>
@@ -37,7 +40,7 @@ ReactDOM.render(
       <Col span={6}>col-6</Col>
       <Col span={6}>col-6</Col>
     </Row>
-  </div>,
-  mountNode
+  </>,
+  mountNode,
 );
-````
+```

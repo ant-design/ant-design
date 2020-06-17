@@ -11,20 +11,19 @@ title:
 
 ## en-US
 
-When the timeline is incomplete and ongoing, put a ghost node at last. Set `pending` as truthy value to enable displaying pending item. You can customize the pending content by passing a React Element. Meanwhile, `pendingDot={a React Element}` is used to customize the dot of the pending item.
-`reverse={true}` is used for reversing nodes.
+When the timeline is incomplete and ongoing, put a ghost node at last. Set `pending` as truthy value to enable displaying pending item. You can customize the pending content by passing a React Element. Meanwhile, `pendingDot={a React Element}` is used to customize the dot of the pending item. `reverse={true}` is used for reversing nodes.
 
-````jsx
+```jsx
 import { Timeline, Button } from 'antd';
 
 class PendingTimeLine extends React.Component {
   state = {
     reverse: false,
-  }
+  };
 
   handleClick = () => {
     this.setState({ reverse: !this.state.reverse });
-  }
+  };
 
   render() {
     return (
@@ -34,11 +33,13 @@ class PendingTimeLine extends React.Component {
           <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
           <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
         </Timeline>
-        <Button type="primary" style={{ marginTop: 16 }} onClick={this.handleClick}>Toggle Reverse</Button>
+        <Button type="primary" style={{ marginTop: 16 }} onClick={this.handleClick}>
+          Toggle Reverse
+        </Button>
       </div>
     );
   }
 }
 
 ReactDOM.render(<PendingTimeLine />, mountNode);
-````
+```

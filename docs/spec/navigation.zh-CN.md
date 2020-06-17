@@ -1,7 +1,9 @@
 ---
-category: 模式
-order: 8
+category: 设计模式
+type: 全局规则
+order: 2
 title: 导航
+skip: true
 ---
 
 在广义上，任何告知用户他在哪里，他能去什么地方以及如何到达那里的方式，都可以称之为导航。当设计者使用导航或者自定义一些导航结构时，请注意：
@@ -39,6 +41,7 @@ title: 导航
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
 
 > 注意事项：
+>
 > 1. 层级过深时，建议做隐藏处理，页面显示保持在三级以内，最多不宜超过五级；
 > 2. 尽可能不使用面包屑，尤其是当前页面的导航能清晰的告诉用户他在哪里时。
 

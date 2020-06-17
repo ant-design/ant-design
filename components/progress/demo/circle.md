@@ -13,18 +13,18 @@ title:
 
 A circular progress bar.
 
-````jsx
+```jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Progress type="circle" percent={75} />
     <Progress type="circle" percent={70} status="exception" />
     <Progress type="circle" percent={100} />
-  </div>,
-  mountNode
+  </>,
+  mountNode,
 );
-````
+```
 
 <style>
 .ant-progress-circle-wrap,

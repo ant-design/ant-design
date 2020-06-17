@@ -2,61 +2,12 @@
 
 // mixins for grid system
 // ------------------------
-.make-row(@gutter: @grid-gutter-width) {
-  position: relative;
-  height: auto;
-  margin-right: (@gutter / -2);
-  margin-left: (@gutter / -2);
-  .clearfix;
-}
-
-.make-grid-columns() {
-  .col(@index) {
-    @item: ~'.@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}';
-    .col((@index + 1), @item);
-  }
-  .col(@index, @list) when (@index =< @grid-columns) {
-    @item: ~'.@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}';
-    .col((@index + 1), ~'@{list}, @{item}');
-  }
-  .col(@index, @list) when (@index > @grid-columns) {
-    @{list} {
-      position: relative;
-      // Prevent columns from collapsing when empty
-      min-height: 1px;
-      padding-right: (@grid-gutter-width / 2);
-      padding-left: (@grid-gutter-width / 2);
-    }
-  }
-  .col(1);
-}
-
-.float-grid-columns(@class) {
-  .col(@index) {
-    // initial
-    @item: ~'.@{ant-prefix}-col@{class}-@{index}';
-    .col((@index + 1), @item);
-  }
-  .col(@index, @list) when (@index =< @grid-columns) {
-    // general
-    @item: ~'.@{ant-prefix}-col@{class}-@{index}';
-    .col((@index + 1), ~'@{list}, @{item}');
-  }
-  .col(@index, @list) when (@index > @grid-columns) {
-    // terminal
-    @{list} {
-      flex: 0 0 auto;
-      float: left;
-    }
-  }
-  .col(1); // kickstart it
-}
 
 .loop-grid-columns(@index, @class) when (@index > 0) {
   .@{ant-prefix}-col@{class}-@{index} {
     display: block;
-    box-sizing: border-box;
-    width: percentage((@index / @grid-columns));
+    flex: 0 0 percentage((@index / @grid-columns));
+    max-width: percentage((@index / @grid-columns));
   }
   .@{ant-prefix}-col@{class}-push-@{index} {
     left: percentage((@index / @grid-columns));
@@ -98,6 +49,5 @@
 }
 
 .make-grid(@class: ~'') {
-  .float-grid-columns(@class);
   .loop-grid-columns(@grid-columns, @class);
 }

@@ -1,0 +1,186 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@select-prefix-cls: ~'@{ant-prefix}-select';
+
+.@{select-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  // ========================== Arrow ==========================
+  &-arrow {
+    .@{select-prefix-cls}-rtl & {
+      right: initial;
+      left: @control-padding-horizontal - 1px;
+    }
+  }
+
+  // ========================== Clear ==========================
+  &-clear {
+    .@{select-prefix-cls}-rtl & {
+      right: initial;
+      left: @control-padding-horizontal - 1px;
+    }
+  }
+
+  // ========================== Popup ==========================
+  &-dropdown {
+    &-rtl {
+      direction: rtl;
+    }
+  }
+
+  // ========================= Options =========================
+  &-item {
+    &-option {
+      &-grouped {
+        .@{select-prefix-cls}-dropdown-rtl & {
+          padding-right: @control-padding-horizontal * 2;
+          padding-left: @control-padding-horizontal;
+        }
+      }
+    }
+  }
+}
+
+// multiple
+@select-multiple-item-border-width: 1px;
+@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-padding: max(
+  @input-padding-vertical-base - @select-multiple-item-border-width -
+    @select-multiple-item-spacing-half,
+  0
+);
+
+.@{select-prefix-cls}-multiple {
+  &.@{select-prefix-cls}-allow-clear .@{select-prefix-cls}-selector {
+    .@{select-prefix-cls}-rtl& {
+      padding-right: @input-padding-vertical-base;
+      padding-left: @font-size-sm + @control-padding-horizontal;
+    }
+  }
+  // ======================== Selections ========================
+  .@{select-prefix-cls}-selection-item {
+    .@{select-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: @input-padding-vertical-base;
+      padding: 0 @padding-xs 0 (@padding-xs / 2);
+      text-align: right;
+    }
+    // It's ok not to do this, but 24px makes bottom narrow in view should adjust
+    &-content {
+      .@{select-prefix-cls}-rtl& {
+        margin-right: 0;
+        margin-left: @padding-xs / 2;
+        text-align: right;
+      }
+    }
+  }
+
+  // ========================== Input ==========================
+  .@{select-prefix-cls}-selection-search {
+    .@{select-prefix-cls}-rtl& {
+      margin-right: @select-multiple-padding / 2;
+      margin-left: @input-padding-vertical-base;
+    }
+
+    &-mirror {
+      .@{select-prefix-cls}-rtl& {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
+  // ======================= Placeholder =======================
+  .@{select-prefix-cls}-selection-placeholder {
+    .@{select-prefix-cls}-rtl& {
+      right: @input-padding-horizontal;
+      left: auto;
+    }
+  }
+
+  // ============================================================
+  // ==                          Size                          ==
+  // ============================================================
+
+  // Size small need additional set padding
+  &.@{select-prefix-cls}-sm {
+    .@{select-prefix-cls}-selection-placeholder {
+      .@{select-prefix-cls}-rtl& {
+        right: @input-padding-horizontal-sm;
+      }
+    }
+  }
+}
+
+// single
+@selection-item-padding: ceil(@font-size-base * 1.25);
+
+.@{select-prefix-cls}-single {
+  // ========================= Selector =========================
+  .@{select-prefix-cls}-selector {
+    .@{select-prefix-cls}-selection-item,
+    .@{select-prefix-cls}-selection-placeholder {
+      .@{select-prefix-cls}-rtl& {
+        right: 0;
+        left: 9px;
+        text-align: right;
+      }
+    }
+  }
+
+  // With arrow should provides `padding-right` to show the arrow
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
+    .@{select-prefix-cls}-rtl& {
+      right: @input-padding-horizontal-base;
+      left: @input-padding-horizontal-base + @font-size-base;
+    }
+  }
+
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
+    .@{select-prefix-cls}-rtl& {
+      padding-right: 0;
+      padding-left: @selection-item-padding;
+    }
+  }
+
+  // ========================== Input ==========================
+  // We only change the style of non-customize input which is only support by `combobox` mode.
+
+  // Not customize
+  &:not(.@{select-prefix-cls}-customize-input) {
+    .@{select-prefix-cls}-selector {
+      .@{select-prefix-cls}-rtl& {
+        padding: 0 @input-padding-horizontal-base;
+      }
+    }
+  }
+
+  // ============================================================
+  // ==                          Size                          ==
+  // ============================================================
+
+  // Size small need additional set padding
+  &.@{select-prefix-cls}-sm {
+    &:not(.@{select-prefix-cls}-customize-input) {
+      // With arrow should provides `padding-right` to show the arrow
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
+        .@{select-prefix-cls}-rtl& {
+          right: 0;
+        }
+      }
+
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
+        .@{select-prefix-cls}-rtl& {
+          padding-right: 0;
+          padding-left: @font-size-base * 1.5;
+        }
+      }
+    }
+  }
+}

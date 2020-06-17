@@ -13,22 +13,20 @@ title:
 
 There are three sizes of an Input box: `large` (40px), `default` (32px) and `small` (24px).
 
-````jsx
+```jsx
 import { Input } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div className="example-input">
-    <Input size="large" placeholder="large size" />
-    <Input placeholder="default size" />
-    <Input size="small" placeholder="small size" />
-  </div>,
-  mountNode
+  <>
+    <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
+    <br />
+    <br />
+    <Input placeholder="default size" prefix={<UserOutlined />} />
+    <br />
+    <br />
+    <Input size="small" placeholder="small size" prefix={<UserOutlined />} />
+  </>,
+  mountNode,
 );
-````
-
-````css
-.example-input .ant-input {
-  width: 200px;
-  margin: 0 8px 8px 0;
-}
-````
+```

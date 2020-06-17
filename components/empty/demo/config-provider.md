@@ -15,15 +15,21 @@ Use ConfigProvider set global Empty style.
 
 ```jsx
 import {
-  ConfigProvider, Switch, Divider, Icon,
-  TreeSelect, Select, Cascader,
+  ConfigProvider,
+  Switch,
+  Divider,
+  TreeSelect,
+  Select,
+  Cascader,
   Transfer,
-  Table, List,
+  Table,
+  List,
 } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>
-    <Icon type="smile" style={{ fontSize: 20 }} />
+    <SmileOutlined style={{ fontSize: 20 }} />
     <p>Data Not Found</p>
   </div>
 );
@@ -43,7 +49,7 @@ class Demo extends React.Component {
           unCheckedChildren="default"
           checkedChildren="customize"
           checked={customize}
-          onChange={(val) => {
+          onChange={val => {
             this.setState({ customize: val });
           }}
         />

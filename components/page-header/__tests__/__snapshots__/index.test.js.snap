@@ -1,17 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageHeader pageHeader should support className 1`] = `
+exports[`PageHeader pageHeader should not render blank dom 1`] = `
 <div
-  class="ant-page-header not-works"
+  class="ant-page-header ant-page-header-ghost"
+/>
+`;
+
+exports[`PageHeader pageHeader should render correctly int RTL direction 1`] = `
+<div
+  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
 >
   <div
-    class="ant-page-header-title-view"
+    class="ant-page-header-heading"
   >
-    <span
-      class="ant-page-header-title-view-title"
+    <div
+      class="ant-page-header-heading-left"
     >
-      Page Title
-    </span>
+      <span
+        class="ant-page-header-heading-title"
+        title="Page Title"
+      >
+        Page Title
+      </span>
+    </div>
   </div>
 </div>
+`;
+
+exports[`PageHeader pageHeader should support className 1`] = `
+<div
+  class="ant-page-header not-works ant-page-header-ghost"
+>
+  <div
+    class="ant-page-header-heading"
+  >
+    <div
+      class="ant-page-header-heading-left"
+    >
+      <span
+        class="ant-page-header-heading-title"
+        title="Page Title"
+      >
+        Page Title
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageHeader rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
+/>
 `;

@@ -2,13 +2,14 @@
 category: Components
 type: Data Display
 title: Timeline
+cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 ---
 
 Vertical display timeline.
 
 ## When To Use
 
-- When a series of information needs to be ordered by time (ascend or descend).
+- When a series of information needs to be ordered by time (ascending or descending).
 - When you need a timeline to make a visual connection.
 
 ## API
@@ -27,17 +28,19 @@ Vertical display timeline.
 Timeline
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |
-| pendingDot | Set the dot of the last ghost node when pending is true | \|string\|ReactNode | `<Icon type="loading" />` |
+| pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<LoadingOutlined />` |
 | reverse | reverse nodes or not | boolean | false |
-| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` | `left` |
+| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` | - |
 
 ### Timeline.Item
 
 Node of timeline
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |
+| --- | --- | --- | --- |
+| color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
 | dot | Customize timeline dot | string\|ReactNode | - |
+| position | Customize node position | `left` \| `right` | - |
+| label | Set the label | ReactNode | - |

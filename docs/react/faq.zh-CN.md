@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 title: FAQ
 ---
 
@@ -9,12 +9,11 @@ title: FAQ
 
 ### 你们会提供 Sass/Stylus 等格式的样式文件吗？
 
-不。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
+暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-该问题在 3.11.0 后已经解决。
-如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
+该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -22,9 +21,7 @@ https://ant.design/components/select/#Select-props
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来将组件渲染到滚动区域内，或者使用其他的 getXxxxContainer 参数。
-
-https://ant.design/components/select/#Select-props
+使用 `<Select getPopupContainer={trigger => trigger.parentNode}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentNode}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
@@ -40,28 +37,17 @@ https://ant.design/components/select/#Select-props
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
-### 我只想使用 `Menu`/`Button` 等，但似乎我必须 import 整个 antd 和它的样式文件。
+### 如何使用 Day.js 替换 Moment.js 来减小打包大小？
 
-试试 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或者用下面这种方式来按需加载：
-
-```jsx
-import Menu from 'antd/lib/menu';
-import 'antd/lib/menu/style/css';
-```
-
-或者（ES6 支持的 tree shaking 方式）：
-
-```jsx
-import { Menu, Breadcrumb, Icon } from 'antd';
-```
-
-### 如何配置 webpack 以优化 momentjs 的打包大小？
-
-参考：https://github.com/jmblog/how-to-optimize-momentjs-with-webpack 。
+可以参考[替换 Moment.js](/docs/react/replace-moment)。
 
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 
 `Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
+
+### 为什么修改组件传入的对象或数组属性组件不会更新？
+
+antd 内部会对 props 进行浅比较实现性能优化。当状态变更，你总是应该传递一个新的对象。具体请参考[React 的文档](https://reactjs.org/docs/thinking-in-react.html)
 
 ### 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
@@ -89,7 +75,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ### 在我的网络环境下没法获取到 `icon` 文件。
 
@@ -101,9 +87,30 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+### 我的组件默认语言是英文的？如何切回中文的。
+
+请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。
+
+如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
+
 ### 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
 你可以通过 [ConfigProvider](/components/config-provider/#Content-Security-Policy) 来配置 `nonce` 属性。
+
+### 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
+
+在业务开发中，你可能有年份选择，月份范围选择，周范围选择等需求，此时你给现有组件增加了 `mode` 属性，却发现无法进行点击选择行为，面板也不会关闭。如果给面板添加 `disabledDate` 也不会相应禁用对应的年/月/周。
+
+- 重现链接：https://codesandbox.io/s/dank-brook-v1csy
+- 相同 issue：[#15572](https://github.com/ant-design/ant-design/issues/15572)、[#16436](https://github.com/ant-design/ant-design/issues/16436)、[#11938](https://github.com/ant-design/ant-design/issues/11938)、[#11735](https://github.com/ant-design/ant-design/issues/11735)、[#11586](https://github.com/ant-design/ant-design/issues/11586)、[#10425](https://github.com/ant-design/ant-design/issues/10425)、[#11053](https://github.com/ant-design/ant-design/issues/11053)
+
+就像[这个回复](https://github.com/ant-design/ant-design/issues/15572#issuecomment-475476135)里解释的一样，这是因为 `<DatePicker mode="year" />` 不等于 `YearPicker`，`<RangePicker mode="month" />` 不等于 `MonthRangePicker`。 `mode` 属性是在 antd 3.0 时，为了控制面板展现状态而添加的属性，以支持[展示时间面板](https://github.com/ant-design/ant-design/issues/5190)等需求而添加的。`mode` 只会简单的改变当前显示的面板，不会修改默认的交互行为（比如 DatePicker 依然是点击日才会完成选择并关闭面板）。
+
+同样的，`disabledDate` 对于任何 `<DatePicker />` 也只会针对**日面板**生效，[并不会对 `<DatePicker mode="year/month" />` 上的年/月面板生效](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118)。
+
+##### 解决办法
+
+你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。我们计划（已经支持）在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求。届时不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
 
 ### 如何正确的拼写 Ant Design？
 
@@ -123,11 +130,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 你们有接受捐助的渠道吗，比如支付宝或者微信支付？
 
-还没有。
-
-### 为什么？
-
-马爸爸会付给我们钱。
+[https://opencollective.com/ant-design](https://opencollective.com/ant-design)
 
 ---
 

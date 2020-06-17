@@ -1,0 +1,25 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@result-prefix-cls: ~'@{ant-prefix}-result';
+
+.@{result-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-extra {
+    > * {
+      .@{result-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 8px;
+      }
+
+      &:last-child {
+        .@{result-prefix-cls}-rtl & {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

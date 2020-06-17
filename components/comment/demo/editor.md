@@ -11,15 +11,13 @@ title:
 
 ## en-US
 
-Comment can be used as editor, user can customize the editor component.
+Comment can be used as an editor, so the user can customize the contents of the component.
 
-````jsx
-import {
-  Comment, Avatar, Form, Button, List, Input,
-} from 'antd';
+```jsx
+import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
-const TextArea = Input.TextArea;
+const { TextArea } = Input;
 
 const CommentList = ({ comments }) => (
   <List
@@ -30,24 +28,17 @@ const CommentList = ({ comments }) => (
   />
 );
 
-const Editor = ({
-  onChange, onSubmit, submitting, value,
-}) => (
-  <div>
+const Editor = ({ onChange, onSubmit, submitting, value }) => (
+  <>
     <Form.Item>
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Button
-        htmlType="submit"
-        loading={submitting}
-        onClick={onSubmit}
-        type="primary"
-      >
+      <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
         Add Comment
       </Button>
     </Form.Item>
-  </div>
+  </>
 );
 
 class App extends React.Component {
@@ -55,7 +46,7 @@ class App extends React.Component {
     comments: [],
     submitting: false,
     value: '',
-  }
+  };
 
   handleSubmit = () => {
     if (!this.state.value) {
@@ -81,40 +72,40 @@ class App extends React.Component {
         ],
       });
     }, 1000);
-  }
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       value: e.target.value,
     });
-  }
+  };
 
   render() {
     const { comments, submitting, value } = this.state;
 
     return (
-      <div>
+      <>
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
-          avatar={(
+          avatar={
             <Avatar
               src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
               alt="Han Solo"
             />
-          )}
-          content={(
+          }
+          content={
             <Editor
               onChange={this.handleChange}
               onSubmit={this.handleSubmit}
               submitting={submitting}
               value={value}
             />
-          )}
+          }
         />
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

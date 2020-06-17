@@ -13,8 +13,8 @@ title:
 
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
-````jsx
-import { Transfer, Switch } from 'antd';
+```jsx
+import { Space, Transfer, Switch } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -26,16 +26,14 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const oriTargetKeys = mockData
-  .filter(item => +item.key % 3 > 1)
-  .map(item => item.key);
+const oriTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
 class App extends React.Component {
   state = {
     targetKeys: oriTargetKeys,
     selectedKeys: [],
     disabled: false,
-  }
+  };
 
   handleChange = (nextTargetKeys, direction, moveKeys) => {
     this.setState({ targetKeys: nextTargetKeys });
@@ -43,21 +41,21 @@ class App extends React.Component {
     console.log('targetKeys: ', nextTargetKeys);
     console.log('direction: ', direction);
     console.log('moveKeys: ', moveKeys);
-  }
+  };
 
   handleSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
     this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
 
     console.log('sourceSelectedKeys: ', sourceSelectedKeys);
     console.log('targetSelectedKeys: ', targetSelectedKeys);
-  }
+  };
 
   handleScroll = (direction, e) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
-  }
+  };
 
-  handleDisable = (disabled) => {
+  handleDisable = disabled => {
     this.setState({ disabled });
   };
 
@@ -76,17 +74,18 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
         />
-        <Switch
-          unCheckedChildren="disabled"
-          checkedChildren="disabled"
-          checked={disabled}
-          onChange={this.handleDisable}
-          style={{ marginTop: 16 }}
-        />
+        <Space style={{ marginTop: 16 }}>
+          <Switch
+            unCheckedChildren="disabled"
+            checkedChildren="disabled"
+            checked={disabled}
+            onChange={this.handleDisable}
+          />
+        </Space>
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

@@ -13,17 +13,17 @@ title:
 
 By using the `visible` prop, you can control the close state of Tag.
 
-````jsx
+```jsx
 import { Tag, Button } from 'antd';
 
 class Demo extends React.Component {
   state = {
     visible: true,
-  }
+  };
 
   render() {
     return (
-      <div>
+      <>
         <Tag
           closable
           visible={this.state.visible}
@@ -32,16 +32,13 @@ class Demo extends React.Component {
           Movies
         </Tag>
         <br />
-        <Button
-          size="small"
-          onClick={() => this.setState({ visible: !this.state.visible })}
-        >
+        <Button size="small" onClick={() => this.setState({ visible: !this.state.visible })}>
           Toggle
         </Button>
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

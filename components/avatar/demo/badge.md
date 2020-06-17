@@ -11,20 +11,37 @@ title:
 
 ## en-US
 
-Usually used for messages remind.
+Usually used for reminders and notifications.
 
-````jsx
+```tsx
 import { Avatar, Badge } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div>
-    <span style={{ marginRight: 24 }}>
-      <Badge count={1}><Avatar shape="square" icon="user" /></Badge>
+  <>
+    <span className="avatar-item">
+      <Badge count={1}>
+        <Avatar shape="square" icon={<UserOutlined />} />
+      </Badge>
     </span>
     <span>
-      <Badge dot><Avatar shape="square" icon="user" /></Badge>
+      <Badge dot>
+        <Avatar shape="square" icon={<UserOutlined />} />
+      </Badge>
     </span>
-  </div>,
-  mountNode
+  </>,
+  mountNode,
 );
-````
+```
+
+```css
+/* tile uploaded pictures */
+.avatar-item {
+  margin-right: 24px;
+}
+
+[class*='-col-rtl'] .avatar-item {
+  margin-right: 0;
+  margin-left: 24px;
+}
+```

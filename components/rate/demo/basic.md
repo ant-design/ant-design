@@ -13,8 +13,8 @@ title:
 
 The simplest usage.
 
-````jsx
+```jsx
 import { Rate } from 'antd';
 
 ReactDOM.render(<Rate />, mountNode);
-````
+```

@@ -11,12 +11,12 @@ title:
 
 ## en-US
 
-More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
+By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
-````jsx
+```jsx
 import { Collapse } from 'antd';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 function callback(key) {
   console.log(key);
@@ -40,12 +40,12 @@ ReactDOM.render(
       <p>{text}</p>
     </Panel>
   </Collapse>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
-p {
+[data-theme="compact"] p, p {
   margin: 0;
 }
 </style>

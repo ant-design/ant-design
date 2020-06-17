@@ -13,7 +13,7 @@ title:
 
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
-````jsx
+```jsx
 import { Calendar, Badge } from 'antd';
 
 function getListData(value) {
@@ -23,13 +23,15 @@ function getListData(value) {
       listData = [
         { type: 'warning', content: 'This is warning event.' },
         { type: 'success', content: 'This is usual event.' },
-      ]; break;
+      ];
+      break;
     case 10:
       listData = [
         { type: 'warning', content: 'This is warning event.' },
         { type: 'success', content: 'This is usual event.' },
         { type: 'error', content: 'This is error event.' },
-      ]; break;
+      ];
+      break;
     case 15:
       listData = [
         { type: 'warning', content: 'This is warning event' },
@@ -38,7 +40,8 @@ function getListData(value) {
         { type: 'error', content: 'This is error event 2.' },
         { type: 'error', content: 'This is error event 3.' },
         { type: 'error', content: 'This is error event 4.' },
-      ]; break;
+      ];
+      break;
     default:
   }
   return listData || [];
@@ -48,13 +51,11 @@ function dateCellRender(value) {
   const listData = getListData(value);
   return (
     <ul className="events">
-      {
-        listData.map(item => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
-          </li>
-        ))
-      }
+      {listData.map(item => (
+        <li key={item.content}>
+          <Badge status={item.type} text={item.content} />
+        </li>
+      ))}
     </ul>
   );
 }
@@ -77,11 +78,11 @@ function monthCellRender(value) {
 
 ReactDOM.render(
   <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
-  mountNode
+  mountNode,
 );
-````
+```
 
-````css
+```css
 .events {
   list-style: none;
   margin: 0;
@@ -101,4 +102,4 @@ ReactDOM.render(
 .notes-month section {
   font-size: 28px;
 }
-````
+```

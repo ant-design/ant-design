@@ -13,10 +13,12 @@ title:
 
 More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
 
-````jsx
-import { Collapse, Icon } from 'antd';
+```jsx
+import { Collapse, Select } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
+const { Option } = Select;
 
 function callback(key) {
   console.log(key);
@@ -29,27 +31,56 @@ const text = `
 `;
 
 const genExtra = () => (
-  <Icon
-    type="setting"
-    onClick={(event) => {
+  <SettingOutlined
+    onClick={event => {
       // If you don't want click extra trigger collapse, you can prevent this:
       event.stopPropagation();
     }}
   />
 );
 
-ReactDOM.render(
-  <Collapse defaultActiveKey={['1']} onChange={callback}>
-    <Panel header="This is panel header 1" key="1" extra={genExtra()}>
-      <div>{text}</div>
-    </Panel>
-    <Panel header="This is panel header 2" key="2" extra={genExtra()}>
-      <div>{text}</div>
-    </Panel>
-    <Panel header="This is panel header 3" key="3" extra={genExtra()}>
-      <div>{text}</div>
-    </Panel>
-  </Collapse>,
-  mountNode
-);
-````
+class Demo extends React.Component {
+  state = {
+    expandIconPosition: 'left',
+  };
+
+  onPositionChange = expandIconPosition => {
+    this.setState({ expandIconPosition });
+  };
+
+  render() {
+    const { expandIconPosition } = this.state;
+    return (
+      <div>
+        <Collapse
+          defaultActiveKey={['1']}
+          onChange={callback}
+          expandIconPosition={expandIconPosition}
+        >
+          <Panel header="This is panel header 1" key="1" extra={genExtra()}>
+            <div>{text}</div>
+          </Panel>
+          <Panel header="This is panel header 2" key="2" extra={genExtra()}>
+            <div>{text}</div>
+          </Panel>
+          <Panel header="This is panel header 3" key="3" extra={genExtra()}>
+            <div>{text}</div>
+          </Panel>
+        </Collapse>
+        <br />
+        <span>Expand Icon Position: </span>
+        <Select
+          value={expandIconPosition}
+          style={{ margin: '0 8px' }}
+          onChange={this.onPositionChange}
+        >
+          <Option value="left">left</Option>
+          <Option value="right">right</Option>
+        </Select>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
+```

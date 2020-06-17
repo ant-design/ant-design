@@ -13,7 +13,7 @@ title:
 
 The most basic example. The size of the floating layer depends on the contents region.
 
-````jsx
+```jsx
 import { Popover, Button } from 'antd';
 
 const content = (
@@ -27,12 +27,12 @@ ReactDOM.render(
   <Popover content={content} title="Title">
     <Button type="primary">Hover me</Button>
   </Popover>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
-p {
+.ant-popover-content p {
   margin: 0;
 }
 </style>

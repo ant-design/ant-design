@@ -1,26 +1,17 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
-
-jest.mock('enquire.js', () => {
-  let that;
-  let unmatchFun;
-  return {
-    unregister: jest.fn(),
-    register: (meidia, options) => {
-      if (meidia === '(max-width: 575px)') {
-        that = this;
-        options.match.call(that);
-        unmatchFun = options.unmatch;
-      }
-    },
-    callunmatch() {
-      unmatchFun.call(that);
-    },
-  };
-});
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import useBreakpoint from '../hooks/useBreakpoint';
 
 describe('Grid', () => {
+  mountTest(Row);
+  mountTest(Col);
+
+  rtlTest(Row);
+  rtlTest(Col);
+
   it('should render Col', () => {
     const wrapper = render(<Col span={2} />);
     expect(wrapper).toMatchSnapshot();
@@ -31,23 +22,36 @@ describe('Grid', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should work correct when gutter is object', () => {
-    // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
-    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
-    expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -10,
-      marginRight: -10,
+  it('when typeof gutter is object', () => {
+    const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
+    expect(wrapper.instance().getGutter()).toEqual([8, 0]);
+  });
+
+  it('when typeof gutter is object array', () => {
+    const wrapper = mount(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+        ]}
+      />,
+    );
+    expect(wrapper.instance().getGutter()).toEqual([8, 8]);
+  });
+
+  it('when typeof gutter is object array in large screen', () => {
+    const wrapper = mount(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
+        ]}
+      />,
+    );
+    wrapper.setState({
+      screens: { md: true, lg: true, xl: true },
     });
-    enquire.callunmatch();
-    expect(
-      wrapper
-        .update()
-        .find('div')
-        .prop('style'),
-    ).toEqual(undefined);
-    wrapper.unmount();
-    expect(enquire.unregister).toBeCalledTimes(6);
+    expect(wrapper.instance().getGutter()).toEqual([40, 400]);
   });
 
   it('renders wrapped Col correctly', () => {
@@ -70,8 +74,43 @@ describe('Grid', () => {
     expect(willUnmount).toHaveBeenCalled();
   });
 
-  it('when typeof getGutter is object', () => {
-    const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />).instance();
-    expect(wrapper.getGutter()).toBe(8);
+  it('should work correct when gutter is object', () => {
+    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginLeft: -10,
+      marginRight: -10,
+    });
+  });
+
+  it('should work currect when gutter is array', () => {
+    const wrapper = mount(<Row gutter={[16, 20]} />);
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginLeft: -8,
+      marginRight: -8,
+      marginTop: -10,
+      marginBottom: 10,
+    });
+  });
+
+  // By jsdom mock, actual jsdom not implemented matchMedia
+  // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+  it('should work with useBreakpoint', () => {
+    function Demo() {
+      const screens = useBreakpoint();
+
+      return JSON.stringify(screens);
+    }
+    const wrapper = mount(<Demo />);
+
+    expect(wrapper.text()).toEqual(
+      JSON.stringify({
+        xs: true,
+        sm: false,
+        md: false,
+        lg: false,
+        xl: false,
+        xxl: false,
+      }),
+    );
   });
 });

@@ -1,25 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/back-top/demo/basic.md correctly 1`] = `
-<div>
-  Scroll down to see the bottom-right
+Array [
+  <div
+    class="ant-back-top"
+  />,
+  "Scroll down to see the bottom-right",
   <strong
-    style="color:rgba(64, 64, 64, 0.6)"
+    class="site-back-top-basic"
   >
      gray 
-  </strong>
-  button.
-</div>
+  </strong>,
+  "button.",
+]
 `;
 
 exports[`renders ./components/back-top/demo/custom.md correctly 1`] = `
-<div>
-  Scroll down to see the bottom-right
-  <strong
-    style="color:#1088e9"
-  >
-     blue 
-  </strong>
-  button.
+<div
+  style="height:600vh;padding:8px"
+>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div
+    class="ant-back-top"
+  />
 </div>
 `;

@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 title:
   zh-CN: 上一步和下一步
   en-US: Prev and next
@@ -13,20 +13,18 @@ title:
 
 Use text link for prev and next button.
 
-````jsx
+```jsx
 import { Pagination } from 'antd';
 
 function itemRender(current, type, originalElement) {
   if (type === 'prev') {
     return <a>Previous</a>;
-  } if (type === 'next') {
+  }
+  if (type === 'next') {
     return <a>Next</a>;
   }
   return originalElement;
 }
 
-ReactDOM.render(
-  <Pagination total={500} itemRender={itemRender} />,
-  mountNode
-);
-````
+ReactDOM.render(<Pagination total={500} itemRender={itemRender} />, mountNode);
+```

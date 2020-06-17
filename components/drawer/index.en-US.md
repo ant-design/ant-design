@@ -3,17 +3,18 @@ type: Feedback
 category: Components
 subtitle:
 title: Drawer
+cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 ---
 
-Panel slides from screen edge.
+A panel which slides in from the edge of the screen.
 
 ## When To Use
 
-A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since that user can interact with the Drawer without leaving the current page, tasks can be achieved more efficient within the same context.
+A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since the user can interact with the Drawer without leaving the current page, tasks can be achieved more efficiently within the same context.
 
-* Use a Form to create or edit a set of information.
-* Processing subtasks. When subtasks are too heavy for Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
-* When a same Form is needed in multiple places.
+- Use a Form to create or edit a set of information.
+- Processing subtasks. When subtasks are too heavy for a Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
+- When the same Form is needed in multiple places.
 
 ## API
 
@@ -21,20 +22,27 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | --- | --- | --- | --- |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not. | boolean | true |
 | destroyOnClose | Whether to unmount child components on closing drawer or not. | boolean | false |
-| getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| Selectors | 'body' |
+| forceRender | Prerender Drawer component forcely | boolean | false |
+| getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| Selectors \| false | 'body' |
 | mask | Whether to show mask or not. | Boolean | true |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not. | boolean | true |
-| maskStyle | Style for Drawer's mask element. | object | {} |
-| style | Style of drawer wrapper | object | - |
-| bodyStyle | Style of floating layer, typically used for adjusting its position. | object | - |
+| maskStyle | Style for Drawer's mask element. | CSSProperties | {} |
+| style | Style of wrapper element which **contains mask** compare to `drawerStyle` | CSSProperties | - |
+| drawerStyle | Style of the popup layer element | object | - |
+| headerStyle | Style of the drawer header part | object | - |
+| bodyStyle | Style of the drawer content part | object | - |
 | title | The title for Drawer. | string\|ReactNode | - |
 | visible | Whether the Drawer dialog is visible or not. | boolean | false |
 | width | Width of the Drawer dialog. | string\|number | 256 |
-| height | placement is `top` or `bottom`, height of the Drawer dialog. | string\|number | - |
+| height | placement is `top` or `bottom`, height of the Drawer dialog. | string\|number | 256 |
 | className | The class name of the container of the Drawer dialog. | string | - |
 | zIndex | The `z-index` of the Drawer. | Number | 1000 |
-| placement | The placement of the Drawer. | 'top'  \| 'right' \| 'bottom' \| 'left' | 'right' |
+| placement | The placement of the Drawer. | `top` \| `right` \| `bottom` \| `left` | `right` |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button. | function(e) | - |
+| afterVisibleChange | Callback after the animation ends when switching drawers. | function(visible) | - |
+| keyboard | Whether support press esc to close | Boolean | true |
+| footer | The footer for Drawer. | ReactNode | - |
+| footerStyle | Style of the drawer footer part. | CSSProperties | - |
 
 <style>
 #_hj_feedback_container {

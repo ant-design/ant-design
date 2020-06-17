@@ -1,11 +1,12 @@
-import CalendarLocale from 'rc-calendar/lib/locale/pt_BR';
+import CalendarLocale from 'rc-picker/lib/locale/pt_BR';
 import TimePickerLocale from '../../time-picker/locale/pt_BR';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Selecionar data',
-    rangePlaceholder: ['Data de início', 'Data de fim'],
+    rangePlaceholder: ['Data inicial', 'Data final'],
     ...CalendarLocale,
   },
   timePickerLocale: {

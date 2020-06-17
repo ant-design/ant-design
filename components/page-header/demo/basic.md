@@ -18,17 +18,17 @@ import { PageHeader } from 'antd';
 
 ReactDOM.render(
   <PageHeader
+    className="site-page-header"
     onBack={() => null}
     title="Title"
     subTitle="This is a subtitle"
   />,
-  mountNode
+  mountNode,
 );
-
 ```
 
-<style>
-.code-box-demo .ant-page-header {
+```css
+.site-page-header {
   border: 1px solid rgb(235, 237, 240);
 }
-<style>
+```

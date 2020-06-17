@@ -9,10 +9,10 @@
 .colorPaletteMixin() {
 @functions: ~`(function() {
   var hueStep = 2;
-  var saturationStep = 16;
-  var saturationStep2 = 5;
-  var brightnessStep1 = 5;
-  var brightnessStep2 = 15;
+  var saturationStep = 0.16;
+  var saturationStep2 = 0.05;
+  var brightnessStep1 = 0.05;
+  var brightnessStep2 = 0.15;
   var lightColorCount = 5;
   var darkColorCount = 4;
 
@@ -33,28 +33,34 @@
   var getSaturation = function(hsv, i, isLight) {
     var saturation;
     if (isLight) {
-      saturation = Math.round(hsv.s * 100) - saturationStep * i;
-    } else if (i == darkColorCount) {
-      saturation = Math.round(hsv.s * 100) + saturationStep;
+      saturation = hsv.s - saturationStep * i;
+    } else if (i === darkColorCount) {
+      saturation = hsv.s + saturationStep;
     } else {
-      saturation = Math.round(hsv.s * 100) + saturationStep2 * i;
+      saturation = hsv.s + saturationStep2 * i;
     }
-    if (saturation > 100) {
-      saturation = 100;
+    if (saturation > 1) {
+      saturation = 1;
     }
-    if (isLight && i === lightColorCount && saturation > 10) {
-      saturation = 10;
+    if (isLight && i === lightColorCount && saturation > 0.1) {
+      saturation = 0.1;
     }
-    if (saturation < 6) {
-      saturation = 6;
+    if (saturation < 0.06) {
+      saturation = 0.06;
     }
-    return Math.round(saturation);
+    return Number(saturation.toFixed(2));
   };
   var getValue = function(hsv, i, isLight) {
+    var value;
     if (isLight) {
-      return Math.round(hsv.v * 100) + brightnessStep1 * i;
+      value = hsv.v + brightnessStep1 * i;
+    }else{
+      value = hsv.v - brightnessStep2 * i
     }
-    return Math.round(hsv.v * 100) - brightnessStep2 * i;
+    if (value > 1) {
+      value = 1;
+    }
+    return Number(value.toFixed(2))
   };
 
   this.colorPalette = function(color, index) {

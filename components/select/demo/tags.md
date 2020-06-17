@@ -13,10 +13,10 @@ tags select，随意输入的内容（scroll the menu）
 
 Select with tags, transform input to tag (scroll the menu)
 
-````jsx
+```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const children = [];
 for (let i = 10; i < 36; i++) {
@@ -28,14 +28,9 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select
-    mode="tags"
-    style={{ width: '100%' }}
-    placeholder="Tags Mode"
-    onChange={handleChange}
-  >
+  <Select mode="tags" style={{ width: '100%' }} placeholder="Tags Mode" onChange={handleChange}>
     {children}
   </Select>,
-  mountNode
+  mountNode,
 );
-````
+```

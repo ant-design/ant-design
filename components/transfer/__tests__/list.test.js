@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import List from '../list';
 import Checkbox from '../../checkbox';
 
@@ -22,13 +22,13 @@ const listCommonProps = {
   ],
   checkedKeys: ['a'],
   notFoundContent: 'Not Found',
-  lazy: false,
 };
 
-describe('List', () => {
+describe('Transfer.List', () => {
   it('should render correctly', () => {
-    const wrapper = render(<List {...listCommonProps} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<List {...listCommonProps} />);
+    wrapper.update();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {
@@ -52,6 +52,6 @@ describe('List', () => {
     const handleFilter = jest.fn();
     const wrapper = mount(<List {...listCommonProps} handleFilter={handleFilter} />);
     expect(wrapper.instance().handleFilter({ target: 'test' })).toBe(undefined);
-    expect(handleFilter).toBeCalled();
+    expect(handleFilter).toHaveBeenCalled();
   });
 });

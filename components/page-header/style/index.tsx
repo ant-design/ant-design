@@ -1,5 +1,5 @@
 import './index.less';
 
-import '../../divider/style';
+// style dependencies
 import '../../breadcrumb/style';
-import '../../typography/style';
+import '../../avatar/style';

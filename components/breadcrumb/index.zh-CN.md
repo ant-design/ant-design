@@ -3,6 +3,7 @@ category: Components
 subtitle: 面包屑
 type: 导航
 title: Breadcrumb
+cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
@@ -15,12 +16,44 @@ title: Breadcrumb
 
 ## API
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+### Breadcrumb
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode |  | - |
-| params | 路由的参数 | object |  | - |
-| routes | router 的路由栈信息 | object\[] |  | - |
-| separator | 分隔符自定义 | string\|ReactNode |  | '/' |
+| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
+| params | 路由的参数 | object | - |  |
+| routes | router 的路由栈信息 | [routes\[\]](#routes) | - |  |
+| separator | 分隔符自定义 | string\|ReactNode | '/' |  |
+
+### Breadcrumb.Item
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| href | 链接的目的地 | string | - |  |
+| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
+| onClick | 单击事件 | (e:MouseEvent)=>void | - |  |
+| dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - |  |
+
+### Breadcrumb.Separator
+
+| 参数     | 说明           | 类型              | 默认值 | 版本 |
+| -------- | -------------- | ----------------- | ------ | ---- |
+| children | 要显示的分隔符 | string\|ReactNode | '/'    |      |
+
+> 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
+
+### routes
+
+```ts
+interface Route {
+  path: string;
+  breadcrumbName: string;
+  children: Array<{
+    path: string;
+    breadcrumbName: string;
+  }>;
+}
+```
 
 ### 和 browserHistory 配合
 
@@ -29,20 +62,43 @@ title: Breadcrumb
 ```jsx
 import { Link } from 'react-router';
 
-const routes = [{
-  path: 'index',
-  breadcrumbName: '首页'
-}, {
-  path: 'first',
-  breadcrumbName: '一级面包屑'
-}, {
-  path: 'second',
-  breadcrumbName: '当前页面'
-}];
+const routes = [
+  {
+    path: 'index',
+    breadcrumbName: 'home',
+  },
+  {
+    path: 'first',
+    breadcrumbName: 'first',
+    children: [
+      {
+        path: '/general',
+        breadcrumbName: 'General',
+      },
+      {
+        path: '/layout',
+        breadcrumbName: 'Layout',
+      },
+      {
+        path: '/navigation',
+        breadcrumbName: 'Navigation',
+      },
+    ],
+  },
+  {
+    path: 'second',
+    breadcrumbName: 'second',
+  },
+];
+
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
-  return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
+  return last ? (
+    <span>{route.breadcrumbName}</span>
+  ) : (
+    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+  );
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes}/>;
+return <Breadcrumb itemRender={itemRender} routes={routes} />;
 ```

@@ -13,16 +13,26 @@ title:
 
 A Card that supports `cover`, `avatar`, `title` and `description`.
 
-````jsx
-import { Card, Icon, Avatar } from 'antd';
+```jsx
+import { Card, Avatar } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
 ReactDOM.render(
   <Card
     style={{ width: 300 }}
-    cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />}
-    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+    cover={
+      <img
+        alt="example"
+        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+      />
+    }
+    actions={[
+      <SettingOutlined key="setting" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" />,
+    ]}
   >
     <Meta
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
@@ -30,6 +40,6 @@ ReactDOM.render(
       description="This is the description"
     />
   </Card>,
-  mountNode
+  mountNode,
 );
-````
+```

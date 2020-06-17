@@ -13,7 +13,7 @@ title:
 
 Add copywriting in rate components.
 
-````jsx
+```jsx
 import { Rate } from 'antd';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
@@ -21,11 +21,11 @@ const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 class Rater extends React.Component {
   state = {
     value: 3,
-  }
+  };
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({ value });
-  }
+  };
 
   render() {
     const { value } = this.state;
@@ -39,4 +39,4 @@ class Rater extends React.Component {
 }
 
 ReactDOM.render(<Rater />, mountNode);
-````
+```

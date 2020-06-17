@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Spin
+cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg
 ---
 
 A spinner for displaying loading state of a page or a section.
@@ -13,9 +14,9 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 ## API
 
 | Property | Description | Type | Default Value |
-| -------- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | delay | specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | - |
-| indicator | React node of the spinning indicator | ReactElement | - |
+| indicator | React node of the spinning indicator | ReactNode | - |
 | size | size of Spin, options: `small`, `default` and `large` | string | `default` |
 | spinning | whether Spin is spinning | boolean | true |
 | tip | customize description content when Spin has children | string | - |
@@ -23,5 +24,6 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 
 ### Static Method
 
-- `Spin.setDefaultIndicator(indicator: ReactElement)`  
-  As `indicator`, you can define the global default spin element
+- `Spin.setDefaultIndicator(indicator: ReactNode)`
+
+  You can define default spin element globally.

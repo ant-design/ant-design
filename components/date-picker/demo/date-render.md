@@ -13,42 +13,42 @@ title:
 
 We can customize the rendering of date cells in the calendar by providing a `dateRender` function to `DatePicker`.
 
-````jsx
+```jsx
 import { DatePicker } from 'antd';
 
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <>
     <DatePicker
-      dateRender={(current) => {
+      dateRender={current => {
         const style = {};
         if (current.date() === 1) {
           style.border = '1px solid #1890ff';
           style.borderRadius = '50%';
         }
         return (
-          <div className="ant-calendar-date" style={style}>
+          <div className="ant-picker-cell-inner" style={style}>
             {current.date()}
           </div>
         );
       }}
     />
     <RangePicker
-      dateRender={(current) => {
+      dateRender={current => {
         const style = {};
         if (current.date() === 1) {
           style.border = '1px solid #1890ff';
           style.borderRadius = '50%';
         }
         return (
-          <div className="ant-calendar-date" style={style}>
+          <div className="ant-picker-cell-inner" style={style}>
             {current.date()}
           </div>
         );
       }}
     />
-  </div>,
-  mountNode
+  </>,
+  mountNode,
 );
-````
+```

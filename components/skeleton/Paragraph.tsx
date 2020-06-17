@@ -11,9 +11,9 @@ export interface SkeletonParagraphProps {
   rows?: number;
 }
 
-class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
-  getWidth(index: number) {
-    const { width, rows = 2 } = this.props;
+const Paragraph = (props: SkeletonParagraphProps) => {
+  const getWidth = (index: number) => {
+    const { width, rows = 2 } = props;
     if (Array.isArray(width)) {
       return width[index];
     }
@@ -22,19 +22,17 @@ class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
       return width;
     }
     return undefined;
-  }
-
-  render() {
-    const { prefixCls, className, style, rows } = this.props;
-    const rowList = [...Array(rows)].map((_, index) => (
-      <li key={index} style={{ width: this.getWidth(index) }} />
-    ));
-    return (
-      <ul className={classNames(prefixCls, className)} style={style}>
-        {rowList}
-      </ul>
-    );
-  }
-}
+  };
+  const { prefixCls, className, style, rows } = props;
+  const rowList = [...Array(rows)].map((_, index) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <li key={index} style={{ width: getWidth(index) }}/>
+  ));
+  return (
+    <ul className={classNames(prefixCls, className)} style={style}>
+      {rowList}
+    </ul>
+  );
+};
 
 export default Paragraph;

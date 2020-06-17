@@ -13,38 +13,39 @@ title:
 
 You can add an icon beside the slider to make it meaningful.
 
-````jsx
-import { Slider, Icon } from 'antd';
+```jsx
+import { Slider } from 'antd';
+import { FrownOutlined, SmileOutlined } from '@ant-design/icons';
 
 class IconSlider extends React.Component {
   state = {
     value: 0,
-  }
+  };
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({ value });
-  }
+  };
 
   render() {
     const { max, min } = this.props;
     const { value } = this.state;
     const mid = ((max - min) / 2).toFixed(5);
-    const preColor = value >= mid ? '' : 'rgba(0, 0, 0, .45)';
-    const nextColor = value >= mid ? 'rgba(0, 0, 0, .45)' : '';
+    const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
+    const nextColorCls = value >= mid ? 'icon-wrapper-active' : '';
     return (
       <div className="icon-wrapper">
-        <Icon style={{ color: preColor }} type="frown-o" />
+        <FrownOutlined className={preColorCls} />
         <Slider {...this.props} onChange={this.handleChange} value={value} />
-        <Icon style={{ color: nextColor }} type="smile-o" />
+        <SmileOutlined className={nextColorCls} />
       </div>
     );
   }
 }
 
 ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
-````
+```
 
-````css
+```css
 .icon-wrapper {
   position: relative;
   padding: 0px 30px;
@@ -57,7 +58,11 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
   height: 16px;
   line-height: 1;
   font-size: 16px;
-  color: rgba(0, 0, 0, .25);
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.icon-wrapper .icon-wrapper-active {
+  color: rgba(0, 0, 0, 0.45);
 }
 
 .icon-wrapper .anticon:first-child {
@@ -67,4 +72,13 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
 .icon-wrapper .anticon:last-child {
   right: 0;
 }
-````
+```
+
+<style>
+  [data-theme="dark"] .icon-wrapper .anticon {
+    color: rgba(255, 255, 255, 0.25);
+  }
+  [data-theme="dark"] .icon-wrapper .icon-wrapper-active {
+    color: rgba(255, 255, 255, .45);
+  }
+</style>

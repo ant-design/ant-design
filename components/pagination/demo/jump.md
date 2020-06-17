@@ -13,7 +13,7 @@ title:
 
 Jump to a page directly.
 
-````jsx
+```jsx
 import { Pagination } from 'antd';
 
 function onChange(pageNumber) {
@@ -21,7 +21,11 @@ function onChange(pageNumber) {
 }
 
 ReactDOM.render(
-  <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />,
-  mountNode
+  <div>
+    <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
+    <br />
+    <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} disabled />
+  </div>,
+  mountNode,
 );
-````
+```

@@ -11,41 +11,26 @@ title:
 
 ## en-US
 
-Smoothly and unaffectedly unmount Alert.
+Smoothly unmount Alert upon close.
 
-````jsx
+```tsx
+import React, { useState } from 'react';
 import { Alert } from 'antd';
 
-class App extends React.Component {
-  state = {
-    visible: true,
-  }
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(true);
+  const handleClose = () => {
+    setVisible(false);
+  };
+  return (
+    <div>
+      {visible ? (
+        <Alert message="Alert Message Text" type="success" closable afterClose={handleClose} />
+      ) : null}
+      <p>placeholder text here</p>
+    </div>
+  );
+};
 
-  handleClose = () => {
-    this.setState({ visible: false });
-  }
-
-  render() {
-    return (
-      <div>
-        {
-          this.state.visible ? (
-            <Alert
-              message="Alert Message Text"
-              type="success"
-              closable
-              afterClose={this.handleClose}
-            />
-          ) : null
-        }
-        <p>placeholder text here</p>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(
-  <App />,
-  mountNode
-);
-````
+ReactDOM.render(<App />, mountNode);
+```

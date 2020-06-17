@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/bg_BG';
+import CalendarLocale from 'rc-picker/lib/locale/bg_BG';
 import TimePickerLocale from '../../time-picker/locale/bg_BG';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Избор на дата',
     rangePlaceholder: ['Начална', 'Крайна'],

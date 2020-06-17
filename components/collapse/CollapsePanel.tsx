@@ -1,10 +1,10 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface CollapsePanelProps {
-  key: string;
+  key: string | number;
   header: React.ReactNode;
   disabled?: boolean;
   className?: string;
@@ -16,22 +16,17 @@ export interface CollapsePanelProps {
   extra?: React.ReactNode;
 }
 
-export default class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
-  renderCollapsePanel = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className = '', showArrow = true } = this.props;
-    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const collapsePanelClassName = classNames(
-      {
-        [`${prefixCls}-no-arrow`]: !showArrow,
-      },
-      className,
-    );
-    return (
-      <RcCollapse.Panel {...this.props} prefixCls={prefixCls} className={collapsePanelClassName} />
-    );
-  };
+const CollapsePanel: React.FC<CollapsePanelProps> = props => {
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls, className = '', showArrow = true } = props;
+  const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+  const collapsePanelClassName = classNames(
+    {
+      [`${prefixCls}-no-arrow`]: !showArrow,
+    },
+    className,
+  );
+  return <RcCollapse.Panel {...props} prefixCls={prefixCls} className={collapsePanelClassName} />;
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderCollapsePanel}</ConfigConsumer>;
-  }
-}
+export default CollapsePanel;

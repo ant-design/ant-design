@@ -13,10 +13,10 @@ title:
 
 Try to copy `Lucy,Jack` to the input. Only available in tags and multiple mode.
 
-````jsx
+```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const children = [];
 for (let i = 10; i < 36; i++) {
@@ -28,14 +28,9 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select
-    mode="tags"
-    style={{ width: '100%' }}
-    onChange={handleChange}
-    tokenSeparators={[',']}
-  >
+  <Select mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
     {children}
   </Select>,
-  mountNode
+  mountNode,
 );
-````
+```

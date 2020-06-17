@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/nb_NO';
+import CalendarLocale from 'rc-picker/lib/locale/nb_NO';
 import TimePickerLocale from '../../time-picker/locale/nb_NO';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Velg dato',
     rangePlaceholder: ['Startdato', 'Sluttdato'],

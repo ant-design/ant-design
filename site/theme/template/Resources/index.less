@@ -1,0 +1,137 @@
+@import '../../../../components/style/themes/default.less';
+
+@ArticleMaxWidth: 1208px;
+@resource-padding: 40px;
+@resource-padding-xs: 24px;
+
+#resources-page {
+  article {
+    padding: 0 @resource-padding;
+
+    // Title
+    .title-region {
+      margin: 0 -@resource-padding;
+      padding: 0 @resource-padding;
+      overflow: hidden;
+      background: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ);
+      background-size: cover;
+
+      h1 {
+        max-width: @ArticleMaxWidth;
+        margin: 56px auto 16px;
+        font-size: 38px;
+        line-height: 46px;
+      }
+
+      .markdown {
+        max-width: @ArticleMaxWidth;
+        margin: 0 auto 56px;
+        font-weight: 200;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    // Content
+    > .markdown {
+      max-width: @ArticleMaxWidth;
+      margin: 0 auto;
+
+      > p {
+        margin-bottom: 56px;
+      }
+    }
+
+    h2 {
+      margin-top: 124px;
+      color: #314659;
+      font-weight: lighter;
+      font-size: 30px;
+      line-height: 38px;
+
+      &:first-child {
+        margin-top: 88px;
+      }
+    }
+
+    h3 {
+      margin-top: 56px;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    p {
+      color: #697b8c;
+    }
+  }
+
+  .resource-cards {
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      color: inherit;
+      list-style: none;
+      border: 1px solid #e6e6e6;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: @shadow-2;
+      }
+
+      .resource-card-image {
+        width: calc(100% + 2px);
+        max-width: none;
+        height: 184px;
+        margin: -1px -1px 0 -1px;
+        object-fit: cover;
+      }
+
+      .resource-card-title {
+        margin: 16px 20px 8px 20px;
+        color: #0d1a26;
+        font-size: 20px;
+        line-height: 28px;
+      }
+      .resource-card-description {
+        margin: 0 20px 20px 20px;
+        color: #697b8c;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  footer {
+    margin-top: 176px;
+
+    .rc-footer-container {
+      max-width: @ArticleMaxWidth;
+      margin: 0 auto;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 767.99px) {
+  #resources-page {
+    article {
+      padding: 0 @resource-padding-xs;
+
+      // Title
+      .title-region {
+        margin: 0 -@resource-padding-xs;
+        padding: 0 @resource-padding-xs;
+      }
+    }
+
+    .ant-col {
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+    }
+  }
+}

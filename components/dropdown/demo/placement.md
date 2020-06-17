@@ -13,25 +13,31 @@ title:
 
 Support 6 placements.
 
-````jsx
+```jsx
 import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">1st menu item</a>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        1st menu item
+      </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">2nd menu item</a>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        2nd menu item
+      </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">3rd menu item</a>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        3rd menu item
+      </a>
     </Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(
-  <div>
+  <>
     <Dropdown overlay={menu} placement="bottomLeft">
       <Button>bottomLeft</Button>
     </Dropdown>
@@ -51,14 +57,19 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight">
       <Button>topRight</Button>
     </Dropdown>
-  </div>,
-  mountNode
+  </>,
+  mountNode,
 );
-````
+```
 
-````css
+```css
 #components-dropdown-demo-placement .ant-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
-````
+.ant-row-rtl #components-dropdown-demo-placement .ant-btn {
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
+}
+```

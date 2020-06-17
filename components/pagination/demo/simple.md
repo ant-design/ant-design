@@ -13,11 +13,8 @@ title:
 
 Simple mode.
 
-````jsx
+```jsx
 import { Pagination } from 'antd';
 
-ReactDOM.render(
-  <Pagination simple defaultCurrent={2} total={50} />,
-  mountNode
-);
-````
+ReactDOM.render(<Pagination simple defaultCurrent={2} total={50} />, mountNode);
+```

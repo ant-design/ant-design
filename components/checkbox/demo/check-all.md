@@ -1,8 +1,8 @@
 ---
 order: 4
 title:
-    zh-CN: 全选
-    en-US: Check all
+  zh-CN: 全选
+  en-US: Check all
 ---
 
 ## zh-CN
@@ -13,7 +13,7 @@ title:
 
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
-````jsx
+```jsx
 import { Checkbox } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
@@ -28,26 +28,26 @@ class App extends React.Component {
     checkAll: false,
   };
 
-  onChange = (checkedList) => {
+  onChange = checkedList => {
     this.setState({
       checkedList,
-      indeterminate: !!checkedList.length && (checkedList.length < plainOptions.length),
+      indeterminate: !!checkedList.length && checkedList.length < plainOptions.length,
       checkAll: checkedList.length === plainOptions.length,
     });
-  }
+  };
 
-  onCheckAllChange = (e) => {
+  onCheckAllChange = e => {
     this.setState({
       checkedList: e.target.checked ? plainOptions : [],
       indeterminate: false,
       checkAll: e.target.checked,
     });
-  }
+  };
 
   render() {
     return (
       <div>
-        <div style={{ borderBottom: '1px solid #E9E9E9' }}>
+        <div className="site-checkbox-all-wrapper">
           <Checkbox
             indeterminate={this.state.indeterminate}
             onChange={this.onCheckAllChange}
@@ -57,11 +57,27 @@ class App extends React.Component {
           </Checkbox>
         </div>
         <br />
-        <CheckboxGroup options={plainOptions} value={this.state.checkedList} onChange={this.onChange} />
+        <CheckboxGroup
+          options={plainOptions}
+          value={this.state.checkedList}
+          onChange={this.onChange}
+        />
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```
+
+```css
+.site-checkbox-all-wrapper {
+  border-bottom: 1px solid #e9e9e9;
+}
+```
+
+<style>
+[data-theme="dark"] .site-checkbox-all-wrapper {
+  border-bottom: 1px solid #303030;
+}
+</style>

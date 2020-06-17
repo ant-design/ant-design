@@ -1,5 +1,5 @@
 ---
-order: 24
+order: 25
 title:
   en-US: Nested tables
   zh-CN: 嵌套子表格
@@ -13,20 +13,14 @@ title:
 
 Showing more detailed info of every row.
 
-````jsx
-
-import {
-  Table, Badge, Menu, Dropdown, Icon,
-} from 'antd';
+```jsx
+import { Table, Badge, Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
   <Menu>
-    <Menu.Item>
-      Action 1
-    </Menu.Item>
-    <Menu.Item>
-      Action 2
-    </Menu.Item>
+    <Menu.Item>Action 1</Menu.Item>
+    <Menu.Item>Action 2</Menu.Item>
   </Menu>
 );
 
@@ -35,7 +29,16 @@ function NestedTable() {
     const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
       { title: 'Name', dataIndex: 'name', key: 'name' },
-      { title: 'Status', key: 'state', render: () => <span><Badge status="success" />Finished</span> },
+      {
+        title: 'Status',
+        key: 'state',
+        render: () => (
+          <span>
+            <Badge status="success" />
+            Finished
+          </span>
+        ),
+      },
       { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       {
         title: 'Action',
@@ -43,11 +46,11 @@ function NestedTable() {
         key: 'operation',
         render: () => (
           <span className="table-operation">
-            <a href="javascript:;">Pause</a>
-            <a href="javascript:;">Stop</a>
+            <a>Pause</a>
+            <a>Stop</a>
             <Dropdown overlay={menu}>
-              <a href="javascript:;">
-                More <Icon type="down" />
+              <a>
+                More <DownOutlined />
               </a>
             </Dropdown>
           </span>
@@ -64,13 +67,7 @@ function NestedTable() {
         upgradeNum: 'Upgraded: 56',
       });
     }
-    return (
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-      />
-    );
+    return <Table columns={columns} dataSource={data} pagination={false} />;
   };
 
   const columns = [
@@ -80,7 +77,7 @@ function NestedTable() {
     { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
     { title: 'Creator', dataIndex: 'creator', key: 'creator' },
     { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-    { title: 'Action', key: 'operation', render: () => <a href="javascript:;">Publish</a> },
+    { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
   ];
 
   const data = [];
@@ -100,11 +97,11 @@ function NestedTable() {
     <Table
       className="components-table-demo-nested"
       columns={columns}
-      expandedRowRender={expandedRowRender}
+      expandable={{ expandedRowRender }}
       dataSource={data}
     />
   );
 }
 
 ReactDOM.render(<NestedTable />, mountNode);
-````
+```

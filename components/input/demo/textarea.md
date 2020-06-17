@@ -1,8 +1,8 @@
 ---
 order: 5
 title:
-    zh-CN: 文本域
-    en-US: TextArea
+  zh-CN: 文本域
+  en-US: TextArea
 ---
 
 ## zh-CN
@@ -13,10 +13,10 @@ title:
 
 For multi-line input.
 
-````jsx
+```jsx
 import { Input } from 'antd';
 
 const { TextArea } = Input;
 
 ReactDOM.render(<TextArea rows={4} />, mountNode);
-````
+```

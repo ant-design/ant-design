@@ -1,10 +1,12 @@
 import * as React from 'react';
-import Select, { OptionProps } from '../select';
+import Select from '../select';
 
-export default class MiniSelect extends React.Component<any, any> {
-  static Option = Select.Option as React.ClassicComponentClass<OptionProps>;
-
-  render() {
-    return <Select size="small" {...this.props} />;
-  }
+interface MiniSelectInterface extends React.FC<any> {
+  Option: typeof Select.Option;
 }
+
+const MiniSelect: MiniSelectInterface = props => <Select size="small" {...props} />;
+
+MiniSelect.Option = Select.Option;
+
+export default MiniSelect;

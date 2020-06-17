@@ -1,16 +1,16 @@
 import * as React from 'react';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import Base, { BlockProps } from './Base';
 
-interface TextProps extends BlockProps {
+export interface TextProps extends BlockProps {
   ellipsis?: boolean;
 }
 
-const Text: React.SFC<TextProps> = ({ ellipsis, ...restProps }) => {
-  warning(
+const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
+  devWarning(
     typeof ellipsis !== 'object',
     'Typography.Text',
-    '`ellipsis` is only support boolean value.',
+    '`ellipsis` only supports boolean value.',
   );
   return <Base {...restProps} ellipsis={!!ellipsis} component="span" />;
 };

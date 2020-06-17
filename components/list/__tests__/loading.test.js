@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
+import { LoadingOutlined } from '@ant-design/icons';
+
 import List from '..';
-import Icon from '../../icon';
 
 describe('List', () => {
   it('renders empty loading', () => {
@@ -25,7 +26,7 @@ describe('List', () => {
   });
 
   it('renders object loading with indicator', () => {
-    const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+    const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
     const loading = {
       spinning: true,

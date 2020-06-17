@@ -13,16 +13,15 @@ title:
 
 A borderless style of Collapse.
 
-````jsx
+```jsx
 import { Collapse } from 'antd';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 const text = (
   <p style={{ paddingLeft: 24 }}>
-    A dog is a type of domesticated animal.
-    Known for its loyalty and faithfulness,
-    it can be found as a welcome guest in many households across the world.
+    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found
+    as a welcome guest in many households across the world.
   </p>
 );
 
@@ -38,6 +37,6 @@ ReactDOM.render(
       {text}
     </Panel>
   </Collapse>,
-  mountNode
+  mountNode,
 );
-````
+```

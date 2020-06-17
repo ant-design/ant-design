@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Switch rtl render component should be rendered correctly in RTL direction 1`] = `
+<button
+  aria-checked="false"
+  class="ant-switch ant-switch-rtl"
+  role="switch"
+  type="button"
+>
+  <div
+    class="ant-switch-handle"
+  />
+  <span
+    class="ant-switch-inner"
+  />
+</button>
+`;
+
 exports[`Switch should has click wave effect 1`] = `
 <button
   ant-click-animating="true"
@@ -8,6 +24,9 @@ exports[`Switch should has click wave effect 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />

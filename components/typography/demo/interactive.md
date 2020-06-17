@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-提供额外的交互能力。
+提供可编辑和可复制等额外的交互能力。
 
 ## en-US
 
-Provide additional interactive capacity.
+Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import { Typography } from 'antd';
@@ -23,18 +23,18 @@ class Demo extends React.Component {
     str: 'This is an editable text.',
   };
 
-  onChange = (str) => {
+  onChange = str => {
     console.log('Content change:', str);
     this.setState({ str });
   };
 
   render() {
     return (
-      <div>
+      <>
         <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>
         <Paragraph copyable>This is a copyable text.</Paragraph>
         <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
-      </div>
+      </>
     );
   }
 }

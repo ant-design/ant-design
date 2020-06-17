@@ -1,0 +1,37 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@progress-prefix-cls: ~'@{ant-prefix}-progress';
+
+.@{progress-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-outer {
+    .@{progress-prefix-cls}-show-info & {
+      .@{progress-prefix-cls}-rtl& {
+        margin-right: 0;
+        margin-left: ~'calc(-2em - 8px)';
+        padding-right: 0;
+        padding-left: ~'calc(2em + 8px)';
+      }
+    }
+  }
+
+  &-success-bg {
+    .@{progress-prefix-cls}-rtl & {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &-line &-text,
+  &-steps &-text {
+    .@{progress-prefix-cls}-rtl& {
+      margin-right: 8px;
+      margin-left: 0;
+      text-align: right;
+    }
+  }
+}

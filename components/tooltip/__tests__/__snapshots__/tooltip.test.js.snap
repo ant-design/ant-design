@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip should hide when mouse leave antd disabled Button 1`] = `
+exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+
+exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <span
+  class="ant-tooltip-disabled-compatible-wrapper"
   style="display: inline-block; cursor: not-allowed;"
 >
   <button
@@ -9,10 +12,55 @@ exports[`Tooltip should hide when mouse leave antd disabled Button 1`] = `
     disabled=""
     style="pointer-events: none;"
     type="button"
+  />
+</span>
+`;
+
+exports[`Tooltip should hide when mouse leave antd disabled component Checkbox 1`] = `
+<span
+  class="ant-tooltip-disabled-compatible-wrapper"
+  style="display: inline-block; cursor: not-allowed;"
+>
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    style="pointer-events: none;"
   >
-    <span>
-      Hello world!
+    <span
+      class="ant-checkbox ant-checkbox-disabled"
+    >
+      <input
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+        value=""
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
     </span>
+  </label>
+</span>
+`;
+
+exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
+<span
+  class="ant-tooltip-disabled-compatible-wrapper"
+  style="display: inline-block; cursor: not-allowed;"
+>
+  <button
+    aria-checked="false"
+    class="ant-switch ant-switch-disabled"
+    disabled=""
+    role="switch"
+    style="pointer-events: none;"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    />
   </button>
 </span>
 `;

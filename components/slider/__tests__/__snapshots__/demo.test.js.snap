@@ -10,7 +10,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:30%"
+      style="left:0%;right:auto;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -22,7 +22,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left:30%"
+      style="left:30%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -37,7 +37,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:20%;width:30%"
+      style="left:20%;right:auto;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -49,7 +49,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:20%"
+      style="left:20%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -59,7 +59,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:50%"
+      style="left:50%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -69,10 +69,13 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
   Disabled: 
   <button
     aria-checked="false"
-    class="ant-switch-small ant-switch"
+    class="ant-switch ant-switch-small"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
@@ -90,7 +93,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:30%"
+      style="left:0%;right:auto;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -102,7 +105,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left:30%"
+      style="left:30%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -117,7 +120,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:20%;width:30%"
+      style="left:20%;right:auto;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -129,7 +132,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:20%"
+      style="left:20%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -139,7 +142,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:50%"
+      style="left:50%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -153,25 +156,26 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
 <div
   class="icon-wrapper"
 >
-  <i
-    aria-label="icon: frown-o"
-    class="anticon anticon-frown-o"
-    style="color:rgba(0, 0, 0, .45)"
+  <span
+    aria-label="frown"
+    class="anticon anticon-frown icon-wrapper-active"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
       data-icon="frown"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
     >
       <path
-        d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM512 533c-85.5 0-155.6 67.3-160 151.6a8 8 0 0 0 8 8.4h48.1c4.2 0 7.8-3.2 8.1-7.4C420 636.1 461.5 597 512 597s92.1 39.1 95.8 88.6c.3 4.2 3.9 7.4 8.1 7.4H664a8 8 0 0 0 8-8.4C667.6 600.3 597.5 533 512 533z"
+        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM512 533c-85.5 0-155.6 67.3-160 151.6a8 8 0 008 8.4h48.1c4.2 0 7.8-3.2 8.1-7.4C420 636.1 461.5 597 512 597s92.1 39.1 95.8 88.6c.3 4.2 3.9 7.4 8.1 7.4H664a8 8 0 008-8.4C667.6 600.3 597.5 533 512 533z"
       />
     </svg>
-  </i>
+  </span>
   <div
     class="ant-slider"
   >
@@ -180,7 +184,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left:0%;right:auto;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -192,32 +196,33 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%"
+      style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
       class="ant-slider-mark"
     />
   </div>
-  <i
-    aria-label="icon: smile-o"
-    class="anticon anticon-smile-o"
-    style="color:"
+  <span
+    aria-label="smile"
+    class="anticon anticon-smile"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
       data-icon="smile"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
     >
       <path
-        d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
       />
     </svg>
-  </i>
+  </span>
 </div>
 `;
 
@@ -227,7 +232,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
     >
       <div
         class="ant-slider"
@@ -237,7 +242,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="left:0%;width:0%"
+          style="left:0%;right:auto;width:0%"
         />
         <div
           class="ant-slider-step"
@@ -249,7 +254,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           aria-valuenow="1"
           class="ant-slider-handle"
           role="slider"
-          style="left:0%"
+          style="left:0%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
         <div
@@ -258,40 +263,41 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <div
         class="ant-input-number"
-        style="margin-left:16px"
+        style="margin:0 16px"
       >
         <div
           class="ant-input-number-handler-wrap"
         >
           <span
-            aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up "
+            class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
             unselectable="unselectable"
           >
-            <i
-              aria-label="icon: up"
+            <span
+              aria-label="up"
               class="anticon anticon-up ant-input-number-handler-up-inner"
+              role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
                 data-icon="up"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
           <span
             aria-disabled="true"
@@ -300,15 +306,17 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             role="button"
             unselectable="unselectable"
           >
-            <i
-              aria-label="icon: down"
+            <span
+              aria-label="down"
               class="anticon anticon-down ant-input-number-handler-down-inner"
+              role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -317,21 +325,21 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
                   d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </div>
         <div
-          aria-valuemax="20"
-          aria-valuemin="1"
-          aria-valuenow="1"
           class="ant-input-number-input-wrap"
-          role="spinbutton"
         >
           <input
+            aria-valuemax="20"
+            aria-valuemin="1"
+            aria-valuenow="1"
             autocomplete="off"
             class="ant-input-number-input"
             max="20"
             min="1"
+            role="spinbutton"
             step="1"
             value="1"
           />
@@ -343,7 +351,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
     >
       <div
         class="ant-slider"
@@ -353,7 +361,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="left:0%;width:0%"
+          style="left:0%;right:auto;width:0%"
         />
         <div
           class="ant-slider-step"
@@ -365,7 +373,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           aria-valuenow="0"
           class="ant-slider-handle"
           role="slider"
-          style="left:0%"
+          style="left:0%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
         <div
@@ -374,40 +382,41 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <div
         class="ant-input-number"
-        style="margin-left:16px"
+        style="margin:0 16px"
       >
         <div
           class="ant-input-number-handler-wrap"
         >
           <span
-            aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up "
+            class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
             unselectable="unselectable"
           >
-            <i
-              aria-label="icon: up"
+            <span
+              aria-label="up"
               class="anticon anticon-up ant-input-number-handler-up-inner"
+              role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
                 data-icon="up"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
           <span
             aria-disabled="true"
@@ -416,15 +425,17 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             role="button"
             unselectable="unselectable"
           >
-            <i
-              aria-label="icon: down"
+            <span
+              aria-label="down"
               class="anticon anticon-down ant-input-number-handler-down-inner"
+              role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -433,21 +444,21 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
                   d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </div>
         <div
-          aria-valuemax="1"
-          aria-valuemin="0"
-          aria-valuenow="0"
           class="ant-input-number-input-wrap"
-          role="spinbutton"
         >
           <input
+            aria-valuemax="1"
+            aria-valuemin="0"
+            aria-valuenow="0"
             autocomplete="off"
             class="ant-input-number-input"
             max="1"
             min="0"
+            role="spinbutton"
             step="0.01"
             value="0.00"
           />
@@ -471,7 +482,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:37%"
+      style="left:0%;right:auto;width:37%"
     />
     <div
       class="ant-slider-step"
@@ -500,7 +511,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%"
+      style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -508,25 +519,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
       >
         <strong>
           100°C
@@ -542,7 +553,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:26%;width:11%"
+      style="left:26%;right:auto;width:11%"
     />
     <div
       class="ant-slider-step"
@@ -571,7 +582,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       aria-valuenow="26"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:26%"
+      style="left:26%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -581,7 +592,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       aria-valuenow="37"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:37%"
+      style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -589,25 +600,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text"
-        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
       >
         <strong>
           100°C
@@ -651,7 +662,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%"
+      style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -659,25 +670,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text"
-        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
       >
         <strong>
           100°C
@@ -696,7 +707,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:37%"
+      style="left:0%;right:auto;width:37%"
     />
     <div
       class="ant-slider-step"
@@ -725,7 +736,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%"
+      style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -733,25 +744,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
       >
         <strong>
           100°C
@@ -770,7 +781,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:37%"
+      style="left:0%;right:auto;width:37%"
     />
     <div
       class="ant-slider-step"
@@ -799,7 +810,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%"
+      style="left:37%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -807,25 +818,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
+        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
       >
         <strong>
           100°C
@@ -833,6 +844,89 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
     </div>
   </div>
+</div>
+`;
+
+exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
+<div>
+  <div
+    class="ant-slider"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="right:0%;left:auto;width:30%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      role="slider"
+      style="right:30%;left:auto;transform:translateX(+50%)"
+      tabindex="0"
+    />
+    <div
+      class="ant-slider-mark"
+    />
+  </div>
+  <div
+    class="ant-slider"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track ant-slider-track-1"
+      style="right:20%;left:auto;width:30%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
+      class="ant-slider-handle ant-slider-handle-1"
+      role="slider"
+      style="right:20%;left:auto;transform:translateX(+50%)"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-slider-handle ant-slider-handle-2"
+      role="slider"
+      style="right:50%;left:auto;transform:translateX(+50%)"
+      tabindex="0"
+    />
+    <div
+      class="ant-slider-mark"
+    />
+  </div>
+  Reversed: 
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-small ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    />
+  </button>
 </div>
 `;
 
@@ -845,7 +939,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
   />
   <div
     class="ant-slider-track"
-    style="left:0%;width:30%"
+    style="left:0%;right:auto;width:30%"
   />
   <div
     class="ant-slider-step"
@@ -857,19 +951,24 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
     aria-valuenow="30"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:30%"
+    style="left:30%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
-      class="ant-tooltip  ant-tooltip-placement-top "
+      class="ant-tooltip ant-slider-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -895,7 +994,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left:0%;right:auto;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -907,7 +1006,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%"
+      style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -922,7 +1021,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left:0%;right:auto;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -934,7 +1033,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%"
+      style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -945,11 +1044,9 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
 `;
 
 exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
-<div
-  style="height:300px"
->
+<div>
   <div
-    style="float:left;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -959,7 +1056,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       />
       <div
         class="ant-slider-track"
-        style="bottom:0%;height:30%"
+        style="bottom:0%;top:auto;height:30%"
       />
       <div
         class="ant-slider-step"
@@ -971,7 +1068,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         aria-valuenow="30"
         class="ant-slider-handle"
         role="slider"
-        style="bottom:30%"
+        style="bottom:30%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
       <div
@@ -980,7 +1077,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="float:left;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -990,7 +1087,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="bottom:20%;height:30%"
+        style="bottom:20%;top:auto;height:30%"
       />
       <div
         class="ant-slider-step"
@@ -1002,7 +1099,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         aria-valuenow="20"
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
-        style="bottom:20%"
+        style="bottom:20%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
       <div
@@ -1012,7 +1109,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         aria-valuenow="50"
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
-        style="bottom:50%"
+        style="bottom:50%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
       <div
@@ -1021,7 +1118,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="float:left;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
       class="ant-slider ant-slider-with-marks ant-slider-vertical"
@@ -1031,7 +1128,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="bottom:26%;height:11%"
+        style="bottom:26%;top:auto;height:11%"
       />
       <div
         class="ant-slider-step"
@@ -1060,7 +1157,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         aria-valuenow="26"
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
-        style="bottom:26%"
+        style="bottom:26%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
       <div
@@ -1070,7 +1167,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         aria-valuenow="37"
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
-        style="bottom:37%"
+        style="bottom:37%;top:auto;transform:translateY(+50%)"
         tabindex="0"
       />
       <div

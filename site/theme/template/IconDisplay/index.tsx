@@ -1,44 +1,46 @@
 import * as React from 'react';
-import { ThemeType } from '../../../../components/icon';
-import manifest from '@ant-design/icons/lib/manifest';
-import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
+import Icon, * as AntdIcons from '@ant-design/icons';
+import { Radio, Input } from 'antd';
+import { RadioChangeEvent } from 'antd/es/radio/interface';
+import { injectIntl } from 'react-intl';
+import debounce from 'lodash/debounce';
 import Category from './Category';
-import { Radio, Icon } from 'antd';
-import { RadioChangeEvent } from 'antd/lib/radio/interface';
+import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
 
-interface IconDisplayProps extends InjectedIntlProps {}
+export enum ThemeType {
+  Filled = 'Filled',
+  Outlined = 'Outlined',
+  TwoTone = 'TwoTone',
+}
+
+const allIcons: {
+  [key: string]: any;
+} = AntdIcons;
+
+interface IconDisplayProps {
+  intl: any;
+}
 
 interface IconDisplayState {
   theme: ThemeType;
+  searchKey: string;
 }
 
 class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
-  static cagetories: Categories = categories;
+  static categories: Categories = categories;
 
   static newIconNames: string[] = [];
 
-  static themeTypeMapper: { [key: string]: ThemeFolderType } = {
-    filled: 'fill',
-    outlined: 'outline',
-    twoTone: 'twotone',
-  };
-
   state: IconDisplayState = {
-    theme: 'outlined',
+    theme: ThemeType.Outlined,
+    searchKey: '',
   };
 
-  getComputedDisplayList() {
-    return Object.keys(IconDisplay.cagetories)
-      .map((category: CategoriesKeys) => ({
-        category,
-        icons: IconDisplay.cagetories[category].filter(
-          name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
-        ),
-      }))
-      .filter(({ icons }) => Boolean(icons.length));
+  constructor(props: IconDisplayProps) {
+    super(props);
+    this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
   }
 
   handleChangeTheme = (e: RadioChangeEvent) => {
@@ -47,41 +49,77 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     });
   };
 
-  renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
-    return list.map(({ category, icons }) => {
-      return (
+  handleSearchIcon = (searchKey: string) => {
+    this.setState(prevState => ({
+      ...prevState,
+      searchKey,
+    }));
+  };
+
+  renderCategories() {
+    const { searchKey = '', theme } = this.state;
+
+    return Object.keys(categories)
+      .map((key: CategoriesKeys) => {
+        let iconList = categories[key];
+        if (searchKey) {
+          iconList = iconList.filter(iconName =>
+            iconName.toLowerCase().includes(searchKey.toLowerCase()),
+          );
+        }
+
+        return {
+          category: key,
+          icons: iconList.map(iconName => iconName + theme).filter(iconName => allIcons[iconName]),
+        };
+      })
+      .filter(({ icons }) => !!icons.length)
+      .map(({ category, icons }) => (
         <Category
           key={category}
-          title={category}
+          title={category as CategoriesKeys}
+          theme={theme}
           icons={icons}
-          theme={this.state.theme}
           newIcons={IconDisplay.newIconNames}
         />
-      );
-    });
+      ));
   }
 
   render() {
     const {
       intl: { messages },
     } = this.props;
-    const list = this.getComputedDisplayList();
     return (
-      <div>
-        <h3>{messages['app.docs.components.icon.pick-theme']}</h3>
-        <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme}>
-          <Radio.Button value="outlined">
-            <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
-          </Radio.Button>
-          <Radio.Button value="filled">
-            <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
-          </Radio.Button>
-          <Radio.Button value="twoTone">
-            <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
-          </Radio.Button>
-        </Radio.Group>
-        {this.renderCategories(list)}
-      </div>
+      <>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Radio.Group
+            value={this.state.theme}
+            onChange={this.handleChangeTheme}
+            size="large"
+            buttonStyle="solid"
+          >
+            <Radio.Button value={ThemeType.Outlined}>
+              <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
+            </Radio.Button>
+            <Radio.Button value={ThemeType.Filled}>
+              <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
+            </Radio.Button>
+            <Radio.Button value={ThemeType.TwoTone}>
+              <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
+            </Radio.Button>
+          </Radio.Group>
+          <Input.Search
+            placeholder={messages['app.docs.components.icon.search.placeholder']}
+            style={{ margin: '0 10px', flex: 1 }}
+            allowClear
+            onChange={e => this.handleSearchIcon(e.currentTarget.value)}
+            size="large"
+            autoFocus
+            suffix={<IconPicSearcher />}
+          />
+        </div>
+        {this.renderCategories()}
+      </>
     );
   }
 }

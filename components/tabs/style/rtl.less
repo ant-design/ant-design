@@ -1,0 +1,73 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
+
+.@{tab-prefix-cls}-rtl {
+  direction: rtl;
+
+  .@{tab-prefix-cls}-nav {
+    .@{tab-prefix-cls}-tab {
+      margin: @tabs-horizontal-margin-rtl;
+
+      &:last-of-type {
+        margin-left: 0;
+      }
+
+      .@{iconfont-css-prefix} {
+        margin-right: 0;
+        margin-left: @margin-sm;
+      }
+
+      .@{tab-prefix-cls}-tab-remove {
+        margin-right: @margin-xs;
+        margin-left: -@margin-xss;
+
+        .@{iconfont-css-prefix} {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &.@{tab-prefix-cls}-left {
+    > .@{tab-prefix-cls}-nav {
+      order: 1;
+    }
+    > .@{tab-prefix-cls}-content-holder {
+      order: 0;
+    }
+  }
+
+  &.@{tab-prefix-cls}-right {
+    > .@{tab-prefix-cls}-nav {
+      order: 0;
+    }
+    > .@{tab-prefix-cls}-content-holder {
+      order: 1;
+    }
+  }
+
+  // ====================== Card ======================
+  &.@{tab-prefix-cls}-card {
+    &.@{tab-prefix-cls}-top,
+    &.@{tab-prefix-cls}-bottom {
+      > .@{tab-prefix-cls}-nav {
+        button.@{tab-prefix-cls}-tab:not(:last-of-type) {
+          margin: 0 0 0 @tabs-card-gutter;
+        }
+      }
+    }
+  }
+}
+
+.@{tab-prefix-cls}-dropdown {
+  &-rtl {
+    direction: rtl;
+  }
+  &-menu-item {
+    .@{tab-prefix-cls}-dropdown-rtl & {
+      text-align: right;
+    }
+  }
+}

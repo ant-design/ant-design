@@ -1,14 +1,15 @@
 ---
-category: Principles
+category: Design Patterns
+type: Principles
 order: 6
 title: Stay on the Page
 ---
 
 Solve most of problems on the same page and avoid a new one, because the page refresh and forwarding can lead to change blindness, in addition to disrupting the user's mental flow.
 
-> ** Change Blindness** is a surprising perceptual phenomenon that occurs when a change in a visual stimulus is introduced and the observer does not notice it. People's poor ability to detect changes has been argued to reflect fundamental limitations of human attention, from the term of Change blindness, Wikipedia.
+> **Change Blindness** is a surprising perceptual phenomenon that occurs when a change in a visual stimulus is introduced and the observer does not notice it. People's poor ability to detect changes has been argued to reflect fundamental limitations of human attention, from the term of Change blindness, Wikipedia.
 
-> ** Flow**, also known as the zone, is the mental state of operation in which a person performing an activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity, from the term of Flow, Wikipedia
+> **Flow**, also known as the zone, is the mental state of operation in which a person performing an activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity, from the term of Flow, Wikipedia
 
 ---
 
@@ -28,7 +29,6 @@ Double-confirm overlay: Using the Modal to double confirm should be avoided, whi
 <img class="preview-img" align="right" alt="example of Detail Overlay " description="Click the eye icon to see more information." src="https://gw.alipayobjects.com/zos/rmsportal/yagQVxwdzuXOulzqdxEq.png">
 
 Detail Overlay: Allows an overlay to present additional information when the user clicks or hovers over a link or section of content.
-
 
 > Note that when a mouseover event occurs to trigger the Detail Overlay, 0.5-second delay needs to be added, and when the mouse is out, the overlay needs to be closed immediately.
 
@@ -66,7 +66,7 @@ In the process of interaction design, Overlays allow you to bring additional int
 
 ---
 
-##  Process Flows
+## Process Flows
 
 It has long been common practice on the Web to turn each step into a separate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process.
 
@@ -87,4 +87,3 @@ Configurator Process: Provides a configurator that allows users to help them acc
 <img class="preview-img" align="right" alt="example of Dialog Overlay Process" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
 
 Dialog Overlay Process: Any page switch is an interruption to the user's mental flow. In addition, any context switch is a chance for a user to leave the site. But sometimes the step-by-step flow is necessary.
-

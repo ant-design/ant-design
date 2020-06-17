@@ -13,7 +13,7 @@ title:
 
 Mouse to click, focus and move in.
 
-````jsx
+```jsx
 import { Popover, Button } from 'antd';
 
 const content = (
@@ -35,6 +35,6 @@ ReactDOM.render(
       <Button>Click me</Button>
     </Popover>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

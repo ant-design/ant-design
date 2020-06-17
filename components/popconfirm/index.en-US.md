@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Popconfirm
+cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
 ---
 
 A simple and compact confirmation dialog of an action.
@@ -15,16 +16,19 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 ## API
 
 | Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | cancelText | text of the Cancel button | string | `Cancel` |
-| okText | text of the Confirm button | string | `Confirm` |
+| okText | text of the Confirm button | string | `OK` |
 | okType | Button `type` of the Confirm button | string | `primary` |
-| title | title of the confirmation box | string\|ReactNode | - |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |
+| title | title of the confirmation box | string\|ReactNode\|() => ReactNode | - |
 | onCancel | callback of cancel | function(e) | - |
 | onConfirm | callback of confirmation | function(e) | - |
-| icon | customize icon of confirmation | ReactNode | &lt;Icon type="exclamation-circle" /&gt; |
+| icon | customize icon of confirmation | ReactNode | `<ExclamationCircle />` |
+| disabled | is show popconfirm when click its childrenNode | boolean | false |
 
-Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
+Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
 
 ## Note
 

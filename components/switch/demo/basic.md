@@ -13,21 +13,18 @@ title:
 
 The most basic usage.
 
-````jsx
+```jsx
 import { Switch } from 'antd';
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);
 }
 
-ReactDOM.render(
-  <Switch defaultChecked onChange={onChange} />,
-  mountNode
-);
-````
+ReactDOM.render(<Switch defaultChecked onChange={onChange} />, mountNode);
+```
 
 <style>
-.ant-switch {
+.code-box-demo .ant-switch {
   margin-bottom: 8px;
 }
 </style>

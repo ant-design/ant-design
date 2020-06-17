@@ -21,8 +21,8 @@ If a large or small list is desired, set the size property to either large or sm
 
 Customizing the header and footer of list by setting `header` and `footer` property.
 
-````jsx
-import { List, Typography } from 'antd';
+```jsx
+import { List, Typography, Divider } from 'antd';
 
 const data = [
   'Racing car sprays burning fuel into crowd.',
@@ -33,34 +33,38 @@ const data = [
 ];
 
 ReactDOM.render(
-  <div>
-    <h3 style={{ marginBottom: 16 }}>Default Size</h3>
+  <>
+    <Divider orientation="left">Default Size</Divider>
     <List
       header={<div>Header</div>}
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={item => (<List.Item><Typography.Text mark>[ITEM]</Typography.Text> {item}</List.Item>)}
+      renderItem={item => (
+        <List.Item>
+          <Typography.Text mark>[ITEM]</Typography.Text> {item}
+        </List.Item>
+      )}
     />
-    <h3 style={{ margin: '16px 0' }}>Small Size</h3>
+    <Divider orientation="left">Small Size</Divider>
     <List
       size="small"
       header={<div>Header</div>}
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={item => (<List.Item>{item}</List.Item>)}
+      renderItem={item => <List.Item>{item}</List.Item>}
     />
-    <h3 style={{ margin: '16px 0' }}>Large Size</h3>
+    <Divider orientation="left">Large Size</Divider>
     <List
       size="large"
       header={<div>Header</div>}
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={item => (<List.Item>{item}</List.Item>)}
+      renderItem={item => <List.Item>{item}</List.Item>}
     />
-  </div>,
-  mountNode
+  </>,
+  mountNode,
 );
-````
+```

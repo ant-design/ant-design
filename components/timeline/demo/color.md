@@ -1,19 +1,19 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 圆圈颜色
   en-US: Color
 ---
 
 ## zh-CN
 
-圆圈颜色，绿色用于已完成、成功状态，红色表示告警或错误状态，蓝色可表示正在进行或其他默认状态。
+圆圈颜色，绿色用于已完成、成功状态，红色表示告警或错误状态，蓝色可表示正在进行或其他默认状态，灰色表示未完成或失效状态。
 
-## en-US 
+## en-US
 
-Set the color of circles. `green` means completed or success status, `red` means warning or error, and `blue` means ongoing or other default status.
+Set the color of circles. `green` means completed or success status, `red` means warning or error, and `blue` means ongoing or other default status, `gray` for unfinished or disabled status.
 
-````jsx
+```jsx
 import { Timeline } from 'antd';
 
 ReactDOM.render(
@@ -30,7 +30,17 @@ ReactDOM.render(
       <p>Technical testing 2</p>
       <p>Technical testing 3 2015-09-01</p>
     </Timeline.Item>
+    <Timeline.Item color="gray">
+      <p>Technical testing 1</p>
+      <p>Technical testing 2</p>
+      <p>Technical testing 3 2015-09-01</p>
+    </Timeline.Item>
+    <Timeline.Item color="gray">
+      <p>Technical testing 1</p>
+      <p>Technical testing 2</p>
+      <p>Technical testing 3 2015-09-01</p>
+    </Timeline.Item>
   </Timeline>,
-  mountNode
+  mountNode,
 );
-````
+```
