@@ -41,7 +41,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children: ChildrenType;
+  children?: ChildrenType;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
