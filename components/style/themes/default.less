@@ -956,7 +956,7 @@
 
 // Steps
 // ---
-@process-tail-color: @border-color-split;
+@steps-process-icon-text-color: @text-color-inverse;
 @steps-nav-arrow-color: fade(@black, 25%);
 @steps-background: @component-background;
 @steps-icon-size: 32px;
@@ -977,6 +977,27 @@
 @steps-vertical-icon-width: 16px;
 @steps-vertical-tail-width: 16px;
 @steps-vertical-tail-width-sm: 12px;
+@steps-nav-active-color: @primary-color;
+
+@steps-process-icon-color: @primary-color;
+@steps-process-title-color: @heading-color;
+@steps-process-description-color: @text-color;
+@steps-process-tail-color: @border-color-split;
+
+@steps-wait-icon-color: @disabled-color;
+@steps-wait-title-color: @text-color-secondary;
+@steps-wait-description-color: @steps-wait-title-color;
+@steps-wait-tail-color: @steps-process-tail-color;
+
+@steps-finish-icon-color: @steps-process-icon-color;
+@steps-finish-title-color: @text-color;
+@steps-finish-description-color: @text-color-secondary;
+@steps-finish-tail-color: @primary-color;
+
+@steps-error-icon-color: @error-color;
+@steps-error-title-color: @error-color;
+@steps-error-description-color: @error-color;
+@steps-error-tail-color: @steps-wait-tail-color;
 
 // Notification
 // ---
