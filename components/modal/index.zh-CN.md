@@ -74,7 +74,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | icon | 自定义图标 | ReactNode | [<QuestionCircle /\>](/components/icon/) | 3.12.0 |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
 | okText | 确认按钮文字 | string | 确定 |  |
-| okType | 确认按钮类型 | string | primary |  |
+| okType | 确认按钮类型 | string | `primary` |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | title | 标题 | string\|ReactNode | - |  |
