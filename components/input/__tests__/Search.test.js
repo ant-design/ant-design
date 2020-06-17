@@ -201,4 +201,12 @@ describe('Input.Search', () => {
     expect(prevented).toBeTruthy();
     expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
   });
+
+  it('not crash when use function ref', () => {
+    const ref = jest.fn();
+    const wrapper = mount(<Search ref={ref} enterButton />);
+    expect(() => {
+      wrapper.find('button').simulate('mousedown');
+    }).not.toThrow();
+  });
 });
