@@ -12,13 +12,13 @@
     .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + & {
       .@{btn-prefix-cls}-group-rtl& {
-        border-right-color: @btn-group-border;
-        border-left-color: @btn-default-border;
+        border-right-color: var(--btn-group-border);
+        border-left-color: var(--btn-default-border);
       }
       &[disabled] {
         .@{btn-prefix-cls}-group-rtl& {
-          border-right-color: @btn-default-border;
-          border-left-color: @btn-group-border;
+          border-right-color: var(--btn-default-border);
+          border-left-color: var(--btn-group-border);
         }
       }
     }

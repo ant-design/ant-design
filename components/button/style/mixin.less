@@ -11,7 +11,7 @@
   border-radius: @border-radius;
 }
 
-.button-disabled(@color: @btn-disable-color; @background: @btn-disable-bg; @border: @btn-disable-border) {
+.button-disabled(@color: var(--btn-disable-color); @background: var(--btn-disable-bg); @border: var(--btn-disable-border)) {
   &-disabled,
   &.disabled,
   &[disabled] {
@@ -28,38 +28,20 @@
   }
 }
 
-.button-variant-primary(@color; @background) {
+.button-variant-primary(@color; @background; @background-focus; @background-active) {
   .button-color(@color; @background; @background);
 
-  text-shadow: @btn-text-shadow;
-  box-shadow: @btn-primary-shadow;
+  text-shadow: var(--btn-text-shadow);
+  box-shadow: var(--btn-primary-shadow);
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-      );
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-      );
-    }
+    .button-color(@color; @background-focus; @background-focus);
   }
 
   &:active,
   &.active {
-    & when (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-      );
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-      );
-    }
+    .button-color(@color; @background-active; @background-active);
   }
 
   .button-disabled();
@@ -70,77 +52,45 @@
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(@primary-5; @background; @primary-5);
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 5) `
+    .button-color(
+        var(--btn-variant-other-active);
+        @background;
+        var(--btn-variant-other-active)
       );
-    }
   }
   &:active,
   &.active {
-    & when (@theme = dark) {
-      .button-color(@primary-7; @background; @primary-7);
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 7) `
+    .button-color(
+        var(--btn-variant-other-active);
+        @background;
+        var(--btn-variant-other-active)
       );
-    }
   }
   .button-disabled();
 }
-.button-variant-ghost(@color; @border: @color) {
+.button-variant-ghost(@color; @border: @color; @background-focus; @background-active) {
   .button-color(@color; transparent; @border);
   text-shadow: none;
   &:hover,
   &:focus {
     & when (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
-      }
-      & when not (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
-      }
+      .button-color(@background-focus; transparent; transparent);
     }
     & when not (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `
-        );
-      }
-      & when not (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `
-        );
-      }
+      .button-color(
+          @background-focus;
+          transparent;
+          @background-focus
+      );
     }
   }
   &:active,
   &.active {
     & when (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
-      }
-      & when not (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
-      }
+      .button-color(@background-active; transparent; transparent);
     }
     & when not(@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `
-        );
-      }
-      & when not (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `
-        );
-      }
+      .button-color(@background-active; transparent; @background-active);
     }
   }
   .button-disabled();
@@ -258,145 +208,185 @@
 }
 // primary button style
 .btn-primary() {
-  .button-variant-primary(@btn-primary-color; @btn-primary-bg);
+  .button-variant-primary(
+    var(--btn-primary-color);
+    var(--btn-primary-bg);
+    var(--btn-primary-bg-focus);
+    var(--btn-primary-bg-active)
+  );
 }
 // default button style
 .btn-default() {
-  .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
+  .button-variant-other(
+    var(--btn-default-color);
+    var(--btn-default-bg);
+    var(--btn-default-border)
+  );
   &:hover,
   &:focus,
   &:active,
   &.active {
     text-decoration: none;
-    background: @btn-default-bg;
+    background: var(--btn-default-bg);
   }
 }
 // ghost button style
 .btn-ghost() {
-  .button-variant-other(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+  .button-variant-other(
+    var(--btn-ghost-color);
+    var(--btn-ghost-bg);
+    var(--btn-ghost-border)
+  );
 }
 // dashed button style
 .btn-dashed() {
-  .button-variant-other(@btn-default-color, @btn-default-bg, @btn-default-border);
+  .button-variant-other(
+    var(--btn-default-color);
+    var(--btn-default-bg);
+    var(--btn-default-border)
+  );
   border-style: dashed;
 }
 // danger button style
 .btn-danger() {
-  .button-variant-primary(@btn-danger-color, @btn-danger-bg);
+  .button-variant-primary(
+    var(--btn-danger-color);
+    var(--btn-danger-bg);
+    var(--btn-danger-bg-focus);
+    var(--btn-danger-bg-active)
+  );
 }
 // danger default button style
 .btn-danger-default() {
-  .button-color(@error-color, @btn-default-bg, @error-color);
+  .button-color(
+  var(--error-color);
+  var(--btn-default-bg);
+  var(--error-color)
+  );
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
-          `
-      );
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
-          `
-      );
-    }
+    .button-color(
+       var(--btn-danger-link-focus);
+       var(--btn-default-bg);
+       var(--btn-danger-link-focus)
+    );
   }
   &:active,
   &.active {
-    & when (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
-          `
-      );
-    }
-    & when not (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
-          `
-      );
-    }
+    .button-color(
+        var(--btn-danger-link-active);
+        var(--btn-default-bg);
+        var(--btn-danger-link-active)
+    );
   }
   .button-disabled();
 }
 // danger link button style
 .btn-danger-link() {
-  .button-variant-other(@error-color, transparent, transparent);
+  .button-variant-other(
+    var(--error-color);
+    transparent;
+    transparent
+  );
   box-shadow: none;
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
-    }
-    & when not (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
-    }
+    .button-color(
+      var(--btn-danger-link-focus);
+      transparent;
+      transparent
+    );
   }
   &:active {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
-    }
-    & when not (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
-    }
+    .button-color(
+      var(--btn-danger-link-active);
+      transparent;
+      transparent
+    );
   }
-  .button-disabled(@disabled-color; transparent; transparent);
+  .button-disabled(
+    var(--disabled-color);
+    transparent;
+    transparent
+  );
 }
 // link button style
 .btn-link() {
-  .button-variant-other(@link-color, transparent, transparent);
+  .button-variant-other(
+    var(--link-color);
+    transparent;
+    transparent
+  );
   box-shadow: none;
   &:hover {
-    background: @btn-link-hover-bg;
+    background: var(--btn-link-hover-bg);
   }
   &:hover,
   &:focus,
   &:active {
     border-color: transparent;
   }
-  .button-disabled(@disabled-color; transparent; transparent);
+  .button-disabled(
+    var(--disabled-color);
+    transparent;
+    transparent
+  );
 }
 // link button style
 .btn-text() {
-  .button-variant-other(@text-color, transparent, transparent);
+  .button-variant-other(
+    var(--text-color);
+    transparent;
+    transparent
+  );
   box-shadow: none;
   &:hover,
   &:focus {
-    color: @text-color;
-    background: @btn-text-hover-bg;
+    color: var(--text-color);
+    background: var(--btn-text-hover-bg);
     border-color: transparent;
   }
 
   &:active {
-    color: @text-color;
-    background: fadein(@btn-text-hover-bg, 1%);
+    color: var(--text-color);
+    background: var(--btn-text-active-bg);
     border-color: transparent;
   }
 
-  .button-disabled(@disabled-color; transparent; transparent);
+  .button-disabled(
+    var(--disabled-color);
+    transparent;
+    transparent
+  );
 }
 .btn-danger-text() {
-  .button-variant-other(@error-color, transparent, transparent);
+  .button-variant-other(
+    var(--error-color);
+    transparent;
+    transparent
+  );
   box-shadow: none;
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
-    }
-    & when not (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
-    }
+    .button-color(
+        var(--btn-danger-link-focus);
+        var(--btn-text-hover-bg);
+        transparent
+    );
   }
 
   &:active {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; fadein(@btn-text-hover-bg, 1%); transparent);
-    }
-    & when not (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; fadein(@btn-text-hover-bg, 1%); transparent);
-    }
+    .button-color(
+      var(--btn-danger-link-active);
+      var(--btn-danger-text-active);
+      transparent
+    );
   }
-  .button-disabled(@disabled-color; transparent; transparent);
+  .button-disabled(
+    var(--disabled-color);
+    transparent;
+    transparent
+  );
 }
 // round button
 .btn-round(@btnClassName: btn) {

@@ -4,11 +4,6 @@
 
 @btn-prefix-cls: ~'@{ant-prefix}-btn';
 
-// for compatible
-@btn-ghost-color: @text-color;
-@btn-ghost-bg: transparent;
-@btn-ghost-border: @border-color-base;
-
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
@@ -33,30 +28,30 @@
     .btn-primary;
 
     .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
-      border-right-color: @btn-group-border;
-      border-left-color: @btn-group-border;
+      border-right-color: var(--btn-group-border);
+      border-left-color: var(--btn-group-border);
 
       &:disabled {
-        border-color: @btn-default-border;
+        border-color: var(--btn-default-border);
       }
     }
 
     .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
-        border-right-color: @btn-group-border;
+        border-right-color: var(--btn-group-border);
 
         &[disabled] {
-          border-right-color: @btn-default-border;
+          border-right-color: var(--btn-default-border);
         }
       }
     }
 
     .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + & {
-      border-left-color: @btn-group-border;
+      border-left-color: var(--btn-group-border);
 
       &[disabled] {
-        border-left-color: @btn-default-border;
+        border-left-color: var(--btn-default-border);
       }
     }
   }
@@ -124,7 +119,7 @@
     left: -1px;
     z-index: 1;
     display: none;
-    background: @component-background;
+    background: var(--component-background);
     border-radius: inherit;
     opacity: 0.35;
     transition: opacity 0.2s;
@@ -187,31 +182,56 @@
   }
 
   &-background-ghost {
-    color: @btn-default-ghost-color;
-    background: @btn-default-ghost-bg !important;
-    border-color: @btn-default-ghost-border;
+    color: var(--btn-default-ghost-color);
+    background: var(--btn-default-ghost-bg) !important;
+    border-color: var(--btn-default-ghost-border);
   }
 
   &-background-ghost&-primary {
-    .button-variant-ghost(@btn-primary-bg);
+    .button-variant-ghost(
+      var(--btn-primary-bg);
+      var(--btn-primary-bg);
+      var(--btn-primary-bg-focus);
+      var(--btn-primary-bg-active)
+    );
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(
+      var(--btn-danger-border);
+      var(--btn-danger-border);
+      var(--btn-danger-bg-focus);
+      var(--btn-danger-bg-active)
+    );
   }
 
   &-background-ghost&-dangerous {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(
+      var(--btn-danger-border);
+      var(--btn-danger-border);
+      var(--btn-danger-bg-focus);
+      var(--btn-danger-bg-active)
+    );
   }
 
   &-background-ghost&-dangerous&-link {
-    .button-variant-ghost(@btn-danger-border, transparent);
+    .button-variant-ghost(
+      var(--btn-danger-border);
+      transparent;
+      var(--btn-danger-bg-focus);
+      var(--btn-danger-bg-active)
+    );
   }
 
   &-background-ghost&-link {
-    .button-variant-ghost(@link-color; transparent);
+    .button-variant-ghost(
+      var(--link-color);
+      transparent;
+      var(--link-hover-color);
+      var(--link-active-color)
+    );
 
-    color: @btn-link-ghost-color;
+    color: var(--btn-link-ghost-color);
   }
 
   &-two-chinese-chars::first-letter {

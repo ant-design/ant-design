@@ -223,6 +223,19 @@
 @btn-link-ghost-color: @text-color;
 @btn-text-hover-bg: rgba(255, 255, 255, 0.03);
 
+// states
+@btn-primary-bg-active: ~`colorPalette('@{btn-primary-bg}', 5) `;
+@btn-primary-bg-focus: ~`colorPalette('@{btn-primary-bg}', 7) `;
+
+@btn-danger-bg-active: ~`colorPalette('@{btn-danger-bg}', 5) `;
+@btn-danger-bg-focus: ~`colorPalette('@{btn-danger-bg}', 7) `;
+
+@btn-variant-other-active: @primary-7;
+@btn-variant-other-focus: @primary-5;
+
+@btn-danger-link-active: ~`colorPalette('@{error-color}', 5) `;
+@btn-danger-link-focus: ~`colorPalette('@{error-color}', 7) `;
+
 // Checkbox
 // ---
 @checkbox-check-bg: transparent;
