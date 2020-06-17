@@ -46,8 +46,6 @@ const columns = [
     title: 'Action',
     key: 'action',
     sorter: true,
-    filters: [],
-    onFilter: () => {},
     render: () => (
       <span>
         <a style={{ marginRight: 16 }}>Delete</a>
@@ -160,7 +158,7 @@ class Demo extends React.Component {
     }
 
     return (
-      <div>
+      <>
         <Form
           layout="inline"
           className="components-table-demo-control-bar"
@@ -250,7 +248,7 @@ class Demo extends React.Component {
           dataSource={state.hasData ? data : null}
           scroll={scroll}
         />
-      </div>
+      </>
     );
   }
 }
