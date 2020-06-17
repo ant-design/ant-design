@@ -29,11 +29,11 @@ Cascade selection box.
 | defaultValue | initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | whether disabled select | boolean | false |  |
 | displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |  |
-| expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |  |
+| expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | `click` |  |
 | fieldNames | custom field name for label and value and children | object | `{ label: 'label', value: 'value', children: 'children' }` |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |  |
 | loadData | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void` | - |  |
-| notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |  |
+| notFoundContent | Specify content to show when no result matches. | string | `Not Found` |  |
 | options | data options of cascade | [Option](#Option)[] | - |  |
 | placeholder | input placeholder | string | 'Please select' |  |
 | popupClassName | additional className of popup overlay | string | - |  |

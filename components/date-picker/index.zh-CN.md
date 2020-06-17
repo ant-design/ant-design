@@ -64,7 +64,7 @@ import 'moment/locale/zh-cn';
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | 无 |  |
-| bordered | 是否有边框 | Boolean | true |  |
+| bordered | 是否有边框 | boolean | true |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | 无 |  |
@@ -150,12 +150,12 @@ import 'moment/locale/zh-cn';
 | dateRender | 自定义日期单元格的内容。`info` 参数自 4.3.0 添加 | function(currentDate: moment, today: moment, info: { range: 'start' \| ''end }) => React.ReactNode | - |  |
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |  |
-| disabled | 禁用起始项 | `[boolean, boolean]` | 无 |  |
+| disabled | 禁用起始项 | \[boolean, boolean] | 无 |  |
 | disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 |  |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
-| separator | 设置分隔符 | string | '~' |  |
+| separator | 设置分隔符 | string | `~` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | 日期 | [moment](http://momentjs.com/)\[] | 无 |  |

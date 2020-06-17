@@ -41,7 +41,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | shape | can be set to `circle`, `round` or omitted | string | - |  |
 | size | set the size of button | `large` \| `middle` \| `small` |  |  |
 | target | same as target attribute of a, works when href is specified | string | - |  |
-| type | can be set to `primary` `ghost` `dashed` `danger` `link` `text` or omitted (meaning `default`) | string | `default` |  |
+| type | can be set to `primary` `ghost` `dashed` `danger` `link` `text` | string | - |  |
 | onClick | set the handler to handle `click` event | (event) => void | - |  |
 | block | option to fit button width to its parent width | boolean | false |  |
 | danger | set the danger status of button | boolean | false |  |
