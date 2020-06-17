@@ -24,7 +24,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| autoFocus | 自动获得焦点 | boolean | `false` |
+| autoFocus | 自动获得焦点 | boolean | false |
 | defaultValue | 默认值 | string |  |
 | filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | 'Not Found' |

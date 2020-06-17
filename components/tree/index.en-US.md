@@ -70,7 +70,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | click |
+| expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | `click` |
 
 ## Note
 

@@ -73,7 +73,7 @@ notification.config({
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |
-| rtl | 是否开启 RTL 模式 | boolean | `false` |
+| rtl | 是否开启 RTL 模式 | boolean | false |
 
 ## FAQ
 

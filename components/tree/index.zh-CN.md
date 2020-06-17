@@ -69,9 +69,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 ### DirectoryTree props
 
-| 参数         | 说明                                                 | 类型   | 默认值 |
-| ------------ | ---------------------------------------------------- | ------ | ------ |
-| expandAction | 目录展开逻辑，可选 `false` `'click'` `'doubleClick'` | string | click  |
+| 参数         | 说明                                                 | 类型   | 默认值  |
+| ------------ | ---------------------------------------------------- | ------ | ------- |
+| expandAction | 目录展开逻辑，可选 `false` `'click'` `'doubleClick'` | string | `click` |
 
 ## 注意
 

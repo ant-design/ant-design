@@ -23,7 +23,7 @@ When need to mention someone or something.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| autoFocus | Auto get focus when component mounted | boolean | `false` |
+| autoFocus | Auto get focus when component mounted | boolean | false |
 | defaultValue | Default value | string |  |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean |  |
 | notFoundContent | Set mentions content when not match | ReactNode | 'Not Found' |
