@@ -21,7 +21,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | afterClose | Modal 完全关闭后的回调 | function | - |
 | bodyStyle | Modal body 样式 | object | {} |
 | cancelText | 取消按钮文字 | string\|ReactNode | 取消 |
-| centered | 垂直居中展示 Modal | Boolean | `false` |
+| centered | 垂直居中展示 Modal | boolean | false |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | closeIcon | 自定义关闭图标 | ReactNode | - |
 | confirmLoading | 确定按钮 loading | boolean | false |
@@ -30,11 +30,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | forceRender | 强制渲染 Modal | boolean | false |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| `() => HTMLElement` \| Selectors \| false | document.body |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
-| mask | 是否展示遮罩 | Boolean | true |
+| mask | 是否展示遮罩 | boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
 | okText | 确认按钮文字 | string\|ReactNode | 确定 |
-| okType | 确认按钮类型 | string | primary |
+| okType | 确认按钮类型 | string | `primary` |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
@@ -68,13 +68,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | --- | --- | --- | --- | --- |
 | autoFocusButton | 指定自动获得焦点的按钮 | null\| `ok` \| `cancel` | `ok` |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | 取消 |  |
-| centered | 垂直居中展示 Modal | Boolean | `false` |  |
+| centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
 | content | 内容 | string\|ReactNode | - |  |
 | icon | 自定义图标 | ReactNode | [<QuestionCircle /\>](/components/icon/) | 3.12.0 |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |  |
+| maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
 | okText | 确认按钮文字 | string | 确定 |  |
-| okType | 确认按钮类型 | string | primary |  |
+| okType | 确认按钮类型 | string | `primary` |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | title | 标题 | string\|ReactNode | - |  |

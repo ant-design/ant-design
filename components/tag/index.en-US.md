@@ -17,17 +17,17 @@ Tag for categorizing or markup.
 
 ### Tag
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| closable | Whether the Tag can be closed | boolean | `false` |
-| color | Color of the Tag | string | - |
-| onClose | Callback executed when tag is closed | (e) => void | - |
-| visible | Whether the Tag is closed or not | boolean | `true` |
-| icon | Set the icon of tag | ReactNode | - |  |
+| Property | Description                          | Type        | Default |
+| -------- | ------------------------------------ | ----------- | ------- |
+| closable | Whether the Tag can be closed        | boolean     | false   |
+| color    | Color of the Tag                     | string      | -       |
+| onClose  | Callback executed when tag is closed | (e) => void | -       |
+| visible  | Whether the Tag is closed or not     | boolean     | true    |
+| icon     | Set the icon of tag                  | ReactNode   | -       |  |
 
 ### Tag.CheckableTag
 
 | Property | Description                                     | Type              | Default |
 | -------- | ----------------------------------------------- | ----------------- | ------- |
-| checked  | Checked status of Tag                           | boolean           | `false` |
+| checked  | Checked status of Tag                           | boolean           | false   |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |

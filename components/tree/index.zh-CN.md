@@ -65,13 +65,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
 | key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
 | selectable | 设置节点是否可被选中 | boolean | true |
-| title | 标题 | string\|ReactNode | '---' |
+| title | 标题 | string\|ReactNode | `---` |
 
 ### DirectoryTree props
 
-| 参数         | 说明                                                 | 类型   | 默认值 |
-| ------------ | ---------------------------------------------------- | ------ | ------ |
-| expandAction | 目录展开逻辑，可选 `false` `'click'` `'doubleClick'` | string | click  |
+| 参数         | 说明                                                 | 类型   | 默认值  |
+| ------------ | ---------------------------------------------------- | ------ | ------- |
+| expandAction | 目录展开逻辑，可选 `false` `'click'` `'doubleClick'` | string | `click` |
 
 ## 注意
 
