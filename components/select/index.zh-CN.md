@@ -51,7 +51,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | placeholder | 选择框默认文字 | string | - |  |
 | showArrow | 是否显示下拉小箭头 | boolean | true |  |
 | showSearch | 使单选模式可搜索 | boolean | false |  |
-| size | 选择框大小 | `large` \| `middle` \| `small` | 无 |  |
+| size | 选择框大小 | `large` \| `middle` \| `small` | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
@@ -98,7 +98,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | 参数  | 说明 | 类型                  | 默认值 | 版本 |
 | ----- | ---- | --------------------- | ------ | ---- |
 | key   |      | string                | -      |      |
-| label | 组名 | string\|React.Element | 无     |      |
+| label | 组名 | string\|React.Element | -      |      |
 
 ## FAQ
 
