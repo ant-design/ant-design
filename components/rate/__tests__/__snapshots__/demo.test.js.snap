@@ -863,10 +863,10 @@ Array [
     tabindex="0"
   >
     <li
-      class="ant-rate-star ant-rate-star-zero"
+      class="ant-rate-star ant-rate-star-full"
     >
       <div
-        aria-checked="false"
+        aria-checked="true"
         aria-posinset="1"
         aria-setsize="5"
         role="radio"
@@ -885,10 +885,10 @@ Array [
       </div>
     </li>
     <li
-      class="ant-rate-star ant-rate-star-zero"
+      class="ant-rate-star ant-rate-star-full"
     >
       <div
-        aria-checked="false"
+        aria-checked="true"
         aria-posinset="2"
         aria-setsize="5"
         role="radio"
@@ -980,10 +980,10 @@ Array [
     tabindex="0"
   >
     <li
-      class="ant-rate-star ant-rate-star-zero"
+      class="ant-rate-star ant-rate-star-full"
     >
       <div
-        aria-checked="false"
+        aria-checked="true"
         aria-posinset="1"
         aria-setsize="5"
         role="radio"
@@ -1040,10 +1040,10 @@ Array [
       </div>
     </li>
     <li
-      class="ant-rate-star ant-rate-star-zero"
+      class="ant-rate-star ant-rate-star-full"
     >
       <div
-        aria-checked="false"
+        aria-checked="true"
         aria-posinset="2"
         aria-setsize="5"
         role="radio"
@@ -1100,10 +1100,10 @@ Array [
       </div>
     </li>
     <li
-      class="ant-rate-star ant-rate-star-zero"
+      class="ant-rate-star ant-rate-star-full"
     >
       <div
-        aria-checked="false"
+        aria-checked="true"
         aria-posinset="3"
         aria-setsize="5"
         role="radio"

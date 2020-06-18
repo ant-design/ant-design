@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以使用 `({ index }) => ReactNode` 的方式自定义每一个字符。
+可以使用 `(RateProps) => ReactNode` 的方式自定义每一个字符。
 
 ## en-US
 
-Can customize each character using `({ index }) => ReactNode`.
+Can customize each character using `(RateProps) => ReactNode`.
 
 ```jsx
 import { Rate } from 'antd';
@@ -28,12 +28,14 @@ const customIcons = {
 ReactDOM.render(
   <>
     <Rate
+      defaultValue={2}
       character={({ index }) => {
         return index + 1;
       }}
     />
     <br />
     <Rate
+      defaultValue={3}
       character={({ index }) => {
         return customIcons[index + 1];
       }}
