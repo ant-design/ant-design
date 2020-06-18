@@ -52,6 +52,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| icon | customize treeNode icon. | ReactNode \| (props) => ReactNode | - |  |
 
 ### TreeNode props
 
@@ -60,7 +61,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disables the treeNode | boolean | false |  |
-| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |  |
+| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode \| (props) => ReactNode | - |  |
 | isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |  |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |  |
 | selectable | Set whether the treeNode can be selected | boolean | true |  |

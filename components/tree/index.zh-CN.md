@@ -53,6 +53,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| icon | 自定义树节点图标。 | ReactNode \| (props) => ReactNode | - |  |
 
 ### TreeNode props
 
@@ -61,7 +62,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | checkable | 当树为 checkable 时，设置独立节点是否展示 Checkbox | boolean | - |
 | disableCheckbox | 禁掉 checkbox | boolean | false |
 | disabled | 禁掉响应 | boolean | false |
-| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode/Function(props):ReactNode | - |
+| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode \| (props) => ReactNode | - |  |
 | isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
 | key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
 | selectable | 设置节点是否可被选中 | boolean | true |
