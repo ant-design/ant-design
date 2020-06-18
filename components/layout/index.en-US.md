@@ -88,7 +88,7 @@ The sidebar.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| breakpoint | [breakpoints](/components/grid/#API) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` } | - |
+| breakpoint | [breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` } | - |
 | className | container className | string | - |
 | collapsed | to set the current status | boolean | - |
 | collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 80 |
