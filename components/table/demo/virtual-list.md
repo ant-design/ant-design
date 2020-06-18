@@ -124,13 +124,7 @@ const columns = [
   { title: 'F', dataIndex: 'key', width: 100 },
 ];
 
-const data = [];
-
-for (let i = 0; i < 100000; i += 1) {
-  data.push({
-    key: i,
-  });
-}
+const data = Array.from({ length: 100000 }, (_, key) => ({ key }));
 
 ReactDOM.render(
   <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />,
