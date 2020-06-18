@@ -2234,7 +2234,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       aria-posinset="1"
       aria-setsize="5"
       role="radio"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -2294,7 +2294,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       aria-posinset="2"
       aria-setsize="5"
       role="radio"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -2354,7 +2354,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       aria-posinset="3"
       aria-setsize="5"
       role="radio"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -2414,7 +2414,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       aria-posinset="4"
       aria-setsize="5"
       role="radio"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -2474,7 +2474,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       aria-posinset="5"
       aria-setsize="5"
       role="radio"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
