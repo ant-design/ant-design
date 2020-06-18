@@ -6,6 +6,16 @@ import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 
+const usePrevious: any = (value: any) => {
+  const ref = React.useRef();
+
+  React.useEffect(() => {
+    ref.current = value;
+  });
+
+  return ref.current;
+};
+
 const RadioGroup: React.FC<RadioGroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
@@ -17,10 +27,9 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
     initValue = props.defaultValue;
   }
   const [value, setValue] = React.useState(initValue);
-  const [prevPropValue, setPrevPropValue] = React.useState(props.value);
+  const prevPropValue = usePrevious(props.value);
 
   React.useEffect(() => {
-    setPrevPropValue(props.value);
     if (props.value !== undefined || prevPropValue !== props.value) {
       setValue(props.value);
     }
