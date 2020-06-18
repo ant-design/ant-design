@@ -53,6 +53,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| icon | 自定义树节点图标。 | ReactNode/Function(props):ReactNode | - |
 
 ### TreeNode props
 
