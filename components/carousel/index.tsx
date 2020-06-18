@@ -103,7 +103,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
     this.slick.slickGoTo(slide, dontAnimate);
   }
 
-  afterChange(current: number) {
+  afterChange = (current: number) => {
     this.setState({
       current,
     });
@@ -111,7 +111,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
     if (typeof afterChange === 'function') {
       afterChange(current);
     }
-  }
+  };
 
   renderCarousel = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const props = {
