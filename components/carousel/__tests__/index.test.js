@@ -118,12 +118,31 @@ describe('Carousel', () => {
         children: [<div key="1" />, <div key="2" />, <div key="3" />],
       });
       wrapper.update();
-      expect(
-        wrapper
-          .find('.slick-dots li')
-          .at(1)
-          .hasClass('slick-active'),
-      ).toBeTruthy();
+      expect(wrapper.find('.slick-dots li').at(1).hasClass('slick-active')).toBeTruthy();
+    });
+
+    it('should be reset when the child is more less', () => {
+      // react unsafe lifecycle don't works in React 15
+      // https://github.com/akiran/react-slick/commit/97988e897750e1d8f7b10a86b655f50d75d38298
+      if (process.env.REACT === '15') {
+        return;
+      }
+      const wrapper = mount(
+        <Carousel initialSlide={1}>
+          <div key="1" />
+          <div key="2" />
+          <div key="3" />
+        </Carousel>,
+      );
+      expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(1);
+      wrapper.instance().goTo(2);
+      jest.runAllTimers();
+      expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(2);
+      wrapper.setProps({
+        children: [<div key="1" />],
+      });
+      wrapper.update();
+      expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(0);
     });
   });
 
