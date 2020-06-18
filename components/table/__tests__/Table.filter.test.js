@@ -81,6 +81,19 @@ describe('Table.filter', () => {
     expect(dropdownWrapper.render()).toMatchSnapshot();
   });
 
+  it('renders empty menu correctly', () => {
+    const wrapper = mount(createTable({
+      columns: [
+        {
+          ...column,
+          filters: [],
+        },
+      ],
+    }));
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    expect(wrapper.find('Empty').length).toBe(1);
+  });
+
   it('renders radio filter correctly', () => {
     const wrapper = mount(
       createTable({
