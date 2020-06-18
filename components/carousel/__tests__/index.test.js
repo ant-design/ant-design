@@ -143,6 +143,20 @@ describe('Carousel', () => {
       });
       wrapper.update();
       expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(0);
+      wrapper.setProps({
+        children: [<div key="1" />, <div key="2" />, <div key="3" />],
+      });
+      wrapper.update();
+      expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(0);
+      jest.runAllTimers();
+      wrapper.instance().goTo(1);
+      jest.runAllTimers();
+      expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(1);
+      wrapper.setProps({
+        children: [<div key="1" />, <div key="2" />],
+      });
+      wrapper.update();
+      expect(wrapper.instance().slick.innerSlider.state.currentSlide).toBe(1);
     });
   });
 
