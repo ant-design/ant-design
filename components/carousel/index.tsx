@@ -22,7 +22,11 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
       };
 }
 
-export default class Carousel extends React.Component<CarouselProps, {}> {
+interface CarouselState {
+  current: number;
+}
+
+export default class Carousel extends React.Component<CarouselProps, CarouselState> {
   static defaultProps = {
     dots: true,
     arrows: false,
@@ -35,6 +39,9 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
   constructor(props: CarouselProps) {
     super(props);
+    this.state = {
+      current: props.initialSlide || 0,
+    };
     this.onWindowResized = debounce(this.onWindowResized, 500, {
       leading: false,
     });
@@ -50,8 +57,12 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   }
 
   componentDidUpdate(prevProps: CarouselProps) {
-    if (React.Children.count(this.props.children) !== React.Children.count(prevProps.children)) {
-      this.goTo(this.props.initialSlide || 0, false);
+    const { current } = this.state;
+    const newLength = React.Children.count(prevProps.children);
+    if (current > newLength - 1) {
+      const { initialSlide = 0 } = this.props;
+      const useIdx = initialSlide < newLength ? initialSlide : 0;
+      this.goTo(useIdx, false);
     }
   }
 
@@ -92,6 +103,16 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickGoTo(slide, dontAnimate);
   }
 
+  afterChange(current: number) {
+    this.setState({
+      current,
+    });
+    const { afterChange } = this.props;
+    if (typeof afterChange === 'function') {
+      afterChange(current);
+    }
+  }
+
   renderCarousel = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const props = {
       ...this.props,
@@ -120,7 +141,13 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
     return (
       <div className={className}>
-        <SlickCarousel ref={this.saveSlick} {...props} dots={enableDots} dotsClass={dsClass} />
+        <SlickCarousel
+          ref={this.saveSlick}
+          {...props}
+          afterChange={this.afterChange}
+          dots={enableDots}
+          dotsClass={dsClass}
+        />
       </div>
     );
   };
