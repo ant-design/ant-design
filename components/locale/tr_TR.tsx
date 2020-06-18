@@ -59,7 +59,7 @@ const localeValues: Locale = {
     downloadFile: 'Dosyayı indir',
   },
   Empty: {
-    description: 'Hiçbir veri bulunamadı',
+    description: 'Veri Yok',
   },
   Icon: {
     icon: 'ikon',
@@ -113,8 +113,8 @@ const localeValues: Locale = {
       },
       array: {
         len: '${label} sayısı ${len} olmalı',
-        min: 'En az ${min} ${label}',
-        max: 'En çok ${max} ${label}',
+        min: '${label} sayısı en az ${min} olmalı',
+        max: '${label} sayısı en çok ${max} olmalı',
         range: '${label} sayısı ${min}-${max} arası olmalı',
       },
       pattern: {
