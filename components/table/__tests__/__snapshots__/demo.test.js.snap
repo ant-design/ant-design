@@ -458,9 +458,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -482,7 +484,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -498,9 +500,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -522,7 +526,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -671,9 +675,11 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -695,7 +701,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -711,9 +717,11 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -735,7 +743,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -947,9 +955,11 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -971,7 +981,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -987,9 +997,11 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -1011,7 +1023,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -1281,9 +1293,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -1305,7 +1319,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1321,9 +1335,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -1345,7 +1361,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -1477,9 +1493,11 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -1501,7 +1519,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1517,9 +1535,11 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -1541,7 +1561,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -3698,9 +3718,11 @@ Array [
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -3722,7 +3744,7 @@ Array [
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -3738,9 +3760,11 @@ Array [
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -3762,7 +3786,7 @@ Array [
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -3915,9 +3939,11 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -3939,7 +3965,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -3955,9 +3981,11 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -3979,7 +4007,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -4334,9 +4362,11 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -4358,7 +4388,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -4459,8 +4489,10 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           tabindex="0"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -4482,7 +4514,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-options"
@@ -4762,9 +4794,11 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -4786,7 +4820,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -4802,9 +4836,11 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -4826,7 +4862,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -5056,9 +5092,11 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -5080,7 +5118,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -5096,9 +5134,11 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -5120,7 +5160,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -5345,9 +5385,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -5369,7 +5411,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -5385,9 +5427,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -5409,7 +5453,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -5608,9 +5652,11 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -5632,7 +5678,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -5648,9 +5694,11 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -5672,7 +5720,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -5972,9 +6020,11 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -5996,7 +6046,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -6012,9 +6062,11 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -6036,7 +6088,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -6880,9 +6932,11 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -6904,7 +6958,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -7005,8 +7059,10 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           tabindex="0"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -7028,7 +7084,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-options"
@@ -8192,9 +8248,11 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -8216,7 +8274,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -8242,8 +8300,10 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
           tabindex="0"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -8265,7 +8325,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-options"
@@ -9089,9 +9149,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -9113,7 +9175,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -9214,8 +9276,10 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           tabindex="0"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -9237,7 +9301,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-options"
@@ -9678,9 +9742,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -9702,7 +9768,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -9718,9 +9784,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -9742,7 +9810,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -10019,9 +10087,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -10043,7 +10113,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -10059,9 +10129,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -10083,7 +10155,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -10431,9 +10503,11 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -10455,7 +10529,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -10471,9 +10545,11 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -10495,7 +10571,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -10838,9 +10914,11 @@ Array [
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -10862,7 +10940,7 @@ Array [
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -10878,9 +10956,11 @@ Array [
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -10902,7 +10982,7 @@ Array [
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -11152,9 +11232,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -11176,7 +11258,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -11192,9 +11274,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -11216,7 +11300,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -11410,9 +11494,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -11434,7 +11520,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -11450,9 +11536,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -11474,7 +11562,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
         <div
@@ -11689,9 +11777,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -11713,7 +11803,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -11729,9 +11819,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -11753,7 +11845,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -12209,9 +12301,11 @@ Array [
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -12233,7 +12327,7 @@ Array [
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -12249,9 +12343,11 @@ Array [
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -12273,7 +12369,7 @@ Array [
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -12536,9 +12632,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -12560,7 +12658,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -12576,9 +12674,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -12600,7 +12700,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -12671,9 +12771,11 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -12695,7 +12797,7 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -12711,9 +12813,11 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -12735,7 +12839,7 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -13048,9 +13152,11 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -13072,7 +13178,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -13088,9 +13194,11 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -13112,7 +13220,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -13616,9 +13724,11 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -13640,7 +13750,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -13693,8 +13803,10 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             tabindex="0"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -13716,7 +13828,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -14231,9 +14343,11 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -14255,7 +14369,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -14308,8 +14422,10 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           tabindex="0"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -14331,7 +14447,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -14622,9 +14738,11 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -14646,7 +14764,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -14699,8 +14817,10 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
           tabindex="0"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -14722,7 +14842,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -14855,9 +14975,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -14879,7 +15001,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -14895,9 +15017,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -14919,7 +15043,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -15048,9 +15172,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             class="ant-pagination-prev ant-pagination-disabled"
             title="Previous Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="left"
@@ -15072,7 +15198,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -15088,9 +15214,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             class="ant-pagination-next ant-pagination-disabled"
             title="Next Page"
           >
-            <a
+            <button
               class="ant-pagination-item-link"
               disabled=""
+              tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="right"
@@ -15112,7 +15240,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </li>
         </ul>
       </div>

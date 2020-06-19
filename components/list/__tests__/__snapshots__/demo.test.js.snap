@@ -2142,9 +2142,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         class="ant-pagination-prev ant-pagination-disabled"
         title="Previous Page"
       >
-        <a
+        <button
           class="ant-pagination-item-link"
           disabled=""
+          tabindex="-1"
+          type="button"
         >
           <span
             aria-label="left"
@@ -2166,7 +2168,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               />
             </svg>
           </span>
-        </a>
+        </button>
       </li>
       <li
         class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -2267,8 +2269,10 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="Next Page"
       >
-        <a
+        <button
           class="ant-pagination-item-link"
+          tabindex="-1"
+          type="button"
         >
           <span
             aria-label="right"
@@ -2290,7 +2294,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               />
             </svg>
           </span>
-        </a>
+        </button>
       </li>
     </ul>
   </div>
