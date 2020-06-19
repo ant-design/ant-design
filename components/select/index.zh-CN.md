@@ -46,12 +46,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | mode | 设置 Select 的模式为多选或标签 | `multiple` \| `tags` | - |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | 'Not Found' |  |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }[] | - |  |
-| optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | value |  |
-| optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | 'children' |  |
+| optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` |  |
+| optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` |  |
 | placeholder | 选择框默认文字 | string | - |  |
 | showArrow | 是否显示下拉小箭头 | boolean | true |  |
 | showSearch | 使单选模式可搜索 | boolean | false |  |
-| size | 选择框大小 | `large` \| `middle` \| `small` | 无 |  |
+| size | 选择框大小 | `large` \| `middle` \| `small` | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
@@ -98,7 +98,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | 参数  | 说明 | 类型                  | 默认值 | 版本 |
 | ----- | ---- | --------------------- | ------ | ---- |
 | key   |      | string                | -      |      |
-| label | 组名 | string\|React.Element | 无     |      |
+| label | 组名 | string\|React.Element | -      |      |
 
 ## FAQ
 

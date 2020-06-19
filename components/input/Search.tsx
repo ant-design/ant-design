@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { composeRef } from 'rc-util/lib/ref';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Input, { InputProps } from './Input';
@@ -21,8 +22,8 @@ export interface SearchProps extends InputProps {
   loading?: boolean;
 }
 
-const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
-  const inputRef = (ref as any) || React.createRef<Input>();
+const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
+  const inputRef = React.useRef<Input>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { onChange: customOnChange, onSearch: customOnSearch } = props;
@@ -35,7 +36,7 @@ const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
   };
 
   const onMouseDown: React.MouseEventHandler<HTMLElement> = e => {
-    if (document.activeElement === inputRef.current.input) {
+    if (document.activeElement === inputRef.current?.input) {
       e.preventDefault();
     }
   };
@@ -46,7 +47,7 @@ const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
       return;
     }
     if (customOnSearch) {
-      customOnSearch(inputRef.current.input.value, e);
+      customOnSearch(inputRef.current?.input.value!, e);
     }
   };
 
@@ -183,7 +184,7 @@ const Search = React.forwardRef<unknown, SearchProps>((props, ref) => {
       <SizeContext.Consumer>
         {size => (
           <Input
-            ref={inputRef}
+            ref={composeRef<Input>(inputRef, ref)}
             onPressEnter={onSearch}
             {...restProps}
             size={customizeSize || size}

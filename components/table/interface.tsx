@@ -25,6 +25,7 @@ export interface TableLocale {
   filterTitle?: string;
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
+  filterEmptyText?: React.ReactNode;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;

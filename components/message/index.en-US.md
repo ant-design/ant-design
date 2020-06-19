@@ -87,4 +87,4 @@ message.config({
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
 | maxCount | max message show, drop oldest if exceed limit | number | - |
 | top | distance from top | number | 24 |
-| rtl | whether to enable RTL mode | boolean | `false` |
+| rtl | whether to enable RTL mode | boolean | false |

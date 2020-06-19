@@ -19,16 +19,16 @@ Tag for categorizing or markup.
 
 | Property  | Description                          | Type        | Default | Version |
 | --------- | ------------------------------------ | ----------- | ------- | ------- |
-| closable  | Whether the Tag can be closed        | boolean     | `false` |         |
+| closable  | Whether the Tag can be closed        | boolean     | false   |         |
 | color     | Color of the Tag                     | string      | -       |         |
 | closeIcon | custom close icon                    | ReactNode   | -       | 4.4.0   |
 | onClose   | Callback executed when tag is closed | (e) => void | -       |         |
-| visible   | Whether the Tag is closed or not     | boolean     | `true`  |         |
+| visible   | Whether the Tag is closed or not     | boolean     | true    |         |
 | icon      | Set the icon of tag                  | ReactNode   | -       |         |
 
 ### Tag.CheckableTag
 
 | Property | Description                                     | Type              | Default |
 | -------- | ----------------------------------------------- | ----------------- | ------- |
-| checked  | Checked status of Tag                           | boolean           | `false` |
+| checked  | Checked status of Tag                           | boolean           | false   |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |

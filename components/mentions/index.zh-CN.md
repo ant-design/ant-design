@@ -24,13 +24,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| autoFocus | 自动获得焦点 | boolean | `false` |
+| autoFocus | 自动获得焦点 | boolean | false |
 | defaultValue | 默认值 | string |  |
 | filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | 'Not Found' |
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |
-| prefix | 设置触发关键字 | string \| string[] | '@' |
-| split | 设置选中项前后分隔符 | string | ' ' |
+| prefix | 设置触发关键字 | string \| string[] | `@` |
+| split | 设置选中项前后分隔符 | string | `` |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void |  |
 | value | 设置值 | string |  |
 | onChange | 值改变时触发 | (text: string) => void |  |
@@ -54,4 +54,4 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 | 参数     | 说明           | 类型      | 默认值 |
 | -------- | -------------- | --------- | ------ |
 | children | 选项内容       | ReactNode |        |
-| value    | 选择时填充的值 | string    | ''     |
+| value    | 选择时填充的值 | string    |        |

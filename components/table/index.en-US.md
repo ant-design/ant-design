@@ -61,20 +61,20 @@ const columns = [
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |
-| bordered | Whether to show all table borders | boolean | `false` |
+| bordered | Whether to show all table borders | boolean | false |
 | columns | Columns of table | [ColumnsType](#Column)\[] | - |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
 | dataSource | Data record array to be displayed | object\[] | - |
 | expandable | Config expandable content | [expandable](#expandable) | - |
 | footer | Table footer renderer | Function(currentPageData) | - |
-| loading | Loading status of table | boolean\|[object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
+| loading | Loading status of table | boolean\|[object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
 | locale | i18n text including filter, sort, empty text, etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |
 | rowClassName | Row's className | Function(record, index):string | - |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |
 | rowSelection | Row selection [config](#rowSelection) | object | null |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |
-| showHeader | Whether to show table header | boolean | `true` |
+| showHeader | Whether to show table header | boolean | true |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | summary | Summary content | (currentData) => ReactNode | - |
 | title | Table title renderer | Function(currentPageData) | - |
@@ -83,7 +83,7 @@ const columns = [
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
 | sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
-| showSorterTooltip | header show next sorter direction tooltip | boolean | `true` |
+| showSorterTooltip | header show next sorter direction tooltip | boolean | true |
 
 #### onRow usage
 
@@ -123,12 +123,12 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
 | filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
-| filtered | Whether the `dataSource` is filtered | boolean | `false` |  |
+| filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
-| filterIcon | Customized filter icon | ReactNode\|(filtered: boolean) => ReactNode | `false` |  |
-| filterMultiple | Whether multiple filters can be selected | boolean | `true` |  |
+| filterIcon | Customized filter icon | ReactNode\|(filtered: boolean) => ReactNode | false |  |
+| filterMultiple | Whether multiple filters can be selected | boolean | true |  |
 | filters | Filter menu config | object\[] | - |  |
-| fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | `false` |  |
+| fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | false |  |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |  |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set. | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
@@ -142,7 +142,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |  |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |  |
 | onHeaderCell | Set props on per header cell | Function(column) | - |  |
-| showSorterTooltip | header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean | `true` |  |
+| showSorterTooltip | header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean | true |  |
 
 ### ColumnGroup
 
@@ -167,13 +167,13 @@ Properties for expandable.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | childrenColumnName | The column contains children to display | string\[] | children |
-| defaultExpandAllRows | Expand all rows initially | boolean | `false` |
+| defaultExpandAllRows | Expand all rows initially | boolean | false |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | Function(props):ReactNode | - |
 | expandIconColumnIndex | Customize expand icon column index | number | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
-| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
+| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |
 | indentSize | Indent size in pixels of tree data | number | 15 |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |
 | onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) | - |
@@ -185,11 +185,11 @@ Properties for row selection.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| columnWidth | Set the width of the selection column | string\|number | `60px` |  |
-| columnTitle | Set the title of the selection column | string\|ReactNode | - |  |
-| fixed | Fixed selection column on the left | boolean | - |  |
-| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |  |
-| hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | `false` | 4.3 |
+| columnWidth | Set the width of the selection column | string\|number | `60px` | 4.0 |
+| columnTitle | Set the title of the selection column | string\|React.ReactNode | - | 4.0 |
+| fixed | Fixed selection column on the left | boolean | - | 4.0 |
+| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - | 4.0 |
+| hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3 |
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4 |
 | renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
 | selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |  |

@@ -21,6 +21,7 @@ const localeValues: Locale = {
     filterTitle: '筛选',
     filterConfirm: '确定',
     filterReset: '重置',
+    filterEmptyText: '无筛选项',
     selectAll: '全选当页',
     selectInvert: '反选当页',
     selectionAll: '全选所有',

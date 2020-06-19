@@ -30,10 +30,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
-| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | false | - |  |
+| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
-| validateTrigger | 统一设置字段校验规则 | string \| string[] | 'onChange' | 4.3.0 |
+| validateTrigger | 统一设置字段校验规则 | string \| string[] | `onChange` | 4.3.0 |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid/#Col) | - |  |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |  |
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | Function({ values, errorFields, outOfDate }) | - |  |
@@ -90,11 +90,11 @@ const validateMessages = {
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
-| trigger | 设置收集字段值变更的时机 | string | onChange |  |
+| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
 | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |  |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
-| validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |  |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | 'value' |  |
+| validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
+| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) | - |  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：

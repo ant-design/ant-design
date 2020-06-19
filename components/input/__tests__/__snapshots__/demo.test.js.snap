@@ -2300,7 +2300,7 @@ Array [
   >
     <input
       class="ant-input"
-      placeholder="input search loading deault"
+      placeholder="input search loading default"
       type="text"
       value=""
     />

@@ -76,7 +76,7 @@ const columns = [
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
-| rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
+| rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | `key` |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |
 | scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | object | - |
 | showHeader | 是否显示表头 | boolean | true |
@@ -88,7 +88,7 @@ const columns = [
 | onRow | 设置行属性 | Function(record, index) | - |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |
-| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | `true` |
+| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | true |
 
 #### onRow 用法
 
@@ -147,7 +147,7 @@ const columns = [
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |  |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
 | onHeaderCell | 设置头部单元格属性 | Function(column) | - |  |
-| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中`showSorterTooltip` | boolean | `true` |  |
+| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中`showSorterTooltip` | boolean | true |  |
 
 ### ColumnGroup
 
@@ -178,7 +178,7 @@ const columns = [
 | expandIconColumnIndex | 自定义展开按钮的列顺序 | number | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
 | expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
-| expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
+| expandRowByClick | 通过点击行来展开子行 | boolean | false |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |
 | onExpand | 点击展开图标时触发 | Function(expanded, record) | - |

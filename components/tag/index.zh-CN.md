@@ -23,7 +23,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 | color     | 标签色           | string      | -      |       |
 | closeIcon | 自定义关闭按钮   | ReactNode   | -      | 4.4.0 |
 | onClose   | 关闭时的回调     | (e) => void | -      |       |
-| visible   | 是否显示标签     | boolean     | `true` |       |
+| visible   | 是否显示标签     | boolean     | true   |       |
 | icon      | 设置图标         | ReactNode   | -      |       |
 
 ### Tag.CheckableTag
