@@ -243,6 +243,35 @@ describe('Table.rowSelection', () => {
     expect(handleSelectAll).toHaveBeenCalledWith(false, [], data);
   });
 
+  it('fires selectAll event by dropdown menu', () => {
+    const handleSelectAll = jest.fn();
+    const rowSelection = {
+      onSelectAll: handleSelectAll,
+      selections: true,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
+  });
+
+  it('fires selectAll event by dropdown menu when all checked', () => {
+    const handleSelectAll = jest.fn();
+    const rowSelection = {
+      onSelectAll: handleSelectAll,
+      selections: true,
+      selectedRowKeys: data.map(({ key }) => key),
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, []);
+  });
+
   it('render with default selection correctly', () => {
     const rowSelection = {
       selections: true,
