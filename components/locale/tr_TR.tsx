@@ -77,7 +77,7 @@ const localeValues: Locale = {
   Form: {
     defaultValidateMessages: {
       default: 'Alan doğrulama hatası ${label}',
-      required: 'Lütfen bir ${label} girin',
+      required: '${label} gerekli bir alan',
       enum: '${label} şunlardan biri olmalı: [${enum}]',
       whitespace: '${label} sadece boşluk olamaz',
       date: {
