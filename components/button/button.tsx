@@ -208,6 +208,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
   );
 
+  devWarning(
+    !!ghost && (type === 'link' || type === 'text'),
+    'Button',
+    "`link` or `text` button can't be a `ghost` button.",
+  );
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
