@@ -186,21 +186,22 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ### FormInstance
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
-| getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |
-| getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
-| isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |
-| isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
-| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |
-| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
-| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |
-| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |
-| setFieldsValue | 设置表单的值 | (values) => void |
-| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
+| 名称 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| getFieldInstance | 获取对应字段示例 | (name: [NamePath](#NamePath)) => any | 4.4.0 |
+| getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |  |
+| getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |  |
+| isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
+| isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |  |
+| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |  |
+| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |  |
+| setFieldsValue | 设置表单的值 | (values) => void |  |
+| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
+| validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |  |
 
 #### validateFields 返回示例
 

@@ -14,6 +14,7 @@ describe('Skeleton', () => {
   const genSkeletonButton = props => mount(<Skeleton.Button {...props} />);
   const genSkeletonAvatar = props => mount(<Skeleton.Avatar {...props} />);
   const genSkeletonInput = props => mount(<Skeleton.Input {...props} />);
+  const genSkeletonImage = props => mount(<Skeleton.Image {...props} />);
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
@@ -31,7 +32,7 @@ describe('Skeleton', () => {
   it('should round title and paragraph', () => {
     const wrapperSmall = genSkeleton({ round: true, title: true, paragraph: true });
     expect(wrapperSmall.render()).toMatchSnapshot();
-  })
+  });
 
   describe('avatar', () => {
     it('size', () => {
@@ -133,6 +134,13 @@ describe('Skeleton', () => {
       expect(wrapperDefault.render()).toMatchSnapshot();
       const wrapperLarge = genSkeletonInput({ size: 'large' });
       expect(wrapperLarge.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('image element', () => {
+    it('should render normal', () => {
+      const wrapper = genSkeletonImage();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 });

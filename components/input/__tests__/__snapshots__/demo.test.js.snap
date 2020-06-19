@@ -252,6 +252,7 @@ Array [
     style="width:100px"
   >
     <textarea
+      class="rc-textarea"
       rows="1"
     />
   </div>,

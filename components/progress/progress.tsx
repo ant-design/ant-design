@@ -8,6 +8,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
+import devWarning from '../_util/devWarning';
 import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';
@@ -20,12 +21,17 @@ export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
+
+export interface SuccessProps {
+  progress?: number;
+  strokeColor?: string;
+}
+
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
   type?: ProgressType;
   percent?: number;
-  successPercent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
   status?: typeof ProgressStatuses[number];
   showInfo?: boolean;
@@ -34,11 +40,14 @@ export interface ProgressProps {
   strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;
+  success?: SuccessProps;
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
   steps?: number;
+  /** @deprecated Use `success` instead */
+  successPercent?: number;
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -54,7 +63,11 @@ export default class Progress extends React.Component<ProgressProps> {
   };
 
   getPercentNumber() {
-    const { successPercent, percent = 0 } = this.props;
+    const { percent = 0, success } = this.props;
+    let { successPercent } = this.props;
+    if (success && 'progress' in success) {
+      successPercent = success.progress;
+    }
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
@@ -70,7 +83,11 @@ export default class Progress extends React.Component<ProgressProps> {
   }
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo, format, type, percent, successPercent } = this.props;
+    const { showInfo, format, type, percent, success } = this.props;
+    let { successPercent } = this.props;
+    if (success && 'progress' in success) {
+      successPercent = success.progress;
+    }
     if (!showInfo) return null;
 
     let text;
@@ -105,6 +122,13 @@ export default class Progress extends React.Component<ProgressProps> {
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
+
+    devWarning(
+      'successPercent' in props,
+      'Progress',
+      '`successPercent` is deprecated. Please use `success` instead.',
+    );
+
     let progress;
     // Render progress shape
     if (type === 'line') {
@@ -148,7 +172,6 @@ export default class Progress extends React.Component<ProgressProps> {
           'status',
           'format',
           'trailColor',
-          'successPercent',
           'strokeWidth',
           'width',
           'gapDegree',
@@ -157,6 +180,8 @@ export default class Progress extends React.Component<ProgressProps> {
           'strokeLinecap',
           'percent',
           'steps',
+          'success',
+          'successPercent',
         ])}
         className={classString}
       >

@@ -78,7 +78,7 @@ const columns = [
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | summary | Summary content | (currentData) => ReactNode | - |
 | title | Table title renderer | Function(currentPageData) | - |
-| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) | - |
+| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
@@ -121,7 +121,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
 | defaultFilteredValue | Default filtered values | string\[] | - |  |  |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
-| filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |  |
+| filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
@@ -190,14 +190,15 @@ Properties for row selection.
 | fixed | Fixed selection column on the left | boolean | - | 4.0 |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - | 4.0 |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3 |
+| preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4 |
 | renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
-| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] | 4.0 |
-| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - | 4.0 |
-| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` | 4.0 |
-| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - | 4.0 |
-| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
-| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - | 4.0 |
-| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRowKeys) | - | 4.0 |
+| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |  |
+| selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |  |
+| type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
+| onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |  |
+| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |  |
+| onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |  |
+| onSelectInvert | Callback executed when row selection is inverted | Function(selectedRowKeys) | - |  |
 
 ### scroll
 
@@ -212,7 +213,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | key | Unique key of this selection | string | - |
-| text | Display text of this selection | string\|React.ReactNode | - |
+| text | Display text of this selection | string\|ReactNode | - |
 | onSelect | Callback executed when this selection is clicked | Function(changeableRowKeys) | - |
 
 ## Using in TypeScript
@@ -288,6 +289,8 @@ You can set `hideOnSinglePage` with `pagination` prop.
 Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
 
 You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
+
+Also you can use the action from extra param to determine when return to first page.
 
 ### Why Table pagination show size changer?
 

@@ -5,6 +5,7 @@ exports[`Mentions rtl render component should be rendered correctly in RTL direc
   class="ant-mentions ant-mentions-rtl"
 >
   <textarea
+    class="rc-textarea"
     rows="1"
   />
 </div>

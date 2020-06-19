@@ -7,10 +7,10 @@ import Element from './Element';
 import SkeletonAvatar, { AvatarProps } from './Avatar';
 import SkeletonButton from './Button';
 import SkeletonInput from './Input';
+import SkeletonImage from './Image';
 
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {
-}
+interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
 
 export interface SkeletonProps {
   active?: boolean;
@@ -170,5 +170,6 @@ Skeleton.defaultProps = {
 Skeleton.Button = SkeletonButton;
 Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
+Skeleton.Image = SkeletonImage;
 
 export default Skeleton;

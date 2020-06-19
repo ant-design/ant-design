@@ -97,6 +97,7 @@ export interface CascaderProps {
   loadData?: (selectedOptions?: CascaderOptionType[]) => void;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
+  expandIcon?: React.ReactNode;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
   changeOnSelect?: boolean;
   /** 浮层可见变化时回调 */
@@ -108,6 +109,7 @@ export interface CascaderProps {
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
+  dropdownRender?: (menus: React.ReactNode) => React.ReactNode
 }
 
 export interface CascaderState {
@@ -458,11 +460,14 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           allowClear,
           showSearch = false,
           suffixIcon,
+          expandIcon,
           notFoundContent,
           popupClassName,
           bordered,
+          dropdownRender,
           ...otherProps
         } = props;
+
         const mergedSize = customizeSize || size;
 
         const { value, inputFocused } = state;
@@ -592,9 +597,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           </span>
         );
 
-        let expandIcon = <RightOutlined />;
-        if (isRtlLayout) {
-          expandIcon = <LeftOutlined />;
+        let expandIconNode;
+        if (expandIcon) {
+          expandIconNode = expandIcon;
+        } else {
+          expandIconNode = isRtlLayout ? <LeftOutlined /> : <RightOutlined />;
         }
 
         const loadingIcon = (
@@ -621,10 +628,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             onPopupVisibleChange={this.handlePopupVisibleChange}
             onChange={this.handleChange}
             dropdownMenuColumnStyle={dropdownMenuColumnStyle}
-            expandIcon={expandIcon}
+            expandIcon={expandIconNode}
             loadingIcon={loadingIcon}
             popupClassName={rcCascaderPopupClassName}
             popupPlacement={this.getPopupPlacement(direction)}
+            dropdownRender={dropdownRender}
           >
             {input}
           </RcCascader>
