@@ -77,6 +77,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     label,
     trigger = 'onChange',
     validateTrigger,
+    hidden,
     ...restProps
   } = props;
   const destroyRef = React.useRef(false);
@@ -179,6 +180,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-error-leave`]:
         !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+      [`${prefixCls}-hidden`]: hidden,
     };
 
     // ======================= Children =======================

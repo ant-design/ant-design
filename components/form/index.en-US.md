@@ -95,6 +95,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | validateTrigger | When to validate the value of children node | string \| string[] | `onChange` |  |
 | valuePropName | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | string | `value` |  |
 | wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
+| hidden | whether to hide Form.Item (still collect and validate value) | boolean | false |  |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
