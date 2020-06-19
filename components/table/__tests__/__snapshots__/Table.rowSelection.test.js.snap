@@ -262,9 +262,11 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -286,7 +288,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -302,9 +304,11 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -326,7 +330,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -546,9 +550,11 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -570,7 +576,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -586,9 +592,11 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -610,7 +618,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -835,9 +843,11 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -859,7 +869,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -875,9 +885,11 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -899,7 +911,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -1189,9 +1201,11 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -1213,7 +1227,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1229,9 +1243,11 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -1253,7 +1269,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -1516,9 +1532,11 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -1540,7 +1558,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1556,9 +1574,11 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -1580,7 +1600,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -1782,9 +1802,11 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
           class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="left"
@@ -1806,7 +1828,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1822,9 +1844,11 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
           class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
-          <a
+          <button
             class="ant-pagination-item-link"
             disabled=""
+            tabindex="-1"
+            type="button"
           >
             <span
               aria-label="right"
@@ -1846,7 +1870,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 />
               </svg>
             </span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
