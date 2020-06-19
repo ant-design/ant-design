@@ -209,7 +209,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   );
 
   devWarning(
-    !!ghost && (type === 'link' || type === 'text'),
+    !(!!ghost && (type === 'link' || type === 'text')),
     'Button',
     "`link` or `text` button can't be a `ghost` button.",
   );
