@@ -2284,7 +2284,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -2342,7 +2342,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -3221,7 +3221,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -3566,7 +3566,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -3624,7 +3624,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -4503,7 +4503,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -4848,7 +4848,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -4906,7 +4906,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -5785,7 +5785,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -6130,7 +6130,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -6188,7 +6188,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -7067,7 +7067,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -7412,7 +7412,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -7470,7 +7470,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -8349,7 +8349,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -8694,7 +8694,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -8752,7 +8752,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -9631,7 +9631,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -14988,9 +14988,11 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15066,9 +15068,11 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15144,9 +15148,11 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15222,9 +15228,11 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15300,9 +15308,11 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15378,9 +15388,11 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -16901,9 +16913,11 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -16925,7 +16939,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -16941,9 +16955,11 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -16965,7 +16981,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-options"
@@ -17008,7 +17024,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17048,9 +17064,11 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17072,7 +17090,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17088,9 +17106,11 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -17112,7 +17132,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-options"
@@ -17155,7 +17175,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17200,9 +17220,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17224,7 +17246,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17240,9 +17262,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -17264,7 +17288,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-options"
@@ -17307,7 +17331,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17347,9 +17371,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17371,7 +17397,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17387,9 +17413,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -17411,7 +17439,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-options"
@@ -17454,7 +17482,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17499,9 +17527,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17523,7 +17553,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17539,9 +17569,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -17563,7 +17595,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-options"
@@ -17606,7 +17638,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17646,9 +17678,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17670,7 +17704,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
@@ -17686,9 +17720,11 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="config-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -17710,7 +17746,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="config-pagination-options"
@@ -17753,7 +17789,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17798,9 +17834,11 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17822,7 +17860,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -17838,9 +17876,11 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -17862,7 +17902,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -17905,7 +17945,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -17945,9 +17985,11 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -17969,7 +18011,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -17985,9 +18027,11 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -18009,7 +18053,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -18052,7 +18096,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18097,9 +18141,11 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -18121,7 +18167,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -18137,9 +18183,11 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -18161,7 +18209,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -18204,7 +18252,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18244,9 +18292,11 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -18268,7 +18318,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
@@ -18284,9 +18334,11 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -18308,7 +18360,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -18351,7 +18403,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18396,9 +18448,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-prev prefix-Pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="prefix-Pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -18420,7 +18474,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
@@ -18436,9 +18490,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-next prefix-Pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="prefix-Pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -18460,7 +18516,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="prefix-Pagination-options"
@@ -18503,7 +18559,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18543,9 +18599,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-prev prefix-Pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="prefix-Pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -18567,7 +18625,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
@@ -18583,9 +18641,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-next prefix-Pagination-disabled"
       title="Next Page"
     >
-      <a
+      <button
         class="prefix-Pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -18607,7 +18667,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="prefix-Pagination-options"
@@ -18650,7 +18710,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -21813,7 +21873,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -21934,7 +21994,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -22055,7 +22115,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -22176,7 +22236,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -22297,7 +22357,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -22418,7 +22478,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down prefix-Select-suffix"
       role="img"
     >
       <svg
@@ -25191,15 +25251,18 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25274,15 +25337,18 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25357,15 +25423,18 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25440,15 +25509,18 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -25523,15 +25595,18 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -25606,15 +25681,18 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         class="prefix-Tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="prefix-Tabs-tab prefix-Tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="prefix-Tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
         />
@@ -36233,7 +36311,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="config-tree-treenode config-tree-treenode-switcher-close"
+            class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
           >
             <span
               class="config-tree-switcher config-tree-switcher-noop"
@@ -36274,7 +36352,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="config-tree-treenode config-tree-treenode-switcher-close"
+            class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
           >
             <span
               class="config-tree-switcher config-tree-switcher-noop"
@@ -36344,7 +36422,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
           style="display:flex;flex-direction:column"
         >
           <div
-            class="config-tree-treenode config-tree-treenode-switcher-close"
+            class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
           >
             <span
               class="config-tree-switcher config-tree-switcher-noop"
@@ -36385,7 +36463,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
           style="display:flex;flex-direction:column"
         >
           <div
-            class="config-tree-treenode config-tree-treenode-switcher-close"
+            class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
           >
             <span
               class="config-tree-switcher config-tree-switcher-noop"
@@ -36455,7 +36533,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
           style="display:flex;flex-direction:column"
         >
           <div
-            class="config-tree-treenode config-tree-treenode-switcher-close"
+            class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
           >
             <span
               class="config-tree-switcher config-tree-switcher-noop"
@@ -36496,7 +36574,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
           style="display:flex;flex-direction:column"
         >
           <div
-            class="config-tree-treenode config-tree-treenode-switcher-close"
+            class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last"
           >
             <span
               class="config-tree-switcher config-tree-switcher-noop"
@@ -36566,7 +36644,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
           style="display:flex;flex-direction:column"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -36607,7 +36685,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
           style="display:flex;flex-direction:column"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -36677,7 +36755,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -36718,7 +36796,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -36788,7 +36866,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
+            class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
           >
             <span
               class="prefix-Tree-switcher prefix-Tree-switcher-noop"
@@ -36829,7 +36907,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
+            class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last"
           >
             <span
               class="prefix-Tree-switcher prefix-Tree-switcher-noop"
@@ -36935,7 +37013,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -36967,7 +37045,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -37048,7 +37126,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37080,7 +37158,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -37161,7 +37239,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37193,7 +37271,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -37274,7 +37352,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -37306,7 +37384,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -37387,7 +37465,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -37419,7 +37497,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -37500,7 +37578,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
                   >
                     <span
                       class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
@@ -37532,7 +37610,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down prefix-TreeSelect-suffix"
       role="img"
     >
       <svg

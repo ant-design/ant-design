@@ -44,11 +44,12 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children: ChildrenType;
+  children?: ChildrenType;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   required?: boolean;
+  hidden?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
@@ -80,6 +81,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     label,
     trigger = 'onChange',
     validateTrigger,
+    hidden,
     ...restProps
   } = props;
   const destroyRef = React.useRef(false);
@@ -184,6 +186,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-error-leave`]:
         !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+      [`${prefixCls}-hidden`]: hidden,
     };
 
     // ======================= Children =======================

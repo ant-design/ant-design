@@ -45,7 +45,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -103,7 +103,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -988,7 +988,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -1046,7 +1046,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -1993,7 +1993,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -2056,7 +2056,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -2898,7 +2898,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -2956,7 +2956,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -4249,7 +4249,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -4307,7 +4307,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg

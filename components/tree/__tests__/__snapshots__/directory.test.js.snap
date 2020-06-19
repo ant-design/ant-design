@@ -22,7 +22,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
         style="display:flex;flex-direction:column"
       >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -84,7 +84,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -154,7 +154,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
           </span>
         </div>
         <div
-          class="ant-tree-treenode"
+          class="ant-tree-treenode ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -344,7 +344,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -393,7 +393,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -504,7 +504,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -642,7 +642,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_close"
@@ -846,7 +846,7 @@ exports[`Directory Tree expand click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -896,7 +896,7 @@ exports[`Directory Tree expand click 1`] = `
           </div>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_close"
@@ -1048,7 +1048,7 @@ exports[`Directory Tree expand click 2`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_close"
@@ -1252,7 +1252,7 @@ exports[`Directory Tree expand double click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -1302,7 +1302,7 @@ exports[`Directory Tree expand double click 1`] = `
           </div>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_close"
@@ -1454,7 +1454,7 @@ exports[`Directory Tree expand double click 2`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_close"
@@ -1544,7 +1544,7 @@ exports[`Directory Tree expand with state control click 1`] = `
         style="display: flex; flex-direction: column;"
       >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -1609,7 +1609,7 @@ exports[`Directory Tree expand with state control click 1`] = `
           class="ant-tree-treenode-motion"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -1687,7 +1687,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
         style="display: flex; flex-direction: column;"
       >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -1752,7 +1752,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
           class="ant-tree-treenode-motion"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -1892,7 +1892,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -2006,7 +2006,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -2194,7 +2194,7 @@ exports[`Directory Tree group select 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -2243,7 +2243,7 @@ exports[`Directory Tree group select 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -2354,7 +2354,7 @@ exports[`Directory Tree group select 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -2541,7 +2541,7 @@ exports[`Directory Tree group select 2`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -2590,7 +2590,7 @@ exports[`Directory Tree group select 2`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -2701,7 +2701,7 @@ exports[`Directory Tree group select 2`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -2940,7 +2940,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -2989,7 +2989,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -3100,7 +3100,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"

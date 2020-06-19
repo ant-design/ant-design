@@ -332,7 +332,7 @@ describe('Menu', () => {
       );
     });
 
-    it('vertical', () => {
+    it('vertical with hover(default)', () => {
       const wrapper = mount(
         <Menu mode="vertical">
           <SubMenu key="1" title="submenu1">
@@ -354,7 +354,29 @@ describe('Menu', () => {
       );
     });
 
-    it('horizontal', () => {
+    it('vertical with click', () => {
+      const wrapper = mount(
+        <Menu mode="vertical" triggerSubMenuAction="click">
+          <SubMenu key="1" title="submenu1">
+            <Menu.Item key="submenu1">Option 1</Menu.Item>
+            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="2">menu2</Menu.Item>
+        </Menu>,
+      );
+      expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+      toggleMenu(wrapper, 0, 'click');
+      expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+        true,
+      );
+      toggleMenu(wrapper, 0, 'click');
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(
+        true,
+      );
+    });
+
+    it('horizontal with hover(default)', () => {
       jest.useFakeTimers();
       const wrapper = mount(
         <Menu mode="horizontal">
@@ -372,6 +394,29 @@ describe('Menu', () => {
         true,
       );
       toggleMenu(wrapper, 0, 'mouseleave');
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(
+        true,
+      );
+    });
+
+    it('horizontal with click', () => {
+      jest.useFakeTimers();
+      const wrapper = mount(
+        <Menu mode="horizontal" triggerSubMenuAction="click">
+          <SubMenu key="1" title="submenu1">
+            <Menu.Item key="submenu1">Option 1</Menu.Item>
+            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="2">menu2</Menu.Item>
+        </Menu>,
+      );
+      expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+      toggleMenu(wrapper, 0, 'click');
+      expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
+      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(
+        true,
+      );
+      toggleMenu(wrapper, 0, 'click');
       expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(
         true,
       );

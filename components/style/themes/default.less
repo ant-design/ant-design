@@ -218,7 +218,6 @@
 
 @btn-group-border: @primary-5;
 
-@btn-link-ghost-color: @component-background;
 @btn-link-hover-bg: transparent;
 @btn-text-hover-bg: rgba(0, 0, 0, 0.018);
 
@@ -449,7 +448,9 @@
 // ---
 @anchor-bg: @component-background;
 @anchor-border-color: @border-color-split;
-@anchor-link-padding: 7px 0 7px 16px;
+@anchor-link-top: 7px;
+@anchor-link-left: 16px;
+@anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
 
 // Tooltip
 // ---

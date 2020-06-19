@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/affix/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div>
     <div
       class=""
@@ -15,8 +15,8 @@ exports[`renders ./components/affix/demo/basic.md correctly 1`] = `
         </span>
       </button>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div>
     <div
       class=""
@@ -30,8 +30,8 @@ exports[`renders ./components/affix/demo/basic.md correctly 1`] = `
         </span>
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/affix/demo/debug.md correctly 1`] = `

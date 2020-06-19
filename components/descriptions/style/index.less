@@ -37,6 +37,7 @@
     font-weight: normal;
     font-size: @font-size-base;
     line-height: @line-height-base;
+    text-align: start;
 
     &::after {
       & when (@descriptions-item-trailing-colon=true) {
@@ -74,7 +75,8 @@
   &-item {
     padding-bottom: 0;
     > span {
-      display: inline-block;
+      display: inline-flex;
+      align-items: baseline;
     }
   }
 

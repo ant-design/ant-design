@@ -44,7 +44,7 @@ config 参数如下：
 | message | 通知提醒标题，必选 | string\|ReactNode | - |
 | onClose | 当通知关闭时触发 | Function | - |
 | onClick | 点击通知时触发的回调函数 | Function | - |
-| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | 自定义内联样式 | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |
 
@@ -71,9 +71,9 @@ notification.config({
 | closeIcon | 自定义关闭图标 | ReactNode | - |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
-| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |
-| rtl | 是否开启 RTL 模式 | boolean | `false` |
+| rtl | 是否开启 RTL 模式 | boolean | false |
 
 ## FAQ
 

@@ -19,6 +19,11 @@ type getContainerFunc = () => HTMLElement;
 
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
 type placementType = typeof PlacementTypes[number];
+
+interface PushState {
+  distance?: string | number;
+  stopPropagation?: boolean;
+}
 export interface DrawerProps {
   closable?: boolean;
   closeIcon?: React.ReactNode;
@@ -39,7 +44,7 @@ export interface DrawerProps {
   height?: number | string;
   zIndex?: number;
   prefixCls?: string;
-  push?: boolean;
+  push?: boolean | PushState;
   placement?: placementType;
   onClose?: (e: EventType) => void;
   afterVisibleChange?: (visible: boolean) => void;
@@ -51,7 +56,7 @@ export interface DrawerProps {
 }
 
 export interface IDrawerState {
-  push?: boolean;
+  pushTimes: number;
 }
 
 class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerState> {
@@ -64,10 +69,11 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     mask: true,
     level: null,
     keyboard: true,
+    push: true,
   };
 
   readonly state = {
-    push: false,
+    pushTimes: 0,
   };
 
   parentDrawer: Drawer | null;
@@ -97,21 +103,30 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   public componentWillUnmount() {
     // unmount drawer in child, clear push.
     if (this.parentDrawer) {
-      this.parentDrawer.pull();
+      this.parentDrawer.pull(0);
       this.parentDrawer = null;
     }
   }
 
   push = () => {
-    this.setState({
-      push: true,
-    });
+    const pushState = this.getPushState();
+    if (this.parentDrawer && !pushState.stopPropagation) {
+      this.parentDrawer.push();
+    }
+
+    this.setState(({ pushTimes }) => ({
+      pushTimes: pushTimes + 1,
+    }));
   };
 
-  pull = () => {
-    this.setState({
-      push: false,
-    });
+  pull = (nextPushTimes?: number) => {
+    const pushState = this.getPushState();
+    if (this.parentDrawer && !pushState.stopPropagation) {
+      this.parentDrawer.pull(typeof nextPushTimes === 'number' ? nextPushTimes + 1 : undefined);
+    }
+    this.setState(({ pushTimes }) => ({
+      pushTimes: typeof nextPushTimes === 'number' ? nextPushTimes : pushTimes - 1,
+    }));
   };
 
   onDestroyTransitionEnd = () => {
@@ -127,13 +142,41 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   getDestroyOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
+  getPushState = (): PushState => {
+    const { push } = this.props;
+    const defaultPushState = {
+      distance: 180,
+      stopPropagation: false,
+    };
+
+    if (typeof push === 'boolean') {
+      return push ? defaultPushState : { distance: 0, stopPropagation: true };
+    }
+    if (typeof push === 'object') {
+      return { ...defaultPushState, ...push };
+    }
+
+    return defaultPushState;
+  };
+
+  getPushDistance = () => {
+    const pushState = this.getPushState();
+    const { pushTimes } = this.state;
+    const distance = parseFloat(String(pushState.distance || 0));
+    return pushTimes * distance;
+  };
+
   // get drawer push width or height
   getPushTransform = (placement?: placementType) => {
+    const distance = this.getPushDistance();
+    if (distance === 0) {
+      return undefined;
+    }
     if (placement === 'left' || placement === 'right') {
-      return `translateX(${placement === 'left' ? 180 : -180}px)`;
+      return `translateX(${placement === 'left' ? distance : -distance}px)`;
     }
     if (placement === 'top' || placement === 'bottom') {
-      return `translateY(${placement === 'top' ? 180 : -180}px)`;
+      return `translateY(${placement === 'top' ? distance : -distance}px)`;
     }
   };
 
@@ -154,13 +197,12 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   getRcDrawerStyle = () => {
     const { zIndex, placement, mask, style } = this.props;
-    const { push } = this.state;
     // 当无 mask 时，将 width 应用到外层容器上
     // 解决 https://github.com/ant-design/ant-design/issues/12401 的问题
     const offsetStyle = mask ? {} : this.getOffsetStyle();
     return {
       zIndex,
-      transform: push ? this.getPushTransform(placement) : undefined,
+      transform: this.getPushTransform(placement),
       ...offsetStyle,
       ...style,
     };

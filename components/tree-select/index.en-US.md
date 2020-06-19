@@ -23,7 +23,7 @@ Tree selection control.
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | true |  |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |  |
@@ -39,7 +39,7 @@ Tree selection control.
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
 | switcherIcon | customize collapse/expand icon of tree node | ReactNode | - |
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |  |
-| showSearch | Support search or not | boolean | single: `false` \| multiple: `true` |  |
+| showSearch | Support search or not | boolean | single: false \| multiple: true |  |
 | size | To set the size of the select input | `large` \| `middle` \| `small` |  |  |
 | showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean |  |  |
 | suffixIcon | The custom suffix icon,you must set `showArrow` to `true` manually in multiple selection mode | ReactNode | - |  |
@@ -50,8 +50,8 @@ Tree selection control.
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
 | treeExpandedKeys | Set expanded keys | string\[] | - |  |
-| treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value' |  |
-| treeNodeLabelProp | Will render as content of select | string | 'title' |  |
+| treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | `value` |  |
+| treeNodeLabelProp | Will render as content of select | string | `title` |  |
 | value | To set the current selected treeNode(s). | string\|string\[] | - |  |
 | virtual | Disable virtual scroll when set to `false` | boolean | true | 4.1.0 |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |

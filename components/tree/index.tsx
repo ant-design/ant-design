@@ -1,5 +1,7 @@
 import Tree from './Tree';
 
+export { EventDataNode, DataNode } from 'rc-tree/lib/interface';
+
 export {
   TreeProps,
   AntTreeNode,

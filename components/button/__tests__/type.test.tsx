@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
+import { resetWarned } from 'rc-util/lib/warning';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
@@ -281,12 +282,33 @@ describe('Button', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
+    resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Button type="primary" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
     mount(<Button type="primary" icon="search" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('should warning when pass type=link and ghost=true', () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Button type="link" ghost />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('should warning when pass type=text and ghost=true', () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Button type="text" ghost />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
     warnSpy.mockRestore();
   });

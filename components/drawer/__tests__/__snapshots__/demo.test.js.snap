@@ -62,14 +62,25 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
 `;
 
 exports[`renders ./components/drawer/demo/multi-level-drawer.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Open drawer
-  </span>
-</button>
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open drawer
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-primary"
+    style="margin-left:10px"
+    type="button"
+  >
+    <span>
+      Custom push
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders ./components/drawer/demo/no-mask.md correctly 1`] = `

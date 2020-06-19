@@ -26,7 +26,7 @@ A card can be used to display content related to a single subject. The content c
 | activeTabKey | Current TabPane's key | string | - |  |
 | headStyle | Inline style to apply to the card head | CSSProperties | - |  |
 | bodyStyle | Inline style to apply to the card content | CSSProperties | - |  |
-| bordered | Toggles rendering of the border around the card | boolean | `true` |  |
+| bordered | Toggles rendering of the border around the card | boolean | true |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set. | string | - |  |
 | extra | Content to render in the top-right corner of the card | string\|ReactNode | - |  |

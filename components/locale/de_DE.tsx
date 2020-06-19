@@ -23,6 +23,9 @@ const localeValues: Locale = {
     sortTitle: 'Sortieren',
     expand: 'Zeile erweitern',
     collapse: 'Zeile reduzieren',
+    triggerDesc: '﻿Klicken zur absteigenden  Sortierung',
+    triggerAsc: '﻿Klicken zur aufsteigenden Sortierung',
+    cancelSort: '﻿Klicken zum Abbrechen der Sortierung',
   },
   Modal: {
     okText: 'OK',

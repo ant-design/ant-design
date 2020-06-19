@@ -2,7 +2,7 @@
 @import '../../style/mixins/index';
 
 @switch-prefix-cls: ~'@{ant-prefix}-switch';
-@switch-duration: 0.36s;
+@switch-duration: 0.2s;
 
 @switch-pin-size: @switch-height - 4px;
 @switch-sm-pin-size: @switch-sm-height - 4px;
@@ -71,7 +71,7 @@
     left: @switch-padding;
     width: @switch-pin-size;
     height: @switch-pin-size;
-    transition: all @switch-duration @ease-in-out-circ;
+    transition: all @switch-duration ease-in-out;
 
     &::before {
       position: absolute;
@@ -82,7 +82,7 @@
       background-color: @switch-bg;
       border-radius: @switch-pin-size / 2;
       box-shadow: 0 2px 4px 0 @switch-shadow-color;
-      transition: all @switch-duration @ease-in-out-circ;
+      transition: all @switch-duration ease-in-out;
       content: '';
     }
   }

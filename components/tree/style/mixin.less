@@ -1,6 +1,7 @@
 @import '../../style/mixins/index';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
+@tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
 
@@ -119,6 +120,28 @@
       &-loading-icon {
         color: @primary-color;
       }
+
+      &-leaf-line {
+        z-index: 1;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        &::before {
+          position: absolute;
+          height: @tree-title-height;
+          margin-left: -1px;
+          border-left: 1px solid @normal-color;
+          content: ' ';
+        }
+        &::after {
+          position: absolute;
+          width: @tree-title-height - 14px;
+          height: @tree-title-height - 10px;
+          margin-left: -1px;
+          border-bottom: 1px solid @normal-color;
+          content: ' ';
+        }
+      }
     }
 
     // >>> Checkbox
@@ -225,6 +248,16 @@
       .@{custom-tree-prefix-cls}-switcher {
         z-index: 1;
         background: @component-background;
+      }
+    }
+  }
+}
+
+.@{tree-node-prefix-cls}-leaf-last {
+  .@{tree-prefix-cls}-switcher {
+    &-leaf-line {
+      &::before {
+        height: @tree-title-height - 10px !important;
       }
     }
   }

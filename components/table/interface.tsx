@@ -25,6 +25,7 @@ export interface TableLocale {
   filterTitle?: string;
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
+  filterEmptyText?: React.ReactNode;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
@@ -147,6 +148,7 @@ export interface TableRowSelection<T> {
   fixed?: boolean;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
+  checkStrictly?: boolean;
   renderCell?: (
     value: boolean,
     record: T,

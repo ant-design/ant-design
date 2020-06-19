@@ -20,6 +20,7 @@ const localeValues: Locale = {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
+    filterEmptyText: 'No filters',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
     selectionAll: 'Select all data',

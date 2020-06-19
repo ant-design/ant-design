@@ -26,7 +26,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | showInkInFixed | Whether show ink-balls in Fixed mode | boolean | false |  |
 | onClick | set the handler to handle `click` event | Function(e: Event, link: Object) | - |  |
 | getCurrentAnchor | Customize the anchor highlight | () => string | - |  |
-| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | `offsetTop` |  |
+| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 
 ### Link Props
