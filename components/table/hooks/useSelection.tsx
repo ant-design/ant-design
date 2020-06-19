@@ -271,7 +271,7 @@ export default function useSelection<RecordType>(
 
         if (onSelectAll) {
           onSelectAll(
-            treatAsNotAllChecked ? true : !checkedCurrentAll,
+            treatAsNotAllChecked && !checkedCurrentAll,
             keys.map(k => getRecordByKey(k)),
             changeKeys.map(k => getRecordByKey(k)),
           );
