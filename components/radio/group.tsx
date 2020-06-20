@@ -11,7 +11,7 @@ const usePrevious: any = (value: any) => {
 
   React.useEffect(() => {
     ref.current = value;
-  });
+  }, [value]);
 
   return ref.current;
 };
