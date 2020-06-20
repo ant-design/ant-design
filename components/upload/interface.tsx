@@ -14,7 +14,7 @@ export interface RcFile extends File {
 }
 
 export interface RcCustomRequestOptions {
-  onProgress: (event: { percent: number }, file: File) => void;
+  onProgress: (event: { percent: number; loaded: number; total: number }, file: File) => void;
   onError: (error: Error) => void;
   onSuccess: (response: object, file: File) => void;
   data: object;
@@ -43,6 +43,8 @@ export interface UploadFile<T = any> {
   type: string;
   xhr?: T;
   preview?: string;
+  payloadLoaded?: number;
+  payloadSize?: number;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {

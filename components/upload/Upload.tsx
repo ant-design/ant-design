@@ -120,7 +120,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     });
   };
 
-  onProgress = (e: { percent: number }, file: UploadFile) => {
+  onProgress = (e: { percent: number; loaded: number; total: number }, file: UploadFile) => {
     const { fileList } = this.state;
     const targetItem = getFileItem(file, fileList);
     // removed
@@ -128,6 +128,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
       return;
     }
     targetItem.percent = e.percent;
+    targetItem.payloadLoaded = e.loaded;
+    targetItem.payloadSize = e.total;
     this.onChange({
       event: e,
       file: { ...targetItem },
