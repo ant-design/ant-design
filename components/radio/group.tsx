@@ -5,16 +5,7 @@ import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './inte
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
-
-const usePrevious: any = (value: any) => {
-  const ref = React.useRef();
-
-  React.useEffect(() => {
-    ref.current = value;
-  }, [value]);
-
-  return ref.current;
-};
+import { usePrevious } from '../_util/ref';
 
 const RadioGroup: React.FC<RadioGroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);

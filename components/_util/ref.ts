@@ -15,3 +15,13 @@ export function composeRef<T>(...refs: React.Ref<T>[]): React.Ref<T> {
     });
   };
 }
+
+export const usePrevious: any = (value: any) => {
+  const ref = React.useRef();
+
+  React.useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+};
