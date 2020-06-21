@@ -2,7 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { Breakpoint } from '../_util/responsiveObserve';
+import ResponsiveObserve, {
+  Breakpoint,
+  ScreenMap,
+  responsiveArray,
+} from '../_util/responsiveObserve';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -46,12 +50,51 @@ function parseFlex(flex: FlexType): string {
   return flex;
 }
 
-/**
- * 实现思路：
- * 本质上还是需要利用screens这个来监听一下现在处于啥状态 -> xs、sm、md、lg、xl、xxl
- */
+export interface ColState {
+  screens: ScreenMap;
+}
 
-export default class Col extends React.Component<ColProps, {}> {
+export default class Col extends React.Component<ColProps, ColState> {
+  state: ColState = {
+    screens: {
+      xs: true,
+      sm: true,
+      md: true,
+      lg: true,
+      xl: true,
+      xxl: true,
+    },
+  };
+
+  token: string;
+
+  componentDidMount() {
+    this.token = ResponsiveObserve.subscribe(screens => {
+      const { order } = this.props;
+      if (order && typeof order === 'object') {
+        this.setState({ screens });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    ResponsiveObserve.unsubscribe(this.token);
+  }
+
+  getOrderSize(): number {
+    const { order } = this.props;
+    const { screens } = this.state;
+    if (typeof order === 'object') {
+      for (let i = 0; i < responsiveArray.length; i++) {
+        const breakpoint: Breakpoint = responsiveArray[i];
+        if (screens[breakpoint] && order[breakpoint] !== undefined) {
+          return order[breakpoint] as number;
+        }
+      }
+    }
+    return 0;
+  }
+
   renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const {
@@ -91,11 +134,19 @@ export default class Col extends React.Component<ColProps, {}> {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       };
     });
+
+    let orderSize;
+    if (order && typeof order === 'object') {
+      orderSize = this.getOrderSize();
+    } else if (order && typeof order === 'number') {
+      orderSize = order;
+    }
+
     const classes = classNames(
       prefixCls,
       {
         [`${prefixCls}-${span}`]: span !== undefined,
-        [`${prefixCls}-order-${order}`]: order,
+        [`${prefixCls}-order-${orderSize}`]: orderSize,
         [`${prefixCls}-offset-${offset}`]: offset,
         [`${prefixCls}-push-${push}`]: push,
         [`${prefixCls}-pull-${pull}`]: pull,

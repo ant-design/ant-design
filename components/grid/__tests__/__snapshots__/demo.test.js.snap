@@ -410,30 +410,78 @@ Array [
 `;
 
 exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
-<div
-  class="ant-row"
->
+Array [
   <div
-    class="ant-col ant-col-6 ant-col-order-4"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+    style="color:#333;font-weight:normal"
   >
-    1 col-order-4
-  </div>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Normal
+    </span>
+  </div>,
   <div
-    class="ant-col ant-col-6 ant-col-order-3"
+    class="ant-row"
   >
-    2 col-order-3
-  </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-4"
+    >
+      1 col-order-4
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-3"
+    >
+      2 col-order-3
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-2"
+    >
+      3 col-order-2
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-1"
+    >
+      4 col-order-1
+    </div>
+  </div>,
   <div
-    class="ant-col ant-col-6 ant-col-order-2"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+    style="color:#333;font-weight:normal"
   >
-    3 col-order-2
-  </div>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Responsive
+    </span>
+  </div>,
   <div
-    class="ant-col ant-col-6 ant-col-order-1"
+    class="ant-row"
   >
-    4 col-order-1
-  </div>
-</div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-4"
+    >
+      1 col-order-esponsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-3"
+    >
+      2 col-order-esponsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-2"
+    >
+      3 col-order-esponsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-1"
+    >
+      4 col-order-esponsive
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
