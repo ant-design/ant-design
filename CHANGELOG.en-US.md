@@ -25,11 +25,11 @@ timeline: true
 - 🐞 Fix Backtop still interactive when it is hidden. [#25132](https://github.com/ant-design/ant-design/pull/25132) [@jesse3mh9a](https://github.com/jesse3mh9a)
 - 🐞 Fix Upload don't support Popover. [#25090](https://github.com/ant-design/ant-design/pull/25090)
 - 🐞 Fix Tabs content exceeds container width issue. [#25072](https://github.com/ant-design/ant-design/pull/25072)
-- 🐞 Fix DataPicker/TimePicker time dropdown alignment problem. [#25019](https://github.com/ant-design/ant-design/pull/25019)
+- 🐞 Fix DataPicker/TimePicker time dropdown alignment issue. [#25019](https://github.com/ant-design/ant-design/pull/25019)
 - Table
   - 🐞 Fix Table nested border style. [#24995](https://github.com/ant-design/ant-design/pull/24995)
   - 💄 Improve Table empty filters menu UI. [#25073](https://github.com/ant-design/ant-design/pull/25073)
-  - 💄 Reduce Table filter dropdown's max-height. [#25001](https://github.com/ant-design/ant-design/pull/25001)
+  - 💄 Reduce Table filter dropdown's `max-height`. [#25001](https://github.com/ant-design/ant-design/pull/25001)
 - Descriptions
   - 🐞 Fix Descriptions selecting text behavior when double clicking item. [#24983](https://github.com/ant-design/ant-design/pull/24983) [@harupy](https://github.com/harupy)
   - 💄 Fix Descriptions label text not start aligned in Safari. [#25018](https://github.com/ant-design/ant-design/pull/25018)
