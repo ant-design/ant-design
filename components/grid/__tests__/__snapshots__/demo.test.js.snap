@@ -461,22 +461,22 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-6 ant-col-order-4"
+      class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
     >
       1 col-order-esponsive
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-order-3"
+      class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3"
     >
       2 col-order-esponsive
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-order-2"
+      class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1"
     >
       3 col-order-esponsive
     </div>
     <div
-      class="ant-col ant-col-6 ant-col-order-1"
+      class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2"
     >
       4 col-order-esponsive
     </div>

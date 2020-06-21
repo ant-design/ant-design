@@ -99,7 +99,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | --- | --- | --- | --- | --- |
 | flex | flex layout style | string \| number | - |  |
 | offset | the number of cells to offset Col from the left | number | 0 |  |
-| order | raster order, could be a object like `{ xs: 1, sm: 2, md: 3, lg: 4 }` to support responsibly order | number | 0 |  |
+| order | raster order | number | 0 |  |
 | pull | the number of cells that raster is moved to the left | number | 0 |  |
 | push | the number of cells that raster is moved to the right | number | 0 |  |
 | span | raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |

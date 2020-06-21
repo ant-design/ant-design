@@ -98,7 +98,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | --- | --- | --- | --- | --- |
 | flex | flex 布局属性 | string \| number | - |  |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  |
-| order | 栅格顺序，支持响应式的对象写法来设置排序 `{ xs: 1, sm: 2, md: 3, lg: 4 }` | number/object | 0 |  |
+| order | 栅格顺序 | number | 0 |  |
 | pull | 栅格向左移动格数 | number | 0 |  |
 | push | 栅格向右移动格数 | number | 0 |  |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  |
