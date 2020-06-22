@@ -124,13 +124,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     showSorterTooltip = true,
   } = props;
 
-  if (process.env.NODE_ENV !== 'production') {
-    devWarning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
-      'Table',
-      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
-    );
-  }
+  devWarning(
+    !(typeof rowKey === 'function' && rowKey.length > 1),
+    'Table',
+    '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+  );
 
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
