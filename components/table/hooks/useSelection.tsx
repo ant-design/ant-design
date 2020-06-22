@@ -130,8 +130,11 @@ export default function useSelection<RecordType>(
   }, [mergedHalfSelectedKeys, selectionType]);
 
   const { keyEntities } = useMemo(
-    () => convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey as any),
-    [data, getRowKey],
+    () =>
+      checkStrictly
+        ? { keyEntities: null }
+        : convertDataToEntities((data as unknown) as DataNode[], undefined, getRowKey as any),
+    [data, getRowKey, checkStrictly],
   );
 
   // Save last selected key to enable range selection
@@ -500,7 +503,7 @@ export default function useSelection<RecordType>(
                       const result = conductCheck(
                         [...oriCheckedKeys, key],
                         true,
-                        keyEntities,
+                        keyEntities as any,
                         isCheckboxDisabled as any,
                       );
                       let { checkedKeys, halfCheckedKeys } = result;
@@ -512,7 +515,7 @@ export default function useSelection<RecordType>(
                         ({ checkedKeys, halfCheckedKeys } = conductCheck(
                           Array.from(tempKeySet),
                           { checked: false, halfCheckedKeys },
-                          keyEntities,
+                          keyEntities as any,
                           isCheckboxDisabled as any,
                         ));
                       }
