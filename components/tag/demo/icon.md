@@ -31,13 +31,13 @@ ReactDOM.render(
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter
     </Tag>
-    <Tag icon={<YoutubeOutlined />} color="#cd201f">
+    <Tag icon={<YoutubeOutlined />} iconPosition="right" color="#cd201f">
       Youtube
     </Tag>
     <Tag icon={<FacebookOutlined />} color="#3b5999">
       Facebook
     </Tag>
-    <Tag icon={<LinkedinOutlined />} color="#55acee">
+    <Tag icon={<LinkedinOutlined />} iconPosition="right" color="#55acee">
       LinkedIn
     </Tag>
   </>,

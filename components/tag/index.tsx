@@ -26,6 +26,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   onClose?: Function;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
 }
 
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
@@ -43,6 +44,7 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
     style,
     children,
     icon,
+    iconPosition,
     color,
     onClose,
     closeIcon,
@@ -116,18 +118,27 @@ const InternalTag: React.ForwardRefRenderFunction<unknown, TagProps> = (
     'onClick' in props || (children && (children as React.ReactElement<any>).type === 'a');
   const tagProps = omit(props, ['visible']);
   const iconNode = icon || null;
-  const kids = iconNode ? (
-    <>
-      {iconNode}
-      <span>{children}</span>
-    </>
-  ) : (
-    children
-  );
+
+  const renderIconNode = () => {
+    if (iconNode) {
+      return iconPosition === 'right' ? (
+        <>
+          <span>{children}</span>
+          {iconNode}
+        </>
+      ) : (
+        <>
+          {iconNode}
+          <span>{children}</span>
+        </>
+      );
+    }
+    return children;
+  };
 
   const tagNode = (
     <span {...tagProps} ref={ref} className={tagClassName} style={tagStyle}>
-      {kids}
+      {renderIconNode()}
       {renderCloseIcon()}
     </span>
   );
