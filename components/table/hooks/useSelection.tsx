@@ -107,24 +107,37 @@ export default function useSelection<RecordType>(
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
 
+  // Get flatten data
+  const flattedData = React.useMemo(() => flattenData(pageData, childrenColumnName), [
+    pageData,
+    childrenColumnName,
+  ]);
+  // Get all checkbox props
+  const checkboxPropsMap = React.useMemo(() => {
+    const map = new Map<Key, Partial<CheckboxProps>>();
+    flattedData.forEach((record, index) => {
+      const key = getRowKey(record, index);
+      const checkboxProps = (getCheckboxProps ? getCheckboxProps(record) : null) || {};
+      map.set(key, checkboxProps);
+
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        ('checked' in checkboxProps || 'defaultChecked' in checkboxProps)
+      ) {
+        devWarning(
+          false,
+          'Table',
+          'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
+        );
+      }
+    });
+    return map;
+  }, [flattedData, getRowKey, getCheckboxProps]);
+
   // ========================= Keys =========================
-  const [innerSelectedKeys, setInnerSelectedKeys] = useState<{
-    checked: Key[];
-    halfChecked: Key[];
-  }>({
-    checked: (selectedRowKeys as Key[]) || [],
-    halfChecked: [],
-  });
-  const mergedSelectedKeys = (selectedRowKeys as Key[]) || innerSelectedKeys.checked;
-  const mergedHalfSelectedKeys = innerSelectedKeys.halfChecked || [];
-  const mergedSelectedKeySet: Set<Key> = useMemo(() => {
-    const keys = selectionType === 'radio' ? mergedSelectedKeys.slice(0, 1) : mergedSelectedKeys;
-    return new Set(keys);
-  }, [mergedSelectedKeys, selectionType]);
-  const mergedHalfSelectedKeySet: Set<Key> = useMemo(() => {
-    const keys = selectionType === 'radio' ? [] : mergedHalfSelectedKeys;
-    return new Set(keys);
-  }, [mergedHalfSelectedKeys, selectionType]);
+  const [innerSelectedKeys, setInnerSelectedKeys] = useState<Key[]>(
+    (selectedRowKeys as Key[]) || [],
+  );
 
   const { keyEntities } = useMemo(
     () =>
@@ -134,21 +147,49 @@ export default function useSelection<RecordType>(
     [data, getRowKey, checkStrictly],
   );
 
+  const isCheckboxDisabled: GetCheckDisabled<RecordType> = (r: RecordType) => {
+    return !!checkboxPropsMap.get(getRowKey(r))?.disabled;
+  };
+
+  const { derivedSelectedKeys, derivedHalfSelectedKeys } = React.useMemo(() => {
+    const syntheticSelectedKeys = (selectedRowKeys as Key[]) || innerSelectedKeys;
+    if (checkStrictly) {
+      return {
+        derivedSelectedKeys: syntheticSelectedKeys,
+        derivedHalfSelectedKeys: [],
+      };
+    }
+    const { checkedKeys, halfCheckedKeys } = conductCheck(
+      syntheticSelectedKeys,
+      true,
+      keyEntities as any,
+      isCheckboxDisabled as any,
+    );
+    return {
+      derivedSelectedKeys: checkedKeys,
+      derivedHalfSelectedKeys: halfCheckedKeys,
+    };
+  }, [selectedRowKeys, innerSelectedKeys]);
+
+  const derivedSelectedKeySet: Set<Key> = useMemo(() => {
+    const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
+    return new Set(keys);
+  }, [derivedSelectedKeys, selectionType]);
+  const derivedHalfSelectedKeySet =
+    selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys);
+
   // Save last selected key to enable range selection
   const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);
 
   // Reset if rowSelection reset
   React.useEffect(() => {
     if (!rowSelection) {
-      setInnerSelectedKeys({
-        checked: [],
-        halfChecked: [],
-      });
+      setInnerSelectedKeys([]);
     }
   }, [!!rowSelection]);
 
   const setSelectedKeys = useCallback(
-    (keys: Key[], halfCheckedKeys: Key[]) => {
+    (keys: Key[]) => {
       let availableKeys: Key[];
       let records: RecordType[];
 
@@ -184,10 +225,7 @@ export default function useSelection<RecordType>(
         });
       }
 
-      setInnerSelectedKeys({
-        checked: availableKeys,
-        halfChecked: halfCheckedKeys,
-      });
+      setInnerSelectedKeys(availableKeys);
 
       if (onSelectionChange) {
         onSelectionChange(availableKeys, records);
@@ -199,13 +237,13 @@ export default function useSelection<RecordType>(
   // ====================== Selections ======================
   // Trigger single `onSelect` event
   const triggerSingleSelection = useCallback(
-    (key: Key, selected: boolean, keys: Key[], halfCheckedKeys: Key[], event: Event) => {
+    (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
         const rows = keys.map(k => getRecordByKey(k));
         onSelect(getRecordByKey(key), selected, rows, event);
       }
 
-      setSelectedKeys(keys, halfCheckedKeys);
+      setSelectedKeys(keys);
     },
     [onSelect, getRecordByKey, setSelectedKeys],
   );
@@ -217,30 +255,8 @@ export default function useSelection<RecordType>(
         return columns;
       }
 
-      // Get flatten data
-      const flattedData = flattenData(pageData, childrenColumnName);
-
       // Support selection
-      const keySet = new Set(mergedSelectedKeySet);
-
-      // Get all checkbox props
-      const checkboxPropsMap = new Map<Key, Partial<CheckboxProps>>();
-      flattedData.forEach((record, index) => {
-        const key = getRowKey(record, index);
-        const checkboxProps = (getCheckboxProps ? getCheckboxProps(record) : null) || {};
-        checkboxPropsMap.set(key, checkboxProps);
-
-        if (
-          process.env.NODE_ENV !== 'production' &&
-          ('checked' in checkboxProps || 'defaultChecked' in checkboxProps)
-        ) {
-          devWarning(
-            false,
-            'Table',
-            'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
-          );
-        }
-      });
+      const keySet = new Set(derivedSelectedKeySet);
 
       // Record key only need check with enabled
       const recordKeys = flattedData
@@ -267,7 +283,7 @@ export default function useSelection<RecordType>(
         }
 
         const keys = Array.from(keySet);
-        setSelectedKeys(keys, []);
+        setSelectedKeys(keys);
 
         if (onSelectAll) {
           onSelectAll(
@@ -312,7 +328,7 @@ export default function useSelection<RecordType>(
                 });
 
                 const keys = Array.from(keySet);
-                setSelectedKeys(keys, []);
+                setSelectedKeys(keys);
                 if (onSelectInvert) {
                   devWarning(
                     false,
@@ -401,7 +417,7 @@ export default function useSelection<RecordType>(
                 onClick={e => e.stopPropagation()}
                 onChange={event => {
                   if (!keySet.has(key)) {
-                    triggerSingleSelection(key, true, [key], [], event.nativeEvent);
+                    triggerSingleSelection(key, true, [key], event.nativeEvent);
                   }
                 }}
               />
@@ -413,7 +429,7 @@ export default function useSelection<RecordType>(
         renderCell = (_, record) => {
           const key = getRowKey(record);
           const checked = keySet.has(key);
-          const indeterminate = mergedHalfSelectedKeySet.has(key);
+          const indeterminate = derivedHalfSelectedKeySet.has(key);
 
           // Record checked
           return {
@@ -469,7 +485,7 @@ export default function useSelection<RecordType>(
                     }
 
                     const keys = Array.from(keySet);
-                    setSelectedKeys(keys, mergedHalfSelectedKeys);
+                    setSelectedKeys(keys);
                     if (onSelectMultiple) {
                       onSelectMultiple(
                         !checked,
@@ -479,26 +495,16 @@ export default function useSelection<RecordType>(
                     }
                   } else {
                     // Single record selected
-                    const oriCheckedKeys = mergedSelectedKeys;
-                    const oriHalfCheckedKeys = mergedHalfSelectedKeys;
+                    const originCheckedKeys = derivedSelectedKeys;
                     if (checkStrictly) {
                       const checkedKeys = checked
-                        ? arrDel(oriCheckedKeys, key)
-                        : arrAdd(oriCheckedKeys, key);
-                      const halfCheckedKeys = arrDel(oriHalfCheckedKeys, key);
-                      triggerSingleSelection(
-                        key,
-                        !checked,
-                        checkedKeys,
-                        halfCheckedKeys,
-                        nativeEvent,
-                      );
+                        ? arrDel(originCheckedKeys, key)
+                        : arrAdd(originCheckedKeys, key);
+                      triggerSingleSelection(key, !checked, checkedKeys, nativeEvent);
                     } else {
-                      const isCheckboxDisabled: GetCheckDisabled<RecordType> = (r: RecordType) =>
-                        !!checkboxPropsMap.get(getRowKey(r))?.disabled;
                       // Always fill first
                       const result = conductCheck(
-                        [...oriCheckedKeys, key],
+                        [...originCheckedKeys, key],
                         true,
                         keyEntities as any,
                         isCheckboxDisabled as any,
@@ -517,13 +523,7 @@ export default function useSelection<RecordType>(
                         ));
                       }
 
-                      triggerSingleSelection(
-                        key,
-                        !checked,
-                        checkedKeys,
-                        halfCheckedKeys,
-                        nativeEvent,
-                      );
+                      triggerSingleSelection(key, !checked, checkedKeys, nativeEvent);
                     }
                   }
 
@@ -571,17 +571,15 @@ export default function useSelection<RecordType>(
       getRowKey,
       pageData,
       rowSelection,
-      innerSelectedKeys,
-      mergedSelectedKeys,
+      derivedSelectedKeys,
       selectionColWidth,
       expandType,
       lastSelectedKey,
       onSelectMultiple,
       triggerSingleSelection,
       selections,
-      mergedSelectedKeySet,
     ],
   );
 
-  return [transformColumns, mergedSelectedKeySet];
+  return [transformColumns, derivedSelectedKeySet];
 }

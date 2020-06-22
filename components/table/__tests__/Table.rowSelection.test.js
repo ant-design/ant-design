@@ -954,6 +954,20 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(wrapper)).toEqual([3]);
         expect(onChange.mock.calls[1][0]).toEqual(['Jerry Jack', 'Jerry Lucy']);
       });
+      it('initialized correctly', () => {
+        const table = createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            selectedRowKeys: [7, 8, 9],
+          },
+          rowKey: 'key',
+        });
+        const wrapper = mount(table);
+        expect(getSelections(wrapper)).toEqual([6, 7, 8, 9]);
+        expect(getIndeterminateSelection(wrapper)).toEqual([3]);
+      });
       it('works with disabled checkbox', () => {
         const onChange = jest.fn();
 
