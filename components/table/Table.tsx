@@ -124,6 +124,14 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     showSorterTooltip = true,
   } = props;
 
+  if (process.env.NODE_ENV !== 'production') {
+    devWarning(
+      !(typeof rowKey === 'function' && rowKey.length > 1),
+      'Table',
+      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+    );
+  }
+
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
@@ -216,18 +224,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(
-        changeInfo.pagination!,
-        changeInfo.filters!,
-        changeInfo.sorter!,
-        {
-          currentDataSource: getFilterData(
-            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-            changeInfo.filterStates!,
-          ),
-          action,
-        },
-      );
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+        currentDataSource: getFilterData(
+          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+          changeInfo.filterStates!,
+        ),
+        action,
+      });
     }
   };
 

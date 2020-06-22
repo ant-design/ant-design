@@ -225,8 +225,8 @@ export default function useSelection<RecordType>(
 
       // Get all checkbox props
       const checkboxPropsMap = new Map<Key, Partial<CheckboxProps>>();
-      flattedData.forEach(record => {
-        const key = getRowKey(record);
+      flattedData.forEach((record, index) => {
+        const key = getRowKey(record, index);
         const checkboxProps = (getCheckboxProps ? getCheckboxProps(record) : null) || {};
         checkboxPropsMap.set(key, checkboxProps);
 
@@ -282,17 +282,17 @@ export default function useSelection<RecordType>(
         if (!selections || hideSelectAll) {
           return null;
         }
-    
+
         const selectionList: INTERNAL_SELECTION_ITEM[] =
           selections === true ? [SELECTION_ALL, SELECTION_INVERT] : selections;
-    
+
         return selectionList.map((selection: INTERNAL_SELECTION_ITEM) => {
           if (selection === SELECTION_ALL) {
             return {
               key: 'all',
               text: tableLocale.selectionAll,
               onSelect() {
-                onSelectAllChange(true)
+                onSelectAllChange(true);
               },
             };
           }
@@ -303,14 +303,14 @@ export default function useSelection<RecordType>(
               onSelect() {
                 pageData.forEach(record => {
                   const key = getRowKey(record);
-    
+
                   if (keySet.has(key)) {
                     keySet.delete(key);
                   } else {
                     keySet.add(key);
                   }
                 });
-    
+
                 const keys = Array.from(keySet);
                 setSelectedKeys(keys, []);
                 if (onSelectInvert) {
@@ -325,7 +325,7 @@ export default function useSelection<RecordType>(
             };
           }
           return selection as SelectionItem;
-        })
+        });
       })();
 
       // ===================== Render =====================
