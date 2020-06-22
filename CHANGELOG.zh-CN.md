@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 4.3.5
+
+`2020-06-21`
+
+- 🐞 修复 Input.Search 作为 AutoComplete 自定义组件会崩溃的问题。[#25049](https://github.com/ant-design/ant-design/pull/25049)
+- 🛠 使用 hooks 重写 Input.Password。[#25012](https://github.com/ant-design/ant-design/pull/25012) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- 🐞 修复 PageHeader 从 `4.3.0` 后的 `tabs` 样式错误。[#24991](https://github.com/ant-design/ant-design/pull/24991)
+- 🐞 修复 Backtop 没有完全隐藏的问题。[#25132](https://github.com/ant-design/ant-design/pull/25132) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 🐞 修复 Upload 不支持包裹 Popover 的问题。[#25090](https://github.com/ant-design/ant-design/pull/25090)
+- 🐞 修复 Tabs 内容会超出容器宽度的问题。[#25072](https://github.com/ant-design/ant-design/pull/25072)
+- 🐞 修复 DataPicker/TimePicker 时间下拉选对齐问题。[#25019](https://github.com/ant-design/ant-design/pull/25019)
+- Table
+  - 💄 优化 Table 筛选菜单为空时的 UI。[#25073](https://github.com/ant-design/ant-design/pull/25073)
+  - 🐞 修复 Table 嵌套 Table 时的边框样式问题。[#24995](https://github.com/ant-design/ant-design/pull/24995)
+  - 💄 缩小了 Table 筛选菜单的最大高度。[#25001](https://github.com/ant-design/ant-design/pull/25001)
+- Descriptions
+  - 🐞 修复 Descriptions 双击会同时选中标签和内容的问题。[#24983](https://github.com/ant-design/ant-design/pull/24983) [@harupy](https://github.com/harupy)
+  - 💄 修正了 Descriptions 在 Safari 下标签文本没有左侧对齐的问题。[#25018](https://github.com/ant-design/ant-design/pull/25018)
+- 💄 修正了 List.Item.Meta 内容宽度有时会溢出的问题。[#24992](https://github.com/ant-design/ant-design/pull/24992)
+- 🐞 修复 Menu.SubMenu 在紧凑模式下暗黑主题的背景颜色。[#24997](https://github.com/ant-design/ant-design/pull/24997)
+- ⚡️ 减少 Button `3KB` 样式打包体积。[#24996](https://github.com/ant-design/ant-design/pull/24996)
+- 🇹🇷 优化土耳其语语言包。[#25100](https://github.com/ant-design/ant-design/pull/25100) [@smddzcy](https://github.com/smddzcy)
+- TypeScript
+  - 导出 Tree `DataNode` 定义。[#25065](https://github.com/ant-design/ant-design/pull/25065) [@jinxin0112](https://github.com/jinxin0112)
+
 ## 4.3.4
 
 `2020-06-14`

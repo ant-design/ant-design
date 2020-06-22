@@ -18,6 +18,10 @@ function isString(str: any) {
   return typeof str === 'string';
 }
 
+function isUnborderedButtonType(type: ButtonType | undefined) {
+  return type === 'text' || type === 'link';
+}
+
 // Insert one space between two chinese characters automatically.
 function insertSpace(child: React.ReactChild, needInserted: boolean) {
   // Check the child if is undefined or null.
@@ -147,7 +151,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const delayTimeoutRef = React.useRef<number>();
 
   const isNeedInserted = () => {
-    return React.Children.count(children) === 1 && !icon && type !== 'link' && type !== 'text';
+    return React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
   };
 
   const fixTwoCNChar = () => {
@@ -204,6 +208,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
   );
 
+  devWarning(
+    !(ghost && isUnborderedButtonType(type)),
+    'Button',
+    "`link` or `text` button can't be a `ghost` button.",
+  );
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
@@ -228,7 +238,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     [`${prefixCls}-${shape}`]: shape,
     [`${prefixCls}-${sizeCls}`]: sizeCls,
     [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-    [`${prefixCls}-background-ghost`]: ghost,
+    [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
     [`${prefixCls}-loading`]: innerLoading,
     [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
     [`${prefixCls}-block`]: block,
@@ -274,7 +284,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 
-  if (type === 'link' || type === 'text') {
+  if (isUnborderedButtonType(type)) {
     return buttonNode;
   }
 
