@@ -317,8 +317,8 @@ export default function useSelection<RecordType>(
               key: 'invert',
               text: tableLocale.selectInvert,
               onSelect() {
-                pageData.forEach(record => {
-                  const key = getRowKey(record);
+                pageData.forEach((record, index) => {
+                  const key = getRowKey(record, index);
 
                   if (keySet.has(key)) {
                     keySet.delete(key);
@@ -380,8 +380,8 @@ export default function useSelection<RecordType>(
           );
         }
 
-        const allDisabled = flattedData.every(record => {
-          const key = getRowKey(record);
+        const allDisabled = flattedData.every((record, index) => {
+          const key = getRowKey(record, index);
           const checkboxProps = checkboxPropsMap.get(key) || {};
           return checkboxProps.disabled;
         });
@@ -403,10 +403,11 @@ export default function useSelection<RecordType>(
       let renderCell: (
         _: RecordType,
         record: RecordType,
+        index: number,
       ) => { node: React.ReactNode; checked: boolean };
       if (selectionType === 'radio') {
-        renderCell = (_, record) => {
-          const key = getRowKey(record);
+        renderCell = (_, record, index) => {
+          const key = getRowKey(record, index);
           const checked = keySet.has(key);
 
           return {
@@ -426,8 +427,8 @@ export default function useSelection<RecordType>(
           };
         };
       } else {
-        renderCell = (_, record) => {
-          const key = getRowKey(record);
+        renderCell = (_, record, index) => {
+          const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const indeterminate = derivedHalfSelectedKeySet.has(key);
 
@@ -537,7 +538,7 @@ export default function useSelection<RecordType>(
       }
 
       const renderSelectionCell = (_: any, record: RecordType, index: number) => {
-        const { node, checked } = renderCell(_, record);
+        const { node, checked } = renderCell(_, record, index);
 
         if (customizeRenderCell) {
           return customizeRenderCell(checked, record, index, node);
