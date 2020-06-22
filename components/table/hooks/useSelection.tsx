@@ -3,7 +3,7 @@ import { useState, useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
-import { parseCheckedKeys, arrAdd, arrDel } from 'rc-tree/lib/util';
+import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import { FixedType } from 'rc-table/lib/interface';
@@ -23,8 +23,6 @@ import {
   ExpandType,
   GetPopupContainer,
 } from '../interface';
-
-const EMPTY_LIST: any[] = [];
 
 // TODO: warning if use ajax!!!
 export const SELECTION_ALL = 'SELECT_ALL' as const;
@@ -113,13 +111,12 @@ export default function useSelection<RecordType>(
   const [innerSelectedKeys, setInnerSelectedKeys] = useState<{
     checked: Key[];
     halfChecked: Key[];
-  }>();
-  let {
-    checkedKeys: mergedSelectedKeys,
-    halfCheckedKeys: mergedHalfSelectedKeys,
-  } = parseCheckedKeys(selectedRowKeys || innerSelectedKeys || EMPTY_LIST);
-  mergedSelectedKeys = mergedSelectedKeys || [];
-  mergedHalfSelectedKeys = mergedHalfSelectedKeys || [];
+  }>({
+    checked: (selectedRowKeys as Key[]) || [],
+    halfChecked: [],
+  });
+  const mergedSelectedKeys = (selectedRowKeys as Key[]) || innerSelectedKeys.checked;
+  const mergedHalfSelectedKeys = innerSelectedKeys.halfChecked || [];
   const mergedSelectedKeySet: Set<Key> = useMemo(() => {
     const keys = selectionType === 'radio' ? mergedSelectedKeys.slice(0, 1) : mergedSelectedKeys;
     return new Set(keys);
