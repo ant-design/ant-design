@@ -28,7 +28,7 @@ interface IconDisplayState {
   searchKey: string;
 }
 
-class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
+class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState> {
   static categories: Categories = categories;
 
   static newIconNames: string[] = [];
@@ -41,6 +41,10 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   constructor(props: IconDisplayProps) {
     super(props);
     this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
   }
 
   handleChangeTheme = (e: RadioChangeEvent) => {
