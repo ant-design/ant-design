@@ -119,6 +119,29 @@
       &-loading-icon {
         color: @primary-color;
       }
+
+      &-leaf-line {
+        z-index: 1;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        &::before {
+          position: absolute;
+          height: @tree-title-height;
+          margin-left: -1px;
+          border-left: 1px solid @normal-color;
+          content: ' ';
+        }
+        &::after {
+          position: absolute;
+          width: @tree-title-height - 14px;
+          height: @tree-title-height - 10px;
+          margin-left: -1px;
+          border-bottom: 1px solid @normal-color;
+          border-left: 1px solid @normal-color;
+          content: ' ';
+        }
+      }
     }
 
     // >>> Checkbox
