@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
 import TransitionEvents from '@ant-design/css-animation/lib/Event';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
@@ -22,8 +21,12 @@ function isNotGrey(color: string) {
   }
   return true;
 }
+interface WaveProps {
+  insertExtraNode?: boolean;
+  ref?: React.RefObject<HTMLElement>;
+}
 
-export default class Wave extends React.Component<{ insertExtraNode?: boolean }> {
+export default class Wave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
@@ -44,8 +47,10 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   context: ConfigConsumerProps;
 
+  private nodeReference = React.createRef<HTMLElement>();
+
   componentDidMount() {
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.nodeReference.current as HTMLElement;
     if (!node || node.nodeType !== 1) {
       return;
     }
@@ -112,7 +117,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       return;
     }
 
-    const node = findDOMNode(this) as HTMLElement;
+    const node = this.nodeReference.current as HTMLElement;
     if (!e || e.target !== node || this.animationStart) {
       return;
     }
@@ -194,12 +199,25 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   renderWave = ({ csp }: ConfigConsumerProps) => {
     const { children } = this.props;
-    this.csp = csp;
 
-    return children;
+    const childrenWithRef = React.Children.map(children, child => {
+      // clone each children and attach the reference to it
+      return React.cloneElement(child as React.ReactElement<WaveProps>, {
+        ref: this.nodeReference,
+      });
+    });
+
+    this.csp = csp;
+    return childrenWithRef;
   };
 
   render() {
-    return <ConfigConsumer>{this.renderWave}</ConfigConsumer>;
+    return (
+      <ConfigConsumer>
+        {(props: ConfigConsumerProps) => {
+          return this.renderWave(props);
+        }}
+      </ConfigConsumer>
+    );
   }
 }
