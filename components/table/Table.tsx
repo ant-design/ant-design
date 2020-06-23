@@ -222,13 +222,18 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
-        currentDataSource: getFilterData(
-          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-          changeInfo.filterStates!,
-        ),
-        action,
-      });
+      onChange(
+        changeInfo.pagination!,
+        changeInfo.filters!,
+        changeInfo.sorter!,
+        {
+          currentDataSource: getFilterData(
+            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+            changeInfo.filterStates!,
+          ),
+          action,
+        },
+      );
     }
   };
 
