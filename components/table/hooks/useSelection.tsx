@@ -326,7 +326,6 @@ export default function useSelection<RecordType>(
                     keySet.add(key);
                   }
                 });
-
                 const keys = Array.from(keySet);
                 setSelectedKeys(keys);
                 if (onSelectInvert) {
