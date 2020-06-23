@@ -19,7 +19,7 @@ const notificationInstance: {
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
-let defaultPrefixCls = 'ant-notification';
+let defaultPrefixCls = 'uc-notification';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;

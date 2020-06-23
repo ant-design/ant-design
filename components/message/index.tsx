@@ -11,7 +11,7 @@ let defaultDuration = 3;
 let defaultTop: number;
 let messageInstance: any;
 let key = 1;
-let prefixCls = 'ant-message';
+let prefixCls = 'uc-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
