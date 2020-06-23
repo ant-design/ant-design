@@ -167,7 +167,7 @@ export default function useSelection<RecordType>(
       isCheckboxDisabled as any,
     );
     return [checkedKeys, halfCheckedKeys];
-  }, [mergedSelectedKeys, checkStrictly, isCheckboxDisabled]);
+  }, [mergedSelectedKeys, checkStrictly, keyEntities, isCheckboxDisabled]);
 
   const derivedSelectedKeySet: Set<Key> = useMemo(() => {
     const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
