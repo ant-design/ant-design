@@ -571,6 +571,7 @@ export default function useSelection<RecordType>(
     },
     [
       getRowKey,
+      flattedData,
       rowSelection,
       derivedSelectedKeys,
       derivedSelectedKeySet,
