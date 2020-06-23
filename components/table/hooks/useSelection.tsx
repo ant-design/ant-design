@@ -7,6 +7,7 @@ import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import { FixedType } from 'rc-table/lib/interface';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
@@ -135,9 +136,9 @@ export default function useSelection<RecordType>(
   }, [flattedData, getRowKey, getCheckboxProps]);
 
   // ========================= Keys =========================
-  const [innerSelectedKeys, setInnerSelectedKeys] = useState<Key[]>(
-    (selectedRowKeys as Key[]) || [],
-  );
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(selectedRowKeys || [], {
+    value: selectedRowKeys,
+  });
 
   const { keyEntities } = useMemo(
     () =>
@@ -151,25 +152,18 @@ export default function useSelection<RecordType>(
     return !!checkboxPropsMap.get(getRowKey(r))?.disabled;
   };
 
-  const { derivedSelectedKeys, derivedHalfSelectedKeys } = React.useMemo(() => {
-    const syntheticSelectedKeys = (selectedRowKeys as Key[]) || innerSelectedKeys;
+  const [derivedSelectedKeys, derivedHalfSelectedKeys] = React.useMemo(() => {
     if (checkStrictly) {
-      return {
-        derivedSelectedKeys: syntheticSelectedKeys,
-        derivedHalfSelectedKeys: [],
-      };
+      return [mergedSelectedKeys, []];
     }
     const { checkedKeys, halfCheckedKeys } = conductCheck(
-      syntheticSelectedKeys,
+      mergedSelectedKeys,
       true,
       keyEntities as any,
       isCheckboxDisabled as any,
     );
-    return {
-      derivedSelectedKeys: checkedKeys,
-      derivedHalfSelectedKeys: halfCheckedKeys,
-    };
-  }, [selectedRowKeys, innerSelectedKeys]);
+    return [checkedKeys, halfCheckedKeys];
+  }, [mergedSelectedKeys, checkStrictly]);
 
   const derivedSelectedKeySet: Set<Key> = useMemo(() => {
     const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
@@ -184,7 +178,7 @@ export default function useSelection<RecordType>(
   // Reset if rowSelection reset
   React.useEffect(() => {
     if (!rowSelection) {
-      setInnerSelectedKeys([]);
+      setMergedSelectedKeys([]);
     }
   }, [!!rowSelection]);
 
@@ -225,13 +219,13 @@ export default function useSelection<RecordType>(
         });
       }
 
-      setInnerSelectedKeys(availableKeys);
+      setMergedSelectedKeys(availableKeys);
 
       if (onSelectionChange) {
         onSelectionChange(availableKeys, records);
       }
     },
-    [setInnerSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
+    [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
 
   // ====================== Selections ======================
@@ -509,21 +503,22 @@ export default function useSelection<RecordType>(
                         keyEntities as any,
                         isCheckboxDisabled as any,
                       );
-                      let { checkedKeys, halfCheckedKeys } = result;
+                      const { checkedKeys, halfCheckedKeys } = result;
+                      let nextCheckedKeys = checkedKeys;
 
                       // If remove, we do it again to correction
                       if (checked) {
                         const tempKeySet = new Set(checkedKeys);
                         tempKeySet.delete(key);
-                        ({ checkedKeys, halfCheckedKeys } = conductCheck(
+                        nextCheckedKeys = conductCheck(
                           Array.from(tempKeySet),
                           { checked: false, halfCheckedKeys },
                           keyEntities as any,
                           isCheckboxDisabled as any,
-                        ));
+                        ).checkedKeys;
                       }
 
-                      triggerSingleSelection(key, !checked, checkedKeys, nativeEvent);
+                      triggerSingleSelection(key, !checked, nextCheckedKeys, nativeEvent);
                     }
                   }
 

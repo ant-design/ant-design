@@ -134,12 +134,7 @@ export interface TableRowSelection<T> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
-  selectedRowKeys?:
-    | Key[]
-    | {
-        checked: Key[];
-        halfChecked: Key[];
-      };
+  selectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
