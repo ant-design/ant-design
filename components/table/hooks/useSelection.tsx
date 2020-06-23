@@ -259,10 +259,10 @@ export default function useSelection<RecordType>(
       const checkedCurrentAll = recordKeys.every(key => keySet.has(key));
       const checkedCurrentSome = recordKeys.some(key => keySet.has(key));
 
-      const onSelectAllChange = (treatAsNotAllChecked = false) => {
+      const onSelectAllChange = () => {
         const changeKeys: Key[] = [];
 
-        if (checkedCurrentAll && !treatAsNotAllChecked) {
+        if (checkedCurrentAll) {
           recordKeys.forEach(key => {
             keySet.delete(key);
             changeKeys.push(key);
@@ -281,7 +281,7 @@ export default function useSelection<RecordType>(
 
         if (onSelectAll) {
           onSelectAll(
-            treatAsNotAllChecked || !checkedCurrentAll,
+            !checkedCurrentAll,
             keys.map(k => getRecordByKey(k)),
             changeKeys.map(k => getRecordByKey(k)),
           );
@@ -302,7 +302,13 @@ export default function useSelection<RecordType>(
               key: 'all',
               text: tableLocale.selectionAll,
               onSelect() {
-                onSelectAllChange(true);
+                recordKeys.forEach(key => {
+                  if (!keySet.has(key)) {
+                    keySet.add(key);
+                  }
+                });
+                const keys = Array.from(keySet);
+                setSelectedKeys(keys);
               },
             };
           }
