@@ -160,7 +160,7 @@ describe('Table.rowSelection', () => {
     expect(getSelections(wrapper)).toEqual([1]);
   });
 
-  it('fires change & select events', () => {
+  it('fires change and select events', () => {
     const handleChange = jest.fn();
     const handleSelect = jest.fn();
     const rowSelection = {
