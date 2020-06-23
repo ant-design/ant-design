@@ -185,11 +185,12 @@ Properties for row selection.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| columnWidth | Set the width of the selection column | string\|number | `60px` | 4.0 |
-| columnTitle | Set the title of the selection column | string\|React.ReactNode | - | 4.0 |
-| fixed | Fixed selection column on the left | boolean | - | 4.0 |
-| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - | 4.0 |
-| hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3 |
+| checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
+| columnWidth | Set the width of the selection column | string\|number | `60px` |  |
+| columnTitle | Set the title of the selection column | string\|ReactNode | - |  |
+| fixed | Fixed selection column on the left | boolean | - |  |
+| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |  |
+| hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | `false` | 4.3 |
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4 |
 | renderCell | Renderer of the table cell. Same as `render` in column | Function(checked, record, index, originNode) {} | - | 4.1 |
 | selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |  |

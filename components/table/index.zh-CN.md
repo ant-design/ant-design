@@ -190,6 +190,7 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
 | columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |  |
 | columnTitle | 自定义列表选择框标题 | string\|ReactNode | - |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
