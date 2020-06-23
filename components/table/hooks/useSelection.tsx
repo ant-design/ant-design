@@ -153,7 +153,7 @@ export default function useSelection<RecordType>(
     (r: RecordType) => {
       return !!checkboxPropsMap.get(getRowKey(r))?.disabled;
     },
-    [checkboxPropsMap],
+    [checkboxPropsMap, getRowKey],
   );
 
   const [derivedSelectedKeys, derivedHalfSelectedKeys] = useMemo(() => {
