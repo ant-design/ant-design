@@ -21,7 +21,7 @@ const success = () => {
     content: 'This is a prompt message with custom className and style',
     className: 'custom-class',
     style: {
-      marginTop: '50%',
+      marginTop: '20vh',
     },
   });
 };
