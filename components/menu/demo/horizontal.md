@@ -26,14 +26,13 @@ class App extends React.Component {
 
   handleClick = e => {
     console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
+    this.setState({ current: e.key });
   };
 
   render() {
+    const { current } = this.state;
     return (
-      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
