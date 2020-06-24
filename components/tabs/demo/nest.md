@@ -71,6 +71,7 @@ class Demo extends React.Component {
         >
           <Option value="line">Parent - line</Option>
           <Option value="card">Parent - card</Option>
+          <Option value="editable-card">Parent - card edit</Option>
         </Select>
 
         <Select
@@ -81,6 +82,7 @@ class Demo extends React.Component {
         >
           <Option value="line">Child - line</Option>
           <Option value="card">Child - card</Option>
+          <Option value="editable-card">Parent - card edit</Option>
         </Select>
 
         <Tabs defaultActiveKey="1" tabPosition={parentPos} type={parentType}>

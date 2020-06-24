@@ -1188,24 +1188,30 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               class="ant-tabs-nav-list"
               style="transform:translate(0px, 0px)"
             >
-              <button
-                aria-selected="true"
+              <div
                 class="ant-tabs-tab ant-tabs-tab-active"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                Details
-              </button>
-              <button
-                aria-selected="false"
+                <div
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  Details
+                </div>
+              </div>
+              <div
                 class="ant-tabs-tab"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                Rule
-              </button>
+                <div
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  Rule
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />

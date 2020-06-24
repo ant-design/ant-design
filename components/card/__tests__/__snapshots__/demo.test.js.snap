@@ -852,24 +852,30 @@ Array [
               class="ant-tabs-nav-list"
               style="transform:translate(0px, 0px)"
             >
-              <button
-                aria-selected="true"
+              <div
                 class="ant-tabs-tab ant-tabs-tab-active"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                tab1
-              </button>
-              <button
-                aria-selected="false"
+                <div
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab1
+                </div>
+              </div>
+              <div
                 class="ant-tabs-tab"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                tab2
-              </button>
+                <div
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab2
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
@@ -969,33 +975,42 @@ Array [
               class="ant-tabs-nav-list"
               style="transform:translate(0px, 0px)"
             >
-              <button
-                aria-selected="false"
+              <div
                 class="ant-tabs-tab"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                article
-              </button>
-              <button
-                aria-selected="true"
+                <div
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  article
+                </div>
+              </div>
+              <div
                 class="ant-tabs-tab ant-tabs-tab-active"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                app
-              </button>
-              <button
-                aria-selected="false"
+                <div
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  app
+                </div>
+              </div>
+              <div
                 class="ant-tabs-tab"
-                role="tab"
-                tabindex="0"
-                type="button"
               >
-                project
-              </button>
+                <div
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  project
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
