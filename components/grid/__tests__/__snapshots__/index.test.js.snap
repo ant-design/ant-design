@@ -42,59 +42,9 @@ exports[`Grid should render Row 1`] = `
 />
 `;
 
-exports[`Grid when typeof gutter is object 1`] = `
-<Row
-  gutter={
-    Object {
-      "md": 24,
-      "sm": 16,
-      "xs": 8,
-    }
-  }
->
-  <div
-    className="ant-row"
-    style={
-      Object {
-        "marginLeft": -4,
-        "marginRight": -4,
-      }
-    }
-  />
-</Row>
-`;
-
-exports[`Grid when typeof gutter is object array 1`] = `
-<Row
-  gutter={
-    Array [
-      Object {
-        "lg": 32,
-        "md": 24,
-        "sm": 16,
-        "xl": 40,
-        "xs": 8,
-      },
-      Object {
-        "lg": 32,
-        "md": 24,
-        "sm": 16,
-        "xl": 40,
-        "xs": 8,
-      },
-    ]
-  }
->
-  <div
-    className="ant-row"
-    style={
-      Object {
-        "marginBottom": 4,
-        "marginLeft": -4,
-        "marginRight": -4,
-        "marginTop": -4,
-      }
-    }
-  />
-</Row>
+exports[`Grid when typeof gutter is object array in large screen 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-20px;margin-right:-20px;margin-top:-200px;margin-bottom:200px"
+/>
 `;

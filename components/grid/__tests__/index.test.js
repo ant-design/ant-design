@@ -4,6 +4,7 @@ import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import useBreakpoint from '../hooks/useBreakpoint';
+import ResponsiveObserve from '../../_util/responsiveObserve';
 
 describe('Grid', () => {
   mountTest(Row);
@@ -24,11 +25,12 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -4,
-      marginRight: -4,
-    });
+    expect(wrapper.find('div').first().props().style).toEqual(
+      expect.objectContaining({
+        marginLeft: -4,
+        marginRight: -4,
+      }),
+    );
   });
 
   it('when typeof gutter is object array', () => {
@@ -40,13 +42,24 @@ describe('Grid', () => {
         ]}
       />,
     );
+    expect(wrapper.find('div').first().props().style).toEqual(
+      expect.objectContaining({
+        marginLeft: -4,
+        marginRight: -4,
+      }),
+    );
+  });
+
+  it('when typeof gutter is object array in large screen', () => {
+    const wrapper = render(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
+        ]}
+      />,
+    );
     expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('div').prop('style')).toEqual({
-      marginTop: -4,
-      marginRight: -4,
-      marginBottom: 4,
-      marginLeft: -4,
-    });
   });
 
   it('renders wrapped Col correctly', () => {
@@ -60,6 +73,13 @@ describe('Grid', () => {
       </Row>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('when component has been unmounted, componentWillUnmount should be called', () => {
+    const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
+    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
+    wrapper.unmount();
+    expect(Unmount).toHaveBeenCalled();
   });
 
   it('should work correct when gutter is object', () => {

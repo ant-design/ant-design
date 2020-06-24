@@ -20,7 +20,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
 }
 
-const Row: React.FC<RowProps> = props => {
+const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const [screens, setScreens] = React.useState<ScreenMap>({
     xs: true,
     sm: true,
@@ -30,11 +30,9 @@ const Row: React.FC<RowProps> = props => {
     xxl: true,
   });
 
-  let token: string;
-
   React.useEffect(() => {
-    token = ResponsiveObserve.subscribe(screen => {
-      const { gutter } = props;
+    const token = ResponsiveObserve.subscribe(screen => {
+      const { gutter = 0 } = props;
       if (
         (!Array.isArray(gutter) && typeof gutter === 'object') ||
         (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
@@ -42,17 +40,14 @@ const Row: React.FC<RowProps> = props => {
         setScreens(screen);
       }
     });
-  }, []);
-
-  React.useEffect(() => {
     return () => {
       ResponsiveObserve.unsubscribe(token);
     };
-  });
+  }, [props.gutter]);
 
   const getGutter = (): [number, number] => {
     const results: [number, number] = [0, 0];
-    const { gutter } = props;
+    const { gutter = 0 } = props;
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
     normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
@@ -111,7 +106,7 @@ const Row: React.FC<RowProps> = props => {
 
     return (
       <RowContext.Provider value={{ gutter }}>
-        <div {...otherProps} className={classes} style={rowStyle}>
+        <div {...otherProps} className={classes} style={rowStyle} ref={ref}>
           {children}
         </div>
       </RowContext.Provider>
@@ -119,10 +114,8 @@ const Row: React.FC<RowProps> = props => {
   };
 
   return <ConfigConsumer>{renderRow}</ConfigConsumer>;
-};
+});
 
-Row.defaultProps = {
-  gutter: 0,
-};
+Row.displayName = 'Row';
 
 export default Row;

@@ -44,7 +44,7 @@ function parseFlex(flex: FlexType): string {
   return flex;
 }
 
-const Col: React.FC<ColProps> = props => {
+const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -122,7 +122,7 @@ const Col: React.FC<ColProps> = props => {
           }
 
           return (
-            <div {...others} style={mergedStyle} className={classes}>
+            <div {...others} style={mergedStyle} className={classes} ref={ref}>
               {children}
             </div>
           );
@@ -132,6 +132,8 @@ const Col: React.FC<ColProps> = props => {
   };
 
   return <ConfigConsumer>{renderCol}</ConfigConsumer>;
-};
+});
+
+Col.displayName = 'Col';
 
 export default Col;
