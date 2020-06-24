@@ -128,19 +128,19 @@
       margin-left: 0;
     }
 
-    & &-btn,
-    & &-remove {
+    &-btn,
+    &-remove {
       &:focus,
       &:active {
         color: @tabs-active-color;
       }
     }
 
-    & &-btn {
+    &-btn {
       outline: none;
     }
 
-    & &-remove {
+    &-remove {
       flex: none;
       margin-right: -@margin-xss;
       margin-left: @margin-xs;
@@ -151,10 +151,6 @@
       outline: none;
       cursor: pointer;
       transition: all @animation-duration-slow;
-
-      .@{iconfont-css-prefix} {
-        margin: 0;
-      }
 
       &:hover {
         color: @heading-color;
@@ -173,6 +169,10 @@
     &&-disabled {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+
+    & &-remove .@{iconfont-css-prefix} {
+      margin: 0;
     }
 
     .@{iconfont-css-prefix} {
