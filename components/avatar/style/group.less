@@ -6,13 +6,17 @@
 .@{avatar-prefix-cls}-group {
   display: inline-flex;
 
-  .@{avatar-prefix-cls}:not(:first-child) {
-    margin-left: -8px;
+  .@{avatar-prefix-cls} {
+    border: 1px solid #fff;
+
+    &:not(:first-child) {
+      margin-left: @avatar-group-overlapping;
+    }
   }
 
   &-hovered:hover {
     .@{avatar-prefix-cls}:not(:first-child) {
-      margin-left: 4px;
+      margin-left: @avatar-group-space;
       transition: all 0.4s;
     }
   }
