@@ -9,6 +9,10 @@ import Demo from './Demo';
 import EditButton from './EditButton';
 import { ping, getMetaDescription } from '../utils';
 
+const ComponentInMarkdown = React.memo(({ content, utils }) =>
+  utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(content))),
+);
+
 class ComponentDoc extends React.Component {
   state = {
     expandAll: false,
@@ -163,9 +167,7 @@ class ComponentDoc extends React.Component {
               filename={filename}
             />
           </h1>
-          {utils.toReactComponent(
-            ['section', { className: 'markdown' }].concat(getChildren(content)),
-          )}
+          <ComponentInMarkdown utils={utils} content={content} />
           <h2>
             <FormattedMessage id="app.component.examples" />
             <span className="all-code-box-controls">

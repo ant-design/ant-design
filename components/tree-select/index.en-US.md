@@ -23,7 +23,7 @@ Tree selection control.
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. `false` will disable virtual scroll | boolean \| number | true |  |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
 | dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |  |
