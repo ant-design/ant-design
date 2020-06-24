@@ -1635,7 +1635,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -1692,7 +1692,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -1749,7 +1749,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -1806,7 +1806,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -2433,7 +2433,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg

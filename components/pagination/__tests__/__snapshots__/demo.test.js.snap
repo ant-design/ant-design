@@ -211,7 +211,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -570,7 +570,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -799,7 +799,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -1103,7 +1103,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1333,7 +1333,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -1571,7 +1571,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -1880,7 +1880,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -2288,7 +2288,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -2564,7 +2564,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -2748,7 +2748,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg

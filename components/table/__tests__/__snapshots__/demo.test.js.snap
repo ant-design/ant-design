@@ -4557,7 +4557,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -7157,7 +7157,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -8398,7 +8398,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -9374,7 +9374,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg

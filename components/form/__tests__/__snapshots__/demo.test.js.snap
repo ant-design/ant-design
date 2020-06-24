@@ -572,7 +572,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -739,7 +739,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -880,7 +880,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -2662,7 +2662,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down"
+                      class="anticon anticon-down ant-select-suffix"
                       role="img"
                     >
                       <svg
@@ -3063,7 +3063,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -3145,7 +3145,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -4103,7 +4103,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -5939,7 +5939,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
