@@ -25191,15 +25191,18 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25274,15 +25277,18 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25357,15 +25363,18 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25440,15 +25449,18 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -25523,15 +25535,18 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -25606,15 +25621,18 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         class="prefix-Tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="prefix-Tabs-tab prefix-Tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="prefix-Tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
         />
