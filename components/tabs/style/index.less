@@ -128,14 +128,29 @@
       margin-left: 0;
     }
 
+    & &-btn,
+    & &-remove {
+      &:focus,
+      &:active {
+        color: @tabs-active-color;
+      }
+    }
+
+    & &-btn {
+      outline: none;
+    }
+
     & &-remove {
       flex: none;
+      border: none;
+      background: transparent;
       margin-right: -@margin-xss;
       margin-left: @margin-xs;
       color: @text-color-secondary;
       font-size: @font-size-sm;
       outline: none;
       transition: all @animation-duration-slow;
+      cursor: pointer;
 
       .@{iconfont-css-prefix} {
         margin: 0;
@@ -144,23 +159,13 @@
       &:hover {
         color: @heading-color;
       }
-
-      &:focus,
-      &:active {
-        color: @tabs-active-color;
-      }
-    }
-
-    &:focus,
-    &:active {
-      color: @tabs-active-color;
     }
 
     &:hover {
       color: @tabs-hover-color;
     }
 
-    &&-active {
+    &&-active &-btn {
       color: @tabs-highlight-color;
       font-weight: 500;
     }
