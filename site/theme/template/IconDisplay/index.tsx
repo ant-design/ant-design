@@ -43,10 +43,6 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
     this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
   }
 
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-
   handleChangeTheme = (e: RadioChangeEvent) => {
     this.setState({
       theme: e.target.value as ThemeType,
