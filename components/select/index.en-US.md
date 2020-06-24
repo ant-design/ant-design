@@ -48,7 +48,7 @@ Select component to select value from options.
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | placeholder | Placeholder of select | string\|ReactNode | - |  |
-| showArrow | Whether to show the drop-down arrow | boolean | true |  |
+| showArrow | Whether to show the drop-down arrow | boolean | true for single select, false for multiple select |  |
 | showSearch | Whether show search input in single mode. | boolean | false |  |
 | size | Size of Select input. | `large` \| `middle` \| `small` |  |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
