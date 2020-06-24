@@ -213,7 +213,7 @@
     "ignore-emit-webpack-plugin": "^2.0.2",
     "immutability-helper": "^3.0.0",
     "inquirer": "^7.1.0",
-    "intersection-observer": "^0.10.0",
+    "intersection-observer": "^0.11.0",
     "jest": "^26.0.0",
     "jest-image-snapshot": "^4.0.0",
     "jest-stare": "^2.0.1",
