@@ -53,7 +53,7 @@ return (
 | direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。`false` 时会关闭虚拟滚动 | boolean \| number | - | 4.3.0 |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | - | 4.3.0 |
 
 ## FAQ
 
