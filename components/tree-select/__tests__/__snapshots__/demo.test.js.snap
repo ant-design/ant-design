@@ -40,7 +40,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -102,7 +102,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -342,7 +342,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
