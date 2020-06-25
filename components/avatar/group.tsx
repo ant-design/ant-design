@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Avatar from './avatar';
+import Popover from '../popover';
 
 export interface GroupProps {
   className?: string;
@@ -38,8 +39,11 @@ const Group: React.FC<GroupProps> = props => (
         const numOfChildren = React.Children.count(children);
         if (maxLength && maxLength < numOfChildren) {
           const childrenWithProps = React.Children.toArray(children).slice(0, maxLength);
+          const childrenHidden = React.Children.toArray(children).slice(maxLength, numOfChildren);
           childrenWithProps.push(
-            <Avatar style={excessItemsStyle}>{`+${numOfChildren - maxLength}`}</Avatar>,
+            <Popover content={childrenHidden} trigger="hover">
+              <Avatar style={excessItemsStyle}>{`+${numOfChildren - maxLength}`}</Avatar>
+            </Popover>,
           );
           return childrenWithProps;
         }
