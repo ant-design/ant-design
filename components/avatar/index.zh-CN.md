@@ -14,6 +14,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 
 ## API
 
+### Avatar
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 设置头像的自定义图标 | ReactNode | - |  |
@@ -26,3 +28,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 | gap | 字符类型距离左右两侧边界单位像素 | number | 4 | 4.3.0 |
 
 > Tip：你可以设置 `icon` 或 `children` 作为图片加载失败的默认 fallback 行为，优先级为 `icon` > `children`
+
+### Avatar.Group(4.4.0+)
+
+| 参数             | 说明               | 类型          | 默认值 | 版本 |
+| ---------------- | ------------------ | ------------- | ------ | ---- |
+| hovered          | 是否鼠标悬浮展开   | boolean       | false  |      |
+| maxLength        | 显示的最大项目个数 | number        | -      |      |
+| excessItemsStyle | 多余项目样式       | CSSProperties | -      |      |
