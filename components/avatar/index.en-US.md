@@ -24,7 +24,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 > Tip: You can set `icon` or `children` as the fallback for image load error, with the priority of `icon` > `children`
 
-### Avatar.Group(4.4.0+)
+### Avatar.Group (4.4.0+)
 
 | 参数             | 说明                    | 类型          | 默认值 | 版本 |
 | ---------------- | ----------------------- | ------------- | ------ | ---- |
