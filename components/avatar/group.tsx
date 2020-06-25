@@ -4,7 +4,6 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Avatar from './avatar';
 import Popover from '../popover';
 
-
 export interface GroupProps {
   className?: string;
   children?: React.ReactNode;
