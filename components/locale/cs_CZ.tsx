@@ -10,10 +10,21 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+
   Table: {
     filterTitle: 'Filtr',
     filterConfirm: 'Potvrdit',
     filterReset: 'Obnovit',
+    filterEmptyText: 'Žádné filtry',
+    selectAll: 'Vybrat všehchny řádky na současné stránce',
+    selectInvert: 'Invertovat výběr na současné stránce',
+    selectionAll: 'Vybrat všechny řádky',
+    sortTitle: 'Řadit',
+    expand: 'Rozbalit řádek',
+    collapse: 'Zabalit řádek',
+    triggerDesc: 'Klikni pro sestupné řazení',
+    triggerAsc: 'Klikni pro vzestupné řazení',
+    cancelSort: 'Klikni pro zrušení řazení',
   },
   Modal: {
     okText: 'Ok',
