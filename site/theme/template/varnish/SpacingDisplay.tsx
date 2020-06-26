@@ -65,5 +65,5 @@ const ExampleInner = styled.div`
   display: inline-block;
   width: ${({ theme }) => theme.spacing.xl};
   height: ${({ theme }) => theme.spacing.lg};
-  background: ${({ theme }) => theme.palette.primary.main};
+  background: ${({ theme }) => theme.palette.primary.default};
 `;

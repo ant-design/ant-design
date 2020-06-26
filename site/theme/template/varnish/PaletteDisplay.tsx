@@ -126,7 +126,7 @@ const Col = styled(Body as any)`
   /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   padding: ${({ theme }) => `${theme.spacing.md} 0`};
   display: inline-block;
-  border-top: 1px solid ${({ theme }) => theme.palette.border.main};
+  border-top: 1px solid ${({ theme }) => theme.palette.border.default};
 `;
 
 const PaletteName = styled(Col as any)`

@@ -55,5 +55,5 @@ const Example = styled.div<{ width: string }>`
   width: ${({ width }) => width};
   margin-bottom: ${({ theme }) => theme.spacing.xs};
   height: ${({ theme }) => theme.spacing.xs};
-  background: ${({ theme }) => theme.palette.border.main};
+  background: ${({ theme }) => theme.palette.border.default};
 `;

@@ -144,9 +144,9 @@ form {
 
 input[type="submit"],
 button {
-    background: ${vars.getRefOrError('button.primary.background')};
+    background: ${vars.getRefOrError('palette.primary.default')};
     cursor: pointer;
-    color: ${vars.getRefOrError('button.primary.color')};
+    color: ${vars.getRefOrError('palette.text.contrast')};
     padding: ${vars.getRefOrError('spacing.sm')} ${vars.getRefOrError('spacing.md')};
     border-radius: ${vars.getRefOrError('shape.borderRadius')};
     /**
@@ -154,7 +154,7 @@ button {
      * padding. We simplify those greatly and just omit the border.
      */
     border: none;
-    font-weight: ${vars.getRefOrError('button.default.fontWeight')};
+    font-weight: ${vars.getRefOrError('fontWeight.bold')};
     font-size: ${vars.getRefOrError('typography.bodySmall.fontSize')};
 
     /**
@@ -167,13 +167,13 @@ button {
 
 input[type="submit"]:hover,
 button:hover {
-    background: ${vars.getRefOrError('button.primary.hover.background')};
+    background: ${vars.getRefOrError('palette.primary.dark')};
 }
 
 input[type="submit"]:disabled,
 button:disabled {
-    opacity: ${vars.getRefOrError('button.primary.disabled.opacity')};
-    background: ${vars.getRefOrError('button.primary.disabled.background')};
+    opacity: 0.5;
+    background: ${vars.getRefOrError('palette.primary.veryDark')};
     cursor: default;
 }
 

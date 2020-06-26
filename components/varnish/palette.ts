@@ -18,7 +18,7 @@ export const palette: { [k: string]: { [k: string]: Color } } = {
   border: {
     light: color.N2,
     dark: color.N7,
-    main: color.N4,
+    default: color.N4,
     error: color.R4,
     info: color.B4,
     success: color.G4,
@@ -26,13 +26,13 @@ export const palette: { [k: string]: { [k: string]: Color } } = {
   },
   primary: {
     light: color.B5,
-    main: color.B6,
+    default: color.B6,
     dark: color.B7,
     veryDark: color.B8,
   },
   secondary: {
     light: color.O5,
-    main: color.O6,
+    default: color.O6,
     dark: color.O7,
   },
   text: {

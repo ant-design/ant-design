@@ -130,8 +130,8 @@ export class PrimaryColorDisplay extends React.PureComponent {
         {[
           DefaultTheme.palette.primary.veryDark,
           DefaultTheme.palette.primary.dark,
-          DefaultTheme.palette.primary.main,
-          DefaultTheme.palette.secondary.main,
+          DefaultTheme.palette.primary.default,
+          DefaultTheme.palette.secondary.default,
         ].map((c: Color) => (
           <PrimaryColor key={c.displayName} color={c} />
         ))}
@@ -318,7 +318,7 @@ const Col = styled(Body as any)`
   /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
   padding: ${({ theme }) => `${theme.spacing.md} 0`};
   display: inline-block;
-  border-top: 1px solid ${({ theme }) => theme.palette.border.main};
+  border-top: 1px solid ${({ theme }) => theme.palette.border.default};
 `;
 
 const ColorBox = styled.div<{ color: string; borderColor: string }>`
