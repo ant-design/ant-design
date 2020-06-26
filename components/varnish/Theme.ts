@@ -1,8 +1,8 @@
 import { Dictionary } from '../_util/varnish/base';
 import { animation } from './animation';
 import { breakpoints } from './breakpoints';
-import { button } from './button';
 import { color, chartingColor, Color, RGB } from './colors';
+import { fontWeight } from './fontWeight';
 import { link } from './link';
 import { palette } from './palette';
 import { shape } from './shape';
@@ -16,9 +16,9 @@ import { zIndex } from './zIndex';
 const Default = {
   animation,
   breakpoints,
-  button,
   chartingColor,
   color,
+  fontWeight,
   link,
   palette,
   shape,

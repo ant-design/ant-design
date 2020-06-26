@@ -45,6 +45,25 @@ npm run shellac:build
 npm run start
 ```
 
+Before making a PR
+
+```bash
+# build shellack if you have changes
+npm run shellac:build
+# lint and fix of all except tsc
+npm run lint-fix
+# lint of tsc (need to fix any found problems)
+npm run lint:tsc
+# update all snapshots (takes quite a while)
+npm run test:update2
+
+# this takes forever, it tests everything,
+# it is done as part of the build verification
+# but doing it locally will save you time if there is a bug
+# but double your build time if you don't have a bug
+npm run test-all
+```
+
 ## Releasing New Versions
 
 To release a new version, make sure you're in `master` without any pending changes. Then run:

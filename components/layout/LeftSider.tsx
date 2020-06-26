@@ -38,7 +38,7 @@ const FixedContainer = styled.div<{
   collapsedWidth: number | string;
   breakpoint: string;
 }>`
-  border-right: 1px solid ${({ theme }) => theme.palette.border.main};
+  border-right: 1px solid ${({ theme }) => theme.palette.border.default};
   position: fixed;
   top: 0;
   bottom: 0;

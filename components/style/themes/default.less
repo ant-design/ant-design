@@ -154,7 +154,7 @@ with varnish... would make code cleaner, but merges harder */
 
 // Border color
 @border-color-base: @v-color-n5; // base border outline a component
-@border-color-split: @v-palette-border-main; // split border inside a component
+@border-color-split: @v-palette-border-default; // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
@@ -224,7 +224,7 @@ with varnish... would make code cleaner, but merges harder */
 @btn-padding-horizontal-sm: @padding-xs - 1px;
 
 @btn-height-base: 1px * @font-size-base * @line-height-base +
-  (2 * (@v-button-default-padding-vertical + @btn-border-width));
+  (2 * (@v-spacing-xs + @btn-border-width));
 @btn-height-lg: @btn-height-base + @v-spacing-xs;
 @btn-height-sm: @btn-height-base - @v-spacing-xs;
 
@@ -510,7 +510,7 @@ with varnish... would make code cleaner, but merges harder */
 @modal-body-padding: @v-spacing-md;
 @modal-header-padding: @v-spacing-md;
 @modal-header-bg: @v-palette-background-light;
-@modal-header-border-color-split: @v-palette-border-main;
+@modal-header-border-color-split: @v-palette-border-default;
 @modal-header-close-size: 56px;
 @modal-content-bg: @component-background;
 @modal-heading-color: @heading-color;
