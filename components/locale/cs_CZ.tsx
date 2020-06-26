@@ -10,7 +10,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
-
+  global: {
+    placeholder: 'Prosím vyber',
+  },
   Table: {
     filterTitle: 'Filtr',
     filterConfirm: 'Potvrdit',
