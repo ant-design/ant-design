@@ -741,7 +741,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
         gold
         <span
           aria-label="close"
-          class="anticon anticon-close"
+          class="anticon anticon-close ant-tag-close-icon"
           role="img"
           tabindex="-1"
         >
@@ -770,7 +770,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
         cyan
         <span
           aria-label="close"
-          class="anticon anticon-close"
+          class="anticon anticon-close ant-tag-close-icon"
           role="img"
           tabindex="-1"
         >

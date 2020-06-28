@@ -104,8 +104,8 @@ const Result: ResultType = props => (
           {renderIcon(prefixCls, props)}
           <div className={`${prefixCls}-title`}>{title}</div>
           {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-          {children && <div className={`${prefixCls}-content`}>{children}</div>}
           {renderExtra(prefixCls, props)}
+          {children && <div className={`${prefixCls}-content`}>{children}</div>}
         </div>
       );
     }}

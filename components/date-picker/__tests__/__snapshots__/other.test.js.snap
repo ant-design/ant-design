@@ -24,7 +24,9 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               tabindex="-1"
               type="button"
             >
-              «
+              <span
+                class="ant-picker-super-prev-icon"
+              />
             </button>
             <div
               class="ant-picker-header-view"
@@ -41,7 +43,9 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               tabindex="-1"
               type="button"
             >
-              »
+              <span
+                class="ant-picker-super-next-icon"
+              />
             </button>
           </div>
           <div

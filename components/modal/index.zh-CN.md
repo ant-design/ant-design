@@ -23,7 +23,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | cancelText | 取消按钮文字 | string\|ReactNode | 取消 |
 | centered | 垂直居中展示 Modal | boolean | false |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
-| closeIcon | 自定义关闭图标 | ReactNode | - |
+| closeIcon | 自定义关闭图标 | ReactNode | `<CloseOutlined />` |
 | confirmLoading | 确定按钮 loading | boolean | false |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |

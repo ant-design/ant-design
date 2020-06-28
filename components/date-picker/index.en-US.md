@@ -92,6 +92,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 | onOk | callback when click ok button | function() | - |  |
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
+| showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 
 ### YearPicker
 

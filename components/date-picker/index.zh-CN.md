@@ -94,6 +94,7 @@ import 'moment/locale/zh-cn';
 | onChange | 时间发生变化的回调 | function(date: moment, dateString: string) | - |  |
 | onOk | 点击确定按钮的回调 | function() | - |  |
 | onPanelChange | 日期面板变化时的回调 | function(value, mode) | - |  |
+| showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
 ### YearPicker
 

@@ -83,7 +83,7 @@ const columns = [
 | size | 表格大小 | `default` \| `middle` \| `small` | default |
 | summary | 总结栏 | (currentData) => ReactNode | - |
 | title | 表格标题 | Function(currentPageData) | - |
-| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) | - |
+| onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |
 | onRow | 设置行属性 | Function(record, index) | - |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
@@ -126,7 +126,7 @@ const columns = [
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultFilteredValue | 默认筛选值 | string\[] | - |  |
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
-| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |  |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => ReactNode | - |  |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
@@ -190,19 +190,21 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` | 4.0 |
-| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - | 4.0 |
-| fixed | 把选择框列固定在左边 | boolean | - | 4.0 |
-| getCheckboxProps | 选择框的默认属性配置 | Function(record) | - | 4.0 |
+| checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
+| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |  |
+| columnTitle | 自定义列表选择框标题 | string\|ReactNode | - |  |
+| fixed | 把选择框列固定在左边 | boolean | - |  |
+| getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3 |
+| preserveSelectedRowKeys | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4 |
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | Function(checked, record, index, originNode) {} | - | 4.1 |
-| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] | 4.0 |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true | 4.0 |
-| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` | 4.0 |
-| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - | 4.0 |
-| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - | 4.0 |
-| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - | 4.0 |
-| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRowKeys) | - | 4.0 |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] |  |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |  |
+| type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |  |
+| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |  |
+| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |  |
+| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |  |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRowKeys) | - |  |
 
 ### scroll
 
@@ -217,7 +219,7 @@ const columns = [
 | 参数     | 说明                       | 类型                        | 默认值 |
 | -------- | -------------------------- | --------------------------- | ------ |
 | key      | React 需要的 key，建议设置 | string                      | -      |
-| text     | 选择项显示的文字           | string\|React.ReactNode     | -      |
+| text     | 选择项显示的文字           | string\|ReactNode           | -      |
 | onSelect | 选择项点击回调             | Function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用

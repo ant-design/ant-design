@@ -30,6 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
+| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
@@ -86,6 +87,7 @@ const validateMessages = {
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
+| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
@@ -96,6 +98,7 @@ const validateMessages = {
 | validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) | - |  |
+| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false |  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -186,21 +189,22 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ### FormInstance
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
-| getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |
-| getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
-| isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |
-| isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
-| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |
-| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
-| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |
-| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |
-| setFieldsValue | 设置表单的值 | (values) => void |
-| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
+| 名称 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| getFieldInstance | 获取对应字段示例 | (name: [NamePath](#NamePath)) => any | 4.4.0 |
+| getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |  |
+| getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |  |
+| isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
+| isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |  |
+| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |  |
+| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |  |
+| setFieldsValue | 设置表单的值 | (values) => void |  |
+| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
+| validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |  |
 
 #### validateFields 返回示例
 

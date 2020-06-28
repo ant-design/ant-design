@@ -42,6 +42,7 @@ export interface MenuProps {
   onOpenChange?: (openKeys: string[]) => void;
   onSelect?: (param: SelectParam) => void;
   onDeselect?: (param: SelectParam) => void;
+  triggerSubMenuAction?: 'hover' | 'click';
   onClick?: (param: ClickParam) => void;
   style?: React.CSSProperties;
   openAnimation?: string;

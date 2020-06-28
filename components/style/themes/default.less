@@ -489,9 +489,15 @@
 
 // Modal
 // --
+@modal-header-padding-vertical: @padding-md;
+@modal-header-padding-horizontal: @padding-lg;
 @modal-body-padding: @padding-lg;
 @modal-header-bg: @component-background;
-@modal-header-padding: @padding-md @padding-lg;
+@modal-header-padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
+@modal-header-border-width: @border-width-base;
+@modal-header-border-style: @border-style-base;
+@modal-header-title-line-height: 22px;
+@modal-header-title-font-size: @font-size-lg;
 @modal-header-border-color-split: @border-color-split;
 @modal-header-close-size: 56px;
 @modal-content-bg: @component-background;
@@ -499,8 +505,10 @@
 @modal-close-color: @text-color-secondary;
 @modal-footer-bg: transparent;
 @modal-footer-border-color-split: @border-color-split;
+@modal-footer-border-style: @border-style-base;
 @modal-footer-padding-vertical: 10px;
 @modal-footer-padding-horizontal: 16px;
+@modal-footer-border-width: @border-width-base;
 @modal-mask-bg: fade(@black, 45%);
 @modal-confirm-body-padding: 32px 32px 24px;
 
@@ -965,4 +973,11 @@
 @result-title-font-size: 24px;
 @result-subtitle-font-size: @font-size-base;
 @result-icon-font-size: 72px;
-@result-extra-margin: 32px 0 0 0;
+@result-extra-margin: 24px 0 0 0;
+
+// Image
+// ---
+@image-size-base: 48px;
+@image-font-size-base: 24px;
+@image-bg: #ccc;
+@image-color: #fff;
