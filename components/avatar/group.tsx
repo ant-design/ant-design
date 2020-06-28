@@ -9,7 +9,6 @@ export interface GroupProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
-  hovered?: boolean;
   maxLength?: number;
   excessItemsStyle?: React.CSSProperties;
 }
@@ -17,19 +16,12 @@ export interface GroupProps {
 const Group: React.FC<GroupProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls, direction }: ConfigConsumerProps) => {
-      const {
-        prefixCls: customizePrefixCls,
-        className = '',
-        hovered,
-        maxLength,
-        excessItemsStyle,
-      } = props;
+      const { prefixCls: customizePrefixCls, className = '', maxLength, excessItemsStyle } = props;
       const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
       const cls = classNames(
         prefixCls,
         {
           [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-hovered`]: hovered,
         },
         className,
       );

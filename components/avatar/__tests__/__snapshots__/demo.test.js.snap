@@ -471,22 +471,6 @@ Array [
 
 exports[`renders ./components/avatar/demo/group.md correctly 1`] = `
 Array [
-  <div>
-    Hovered：
-    <button
-      aria-checked="false"
-      class="ant-switch"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      />
-    </button>
-  </div>,
   <div
     class="ant-avatar-group"
     style="margin-top:16px"
