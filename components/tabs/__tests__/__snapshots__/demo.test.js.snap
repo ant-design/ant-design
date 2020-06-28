@@ -405,33 +405,42 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Tab 1
-        </button>
-        <button
-          aria-selected="false"
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Tab 1
+          </div>
+        </div>
+        <div
           class="ant-tabs-tab"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Tab 2
-        </button>
-        <button
-          aria-selected="false"
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Tab 2
+          </div>
+        </div>
+        <div
           class="ant-tabs-tab"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Tab 3
-        </button>
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Tab 3
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
