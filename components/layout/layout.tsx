@@ -118,7 +118,7 @@ const Layout: React.ComponentClass<BasicProps> & {
   Sider: React.ComponentClass<SiderProps>;
 } = generator({
   suffixCls: 'layout',
-  tagName: 'section',
+  tagName: 'div',
   displayName: 'Layout',
 })(BasicLayout);
 
