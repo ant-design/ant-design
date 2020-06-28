@@ -152,4 +152,9 @@ ReactDOM.render(<Demo />, mountNode);
 #components-form-demo-form-context .user .ant-avatar {
   margin-right: 8px;
 }
+
+#components-form-demo-form-context .ant-form-rtl .user .ant-avatar {
+  margin-right: 0;
+  margin-left: 8px;
+}
 ```
