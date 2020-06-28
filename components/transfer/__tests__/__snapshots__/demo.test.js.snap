@@ -4446,7 +4446,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   >
                     <span
                       aria-hidden="true"
@@ -4478,7 +4478,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   >
                     <span
                       class="ant-tree-switcher ant-tree-switcher-noop"
