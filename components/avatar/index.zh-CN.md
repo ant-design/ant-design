@@ -33,6 +33,5 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 
 | 参数             | 说明               | 类型          | 默认值 | 版本 |
 | ---------------- | ------------------ | ------------- | ------ | ---- |
-| hovered          | 是否鼠标悬浮展开   | boolean       | false  |      |
 | maxLength        | 显示的最大项目个数 | number        | -      |      |
 | excessItemsStyle | 多余项目样式       | CSSProperties | -      |      |
