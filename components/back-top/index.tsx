@@ -17,6 +17,7 @@ export interface BackTopProps {
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  duration?: number;
   visible?: boolean; // Only for test. Don't use it.
 }
 
@@ -68,9 +69,10 @@ const BackTop: React.FC<BackTopProps> = props => {
   };
 
   const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { onClick, target } = props;
+    const { onClick, target, duration = 450 } = props;
     scrollTo(0, {
       getContainer: target || getDefaultTarget,
+      duration,
     });
     if (typeof onClick === 'function') {
       onClick(e);
