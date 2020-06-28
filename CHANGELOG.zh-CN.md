@@ -21,13 +21,13 @@ timeline: true
 
 - 🐞 修复 Select 点击下拉箭头时输入框不能获得焦点的问题。[#25212](https://github.com/ant-design/ant-design/pull/25212)
 - 🐞 修复 Menu `theme="dark"` 时子菜单背景色为白色的问题。[#25205](https://github.com/ant-design/ant-design/pull/25205)
-- 🐞 修复 Tabs 在 IE 11 下无法关闭的问题。[#25200](https://github.com/ant-design/ant-design/pull/25200)
+- 🐞 修复 Tabs 在 IE11 下无法关闭的问题。[#25200](https://github.com/ant-design/ant-design/pull/25200)
 - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
 - 🐞 修复 Notification 修改 `width`时没有相对屏幕边缘对齐的问题。[#25168](https://github.com/ant-design/ant-design/pull/25168)
 - 💄 更快的 Switch 动画切换效果。[#25160](https://github.com/ant-design/ant-design/pull/25160)
 - 🐞 修复 PageHeader 内 Tabs 多余的边框样式。[#25159](https://github.com/ant-design/ant-design/pull/25159)
 - 🌐 增加了德语，意大利语和捷克语缺失的翻译。[#25233](https://github.com/ant-design/ant-design/pull/25233) [@karelsoupaEMZ](https://github.com/karelsoupaEMZ)
-- 🇯🇵 增加了 From 的日语国际化。 [#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
+- 🇯🇵 增加了 Form 的日语国际化。 [#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
 - RTL
   - 🐞 修复 Table RTL 模式下的嵌套表格样式。[#25156](https://github.com/ant-design/ant-design/pull/25156)
   - 🐞 修复 Table RTL 模式下，筛选和排序的头部样式。[#25152](https://github.com/ant-design/ant-design/pull/25152)

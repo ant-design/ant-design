@@ -21,7 +21,7 @@ timeline: true
 
 - 🐞 Fix Select suffix icon can not focus input. [#25212](https://github.com/ant-design/ant-design/pull/25212)
 - 🐞 Fix Menu.SubMenu background color in dark theme. [#25205](https://github.com/ant-design/ant-design/pull/25205)
-- 🐞 Fix Tabs can not close in IE 11. [#25200](https://github.com/ant-design/ant-design/pull/25200)
+- 🐞 Fix Tabs can not close in IE11. [#25200](https://github.com/ant-design/ant-design/pull/25200)
 - 🐞 Fix Table expand icon still interative when hidden. [#25170](https://github.com/ant-design/ant-design/pull/25170)
 - 🐞 Fix the issue that Notification modification `width` is not aligned with the edge of the screen. [#25168](https://github.com/ant-design/ant-design/pull/25168)
 - 💄 Make Switch animation more smooth and quicker. [#25160](https://github.com/ant-design/ant-design/pull/25160)
