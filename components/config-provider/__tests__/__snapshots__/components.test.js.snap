@@ -2284,7 +2284,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -2342,7 +2342,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -3221,7 +3221,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -3566,7 +3566,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -3624,7 +3624,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -4503,7 +4503,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -4848,7 +4848,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -4906,7 +4906,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -5785,7 +5785,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -6130,7 +6130,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -6188,7 +6188,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -7067,7 +7067,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -7412,7 +7412,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -7470,7 +7470,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -8349,7 +8349,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -8694,7 +8694,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -8752,7 +8752,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -9631,7 +9631,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -17012,7 +17012,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17163,7 +17163,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17319,7 +17319,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17470,7 +17470,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17626,7 +17626,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17777,7 +17777,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down config-select-suffix"
             role="img"
           >
             <svg
@@ -17933,7 +17933,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18084,7 +18084,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18240,7 +18240,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18391,7 +18391,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18547,7 +18547,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -18698,7 +18698,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <span
             aria-label="down"
-            class="anticon anticon-down"
+            class="anticon anticon-down ant-select-suffix"
             role="img"
           >
             <svg
@@ -21861,7 +21861,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -21982,7 +21982,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -22103,7 +22103,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -22224,7 +22224,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -22345,7 +22345,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -22466,7 +22466,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down prefix-Select-suffix"
       role="img"
     >
       <svg
@@ -25239,15 +25239,18 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25322,15 +25325,18 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25405,15 +25411,18 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         class="config-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="config-tabs-tab config-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="config-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -25488,15 +25497,18 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -25571,15 +25583,18 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         class="ant-tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="ant-tabs-tab ant-tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -25654,15 +25669,18 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         class="prefix-Tabs-nav-list"
         style="transform:translate(0px, 0px)"
       >
-        <button
-          aria-selected="true"
+        <div
           class="prefix-Tabs-tab prefix-Tabs-tab-active"
-          role="tab"
-          tabindex="0"
-          type="button"
         >
-          Bamboo
-        </button>
+          <div
+            aria-selected="true"
+            class="prefix-Tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            Bamboo
+          </div>
+        </div>
         <div
           class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
         />
@@ -36983,7 +37001,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37015,7 +37033,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -37096,7 +37114,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37128,7 +37146,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -37209,7 +37227,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37241,7 +37259,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down config-select-suffix"
       role="img"
     >
       <svg
@@ -37322,7 +37340,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -37354,7 +37372,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -37435,7 +37453,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -37467,7 +37485,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -37548,7 +37566,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
                   >
                     <span
                       class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
@@ -37580,7 +37598,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down prefix-TreeSelect-suffix"
       role="img"
     >
       <svg

@@ -78,7 +78,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -139,7 +139,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -257,7 +257,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -456,7 +456,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -517,7 +517,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -581,7 +581,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -640,7 +640,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -703,7 +703,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -869,7 +869,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -1057,7 +1057,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -1228,7 +1228,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -1363,7 +1363,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -1567,7 +1567,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg

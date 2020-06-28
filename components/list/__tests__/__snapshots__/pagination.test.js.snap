@@ -244,7 +244,7 @@ exports[`List.pagination should change page size work 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -498,7 +498,7 @@ exports[`List.pagination should change page size work 2`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -668,7 +668,7 @@ exports[`List.pagination should default work 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
