@@ -42,9 +42,3 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
 | footer | 抽屉的页脚 | ReactNode | - |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |
-
-<style>
-#_hj_feedback_container {
-  display: none;
-}
-</style>
