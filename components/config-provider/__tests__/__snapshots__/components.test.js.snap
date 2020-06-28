@@ -37001,7 +37001,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37114,7 +37114,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37227,7 +37227,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="config-select-tree-switcher config-select-tree-switcher-noop"
@@ -37340,7 +37340,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -37453,7 +37453,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -37566,7 +37566,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
                   style="display:flex;flex-direction:column"
                 >
                   <div
-                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
                   >
                     <span
                       class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
