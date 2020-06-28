@@ -100,7 +100,7 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item').last().simulate('click');
-    expect(scrollTo).toHaveBeenCalledTimes(2);
+    expect(scrollTo).toHaveBeenCalledTimes(3);
   });
 
   it('fires change event', () => {
@@ -131,6 +131,7 @@ describe('Table.pagination', () => {
           { key: 2, name: 'Tom' },
           { key: 3, name: 'Jerry' },
         ],
+        action: 'paginate',
       },
     );
 
@@ -177,6 +178,27 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(
       true,
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/24913
+  it('should onChange called when pageSize change', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          current: 1,
+          pageSize: 10,
+          total: 200,
+          onChange,
+          onShowSizeChange,
+        },
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(onChange).toHaveBeenCalledWith(1, 20);
   });
 
   it('should not change page when pagination current is specified', () => {
@@ -244,6 +266,7 @@ describe('Table.pagination', () => {
           { key: 2, name: 'Tom' },
           { key: 3, name: 'Jerry' },
         ],
+        action: 'paginate',
       },
     );
     expect(onPaginationChange).toHaveBeenCalledWith(2, 10);

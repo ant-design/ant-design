@@ -221,4 +221,31 @@ describe('Table', () => {
       expect(td.getDOMNode().attributes.getNamedItem('title')).toBeFalsy();
     });
   });
+
+  it('warn about rowKey when using index parameter', () => {
+    warnSpy.mockReset();
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+      },
+    ];
+    mount(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+    );
+  });
+  it('not warn about rowKey', () => {
+    warnSpy.mockReset();
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+      },
+    ];
+    mount(<Table columns={columns} rowKey={record => record.key} />);
+    expect(warnSpy).not.toBeCalled();
+  });
 });

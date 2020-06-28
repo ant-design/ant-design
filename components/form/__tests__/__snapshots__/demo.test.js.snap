@@ -2196,6 +2196,84 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="test"
+        title="test"
+      >
+        test
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="test"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="list_0"
+            type="text"
+            value="light"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="ant-btn ant-btn-button"
+    type="button"
+  >
+    <span>
+      Focus Form.Item
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Focus Form.List
+    </span>
+  </button>
+</form>
+`;
+
 exports[`renders ./components/form/demo/register.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"

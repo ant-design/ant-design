@@ -28,6 +28,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
 | expandIconPosition | 设置图标位置 | `left` \| `right` | - |  |
 | destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | false |  |
+| ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 
 ### Collapse.Panel
 

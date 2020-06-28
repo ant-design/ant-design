@@ -27,8 +27,8 @@
     margin: 0;
     color: @modal-heading-color;
     font-weight: 500;
-    font-size: @font-size-lg;
-    line-height: 22px;
+    font-size: @modal-header-title-font-size;
+    line-height: @modal-header-title-line-height;
     word-wrap: break-word;
   }
 
@@ -81,7 +81,7 @@
     padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
-    border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;
+    border-bottom: @modal-header-border-width @modal-header-border-style @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -96,7 +96,7 @@
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
     background: @modal-footer-bg;
-    border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
+    border-top: @modal-footer-border-width @modal-footer-border-style @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
 
     button + button {
