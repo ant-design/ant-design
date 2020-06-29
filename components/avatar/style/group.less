@@ -6,11 +6,8 @@
 .@{avatar-prefix-cls}-group {
   display: inline-flex;
 
-  
-  .@{avatar-prefix-cls} {
-    &:not(:first-child) {
-      margin-left: @avatar-group-overlapping;
-    }
+  .@{avatar-prefix-cls}:not(:first-child) {
+    margin-left: @avatar-group-overlapping;
   }
 }
 

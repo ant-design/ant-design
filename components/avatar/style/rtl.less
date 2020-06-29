@@ -5,11 +5,9 @@
 
 .@{avatar-prefix-cls}-group {
   &-rtl {
-    .@{avatar-prefix-cls} {
-      &:not(:first-child) {
-        margin-right: @avatar-group-overlapping;
-        margin-left: 0;
-      }
+    .@{avatar-prefix-cls}:not(:first-child) {
+      margin-right: @avatar-group-overlapping;
+      margin-left: 0;
     }
   }
 }
