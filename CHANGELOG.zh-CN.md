@@ -19,7 +19,7 @@ timeline: true
 
 `2020-06-28`
 
-- 🔥 调整 RangePicker 逻辑当任意面板选择完毕后，另一个面板会自动弹出。[#25135](https://github.com/ant-design/ant-design/pull/25135)
+- 🔥 优化 RangePicker 交互，现在任意面板选择完毕后，另一个面板会自动弹出。[#25135](https://github.com/ant-design/ant-design/pull/25135)
 - 🔥 新增 Skeleton.Image 组件。[#24805](https://github.com/ant-design/ant-design/pull/24805) [@fireairforce](https://github.com/fireairforce)
 - Form
   - 🆕 Form 实例支持 `getFieldInstance`。[#24711](https://github.com/ant-design/ant-design/pull/24711)
