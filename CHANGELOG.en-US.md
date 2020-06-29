@@ -53,8 +53,8 @@ timeline: true
   - 🆕 Fix month and quarter picker's toggle button size of DatePicker component. [#25035](https://github.com/ant-design/ant-design/pull/25035) [@fireairforce](https://github.com/fireairforce)
   - 🆕 DatePicker support `showNow`. TimePicker support `showNow`. [#25032](https://github.com/ant-design/ant-design/pull/25032)
 - Drawer
-  - 🐞 Fix Drawer `getContainer={false}` cause scrollbar missing in some situation. [#25273](https://github.com/ant-design/ant-design/pull/25273)
   - 🆕 Dropdown component support `arrow` prop. [#23869](https://github.com/ant-design/ant-design/pull/23869) [@wendellhu95](https://github.com/wendellhu95)
+  - 🐞 Fix Drawer `getContainer={false}` cause scrollbar missing in some situation. [#25273](https://github.com/ant-design/ant-design/pull/25273)
 - 🆕 Fix Rate render unexpectedly when `value` is `1.6` or `2.6`. [#24993](https://github.com/ant-design/ant-design/pull/24993)
 - 🆕 Menution support `autoSize` prop. [#24961](https://github.com/ant-design/ant-design/pull/24961) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
 - 🆕 Remove the 140px width limit on vertical dot Steps.Step. [#24907](https://github.com/ant-design/ant-design/pull/24907)
