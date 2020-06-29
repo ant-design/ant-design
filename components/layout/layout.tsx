@@ -5,7 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface GeneratorProps {
   suffixCls: string;
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
   displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -27,7 +27,7 @@ export const LayoutContext = React.createContext<LayoutContextProps>({
 });
 
 interface BasicPropsWithTagName extends BasicProps {
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
 }
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
