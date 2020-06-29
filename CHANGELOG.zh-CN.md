@@ -75,7 +75,7 @@ timeline: true
 - 💄 更快的 Switch 动画切换效果。[#25160](https://github.com/ant-design/ant-design/pull/25160)
 - 🐞 修复 PageHeader 内 Tabs 多余的边框样式。[#25159](https://github.com/ant-design/ant-design/pull/25159)
 - 🌐 增加了德语，意大利语和捷克语缺失的翻译。[#25233](https://github.com/ant-design/ant-design/pull/25233) [@karelsoupaEMZ](https://github.com/karelsoupaEMZ)
-- 🇯🇵 增加了 Form 的日语国际化。 [#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
+- 🇯🇵 增加了 Form 的日语国际化。[#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
 - RTL
   - 🐞 修复 Table RTL 模式下的嵌套表格样式。[#25156](https://github.com/ant-design/ant-design/pull/25156)
   - 🐞 修复 Table RTL 模式下，筛选和排序的头部样式。[#25152](https://github.com/ant-design/ant-design/pull/25152)
