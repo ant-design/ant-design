@@ -52,7 +52,7 @@ timeline: true
   - 🐞 优化 Pagination 可访问性，修复一个 W3C 属性错误。[#25119](https://github.com/ant-design/ant-design/pull/25119)
 - DatePicker
   - 🐞 修复 DatePicker 组件的月份和季度前后选择器 icon 的大小。[#25035](https://github.com/ant-design/ant-design/pull/25035) [@fireairforce](https://github.com/fireairforce)
-  - 🆕 DatePicker 支持 `showNow`。 TimePicker 支持 `showNow`。[#25032](https://github.com/ant-design/ant-design/pull/25032)
+  - 🆕 DatePicker 支持 `showNow`，TimePicker 支持 `showNow`。[#25032](https://github.com/ant-design/ant-design/pull/25032)
 - 🆕 Rate `character` 支持通过 `(RateProps) => ReactNode` 自定义。[#24903](https://github.com/ant-design/ant-design/pull/24903)
 - 💄 移除了垂直点状 Steps.Step 的 140px 宽度限制。[#24907](https://github.com/ant-design/ant-design/pull/24907)
 - 🆕 Menution 新增 `autoSize` 属性以支持高度自适应。[#24961](https://github.com/ant-design/ant-design/pull/24961) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
@@ -63,7 +63,7 @@ timeline: true
 - 🆕 Dropdown 组件支持下拉框箭头。[#23869](https://github.com/ant-design/ant-design/pull/23869) [@wendellhu95](https://github.com/wendellhu95)
 - 🆕 Collapse 增加了 `ghost` 属性来设置透明背景。[#24734](https://github.com/ant-design/ant-design/pull/24734)
 - 🆕 Progress 组件支持自定义已完成进度条颜色。[#24655](https://github.com/ant-design/ant-design/pull/24655) [@fireairforce](https://github.com/fireairforce)
-- 🆕 Typography `copyable` 支持 `icon` 配置。 [#25266](https://github.com/ant-design/ant-design/pull/25266)
+- 🆕 Typography `copyable` 支持 `icon` 配置。[#25266](https://github.com/ant-design/ant-design/pull/25266)
 - 🆕 Tree `showLine` 属性支持配置隐藏叶节点图标。[#25271](https://github.com/ant-design/ant-design/pull/25271)
 - 🆕 BackTop 支持 `duration` 来设置回到顶部所需时间。[#25254](https://github.com/ant-design/ant-design/pull/25254)
 - 🐞 修复 Select 点击下拉箭头时输入框不能获得焦点的问题。[#25212](https://github.com/ant-design/ant-design/pull/25212)
@@ -519,7 +519,7 @@ timeline: true
 - 🐞 修复紧凑模式和暗黑模式无法同时开启的问题。[#22934](https://github.com/ant-design/ant-design/pull/22934) [@AshoneA](https://github.com/AshoneA)
 - 🐞 修复 Notification 非法的 `padding-top` 值。[#22941](https://github.com/ant-design/ant-design/pull/22941)
 - Button
-  - 🐞 修复带图标 Button 的 `loading` 动画效果。 [#23102](https://github.com/ant-design/ant-design/pull/23102)
+  - 🐞 修复带图标 Button 的 `loading` 动画效果。[#23102](https://github.com/ant-design/ant-design/pull/23102)
   - ⚠️ 优化 Button 非法 `type` 的控制台提示。[#22933](https://github.com/ant-design/ant-design/pull/22933)
 - 🐞 修复 Statistic 在值为 `-` 时会展示成 `-0` 的问题。[@22950](https://github.com/ant-design/ant-design/pull/22950)
 - 🐞 修复 Modal.confirm `onOk` 可以被触发多次的问题。[#22963](https://github.com/ant-design/ant-design/pull/22963)
@@ -544,7 +544,7 @@ timeline: true
   - 🐞 修复 Modal.confirm 的 `okButtonProps` 定义。[#21165](https://github.com/ant-design/ant-design/pull/21165) [@nicu-chiciuc](https://github.com/nicu-chiciuc)
   - 🌟 暴露 Form `Store` 接口。[#22755](https://github.com/ant-design/ant-design/pull/22755) [@shaodahong](https://github.com/shaodahong)
   - 🌟 优化 Input、Tag、Badge 组件的枚举类型属性定义。[#23026](https://github.com/ant-design/ant-design/pull/23026) [#22999](https://github.com/ant-design/ant-design/pull/22999) [#23006](https://github.com/ant-design/ant-design/pull/23006) [@fjc0k](https://github.com/fjc0k)
-  - 🐞 修复 Pagination `position` 定义。 [#23048](https://github.com/ant-design/ant-design/pull/23048) [@Arttse](https://github.com/Arttse)
+  - 🐞 修复 Pagination `position` 定义。[#23048](https://github.com/ant-design/ant-design/pull/23048) [@Arttse](https://github.com/Arttse)
 
 ## 4.1.1
 
