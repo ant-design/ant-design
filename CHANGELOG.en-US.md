@@ -65,7 +65,7 @@ timeline: true
 - 🆕 Drawer support `closeIcon`. [#24842](https://github.com/ant-design/ant-design/pull/#24842)
 - 🆕 Add `ghost` prop for collapse to set a transparent background. [#24734](https://github.com/ant-design/ant-design/pull/24734)
 - 🆕 Progress support customise filled Progress color. [#24655](https://github.com/ant-design/ant-design/pull/24655) [@fireairforce](https://github.com/fireairforce)
-- 🆕 Typography `copyable` support `icon` config. [#25266](https://github.com/ant-design/ant-design/pull/25266)
+- 🆕 Typography copyable support `icon` and `tooltips` for customization. [#25274](https://github.com/ant-design/ant-design/pull/25274) [@israelKusayev](https://github.com/israelKusayev)
 - 🆕 Add `showLeafIcon` for Tree Component when set `showLine` prop. [#25271](https://github.com/ant-design/ant-design/pull/25271)
 - 🆕 Add BackTop `duration` used to set the time required to return to the top. [#25254](https://github.com/ant-design/ant-design/pull/25254)
 - 🐞 Fix Select suffix icon can not focus input. [#25212](https://github.com/ant-design/ant-design/pull/25212)
