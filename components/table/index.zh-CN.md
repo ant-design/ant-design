@@ -61,6 +61,8 @@ const columns = [
 
 ## API
 
+另外我们封装了 [ProTable](https://protable.ant.design/)，在 `antd` Table 之上扩展了更多便捷易用的功能，内置搜索、筛选、刷新等常用表格行为，并为多种类型数据展示提供了内置格式化，欢迎尝试使用。
+
 ### Table
 
 | 参数 | 说明 | 类型 | 默认值 |
