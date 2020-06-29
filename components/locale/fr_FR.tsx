@@ -107,8 +107,8 @@ const localeValues: Locale = {
       pattern: {
         mismatch: '${label} ne correspond pas au modèle ${pattern}',
       },
-    }
-  }
+    },
+  },
 };
 
 export default localeValues;
