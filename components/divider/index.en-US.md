@@ -18,9 +18,9 @@ A divider line separates different content.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| className | ClassName of container | string | - |  |
+| className | The className of container | string | - |  |
 | dashed | Whether line is dashed | boolean | false |  |
-| orientation | Position of title inside divider | `left` \| `right` \| `center` | `center` |  |
-| style | Style object of container | CSSProperties | - |  |
-| type | Direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+| orientation | The position of title inside divider | `left` \| `right` \| `center` | `center` |  |
+| style | The style object of container | CSSProperties | - |  |
+| type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
 | plain | Divider text show as plain style | boolean | true | 4.2.0 |
