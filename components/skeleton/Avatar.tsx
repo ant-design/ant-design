@@ -23,7 +23,7 @@ const SkeletonAvatar = (props: AvatarProps) => {
     );
   };
   return <ConfigConsumer>{renderSkeletonAvatar}</ConfigConsumer>;
-}
+};
 
 SkeletonAvatar.defaultProps = {
   size: 'default',

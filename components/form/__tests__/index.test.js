@@ -597,4 +597,15 @@ describe('Form', () => {
 
     expect(wrapper.find('input').prop('onBlur')).toBeTruthy();
   });
+
+  it('Form item hidden', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="light" hidden>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper).toMatchRenderedSnapshot();
+  });
 });

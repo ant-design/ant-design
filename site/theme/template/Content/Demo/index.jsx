@@ -11,6 +11,9 @@ import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
 import BrowserFrame from '../../BrowserFrame';
+import CodeSandboxIcon from './CodeSandboxIcon';
+import CodePenIcon from './CodePenIcon';
+import RiddleIcon from './RiddleIcon';
 
 const { ErrorBoundary } = Alert;
 
@@ -23,6 +26,12 @@ function compress(string) {
 
 class Demo extends React.Component {
   iframeRef = React.createRef();
+
+  codeSandboxIconRef = React.createRef();
+
+  riddleIconRef = React.createRef();
+
+  codepenIconRef = React.createRef();
 
   state = {
     codeExpand: false,
@@ -125,6 +134,7 @@ class Demo extends React.Component {
       utils,
       intl: { locale },
       theme,
+      showRiddleButton,
     } = props;
     const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
@@ -316,26 +326,34 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
           </div>
           <div className="code-box-description">{introChildren}</div>
           <div className="code-box-actions">
+            {showRiddleButton ? (
+              <form
+                className="code-box-code-action"
+                action="//riddle.alibaba-inc.com/riddles/define"
+                method="POST"
+                target="_blank"
+                ref={this.riddleIconRef}
+                onClick={() => {
+                  this.track({ type: 'riddle', demo: meta.id });
+                  this.riddleIconRef.current.submit();
+                }}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                  <RiddleIcon className="code-box-riddle" />
+                </Tooltip>
+              </form>
+            ) : null}
             <form
-              action="//riddle.alibaba-inc.com/riddles/define"
-              method="POST"
-              target="_blank"
-              onClick={() => this.track({ type: 'riddle', demo: meta.id })}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                <input
-                  type="submit"
-                  value="Create New Riddle with Prefilled Data"
-                  className="code-box-riddle"
-                />
-              </Tooltip>
-            </form>
-            <form
+              className="code-box-code-action"
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
-              onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
+              ref={this.codeSandboxIconRef}
+              onClick={() => {
+                this.track({ type: 'codesandbox', demo: meta.id });
+                this.codeSandboxIconRef.current.submit();
+              }}
             >
               <input
                 type="hidden"
@@ -343,29 +361,26 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                 value={compress(JSON.stringify(codesanboxPrefillConfig))}
               />
               <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                <input
-                  type="submit"
-                  value="Create New Sandbox with Prefilled Data"
-                  className="code-box-codesandbox"
-                />
+                <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
             <form
+              className="code-box-code-action"
               action="https://codepen.io/pen/define"
               method="POST"
               target="_blank"
-              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+              ref={this.codepenIconRef}
+              onClick={() => {
+                this.track({ type: 'codepen', demo: meta.id });
+                this.codepenIconRef.current.submit();
+              }}
               style={{
                 display: sourceCode ? '' : 'none',
               }}
             >
               <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
               <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <input
-                  type="submit"
-                  value="Create New Pen with Prefilled Data"
-                  className="code-box-codepen"
-                />
+                <CodePenIcon className="code-box-codepen" />
               </Tooltip>
             </form>
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
@@ -376,7 +391,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                   stackblitzSdk.openProject(stackblitzPrefillConfig);
                 }}
               >
-                <ThunderboltOutlined />
+                <ThunderboltOutlined className="code-box-stackblitz" />
               </span>
             </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
@@ -388,7 +403,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                 {React.createElement(
                   copied && copyTooltipVisible ? CheckOutlined : SnippetsOutlined,
                   {
-                    className: 'code-box-code-copy',
+                    className: 'code-box-code-copy code-box-code-action',
                   },
                 )}
               </Tooltip>
@@ -396,7 +411,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
             <Tooltip
               title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
             >
-              <span className="code-expand-icon">
+              <span className="code-expand-icon code-box-code-action">
                 <img
                   alt="expand code"
                   src={

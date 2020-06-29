@@ -91,8 +91,8 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
-  showLine?: boolean;
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine'> {
+  showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
@@ -153,13 +153,17 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     children,
     checkable,
   } = props;
+  const newProps = {
+    ...props,
+    showLine: Boolean(showLine),
+  };
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   return (
     <RcTree
       itemHeight={20}
       ref={ref}
       virtual={virtual}
-      {...props}
+      {...newProps}
       prefixCls={prefixCls}
       className={classNames(className, {
         [`${prefixCls}-icon-hide`]: !showIcon,

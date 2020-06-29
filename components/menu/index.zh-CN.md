@@ -46,6 +46,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | theme | 主题颜色 | `light` \| `dark` | `light` |  |
 | onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` |  |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | noop |  |
 | onSelect | 被选中时调用 | function({ item, key, keyPath, selectedKeys, domEvent }) | -   |  |
 | overflowedIndicator | 自定义 Menu 折叠时的图标 | ReactNode | - |  |

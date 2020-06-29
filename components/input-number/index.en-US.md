@@ -19,9 +19,9 @@ When a numeric value needs to be provided.
 | defaultValue | initial value | number |  |
 | disabled | disable the input | boolean | false |
 | formatter | Specifies the format of the value presented | function(value: number \| string): string |  |
-| max | max value | number | Infinity |
-| min | min value | number | -Infinity |
-| parser | Specifies the value extracted from formatter | function( string): number |  |
+| max | max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) |
+| min | min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) |
+| parser | Specifies the value extracted from formatter | function(string): number |  |
 | precision | precision of input value | number |  |
 | decimalSeparator | decimal separator | string |  |
 | size | height of input box | `large` \| `middle` \| `small` |  |

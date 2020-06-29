@@ -69,6 +69,7 @@ module.exports = {
     'react/display-name': 0,
     'react/static-property-placement': 0,
     'react/no-find-dom-node': 0,
+    'react/no-unused-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
 
     'import/extensions': 0,

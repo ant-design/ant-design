@@ -10,13 +10,13 @@ describe('Progress', () => {
   rtlTest(Progress);
 
   it('successPercent should decide the progress status when it exists', () => {
-    const wrapper = mount(<Progress percent={100} successPercent={50} />);
+    const wrapper = mount(<Progress percent={100} success={{ progress: 50 }} />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
 
-    wrapper.setProps({ percent: 50, successPercent: 100 });
+    wrapper.setProps({ percent: 50, success: { progress: 100 } });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
 
-    wrapper.setProps({ percent: 100, successPercent: 0 });
+    wrapper.setProps({ percent: 100, success: { progress: 0 } });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
   });
 
@@ -36,7 +36,7 @@ describe('Progress', () => {
   });
 
   it('render negative successPercent', () => {
-    const wrapper = mount(<Progress percent={50} successPercent={-20} />);
+    const wrapper = mount(<Progress percent={50} success={{ progress: -20 }} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -44,7 +44,7 @@ describe('Progress', () => {
     const wrapper = mount(
       <Progress
         percent={50}
-        successPercent={10}
+        success={{ progress: 10 }}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
       />,
     );
@@ -78,6 +78,13 @@ describe('Progress', () => {
 
   it('render trailColor progress', () => {
     const wrapper = mount(<Progress status="normal" trailColor="#ffffff" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render successColor progress', () => {
+    const wrapper = mount(
+      <Progress percent={60} success={{ progress: 30, strokeColor: '#ffffff' }} />,
+    );
     expect(wrapper.render()).toMatchSnapshot();
   });
 

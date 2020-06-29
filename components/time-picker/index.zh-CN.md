@@ -50,9 +50,10 @@ import moment from 'moment';
 | clearIcon | 自定义的清除图标 | ReactNode | - |  |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
-| value | 当前时间 | [moment](http://momentjs.com/) | - |  |
+| value | 当前时间 | [moment](http://momentjs.com/) | 无 |  |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean): void | - |  |
+| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
 ## 方法
 
