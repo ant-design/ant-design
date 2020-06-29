@@ -14988,9 +14988,11 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15066,9 +15068,11 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15144,9 +15148,11 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15222,9 +15228,11 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15300,9 +15308,11 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
@@ -15378,9 +15388,11 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-input-wrap"
   >
     <input
+      aria-valuemax="9007199254740991"
       aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
+      max="9007199254740991"
       min="-9007199254740991"
       role="spinbutton"
       step="1"
