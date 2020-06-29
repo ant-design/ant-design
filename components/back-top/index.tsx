@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
@@ -14,6 +15,7 @@ export interface BackTopProps {
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
   className?: string;
+  portalsPath?: string;
   style?: React.CSSProperties;
   visible?: boolean; // Only for test. Don't use it.
 }
@@ -26,6 +28,16 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   const getDefaultTarget = () => {
     return ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
+  };
+
+  const actionPortals = (portalsPath: string, backTopJsx: any): any => {
+    const backTopRoot = window.document.getElementById(portalsPath);
+    const el = window.document.createElement('div');
+    if (!backTopRoot) {
+      return null;
+    }
+    backTopRoot.appendChild(el);
+    return ReactDOM.createPortal(backTopJsx, el);
   };
 
   const handleScroll = throttleByAnimationFrame(
@@ -104,9 +116,17 @@ const BackTop: React.FC<BackTopProps> = props => {
     'visibilityHeight',
     'target',
     'visible',
+    'portalsPath',
   ]);
 
-  return (
+  return props.portalsPath ? (
+    actionPortals(
+      props.portalsPath,
+      <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
+        {renderChildren({ prefixCls })}
+      </div>,
+    )
+  ) : (
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       {renderChildren({ prefixCls })}
     </div>
