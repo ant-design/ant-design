@@ -35,7 +35,7 @@ timeline: true
 - TimePicker
   - 🐞 Fix TimePicker display 12 AM as 0 AM. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
   - 🐞 Fix TimePicker not using 0 ~ 23 to disable hours. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
-  - 🐞 Fix TimePicker AM, PM are not related with hour disabled status. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 Fix TimePicker AM | PM are not related with hour disabled status. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
   - 🐞 Fix TimePicker "Now" button's behavior doesn't conform hour, minute, second step. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
 - Cascader
   - 🆕 Cascader add `expandIcon` to customize the current item expand icon. [#24865](https://github.com/ant-design/ant-design/pull/24865)
