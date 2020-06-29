@@ -26,7 +26,7 @@ timeline: true
   - 🆕 Form.Item 新增 `hidden` 属性用于隐藏表单项。[#25108](https://github.com/ant-design/ant-design/pull/25108)
   - 🆕 Form.Item 添加 `preserve` 属性以支持字段值清理。[#25186](https://github.com/ant-design/ant-design/pull/25186)
 - Table
-  - 🐞 Table 支持 `rowSelection.checkStrictly`。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞 Table 支持 `rowSelection.checkStrictly` 来完全受控节点。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
   - 🐞 修复 Table `onSelectAll` 的 `changeRows` 参数不正确的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
   - 🐞 修复 Table 树形数据叶节点行的展开按钮仍能被点击的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
   - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
@@ -64,7 +64,7 @@ timeline: true
 - 🆕 Drawer 支持 `closeIcon` 属性。[#5c18fbd](https://github.com/ant-design/ant-design/commit/5c18fbd)
 - 🆕 Dropdown 组件支持下拉框箭头。[#23869](https://github.com/ant-design/ant-design/pull/23869) [@wendellhu95](https://github.com/wendellhu95)
 - 🆕 为 Collapse 增加了 `ghost` 属性来设置透明背景。[#24734](https://github.com/ant-design/ant-design/pull/24734) [@07akioni](https://github.com/07akioni)
-- 🆕 Progress 组件新增自定义已完成进度条颜色。[#24655](https://github.com/ant-design/ant-design/pull/24655) [@fireairforce](https://github.com/fireairforce)
+- 🆕 Progress 组件支持自定义已完成进度条颜色。[#24655](https://github.com/ant-design/ant-design/pull/24655) [@fireairforce](https://github.com/fireairforce)
 - 🐞 修复 Select 点击下拉箭头时输入框不能获得焦点的问题。[#25212](https://github.com/ant-design/ant-design/pull/25212)
 - 🐞 修复 Notification 修改 `width` 时没有相对屏幕边缘对齐的问题。[#25168](https://github.com/ant-design/ant-design/pull/25168)
 - 💄 更快的 Switch 动画切换效果。[#25160](https://github.com/ant-design/ant-design/pull/25160)
