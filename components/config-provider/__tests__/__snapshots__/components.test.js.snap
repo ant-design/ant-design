@@ -15391,7 +15391,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Layout configProvider 1`] = `
-<section
+<div
   class="config-layout"
 >
   <aside
@@ -15402,7 +15402,7 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -15414,12 +15414,12 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize large 1`] = `
-<section
+<div
   class="config-layout"
 >
   <aside
@@ -15430,7 +15430,7 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -15442,12 +15442,12 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
-<section
+<div
   class="config-layout"
 >
   <aside
@@ -15458,7 +15458,7 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
       class="config-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="config-layout"
   >
     <header
@@ -15470,12 +15470,12 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
     <footer
       class="config-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <aside
@@ -15486,7 +15486,7 @@ exports[`ConfigProvider components Layout configProvider virtual and dropdownMat
       class="ant-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -15498,12 +15498,12 @@ exports[`ConfigProvider components Layout configProvider virtual and dropdownMat
     <footer
       class="ant-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout normal 1`] = `
-<section
+<div
   class="ant-layout"
 >
   <aside
@@ -15514,7 +15514,7 @@ exports[`ConfigProvider components Layout normal 1`] = `
       class="ant-layout-sider-children"
     />
   </aside>
-  <section
+  <div
     class="ant-layout"
   >
     <header
@@ -15526,12 +15526,12 @@ exports[`ConfigProvider components Layout normal 1`] = `
     <footer
       class="ant-layout-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components Layout prefixCls 1`] = `
-<section
+<div
   class="prefix-Layout"
 >
   <aside
@@ -15542,7 +15542,7 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
       class="prefix-sider-children"
     />
   </aside>
-  <section
+  <div
     class="prefix-Layout"
   >
     <header
@@ -15554,8 +15554,8 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     <footer
       class="prefix-footer"
     />
-  </section>
-</section>
+  </div>
+</div>
 `;
 
 exports[`ConfigProvider components List configProvider 1`] = `
