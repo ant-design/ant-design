@@ -3,20 +3,9 @@
 
 @avatar-prefix-cls: ~'@{ant-prefix}-avatar';
 
-.@{avatar-prefix-cls}-group {
-  &-rtl {
-    .@{avatar-prefix-cls}:not(:first-child) {
-      margin-right: @avatar-group-overlapping;
-      margin-left: 0;
-    }
-  }
-}
-
-.@{avatar-prefix-cls} {
-  & + & {
-    .@{ant-prefix}-popover-rtl & {
-      margin-right: @avatar-group-space;
-      margin-left: 0;
-    }
+.@{avatar-prefix-cls}-group-rtl {
+  .@{avatar-prefix-cls}:not(:first-child) {
+    margin-right: @avatar-group-overlapping;
+    margin-left: 0;
   }
 }
