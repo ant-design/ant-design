@@ -15,8 +15,9 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import { Typography } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
-const { Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
@@ -31,9 +32,16 @@ class Demo extends React.Component {
   render() {
     return (
       <>
-        <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>
-        <Paragraph copyable>This is a copyable text.</Paragraph>
-        <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+        <Text editable={{ onChange: this.onChange }}>{this.state.str}</Text>
+        <br />
+        <Text copyable>This is a copyable text.</Text>
+        <br />
+        <Text copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Text>
+        <br />
+        <Text copyable={{ icon: <SmileOutlined /> }}>Custom icon.</Text>
+        <Paragraph copyable={{ tooltips: ['click here', 'you clicked!!'] }}>
+          Replace tooltips text.
+        </Paragraph>
       </>
     );
   }

@@ -20,7 +20,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |  |
+| copyable | whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: Function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
@@ -37,7 +37,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |  |
+| copyable | whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: Function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
@@ -53,7 +53,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |  |
+| copyable | whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: Function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
