@@ -59,6 +59,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/forbid-prop-types': 0,
     'react/jsx-indent': 0,
+    'react/no-unused-prop-types': 0,
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
     'react/jsx-filename-extension': 0,
     'react/state-in-constructor': 0,
