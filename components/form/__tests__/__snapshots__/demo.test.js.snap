@@ -1908,10 +1908,12 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 id="nest-messages_user_age"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
@@ -3385,9 +3387,11 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-valuemax="9007199254740991"
                   aria-valuemin="-9007199254740991"
                   autocomplete="off"
                   class="ant-input-number-input"
+                  max="9007199254740991"
                   min="-9007199254740991"
                   role="spinbutton"
                   step="1"
@@ -6322,9 +6326,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
