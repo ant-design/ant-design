@@ -15,15 +15,58 @@ timeline: true
 
 ---
 
-## 4.3.6
+## 4.4.0
 
 `2020-06-28`
 
+- 🔥 新增 Skeleton.Image 组件。[#24805](https://github.com/ant-design/ant-design/pull/24805) [@fireairforce](https://github.com/fireairforce)
+- 🔥 调整 RangePicker 逻辑当任意面板选择完毕后，另一个面板会自动弹出。[#25135](https://github.com/ant-design/ant-design/pull/25135)
+- Form
+  - 🆕 Form 实例支持 `getFieldInstance`。[#24711](https://github.com/ant-design/ant-design/pull/24711)
+  - 🆕 Form.Item 新增 `hidden` 属性用于隐藏表单项。[#25108](https://github.com/ant-design/ant-design/pull/25108)
+  - 🆕 Form.Item 添加 `preserve` 属性以支持字段值清理。[#25186](https://github.com/ant-design/ant-design/pull/25186)
+- Table
+  - 🐞 Table 支持 `rowSelection.checkStrictly`。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 Table `onSelectAll` 的 `changeRows` 参数不正确的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 Table 树形数据叶节点行的展开按钮仍能被点击的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
+  - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
+  - 🆕 Table 添加 `rowSelection.dirty` 以支持异步数据下保留 `key`。[#24718](https://github.com/ant-design/ant-design/pull/24718)
+  - 🆕 Table `onChange` 添加 `action` 参数用于标示操作类型。[#24697](https://github.com/ant-design/ant-design/pull/24697)
+- TimePicker
+  - 🐞 修复 TimePicker 面板 12 AM 显示为 0 AM 的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 TimePicker 在 use12Hours 时没有用 0 ～ 23 来禁用小时的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 TimePicker 没有根据小时禁用情况禁用 AM PM 的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 TimePicker ”当前“按钮没有和 hour, minute, second step 一致的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+- Cascader
+  - 🆕 Cascader 新增 `expandIcon` 来自定义次级菜单展开图标。[#24865](https://github.com/ant-design/ant-design/pull/24865)
+  - 🆕 Cascader 增加 `dropdownRender` 属性用于扩展菜单。[#24812](https://github.com/ant-design/ant-design/pull/24812) [@07akioni](https://github.com/07akioni)
+- Menu
+  - 🆕 Menu 增加 `triggerSubMenuAction` 属性以支持配置菜单弹出的交互方式。[#25127](https://github.com/ant-design/ant-design/pull/25127) [@hydRAnger](https://github.com/hydRAnger)
+  - 🐞 修复 Menu `theme="dark"` 时子菜单背景色为白色的问题。[#25205](https://github.com/ant-design/ant-design/pull/25205)
+- Tabs
+  - 🆕 Tabs 支持 `addIcon` 以自定义添加图标。[#25006](https://github.com/ant-design/ant-design/pull/25006)
+  - 🐞 修复 Tabs 在 IE11 下无法关闭的问题。[#25200](https://github.com/ant-design/ant-design/pull/25200)
+- Pagination
+  - 🆕 Pagination 支持当 `pageSize` 改变时，`onChange` 的调用。[#24964](https://github.com/ant-design/ant-design/pull/24964) [@fireairforce](https://github.com/fireairforce)
+  - 🐞 优化 Pagination 可访问性，修复一个 W3C 属性错误。[#25119](https://github.com/ant-design/ant-design/pull/25119)
+- DatePicker
+  - 🐞 修复 DatePicker 组件的月份和季度前后选择器 icon 的大小。[#25035](https://github.com/ant-design/ant-design/pull/25035) [@fireairforce](https://github.com/fireairforce)
+  - 🆕 DatePicker 支持 `showNow`。 TimePicker 支持 `showNow`。[#25032](https://github.com/ant-design/ant-design/pull/25032) [@07akioni](https://github.com/07akioni)
+- 🐞 修复 Rate 半选时 `value` 被四舍五入的问题。[#24993](https://github.com/ant-design/ant-design/pull/24993)
+- 🆕 Rate `character` 支持通过 `(RateProps) => ReactNode` 自定义。[#24903](https://github.com/ant-design/ant-design/pull/24903)
+- 🛠 给 Modal 组件增加了更多的 less 变量。[#24773](https://github.com/ant-design/ant-design/pull/24773) [@hicrystal](https://github.com/hicrystal)
+- 🆕 Menution 新增 `autoSize` 属性以支持高度自适应。[#24961](https://github.com/ant-design/ant-design/pull/24961) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 💄 移除了垂直点状 Steps.Step 的 140px 宽度限制。[#24907](https://github.com/ant-design/ant-design/pull/24907) [@07akioni](https://github.com/07akioni)
+- 🆕 调整 Result `children` 显示位置到组件尾部。[#24945](https://github.com/ant-design/ant-design/pull/24945)
+- 🆕 Radio.Group 新增 `optionType` 来设置 `options` 的 Radio 类型。[#24809](https://github.com/ant-design/ant-design/pull/24809)
+- 🆕 Tag 新增 `closeIcon` 用以自定义关闭按钮。[#24885](https://github.com/ant-design/ant-design/pull/24885)
+- 🆕 Drawer 支持 `closeIcon` 属性。[#5c18fbd](https://github.com/ant-design/ant-design/commit/5c18fbd)
+- 🆕 Dropdown 组件支持下拉框箭头。[#23869](https://github.com/ant-design/ant-design/pull/23869) [@wendellhu95](https://github.com/wendellhu95)
+- 🆕 为 Collapse 增加了 `ghost` 属性来设置透明背景。[#24734](https://github.com/ant-design/ant-design/pull/24734) [@07akioni](https://github.com/07akioni)
+- 🆕 Progress 组件新增自定义已完成进度条颜色。[#24655](https://github.com/ant-design/ant-design/pull/24655) [@fireairforce](https://github.com/fireairforce)
 - 🐞 修复 Select 点击下拉箭头时输入框不能获得焦点的问题。[#25212](https://github.com/ant-design/ant-design/pull/25212)
-- 🐞 修复 Menu `theme="dark"` 时子菜单背景色为白色的问题。[#25205](https://github.com/ant-design/ant-design/pull/25205)
-- 🐞 修复 Tabs 在 IE11 下无法关闭的问题。[#25200](https://github.com/ant-design/ant-design/pull/25200)
-- 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
-- 🐞 修复 Notification 修改 `width`时没有相对屏幕边缘对齐的问题。[#25168](https://github.com/ant-design/ant-design/pull/25168)
+- 🐞 修复 Notification 修改 `width` 时没有相对屏幕边缘对齐的问题。[#25168](https://github.com/ant-design/ant-design/pull/25168)
 - 💄 更快的 Switch 动画切换效果。[#25160](https://github.com/ant-design/ant-design/pull/25160)
 - 🐞 修复 PageHeader 内 Tabs 多余的边框样式。[#25159](https://github.com/ant-design/ant-design/pull/25159)
 - 🌐 增加了德语，意大利语和捷克语缺失的翻译。[#25233](https://github.com/ant-design/ant-design/pull/25233) [@karelsoupaEMZ](https://github.com/karelsoupaEMZ)

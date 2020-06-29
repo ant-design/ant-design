@@ -15,14 +15,56 @@ timeline: true
 
 ---
 
-## 4.3.6
+## 4.4.0
 
 `2020-06-28`
 
+- 🔥 add Skeleton.Image. [#24805](https://github.com/ant-design/ant-design/pull/24805) [@fireairforce](https://github.com/fireairforce)
+- 🔥 Adjust RangePicker logic that any picker selection will popup another picker panel. [#25135](https://github.com/ant-design/ant-design/pull/25135)
+- Form
+  - 🆕 Form.Item support `preserve` to disable value preserve. [#25186](https://github.com/ant-design/ant-design/pull/25186)
+  - 🆕 Form.Item add `hidden` prop. [#25108](https://github.com/ant-design/ant-design/pull/25108)
+  - 🆕 Form instance support `getFieldInstance`. [#24711](https://github.com/ant-design/ant-design/pull/24711)
+- Table
+  - 🆕 Table `onChange` add `action` in extra argument. [#24697](https://github.com/ant-design/ant-design/pull/24697)
+  - 🆕 Table support `rowSelection.dirty` to enable cache `key` with ajax. [#24718](https://github.com/ant-design/ant-design/pull/24718)
+  - 🐞 Table supports `rowSelection.checkStrictly`. [#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞Fix Table `onSelectAll`'s `changeRows` parameter is incorrect. [#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞Fix Table expand buttons of leaf rows in tree data can still be clicked. [#24931](https://github.com/ant-design/ant-design/pull/24931) [@07akioni](https://github.com/07akioni)
+  - 🐞 Fix Table expand icon still interative when hidden. [#25170](https://github.com/ant-design/ant-design/pull/25170)
+- TimePicker
+  - 🐞 Fix TimePicker display 12 AM as 0 AM. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 Fix TimePicker not using 0 ~ 23 to disable hours. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 Fix TimePicker AM &amp; PM are not related with hour disabled status. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 Fix TimePicker "Now" button's behavior doesn't conform hour, minute, second step. [#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+- Cascader
+  - 🆕 Cascader add `expandIcon` to customize the current item expand icon. [#24865](https://github.com/ant-design/ant-design/pull/24865)
+  - 🆕 Cascader support `dropdownRender` prop for customizing menu. [#24812](https://github.com/ant-design/ant-design/pull/24812) [@07akioni](https://github.com/07akioni)
+- Menu
+  - 🆕 Menu support `triggerSubMenuAction` (hover or click). [#25127](https://github.com/ant-design/ant-design/pull/25127) [@hydRAnger](https://github.com/hydRAnger)
+  - 🐞 Fix Menu.SubMenu background color in dark theme. [#25205](https://github.com/ant-design/ant-design/pull/25205)
+- Tabs
+  - 🆕 Tabs support `addIcon` to customize add icon node. [#25006](https://github.com/ant-design/ant-design/pull/25006)
+  - 🐞 Fix Tabs can not close in IE11. [#25200](https://github.com/ant-design/ant-design/pull/25200)
+- Pagination
+  - 🐞 Improve Pagination accessibility by fixing a W3C error. [#25119](https://github.com/ant-design/ant-design/pull/25119)
+  - 🆕 Pagination support `onChange` called when `pageSize` change. [#24964](https://github.com/ant-design/ant-design/pull/24964) [@fireairforce](https://github.com/fireairforce)
+- DatePicker
+  - 🆕 Fix month and quarter picker's toggle button size of DatePicker component. [#25035](https://github.com/ant-design/ant-design/pull/25035) [@fireairforce](https://github.com/fireairforce)
+  - 🆕 DatePicker support `showNow`. TimePicker support `showNow`. [#25032](https://github.com/ant-design/ant-design/pull/25032) [@07akioni](https://github.com/07akioni)
+- 🆕 Fixed Rate render unexpectedly when `value` is `1.6` or `2.6`. [#24993](https://github.com/ant-design/ant-design/pull/24993)
+- 🛠 Modal add more less parameters. [#24773](https://github.com/ant-design/ant-design/pull/24773) [@hicrystal](https://github.com/hicrystal)
+- 🆕 Menution support `autoSize` prop. [#24961](https://github.com/ant-design/ant-design/pull/24961) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🆕 Remove the 140px width limit on vertical dot Steps.Step. [#24907](https://github.com/ant-design/ant-design/pull/24907) [@07akioni](https://github.com/07akioni)
+- 🆕 Move Result children to end of component. [#24945](https://github.com/ant-design/ant-design/pull/24945)
+- 🆕 Rate `character` support `(RateProps)=> ReactNode` customization. [#24903](https://github.com/ant-design/ant-design/pull/24903)
+- 🆕 Add `optionType` api to set Radio type in Radio.Group when use `options`. [#24809](https://github.com/ant-design/ant-design/pull/24809)
+- 🆕 Add `closeIcon` to customize Tag close icon. [#24885](https://github.com/ant-design/ant-design/pull/24885)
+- 🆕 Drawer support `closeIcon`. [#5c18fbd](https://github.com/ant-design/ant-design/commit/5c18fbd) [@偏右](https://github.com/偏右)
+- 🆕 Dropdown component support `arrow` prop. [#23869](https://github.com/ant-design/ant-design/pull/23869) [@wendellhu95](https://github.com/wendellhu95)
+- 🆕 Add `ghost` prop for collapse to set a transparent background. [#24734](https://github.com/ant-design/ant-design/pull/24734) [@07akioni](https://github.com/07akioni)
+- 🆕 Progress support customise filled Progress color. [#24655](https://github.com/ant-design/ant-design/pull/24655) [@fireairforce](https://github.com/fireairforce)
 - 🐞 Fix Select suffix icon can not focus input. [#25212](https://github.com/ant-design/ant-design/pull/25212)
-- 🐞 Fix Menu.SubMenu background color in dark theme. [#25205](https://github.com/ant-design/ant-design/pull/25205)
-- 🐞 Fix Tabs can not close in IE11. [#25200](https://github.com/ant-design/ant-design/pull/25200)
-- 🐞 Fix Table expand icon still interative when hidden. [#25170](https://github.com/ant-design/ant-design/pull/25170)
 - 🐞 Fix the issue that Notification modification `width` is not aligned with the edge of the screen. [#25168](https://github.com/ant-design/ant-design/pull/25168)
 - 💄 Make Switch animation more smooth and quicker. [#25160](https://github.com/ant-design/ant-design/pull/25160)
 - 🐞 Fix PageHeader tabs unexpected border style. [#25159](https://github.com/ant-design/ant-design/pull/25159)
