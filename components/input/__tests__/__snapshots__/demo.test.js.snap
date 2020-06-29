@@ -79,7 +79,7 @@ Array [
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -146,7 +146,7 @@ Array [
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -252,6 +252,7 @@ Array [
     style="width:100px"
   >
     <textarea
+      class="rc-textarea"
       rows="1"
     />
   </div>,
@@ -417,9 +418,11 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-valuemax="9007199254740991"
         aria-valuemin="-9007199254740991"
         autocomplete="off"
         class="ant-input-number-input"
+        max="9007199254740991"
         min="-9007199254740991"
         role="spinbutton"
         step="1"
@@ -551,7 +554,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -608,7 +611,7 @@ Array [
     >
       <span
         aria-label="down"
-        class="anticon anticon-down"
+        class="anticon anticon-down ant-select-suffix"
         role="img"
       >
         <svg
@@ -1149,7 +1152,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1264,7 +1267,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1355,9 +1358,11 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-valuemax="9007199254740991"
           aria-valuemin="-9007199254740991"
           autocomplete="off"
           class="ant-input-number-input"
+          max="9007199254740991"
           min="-9007199254740991"
           role="spinbutton"
           step="1"
@@ -1555,7 +1560,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1613,7 +1618,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1676,7 +1681,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1762,7 +1767,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1855,7 +1860,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg

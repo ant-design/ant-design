@@ -28,7 +28,7 @@ interface IconDisplayState {
   searchKey: string;
 }
 
-class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
+class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState> {
   static categories: Categories = categories;
 
   static newIconNames: string[] = [];

@@ -21,6 +21,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | Props | Description | Type | Default |
 | --- | --- | --- | --- |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not. | boolean | true |
+| closeIcon | custom close icon | ReactNode | `<CloseOutlined />` |
 | destroyOnClose | Whether to unmount child components on closing drawer or not. | boolean | false |
 | forceRender | Prerender Drawer component forcely | boolean | false |
 | getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| Selectors \| false | 'body' |
@@ -43,9 +44,3 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | keyboard | Whether support press esc to close | boolean | true |
 | footer | The footer for Drawer. | ReactNode | - |
 | footerStyle | Style of the drawer footer part. | CSSProperties | - |
-
-<style>
-#_hj_feedback_container {
-  display: none;
-}
-</style>

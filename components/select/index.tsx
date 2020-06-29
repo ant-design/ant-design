@@ -118,6 +118,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
       ...this.props,
       multiple: isMultiple,
+      prefixCls,
     });
 
     const selectProps = omit(this.props, [

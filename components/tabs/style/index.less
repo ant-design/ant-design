@@ -80,6 +80,7 @@
     }
 
     .@{tab-prefix-cls}-nav-add {
+      min-width: @tabs-card-height;
       padding: 0 @padding-xs;
       background: @tabs-card-head-background;
       border: @border-width-base @border-style-base @border-color-split;
@@ -101,6 +102,17 @@
 
   &-extra-content {
     flex: none;
+  }
+
+  &-centered {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-nav-wrap {
+        &:not([class*='@{tab-prefix-cls}-nav-wrap-ping']) {
+          justify-content: center;
+        }
+      }
+    }
   }
 
   // ============================ InkBar ============================
@@ -128,39 +140,40 @@
       margin-left: 0;
     }
 
-    & &-remove {
-      flex: none;
-      margin-right: -@margin-xss;
-      margin-left: @margin-xs;
-      color: @text-color-secondary;
-      font-size: @font-size-sm;
-      outline: none;
-      transition: all @animation-duration-slow;
-
-      .@{iconfont-css-prefix} {
-        margin: 0;
-      }
-
-      &:hover {
-        color: @heading-color;
-      }
-
+    &-btn,
+    &-remove {
       &:focus,
       &:active {
         color: @tabs-active-color;
       }
     }
 
-    &:focus,
-    &:active {
-      color: @tabs-active-color;
+    &-btn {
+      outline: none;
+    }
+
+    &-remove {
+      flex: none;
+      margin-right: -@margin-xss;
+      margin-left: @margin-xs;
+      color: @text-color-secondary;
+      font-size: @font-size-sm;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: all @animation-duration-slow;
+
+      &:hover {
+        color: @heading-color;
+      }
     }
 
     &:hover {
       color: @tabs-hover-color;
     }
 
-    &&-active {
+    &&-active &-btn {
       color: @tabs-highlight-color;
       font-weight: 500;
     }
@@ -168,6 +181,10 @@
     &&-disabled {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+
+    & &-remove .@{iconfont-css-prefix} {
+      margin: 0;
     }
 
     .@{iconfont-css-prefix} {

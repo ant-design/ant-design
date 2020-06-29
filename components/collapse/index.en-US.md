@@ -27,6 +27,7 @@ A content area which can be collapsed and expanded.
 | expandIcon | allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
+| ghost | make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 
 ### Collapse.Panel
 

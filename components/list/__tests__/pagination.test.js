@@ -136,6 +136,7 @@ describe('List.pagination', () => {
     expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
   });
 
+  // https://github.com/ant-design/ant-design/issues/24913
   // https://github.com/ant-design/ant-design/issues/24501
   it('should onChange called when pageSize change', () => {
     const handlePaginationChange = jest.fn();

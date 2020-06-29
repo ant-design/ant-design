@@ -45,6 +45,7 @@ More layouts with navigation: [Layout](/components/layout).
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | noop |  |
 | onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | none |  |
 | overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |

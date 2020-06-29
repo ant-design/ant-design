@@ -9,6 +9,10 @@ import Demo from './Demo';
 import EditButton from './EditButton';
 import { ping, getMetaDescription } from '../utils';
 
+const ComponentInMarkdown = React.memo(({ content, utils }) =>
+  utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(content))),
+);
+
 class ComponentDoc extends React.Component {
   state = {
     expandAll: false,
@@ -103,6 +107,7 @@ class ComponentDoc extends React.Component {
         const demoElem = (
           <Demo
             {...demoData}
+            showRiddleButton={showRiddleButton}
             key={demoData.meta.filename}
             utils={utils}
             expand={expandAll}
@@ -133,14 +138,11 @@ class ComponentDoc extends React.Component {
     });
 
     const { title, subtitle, filename } = meta;
-    const articleClassName = classNames({
-      'show-riddle-button': showRiddleButton,
-    });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
     const contentChild = getMetaDescription(getChildren(content));
 
     return (
-      <article className={articleClassName}>
+      <article>
         <Helmet encodeSpecialCharacters={false}>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}
@@ -165,9 +167,7 @@ class ComponentDoc extends React.Component {
               filename={filename}
             />
           </h1>
-          {utils.toReactComponent(
-            ['section', { className: 'markdown' }].concat(getChildren(content)),
-          )}
+          <ComponentInMarkdown utils={utils} content={content} />
           <h2>
             <FormattedMessage id="app.component.examples" />
             <span className="all-code-box-controls">

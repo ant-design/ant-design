@@ -1,17 +1,17 @@
 ---
 order: 2
 title:
-  zh-CN: 骨架按钮、头像和输入框。
-  en-US: Skeleton button, avatar and input.
+  zh-CN: 骨架按钮、头像、输入框和图像。
+  en-US: Skeleton button, avatar, input and Image.
 ---
 
 ## zh-CN
 
-骨架按钮、头像和输入框。
+骨架按钮、头像、输入框和图像。
 
 ## en-US
 
-Skeleton button, avatar and input.
+Skeleton button, avatar, input and Image.
 
 ```jsx
 import { Skeleton, Switch, Form, Radio } from 'antd';
@@ -112,6 +112,10 @@ class Demo extends React.Component {
             </Form.Item>
           </Form>
           <Skeleton.Input style={{ width: '300px' }} active={inputActive} size={inputSize} />
+        </div>
+        <br />
+        <div>
+          <Skeleton.Image />
         </div>
       </div>
     );
