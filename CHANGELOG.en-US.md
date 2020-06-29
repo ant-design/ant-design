@@ -19,7 +19,7 @@ timeline: true
 
 `2020-06-28`
 
-- 🔥 add Skeleton.Image. [#24805](https://github.com/ant-design/ant-design/pull/24805) [@fireairforce](https://github.com/fireairforce)
+- 🔥 Add Skeleton.Image. [#24805](https://github.com/ant-design/ant-design/pull/24805) [@fireairforce](https://github.com/fireairforce)
 - 🔥 Adjust RangePicker logic that any picker selection will popup another picker panel. [#25135](https://github.com/ant-design/ant-design/pull/25135)
 - Form
   - 🆕 Form.Item support `preserve` to disable value preserve. [#25186](https://github.com/ant-design/ant-design/pull/25186)
