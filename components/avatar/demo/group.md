@@ -21,7 +21,7 @@ class Demo extends React.Component {
   render() {
     return (
       <>
-        <Avatar.Group style={{ marginTop: 16 }}>
+        <Avatar.Group>
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
           <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />

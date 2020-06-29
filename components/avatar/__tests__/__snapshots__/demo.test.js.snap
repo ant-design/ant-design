@@ -473,7 +473,6 @@ exports[`renders ./components/avatar/demo/group.md correctly 1`] = `
 Array [
   <div
     class="ant-avatar-group"
-    style="margin-top:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
