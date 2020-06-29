@@ -16,7 +16,7 @@ export function composeRef<T>(...refs: React.Ref<T>[]): React.Ref<T> {
   };
 }
 
-export function usePrevious<T>(value: T): T | undefined {
+export function usePrevious<T = undefined>(value: T): T | undefined {
   const ref = React.useRef<T>();
 
   React.useEffect(() => {
