@@ -52,7 +52,7 @@ timeline: true
   - 🐞 优化 Pagination 可访问性，修复一个 W3C 属性错误。[#25119](https://github.com/ant-design/ant-design/pull/25119)
 - DatePicker
   - 🐞 修复 DatePicker 组件的月份和季度前后选择器 icon 的大小。[#25035](https://github.com/ant-design/ant-design/pull/25035) [@fireairforce](https://github.com/fireairforce)
-  - 🆕 DatePicker 支持 `showNow`，TimePicker 支持 `showNow`。[#25032](https://github.com/ant-design/ant-design/pull/25032)
+  - 🆕 TimePicker 支持 `showNow` 属性。[#25032](https://github.com/ant-design/ant-design/pull/25032)
 - Drawer
   - 🆕 Drawer 支持 `closeIcon` 属性。[#24842](https://github.com/ant-design/ant-design/pull/#24842)
   - 🐞 修复 Drawer 使用 `getContainer={false}` 时可能导致页面滚动条消失的问题。[#25273](https://github.com/ant-design/ant-design/pull/25273)
