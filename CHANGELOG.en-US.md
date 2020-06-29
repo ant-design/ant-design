@@ -57,7 +57,7 @@ timeline: true
 - 🆕 Menution support `autoSize` prop. [#24961](https://github.com/ant-design/ant-design/pull/24961) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
 - 🆕 Remove the 140px width limit on vertical dot Steps.Step. [#24907](https://github.com/ant-design/ant-design/pull/24907) [@07akioni](https://github.com/07akioni)
 - 🆕 Move Result children to end of component. [#24945](https://github.com/ant-design/ant-design/pull/24945)
-- 🆕 Rate `character` support `(RateProps)=> ReactNode` customization. [#24903](https://github.com/ant-design/ant-design/pull/24903)
+- 🆕 Add Rate `character` support `(RateProps)=> ReactNode` customization. [#24903](https://github.com/ant-design/ant-design/pull/24903)
 - 🆕 Add `optionType` api to set Radio type in Radio.Group when use `options`. [#24809](https://github.com/ant-design/ant-design/pull/24809)
 - 🆕 Add `closeIcon` to customize Tag close icon. [#24885](https://github.com/ant-design/ant-design/pull/24885)
 - 🆕 Drawer support `closeIcon`. [#5c18fbd](https://github.com/ant-design/ant-design/commit/5c18fbd) [@偏右](https://github.com/偏右)
