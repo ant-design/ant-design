@@ -17,7 +17,7 @@ Implement resizable column by integrate with [react-resizable](https://github.co
 import { Table } from 'antd';
 import { Resizable } from 'react-resizable';
 
-const ResizeableTitle = props => {
+const ResizableTitle = props => {
   const { onResize, width, ...restProps } = props;
 
   if (!width) {
@@ -78,7 +78,7 @@ class Demo extends React.Component {
 
   components = {
     header: {
-      cell: ResizeableTitle,
+      cell: ResizableTitle,
     },
   };
 
