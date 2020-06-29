@@ -52,7 +52,7 @@ timeline: true
 - DatePicker
   - 🆕 Fix month and quarter picker's toggle button size of DatePicker component. [#25035](https://github.com/ant-design/ant-design/pull/25035) [@fireairforce](https://github.com/fireairforce)
   - 🆕 DatePicker support `showNow`. TimePicker support `showNow`. [#25032](https://github.com/ant-design/ant-design/pull/25032)
-- 🆕 Fixed Rate render unexpectedly when `value` is `1.6` or `2.6`. [#24993](https://github.com/ant-design/ant-design/pull/24993)
+- 🆕 Fix Rate render unexpectedly when `value` is `1.6` or `2.6`. [#24993](https://github.com/ant-design/ant-design/pull/24993)
 - 🆕 Menution support `autoSize` prop. [#24961](https://github.com/ant-design/ant-design/pull/24961) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
 - 🆕 Remove the 140px width limit on vertical dot Steps.Step. [#24907](https://github.com/ant-design/ant-design/pull/24907)
 - 🆕 Move Result children to end of component. [#24945](https://github.com/ant-design/ant-design/pull/24945)
@@ -73,8 +73,8 @@ timeline: true
 - 🐞 Fix PageHeader tabs unexpected border style. [#25159](https://github.com/ant-design/ant-design/pull/25159)
 - 🐞 Fix InputNumber `max` prop has no default value. [#25243](https://github.com/ant-design/ant-design/pull/25243)
 - 🐞 Fix Drawer `getContainer={false}` cause scrollbar missing in some situation. [#25273](https://github.com/ant-design/ant-design/pull/25273)
-- 🌐 Added missing translation keys to table locale in German, Italian and Czech. [#25233](https://github.com/ant-design/ant-design/pull/25233) [@karelsoupaEMZ](https://github.com/karelsoupaEMZ)
-- 🇯🇵 Added ja_JP globalization for Form. [#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
+- 🌐 Add missing translation keys to table locale in German, Italian and Czech. [#25233](https://github.com/ant-design/ant-design/pull/25233) [@karelsoupaEMZ](https://github.com/karelsoupaEMZ)
+- 🇯🇵 Add ja_JP globalization for Form. [#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
 - RTL
   - 🐞 Fix Table nested style in RTL. [#25156](https://github.com/ant-design/ant-design/pull/25156)
   - 🐞 Fix Table title style in RTL when use filter and sorter. [#25152](https://github.com/ant-design/ant-design/pull/25152)
