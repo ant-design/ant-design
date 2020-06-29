@@ -32,19 +32,19 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabled | disabled state of button | boolean | false |  |
-| ghost | make background transparent and invert text and border colors | boolean | false |  |
-| href | redirect url of link button | string | - |  |
-| htmlType | set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |  |
-| icon | set the icon component of button | ReactNode | - |  |
-| loading | set the loading status of button | boolean \| { delay: number } | false |  |
-| shape | can be set to `circle`, `round` or omitted | string | - |  |
-| size | set the size of button | `large` \| `middle` \| `small` |  |  |
-| target | same as target attribute of a, works when href is specified | string | - |  |
-| type | can be set to `primary` `ghost` `dashed` `danger` `link` `text` | string | - |  |
-| onClick | set the handler to handle `click` event | (event) => void | - |  |
-| block | option to fit button width to its parent width | boolean | false |  |
-| danger | set the danger status of button | boolean | false |  |
+| disabled | Disabled state of button | boolean | false |  |
+| ghost | Make background transparent and invert text and border colors | boolean | false |  |
+| href | Redirect url of link button | string | - |  |
+| htmlType | Set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |  |
+| icon | Set the icon component of button | ReactNode | - |  |
+| loading | Set the loading status of button | boolean \| { delay: number } | false |  |
+| shape | Can be set to `circle`, `round` or omitted | string | - |  |
+| size | Set the size of button | `large` \| `middle` \| `small` | - |  |
+| target | Same as target attribute of a, works when href is specified | string | - |  |
+| type | Can be set to `primary` `ghost` `dashed` `danger` `link` `text` | string | - |  |
+| onClick | Set the handler to handle `click` event | (event) => void | - |  |
+| block | Option to fit button width to its parent width | boolean | false |  |
+| danger | Set the danger status of button | boolean | false |  |
 
 It accepts all props which native buttons support.
 
