@@ -27,6 +27,8 @@ const isTextOverflowSupport = isStyleSupport('textOverflow');
 interface CopyConfig {
   text?: string;
   onCopy?: () => void;
+  icon?: React.ReactNode;
+  tooltips?: [string, string];
 }
 
 interface EditConfig {
@@ -378,7 +380,10 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const title = copied ? this.copiedStr : this.copyStr;
+    const title = copied
+      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
+      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
+
     return (
       <Tooltip key="copy" title={title}>
         <TransButton
@@ -386,7 +391,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           onClick={this.onCopyClick}
           aria-label={title}
         >
-          {copied ? <CheckOutlined /> : <CopyOutlined />}
+          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );

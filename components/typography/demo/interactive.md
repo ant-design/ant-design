@@ -15,6 +15,7 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import { Typography } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
@@ -34,6 +35,10 @@ class Demo extends React.Component {
         <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>
         <Paragraph copyable>This is a copyable text.</Paragraph>
         <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+        <Paragraph copyable={{ tooltips: ['click here', 'you clicked!!'] }}>
+          Replace tooltips text.
+        </Paragraph>
+        <Paragraph copyable={{ icon: <SmileOutlined /> }}>Custom icon.</Paragraph>
       </>
     );
   }
