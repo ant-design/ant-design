@@ -72,7 +72,7 @@ timeline: true
 - 🐞 Fix PageHeader tabs unexpected border style. [#25159](https://github.com/ant-design/ant-design/pull/25159)
 - 🐞 Fix InputNumber `max` prop has no default value. [#25243](https://github.com/ant-design/ant-design/pull/25243)
 - 🐞 Add BackTop `duration` used to set the time required to return to the top. [#25254](https://github.com/ant-design/ant-design/pull/25254)
-- 🐞Fix Drawer `getContainer={false}` cause scrollbar missing in some situation. [#25273](https://github.com/ant-design/ant-design/pull/25273)
+- 🐞 Fix Drawer `getContainer={false}` cause scrollbar missing in some situation. [#25273](https://github.com/ant-design/ant-design/pull/25273)
 - 🌐 Added missing translation keys to table locale in German, Italian and Czech. [#25233](https://github.com/ant-design/ant-design/pull/25233) [@karelsoupaEMZ](https://github.com/karelsoupaEMZ)
 - 🇯🇵 Added ja_JP globalization for Form. [#25244](https://github.com/ant-design/ant-design/pull/25244) [@kentaro84207](https://github.com/kentaro84207)
 - RTL
