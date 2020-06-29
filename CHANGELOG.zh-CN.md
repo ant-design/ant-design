@@ -37,7 +37,7 @@ timeline: true
   - 🐞 修复 TimePicker 面板 12 AM 显示为 0 AM 的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
   - 🐞 修复 TimePicker 在 use12Hours 时没有用 0 ～ 23 来禁用小时的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
   - 🐞 修复 TimePicker 没有根据小时禁用情况禁用 AM PM 的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
-  - 🐞 修复 TimePicker ”当前“按钮没有和 hour, minute, second step 一致的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 TimePicker `Now` 按钮没有和 `hour|minute|second|step` 保持一致的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174) [@07akioni](https://github.com/07akioni)
 - Cascader
   - 🆕 Cascader 新增 `expandIcon` 来自定义次级菜单展开图标。[#24865](https://github.com/ant-design/ant-design/pull/24865)
   - 🆕 Cascader 增加 `dropdownRender` 属性用于扩展菜单。[#24812](https://github.com/ant-design/ant-design/pull/24812) [@07akioni](https://github.com/07akioni)
