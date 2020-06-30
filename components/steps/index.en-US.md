@@ -33,7 +33,7 @@ The whole of the step bar.
 | current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 |  |
 | direction | To specify the direction of the step bar, `horizontal` or `vertical` | string | `horizontal` |  |
 | labelPlacement | Place title and description with `horizontal` or `vertical` direction | string | `horizontal` |  |
-| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. labelPlacement will be `vertical` | Boolean or (iconDot, {index, status, title, description}) => ReactNode | false |  |
+| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. labelPlacement will be `vertical` | boolean \| (iconDot, {index, status, title, description}) => ReactNode | false |  |
 | size | To specify the size of the step bar, `default` and `small` are currently supported | string | `default` |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | initial | Set the initial step, counting from 0 | number | 0 |  |
@@ -45,9 +45,9 @@ A single step in the step bar.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| description | Description of the step, optional property | string\|ReactNode | - |  |
-| icon | Icon of the step, optional property | string\|ReactNode | - |  |
+| description | Description of the step, optional property | string \| ReactNode | - |  |
+| icon | Icon of the step, optional property | string \| ReactNode | - |  |
 | status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | string | `wait` |  |
-| title | Title of the step | string\|ReactNode | - |  |
-| subTitle | Subtitle of the step | string\|ReactNode | - |  |
+| title | Title of the step | string \| ReactNode | - |  |
+| subTitle | Subtitle of the step | string \| ReactNode | - |  |
 | disabled | Disable click | boolean | false |  |

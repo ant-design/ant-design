@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ConfigProvider from '..';
+import ConfigProvider, { ConfigContext } from '..';
 import Button from '../../button';
 import Table from '../../table';
 import Input from '../../input';
@@ -64,5 +64,19 @@ describe('ConfigProvider', () => {
     );
 
     expect(wrapper.find('input').props().autoComplete).toEqual('off');
+  });
+
+  it('render empty', () => {
+    const App = () => {
+      const { renderEmpty } = React.useContext(ConfigContext);
+      return renderEmpty();
+    };
+    const wrapper = mount(
+      <ConfigProvider>
+        <App />
+      </ConfigProvider>,
+    );
+
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });
