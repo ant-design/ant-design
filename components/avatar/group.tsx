@@ -33,7 +33,7 @@ const Group: React.FC<GroupProps> = props => (
           const childrenWithProps = React.Children.toArray(children).slice(0, maxLength);
           const childrenHidden = React.Children.toArray(children).slice(maxLength, numOfChildren);
           childrenWithProps.push(
-            <Popover content={childrenHidden} trigger="hover">
+            <Popover content={childrenHidden} trigger="hover" placement="bottom">
               <Avatar style={excessItemsStyle}>{`+${numOfChildren - maxLength}`}</Avatar>
             </Popover>,
           );

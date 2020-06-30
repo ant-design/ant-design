@@ -14,7 +14,7 @@ title:
 Avatar group display.
 
 ```tsx
-import { Avatar, Switch, Divider } from 'antd';
+import { Avatar, Divider, Tooltip } from 'antd';
 import { UserOutlined, AntDesignOutlined } from '@ant-design/icons';
 
 class Demo extends React.Component {
@@ -24,7 +24,9 @@ class Demo extends React.Component {
         <Avatar.Group>
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
-          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+          <Tooltip title="Ant User" placement="bottom">
+            <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+          </Tooltip>
           <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
         </Avatar.Group>
         <Divider />
@@ -34,7 +36,9 @@ class Demo extends React.Component {
         >
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
-          <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+          <Tooltip title="Ant User" placement="bottom">
+            <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+          </Tooltip>
           <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
         </Avatar.Group>
       </>
