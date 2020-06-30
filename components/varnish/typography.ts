@@ -2,88 +2,72 @@ import { spacing } from './spacing';
 import { color } from './colors';
 import { fontWeight } from './fontWeight';
 
-// general
-const defaultFontSize = '16px';
-const defaultFontFamily = 'Lato';
-const fontWeightRegular = fontWeight.regular;
-const fontWeightBold = fontWeight.bold;
-const fallbackDefaultFonts = [
-  '"Helvetica Neue"',
-  'Helvetica',
-  '-apple-system',
-  'BlinkMacSystemFont',
-  '"Segoe UI"',
-  '"PingFang SC"',
-  '"Hiragino Sans GB"',
-  '"Microsoft YaHei"',
-  'Arial',
-  'sans-serif',
-  '"Apple Color Emoji"',
-  '"Segoe UI Emoji"',
-  '"Segoe UI Symbol"',
-];
-const fallbackDefaultCodeFonts = [
-  'SFMono-Regular',
-  'Consolas',
-  '"Liberation Mono"',
-  'Menlo',
-  'Courier',
-  'monospace',
-];
+// font
+const font = {
+  size: '16px',
+  weight: {
+    regular: fontWeight.regular,
+    bold: fontWeight.bold,
+  },
+  family:{
+    sansSerif: 'Lato,"Lucida Grande",Tahoma,"Helvetica Neue",Helvetica,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+    serif: 'Volkhov,Georgia,Times,Serif',
+    headline: 'Lato,"Helvetica Neue",Helvetica,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+    code: '"Roboto Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace',
+  },
+};
 
 // headlines
-const headlineFontFamily = defaultFontFamily;
 const h1 = {
-  fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.headline,
   fontSize: '46px',
   lineHeight: 50 / 46,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const h2 = {
-  fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.headline,
   fontSize: '36px',
   lineHeight: 40 / 36,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const h3 = {
-  fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.headline,
   fontSize: '30px',
   lineHeight: 36 / 30,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const h4 = {
-  fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.headline,
   fontSize: '24px',
   lineHeight: 28 / 24,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const h5 = {
-  fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.headline,
   fontSize: '18px',
   lineHeight: 22 / 18,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const h6 = {
-  fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.headline,
   fontSize: '13px',
   lineHeight: 18 / 13,
-  fontWeight: fontWeightRegular,
+  fontWeight: font.weight.regular,
 };
 
 // body
-const bodyFontFamily = defaultFontFamily;
 const bodyJumbo = {
-  fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.sansSerif,
   fontSize: '24px',
   lineHeight: 36 / 24,
 };
 const bodyBig = {
-  fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.sansSerif,
   fontSize: '18px',
   lineHeight: 27 / 18,
 };
 const body = {
-  fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.sansSerif,
   fontSize: '16px',
   lineHeight: 22 / 16,
 };
@@ -91,10 +75,10 @@ const bodyBold = {
   fontFamily: body.fontFamily,
   fontSize: body.fontSize,
   lineHeight: body.lineHeight,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const bodySmall = {
-  fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.sansSerif,
   fontSize: '14px',
   lineHeight: 20 / 14,
 };
@@ -102,15 +86,15 @@ const bodySmallBold = {
   fontFamily: bodySmall.fontFamily,
   fontSize: bodySmall.fontSize,
   lineHeight: bodySmall.lineHeight,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 const bodyMicro = {
-  fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.sansSerif,
   fontSize: '13px',
   lineHeight: 18 / 13,
 };
 const notification = {
-  fontFamily: [bodyFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.sansSerif,
   fontSize: '14px',
   lineHeight: 18 / 14,
 };
@@ -118,27 +102,25 @@ const notificationBold = {
   fontFamily: notification.fontFamily,
   fontSize: notification.fontSize,
   lineHeight: notification.lineHeight,
-  fontWeight: fontWeightBold,
+  fontWeight: font.weight.bold,
 };
 
 // attribution
-const attributionFontFamily = 'Volkhov';
 const quote = {
-  fontFamily: [attributionFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.serif,
   fontSize: '30px',
   lineHeight: 42 / 30,
-  fontWeight: fontWeightRegular,
+  fontWeight: font.weight.regular,
 };
 const author = {
-  fontFamily: [attributionFontFamily, ...fallbackDefaultFonts].join(', '),
+  fontFamily: font.family.serif,
   fontSize: '18px',
   lineHeight: 36 / 18,
 };
 
 // code
-const codeFontFamily = 'Roboto Mono';
 const code = {
-  fontFamily: [codeFontFamily, ...fallbackDefaultCodeFonts].join(', '),
+  fontFamily: font.family.code,
   fontSize: '13px',
   lineHeight: 18 / 13,
   contrastBackgroundColor: color.N10,
@@ -147,29 +129,20 @@ const code = {
 };
 
 export function getFontImportsURL() {
-  const defaultFont = `${defaultFontFamily}:${[fontWeight.regular, fontWeight.bold].join(',')}`;
-  const attrFont = `${attributionFontFamily}:${[fontWeight.regular, fontWeight.bold].join(',')}`;
-  const codeFont = `${codeFontFamily}:${[fontWeight.regular, fontWeight.bold].join(',')}`;
-  return `https://fonts.googleapis.com/css?family=${[defaultFont, attrFont, codeFont].join('|')}`;
+  const sansSerifFont = `${font.family.sansSerif.split(',')[0]}:${[fontWeight.regular, fontWeight.bold].join(',')}`;
+  const serifFont = `${font.family.serif.split(',')[0]}:${[fontWeight.regular, fontWeight.bold].join(',')}`;
+  const codeFont = `${font.family.code.split(',')[0]}:${[fontWeight.regular, fontWeight.bold].join(',')}`;
+  return `https://fonts.googleapis.com/css?family=${[sansSerifFont, serifFont, codeFont].join('|')}`;
 }
 
 export const typography = {
-  // general
-  fontSize: defaultFontSize,
-  fontFamily: defaultFontFamily,
-  fontWeightRegular,
-  fontWeightBold,
-
-  // headlines
-  headlineFontFamily,
+  font,
   h1,
   h2,
   h3,
   h4,
   h5,
   h6,
-
-  // body
   bodyJumbo,
   bodyBig,
   body,
@@ -179,13 +152,7 @@ export const typography = {
   bodyMicro,
   notification,
   notificationBold,
-
-  // attribution
-  attributionFontFamily,
   quote,
   author,
-
-  // code
-  codeFontFamily,
   code,
 };

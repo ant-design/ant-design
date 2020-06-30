@@ -149,10 +149,6 @@ button {
     color: ${vars.getRefOrError('palette.text.contrast')};
     padding: ${vars.getRefOrError('spacing.sm')} ${vars.getRefOrError('spacing.md')};
     border-radius: ${vars.getRefOrError('shape.borderRadius')};
-    /**
-     * Varnish buttons have some pretty tricky mechanics around border and
-     * padding. We simplify those greatly and just omit the border.
-     */
     border: none;
     font-weight: ${vars.getRefOrError('fontWeight.bold')};
     font-size: ${vars.getRefOrError('typography.bodySmall.fontSize')};
@@ -251,6 +247,27 @@ footer {
 footer .content {
     padding-top: ${vars.getRefOrError('spacing.md')};
     padding-bottom: ${vars.getRefOrError('spacing.md')};
+}
+
+hr {
+    border-top: 1px solid  ${vars.getRefOrError('palette.border.default')};
+    margin: ${vars.getRefOrError('spacing.lg')};
+}
+
+blockquote {
+    padding: 0 ${vars.getRefOrError('spacing.md')};
+    margin: ${vars.getRefOrError('spacing.md')} 0;
+    position: relative;
+}
+
+blockquote:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: ${vars.getRefOrError('spacing.xxs')};
+    bottom: ${vars.getRefOrError('spacing.xxs')};
+    width: 1px;
+    background-color: ${vars.getRefOrError('color.T5')};
 }
     `.trim();
 }
