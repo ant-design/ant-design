@@ -12,7 +12,8 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
+import { isValidElement } from '../_util/reactNode';
 
 const { Option } = Select;
 
@@ -25,7 +26,10 @@ export interface DataSourceItemObject {
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface AutoCompleteProps
-  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'> {
+  extends Omit<
+    InternalSelectProps<string>,
+    'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+  > {
   dataSource?: DataSourceItemType[];
 }
 
@@ -33,7 +37,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (props, ref) => {
+const AutoComplete: React.ForwardRefRenderFunction<Select, AutoCompleteProps> = (props, ref) => {
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
@@ -46,10 +50,10 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
 
   if (
     childNodes.length === 1 &&
-    React.isValidElement(childNodes[0]) &&
+    isValidElement(childNodes[0]) &&
     !isSelectOptionOrSelectOptGroup(childNodes[0])
   ) {
-    customizeInput = childNodes[0];
+    [customizeInput] = childNodes;
   }
 
   const getInputElement = (): React.ReactElement => customizeInput;
@@ -63,7 +67,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
   } else {
     optionChildren = dataSource
       ? dataSource.map(item => {
-          if (React.isValidElement(item)) {
+          if (isValidElement(item)) {
             return item;
           }
           switch (typeof item) {
@@ -90,13 +94,13 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
 
   // ============================ Warning ============================
   React.useEffect(() => {
-    warning(
+    devWarning(
       !('dataSource' in props),
       'AutoComplete',
       '`dataSource` is deprecated, please use `options` instead.',
     );
 
-    warning(
+    devWarning(
       !customizeInput || !('size' in props),
       'AutoComplete',
       'You need to control style self instead of setting `size` when using customize input.',

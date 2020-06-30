@@ -4,7 +4,6 @@
 @import './panel';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
-@picker-text-height: 40px;
 
 .picker-padding(@input-height, @font-size, @padding-horizontal) {
   // font height probably 22.0001， So use floor better
@@ -46,6 +45,10 @@
     background: @input-disabled-bg;
     border-color: @select-border-color;
     cursor: not-allowed;
+  }
+
+  &&-disabled &-suffix {
+    color: @disabled-color;
   }
 
   &&-borderless {
@@ -126,15 +129,19 @@
   }
 
   &-separator {
+    position: relative;
     display: inline-block;
-    align-self: center;
-    width: 2em;
+    width: 1em;
     height: @font-size-lg;
     color: @disabled-color;
     font-size: @font-size-lg;
-    line-height: @font-size-lg;
-    text-align: center;
+    vertical-align: top;
     cursor: default;
+
+    .@{picker-prefix-cls}-focused & {
+      color: @text-color-secondary;
+    }
+
     .@{picker-prefix-cls}-range-separator & {
       .@{picker-prefix-cls}-disabled & {
         cursor: not-allowed;
@@ -173,6 +180,12 @@
       .@{picker-prefix-cls}-active-bar {
         opacity: 1;
       }
+    }
+
+    &-separator {
+      align-items: center;
+      padding: 0 @padding-xs;
+      line-height: 1;
     }
   }
 
@@ -229,7 +242,11 @@
       display: inline-block;
     }
 
-    .@{picker-prefix-cls}-preset span {
+    // https://github.com/ant-design/ant-design/issues/23687
+    .@{picker-prefix-cls}-preset > .@{ant-prefix}-tag-blue {
+      color: @primary-color;
+      background: @primary-1;
+      border-color: @primary-3;
       cursor: pointer;
     }
 
@@ -276,6 +293,7 @@
     .@{picker-prefix-cls}-panels {
       display: inline-flex;
       flex-wrap: nowrap;
+      direction: ltr;
     }
 
     .@{picker-prefix-cls}-panel {

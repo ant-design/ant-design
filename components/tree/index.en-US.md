@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Tree
+cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 ---
 
 A hierarchical list structure component.
@@ -37,9 +38,9 @@ Almost anything can be represented in a tree structure. Examples include directo
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
 | switcherIcon | customize collapse/expand icon of tree node | ReactNode | - |  |
-| showLine | Shows a connecting line | boolean | false |  |
+| showLine | Shows a connecting line | booleanboolean\|{showLeafIcon: boolean} | false |  |
 | treeData | treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array\<{ key, title, children, \[disabled, selectable] }> | - |  |
-| virtual | Disable virtual scroll when set to `false` | boolean | - | 4.1.0 |
+| virtual | Disable virtual scroll when set to `false` | boolean | true | 4.1.0 |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
@@ -51,6 +52,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| icon | customize treeNode icon. | ReactNode \| (props) => ReactNode | - |  |
 
 ### TreeNode props
 
@@ -59,17 +61,17 @@ Almost anything can be represented in a tree structure. Examples include directo
 | checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disables the treeNode | boolean | false |  |
-| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |  |
+| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode \| (props) => ReactNode | - |  |
 | isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |  |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |  |
 | selectable | Set whether the treeNode can be selected | boolean | true |  |
-| title | Title | string\|ReactNode | '---' |  |
+| title | Title | string\|ReactNode | `---` |  |
 
 ### DirectoryTree props
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | click |
+| expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | `click` |
 
 ## Note
 

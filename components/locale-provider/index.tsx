@@ -1,5 +1,6 @@
 import * as React from 'react';
-import warning from '../_util/warning';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
+import devWarning from '../_util/devWarning';
 
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
 import { TransferLocale as TransferLocaleForEmpty } from '../empty';
@@ -30,6 +31,9 @@ export interface Locale {
   PageHeader?: Object;
   Icon?: Object;
   Text?: Object;
+  Form?: {
+    defaultValidateMessages: ValidateMessages;
+  };
 }
 
 export interface LocaleProviderProps {
@@ -47,7 +51,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     super(props);
     changeConfirmLocale(props.locale && props.locale.Modal);
 
-    warning(
+    devWarning(
       props._ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',

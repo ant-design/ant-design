@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import CheckboxGroup, { GroupContext } from './Group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -24,6 +24,7 @@ export interface AbstractCheckboxProps<T> {
   children?: React.ReactNode;
   id?: string;
   autoFocus?: boolean;
+  type?: string;
 }
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
@@ -60,10 +61,10 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     const { value } = this.props;
     this.context?.registerValue(value);
 
-    warning(
+    devWarning(
       'checked' in this.props || this.context || !('value' in this.props),
       'Checkbox',
-      '`value` is not validate prop, do you mean `checked`?',
+      '`value` is not a valid prop, do you mean `checked`?',
     );
   }
 
@@ -92,7 +93,7 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     this.rcCheckbox.blur();
   }
 
-  renderCheckbox = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCheckbox = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props, context } = this;
     const {
       prefixCls: customizePrefixCls,
@@ -120,6 +121,7 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
     }
     const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
       [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     });

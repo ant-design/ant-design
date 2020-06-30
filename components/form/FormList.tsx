@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { List } from 'rc-field-form';
 import { StoreValue } from 'rc-field-form/lib/interface';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 interface FieldData {
   name: number;
@@ -21,12 +21,15 @@ interface FormListProps {
 }
 
 const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
-  warning(!!props.name, 'Form.List', 'Miss `name` prop.');
+  devWarning(!!props.name, 'Form.List', 'Miss `name` prop.');
 
   return (
     <List {...props}>
       {(fields, operation) => {
-        return children(fields.map(field => ({ ...field, fieldKey: field.key })), operation);
+        return children(
+          fields.map(field => ({ ...field, fieldKey: field.key })),
+          operation,
+        );
       }}
     </List>
   );

@@ -10,7 +10,7 @@ import CSSMotion from 'rc-animate/lib/CSSMotion';
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext } from './context';
-import { useCacheErrors } from './util';
+import useCacheErrors from './hooks/useCacheErrors';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
@@ -73,6 +73,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
     !!help,
   );
 
+  React.useEffect(
+    () => () => {
+      onDomErrorVisibleChange(false);
+    },
+    [],
+  );
+
   const memoErrors = useMemo(
     () => cacheErrors,
     visible,
@@ -101,6 +108,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {icon}
         </div>
         <CSSMotion
+          motionDeadline={500}
           visible={visible}
           motionName="show-help"
           onLeaveEnd={() => {

@@ -3,6 +3,7 @@ category: Components
 subtitle: 多选框
 type: 数据录入
 title: Checkbox
+cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
 ---
 
 多选框。
@@ -25,7 +26,7 @@ title: Checkbox
 | defaultChecked | 初始是否选中                            | boolean           | false  |      |
 | disabled       | 失效状态                                | boolean           | false  |      |
 | indeterminate  | 设置 indeterminate 状态，只负责样式控制 | boolean           | false  |      |
-| onChange       | 变化时回调函数                          | Function(e:Event) | -      |      |
+| onChange       | 变化时回调函数                          | function(e:Event) | -      |      |
 
 #### Checkbox Group
 
@@ -36,7 +37,7 @@ title: Checkbox
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| Option\[] | \[] |  |
 | value | 指定选中的选项 | string\[] | \[] |  |
-| onChange | 变化时回调函数 | Function(checkedValue) | - |  |
+| onChange | 变化时回调函数 | function(checkedValue) | - |  |
 
 ##### Option
 

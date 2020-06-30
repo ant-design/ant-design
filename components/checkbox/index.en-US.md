@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Checkbox
+cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
 ---
 
 Checkbox component.
@@ -19,23 +20,23 @@ Checkbox component.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoFocus | get focus when component mounted | boolean | false |  |
-| checked | Specifies whether the checkbox is selected. | boolean | false |  |
-| defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | boolean | false |  |
-| disabled | Disable checkbox | boolean | false |  |
-| indeterminate | indeterminate checked state of checkbox | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes. | Function(e:Event) | - |  |
+| autoFocus | If get focus when component mounted | boolean | false |  |
+| checked | Specifies whether the checkbox is selected | boolean | false |  |
+| defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
+| disabled | If disable checkbox | boolean | false |  |
+| indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
+| onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
 
 #### Checkbox Group
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | Default selected value | string\[] | \[] |  |
-| disabled | Disable all checkboxes | boolean | false |  |
+| disabled | If disable all checkboxes | boolean | false |  |
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] | \[] |  |
-| value | Used for setting the currently selected value. | string\[] | \[] |  |
-| onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |  |
+| value | Used for setting the currently selected value | string\[] | \[] |  |
+| onChange | The callback function that is triggered when the state changes | function(checkedValue) | - |  |
 
 ### Methods
 
@@ -43,5 +44,5 @@ Checkbox component.
 
 | Name    | Description  | Version |
 | ------- | ------------ | ------- |
-| blur()  | remove focus |         |
-| focus() | get focus    |         |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |

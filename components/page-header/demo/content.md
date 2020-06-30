@@ -158,11 +158,24 @@ ReactDOM.render(
   align-items: center;
 }
 
+#components-page-header-demo-content .ant-page-header-rtl .image {
+  margin: 0 60px 0 0;
+}
+
 #components-page-header-demo-content .example-link {
+  line-height: 24px;
   margin-right: 16px;
+}
+[data-theme='compact'] #components-page-header-demo-content .example-link {
+  line-height: 20px;
 }
 #components-page-header-demo-content .example-link-icon {
   margin-right: 8px;
+}
+
+[data-theme='compact'] #components-page-header-demo-content .example-link-icon {
+  width: 20px;
+  height: 20px;
 }
 
 #components-page-header-demo-content .ant-page-header-rtl .example-link {

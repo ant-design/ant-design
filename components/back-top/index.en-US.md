@@ -2,6 +2,7 @@
 category: Components
 type: Other
 title: BackTop
+cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 ---
 
 `BackTop` makes it easy to go back to the top of the page.
@@ -22,3 +23,4 @@ title: BackTop
 | target | specifies the scrollable area dom node | () => HTMLElement | () => window |  |
 | visibilityHeight | the `BackTop` button will not show until the scroll height reaches this value | number | 400 |  |
 | onClick | a callback function, which can be executed when you click the button | Function | - |  |
+| duration | Time to return to top（ms） | number | 450 | 4.4.0 |

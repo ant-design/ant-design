@@ -1,7 +1,7 @@
 ---
 order: 3
 title:
-  zh-CN: 可选择
+  zh-CN: 可选择标签
   en-US: Checkable
 ---
 
@@ -22,26 +22,38 @@ import { Tag } from 'antd';
 
 const { CheckableTag } = Tag;
 
-class MyTag extends React.Component {
-  state = { checked: true };
+const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
-  handleChange = checked => {
-    this.setState({ checked });
+class HotTags extends React.Component {
+  state = {
+    selectedTags: ['Books'],
   };
 
+  handleChange(tag, checked) {
+    const { selectedTags } = this.state;
+    const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter(t => t !== tag);
+    console.log('You are interested in: ', nextSelectedTags);
+    this.setState({ selectedTags: nextSelectedTags });
+  }
+
   render() {
+    const { selectedTags } = this.state;
     return (
-      <CheckableTag {...this.props} checked={this.state.checked} onChange={this.handleChange} />
+      <>
+        <span style={{ marginRight: 8 }}>Categories:</span>
+        {tagsData.map(tag => (
+          <CheckableTag
+            key={tag}
+            checked={selectedTags.indexOf(tag) > -1}
+            onChange={checked => this.handleChange(tag, checked)}
+          >
+            {tag}
+          </CheckableTag>
+        ))}
+      </>
     );
   }
 }
 
-ReactDOM.render(
-  <div>
-    <MyTag>Tag1</MyTag>
-    <MyTag>Tag2</MyTag>
-    <MyTag>Tag3</MyTag>
-  </div>,
-  mountNode,
-);
+ReactDOM.render(<HotTags />, mountNode);
 ```

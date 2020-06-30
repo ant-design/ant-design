@@ -69,7 +69,11 @@ class Demo extends React.Component {
         </Collapse>
         <br />
         <span>Expand Icon Position: </span>
-        <Select value={expandIconPosition} onChange={this.onPositionChange}>
+        <Select
+          value={expandIconPosition}
+          style={{ margin: '0 8px' }}
+          onChange={this.onPositionChange}
+        >
           <Option value="left">left</Option>
           <Option value="right">right</Option>
         </Select>

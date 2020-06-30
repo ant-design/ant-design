@@ -82,6 +82,36 @@ describe('ConfigProvider', () => {
             ),
           ).toMatchSnapshot();
         });
+
+        it('configProvider componentSize large', () => {
+          expect(
+            render(
+              <ConfigProvider componentSize="large" prefixCls="config">
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
+
+        it('configProvider componentSize middle', () => {
+          expect(
+            render(
+              <ConfigProvider componentSize="middle" prefixCls="config">
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
+
+        it('configProvider virtual and dropdownMatchSelectWidth', () => {
+          expect(
+            render(
+              <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
       });
     }
 

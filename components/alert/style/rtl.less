@@ -4,13 +4,26 @@
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
 .@{alert-prefix-cls} {
-  &-rtl {
+  &&-rtl {
     padding: 8px 37px 8px 15px;
     direction: rtl;
   }
 
-  &&-closable {
+  &&-no-icon {
     .@{alert-prefix-cls}-rtl& {
+      padding: @alert-no-icon-padding-vertical 15px;
+    }
+  }
+
+  &&-closable {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
+      padding-right: 37px;
+      padding-left: 30px;
+    }
+  }
+
+  &&-no-icon&-closable {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding-right: 15px;
       padding-left: 30px;
     }
@@ -18,7 +31,7 @@
 
   &-icon {
     .@{alert-prefix-cls}-rtl & {
-      right: 16px;
+      right: @padding-md;
       left: auto;
     }
   }
@@ -26,25 +39,28 @@
   &-close-icon {
     .@{alert-prefix-cls}-rtl & {
       right: auto;
-      left: 16px;
+      left: @padding-md;
     }
   }
 
-  &-with-description {
-    .@{alert-prefix-cls}-rtl& {
-      padding: 15px 64px 15px 15px;
+  &-with-description,
+  &-with-description&-closable {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
+      padding: @alert-with-description-padding-vertical @alert-with-description-icon-size * 2 +
+        @alert-with-description-padding-vertical @alert-with-description-no-icon-padding-vertical
+        15px;
     }
   }
 
   &-with-description&-no-icon {
-    .@{alert-prefix-cls}-rtl& {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding: 15px;
     }
   }
 
   &-with-description &-icon {
     .@{alert-prefix-cls}-rtl& {
-      right: 24px;
+      right: @alert-with-description-icon-size;
       left: auto;
     }
   }
@@ -52,7 +68,7 @@
   &-with-description &-close-icon {
     .@{alert-prefix-cls}-rtl& {
       right: auto;
-      left: 16px;
+      left: @padding-md;
     }
   }
 }

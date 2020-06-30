@@ -9,6 +9,16 @@ describe('PageHeader', () => {
   mountTest(PageHeader);
   rtlTest(PageHeader);
 
+  const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+
+  beforeAll(() => {
+    mockGetBoundingClientRect.mockReturnValue({ width: 100 });
+  });
+
+  afterAll(() => {
+    mockGetBoundingClientRect.mockRestore();
+  });
+
   it('pageHeader should not contain back it back', () => {
     const routes = [
       {
@@ -100,5 +110,12 @@ describe('PageHeader', () => {
     );
 
     expect(render(wrapper)).toMatchSnapshot();
+  });
+
+  it('change container width', () => {
+    const wrapper = mount(<PageHeader title="Page Title" extra="extra" />);
+    wrapper.triggerResize();
+    wrapper.update();
+    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBe(true);
   });
 });

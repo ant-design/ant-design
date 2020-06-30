@@ -3,10 +3,11 @@ import classNames from 'classnames';
 import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import SkeletonButton from './Button';
 import Element from './Element';
 import SkeletonAvatar, { AvatarProps } from './Avatar';
+import SkeletonButton from './Button';
 import SkeletonInput from './Input';
+import SkeletonImage from './Image';
 
 /* This only for skeleton internal. */
 interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
@@ -20,6 +21,7 @@ export interface SkeletonProps {
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
+  round?: boolean;
 }
 
 function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
@@ -68,20 +70,8 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
   return basicProps;
 }
 
-class Skeleton extends React.Component<SkeletonProps, any> {
-  static Button: typeof SkeletonButton;
-
-  static Avatar: typeof SkeletonAvatar;
-
-  static Input: typeof SkeletonInput;
-
-  static defaultProps: Partial<SkeletonProps> = {
-    avatar: false,
-    title: true,
-    paragraph: true,
-  };
-
-  renderSkeleton = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+const Skeleton = (props: SkeletonProps) => {
+  const renderSkeleton = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       loading,
@@ -91,11 +81,12 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       title,
       paragraph,
       active,
-    } = this.props;
+      round,
+    } = props;
 
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
-    if (loading || !('loading' in this.props)) {
+    if (loading || !('loading' in props)) {
       const hasAvatar = !!avatar;
       const hasTitle = !!title;
       const hasParagraph = !!paragraph;
@@ -154,6 +145,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         [`${prefixCls}-with-avatar`]: hasAvatar,
         [`${prefixCls}-active`]: active,
         [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-round`]: round,
       });
 
       return (
@@ -166,10 +158,18 @@ class Skeleton extends React.Component<SkeletonProps, any> {
 
     return children;
   };
+  return <ConfigConsumer>{renderSkeleton}</ConfigConsumer>;
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderSkeleton}</ConfigConsumer>;
-  }
-}
+Skeleton.defaultProps = {
+  avatar: false,
+  title: true,
+  paragraph: true,
+};
+
+Skeleton.Button = SkeletonButton;
+Skeleton.Avatar = SkeletonAvatar;
+Skeleton.Input = SkeletonInput;
+Skeleton.Image = SkeletonImage;
 
 export default Skeleton;

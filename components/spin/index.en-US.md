@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Spin
+cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg
 ---
 
 A spinner for displaying loading state of a page or a section.

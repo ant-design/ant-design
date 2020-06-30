@@ -3,8 +3,6 @@
 @drawer-prefix-cls: ~'@{ant-prefix}-drawer';
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
-
-
 .@{drawer-prefix-cls} {
   @drawer-header-close-padding: ceil((@drawer-header-close-size - @font-size-lg) / 2);
 
@@ -21,7 +19,10 @@
 
   &-content-wrapper {
     position: absolute;
+    width: 100%;
+    height: 100%;
   }
+
   .@{drawer-prefix-cls}-content {
     width: 100%;
     height: 100%;
@@ -38,9 +39,6 @@
     &.@{drawer-prefix-cls}-open {
       width: 100%;
       transition: transform @animation-duration-slow @ease-base-out;
-    }
-    &.@{drawer-prefix-cls}-open.no-mask {
-      width: 0%;
     }
   }
 
@@ -93,9 +91,6 @@
       height: 100%;
       transition: transform @animation-duration-slow @ease-base-out;
     }
-    &.@{drawer-prefix-cls}-open.no-mask {
-      height: 0%;
-    }
   }
 
   &-top {
@@ -127,15 +122,12 @@
     }
   }
 
-  &.@{drawer-prefix-cls}-open {
-    .@{drawer-prefix-cls} {
-      &-mask {
-        height: 100%;
-        opacity: 1;
-        transition: none;
-        animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
-      }
-    }
+  &.@{drawer-prefix-cls}-open .@{drawer-prefix-cls}-mask {
+    height: 100%;
+    opacity: 1;
+    transition: none;
+    animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
+    pointer-events: auto;
   }
 
   &-title {
@@ -162,7 +154,7 @@
     z-index: @zindex-popup-close;
     display: block;
     padding: @drawer-header-close-padding;
-    color: @text-color-secondary;
+    color: @modal-close-color;
     font-weight: 700;
     font-size: @font-size-lg;
     font-style: normal;
@@ -237,7 +229,9 @@
     opacity: 0;
     filter: ~'alpha(opacity=45)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
+    pointer-events: none;
   }
+
   &-open {
     &-content {
       box-shadow: @shadow-2;

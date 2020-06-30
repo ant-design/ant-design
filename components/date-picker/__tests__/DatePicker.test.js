@@ -8,10 +8,10 @@ import focusTest from '../../../tests/shared/focusTest';
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  focusTest(DatePicker, true);
+  focusTest(DatePicker, { refFocus: true });
 
   beforeEach(() => {
-    MockDate.set(moment('2016-11-22'));
+    MockDate.set(moment('2016-11-22').valueOf());
   });
 
   afterEach(() => {
@@ -72,5 +72,10 @@ describe('DatePicker', () => {
     const wrapper = mount(<DatePicker disabledDate={disabledDate} open />);
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('placeholder', () => {
+    const wrapper = mount(<DatePicker placeholder={undefined} />);
+    expect(wrapper.find('input').props().placeholder).toEqual('Select date');
   });
 });

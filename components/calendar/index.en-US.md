@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 cols: 1
 title: Calendar
+cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 ---
 
 Container for displaying data in calendar form.
@@ -35,7 +36,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: moment): ReactNode | - |  |
 | defaultValue | The date selected by default | [moment](http://momentjs.com/) | default date |  |
 | disabledDate | Function that specifies the dates that cannot be selected | (currentDate: moment) => boolean | - |  |
-| fullscreen | Whether to display in full-screen | boolean | `true` |  |
+| fullscreen | Whether to display in full-screen | boolean | true |  |
 | locale | The calendar's locale | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |  |
 | monthCellRender | Customize the display of the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |  |

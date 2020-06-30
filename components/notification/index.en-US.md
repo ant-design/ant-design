@@ -3,6 +3,7 @@ category: Components
 type: Feedback
 noinstant: true
 title: Notification
+cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 ---
 
 Display a notification message globally.
@@ -40,7 +41,7 @@ The properties of config are as follows:
 | closeIcon | custom close icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
 | message | The title of notification box (required) | string\|ReactNode | - |
-| onClose | Specify a function that will be called when the close button is clicked | Function | - |
+| onClose | Trigger when notification closed | Function | - |
 | onClick | Specify a function that will be called when the notification is clicked | Function | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
@@ -50,11 +51,16 @@ The properties of config are as follows:
 
 - `notification.config(options)`
 
+  > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+  >
+  > When you want to use it alone, you can start the RTL mode through the following settings.
+
 ```js
 notification.config({
   placement: 'bottomRight',
   bottom: 50,
   duration: 3,
+  rtl: true,
 });
 ```
 
@@ -66,6 +72,7 @@ notification.config({
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
+| rtl | whether to enable RTL mode | boolean | false |
 
 ## FAQ
 

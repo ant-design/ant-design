@@ -50,10 +50,18 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Library of components for Desktop
   - https://www.antforfigma.com
+- Figma Open Source Library
+  - https://i.imgur.com/kopdWeX.png
+  - Free open source Figma library with complete accrate to code components
+  - https://www.figma.com/community/file/831698976089873405
 - Ant Design Chart
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - Sketch Symbols for Chart
-  - https://gw.alipayobjects.com/os/basement_prod/862ee74f-4ac5-482c-b1ae-3165684cedbe.sketch
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
+- MockingBot
+  - https://cdn.modao.cc/logo_mockingbot.svg
+  - Rich component resources
+  - https://modao.cc/square/ant-design
 
 ## Articles
 

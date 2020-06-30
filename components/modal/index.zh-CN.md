@@ -3,6 +3,7 @@ type: 反馈
 category: Components
 subtitle: 对话框
 title: Modal
+cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 ---
 
 模态对话框。
@@ -20,23 +21,23 @@ title: Modal
 | afterClose | Modal 完全关闭后的回调 | function | - |
 | bodyStyle | Modal body 样式 | object | {} |
 | cancelText | 取消按钮文字 | string\|ReactNode | 取消 |
-| centered | 垂直居中展示 Modal | Boolean | `false` |
+| centered | 垂直居中展示 Modal | boolean | false |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
-| closeIcon | 自定义关闭图标 | ReactNode | - |
-| confirmLoading | 确定按钮 loading | boolean | - |
+| closeIcon | 自定义关闭图标 | ReactNode | `<CloseOutlined />` |
+| confirmLoading | 确定按钮 loading | boolean | false |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | forceRender | 强制渲染 Modal | boolean | false |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| `() => HTMLElement` \| Selectors \| false | document.body |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
-| mask | 是否展示遮罩 | Boolean | true |
+| mask | 是否展示遮罩 | boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
 | okText | 确认按钮文字 | string\|ReactNode | 确定 |
-| okType | 确认按钮类型 | string | primary |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
-| style | 可用于设置浮层的样式，调整浮层位置等 | object | - |
+| okType | 确认按钮类型 | string | `primary` |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
+| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
 | title | 标题 | string\|ReactNode | - |
 | visible | 对话框是否可见 | boolean | - |
 | width | 宽度 | string\|number | 520 |
@@ -47,7 +48,9 @@ title: Modal
 
 #### 注意
 
-> `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+> - `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+>
+> - `Modal.method()` RTL 模式仅支持 hooks 用法。
 
 ### Modal.method()
 
@@ -61,24 +64,24 @@ title: Modal
 
 以上均为一个函数，参数为 object，具体属性如下：
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| autoFocusButton | 指定自动获得焦点的按钮 | null\| `ok` \| `cancel` | `ok` |
-| cancelText | 设置 Modal.confirm 取消按钮文字 | string | 取消 |
-| centered | 垂直居中展示 Modal | Boolean | `false` |
-| className | 容器类名 | string | - |
-| content | 内容 | string\|ReactNode | - |
-| icon | 自定义图标（3.12.0 新增） | ReactNode | `<QuestionCircle />` |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
-| okText | 确认按钮文字 | string | 确定 |
-| okType | 确认按钮类型 | string | primary |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
-| title | 标题 | string\|ReactNode | - |
-| width | 宽度 | string\|number | 416 |
-| zIndex | 设置 Modal 的 `z-index` | Number | 1000 |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function | - |
-| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| autoFocusButton | 指定自动获得焦点的按钮 | null\| `ok` \| `cancel` | `ok` |  |
+| cancelText | 设置 Modal.confirm 取消按钮文字 | string | 取消 |  |
+| centered | 垂直居中展示 Modal | boolean | false |  |
+| className | 容器类名 | string | - |  |
+| content | 内容 | string\|ReactNode | - |  |
+| icon | 自定义图标 | ReactNode | [<QuestionCircle /\>](/components/icon/) | 3.12.0 |
+| maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
+| okText | 确认按钮文字 | string | 确定 |  |
+| okType | 确认按钮类型 | string | `primary` |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| title | 标题 | string\|ReactNode | - |  |
+| width | 宽度 | string\|number | 416 |  |
+| zIndex | 设置 Modal 的 `z-index` | Number | 1000 |  |
+| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
+| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 
@@ -92,12 +95,6 @@ modal.update({
 
 modal.destroy();
 ```
-
-<style>
-.code-box-demo .ant-btn {
-  margin-right: 8px;
-}
-</style>
 
 - `Modal.destroyAll`
 

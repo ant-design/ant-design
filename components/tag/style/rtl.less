@@ -11,9 +11,17 @@
     text-align: right;
   }
 
-  .@{iconfont-css-prefix}-close {
-    .@{tag-prefix-cls}-rtl& {
+  &-close-icon {
+    .@{tag-prefix-cls}-rtl & {
       margin-right: 3px;
+      margin-left: 0;
+    }
+  }
+
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
+    .@{tag-prefix-cls}-rtl& {
+      margin-right: 7px;
       margin-left: 0;
     }
   }

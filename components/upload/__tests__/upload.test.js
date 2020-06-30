@@ -5,7 +5,7 @@ import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -199,7 +199,6 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14298
   it('should not have id if upload children is null, avoid being triggered by label', () => {
-    // eslint-disable-next-line
     const Demo = ({ children }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
@@ -220,14 +219,31 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
-  it('should not have id if upload is disabled, avoid being triggered by label', () => {
-    // eslint-disable-next-line
+  it('should not have id if Upload is disabled, avoid being triggered by label', () => {
     const Demo = ({ disabled }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload disabled={disabled}>
             <div>upload</div>
           </Upload>
+        </Form.Item>
+      </Form>
+    );
+
+    const wrapper = mount(<Demo />);
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.find('input#upload').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/24197
+  it('should not have id if upload.Dragger is disabled, avoid being triggered by label', () => {
+    const Demo = ({ disabled }) => (
+      <Form>
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
+          <Upload.Dragger disabled={disabled}>
+            <div>upload</div>
+          </Upload.Dragger>
         </Form.Item>
       </Form>
     );
@@ -497,7 +513,7 @@ describe('Upload', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Upload value={[]} />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Upload] `value` is not validate prop, do you mean `fileList`?',
+      'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',
     );
     errorSpy.mockRestore();
   });
@@ -511,5 +527,23 @@ describe('Upload', () => {
     };
     const wrapper = mount(<Upload listType="picture-card" fileList={[file]} />);
     expect(wrapper.find('img').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/25077
+  it('should support events', () => {
+    const onClick = jest.fn();
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
+    const wrapper = mount(
+      <Upload onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('.ant-upload').at(1).simulate('click');
+    expect(onClick).toHaveBeenCalled();
+    wrapper.find('.ant-upload').at(1).simulate('mouseEnter');
+    expect(onMouseEnter).toHaveBeenCalled();
+    wrapper.find('.ant-upload').at(1).simulate('mouseLeave');
+    expect(onMouseLeave).toHaveBeenCalled();
   });
 });

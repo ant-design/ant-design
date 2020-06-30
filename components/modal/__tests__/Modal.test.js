@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Modal from '..';
+import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -51,20 +52,25 @@ describe('Modal', () => {
 
   it('onCancel should be called', () => {
     const onCancel = jest.fn();
-    const wrapper = mount(<Modal onCancel={onCancel} />).instance();
-    wrapper.handleCancel();
+    const wrapper = mount(<Modal visible onCancel={onCancel} />);
+    wrapper.find('.ant-btn').first().simulate('click');
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
     const onOk = jest.fn();
-    const wrapper = mount(<Modal onOk={onOk} />).instance();
-    wrapper.handleOk();
+    const wrapper = mount(<Modal visible onOk={onOk} />);
+    wrapper.find('.ant-btn').last().simulate('click');
     expect(onOk).toHaveBeenCalled();
   });
 
   it('support closeIcon', () => {
     const wrapper = mount(<Modal closeIcon={<a>closeIcon</a>} visible />);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('danger type', () => {
+    const wrapper = mount(<Modal okType="danger" visible />);
+    expect(wrapper.find(Button).last().props().danger).toBeTruthy();
   });
 });

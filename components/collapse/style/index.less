@@ -26,7 +26,7 @@
       padding: @collapse-header-padding;
       padding-left: @collapse-header-padding-extra;
       color: @heading-color;
-      line-height: 22px;
+      line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s;
       .clearfix;
@@ -36,7 +36,7 @@
 
         position: absolute;
         top: 50%;
-        left: @padding-md;
+        left: @collapse-header-arrow-left;
         display: inline-block;
         font-size: @font-size-sm;
         transform: translateY(-50%);
@@ -123,6 +123,22 @@
 
   &-borderless > &-item > &-content > &-content-box {
     padding-top: 4px;
+  }
+
+  &-ghost {
+    background-color: transparent;
+    border: 0;
+    > .@{collapse-prefix-cls}-item {
+      border-bottom: 0;
+      > .@{collapse-prefix-cls}-content {
+        background-color: transparent;
+        border-top: 0;
+        > .@{collapse-prefix-cls}-content-box {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+      }
+    }
   }
 
   & &-item-disabled > &-header {

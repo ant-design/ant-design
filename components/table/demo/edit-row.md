@@ -85,7 +85,7 @@ const EditableTable = () => {
   const isEditing = (record: Item) => record.key === editingKey;
 
   const edit = (record: Item) => {
-    form.setFieldsValue({ ...record });
+    form.setFieldsValue({ name: '', age: '', address: '', ...record });
     setEditingKey(record.key);
   };
 
@@ -199,9 +199,9 @@ ReactDOM.render(<EditableTable />, mountNode);
 ```
 
 ```css
-.editable-row .ant-form-explain {
+.editable-row .ant-form-item-explain {
   position: absolute;
+  top: 100%;
   font-size: 12px;
-  margin-top: -4px;
 }
 ```

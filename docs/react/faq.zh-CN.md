@@ -37,21 +37,6 @@ https://ant.design/components/select/#Select-props
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
-### 我只想使用 `Menu`/`Button` 等，但似乎我必须 import 整个 antd 和它的样式文件。
-
-试试 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或者用下面这种方式来按需加载：
-
-```jsx
-import Menu from 'antd/es/menu';
-import 'antd/es/menu/style/css';
-```
-
-或者（ES6 支持的 tree shaking 方式）：
-
-```jsx
-import { Menu, Breadcrumb, Icon } from 'antd';
-```
-
 ### 如何使用 Day.js 替换 Moment.js 来减小打包大小？
 
 可以参考[替换 Moment.js](/docs/react/replace-moment)。
@@ -59,6 +44,10 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 
 `Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
+
+### 为什么修改组件传入的对象或数组属性组件不会更新？
+
+antd 内部会对 props 进行浅比较实现性能优化。当状态变更，你总是应该传递一个新的对象。具体请参考[React 的文档](https://reactjs.org/docs/thinking-in-react.html)
 
 ### 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
@@ -86,7 +75,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ### 在我的网络环境下没法获取到 `icon` 文件。
 

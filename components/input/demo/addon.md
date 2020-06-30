@@ -35,7 +35,7 @@ const selectAfter = (
 );
 
 ReactDOM.render(
-  <div>
+  <>
     <div style={{ marginBottom: 16 }}>
       <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     </div>
@@ -48,7 +48,7 @@ ReactDOM.render(
     <div style={{ marginBottom: 16 }}>
       <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```

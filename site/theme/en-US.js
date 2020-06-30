@@ -11,7 +11,8 @@ module.exports = {
     'app.header.menu.resource': 'Resources',
     'app.header.menu.more': 'More',
     'app.header.menu.mobile': 'Mobile',
-    'app.header.menu.pro.v4': 'Ant Design Pro v4',
+    'app.header.menu.pro.v4': 'Ant Design Pro',
+    'app.header.menu.charts': 'Ant Design Charts',
     'app.header.menu.ecosystem': 'Ecosystem',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
@@ -31,7 +32,6 @@ module.exports = {
     'app.demo.codesandbox': 'Open in CodeSandbox',
     'app.demo.stackblitz': 'Open in Stackblitz',
     'app.demo.riddle': 'Open in Riddle',
-    'app.home.slogan': 'A UI Design Language and React UI library',
     'app.home.introduce':
       'A design system for enterprise-level products. Create an efficient and enjoyable work experience.',
     'app.home.recommend': 'Recommend',
@@ -75,7 +75,7 @@ module.exports = {
     'app.footer.scaffolds': 'Scaffold Market',
     'app.footer.dev-tools': 'Developer Tools',
     'app.footer.umi': 'React Application Framework',
-    'app.footer.dva': 'Data Flow Framework',
+    'app.footer.dumi': 'Component doc generator',
     'app.footer.remax': 'Mini Program Framework',
     'app.footer.hooks': 'React Hooks Library',
     'app.footer.resources': 'Resources',
@@ -144,5 +144,6 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.result-tip': 'Match the following icons for you:',
     'app.docs.components.icon.pic-searcher.th-icon': 'Icon',
     'app.docs.components.icon.pic-searcher.th-score': 'Probability',
+    'app.components.overview.search': 'Search in components',
   },
 };

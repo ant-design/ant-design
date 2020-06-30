@@ -62,6 +62,7 @@ function toList([, ...items]: ContentUnit[]): ContentUnit[] {
       const titleMatch = titleStr.match(/(.*)(#[\dA-Fa-f]{6})/);
       if (titleMatch) {
         titleStr = titleMatch[1].trim();
+        // eslint-disable-next-line prefer-destructuring
         coverColor = titleMatch[2];
       }
 

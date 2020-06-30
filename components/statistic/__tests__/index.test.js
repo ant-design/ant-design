@@ -14,11 +14,16 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00'));
+    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
     MockDate.reset();
+  });
+
+  it('`-` is not a number', () => {
+    const wrapper = mount(<Statistic value="-" />);
+    expect(wrapper.find('.ant-statistic-content').text()).toEqual('-');
   });
 
   it('customize formatter', () => {
@@ -47,12 +52,7 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment()
-        .add(2, 'd')
-        .add(11, 'h')
-        .add(28, 'm')
-        .add(9, 's')
-        .add(3, 'ms');
+      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
 
       [
         ['H:m:s', '59:28:9'],
@@ -82,6 +82,26 @@ describe('Statistic', () => {
       expect(onFinish).not.toHaveBeenCalled();
     });
 
+    it('responses hover events', () => {
+      const onMouseEnter = jest.fn();
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(<Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      wrapper.simulate('mouseenter');
+      expect(onMouseEnter).toHaveBeenCalled();
+      wrapper.simulate('mouseleave');
+      expect(onMouseLeave).toHaveBeenCalled();
+    });
+
+    it('responses hover events for Countdown', () => {
+      const onMouseEnter = jest.fn();
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(<Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      wrapper.simulate('mouseenter');
+      expect(onMouseEnter).toHaveBeenCalled();
+      wrapper.simulate('mouseleave');
+      expect(onMouseLeave).toHaveBeenCalled();
+    });
+
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
@@ -102,7 +122,7 @@ describe('Statistic', () => {
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
 
-        MockDate.set(moment('2019-11-28 00:00:00'));
+        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
         jest.runAllTimers();
 
         expect(onFinish).toHaveBeenCalled();

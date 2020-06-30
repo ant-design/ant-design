@@ -554,6 +554,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -571,7 +572,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -720,6 +721,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -737,7 +739,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -860,6 +862,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -877,7 +880,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -990,6 +993,89 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
   >
     <div
       class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-horizontal"
+  id="dynamic_form_nest_item"
+>
+  <div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-dashed ant-btn-block"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs />
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                 Add field
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -1764,9 +1850,8 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
-                aria-disabled="false"
                 aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up "
+                class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
                 unselectable="unselectable"
               >
@@ -1792,9 +1877,8 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 </span>
               </span>
               <span
-                aria-disabled="false"
                 aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down "
+                class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
                 unselectable="unselectable"
               >
@@ -1824,10 +1908,12 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 id="nest-messages_user_age"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
@@ -2109,6 +2195,84 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
       </div>
     </div>
   </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="test"
+        title="test"
+      >
+        test
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="test"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="list_0"
+            type="text"
+            value="light"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="ant-btn ant-btn-button"
+    type="button"
+  >
+    <span>
+      Focus Form.Item
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Focus Form.List
+    </span>
+  </button>
 </form>
 `;
 
@@ -2482,6 +2646,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity:0"
+                        unselectable="on"
                         value=""
                       />
                     </span>
@@ -2499,7 +2664,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down"
+                      class="anticon anticon-down ant-select-suffix"
                       role="img"
                     >
                       <svg
@@ -2884,6 +3049,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -2899,7 +3065,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -2965,6 +3131,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -2980,7 +3147,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -3096,6 +3263,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  autocomplete="off"
                   placeholder="Select date"
                   readonly=""
                   size="12"
@@ -3161,9 +3329,8 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-input-number-handler-wrap"
               >
                 <span
-                  aria-disabled="false"
                   aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up "
+                  class="ant-input-number-handler ant-input-number-handler-up"
                   role="button"
                   unselectable="unselectable"
                 >
@@ -3189,9 +3356,8 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                   </span>
                 </span>
                 <span
-                  aria-disabled="false"
                   aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down "
+                  class="ant-input-number-handler ant-input-number-handler-down"
                   role="button"
                   unselectable="unselectable"
                 >
@@ -3221,9 +3387,11 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-valuemax="9007199254740991"
                   aria-valuemin="-9007199254740991"
                   autocomplete="off"
                   class="ant-input-number-input"
+                  max="9007199254740991"
                   min="-9007199254740991"
                   role="spinbutton"
                   step="1"
@@ -3259,10 +3427,13 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           >
             <button
               aria-checked="false"
-              class="ant-switch-small ant-switch"
+              class="ant-switch ant-switch-small"
               role="switch"
               type="button"
             >
+              <div
+                class="ant-switch-handle"
+              />
               <span
                 class="ant-switch-inner"
               />
@@ -3344,6 +3515,8 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
+                id="time_related_controls_date-picker"
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -3410,6 +3583,8 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
+                id="time_related_controls_date-time-picker"
                 placeholder="Select date"
                 readonly=""
                 size="21"
@@ -3476,6 +3651,8 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
+                id="time_related_controls_month-picker"
                 placeholder="Select month"
                 readonly=""
                 size="12"
@@ -3542,6 +3719,8 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
+                autocomplete="off"
+                id="time_related_controls_range-picker"
                 placeholder="Start date"
                 readonly=""
                 size="12"
@@ -3552,15 +3731,36 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-range-separator"
             >
               <span
+                aria-label="to"
                 class="ant-picker-separator"
               >
-                →
+                <span
+                  aria-label="swap-right"
+                  class="anticon anticon-swap-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="swap-right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
             <div
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="End date"
                 readonly=""
                 size="12"
@@ -3630,6 +3830,8 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input ant-picker-input-active"
             >
               <input
+                autocomplete="off"
+                id="time_related_controls_range-time-picker"
                 placeholder="Start date"
                 readonly=""
                 size="21"
@@ -3640,15 +3842,36 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-range-separator"
             >
               <span
+                aria-label="to"
                 class="ant-picker-separator"
               >
-                →
+                <span
+                  aria-label="swap-right"
+                  class="anticon anticon-swap-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="swap-right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
             <div
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="End date"
                 readonly=""
                 size="21"
@@ -3718,6 +3941,8 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
+                id="time_related_controls_time-picker"
                 placeholder="Select time"
                 readonly=""
                 size="10"
@@ -3864,6 +4089,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -3881,7 +4107,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -3950,6 +4176,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
                 <span
@@ -3999,9 +4226,8 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
-                aria-disabled="false"
                 aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up "
+                class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
                 unselectable="unselectable"
               >
@@ -4027,9 +4253,8 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </span>
               </span>
               <span
-                aria-disabled="false"
                 aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down "
+                class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
                 unselectable="unselectable"
               >
@@ -4112,6 +4337,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             role="switch"
             type="button"
           >
+            <div
+              class="ant-switch-handle"
+            />
             <span
               class="ant-switch-inner"
             />
@@ -5502,6 +5730,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -5592,6 +5821,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-picker-input"
             >
               <input
+                autocomplete="off"
                 placeholder="Select time"
                 readonly=""
                 size="10"
@@ -5697,6 +5927,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -5712,7 +5943,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -5897,6 +6128,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        autocomplete="off"
                         placeholder="Select date"
                         readonly=""
                         size="12"
@@ -5965,6 +6197,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        autocomplete="off"
                         placeholder="Select date"
                         readonly=""
                         size="12"
@@ -6035,9 +6268,8 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
-                aria-disabled="false"
                 aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up "
+                class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
                 unselectable="unselectable"
               >
@@ -6063,9 +6295,8 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </span>
               </span>
               <span
-                aria-disabled="false"
                 aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down "
+                class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
                 unselectable="unselectable"
               >
@@ -6095,9 +6326,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
@@ -6166,7 +6399,29 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             />
             <span
               class="ant-input-suffix"
-            />
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
+            </span>
           </span>
         </div>
         <span
@@ -6321,6 +6576,27 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-suffix"
             >
               <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+                role="button"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
+              <span
                 aria-label="eye-invisible"
                 class="anticon anticon-eye-invisible ant-input-password-icon"
                 role="img"
@@ -6410,9 +6686,8 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               class="ant-input-number-handler-wrap"
             >
               <span
-                aria-disabled="false"
                 aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up "
+                class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
                 unselectable="unselectable"
               >
@@ -6438,9 +6713,8 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 </span>
               </span>
               <span
-                aria-disabled="false"
                 aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down "
+                class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
                 unselectable="unselectable"
               >

@@ -56,7 +56,6 @@ class App extends React.Component {
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
-      hideDefaultSelections: true,
       selections: [
         Table.SELECTION_ALL,
         Table.SELECTION_INVERT,

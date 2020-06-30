@@ -3,16 +3,21 @@ import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
+import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import { supportRef } from 'rc-util/lib/ref';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
-import { toArray, getFieldId, useFrameState } from './util';
+import { toArray, getFieldId } from './util';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import useFrameState from './hooks/useFrameState';
+import useItemRef from './hooks/useItemRef';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
@@ -24,39 +29,35 @@ type ChildrenType = RenderChildren | React.ReactNode;
 interface MemoInputProps {
   value: any;
   update: number;
-  children: any;
+  children: React.ReactNode;
 }
 
-const MemoInput = React.memo<MemoInputProps>(
-  ({ children }) => {
-    return children;
-  },
+const MemoInput = React.memo(
+  ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) => {
     return prev.value === next.value && prev.update === next.update;
   },
 );
 
-export interface FormItemProps
-  extends FormItemLabelProps,
-    FormItemInputProps,
-    Omit<RcFieldProps, 'children'> {
+export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children: ChildrenType;
+  children?: ChildrenType;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   required?: boolean;
+  hidden?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
-  fieldKey?: number;
+  fieldKey?: React.Key | React.Key[];
 }
 
 function hasValidName(name?: NamePath): Boolean {
   if (name === null) {
-    warning(false, 'Form.Item', '`null` is passed as `name` property');
+    devWarning(false, 'Form.Item', '`null` is passed as `name` property');
   }
   return !(name === undefined || name === null);
 }
@@ -79,15 +80,21 @@ function FormItem(props: FormItemProps): React.ReactElement {
     required,
     label,
     trigger = 'onChange',
-    validateTrigger = 'onChange',
+    validateTrigger,
+    hidden,
     ...restProps
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const formContext = React.useContext(FormContext);
+  const { name: formName } = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
+
+  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
+  const mergedValidateTrigger =
+    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
   function setDomErrorVisible(visible: boolean) {
     if (!destroyRef.current) {
@@ -95,7 +102,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
     }
   }
 
-  const { name: formName } = formContext;
   const hasName = hasValidName(name);
 
   // Cache Field NamePath
@@ -124,12 +130,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
         }
       };
 
+  // ===================== Children Ref =====================
+  const getItemRef = useItemRef();
+
   function renderLayout(
     baseChildren: React.ReactNode,
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean,
-  ): any {
+  ): React.ReactNode {
     if (noStyle) {
       return baseChildren;
     }
@@ -160,6 +169,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
+    if (domErrorVisible && help) {
+      prevValidateStatusRef.current = mergedValidateStatus;
+    }
+
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
@@ -171,8 +184,9 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
       [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && mergedValidateStatus !== 'error',
+        !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+      [`${prefixCls}-hidden`]: hidden,
     };
 
     // ======================= Children =======================
@@ -185,10 +199,13 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'colon',
           'extra',
           'getValueFromEvent',
+          'getValueProps',
           'hasFeedback',
           'help',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
+          'initialValue',
+          'isListField',
           'label',
           'labelAlign',
           'labelCol',
@@ -226,7 +243,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   updateRef.current += 1;
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children);
+    return renderLayout(children) as JSX.Element;
   }
 
   const variables: Record<string, string> = {};
@@ -239,7 +256,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       {...props}
       messageVariables={variables}
       trigger={trigger}
-      validateTrigger={validateTrigger}
+      validateTrigger={mergedValidateTrigger}
       onReset={() => {
         setDomErrorVisible(false);
       }}
@@ -253,7 +270,8 @@ function FormItem(props: FormItemProps): React.ReactElement {
         if (noStyle) {
           nameRef.current = [...mergedName];
           if (fieldKey) {
-            nameRef.current[nameRef.current.length - 1] = fieldKey;
+            const fieldKeys = Array.isArray(fieldKey) ? fieldKey : [fieldKey];
+            nameRef.current = [...mergedName.slice(0, -1), ...fieldKeys];
           }
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
@@ -278,41 +296,50 @@ function FormItem(props: FormItemProps): React.ReactElement {
         // ======================= Children =======================
         const mergedControl: typeof control = {
           ...control,
-          id: fieldId,
         };
 
         let childNode: React.ReactNode = null;
         if (Array.isArray(children) && hasName) {
-          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
         } else if (isRenderProps && (!shouldUpdate || hasName)) {
-          warning(
+          devWarning(
             !!shouldUpdate,
             'Form.Item',
             '`children` of render props only work with `shouldUpdate`.',
           );
-          warning(
+          devWarning(
             !hasName,
             'Form.Item',
             "Do not use `name` with `children` of render props since it's not a field.",
           );
         } else if (dependencies && !isRenderProps && !hasName) {
-          warning(
+          devWarning(
             false,
             'Form.Item',
             'Must set `name` or use render props when `dependencies` is set.',
           );
-        } else if (React.isValidElement(children)) {
-          warning(
-            (children.props as any).defaultValue === undefined,
+        } else if (isValidElement(children)) {
+          devWarning(
+            children.props.defaultValue === undefined,
             'Form.Item',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
           );
 
           const childProps = { ...children.props, ...mergedControl };
+          if (!childProps.id) {
+            childProps.id = fieldId;
+          }
+
+          if (supportRef(children)) {
+            childProps.ref = getItemRef(mergedName, children);
+          }
 
           // We should keep user origin event handler
-          const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
+          const triggers = new Set<string>([
+            ...toArray(trigger),
+            ...toArray(mergedValidateTrigger),
+          ]);
 
           triggers.forEach(eventName => {
             childProps[eventName] = (...args: any[]) => {
@@ -326,18 +353,18 @@ function FormItem(props: FormItemProps): React.ReactElement {
               value={mergedControl[props.valuePropName || 'value']}
               update={updateRef.current}
             >
-              {React.cloneElement(children, childProps)}
+              {cloneElement(children, childProps)}
             </MemoInput>
           );
         } else if (isRenderProps && shouldUpdate && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
-          warning(
+          devWarning(
             !mergedName.length,
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children as any;
+          childNode = children;
         }
 
         return renderLayout(childNode, fieldId, meta, isRequired);

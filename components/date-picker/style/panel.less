@@ -1,14 +1,17 @@
-@import './index';
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
 @picker-cell-inner-cls: ~'@{picker-prefix-cls}-cell-inner';
 
 .@{picker-prefix-cls} {
   @picker-arrow-size: 7px;
-  @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
+  @picker-panel-width: @picker-panel-cell-width * 7 + @padding-sm * 2 + 4;
 
   &-panel {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     text-align: center;
     background: @calendar-bg;
     border: @border-width-base @border-style-base @picker-border-color;
@@ -160,7 +163,7 @@
       right: 0;
       left: 0;
       z-index: 1;
-      height: 24px;
+      height: @picker-panel-cell-height;
       transform: translateY(-50%);
       content: '';
     }
@@ -170,9 +173,9 @@
       position: relative;
       z-index: 2;
       display: inline-block;
-      min-width: 24px;
-      height: 24px;
-      line-height: 24px;
+      min-width: @picker-panel-cell-height;
+      height: @picker-panel-cell-height;
+      line-height: @picker-panel-cell-height;
       border-radius: @border-radius-base;
       transition: background @animation-duration-slow, border @animation-duration-slow;
     }
@@ -226,19 +229,10 @@
 
     &-in-view&-range-start::before {
       left: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 50%;
-        left: 0;
-      }
     }
+
     &-in-view&-range-end::before {
       right: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: 50%;
-      }
     }
 
     // >>> Range Hover
@@ -308,38 +302,18 @@
       .@{cellClassName}::after {
       right: -6px - @border-width-base;
       left: 0;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: -6px - @border-width-base;
-      }
     }
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: 0;
       left: -6px - @border-width-base;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: -6px - @border-width-base;
-        left: 0;
-      }
     }
 
     // Hover with range start & end
     &-range-hover&-range-start::after {
       right: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: 50%;
-      }
     }
     &-range-hover&-range-end::after {
       left: 50%;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 50%;
-        left: 0;
-      }
     }
 
     // Edge start
@@ -351,15 +325,6 @@
       border-left: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 6px;
-        left: 0;
-        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
-        border-left: none;
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
-      }
     }
 
     // Edge end
@@ -371,15 +336,6 @@
       border-right: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
-
-      .@{picker-prefix-cls}-panel-rtl & {
-        right: 0;
-        left: 6px;
-        border-right: none;
-        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
-        border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
-      }
     }
 
     // >>> Disabled
@@ -423,7 +379,7 @@
   &-quarter-panel,
   &-month-panel {
     .@{picker-prefix-cls}-content {
-      height: 265px;
+      height: @picker-panel-without-time-cell-height * 4;
     }
 
     .@{picker-cell-inner-cls} {
@@ -445,6 +401,8 @@
 
   // ======================== Footer ========================
   &-footer {
+    width: min-content;
+    min-width: 100%;
     line-height: @picker-text-height - 2 * @border-width-base;
     text-align: center;
     border-bottom: @border-width-base @border-style-base transparent;
@@ -477,6 +435,11 @@
 
     &:active {
       color: @link-active-color;
+    }
+
+    &&-disabled {
+      color: @disabled-color;
+      cursor: not-allowed;
     }
   }
 
@@ -585,10 +548,10 @@
     }
 
     .@{picker-prefix-cls}-content {
-      width: 36px * 7;
+      width: @picker-panel-cell-width * 7;
 
       th {
-        width: 36px;
+        width: @picker-panel-cell-width;
       }
     }
   }
@@ -634,11 +597,20 @@
       flex: 1 0 auto;
       width: 56px;
       margin: 0;
-      padding: 0 0 194px 0;
+      padding: 0;
       overflow-y: hidden;
       text-align: left;
       list-style: none;
       transition: background @animation-duration-slow;
+
+      &::after {
+        display: block;
+        height: 224px - @picker-time-panel-cell-height;
+        content: '';
+        .@{picker-prefix-cls}-datetime-panel & {
+          height: 224px - @picker-time-panel-cell-height + 2 * @border-width-base;
+        }
+      }
 
       &:not(:first-child) {
         border-left: @border-width-base @border-style-base @picker-border-color;

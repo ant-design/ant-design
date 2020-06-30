@@ -9,26 +9,26 @@ title: useBreakpoint Hook
 
 ## en-US
 
-Use `useBreakpoint` Hook povide personalized layout.
+Use `useBreakpoint` Hook provide personalized layout.
 
 ```jsx
-import { Row, Col, Grid } from 'antd';
+import { Grid, Tag } from 'antd';
 
 const { useBreakpoint } = Grid;
 
 function UseBreakpointDemo() {
   const screens = useBreakpoint();
-
   return (
-    <Row>
-      <Col>
-        Current break point:&nbsp;
-        {Object.entries(screens)
-          .filter(screen => !!screen[1])
-          .map(screen => screen[0])
-          .join(' ')}
-      </Col>
-    </Row>
+    <>
+      Current break point:{' '}
+      {Object.entries(screens)
+        .filter(screen => !!screen[1])
+        .map(screen => (
+          <Tag color="blue" key={screen[0]}>
+            {screen[0]}
+          </Tag>
+        ))}
+    </>
   );
 }
 

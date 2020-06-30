@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
@@ -23,7 +22,8 @@ const { Option } = Select;
 
 let docsearch: any;
 if (typeof window !== 'undefined') {
-  docsearch = require('docsearch.js'); // eslint-disable-line
+  // eslint-disable-next-line global-require
+  docsearch = require('docsearch.js');
 }
 
 function initDocSearch(locale: string) {
@@ -38,8 +38,8 @@ function initDocSearch(locale: string) {
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits: { url: string }[]) {
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
-        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
+        hit.url = hit.url.replace('ant.design', window.location.host);
+        hit.url = hit.url.replace('https:', window.location.protocol);
       });
       return hits;
     },
@@ -52,6 +52,7 @@ export interface HeaderProps {
     locale: string;
   };
   location: { pathname: string };
+  router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
 }
@@ -63,11 +64,7 @@ interface HeaderState {
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
-    direction: PropTypes.string,
-  };
+  static contextType = SiteContext;
 
   state = {
     menuVisible: false,
@@ -76,8 +73,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 
   componentDidMount() {
-    const { intl } = this.props;
-    const { router } = this.context;
+    const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
     initDocSearch(intl.locale);
 
@@ -130,6 +126,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return 'LTR';
   };
 
+  getDropdownStyle = (): React.CSSProperties => {
+    const { direction } = this.context;
+    if (direction === 'rtl') {
+      return {
+        direction: 'ltr',
+        textAlign: 'right',
+      };
+    }
+    return {};
+  };
+
   onMenuVisibleChange = (visible: boolean) => {
     this.setState({
       menuVisible: visible,
@@ -168,6 +175,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <SiteContext.Consumer>
         {({ isMobile }) => {
           const { menuVisible, windowWidth, searching } = this.state;
+          const { direction } = this.context;
           const {
             location,
             themeConfig,
@@ -185,6 +193,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
           const isZhCN = locale === 'zh-CN';
+          const isRTL = direction === 'rtl';
           let responsive: null | 'narrow' | 'crowded' = null;
           if (windowWidth < RESPONSIVE_XS) {
             responsive = 'crowded';
@@ -199,6 +208,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
           const sharedProps = {
             isZhCN,
+            isRTL,
           };
 
           const searchBox = (
@@ -232,6 +242,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               size="small"
               defaultValue={antdVersion}
               onChange={this.handleVersionChange}
+              dropdownStyle={this.getDropdownStyle()}
               getPopupContainer={trigger => trigger.parentNode}
             >
               {versionOptions}

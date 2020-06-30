@@ -9,8 +9,8 @@ title: 从 v3 到 v4
 
 1. 请先升级到 3.x 的最新版本，按照控制台 warning 信息移除/修改相关的 API。
 2. 升级项目 React 16.12.0 以上。
-   - 如果你仍在使用 React 15，请参考[React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)
-   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
+   - 如果你仍在使用 React 15，请参考 [React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)。
+   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)。
 
 ## 4.0 有哪些不兼容的变化
 
@@ -32,6 +32,7 @@ title: 从 v3 到 v4
 
 - IE 最低支持版本为 IE 11。
 - React 最低支持版本为 React 16.9，部分组件开始使用 hooks 进行重构。
+  - 重构通过 `useMemo` 进行性能优化，请勿使用 mutable data 作为参数。
 
 #### 移除废弃的 API
 
@@ -53,6 +54,7 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
 - 移除了 Transfer 的 `lazy` 属性，它并没有起到真正的优化效果。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
+- 移除了 Table 的 `rowSelection.hideDefaultSelections` 属性，请在 `rowSelection.selections` 中使用 `SELECTION_ALL` 和 `SELECTION_INVERT` 替代，[自定义选择项](/components/table/#components-table-demo-row-selection-custom)。
 
 #### 图标升级
 
@@ -119,15 +121,21 @@ const Demo = () => (
   - [自定义单元格样式](/components/date-picker-cn/#components-date-picker-demo-date-render)的类名从 `ant-calendar-date` 改为 `ant-picker-cell-inner`。
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
-  - `onBlur` 时不再修改选中值。
+  - `onBlur` 时不再修改选中值，且返回 React 原生的 `event` 对象。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
   - Select 移除 `dropdownMenuStyle` 属性。
+  - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
+  - `filterOption` 第二个参数直接返回原数据，不在需要通过 `option.props.children` 来进行匹配。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
 - Table 重写
   - 在没有 `columns` 时仍然会保留一列。
   - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+- Pagination 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+- Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
+  - Dom 结构变化，如有覆盖样式需要仔细检查。
+  - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
 
 ```diff
 <Table

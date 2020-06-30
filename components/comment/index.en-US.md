@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Comment
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/ILhxpGzBO/Comment.svg
 ---
 
 A comment displays user feedback and discussion to website content.

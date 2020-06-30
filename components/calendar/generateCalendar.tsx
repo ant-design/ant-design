@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
@@ -62,13 +63,13 @@ export interface CalendarProps<DateType> {
 }
 
 function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
+  function isSameYear(date1: DateType, date2: DateType) {
+    return date1 && date2 && generateConfig.getYear(date1) === generateConfig.getYear(date2);
+  }
+
   function isSameMonth(date1: DateType, date2: DateType) {
     return (
-      date1 === date2 ||
-      (date1 &&
-        date2 &&
-        generateConfig.getYear(date1) === generateConfig.getYear(date2) &&
-        generateConfig.getMonth(date1) === generateConfig.getMonth(date2))
+      isSameYear(date1, date2) && generateConfig.getMonth(date1) === generateConfig.getMonth(date2)
     );
   }
 
@@ -82,6 +83,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const {
       prefixCls: customizePrefixCls,
       className,
+      style,
       dateFullCellRender,
       dateCellRender,
       monthFullCellRender,
@@ -97,7 +99,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       onPanelChange,
       onSelect,
     } = props;
-    const { getPrefixCls } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
     const today = generateConfig.getNow();
@@ -105,15 +107,15 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     // ====================== State =======================
 
     // Value
-    const [innerValue, setInnerValue] = React.useState(
-      () => value || defaultValue || generateConfig.getNow(),
-    );
-
-    const mergedValue = value || innerValue;
+    const [mergedValue, setMergedValue] = useMergedState(() => value || generateConfig.getNow(), {
+      defaultValue,
+      value,
+    });
 
     // Mode
-    const [innerMode, setInnerMode] = React.useState(() => mode || 'month');
-    const mergedMode = mode || innerMode;
+    const [mergedMode, setMergedMode] = useMergedState('month', {
+      value: mode,
+    });
     const panelMode = React.useMemo<'month' | 'date'>(
       () => (mergedMode === 'year' ? 'month' : 'date'),
       [mergedMode],
@@ -141,10 +143,16 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     };
 
     const triggerChange = (date: DateType) => {
-      setInnerValue(date);
+      setMergedValue(date);
 
       if (!isSameDate(date, mergedValue)) {
-        triggerPanelChange(date, mergedMode);
+        // Trigger when month panel switch month
+        if (
+          (panelMode === 'date' && !isSameMonth(date, mergedValue)) ||
+          (panelMode === 'month' && !isSameYear(date, mergedValue))
+        ) {
+          triggerPanelChange(date, mergedMode);
+        }
 
         if (onChange) {
           onChange(date);
@@ -153,7 +161,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     };
 
     const triggerModeChange = (newMode: CalendarMode) => {
-      setInnerMode(newMode);
+      setMergedMode(newMode);
       triggerPanelChange(mergedValue, newMode);
     };
 
@@ -238,7 +246,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
               className={classNames(calendarPrefixCls, className, {
                 [`${calendarPrefixCls}-full`]: fullscreen,
                 [`${calendarPrefixCls}-mini`]: !fullscreen,
+                [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
               })}
+              style={style}
             >
               {headerRender ? (
                 headerRender({

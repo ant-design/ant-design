@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: List
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 ---
 
 Simple List.
@@ -23,10 +24,10 @@ A list can be used to display content related to a single subject. The content c
 | header | List header renderer | string\|ReactNode | - |  |
 | itemLayout | The layout of list, default is `horizontal`, If a vertical list is desired, set the itemLayout property to `vertical` | string | - |  |
 | rowKey | Item's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |  |
-| loading | Shows a loading indicator while the contents of the list are being fetched | boolean\|[SpinProps](https://ant.design/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
+| loading | Shows a loading indicator while the contents of the list are being fetched | boolean\|[SpinProps](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | Shows a load more content | string\|ReactNode | - |  |
 | locale | i18n text including empty text | object | emptyText: 'No Data' <br> |  |
-| pagination | Pagination [config](https://ant.design/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
+| pagination | Pagination [config](/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
 | size | Size of list | `default` \| `large` \| `small` | `default` |  |
 | split | Toggles rendering of the split under the list item | boolean | true |  |
 | dataSource | dataSource array for list | any[] | - |  |
@@ -44,16 +45,16 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### List grid props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| column | column of grid, [optional number](https://github.com/ant-design/ant-design/blob/a7f17b4cdebbca07b3b9ce5698de61e772d46237/components/list/index.tsx#L16) | number | - |  |
-| gutter | spacing between grid | number | 0 |  |
-| xs | `<576px` column of grid | number | - |  |
-| sm | `≥576px` column of grid | number | - |  |
-| md | `≥768px` column of grid | number | - |  |
-| lg | `≥992px` column of grid | number | - |  |
-| xl | `≥1200px` column of grid | number | - |  |
-| xxl | `≥1600px` column of grid | number | - |  |
+| Property | Description              | Type   | Default | Version |
+| -------- | ------------------------ | ------ | ------- | ------- |
+| column   | column of grid           | number | -       |         |
+| gutter   | spacing between grid     | number | 0       |         |
+| xs       | `<576px` column of grid  | number | -       |         |
+| sm       | `≥576px` column of grid  | number | -       |         |
+| md       | `≥768px` column of grid  | number | -       |         |
+| lg       | `≥992px` column of grid  | number | -       |         |
+| xl       | `≥1200px` column of grid | number | -       |         |
+| xxl      | `≥1600px` column of grid | number | -       |         |
 
 ### List.Item
 

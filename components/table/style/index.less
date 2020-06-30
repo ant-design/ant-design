@@ -9,9 +9,8 @@
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 
-@table-selection-column-width: 60px;
-
 .@{table-prefix-cls}-wrapper {
+  max-width: 100%;
   .clearfix;
 }
 
@@ -20,6 +19,7 @@
   position: relative;
   z-index: 0;
   clear: both;
+  font-size: @table-font-size;
   background: @table-bg;
   border-radius: @border-radius-base;
 
@@ -114,9 +114,10 @@
       &.@{table-prefix-cls}-row-selected {
         > td {
           background: @table-selected-row-bg;
+          border-color: rgba(0, 0, 0, 0.03);
         }
 
-        :hover {
+        &:hover {
           > td {
             background: @table-selected-row-hover-bg;
           }
@@ -124,20 +125,22 @@
       }
 
       // ========================= Nest Table ===========================
-      .@{table-prefix-cls} {
-        margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-              ceil(@font-size-sm * 1.4));
+      .@{table-prefix-cls}-wrapper:only-child {
+        .@{table-prefix-cls} {
+          margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+                ceil(@font-size-sm * 1.4));
 
-        td {
-          background: transparent;
-        }
+          td {
+            background: transparent;
+          }
 
-        &-tbody > tr:last-child > td {
-          border-bottom: 0;
+          &-tbody > tr:last-child > td {
+            border-bottom: 0;
 
-          &:first-child,
-          &:last-child {
-            border-radius: 0;
+            &:first-child,
+            &:last-child {
+              border-radius: 0;
+            }
           }
         }
       }
@@ -199,10 +202,14 @@
     background: @table-body-sort-bg;
   }
 
+  &-column-sorters-with-tooltip {
+    display: inline-block;
+    width: 100%;
+  }
+
   &-column-sorters {
     display: inline-flex;
     align-items: center;
-    width: 100%;
     padding: @table-padding-vertical @table-padding-horizontal;
   }
 
@@ -247,6 +254,17 @@
   &-filter-column-title {
     flex: auto;
     padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
+  }
+
+  // Remove padding when sorter also provided
+  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
+    .@{table-prefix-cls}-filter-column {
+      margin: 0;
+    }
+
+    .@{table-prefix-cls}-filter-column-title {
+      padding: 0 2.3em 0 0;
+    }
   }
 
   &-filter-trigger-container {
@@ -300,7 +318,7 @@
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: calc(100vh - 130px);
+      max-height: 264px;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
@@ -338,14 +356,14 @@
   }
 
   // ========================== Selections ==========================
-  colgroup {
-    > col.@{table-prefix-cls}-selection-col {
-      width: @table-selection-column-width;
-    }
+  .@{table-prefix-cls}-selection-col {
+    width: @table-selection-column-width;
   }
 
   table tr th&-selection-column,
   table tr td&-selection-column {
+    padding-right: @padding-xs;
+    padding-left: @padding-xs;
     text-align: center;
 
     .@{ant-prefix}-radio-wrapper {
@@ -358,9 +376,10 @@
 
     &-extra {
       position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translate(100%, -50%);
+      top: 0;
+      right: @table-selection-extra-right;
+      cursor: pointer;
+      transition: all 0.3s;
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);
@@ -452,6 +471,7 @@
       }
       background: transparent;
       border: 0;
+      visibility: hidden;
     }
 
     .@{table-prefix-cls}-row-indent + & {
@@ -479,6 +499,9 @@
   // ========================= Placeholder ==========================
   &-tbody > tr&-placeholder {
     text-align: center;
+    .@{table-prefix-cls}-empty & {
+      color: @disabled-color;
+    }
     &:hover {
       > td {
         background: @component-background;
@@ -489,6 +512,8 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
+    position: -webkit-sticky !important;
+    position: sticky !important;
     z-index: 2;
     background: @table-bg;
   }

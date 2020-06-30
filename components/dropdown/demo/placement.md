@@ -37,7 +37,7 @@ const menu = (
 );
 
 ReactDOM.render(
-  <div>
+  <>
     <Dropdown overlay={menu} placement="bottomLeft">
       <Button>bottomLeft</Button>
     </Dropdown>
@@ -57,7 +57,7 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight">
       <Button>topRight</Button>
     </Dropdown>
-  </div>,
+  </>,
   mountNode,
 );
 ```
@@ -66,5 +66,10 @@ ReactDOM.render(
 #components-dropdown-demo-placement .ant-btn {
   margin-right: 8px;
   margin-bottom: 8px;
+}
+.ant-row-rtl #components-dropdown-demo-placement .ant-btn {
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
 }
 ```

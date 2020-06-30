@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Progress
+cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 ---
 
 Display the current progress of an operation flow.
@@ -26,8 +27,8 @@ Properties that shared by all types.
 | status | to set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
 | strokeLinecap | to set the style of the progress linecap | `round` \| `square` | `round` |
 | strokeColor | color of progress bar | string | - |
-| successPercent | segmented success percent | number | 0 |
 | trailColor | color of unfilled part | string | - |
+| success | configs of successfully progress bar | { progress: number, strokeColor: string } | - |
 
 ### `type="line"`
 

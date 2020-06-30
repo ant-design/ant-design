@@ -3,6 +3,7 @@ category: Components
 subtitle: 气泡确认框
 type: 反馈
 title: Popconfirm
+cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
 ---
 
 点击元素，弹出气泡式的确认框。
@@ -19,7 +20,9 @@ title: Popconfirm
 | --- | --- | --- | --- |
 | cancelText | 取消按钮文字 | string | 取消 |
 | okText | 确认按钮文字 | string | 确定 |
-| okType | 确认按钮类型 | string | primary |
+| okType | 确认按钮类型 | string | `primary` |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
 | title | 确认框的描述 | string\|ReactNode\|() => ReactNode | - |
 | onCancel | 点击取消的回调 | function(e) | - |
 | onConfirm | 点击确认的回调 | function(e) | - |

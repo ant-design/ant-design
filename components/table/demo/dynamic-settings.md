@@ -21,22 +21,31 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    key: 'age',
+    sorter: (a, b) => a.age - b.age,
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    key: 'address',
+    filters: [
+      {
+        text: 'London',
+        value: 'London',
+      },
+      {
+        text: 'New York',
+        value: 'New York',
+      },
+    ],
+    onFilter: (value, record) => record.address.indexOf(value) === 0,
   },
   {
     title: 'Action',
     key: 'action',
+    sorter: true,
     render: () => (
       <span>
         <a style={{ marginRight: 16 }}>Delete</a>
@@ -79,6 +88,8 @@ class Demo extends React.Component {
     scroll: undefined,
     hasData: true,
     tableLayout: undefined,
+    top: 'none',
+    bottom: 'bottomRight',
   };
 
   handleToggle = prop => enable => {
@@ -129,13 +140,6 @@ class Demo extends React.Component {
     this.setState({ hasData });
   };
 
-  handlePaginationChange = e => {
-    const { value } = e.target;
-    this.setState({
-      pagination: value === 'none' ? false : { position: value },
-    });
-  };
-
   render() {
     const { xScroll, yScroll, ...state } = this.state;
 
@@ -154,7 +158,7 @@ class Demo extends React.Component {
     }
 
     return (
-      <div>
+      <>
         <Form
           layout="inline"
           className="components-table-demo-control-bar"
@@ -210,25 +214,41 @@ class Demo extends React.Component {
               <Radio.Button value="fixed">Fixed</Radio.Button>
             </Radio.Group>
           </Form.Item>
-          <Form.Item label="Pagination">
+          <Form.Item label="Pagination Top">
             <Radio.Group
-              value={state.pagination ? state.pagination.position : 'none'}
-              onChange={this.handlePaginationChange}
+              value={this.state.top}
+              onChange={e => {
+                this.setState({ top: e.target.value });
+              }}
             >
-              <Radio.Button value="top">Top</Radio.Button>
-              <Radio.Button value="bottom">Bottom</Radio.Button>
-              <Radio.Button value="both">Both</Radio.Button>
+              <Radio.Button value="topLeft">TopLeft</Radio.Button>
+              <Radio.Button value="topCenter">TopCenter</Radio.Button>
+              <Radio.Button value="topRight">TopRight</Radio.Button>
+              <Radio.Button value="none">None</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Pagination Bottom">
+            <Radio.Group
+              value={this.state.bottom}
+              onChange={e => {
+                this.setState({ bottom: e.target.value });
+              }}
+            >
+              <Radio.Button value="bottomLeft">BottomLeft</Radio.Button>
+              <Radio.Button value="bottomCenter">BottomCenter</Radio.Button>
+              <Radio.Button value="bottomRight">BottomRight</Radio.Button>
               <Radio.Button value="none">None</Radio.Button>
             </Radio.Group>
           </Form.Item>
         </Form>
         <Table
           {...this.state}
+          pagination={{ position: [this.state.top, this.state.bottom] }}
           columns={tableColumns}
           dataSource={state.hasData ? data : null}
           scroll={scroll}
         />
-      </div>
+      </>
     );
   }
 }

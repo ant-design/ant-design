@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export function fillRef<T>(ref: React.Ref<T>, node: T) {
   if (typeof ref === 'function') {
@@ -14,4 +14,14 @@ export function composeRef<T>(...refs: React.Ref<T>[]): React.Ref<T> {
       fillRef(ref, node);
     });
   };
+}
+
+export function usePrevious<T = undefined>(value: T): T | undefined {
+  const ref = React.useRef<T>();
+
+  React.useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
 }

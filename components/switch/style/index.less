@@ -2,7 +2,10 @@
 @import '../../style/mixins/index';
 
 @switch-prefix-cls: ~'@{ant-prefix}-switch';
-@switch-duration: 0.36s;
+@switch-duration: 0.2s;
+
+@switch-pin-size: @switch-height - 4px;
+@switch-sm-pin-size: @switch-sm-height - 4px;
 
 .@{switch-prefix-cls} {
   .reset-component;
@@ -12,74 +15,21 @@
   box-sizing: border-box;
   min-width: @switch-min-width;
   height: @switch-height;
-  line-height: @switch-height - 2px;
+  line-height: @switch-height;
   vertical-align: middle;
   background-color: @disabled-color;
-  border: 1px solid transparent;
+  border: 0;
   border-radius: 100px;
   cursor: pointer;
   transition: all @switch-duration;
   user-select: none;
 
-  &-inner {
-    display: block;
-    margin-right: 6px;
-    margin-left: 24px;
-    color: @text-color-inverse;
-    font-size: @font-size-sm;
-  }
-
-  &-loading-icon,
-  &::after {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: @switch-height - 4px;
-    height: @switch-height - 4px;
-    background-color: @switch-bg;
-    border-radius: 18px;
-    cursor: pointer;
-    transition: all @switch-duration @ease-in-out-circ;
-    content: ' ';
-  }
-
-  &::after {
-    box-shadow: 0 2px 4px 0 @switch-shadow-color;
-  }
-
-  &:not(&-disabled):active::before,
-  &:not(&-disabled):active::after {
-    width: 24px;
-  }
-
-  &-loading-icon {
-    z-index: 1;
-    display: none;
-    font-size: 12px;
-    // loading default use animation
-    // animation: loadingCircle 1s infinite linear;
-    background: transparent;
-    svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-    }
-  }
-
-  &-loading &-loading-icon {
-    display: inline-block;
-    color: @text-color;
-  }
-
-  &-checked&-loading &-loading-icon {
-    color: @switch-color;
-  }
-
   &:focus {
     outline: 0;
+    box-shadow: 0 0 0 2px fade(@disabled-color, 10%);
+  }
+
+  &-checked:focus {
     box-shadow: 0 0 0 2px fade(@switch-color, 20%);
   }
 
@@ -87,69 +37,8 @@
     box-shadow: none;
   }
 
-  &-small {
-    min-width: @switch-sm-min-width;
-    height: @switch-sm-height;
-    line-height: @switch-sm-height - 2px;
-
-    .@{switch-prefix-cls}-inner {
-      margin-right: 3px;
-      margin-left: 18px;
-      font-size: @font-size-sm;
-    }
-
-    &::after {
-      width: @switch-sm-height - 4px;
-      height: @switch-sm-height - 4px;
-    }
-
-    &:active::before,
-    &:active::after {
-      width: 16px;
-    }
-  }
-
-  &-small &-loading-icon {
-    width: @switch-sm-height - 4px;
-    height: @switch-sm-height - 4px;
-  }
-
-  &-small&-checked {
-    .@{switch-prefix-cls}-inner {
-      margin-right: 18px;
-      margin-left: 3px;
-    }
-  }
-
-  &-small&-checked &-loading-icon {
-    left: 100%;
-    margin-left: @switch-sm-checked-margin-left;
-  }
-
-  &-small&-loading &-loading-icon {
-    font-weight: bold;
-    // animation: AntSwitchSmallLoadingCircle 1s infinite linear;
-    transform: scale(0.66667);
-  }
-
   &-checked {
     background-color: @switch-color;
-
-    .@{switch-prefix-cls}-inner {
-      margin-right: 24px;
-      margin-left: 6px;
-    }
-
-    &::after {
-      left: 100%;
-      margin-left: -1px;
-      transform: translateX(-100%);
-    }
-  }
-
-  &-checked &-loading-icon {
-    left: 100%;
-    margin-left: -19px;
   }
 
   &-loading,
@@ -157,23 +46,107 @@
     cursor: not-allowed;
     opacity: @switch-disabled-opacity;
     * {
-      cursor: not-allowed;
-    }
-    &::before,
-    &::after {
+      box-shadow: none;
       cursor: not-allowed;
     }
   }
-}
 
-@keyframes AntSwitchSmallLoadingCircle {
-  0% {
-    transform: rotate(0deg) scale(0.66667);
-    transform-origin: 50% 50%;
+  // ========================= Inner ==========================
+  &-inner {
+    display: block;
+    margin: 0 @switch-inner-margin-min 0 @switch-inner-margin-max;
+    color: @text-color-inverse;
+    font-size: @font-size-sm;
+    transition: margin @switch-duration;
   }
-  100% {
-    transform: rotate(360deg) scale(0.66667);
-    transform-origin: 50% 50%;
+
+  &-checked &-inner {
+    margin: 0 @switch-inner-margin-max 0 @switch-inner-margin-min;
+  }
+
+  // ========================= Handle =========================
+  &-handle {
+    position: absolute;
+    top: @switch-padding;
+    left: @switch-padding;
+    width: @switch-pin-size;
+    height: @switch-pin-size;
+    transition: all @switch-duration ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: @switch-bg;
+      border-radius: @switch-pin-size / 2;
+      box-shadow: 0 2px 4px 0 @switch-shadow-color;
+      transition: all @switch-duration ease-in-out;
+      content: '';
+    }
+  }
+
+  &-checked &-handle {
+    left: calc(100% - @switch-pin-size - @switch-padding);
+  }
+
+  &:not(&-disabled):active {
+    .@{switch-prefix-cls}-handle::before {
+      right: -30%;
+      left: 0;
+    }
+
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-handle::before {
+        right: 0;
+        left: -30%;
+      }
+    }
+  }
+
+  // ======================== Loading =========================
+  &-loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translate(-50%, -50%);
+  }
+
+  &-checked &-loading-icon {
+    color: @switch-color;
+  }
+
+  // ========================== Size ==========================
+  &-small {
+    min-width: @switch-sm-min-width;
+    height: @switch-sm-height;
+    line-height: @switch-sm-height;
+
+    .@{switch-prefix-cls}-inner {
+      margin: 0 @switch-sm-inner-margin-min 0 @switch-sm-inner-margin-max;
+      font-size: @font-size-sm;
+    }
+
+    .@{switch-prefix-cls}-handle {
+      width: @switch-sm-pin-size;
+      height: @switch-sm-pin-size;
+    }
+
+    .@{switch-prefix-cls}-loading-icon {
+      transform: translate(-50%, -50%) scale(0.66667);
+    }
+
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-inner {
+        margin: 0 @switch-sm-inner-margin-max 0 @switch-sm-inner-margin-min;
+      }
+
+      .@{switch-prefix-cls}-handle {
+        left: calc(100% - @switch-sm-pin-size - @switch-padding);
+      }
+    }
   }
 }
 

@@ -40,18 +40,19 @@ describe('Popconfirm', () => {
   });
 
   it('should show overlay when trigger is clicked', async () => {
+    const ref = React.createRef();
     const popconfirm = mount(
-      <Popconfirm title="code">
+      <Popconfirm ref={ref} title="code">
         <span>show me your code</span>
       </Popconfirm>,
     );
 
-    expect(popconfirm.instance().getPopupDomNode()).toBe(null);
+    expect(ref.current.getPopupDomNode()).toBe(null);
 
     popconfirm.find('span').simulate('click');
     await sleep(100);
 
-    const popup = popconfirm.instance().getPopupDomNode();
+    const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();
@@ -60,36 +61,39 @@ describe('Popconfirm', () => {
 
   it('shows content for render functions', async () => {
     const makeRenderFunction = content => () => content;
+    const ref = React.createRef();
 
     const popconfirm = mount(
-      <Popconfirm title={makeRenderFunction('some-title')}>
+      <Popconfirm ref={ref} title={makeRenderFunction('some-title')}>
         <span>show me your code</span>
       </Popconfirm>,
     );
 
-    expect(popconfirm.instance().getPopupDomNode()).toBe(null);
+    expect(ref.current.getPopupDomNode()).toBe(null);
 
     popconfirm.find('span').simulate('click');
     await sleep(100);
 
-    const popup = popconfirm.instance().getPopupDomNode();
+    const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.innerHTML).toContain('some-title');
     expect(popup.innerHTML).toMatchSnapshot();
   });
 
   it('should be controlled by visible', () => {
+    const ref = React.createRef();
     jest.useFakeTimers();
     const popconfirm = mount(
-      <Popconfirm title="code">
+      <Popconfirm ref={ref} title="code">
         <span>show me your code</span>
       </Popconfirm>,
     );
-    expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
+    expect(ref.current.getPopupDomNode()).toBeFalsy();
     popconfirm.setProps({ visible: true });
-    expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
-    expect(popconfirm.instance().getPopupDomNode().className).not.toContain('ant-popover-hidden');
+    expect(ref.current.getPopupDomNode()).toBeTruthy();
+    expect(ref.current.getPopupDomNode().className).not.toContain('ant-popover-hidden');
     popconfirm.setProps({ visible: false });
+    popconfirm.update(); // https://github.com/enzymejs/enzyme/issues/2305
     jest.runAllTimers();
     expect(popconfirm.find('Trigger').props().popupVisible).toBe(false);
     jest.useRealTimers();
@@ -115,10 +119,7 @@ describe('Popconfirm', () => {
     expect(confirm).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
     triggerNode.simulate('click');
-    popconfirm
-      .find('.ant-btn')
-      .at(0)
-      .simulate('click');
+    popconfirm.find('.ant-btn').at(0).simulate('click');
     expect(cancel).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
@@ -154,22 +155,44 @@ describe('Popconfirm', () => {
   });
 
   it('should support defaultVisible', () => {
-    const popconfirm = mount(
-      <Popconfirm title="code" defaultVisible>
+    const ref = React.createRef();
+    mount(
+      <Popconfirm ref={ref} title="code" defaultVisible>
         <span>show me your code</span>
       </Popconfirm>,
     );
-    expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
+    expect(ref.current.getPopupDomNode()).toBeTruthy();
   });
 
   it('should not open in disabled', () => {
+    const ref = React.createRef();
+
     const popconfirm = mount(
-      <Popconfirm title="code" disabled>
+      <Popconfirm ref={ref} title="code" disabled>
         <span>click me</span>
       </Popconfirm>,
     );
     const triggerNode = popconfirm.find('span').at(0);
     triggerNode.simulate('click');
-    expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
+    expect(ref.current.getPopupDomNode()).toBeFalsy();
+  });
+
+  it('should be closed by pressing ESC', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Popconfirm
+        title="title"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <span>Delete</span>
+      </Popconfirm>,
+    );
+    const triggerNode = wrapper.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
+    triggerNode.simulate('keydown', { key: 'Escape', keyCode: 27 });
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 });

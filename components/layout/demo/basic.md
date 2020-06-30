@@ -19,7 +19,7 @@ import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
-  <div>
+  <>
     <Layout>
       <Header>Header</Header>
       <Content>Content</Content>
@@ -52,7 +52,7 @@ ReactDOM.render(
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
-  </div>,
+  </>,
   mountNode,
 );
 ```

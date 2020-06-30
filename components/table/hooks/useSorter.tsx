@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import {
@@ -167,7 +166,9 @@ function injectSorter<RecordType>(
             </div>
           );
           return showSorterTooltip ? (
-            <Tooltip title={sortTip}>{renderSortTitle}</Tooltip>
+            <Tooltip title={sortTip}>
+              <div className={`${prefixCls}-column-sorters-with-tooltip`}>{renderSortTitle}</div>
+            </Tooltip>
           ) : (
             renderSortTitle
           );
@@ -230,7 +231,7 @@ function generateSorterInfo<RecordType>(
   // https://github.com/ant-design/ant-design/pull/19226
   if (list.length === 0 && sorterStates.length) {
     return {
-      ...stateToInfo(sorterStates[0]),
+      ...stateToInfo(sorterStates[sorterStates.length - 1]),
       column: undefined,
     };
   }
@@ -298,8 +299,7 @@ export function getSortData<RecordType>(
 
 interface SorterConfig<RecordType> {
   prefixCls: string;
-  columns?: ColumnsType<RecordType>;
-  children?: React.ReactNode;
+  mergedColumns: ColumnsType<RecordType>;
   onSorterChange: (
     sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
@@ -311,8 +311,7 @@ interface SorterConfig<RecordType> {
 
 export default function useFilterSorter<RecordType>({
   prefixCls,
-  columns,
-  children,
+  mergedColumns,
   onSorterChange,
   sortDirections,
   tableLocale,
@@ -323,10 +322,6 @@ export default function useFilterSorter<RecordType>({
   ColumnTitleProps<RecordType>,
   () => SorterResult<RecordType> | SorterResult<RecordType>[],
 ] {
-  const mergedColumns = React.useMemo(() => {
-    return columns || convertChildrenToColumns(children);
-  }, [children, columns]);
-
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(mergedColumns, true),
   );

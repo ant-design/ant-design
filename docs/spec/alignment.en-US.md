@@ -7,7 +7,7 @@ title: Alignment
 
 As is described in the Law of Continuity of Gestalt psychology, in the perceptual process, people usually tend to understand the object in the way that it is firstly perceived, to let the straight lines be straight and let the curve lines be curve. In the design of interface, aligning the elements meets users' perception, also delivers the information to users in a more smooth way.
 
-> ** Gestalt psychology or gestaltism（German：Gestalttheorie）** ：Gestalttheorie is an important genre of psychology. It rose in the beginning of the 20 century in Germany.The central principle of gestalt psychology is that the mind forms a global whole with self-organizing tendencies.「The whole is other than the sum of the parts.」--Quote from Wikipedia
+> **Gestalt psychology or gestaltism (German：Gestalttheorie)**: Gestalttheorie is an important genre of psychology. It rose in the beginning of the 20 century in Germany.The central principle of gestalt psychology is that the mind forms a global whole with self-organizing tendencies.「The whole is other than the sum of the parts.」--Quote from Wikipedia
 
 ---
 

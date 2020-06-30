@@ -3,7 +3,7 @@ order: 9
 title: Third-Party Libraries
 ---
 
-`antd` is designed to provide high-quality React UI components which follow the Ant Design Specification. So, we are not going to implement other functions which are not relative to `antd`'s target, and recommend using the excellent third-party library which have come from the React community:
+`antd` is built to implement [a set of high-quality React UI components](/components/overview) which follow Ant Design specification. It is impossible to include all useful components in one package, so we also recommend that using other great third-party libraries in React community.
 
 | Category | Recommended Components |
 | --- | --- |
@@ -32,9 +32,10 @@ title: Third-Party Libraries
 | Context Menu | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |
 | Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
 | Split View | [react-split-pane](https://github.com/tomkp/react-split-pane) |
-| Image Crop | [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
+| Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Trend Lines | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
+| Text Loop | [react-text-loop](https://github.com/braposo/react-text-loop) |
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 
 ## Products we are using ✨

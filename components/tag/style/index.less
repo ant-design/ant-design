@@ -11,7 +11,7 @@
   margin-right: 8px;
   padding: 0 7px;
   font-size: @tag-font-size;
-  line-height: 20px;
+  line-height: @tag-line-height;
   white-space: nowrap;
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
@@ -36,12 +36,11 @@
     padding: 0 8px;
   }
 
-  .@{iconfont-css-prefix}-close {
+  &-close-icon {
     .iconfont-size-under-12px(10px);
 
     margin-left: 3px;
     color: @text-color-secondary;
-    font-weight: bold;
     cursor: pointer;
     transition: all 0.3s @ease-in-out-circ;
 
@@ -64,6 +63,7 @@
   &-checkable {
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
     &:not(&-checked):hover {
       color: @primary-color;
     }

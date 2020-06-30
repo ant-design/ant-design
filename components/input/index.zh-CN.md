@@ -3,6 +3,7 @@ category: Components
 subtitle: 输入框
 type: 数据录入
 title: Input
+cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 ---
 
 通过鼠标或键盘输入内容，是最基础的表单域的包装。
@@ -25,7 +26,7 @@ title: Input
 | id | 输入框的 id | string |  |
 | maxLength | 最大长度 | number |  |
 | prefix | 带有前缀图标的 input | string\|ReactNode |  |
-| size | 控件大小。注：标准表单内的输入框大小限制为 `large`。 | `large` \| `middle` \| `small` | 无 |
+| size | 控件大小。注：标准表单内的输入框大小限制为 `large`。 | `large` \| `middle` \| `small` | - |
 | suffix | 带有后缀图标的 input | string\|ReactNode |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`)。 | string | `text` |
 | value | 输入框内容 | string |  |

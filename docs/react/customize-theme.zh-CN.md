@@ -51,14 +51,14 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+         'primary-color': '#1DA57A',
-+         'link-color': '#1DA57A',
-+         'border-radius-base': '2px',
-+         // or
-+         'hack': `true; @import "your-less-file-path.less";`, // Override with less file
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++         },
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
@@ -67,7 +67,10 @@ module.exports = {
 }
 ```
 
-注意 less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
+注意：
+
+1. less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
+2. `lessOptions` 的配置写法在 [less-loader@6.0.0](https://github.com/webpack-contrib/less-loader/releases/tag/v6.0.0) 里支持。
 
 ### 在 Umi 里配置主题
 
@@ -94,6 +97,7 @@ module.exports = {
 另外一种方式是建立一个单独的 `less` 变量文件，引入这个文件覆盖 `antd.less` 里的变量。
 
 ```css
+@import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
 @import 'your-theme-file.less'; // 用于覆盖上面定义的变量
 ```
@@ -155,13 +159,12 @@ module.exports = {
 @import '~antd/dist/antd.compact.css';
 ```
 
-> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。
+> 注意这种方式下你不需要再引入 `antd/dist/antd.less` 或 `antd/dist/antd.css` 了，可以安全移除掉。也不需要开启 babel-plugin-import 的 `style` 配置。通过此方式不能同时配置两种及以上主题。
 
 方式三：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
 ```diff
-const darkTheme = require('antd/dist/dark-theme');
-const compactTheme = require('antd/dist/compact-theme');
+const { getThemeVariables } = require('antd/dist/theme');
 
 // webpack.config.js
 module.exports = {
@@ -174,19 +177,18 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`,
-+          ...darkTheme,
-+          ...compactTheme,
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++         modifyVars: getThemeVariables({
++           dark: true, // 开启暗黑模式
++           compact: true, // 开启紧凑模式
++         }),
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
     }],
   }],
 };
 ```
-
-同时开启暗黑和紧凑模式会导致 css 的加载体积增加一倍，这暂时受限于我们目前的主题实现方式，请知晓。
 
 ## 社区教程
 

@@ -1,9 +1,10 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
-const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const BundleAnalyzerPluginCom = require('@bundle-analyzer/webpack-plugin');
+const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
@@ -34,6 +35,35 @@ function externalMoment(config) {
   };
 }
 
+function injectWarningCondition(config) {
+  config.module.rules.forEach(rule => {
+    // Remove devWarning if needed
+    if (rule.test.test('test.tsx')) {
+      rule.use = [
+        ...rule.use,
+        {
+          loader: 'string-replace-loader',
+          options: {
+            search: 'devWarning(',
+            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
+          },
+        },
+      ];
+    }
+  });
+}
+
+function addBundleAnalyzerPluginCom(config) {
+  if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
+    return;
+  }
+  config.plugins.push(
+    new BundleAnalyzerPluginCom({
+      token: process.env.BUNDLE_ANALYZER_TOKEN,
+    }),
+  );
+}
+
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -49,32 +79,29 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     config.module.rules.forEach(rule => {
       // filter less rule
       if (rule.test instanceof RegExp && rule.test.test('.less')) {
-        rule.use[rule.use.length - 1].options.modifyVars = vars;
+        const lessRule = rule.use[rule.use.length - 1];
+        if (lessRule.options.lessOptions) {
+          lessRule.options.lessOptions.modifyVars = vars;
+        } else {
+          lessRule.options.modifyVars = vars;
+        }
       }
     });
 
     const themeReg = new RegExp(`${theme}(.min)?\\.js(\\.map)?$`);
     // ignore emit ${theme} entry js & js.map file
     config.plugins.push(new IgnoreEmitPlugin(themeReg));
-
-    // skip codesandbox ci
-    if (!process.env.CSB_REPO) {
-      // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
-      config.plugins.push(
-        new PacktrackerPlugin({
-          project_token: '30c6a021-96c0-4d67-8bd2-0d2fcbd8962b',
-          upload: process.env.CI === 'true',
-          fail_build: false,
-          exclude_assets: name => ![`antd.${theme}.min.js`, `antd.${theme}.min.css`].includes(name),
-        }),
-      );
-    }
   });
 }
 
 const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
+
+webpackConfig.forEach(config => {
+  injectWarningCondition(config);
+});
+
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -82,22 +109,20 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
-    // skip codesandbox ci
-    if (!process.env.CSB_REPO) {
-      // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
-      config.plugins.push(
-        new PacktrackerPlugin({
-          project_token: '30c6a021-96c0-4d67-8bd2-0d2fcbd8962b',
-          upload: process.env.CI === 'true',
-          fail_build: false,
-          exclude_assets: name => !['antd.min.js', 'antd.min.css'].includes(name),
-        }),
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-        }),
-      );
+    // use esbuild
+    if (process.env.ESBUILD || process.env.CSB_REPO) {
+      config.optimization.minimizer[0] = new EsbuildPlugin();
     }
+
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: '../report.html',
+      }),
+    );
+
+    addBundleAnalyzerPluginCom(config);
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);

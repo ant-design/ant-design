@@ -7,6 +7,16 @@ import { SharedProps } from './interface';
 export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
   return (
     <Menu.ItemGroup key="ecosystem" title={<FormattedMessage id="app.header.menu.ecosystem" />}>
+      <Menu.Item key="charts">
+        <a
+          href="https://charts.ant.design"
+          className="header-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormattedMessage id="app.header.menu.charts" />
+        </a>
+      </Menu.Item>
       <Menu.Item key="pro">
         <a
           href="http://pro.ant.design"
@@ -55,7 +65,7 @@ export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
 
 export default (props: SharedProps) => {
   const menu = <Menu>{getEcosystemGroup(props)}</Menu>;
-
+  const downstyle = props.isRTL ? '-1px 2px 0 0' : '-1px 0 0 2px';
   return (
     <Dropdown overlay={menu} placement="bottomRight">
       <Button size="small" className="header-button">
@@ -63,9 +73,8 @@ export default (props: SharedProps) => {
         <DownOutlined
           style={{
             fontSize: '9px',
-            marginLeft: 2,
+            margin: downstyle,
             verticalAlign: 'middle',
-            marginTop: -1,
           }}
         />
       </Button>

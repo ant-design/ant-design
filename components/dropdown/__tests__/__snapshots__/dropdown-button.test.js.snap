@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 1`] = `
-<span
-  class="ant-dropdown-trigger ant-dropdown-rtl"
-/>
-`;
-
-exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-btn-group ant-btn-group-rtl ant-dropdown-button"
 >
@@ -15,7 +9,7 @@ exports[`DropdownButton rtl render component should be rendered correctly in RTL
     type="button"
   />
   <button
-    class="ant-btn ant-dropdown-trigger ant-dropdown-rtl ant-btn-default ant-btn-rtl"
+    class="ant-btn ant-dropdown-trigger ant-dropdown-rtl ant-btn-default ant-btn-icon-only ant-btn-rtl"
     type="button"
   >
     <span
@@ -51,7 +45,7 @@ exports[`DropdownButton should support href like Button 1`] = `
     href="https://ant.design"
   />
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default"
+    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span

@@ -98,7 +98,6 @@ describe('message', () => {
 
   // https://github.com/ant-design/ant-design/issues/8201
   it('should destroy messages correctly', () => {
-    // eslint-disable-next-line
     class Test extends React.Component {
       componentDidMount() {
         message.loading('Action in progress1..', 0);

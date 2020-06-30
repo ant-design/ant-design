@@ -4,6 +4,7 @@ subtitle: 锚点
 cols: 2
 type: 其他
 title: Anchor
+cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
 ---
 
 用于跳转到页面指定位置。
@@ -26,7 +27,7 @@ title: Anchor
 | showInkInFixed | 固定模式是否显示小圆点 | boolean | false |  |
 | onClick | `click` 事件的 handler | Function(e: Event, link: Object) | - |  |
 | getCurrentAnchor | 自定义高亮的锚点 | () => string | - |  |
-| targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#components-anchor-demo-targetOffset) | number | `offsetTop` |  |
+| targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | 监听锚点链接改变 | (currentActiveLink: string) => void |  |  |
 
 ### Link Props

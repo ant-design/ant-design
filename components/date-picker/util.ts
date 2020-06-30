@@ -1,7 +1,15 @@
 import { PickerMode } from 'rc-picker/lib/interface';
 import { PickerLocale } from './generatePicker';
 
-export function getPlaceholder(picker: PickerMode | undefined, locale: PickerLocale): string {
+export function getPlaceholder(
+  picker: PickerMode | undefined,
+  locale: PickerLocale,
+  customizePlaceholder?: string,
+): string {
+  if (customizePlaceholder !== undefined) {
+    return customizePlaceholder;
+  }
+
   if (picker === 'year' && locale.lang.yearPlaceholder) {
     return locale.lang.yearPlaceholder;
   }
@@ -20,7 +28,15 @@ export function getPlaceholder(picker: PickerMode | undefined, locale: PickerLoc
   return locale.lang.placeholder;
 }
 
-export function getRangePlaceholder(picker: PickerMode | undefined, locale: PickerLocale) {
+export function getRangePlaceholder(
+  picker: PickerMode | undefined,
+  locale: PickerLocale,
+  customizePlaceholder?: [string, string],
+) {
+  if (customizePlaceholder !== undefined) {
+    return customizePlaceholder;
+  }
+
   if (picker === 'year' && locale.lang.yearPlaceholder) {
     return locale.lang.rangeYearPlaceholder;
   }

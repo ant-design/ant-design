@@ -1,6 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AutoComplete with Custom Input Element Render rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`AutoComplete legacy dataSource should accept react element option 1`] = `
+<div
+  class="ant-select ant-select-auto-complete ant-select-single ant-select-open ant-select-show-search"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        role="combobox"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
+  </div>
+  <div>
+    <div
+      class="ant-select-dropdown"
+      style="opacity:0"
+    >
+      <div>
+        <div
+          id="undefined_list"
+          role="listbox"
+          style="height:0;width:0;overflow:hidden"
+        >
+          <div
+            aria-label="ReactNode"
+            aria-selected="false"
+            id="undefined_list_0"
+            role="option"
+          >
+            key
+          </div>
+        </div>
+        <div
+          class=""
+          style="height:256px"
+        >
+          <div>
+            <div
+              class=""
+              style="display:flex;flex-direction:column"
+            >
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  ReactNode
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AutoComplete rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-rtl ant-select-single ant-select-show-search"
 >

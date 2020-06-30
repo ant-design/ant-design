@@ -1,0 +1,41 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './index';
+
+.@{tab-prefix-cls} {
+  &-small {
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        padding: @tabs-horizontal-padding-sm;
+        font-size: @tabs-title-font-size-sm;
+      }
+    }
+  }
+
+  &-large {
+    > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        padding: @tabs-horizontal-padding-lg;
+        font-size: @tabs-title-font-size-lg;
+      }
+    }
+  }
+
+  &-card {
+    &.@{tab-prefix-cls}-small {
+      > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-tab {
+          padding: @tabs-card-horizontal-padding-sm;
+        }
+      }
+    }
+
+    &.@{tab-prefix-cls}-large {
+      > .@{tab-prefix-cls}-nav {
+        .@{tab-prefix-cls}-tab {
+          padding: @tabs-card-horizontal-padding-lg;
+        }
+      }
+    }
+  }
+}

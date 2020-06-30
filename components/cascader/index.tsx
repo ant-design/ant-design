@@ -3,7 +3,6 @@ import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import isEqual from 'lodash/isEqual';
 import KeyCode from 'rc-util/lib/KeyCode';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import DownOutlined from '@ant-design/icons/DownOutlined';
@@ -14,11 +13,12 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { replaceElement } from '../_util/reactNode';
 
 export interface CascaderOptionType {
-  value?: string;
+  value?: string | number;
   label?: React.ReactNode;
   disabled?: boolean;
   isLeaf?: boolean;
@@ -28,18 +28,20 @@ export interface CascaderOptionType {
 }
 
 export interface FieldNamesType {
-  value?: string;
+  value?: string | number;
   label?: string;
   children?: string;
 }
 
 export interface FilledFieldNamesType {
-  value: string;
+  value: string | number;
   label: string;
   children: string;
 }
 
 export type CascaderExpandTrigger = 'click' | 'hover';
+
+export type CascaderValueType = (string | number)[];
 
 export interface ShowSearchType {
   filter?: (inputValue: string, path: CascaderOptionType[], names: FilledFieldNamesType) => boolean;
@@ -63,11 +65,11 @@ export interface CascaderProps {
   /** 可选项数据源 */
   options: CascaderOptionType[];
   /** 默认的选中项 */
-  defaultValue?: string[];
+  defaultValue?: CascaderValueType;
   /** 指定选中项 */
-  value?: string[];
+  value?: CascaderValueType;
   /** 选择完成后的回调 */
-  onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
+  onChange?: (value: CascaderValueType, selectedOptions?: CascaderOptionType[]) => void;
   /** 选择后展示的渲染函数 */
   displayRender?: (label: string[], selectedOptions?: CascaderOptionType[]) => React.ReactNode;
   /** 自定义样式 */
@@ -88,11 +90,14 @@ export interface CascaderProps {
   disabled?: boolean;
   /** 是否支持清除 */
   allowClear?: boolean;
+  /** 自动获取焦点 */
+  autoFocus?: boolean;
   showSearch?: boolean | ShowSearchType;
   notFoundContent?: React.ReactNode;
   loadData?: (selectedOptions?: CascaderOptionType[]) => void;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
+  expandIcon?: React.ReactNode;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
   changeOnSelect?: boolean;
   /** 浮层可见变化时回调 */
@@ -104,12 +109,13 @@ export interface CascaderProps {
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
+  dropdownRender?: (menus: React.ReactNode) => React.ReactNode
 }
 
 export interface CascaderState {
   inputFocused: boolean;
   inputValue: string;
-  value: string[];
+  value: CascaderValueType;
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
   prevProps: CascaderProps;
@@ -211,7 +217,7 @@ const defaultDisplayRender = (label: string[]) => label.join(' / ');
 function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNamesType = {}) {
   (list || []).forEach(item => {
     const valueFieldName = fieldNames.value || 'value';
-    warning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
+    devWarning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
     warningValueNotExist(item[fieldNames.children || 'children'], fieldNames);
   });
 }
@@ -263,7 +269,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     };
   }
 
-  setValue = (value: string[], selectedOptions: CascaderOptionType[] = []) => {
+  setValue = (value: CascaderValueType, selectedOptions: CascaderOptionType[] = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
@@ -283,7 +289,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       (o: CascaderOptionType, level: number) => o[names.value] === unwrappedValue[level],
       { childrenKeyName: names.children },
     );
-    const label = selectedOptions.map(o => o[names.label]);
+    const label = selectedOptions.length ? selectedOptions.map(o => o[names.label]) : value;
     return displayRender(label, selectedOptions);
   }
 
@@ -328,9 +334,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     // Prevent `Trigger` behaviour.
     if (inputFocused || popupVisible) {
       e.stopPropagation();
-      if (e.nativeEvent.stopImmediatePropagation) {
-        e.nativeEvent.stopImmediatePropagation();
-      }
     }
   };
 
@@ -347,9 +350,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
+    const { inputValue } = this.state;
     e.preventDefault();
     e.stopPropagation();
-    if (!this.state.inputValue) {
+    if (!inputValue) {
       this.setValue([]);
       this.handlePopupVisibleChange(false);
     } else {
@@ -384,7 +388,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         return matchCount >= limit;
       });
     } else {
-      warning(
+      devWarning(
         typeof limit !== 'number',
         'Cascader',
         "'limit' of showSearch should be positive number or false.",
@@ -392,7 +396,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       filtered = flattenOptions.filter(path => filter(this.state.inputValue, path, names));
     }
 
-    filtered.sort((a, b) => sort(a, b, inputValue, names));
+    filtered = filtered.sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
       return filtered.map((path: CascaderOptionType[]) => {
@@ -456,11 +460,14 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           allowClear,
           showSearch = false,
           suffixIcon,
+          expandIcon,
           notFoundContent,
           popupClassName,
           bordered,
+          dropdownRender,
           ...otherProps
         } = props;
+
         const mergedSize = customizeSize || size;
 
         const { value, inputFocused } = state;
@@ -522,15 +529,13 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const names: FilledFieldNamesType = getFilledFieldNames(this.props);
         if (options && options.length > 0) {
           if (state.inputValue) {
-             const filteredOptions = this.generateFilteredOptions(prefixCls, renderEmpty);
-             options = isEqual(filteredOptions, this.cachedOptions) ? this.cachedOptions : filteredOptions;
+            options = this.generateFilteredOptions(prefixCls, renderEmpty);
           }
         } else {
           options = [
             {
               [names.label]: notFoundContent || renderEmpty('Cascader'),
               [names.value]: 'ANT_CASCADER_NOT_FOUND',
-              disabled: true,
             },
           ];
         }
@@ -552,17 +557,21 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
         }
 
-        const inputIcon = (suffixIcon &&
-          (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-            React.cloneElement(suffixIcon, {
+        let inputIcon: React.ReactNode;
+        if (suffixIcon) {
+          inputIcon = replaceElement(
+            suffixIcon,
+            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>,
+            () => ({
               className: classNames({
-                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [(suffixIcon as any).props.className!]: (suffixIcon as any).props.className,
                 [`${prefixCls}-picker-arrow`]: true,
               }),
-            })
-          ) : (
-            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
-          ))) || <DownOutlined className={arrowCls} />;
+            }),
+          );
+        } else {
+          inputIcon = <DownOutlined className={arrowCls} />;
+        }
 
         const input = children || (
           <span style={style} className={pickerCls}>
@@ -588,9 +597,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           </span>
         );
 
-        let expandIcon = <RightOutlined />;
-        if (isRtlLayout) {
-          expandIcon = <LeftOutlined />;
+        let expandIconNode;
+        if (expandIcon) {
+          expandIconNode = expandIcon;
+        } else {
+          expandIconNode = isRtlLayout ? <LeftOutlined /> : <RightOutlined />;
         }
 
         const loadingIcon = (
@@ -601,8 +612,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
         const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon', 'bordered']);
-        const rcCascaderRtlPopupClassName = classNames(popupClassName, {
+        const rcCascaderPopupClassName = classNames(popupClassName, {
           [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
+          [`${prefixCls}-menu-empty`]:
+            options.length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND',
         });
         return (
           <RcCascader
@@ -615,10 +628,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
             onPopupVisibleChange={this.handlePopupVisibleChange}
             onChange={this.handleChange}
             dropdownMenuColumnStyle={dropdownMenuColumnStyle}
-            expandIcon={expandIcon}
+            expandIcon={expandIconNode}
             loadingIcon={loadingIcon}
-            popupClassName={rcCascaderRtlPopupClassName}
+            popupClassName={rcCascaderPopupClassName}
             popupPlacement={this.getPopupPlacement(direction)}
+            dropdownRender={dropdownRender}
           >
             {input}
           </RcCascader>

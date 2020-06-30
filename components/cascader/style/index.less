@@ -204,6 +204,11 @@
         background: transparent;
       }
     }
+    .@{cascader-prefix-cls}-menu-empty & {
+      color: @disabled-color;
+      cursor: default;
+      pointer-events: none;
+    }
     &-active:not(&-disabled) {
       &,
       &:hover {
@@ -223,6 +228,10 @@
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
+
+      .@{cascader-prefix-cls}-menu-item-disabled& {
+        color: @disabled-color;
+      }
     }
 
     & &-keyword {

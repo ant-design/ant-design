@@ -3,7 +3,7 @@ type: Feedback
 category: Components
 title: Result
 cols: 1
-subtitle:
+cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
 ---
 
 Used to feed back the results of a series of operational tasks.

@@ -22,7 +22,7 @@
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
     <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
-      (function() {
+      (function () {
         function isLocalStorageNameSupported() {
           var testKey = 'test';
           var storage = window.localStorage;
@@ -100,10 +100,14 @@
     </script>
     <!-- Hotjar Tracking Code for ant.design -->
     <script>
-      (function(h, o, t, j, a, r) {
+      (function (h, o, t, j, a, r) {
+        if (location.hostname === 'localhost') {
+          return;
+        }
+
         h.hj =
           h.hj ||
-          function() {
+          function () {
             (h.hj.q = h.hj.q || []).push(arguments);
           };
         h._hjSettings = { hjid: 473408, hjsv: 5 };

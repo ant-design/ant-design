@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   color: @rate-star-color;
-  font-size: 20px;
+  font-size: @rate-star-size;
   line-height: unset;
   list-style: none;
   outline: none;
@@ -42,7 +42,7 @@
 
       &:hover,
       &:focus {
-        transform: scale(1.1);
+        transform: @rate-star-hover-scale;
       }
     }
 
@@ -79,7 +79,7 @@
 
   &-text {
     display: inline-block;
-    margin-left: 8px;
+    margin: 0 8px;
     font-size: @font-size-base;
   }
 }

@@ -20,7 +20,7 @@ import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 const listData = [];
 for (let i = 0; i < 3; i++) {
   listData.push({
-    href: 'http://ant.design',
+    href: 'https://ant.design',
     title: `ant design part ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     description:
@@ -50,7 +50,7 @@ class App extends React.Component {
     const { loading } = this.state;
 
     return (
-      <div>
+      <>
         <Switch checked={!loading} onChange={this.onChange} />
 
         <List
@@ -88,7 +88,7 @@ class App extends React.Component {
             </List.Item>
           )}
         />
-      </div>
+      </>
     );
   }
 }

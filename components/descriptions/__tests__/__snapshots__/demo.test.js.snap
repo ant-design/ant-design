@@ -22,7 +22,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               UserName
             </span>
@@ -37,7 +37,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Telephone
             </span>
@@ -52,7 +52,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Live
             </span>
@@ -71,7 +71,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Remark
             </span>
@@ -86,7 +86,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="2"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Address
             </span>
@@ -626,7 +626,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Product
               </span>
@@ -641,7 +641,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Billing
               </span>
@@ -656,7 +656,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 time
               </span>
@@ -675,7 +675,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Amount
               </span>
@@ -690,7 +690,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Discount
               </span>
@@ -705,7 +705,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Official
               </span>
@@ -745,7 +745,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               UserName
             </span>
@@ -755,7 +755,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Telephone
             </span>
@@ -765,7 +765,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Live
             </span>
@@ -813,7 +813,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="2"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Address
             </span>
@@ -823,7 +823,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Remark
             </span>

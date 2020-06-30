@@ -37,21 +37,6 @@ No, we follow Ant Design specification. https://github.com/ant-design/ant-design
 
 You can override its style but we don't recommend doing so. antd is not only a set of React components but also a design specification.
 
-### I just want to use `Menu`/`Button`(etc.), but it seems that I have to import the whole of antd and its style.
-
-Try [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), or import what you need in this way:
-
-```jsx
-import Menu from 'antd/es/menu';
-import 'antd/es/menu/style/css';
-```
-
-or (ES6 way with tree shaking):
-
-```jsx
-import { Menu, Breadcrumb, Icon } from 'antd';
-```
-
 ### How to replace Moment.js to Day.js to reduce bundle size？
 
 Please refer to [Replace Moment.js](/docs/react/replace-moment).
@@ -59,6 +44,10 @@ Please refer to [Replace Moment.js](/docs/react/replace-moment).
 ### It doesn't work when I change `defaultValue` dynamically.
 
 The `defaultXxxx` (like `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+
+### Why modify props in mutable way not trigger component update?
+
+antd use shallow compare of props to optimize performance. You should always pass new object when state update. Please ref [React's document](https://reactjs.org/docs/thinking-in-react.html)
 
 ### I set the `value` of `Input`/`Select`(etc.), and then it cannot be changed by user's action.
 
@@ -88,7 +77,7 @@ Please check [And Design Mobile](http://mobile.ant.design) for details. `antd` h
 
 ### Does `antd` supply standalone files like 'React'?
 
-Yes, you can [import `antd` with script tag](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser). But we recommend using `npm` to import `antd`, it is simple and easy to maintain.
+Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#Import-in-Browser). But we recommend using `npm` to import `antd`, it is simple and easy to maintain.
 
 ### I can't visit `icon` in my network environment.
 

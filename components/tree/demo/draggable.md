@@ -66,14 +66,14 @@ class Demo extends React.Component {
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
     const loop = (data, key, callback) => {
-      data.forEach((item, index, arr) => {
-        if (item.key === key) {
-          return callback(item, index, arr);
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].key === key) {
+          return callback(data[i], i, data);
         }
-        if (item.children) {
-          return loop(item.children, key, callback);
+        if (data[i].children) {
+           loop(data[i].children, key, callback);
         }
-      });
+      }
     };
     const data = [...this.state.gData];
 

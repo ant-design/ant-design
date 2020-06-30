@@ -46,6 +46,8 @@
 /* Reset search input style */
 .select-search-input-without-border() {
   .@{select-prefix-cls}-selection-search-input {
+    margin: 0;
+    padding: 0;
     background: transparent;
     border: none;
     outline: none;
@@ -68,6 +70,14 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        flex: auto;
+      }
+    }
   }
 
   // ======================= Placeholder =======================
@@ -77,12 +87,19 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     opacity: 0.4;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        flex: auto;
+      }
+    }
   }
 
   // ========================== Arrow ==========================
   &-arrow {
     .iconfont-mixin();
-
     position: absolute;
     top: 53%;
     right: @control-padding-horizontal - 1px;
@@ -93,10 +110,9 @@
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
-    // transform-origin: 50% 50%;
     pointer-events: none;
 
-    .anticon {
+    .@{iconfont-css-prefix} {
       vertical-align: top;
       transition: transform 0.3s;
 
@@ -104,8 +120,8 @@
         vertical-align: top;
       }
 
-      .@{select-prefix-cls}-open &.anticon-down {
-        transform: rotate(180deg);
+      &:not(.@{select-prefix-cls}-suffix) {
+        pointer-events: auto;
       }
     }
   }
@@ -184,6 +200,10 @@
     &-hidden {
       display: none;
     }
+
+    &-empty {
+      color: @disabled-color;
+    }
   }
 
   // ========================= Options =========================
@@ -200,6 +220,7 @@
 
   &-item-empty {
     .item();
+    color: @disabled-color;
   }
 
   &-item {

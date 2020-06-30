@@ -4,6 +4,7 @@ type: 数据展示
 title: Comment
 subtitle: 评论
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/ILhxpGzBO/Comment.svg
 ---
 
 对网站内容的反馈、评价和讨论。

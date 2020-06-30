@@ -34,7 +34,7 @@
 }
 
 .disabled() {
-  color: @disabled-color;
+  color: @input-disabled-color;
   background-color: @input-disabled-bg;
   cursor: not-allowed;
   opacity: 1;
@@ -259,11 +259,11 @@
   }
 
   // Fix https://github.com/ant-design/ant-design/issues/5754
-  &-lg .@{ant-prefix}-select-single .ant-select-selector {
+  &-lg .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
     height: @input-height-lg;
   }
 
-  &-sm .@{ant-prefix}-select-single .ant-select-selector {
+  &-sm .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
     height: @input-height-sm;
   }
 
@@ -300,10 +300,18 @@
     }
 
     & > * {
-      display: inline-flex;
+      display: inline-block;
       float: none;
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       border-radius: 0;
+    }
+
+    & > .@{inputClass}-affix-wrapper {
+      display: inline-flex;
+    }
+
+    & > .@{ant-prefix}-picker-range {
+      display: inline-flex;
     }
 
     & > *:not(:last-child) {
@@ -334,6 +342,10 @@
       &:focus {
         z-index: 1;
       }
+    }
+
+    & > .@{ant-prefix}-select-focused {
+      z-index: 1;
     }
 
     // update z-index for arrow icon

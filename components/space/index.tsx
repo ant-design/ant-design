@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
@@ -10,6 +10,8 @@ export interface SpaceProps {
   style?: React.CSSProperties;
   size?: SizeType | number;
   direction?: 'horizontal' | 'vertical';
+  // No `stretch` since many components do not support that.
+  align?: 'start' | 'end' | 'center' | 'baseline';
 }
 
 const spaceSize = {
@@ -19,10 +21,13 @@ const spaceSize = {
 };
 
 const Space: React.FC<SpaceProps> = props => {
-  const { getPrefixCls, space }: ConfigConsumerProps = React.useContext(ConfigContext);
+  const { getPrefixCls, space, direction: directionConfig }: ConfigConsumerProps = React.useContext(
+    ConfigContext,
+  );
 
   const {
     size = space?.size || 'small',
+    align,
     className,
     children,
     direction = 'horizontal',
@@ -37,10 +42,21 @@ const Space: React.FC<SpaceProps> = props => {
     return null;
   }
 
+  const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const cn = classnames(prefixCls, `${prefixCls}-${direction}`, className);
+  const cn = classNames(
+    prefixCls,
+    `${prefixCls}-${direction}`,
+    {
+      [`${prefixCls}-rtl`]: directionConfig === 'rtl',
+      [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
+    },
+    className,
+  );
 
   const itemClassName = `${prefixCls}-item`;
+
+  const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
   return (
     <div className={cn} {...otherProps}>
@@ -53,7 +69,7 @@ const Space: React.FC<SpaceProps> = props => {
             i === len - 1
               ? {}
               : {
-                  [direction === 'vertical' ? 'marginBottom' : 'marginRight']:
+                  [direction === 'vertical' ? 'marginBottom' : marginDirection]:
                     typeof size === 'string' ? spaceSize[size] : size,
                 }
           }

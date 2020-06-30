@@ -6,18 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('DropdownButton', () => {
-  mountTest(() => (
-    <Dropdown menu={<Menu />}>
-      <span />
-    </Dropdown>
-  ));
   mountTest(Dropdown.Button);
-
-  rtlTest(() => (
-    <Dropdown menu={<Menu />}>
-      <span />
-    </Dropdown>
-  ));
   rtlTest(Dropdown.Button);
 
   it('pass appropriate props to Dropdown', () => {
@@ -40,7 +29,7 @@ describe('DropdownButton', () => {
     const dropdownProps = wrapper.find(Dropdown).props();
 
     Object.keys(props).forEach(key => {
-      expect(dropdownProps[key]).toBe(props[key]); // eslint-disable-line
+      expect(dropdownProps[key]).toBe(props[key]);
     });
   });
 

@@ -32,6 +32,7 @@ import faIR from '../fa_IR';
 import fiFI from '../fi_FI';
 import frBE from '../fr_BE';
 import frFR from '../fr_FR';
+import gaIE from '../ga_IE';
 import heIL from '../he_IL';
 import hiIN from '../hi_IN';
 import hrHR from '../hr_HR';
@@ -86,6 +87,7 @@ const locales = [
   fiFI,
   frBE,
   frFR,
+  gaIE,
   heIL,
   hiIN,
   hrHR,
@@ -174,7 +176,7 @@ describe('Locale Provider', () => {
   ));
 
   beforeAll(() => {
-    MockDate.set(moment('2017-09-18T03:30:07.795'));
+    MockDate.set(moment('2017-09-18T03:30:07.795').valueOf());
   });
 
   afterAll(() => {
@@ -195,9 +197,12 @@ describe('Locale Provider', () => {
   it('should change locale of Modal.xxx', () => {
     class ModalDemo extends React.Component {
       componentDidMount() {
+        jest.useFakeTimers();
         Modal.confirm({
           title: 'Hello World!',
         });
+        jest.runAllTimers();
+        jest.useRealTimers();
       }
 
       render() {
@@ -217,7 +222,7 @@ describe('Locale Provider', () => {
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;
       let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
-      if (locale.locale === 'zh-cn') {
+      if (locale.locale.indexOf('zh-') === 0) {
         cancelButtonText = cancelButtonText.replace(' ', '');
         okButtonText = okButtonText.replace(' ', '');
       }

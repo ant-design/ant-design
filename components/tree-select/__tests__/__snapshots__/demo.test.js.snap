@@ -22,6 +22,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -39,7 +40,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -83,6 +84,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -100,7 +102,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -181,6 +183,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -218,6 +221,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
       <span
@@ -258,6 +262,7 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -319,6 +324,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -336,7 +342,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg

@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Checkbox from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -30,7 +30,7 @@ describe('Checkbox', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Checkbox value />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Checkbox] `value` is not validate prop, do you mean `checked`?',
+      'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',
     );
     errorSpy.mockRestore();
   });
