@@ -122,15 +122,12 @@
     }
   }
 
-  &.@{drawer-prefix-cls}-open {
-    .@{drawer-prefix-cls} {
-      &-mask {
-        height: 100%;
-        opacity: 1;
-        transition: none;
-        animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
-      }
-    }
+  &.@{drawer-prefix-cls}-open .@{drawer-prefix-cls}-mask {
+    height: 100%;
+    opacity: 1;
+    transition: none;
+    animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
+    pointer-events: auto;
   }
 
   &-title {
@@ -232,7 +229,9 @@
     opacity: 0;
     filter: ~'alpha(opacity=45)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
+    pointer-events: none;
   }
+
   &-open {
     &-content {
       box-shadow: @shadow-2;

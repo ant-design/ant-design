@@ -108,6 +108,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {icon}
         </div>
         <CSSMotion
+          motionDeadline={500}
           visible={visible}
           motionName="show-help"
           onLeaveEnd={() => {
