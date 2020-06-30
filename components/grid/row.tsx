@@ -40,7 +40,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     },
   };
 
-  token: string;
+  token: number;
 
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
