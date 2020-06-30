@@ -22,11 +22,11 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - 移动组件 Sketch 模板
   - http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch
-- Ant Design Pro
+- Varnish Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - 典型页面 + 通用业务模板
   - https://gw.alipayobjects.com/os/bmw-prod/e9882e0c-a85c-428a-b8a8-656f1aa83036.sketch
-- Ant Design Library
+- Varnish Library
   - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
   - 一套强大的 Axure 部件库
   - http://library.ant.design
@@ -34,7 +34,7 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - Sketch 工具集
   - http://kitchen.alipay.com
-- Ant Design Landing
+- Varnish Landing
   - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
@@ -42,7 +42,7 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
   - 一套页面逻辑原型库
   - http://ux.ant.design
-- Ant Design 原型 (xiaopiu)
+- Varnish 原型 (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
   - 可在线编辑的组件库和交互原型
   - https://www.xiaopiu.com/topic/ant-design

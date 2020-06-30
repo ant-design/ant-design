@@ -276,7 +276,6 @@ a[href]:active {
 ul {
     margin: 0;
     padding: 0 0 0 ${vars.getRefOrError('spacing.md')};
-    list-style-type: none;
 }
 
 ol {
@@ -292,10 +291,25 @@ li:last-child {
     margin-bottom: 0;
 }
 
+hr {
+  border-top: 1px solid  ${vars.getRefOrError('palette.border.default')};
+  margin: ${vars.getRefOrError('spacing.lg')};
+}
+
 blockquote {
-    margin: ${vars.getRefOrError('spacing.lg')} ${vars.getRefOrError('spacing.xs')};
-    padding: ${vars.getRefOrError('spacing.md')} ${vars.getRefOrError('spacing.xs')};
-    border-left: ${vars.getRefOrError('spacing.xxs')} solid ${vars.getRefOrError('color.N5')};
+  padding: 0 ${vars.getRefOrError('spacing.md')};
+  margin: ${vars.getRefOrError('spacing.md')} 0;
+  position: relative;
+}
+
+blockquote:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: ${vars.getRefOrError('spacing.xxs')};
+  bottom: ${vars.getRefOrError('spacing.xxs')};
+  width: 1px;
+  background-color: ${vars.getRefOrError('color.T5')};
 }
     `.trim();
 }

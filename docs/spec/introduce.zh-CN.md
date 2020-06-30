@@ -47,12 +47,12 @@ const LinksList = () => (
     </li>
     <li>
       <a href="http://ng.ant.design" target="_blank">
-        NG-ZORRO - Ant Design of Angular
+        NG-ZORRO - Varnish of Angular
       </a>
     </li>
     <li>
       <a href="http://ng.mobile.ant.design" target="_blank">
-        NG-ZORRO-MOBILE - Ant Design Mobile of Angular
+        NG-ZORRO-MOBILE - Varnish Mobile of Angular
       </a>
     </li>
     <li>
