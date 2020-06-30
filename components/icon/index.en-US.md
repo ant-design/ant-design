@@ -25,8 +25,8 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| className | ClassName of Icon | string | - |  |
-| style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
+| className | The className of Icon | string | - |  |
+| style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
 | spin | Rotate icon with animation | boolean | false |  |
 | rotate | Rotate by n degrees (not working in IE9) | number | - |  |
 | twoToneColor | Only supports the two-tone icon. Specify the primary color | string (hex color) | - |  |
@@ -45,7 +45,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
+| style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
 | spin | Rotate icon with animation | boolean | false |  |
 | rotate | Rotate degrees (not working in IE9) | number | - |  |
 | component | The component used for the root node | ComponentType<CustomIconComponentProps\> | - |  |
