@@ -124,7 +124,7 @@ export default class Progress extends React.Component<ProgressProps> {
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
 
     devWarning(
-      'successPercent' in props,
+      !('successPercent' in props),
       'Progress',
       '`successPercent` is deprecated. Please use `success` instead.',
     );
