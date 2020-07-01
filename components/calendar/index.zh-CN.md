@@ -35,15 +35,15 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 | --- | --- | --- | --- | --- |
 | dateCellRender | 自定义渲染日期单元格，返回内容会被追加到单元格 | function(date: moment): ReactNode | - |  |
 | dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格 | function(date: moment): ReactNode | - |  |
-| defaultValue | 默认展示的日期 | [moment](http://momentjs.com/) | 默认日期 |  |
+| defaultValue | 默认展示的日期 | [moment](http://momentjs.com/) | - |  |
 | disabledDate | 不可选择的日期 | (currentDate: moment) => boolean | - |  |
 | fullscreen | 是否全屏显示 | boolean | true |  |
-| locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
-| mode | 初始模式，`month/year` | string | `month` |  |
+| locale | 国际化配置 | object | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
+| mode | 初始模式 | `month` \| `year` | `month` |  |
 | monthCellRender | 自定义渲染月单元格，返回内容会被追加到单元格 | function(date: moment): ReactNode | - |  |
 | monthFullCellRender | 自定义渲染月单元格，返回内容覆盖单元格 | function(date: moment): ReactNode | - |  |
 | validRange | 设置可以显示的日期 | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| value | 展示日期 | [moment](http://momentjs.com/) | 当前日期 |  |
+| value | 展示日期 | [moment](http://momentjs.com/) | - |  |
 | onPanelChange | 日期面板变化回调 | function(date: moment, mode: string) | - |  |
 | onSelect | 点击选择日期回调 | function(date: moment） | - |  |
 | onChange | 日期变化回调 | function(date: moment） | - |  |
