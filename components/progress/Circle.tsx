@@ -12,8 +12,12 @@ interface CircleProps extends ProgressProps {
 
 function getPercentage({ percent, success, successPercent }: CircleProps) {
   const ptg = validProgress(percent);
+  /** @deprecated Use `percent` instead */
   if (success && 'progress' in success) {
     successPercent = success.progress;
+  }
+  if (success && 'percent' in success) {
+    successPercent = success.percent;
   }
   if (!successPercent) {
     return ptg;
@@ -25,8 +29,12 @@ function getPercentage({ percent, success, successPercent }: CircleProps) {
 
 function getStrokeColor({ success, strokeColor, successPercent }: CircleProps) {
   const color = strokeColor || null;
+  /** @deprecated Use `percent` instead */
   if (success && 'progress' in success) {
     successPercent = success.progress;
+  }
+  if (success && 'percent' in success) {
+    successPercent = success.percent;
   }
   if (!successPercent) {
     return color;

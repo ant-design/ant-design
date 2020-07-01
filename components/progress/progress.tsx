@@ -67,7 +67,6 @@ export default class Progress extends React.Component<ProgressProps> {
   getPercentNumber() {
     const { percent = 0, success } = this.props;
     let { successPercent } = this.props;
-
     /** @deprecated Use `percent` instead */
     if (success && 'progress' in success) {
       successPercent = success.progress;
@@ -93,11 +92,9 @@ export default class Progress extends React.Component<ProgressProps> {
     const { showInfo, format, type, percent, success } = this.props;
     let { successPercent } = this.props;
     if (success && 'progress' in success) {
-      console.log(success.progress);
       devWarning(false, 'Progress', '`progress` is deprecated. Please use `percent` instead.');
       successPercent = success.progress;
     }
-
     if (success && 'percent' in success) {
       successPercent = success.percent;
     }

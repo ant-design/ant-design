@@ -149,6 +149,10 @@ exports[`Progress render format 1`] = `
         class="ant-progress-bg"
         style="width: 50%; height: 8px;"
       />
+      <div
+        class="ant-progress-success-bg"
+        style="width: 10%; height: 8px;"
+      />
     </div>
   </div>
   <span
@@ -198,6 +202,10 @@ exports[`Progress render negative successPercent 1`] = `
       <div
         class="ant-progress-bg"
         style="width: 50%; height: 8px;"
+      />
+      <div
+        class="ant-progress-success-bg"
+        style="width: 0%; height: 8px;"
       />
     </div>
   </div>
@@ -505,6 +513,10 @@ exports[`Progress render successColor progress 1`] = `
       <div
         class="ant-progress-bg"
         style="width: 60%; height: 8px;"
+      />
+      <div
+        class="ant-progress-success-bg"
+        style="width: 30%; height: 8px; background-color: rgb(255, 255, 255);"
       />
     </div>
   </div>
