@@ -1028,10 +1028,6 @@ Array [
           class="ant-progress-bg"
           style="width:50%;height:8px;border-radius:"
         />
-        <div
-          class="ant-progress-success-bg"
-          style="width:10%;height:8px;border-radius:"
-        />
       </div>
     </div>
   </div>,
