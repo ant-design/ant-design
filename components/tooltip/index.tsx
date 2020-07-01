@@ -7,6 +7,7 @@ import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { PresetColorType, PresetColorTypes } from '../_util/colors';
+import { LiteralUnion } from '../_util/type';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -39,7 +40,7 @@ export interface TooltipAlignConfig {
 export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
   style?: React.CSSProperties;
   className?: string;
-  color?: PresetColorType;
+  color?: LiteralUnion<PresetColorType, string>;
   placement?: TooltipPlacement;
   builtinPlacements?: BuildInPlacements;
   openClassName?: string;
