@@ -1,10 +1,10 @@
-import CalendarLocale from 'rc-picker/lib/locale/nb_NO';
 import TimePickerLocale from '../../time-picker/locale/nb_NO';
 import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {
   lang: {
+    locale: 'nb_NO',
     placeholder: 'Velg dato',
     yearPlaceholder: 'Velg år',
     quarterPlaceholder: 'Velg kvartal',
@@ -35,7 +35,10 @@ const locale: PickerLocale = {
     nextDecade: 'Neste tiår',
     previousCentury: 'Siste århundre',
     nextCentury: 'Neste århundre',
-    ...CalendarLocale,
+    yearFormat: 'YYYY',
+    dateFormat: 'DD.MM.YYYY',
+    dayFormat: 'DD',
+    dateTimeFormat: 'DD.MM.YYYY HH:mm:ss',
   },
   timePickerLocale: {
     placeholder: 'Select time',
