@@ -17,7 +17,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ```jsx
 <Select>
-  <Select.Option value="lucy">lucy</Select.Option>
+  <Option value="lucy">lucy</Option>
 </Select>
 ```
 
@@ -37,7 +37,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| function(inputValue, option) | true |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
-| labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 {key: string, label: ReactNode} 的格式 | boolean | false |  |
+| labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 `{ value: string, label: ReactNode }` 的格式 | boolean | false |  |
 | listHeight | 设置弹窗滚动高度 | number | 256 |  |
 | maxTagCount | 最多显示多少个 tag | number | - |  |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
