@@ -32,7 +32,7 @@ const responsiveObserve = {
   },
   subscribe(func: SubscribeFunc): number {
     if (!subscribers.size) this.register();
-    ++subUid;
+    subUid += 1;
     subscribers.set(subUid, func);
     func(screens);
     return subUid;
@@ -45,9 +45,7 @@ const responsiveObserve = {
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen]!;
       const handler = this.matchHandlers[matchMediaQuery];
-      if (handler?.mql && handler?.listener) {
-        handler.mql.removeListener(handler.listener);
-      }
+      handler?.mql.removeListener(handler?.listener);
     });
     subscribers.clear();
   },
