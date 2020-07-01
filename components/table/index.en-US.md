@@ -228,7 +228,7 @@ interface User {
   name: string;
 }
 
-const columns: ColumnsType<User>[] = [{
+const columns: ColumnsType<User> = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',
