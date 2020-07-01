@@ -320,6 +320,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
               action="//riddle.alibaba-inc.com/riddles/define"
               method="POST"
               target="_blank"
+              rel="noopener noreferrer"
               onClick={() => this.track({ type: 'riddle', demo: meta.id })}
             >
               <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
@@ -335,6 +336,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
+              rel="noopener noreferrer"
               onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
             >
               <input
@@ -354,6 +356,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
               action="https://codepen.io/pen/define"
               method="POST"
               target="_blank"
+              rel="noopener noreferrer"
               onClick={() => this.track({ type: 'codepen', demo: meta.id })}
               style={{
                 display: sourceCode ? '' : 'none',

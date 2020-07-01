@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { Header, Logos, Layout, Menu } from '@allenai/varnish';
 
-const { HeaderColumns, HeaderTitle } = Header;
+const { HeaderColumns } = Header;
 
 const MenuArea = styled.div`
   justify-self: right;
@@ -21,8 +21,9 @@ ReactDOM.render(
   <Layout bgcolor="N2">
     <Header>
       <HeaderColumns gridTemplateColumns="auto auto 1fr">
-        <Logos.AI2Logo includeText={false} />
-        <HeaderTitle>Title</HeaderTitle>
+        <a href="http://allenai.org" target="_blank" rel="noopener noreferrer">
+          <Logos.AI2Logo includeText={false} />
+        </a>
         <MenuArea>
           <Menu defaultSelectedKeys={[1]} mode="horizontal">
             <Menu.Item key="1">
