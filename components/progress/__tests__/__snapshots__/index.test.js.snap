@@ -153,9 +153,9 @@ exports[`Progress render format 1`] = `
   </div>
   <span
     class="ant-progress-text"
-    title="50 0"
+    title="50 10"
   >
-    50 0
+    50 10
   </span>
 </div>
 `;
