@@ -15,7 +15,7 @@ const locale: PickerLocale = {
     rangeMonthPlaceholder: ['Startmåned', 'Sluttmåned'],
     rangeWeekPlaceholder: ['Start uke', 'Sluttuke'],
     today: 'I dag',
-    now: 'Nâ',
+    now: 'Nå',
     backToToday: 'Tilbake til i dag',
     ok: 'Ok',
     clear: 'Fjern',
