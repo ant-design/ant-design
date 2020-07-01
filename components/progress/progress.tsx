@@ -23,6 +23,8 @@ type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 
 export interface SuccessProps {
+  percent?: number;
+  /** @deprecated Use `percent` instead */
   progress?: number;
   strokeColor?: string;
 }
@@ -65,8 +67,13 @@ export default class Progress extends React.Component<ProgressProps> {
   getPercentNumber() {
     const { percent = 0, success } = this.props;
     let { successPercent } = this.props;
+
+    /** @deprecated Use `percent` instead */
     if (success && 'progress' in success) {
       successPercent = success.progress;
+    }
+    if (success && 'percent' in success) {
+      successPercent = success.percent;
     }
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
@@ -85,6 +92,11 @@ export default class Progress extends React.Component<ProgressProps> {
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent, success } = this.props;
     let { successPercent } = this.props;
+    if (success && 'progress' in success) {
+      devWarning(false, 'Progress', '`progress` is deprecated. Please use `percent` instead.');
+      successPercent = success.progress;
+    }
+
     if (success && 'progress' in success) {
       successPercent = success.progress;
     }
