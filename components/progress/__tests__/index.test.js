@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
+
   mountTest(Progress);
   rtlTest(Progress);
 
@@ -166,4 +167,24 @@ describe('Progress', () => {
       'rgb(24, 144, 255)',
     );
   });
+
+  it('should warnning if use `progress` in success', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Progress percent={60} success={{ progress: 30 }} />,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `progress` is deprecated. Please use `percent` instead.',
+    );
+  })
+
+  it ('should warnning if use `progress` in success in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Progress percent={60} success={{ progress: 30 }} type="circle"/>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `progress` is deprecated. Please use `percent` instead.',
+    );
+  })
 });
