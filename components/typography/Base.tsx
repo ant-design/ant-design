@@ -8,6 +8,7 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
+import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
@@ -35,6 +36,8 @@ interface EditConfig {
   editing?: boolean;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  maxLength?: number;
+  autoSize?: boolean | AutoSizeType;
 }
 
 interface EllipsisConfig {
@@ -402,6 +405,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
+    const { maxLength, autoSize } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
@@ -411,6 +415,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         className={className}
         style={style}
         direction={direction}
+        maxLength={maxLength}
+        autoSize={autoSize}
       />
     );
   }
