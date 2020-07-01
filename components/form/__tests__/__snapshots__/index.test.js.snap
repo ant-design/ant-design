@@ -5,7 +5,7 @@ exports[`Form Form item hidden 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-hidden"
+    class="ant-row ant-form-item ant-form-item-hidden"
   >
     <div
       class="ant-col ant-form-item-control"
