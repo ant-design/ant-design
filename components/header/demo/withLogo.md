@@ -15,8 +15,10 @@ ReactDOM.render(
   <Layout bgcolor="N2">
     <Header>
       <HeaderColumns gridTemplateColumns="auto auto 1fr">
-        <Logos.AI2Logo includeText={false} />
-        <HeaderTitle>Title</HeaderTitle>
+        <a href="http://allenai.org" target="_blank" rel="noopener noreferrer">
+          <Logos.AI2Logo includeText={false} />
+          <HeaderTitle>Title</HeaderTitle>
+        </a>
       </HeaderColumns>
     </Header>
     <Layout.Content>Content!</Layout.Content>

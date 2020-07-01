@@ -114,13 +114,6 @@ const Sticky = styled(Layout.Header)`
   }
 `;
 
-export const HeaderColumns = styled(Columns as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
-  width: 100%;
-  align-items: center;
-  padding: 11.5px 0;
-`;
-
 export const HeaderTitle = styled.h5`
   margin: 0;
   font-size: 1.9rem;
@@ -131,5 +124,30 @@ export const HeaderTitle = styled.h5`
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     font-size: 1.75rem;
     line-height: 1.5rem;
+  }
+`;
+
+export const HeaderColumns = styled(Columns as any)`
+  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+  width: 100%;
+  align-items: center;
+  padding: 11.5px 0;
+
+  a[href] {
+    img {
+      display: inline;
+      margin-right: ${({ theme }) => theme.spacing.xs};
+    }
+
+    ${HeaderTitle as any} {
+      /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+      vertical-align: middle;
+    }
+
+    &:hover ${HeaderTitle as any} {
+      /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+      text-decoration: none;
+      display: inline-block;
+    }
   }
 `;

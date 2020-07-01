@@ -490,6 +490,7 @@ class App extends React.Component {
               href="#components-anchor-demo-basic"
               title="Basic demo with Target"
               target="_blank"
+              rel="noopener noreferrer"
             />
             <Link href="#API" title="API">
               <Link href="#Anchor-Props" title="Anchor Props" />
