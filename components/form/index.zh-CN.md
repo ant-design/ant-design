@@ -93,7 +93,7 @@ const validateMessages = {
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
-| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |  |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
