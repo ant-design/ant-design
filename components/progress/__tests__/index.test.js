@@ -174,7 +174,7 @@ describe('Progress', () => {
       <Progress percent={60} success={{ progress: 30 }} />,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] `progress` is deprecated. Please use `percent` instead.',
+      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   })
 
@@ -184,7 +184,7 @@ describe('Progress', () => {
       <Progress percent={60} success={{ progress: 30 }} type="circle"/>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] `progress` is deprecated. Please use `percent` instead.',
+      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   })
 });
