@@ -28,7 +28,7 @@ Properties that shared by all types.
 | strokeLinecap | to set the style of the progress linecap | `round` \| `square` | `round` |
 | strokeColor | color of progress bar | string | - |
 | trailColor | color of unfilled part | string | - |
-| success | configs of successfully progress bar | { progress: number, strokeColor: string } | - |
+| success | configs of successfully progress bar | { percent: number, strokeColor: string } | - |
 
 ### `type="line"`
 

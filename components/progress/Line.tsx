@@ -105,8 +105,13 @@ const Line: React.FC<LineProps> = props => {
   };
 
   let { successPercent } = props;
+  /** @deprecated Use `percent` instead */
   if (success && 'progress' in success) {
     successPercent = success.progress;
+  }
+
+  if (success && 'percent' in success) {
+    successPercent = success.percent;
   }
 
   let successPercentStyle = {
