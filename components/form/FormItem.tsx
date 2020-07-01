@@ -186,7 +186,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-error-leave`]:
         !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-      [`${prefixCls}-hidden`]: hidden,
+      [`${prefixCls}-item-hidden`]: hidden,
     };
 
     // ======================= Children =======================
