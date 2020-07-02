@@ -68,6 +68,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
   React.useEffect(() => {
     if (props.prefixCls) {
       message.config({ prefixCls: props.prefixCls });
+      notification.config({ prefixCls: props.prefixCls });
     }
   }, [props.prefixCls]);
 
