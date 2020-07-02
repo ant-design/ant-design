@@ -65,6 +65,12 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
     }
   }, [props.direction]);
 
+  React.useEffect(() => {
+    if (props.prefixCls) {
+      message.config({ prefixCls: props.prefixCls });
+    }
+  }, [props.prefixCls]);
+
   const getPrefixClsWrapper = (context: ConfigConsumerProps) => {
     return (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
