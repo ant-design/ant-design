@@ -10,7 +10,6 @@
   .@{ant-prefix}-input-affix-wrapper {
     &,
     &:hover {
-      background-color: @background-color;
       border-color: @border-color;
     }
 
@@ -18,13 +17,18 @@
     &-focused {
       .active(@border-color);
     }
+  }
 
-    &:not([disabled]):hover {
-      border-color: @border-color;
+  .@{ant-prefix}-input {
+    &:not(&-disabled) {
+      background-color: @background-color;
     }
   }
 
   .@{ant-prefix}-input-affix-wrapper {
+    &:not(&-disabled) {
+      background-color: @background-color;
+    }
     input:focus {
       box-shadow: none !important;
     }
@@ -40,7 +44,6 @@
 
   .@{ant-prefix}-input-group-addon {
     color: @text-color;
-    background-color: @background-color;
     border-color: @border-color;
   }
 
