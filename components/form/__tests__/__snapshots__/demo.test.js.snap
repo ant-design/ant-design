@@ -932,6 +932,523 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
 </form>
 `;
 
+exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Normal0"
+      >
+        Normal0
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="unavailable choice"
+            type="text"
+            value="Buggy!"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Fail0"
+      >
+        Fail0
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="unavailable choice"
+            type="text"
+            value="Buggy!"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="FailDisabled0"
+      >
+        FailDisabled0
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input ant-input-disabled"
+            disabled=""
+            placeholder="unavailable choice"
+            type="text"
+            value="Buggy!"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Normal1"
+      >
+        Normal1
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="unavailable choice"
+            type="text"
+            value="Buggy!"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Fail1"
+      >
+        Fail1
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="unavailable choice"
+            type="text"
+            value="Buggy!"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="FailDisabled1"
+      >
+        FailDisabled1
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input ant-input-disabled"
+            disabled=""
+            placeholder="unavailable choice"
+            type="text"
+            value="Buggy!"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Normal2"
+      >
+        Normal2
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-group-wrapper"
+          >
+            <span
+              class="ant-input-wrapper ant-input-group"
+            >
+              <span
+                class="ant-input-group-addon"
+              >
+                Buggy!
+              </span>
+              <input
+                class="ant-input"
+                placeholder="unavailable choice"
+                type="text"
+                value=""
+              />
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Fail2"
+      >
+        Fail2
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-group-wrapper"
+          >
+            <span
+              class="ant-input-wrapper ant-input-group"
+            >
+              <span
+                class="ant-input-group-addon"
+              >
+                Buggy!
+              </span>
+              <input
+                class="ant-input"
+                placeholder="unavailable choice"
+                type="text"
+                value=""
+              />
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="FailDisabled2"
+      >
+        FailDisabled2
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-group-wrapper"
+          >
+            <span
+              class="ant-input-wrapper ant-input-group"
+            >
+              <span
+                class="ant-input-group-addon"
+              >
+                Buggy!
+              </span>
+              <input
+                class="ant-input ant-input-disabled"
+                disabled=""
+                placeholder="unavailable choice"
+                type="text"
+                value=""
+              />
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Normal3"
+      >
+        Normal3
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              人民币
+            </span>
+            <input
+              class="ant-input"
+              placeholder="unavailable choice"
+              type="text"
+              value="50"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Fail3"
+      >
+        Fail3
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              人民币
+            </span>
+            <input
+              class="ant-input"
+              placeholder="unavailable choice"
+              type="text"
+              value="50"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="FailDisabled3"
+      >
+        FailDisabled3
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
+          >
+            <span
+              class="ant-input-prefix"
+            >
+              人民币
+            </span>
+            <input
+              class="ant-input ant-input-disabled"
+              disabled=""
+              placeholder="unavailable choice"
+              type="text"
+              value="50"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Buggy!
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
