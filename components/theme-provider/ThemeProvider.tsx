@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
-import { Theme, VarnishTheme } from './Theme';
+import { Theme, VarnishTheme } from '../varnish/Theme';
 
 // eslint-disable-next-line import/prefer-default-export
 export const ThemeProvider = (props: {

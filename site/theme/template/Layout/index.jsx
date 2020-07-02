@@ -19,9 +19,8 @@ import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 import { Layout as LayoutAntd } from '../../../../components';
-import Theming from '../../../../components/varnish';
+import ThemeProvider from '../../../../components/theme-provider';
 
-const { ThemeProvider } = Theming;
 const { DefaultAppLayoutProvider } = LayoutAntd;
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {

@@ -1,11 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Typography from '../../../../components/typography';
-import Theming from '../../../../components/varnish';
+import Theme from '../../../../components/varnish';
 import { Color } from '../../../../components/varnish/colors';
 import { dictionaryToArray } from '../../../../components/_util/varnish/base';
 
-const { Theme } = Theming;
 const { BodyJumbo, Body, BodyMicro } = Typography;
 
 const DefaultTheme = Theme.default;

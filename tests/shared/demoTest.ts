@@ -3,9 +3,7 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import Theming from '../../components/varnish';
-
-const { ThemeProvider } = Theming;
+import ThemeProvider from '../../components/theme-provider';
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];

@@ -72,7 +72,8 @@ Array [
   "Tooltip",
   "Typography",
   "Upload",
-  "Theming",
+  "Theme",
+  "ThemeProvider",
   "version",
 ]
 `;

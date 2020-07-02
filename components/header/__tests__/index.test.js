@@ -5,9 +5,8 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 import Header from '..';
 import Layout from '../../layout';
-import Theming from '../../varnish';
+import ThemeProvider from '../../theme-provider';
 
-const { ThemeProvider } = Theming;
 const { DefaultAppLayoutProvider } = Layout;
 
 const { HeaderColumns, HeaderTitle } = Header;
