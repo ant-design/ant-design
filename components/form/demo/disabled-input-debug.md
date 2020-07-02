@@ -14,7 +14,6 @@ Buggy!
 Buggy!
 
 ```tsx
-import { SmileOutlined } from '@ant-design/icons';
 import { Form, Input } from 'antd';
 
 ReactDOM.render(
