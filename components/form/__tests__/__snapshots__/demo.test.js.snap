@@ -3401,7 +3401,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
 exports[`renders ./components/form/demo/size.md correctly 1`] = `
 <div>
   <form
-    class="ant-form ant-form-horizontal ant-form-small"
+    class="ant-form ant-form-horizontal ant-form-default"
   >
     <div
       class="ant-row ant-form-item"
@@ -3427,17 +3427,16 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+              class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
               id="size"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                class="ant-radio-button-wrapper"
               >
                 <span
-                  class="ant-radio-button ant-radio-button-checked"
+                  class="ant-radio-button"
                 >
                   <input
-                    checked=""
                     class="ant-radio-button-input"
                     type="radio"
                     value="small"
@@ -3451,22 +3450,23 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
               >
                 <span
-                  class="ant-radio-button"
+                  class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
+                    checked=""
                     class="ant-radio-button-input"
                     type="radio"
-                    value="middle"
+                    value="default"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Middle
+                  Default
                 </span>
               </label>
               <label
@@ -3516,7 +3516,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-sm"
+              class="ant-input"
               type="text"
               value=""
             />
@@ -3547,7 +3547,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -3629,7 +3629,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-sm ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -3711,7 +3711,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-cascader-picker ant-cascader-picker-small"
+              class="ant-cascader-picker ant-cascader-picker-default"
               tabindex="0"
             >
               <span
@@ -3719,7 +3719,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               />
               <input
                 autocomplete="off"
-                class="ant-input ant-input-sm ant-cascader-input ant-input-sm"
+                class="ant-input ant-cascader-input "
                 placeholder="Please select"
                 readonly=""
                 tabindex="-1"
@@ -3774,7 +3774,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-small"
+              class="ant-picker ant-picker-default"
             >
               <div
                 class="ant-picker-input"
@@ -3840,7 +3840,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-sm"
+              class="ant-input-number"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -3944,7 +3944,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           >
             <button
               aria-checked="false"
-              class="ant-switch ant-switch-small"
+              class="ant-switch"
               role="switch"
               type="button"
             >
@@ -3982,7 +3982,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
-              class="ant-btn ant-btn-sm"
+              class="ant-btn"
               type="button"
             >
               <span>
