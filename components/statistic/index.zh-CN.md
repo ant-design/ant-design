@@ -19,7 +19,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
 
 | 参数             | 说明             | 类型                 | 默认值 | 版本 |
 | ---------------- | ---------------- | -------------------- | ------ | ---- |
-| decimalSeparator | 设置小数点       | string               | .      |      |
+| decimalSeparator | 设置小数点       | string               | `.`    |      |
 | formatter        | 自定义数值展示   | (value) => ReactNode | -      |      |
 | groupSeparator   | 设置千分位标识符 | string               | `,`    |      |
 | precision        | 数值精度         | number               | -      |      |

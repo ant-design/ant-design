@@ -20,7 +20,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| target | specifies the scrollable area dom node | () => HTMLElement | () => window |  |
-| visibilityHeight | the `BackTop` button will not show until the scroll height reaches this value | number | 400 |  |
-| onClick | a callback function, which can be executed when you click the button | Function | - |  |
+| target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
+| visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
+| onClick | A callback function, which can be executed when you click the button | function | - |  |
 | duration | Time to return to top（ms） | number | 450 | 4.4.0 |

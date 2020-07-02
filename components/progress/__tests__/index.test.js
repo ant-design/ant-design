@@ -6,17 +6,18 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
+
   mountTest(Progress);
   rtlTest(Progress);
 
   it('successPercent should decide the progress status when it exists', () => {
-    const wrapper = mount(<Progress percent={100} success={{ progress: 50 }} />);
+    const wrapper = mount(<Progress percent={100} success={{ percent: 50 }} />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
 
-    wrapper.setProps({ percent: 50, success: { progress: 100 } });
+    wrapper.setProps({ percent: 50, success: { percent: 100 } });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
 
-    wrapper.setProps({ percent: 100, success: { progress: 0 } });
+    wrapper.setProps({ percent: 100, success: { percent: 0 } });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
   });
 
@@ -36,7 +37,7 @@ describe('Progress', () => {
   });
 
   it('render negative successPercent', () => {
-    const wrapper = mount(<Progress percent={50} success={{ progress: -20 }} />);
+    const wrapper = mount(<Progress percent={50} success={{ percent: -20 }} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -44,7 +45,7 @@ describe('Progress', () => {
     const wrapper = mount(
       <Progress
         percent={50}
-        success={{ progress: 10 }}
+        success={{ percent: 10 }}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
       />,
     );
@@ -83,7 +84,7 @@ describe('Progress', () => {
 
   it('render successColor progress', () => {
     const wrapper = mount(
-      <Progress percent={60} success={{ progress: 30, strokeColor: '#ffffff' }} />,
+      <Progress percent={60} success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -166,4 +167,24 @@ describe('Progress', () => {
       'rgb(24, 144, 255)',
     );
   });
+
+  it('should warnning if use `progress` in success', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Progress percent={60} success={{ progress: 30 }} />,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
+    );
+  })
+
+  it ('should warnning if use `progress` in success in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Progress percent={60} success={{ progress: 30 }} type="circle"/>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
+    );
+  })
 });

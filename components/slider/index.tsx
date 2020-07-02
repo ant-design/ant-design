@@ -16,8 +16,6 @@ export interface SliderMarks {
       };
 }
 
-export type SliderValue = number | [number, number];
-
 interface HandleGeneratorInfo {
   value?: number;
   dragging: boolean;
@@ -31,23 +29,18 @@ export type HandleGeneratorFn = (config: {
   info: HandleGeneratorInfo;
 }) => React.ReactNode;
 
-export interface SliderProps {
+export interface SliderBaseProps {
   prefixCls?: string;
   tooltipPrefixCls?: string;
-  range?: boolean;
   reverse?: boolean;
   min?: number;
   max?: number;
   step?: number | null;
   marks?: SliderMarks;
   dots?: boolean;
-  value?: SliderValue;
-  defaultValue?: SliderValue;
   included?: boolean;
   disabled?: boolean;
   vertical?: boolean;
-  onChange?: (value: SliderValue) => void;
-  onAfterChange?: (value: SliderValue) => void;
   tipFormatter?: null | ((value?: number) => React.ReactNode);
   className?: string;
   id?: string;
@@ -57,9 +50,25 @@ export interface SliderProps {
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
+export interface SliderSingleProps extends SliderBaseProps {
+  range?: false;
+  value?: number;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+  onAfterChange?: (value: number) => void;
+}
+
+export interface SliderRangeProps extends SliderBaseProps {
+  range: true;
+  value?: [number, number];
+  defaultValue?: [number, number];
+  onChange?: (value: [number, number]) => void;
+  onAfterChange?: (value: [number, number]) => void;
+}
+
 export type Visibles = { [index: number]: boolean };
 
-const Slider = React.forwardRef<unknown, SliderProps>((props, ref) => {
+const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>((props, ref) => {
   const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
   const [visibles, setVisibles] = React.useState<Visibles>({});
 

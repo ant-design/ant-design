@@ -59,21 +59,23 @@ export default function Home() {
           <DesignPage />
         </BlockContent>
 
-        <BlockContent
-          title={<FormattedMessage id="app.home.more" />}
-          extra={
-            <Link
-              to={getLocalizedPathname('/docs/resources', isZhCN, {
-                zhCN: '文章',
-                enUS: 'Articles',
-              })}
-            >
-              <FormattedMessage id="app.home.view-more" />
-            </Link>
-          }
-        >
-          <MorePage />
-        </BlockContent>
+        {isZhCN ? (
+          <BlockContent
+            title={<FormattedMessage id="app.home.more" />}
+            extra={
+              <Link
+                to={getLocalizedPathname('/docs/resources', isZhCN, {
+                  zhCN: '文章',
+                  enUS: 'Articles',
+                })}
+              >
+                <FormattedMessage id="app.home.view-more" />
+              </Link>
+            }
+          >
+            <MorePage />
+          </BlockContent>
+        ) : null}
       </div>
       <Footer />
     </div>

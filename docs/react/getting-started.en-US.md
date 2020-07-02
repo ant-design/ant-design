@@ -5,7 +5,7 @@ title: Getting Started
 
 Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you have installed [Node.js](https://nodejs.org/)(> 8.0.0) correctly.
 
-If you try in local environment, Please refer to [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
+If you try in local environment, please refer to [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
 
 > Before delving into Ant Design React, a good knowledge base of [React](https://reactjs.org) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
 
@@ -121,8 +121,8 @@ module.exports = {
 };
 ```
 
-## Customized Work Flow
+## Customized Workflow
 
-If you want to customize your work flow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plents of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
+If you want to customize your workflow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
 
 There are some [scaffolds](http://scaffold.ant.design/) which have already integrated antd, so you can try and start with one of these and even contribute.
