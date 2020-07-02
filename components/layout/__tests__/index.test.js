@@ -6,9 +6,7 @@ import Layout from '..';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Theming from '../../varnish';
-
-const { ThemeProvider } = Theming;
+import ThemeProvider from '../../theme-provider';
 
 const { Sider, Content } = Layout;
 

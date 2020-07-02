@@ -1,7 +1,4 @@
-import * as Theme from './Theme';
-import * as ThemeProvider from './ThemeProvider';
+import { Color, RGB, Theme } from './Theme';
 
-export default {
-  ...Theme,
-  ...ThemeProvider,
-};
+export { Color, RGB };
+export default Theme;

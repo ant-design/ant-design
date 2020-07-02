@@ -156,6 +156,8 @@ export { default as Typography } from './typography';
 
 export { default as Upload } from './upload';
 
-export { default as Theming } from './varnish';
+export { default as Theme } from './varnish';
+
+export { default as ThemeProvider } from './theme-provider';
 
 export { default as version } from './version';

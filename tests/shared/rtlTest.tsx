@@ -3,9 +3,7 @@ import Moment from 'moment';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import ConfigProvider from '../../components/config-provider';
-import Theming from '../../components/varnish';
-
-const { ThemeProvider } = Theming;
+import ThemeProvider from '../../components/theme-provider';
 
 // eslint-disable-next-line jest/no-export
 export default function rtlTest(Component: React.ComponentType, mockDate?: boolean) {
