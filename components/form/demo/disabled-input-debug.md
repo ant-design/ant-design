@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-Buggy!
+Test disabled Input with validate state
 
 ## en-US
 
-Buggy!
+Test disabled Input with validate state
 
 ```tsx
 import { Form, Input } from 'antd';
