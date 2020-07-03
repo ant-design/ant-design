@@ -1,15 +1,20 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Notification from 'rc-notification';
+import {
+  NotificationInstance as RCNotificationInstance,
+  NoticeContent,
+} from 'rc-notification/lib/Notification';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import createUseMessage from './hooks/useMessage';
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
-let messageInstance: any;
+let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
@@ -56,14 +61,22 @@ function setMessageConfig(options: ConfigOptions) {
   }
 }
 
-function getMessageInstance(callback: (i: any) => void) {
+function getMessageInstance(
+  args: ArgsProps,
+  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+) {
+  const outerPrefixCls = args.prefixCls || defaultPrefixCls;
+  const prefixCls = `${outerPrefixCls}-notice`;
   if (messageInstance) {
-    callback(messageInstance);
+    callback({
+      prefixCls,
+      instance: messageInstance,
+    });
     return;
   }
   Notification.newInstance(
     {
-      prefixCls: defaultPrefixCls,
+      prefixCls: outerPrefixCls,
       transitionName,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,
@@ -71,7 +84,10 @@ function getMessageInstance(callback: (i: any) => void) {
     },
     (instance: any) => {
       if (messageInstance) {
-        callback(messageInstance);
+        callback({
+          prefixCls,
+          instance: messageInstance,
+        });
         return;
       }
       messageInstance = instance;
@@ -101,6 +117,7 @@ export interface ArgsProps {
   content: React.ReactNode;
   duration: number | null;
   type: NoticeType;
+  prefixCls?: string;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
@@ -108,12 +125,7 @@ export interface ArgsProps {
   className?: string;
 }
 
-function getRCNoticeProps(
-  args: ArgsProps,
-  prefixCls: string,
-  target: string | number,
-  onClose: Function,
-) {
+function getRCNoticeProps(args: ArgsProps, prefixCls: string): NoticeContent {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const IconComponent = typeToIcon[args.type];
   const messageClass = classNames(`${prefixCls}-custom-content`, {
@@ -121,7 +133,7 @@ function getRCNoticeProps(
     [`${prefixCls}-rtl`]: rtl === true,
   });
   return {
-    key: target,
+    key: args.key,
     duration,
     style: args.style || {},
     className: args.className,
@@ -131,7 +143,7 @@ function getRCNoticeProps(
         <span>{args.content}</span>
       </div>
     ),
-    onClose,
+    onClose: args.onClose,
   };
 }
 
@@ -144,8 +156,10 @@ function notice(args: ArgsProps): MessageType {
       }
       return resolve(true);
     };
-    getMessageInstance(instance => {
-      instance.notice(getRCNoticeProps(args, defaultPrefixCls, target, callback));
+    getMessageInstance(args, ({ prefixCls, instance }) => {
+      instance.notice(
+        getRCNoticeProps(Object.assign(args, { key: target, onClose: callback }), prefixCls),
+      );
     });
   });
   const result: any = () => {
@@ -198,6 +212,7 @@ const api: any = {
 });
 
 api.warn = api.warning;
+api.useMessage = createUseMessage(getMessageInstance, getRCNoticeProps);
 
 export interface MessageInstance {
   info(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
@@ -212,6 +227,7 @@ export interface MessageApi extends MessageInstance {
   warn(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
   config(options: ConfigOptions): void;
   destroy(): void;
+  useMessage(): [MessageInstance, React.ReactElement];
 }
 
 export default api as MessageApi;
