@@ -112,7 +112,7 @@ const validateMessages = {
 
 `dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
 
-`4.5.0` 版本后，`dependencies` 支持使用 render props 类型 children 的 `Form.Item`。
+从 `4.5.0` 版本开始，`dependencies` 支持使用 render props 类型 children 的 `Form.Item`。
 
 ### shouldUpdate
 
