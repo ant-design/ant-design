@@ -66,7 +66,19 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
+      'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate` or `dependencies`.',
+    );
+  });
+  it("`shouldUpdate` shouldn't work with `dependencies`", () => {
+    mount(
+      <Form>
+        <Form.Item shouldUpdate dependencies={[]}>
+          {() => null}
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
     );
   });
   it('`name` should not work with render props', () => {
