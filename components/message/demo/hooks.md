@@ -19,7 +19,9 @@ import { message, Button } from 'antd';
 function Demo() {
   const [messsageApi, contextHolder] = message.useMessage();
   const info = () => {
-    messsageApi.info('This is a normal message', 30000);
+    messsageApi.info('This is a normal message', 3).then(() => {
+      console.log('promise me');
+    });
   };
 
   return (

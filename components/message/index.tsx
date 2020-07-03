@@ -160,8 +160,7 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance(args, ({ prefixCls, instance }) => {
-      console.log('getMessageInstance', args, { prefixCls, instance });
-      instance.notice(getRCNoticeProps({ key: target, onClose: callback, ...args }, prefixCls));
+      instance.notice(getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls));
     });
   });
   const result: any = () => {
