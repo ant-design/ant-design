@@ -23,6 +23,7 @@ let defaultPrefixCls = 'ant-notification';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;
+let rtl = false;
 
 export interface ConfigProps {
   top?: number;
@@ -35,7 +36,6 @@ export interface ConfigProps {
   rtl?: boolean;
 }
 
-let rtl = false;
 function setNotificationConfig(options: ConfigProps) {
   const { duration, placement, bottom, top, getContainer, closeIcon, prefixCls } = options;
   if (prefixCls !== undefined) {
@@ -225,12 +225,14 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
   };
 }
 
+function notice(args: ArgsProps) {
+  getNotificationInstance(args, ({ prefixCls, instance }) => {
+    instance.notice(getRCNoticeProps(args, prefixCls));
+  });
+}
+
 const api: any = {
-  open: (args: ArgsProps) => {
-    getNotificationInstance(args, ({ prefixCls, instance }) => {
-      instance.notice(getRCNoticeProps(args, prefixCls));
-    });
-  },
+  open: notice,
   close(key: string) {
     Object.keys(notificationInstance).forEach(cacheKey =>
       Promise.resolve(notificationInstance[cacheKey]).then(instance => {
