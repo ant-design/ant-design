@@ -299,13 +299,12 @@ function FormItem(props: FormItemProps): React.ReactElement {
         };
 
         let childNode: React.ReactNode = null;
-        if (shouldUpdate && dependencies) {
-          devWarning(
-            false,
-            'Form.Item',
-            "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
-          );
-        }
+
+        devWarning(
+          !(shouldUpdate && dependencies),
+          'Form.Item',
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+        );
         if (Array.isArray(children) && hasName) {
           devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;

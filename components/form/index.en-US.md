@@ -111,6 +111,8 @@ Used when there are dependencies between fields. If a field has the `dependencie
 
 `dependencies` shouldn't be used together with `shouldUpdate`. Since it may cause chaos in updating logic.
 
+`dependencies` supports `Form.Item` with render props children since `4.5.0`.
+
 ### shouldUpdate
 
 Form updates only the modified field-related components for performance optimization purposes by incremental update. In most cases, you only need to write code or do validation with the [`dependencies`](#dependencies) property. In some specific cases, such as when a new field option appears with a filed value changed, or you just want to keep some area updating by form update, you can modify the update logic of Form.Item via the `shouldUpdate`.
