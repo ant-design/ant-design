@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import { composeRef } from '../_util/ref';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -30,13 +31,16 @@ export interface AvatarProps {
   onError?: () => boolean;
 }
 
-const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = props => {
+const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (props, ref) => {
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
 
   const avatarNodeRef = React.useRef<HTMLElement>();
   const avatarChildrenRef = React.useRef<HTMLElement>();
+
+  const avatarNodeMergeRef = composeRef(ref, avatarNodeRef);
+  const avatarChildrenMergeRef = composeRef(ref, avatarChildrenRef);
 
   let lastChildrenWidth: number;
   let lastNodeWidth: number;
@@ -161,9 +165,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = pro
       children = (
         <span
           className={`${prefixCls}-string`}
-          ref={(node: HTMLElement) => {
-            avatarChildrenRef.current = node;
-          }}
+          ref={avatarChildrenMergeRef as any}
           style={{ ...sizeChildrenStyle, ...childrenStyle }}
         >
           {children}
@@ -179,9 +181,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = pro
         <span
           className={`${prefixCls}-string`}
           style={{ opacity: 0 }}
-          ref={(node: HTMLElement) => {
-            avatarChildrenRef.current = node;
-          }}
+          ref={avatarChildrenMergeRef as any}
         >
           {children}
         </span>
@@ -198,9 +198,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = pro
       {...others}
       style={{ ...sizeStyle, ...others.style }}
       className={classString}
-      ref={(node: HTMLElement) => {
-        avatarNodeRef.current = node;
-      }}
+      ref={avatarNodeMergeRef as any}
     >
       {children}
     </span>

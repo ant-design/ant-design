@@ -11,6 +11,7 @@ export interface GroupProps {
   prefixCls?: string;
   maxLength?: number;
   excessItemsStyle?: React.CSSProperties;
+  excessPopoverPlacement?: 'top' | 'bottom';
 }
 
 const Group: React.FC<GroupProps> = props => (
@@ -27,19 +28,20 @@ const Group: React.FC<GroupProps> = props => (
       );
 
       const renderChildren = () => {
-        const { children } = props;
+        const { children, excessPopoverPlacement = 'top' } = props;
         const numOfChildren = React.Children.count(children);
+        const childrenWithProps = React.Children.toArray(children);
         if (maxLength && maxLength < numOfChildren) {
-          const childrenWithProps = React.Children.toArray(children).slice(0, maxLength);
-          const childrenHidden = React.Children.toArray(children).slice(maxLength, numOfChildren);
-          childrenWithProps.push(
-            <Popover content={childrenHidden} trigger="hover" placement="bottom">
+          const childrenShow = childrenWithProps.slice(0, maxLength);
+          const childrenHidden = childrenWithProps.slice(maxLength, numOfChildren);
+          childrenShow.push(
+            <Popover content={childrenHidden} trigger="hover" placement={excessPopoverPlacement}>
               <Avatar style={excessItemsStyle}>{`+${numOfChildren - maxLength}`}</Avatar>
             </Popover>,
           );
-          return childrenWithProps;
+          return childrenShow;
         }
-        return props.children;
+        return children;
       };
 
       return (
