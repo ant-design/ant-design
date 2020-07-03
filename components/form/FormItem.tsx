@@ -263,6 +263,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     >
       {(control, meta, context) => {
         const { errors } = meta;
+
         const mergedName = toArray(name).length && meta ? meta.name : [];
         const fieldId = getFieldId(mergedName, formName);
 
