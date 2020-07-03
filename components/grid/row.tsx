@@ -29,13 +29,16 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xl: true,
     xxl: true,
   });
+  const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>();
+  gutterRef.current = props.gutter;
 
   React.useEffect(() => {
     const token = ResponsiveObserve.subscribe(screen => {
-      const { gutter = 0 } = props;
+      const currentGutter = gutterRef.current || 0;
       if (
-        (!Array.isArray(gutter) && typeof gutter === 'object') ||
-        (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
+        (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
+        (Array.isArray(currentGutter) &&
+          (typeof currentGutter[0] === 'object' || typeof currentGutter[1] === 'object'))
       ) {
         setScreens(screen);
       }
@@ -43,7 +46,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     return () => {
       ResponsiveObserve.unsubscribe(token);
     };
-  }, [props.gutter]);
+  }, []);
 
   const getGutter = (): [number, number] => {
     const results: [number, number] = [0, 0];
