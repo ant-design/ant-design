@@ -18,7 +18,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll;overflow-y:hidden"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:903px;min-width:100%;table-layout:fixed"
@@ -356,7 +356,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll;overflow-y:hidden"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:903px;min-width:100%;table-layout:fixed"
@@ -644,7 +644,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll;overflow-y:hidden"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:903px;min-width:100%;table-layout:fixed"

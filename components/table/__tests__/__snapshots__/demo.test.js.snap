@@ -5776,7 +5776,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll;overflow-y:hidden"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:1300px;min-width:100%;table-layout:fixed"
@@ -6218,7 +6218,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x:scroll;overflow-y:scroll;max-height:300px"
+            style="overflow-x:auto;overflow-y:scroll;max-height:300px"
           >
             <table
               style="width:1500px;min-width:100%;table-layout:fixed"
@@ -8633,7 +8633,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x:scroll;overflow-y:scroll;max-height:240px"
+            style="overflow-x:auto;overflow-y:scroll;max-height:240px"
           >
             <table
               style="width:calc(700px + 50%);min-width:100%;table-layout:fixed"
@@ -15479,7 +15479,7 @@ Array [
           >
             <div
               class="ant-table-content"
-              style="overflow-x:scroll;overflow-y:hidden"
+              style="overflow-x:auto;overflow-y:hidden"
             >
               <table
                 style="width:2000px;min-width:100%;table-layout:fixed"
