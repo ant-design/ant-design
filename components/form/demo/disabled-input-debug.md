@@ -3,6 +3,7 @@ order: 30
 title:
   zh-CN: Disabled Input Debug
   en-US: Disabled Input Debug
+debug: true
 ---
 
 ## zh-CN
