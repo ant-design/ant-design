@@ -247,7 +247,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll;overflow-y:hidden"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:1px;min-width:100%;table-layout:fixed"
