@@ -309,7 +309,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
         if (Array.isArray(children) && hasName) {
           devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
-        } else if (isRenderProps && ((!shouldUpdate && !dependencies) || hasName)) {
+        } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           devWarning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
