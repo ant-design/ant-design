@@ -66,7 +66,7 @@ function getMessageInstance(
   callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
 ) {
   const outerPrefixCls = args.prefixCls || defaultPrefixCls;
-  const prefixCls = `${outerPrefixCls}-notice`;
+  const prefixCls = `${outerPrefixCls}`;
   if (messageInstance) {
     callback({
       prefixCls,
@@ -91,7 +91,10 @@ function getMessageInstance(
         return;
       }
       messageInstance = instance;
-      callback(instance);
+      callback({
+        prefixCls,
+        instance,
+      });
     },
   );
 }
@@ -157,9 +160,8 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance(args, ({ prefixCls, instance }) => {
-      instance.notice(
-        getRCNoticeProps(Object.assign(args, { key: target, onClose: callback }), prefixCls),
-      );
+      console.log('getMessageInstance', args, { prefixCls, instance });
+      instance.notice(getRCNoticeProps({ key: target, onClose: callback, ...args }, prefixCls));
     });
   });
   const result: any = () => {
@@ -196,10 +198,14 @@ const api: any = {
   },
 };
 
-['success', 'info', 'warning', 'error', 'loading'].forEach(type => {
-  api[type] = (content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose) => {
+export function createTypeApi(injectedApi: any, type: string) {
+  injectedApi[type] = (
+    content: JointContent,
+    duration?: ConfigDuration,
+    onClose?: ConfigOnClose,
+  ) => {
     if (isArgsProps(content)) {
-      return api.open({ ...content, type });
+      return injectedApi.open({ ...content, type });
     }
 
     if (typeof duration === 'function') {
@@ -207,9 +213,11 @@ const api: any = {
       duration = undefined;
     }
 
-    return api.open({ content, duration, type, onClose });
+    return injectedApi.open({ content, duration, type, onClose });
   };
-});
+}
+
+['success', 'info', 'warning', 'error', 'loading'].forEach(type => createTypeApi(api, type));
 
 api.warn = api.warning;
 api.useMessage = createUseMessage(getMessageInstance, getRCNoticeProps);

@@ -6,7 +6,7 @@ import {
   HolderReadyCallback as RCHolderReadyCallback,
 } from 'rc-notification/lib/Notification';
 import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
-import { MessageInstance, ArgsProps } from '..';
+import { MessageInstance, ArgsProps, createTypeApi } from '..';
 
 export default function createUseMessage(
   getMessageInstance: (
@@ -30,8 +30,9 @@ export default function createUseMessage(
     const [hookNotify, holder] = useRCNotification(proxy);
 
     function notify(args: ArgsProps) {
+      console.log('ArgProps', args);
       const { prefixCls: customizePrefixCls } = args;
-      const mergedPrefixCls = getPrefixCls('notification', customizePrefixCls);
+      const mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
 
       getMessageInstance(
         {
@@ -50,13 +51,9 @@ export default function createUseMessage(
 
     hookApiRef.current.open = notify;
 
-    ['success', 'info', 'warning', 'error'].forEach(type => {
-      hookApiRef.current[type] = (args: ArgsProps) =>
-        hookApiRef.current.open({
-          ...args,
-          type,
-        });
-    });
+    ['success', 'info', 'warning', 'error', 'loading'].forEach(type =>
+      createTypeApi(hookApiRef.current, type),
+    );
 
     return [
       hookApiRef.current,
