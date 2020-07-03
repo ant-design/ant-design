@@ -303,7 +303,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           devWarning(
             false,
             'Form.Item',
-            "`shouldUpdate` and `dependencies` shouldn't be used together.",
+            "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
           );
         }
         if (Array.isArray(children) && hasName) {

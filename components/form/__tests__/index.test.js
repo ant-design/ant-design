@@ -78,7 +78,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together.",
+      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
     );
   });
   it('`name` should not work with render props', () => {
