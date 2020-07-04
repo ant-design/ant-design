@@ -1,19 +1,13 @@
 import * as React from 'react';
-import { Item } from 'rc-menu';
+import { Item, MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import { MenuItemProps as RcMenuItemProps } from 'rc-menu/es/MenuItem';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import { isValidElement } from '../_util/reactNode';
 
-export interface MenuItemProps
-  extends Omit<
-      React.HTMLAttributes<HTMLLIElement>,
-      'title' | 'onClick' | 'onMouseEnter' | 'onMouseLeave' | 'onSelect'
-    >,
-    Omit<RcMenuItemProps, 'title'> {
+export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
   danger?: boolean;
   title?: React.ReactNode;
