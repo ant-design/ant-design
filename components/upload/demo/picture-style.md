@@ -9,9 +9,13 @@ title:
 
 上传文件为图片，可展示本地缩略图。`IE8/9` 不支持浏览器本地缩略图展示（[Ref](https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL)），可以写 `thumbUrl` 属性来代替。
 
+上传文件非图片时，也可以通过设置 `thumbUrl` 属性来配置缩略图。
+
 ## en-US
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
+
+If uploaded file is not a picture, the thumbnail can also be shown as `thumbUrl` configured.
 
 ```jsx
 import { Upload, Button } from 'antd';
@@ -29,6 +33,13 @@ const fileList = [
     uid: '-2',
     name: 'yyy.png',
     status: 'error',
+  },
+  {
+    uid: '-3',
+    name: 'pdf.pdf',
+    status: 'done',
+    url: 'http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   },
 ];
 
