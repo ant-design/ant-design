@@ -160,7 +160,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           icon = <div className={uploadingClassName}>{iconNode}</div>;
         } else {
           const thumbnail =
-            isImgUrl && isImgUrl(file) ? (
+            file.thumbUrl || (isImgUrl && isImgUrl(file)) ? (
               <img
                 src={file.thumbUrl || file.url}
                 alt={file.name}
