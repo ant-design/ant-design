@@ -165,7 +165,36 @@ $ yarn start
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/dPsy4tFHN3/umi.gif" />
 
-### ProTable
+## ProLayout
+
+一个标准的中后台页面，一般都需要一个布局，这个布局很多时候都是高度雷同的，ProLayout 封装了常用的菜单，面包屑，页头等功能，提供了一个不依赖的框架且开箱即用的高级布局组件。
+
+并且支持 `side`, `mix`, `top` 三种模式，更是内置了菜单选中，菜单生成面包屑，自动设置页面标题的逻辑。可以帮助你快速的开始一个项目。
+
+![sie](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
+
+使用方式也是极为简单，只需要进行几个简单的设置。
+
+```tsx
+<ProLayout>
+  <PageContainer
+    extra={[
+      <Button key="3">操作</Button>,
+      <Button key="2">操作</Button>,
+      <Button key="1" type="primary">
+        主操作
+      </Button>,
+    ]}
+    footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
+  >
+    {children}
+  </PageContainer>
+</ProLayout>
+```
+
+点击这里[快速开始](https://prolayout.ant.design/getting-started)。
+
+## ProTable
 
 一个中后台页面中很多数据都不需要跨页面共享，models 在一些时候也是不需要的。
 
@@ -215,7 +244,7 @@ const Products = () => {
 };
 ```
 
-ProTable 提供了预设逻辑来处理 loading 和分页,
+ProTable 提供了预设逻辑来处理 loading，分页 和搜索表单，可以大大减少代码量，点击这里[快速开始](https://protable.ant.design/getting-started)。
 
 ## 构建应用
 
@@ -225,7 +254,7 @@ ProTable 提供了预设逻辑来处理 loading 和分页,
 $ yarn build
 ```
 
-![](https://gw.alipayobjects.com/zos/antfincdn/Zd3f%242NdOK/b911d244-f1a5-4d61-adc5-3710cd86cd1b.png)
+![build](https://gw.alipayobjects.com/zos/antfincdn/Zd3f%242NdOK/b911d244-f1a5-4d61-adc5-3710cd86cd1b.png)
 
 构建会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
 
@@ -244,5 +273,6 @@ $ yarn build
 - 访问 [umi 官网](https://umijs.org/)和 [dva 官网](https://dvajs.com/)
 - 理解 [umi 的路由](https://umijs.org/zh/guide/router.html)
 - 理解 [如何部署 umi 应用](https://umijs.org/zh/guide/deploy.html)
-- 查看 [dva 知识地图](https://dvajs.com/knowledgemap/)，包含 ES6, React, dva 等所有基础知识
-- 理解 [dva 的 8 个概念](https://dvajs.com/guide/concepts.html)，以及他们是如何串起来的
+- 开箱即用的脚手架 [Ant Design Pro](https://pro.ant.design)
+- 高级布局 [ProLayout](https://prolayout.ant.design)
+- 高级表格 [ProTable](https://protable.ant.design)
