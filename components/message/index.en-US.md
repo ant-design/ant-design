@@ -26,9 +26,9 @@ This components provides some static methods, with usage and arguments as follow
 
 | Argument | Description | Type | Default |
 | --- | --- | --- | --- |
-| content | content of the message | string\|ReactNode\|config | - |
-| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
-| onClose | Specify a function that will be called when the message is closed | Function | - |
+| content | The content of the message | string \| ReactNode \| config | - |
+| duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
+| onClose | Specify a function that will be called when the message is closed | function | - |
 
 `afterClose` can be called in thenable interface:
 
@@ -51,13 +51,13 @@ The properties of config are as follows:
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| content | content of the message | ReactNode | - |
-| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
+| content | The content of the message | ReactNode | - |
+| duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
 | onClose | Specify a function that will be called when the message is closed | function | - |
 | icon | Customized Icon | ReactNode | - |
-| key | The unique identifier of the Message | string\|number | - |
+| key | The unique identifier of the Message | string \| number | - |
 | className | Customized CSS class | string | - |
-| style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 
 ### Global static methods
 
@@ -83,8 +83,8 @@ message.config({
 
 | Argument | Description | Type | Default |
 | --- | --- | --- | --- |
-| duration | time before auto-dismiss, in seconds | number | 1.5 |
+| duration | Time before auto-dismiss, in seconds | number | 1.5 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
-| maxCount | max message show, drop oldest if exceed limit | number | - |
-| top | distance from top | number | 24 |
-| rtl | whether to enable RTL mode | boolean | false |
+| maxCount | Max message show, drop oldest if exceed limit | number | - |
+| top | Distance from top | number | 24 |
+| rtl | Whether to enable RTL mode | boolean | false |

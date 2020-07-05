@@ -23,16 +23,16 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false |
 | avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
-| loading | Display the skeleton when `true` | boolean | - |
+| loading | Display the skeleton when true | boolean | - |
 | paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
 | title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
-| round | Show paragraph and title radius when `true` | boolean | false |
+| round | Show paragraph and title radius when true | boolean | false |
 
 ### SkeletonAvatarProps
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| active | Show animation effect, only valid when used avatar independently. | boolean | false |
+| active | Show animation effect, only valid when used avatar independently | boolean | false |
 | size | Set the size of avatar | number \| `large` \| `small` \| `default` | - |
 | shape | Set the shape of avatar | `circle` \| `square` | - |
 

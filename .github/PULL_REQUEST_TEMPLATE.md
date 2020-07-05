@@ -17,7 +17,7 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] Component style update
 - [ ] TypeScript definition update
 - [ ] Bundle size optimization
-- [ ] Perfermance optimization
+- [ ] Performance optimization
 - [ ] Refactoring
 - [ ] Code style optimization
 - [ ] Test Case

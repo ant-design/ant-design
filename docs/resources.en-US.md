@@ -67,30 +67,6 @@ Please find below some of the design resources and tools about Ant Design that w
 
 Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://zhuanlan.zhihu.com/antdesign). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
 
-### Design
-
-- [解放图形化设计生产力 - HiTu](https://zhuanlan.zhihu.com/p/100925117)
-- [「自然交互」Ant Design 设计价值观解析](https://zhuanlan.zhihu.com/p/44809866)
-- [「自然交互 1」前馈：让功能找到用户；让用户体验美好](https://zhuanlan.zhihu.com/p/41952711)
-- [「自然交互 4」理解元数据，让人机自然交互](https://zhuanlan.zhihu.com/p/43613398)
-- [「自然交互 5」传感器——系统的五感【上】](https://zhuanlan.zhihu.com/p/52648777)
-- [1 块钱 6 周 DAU 增长翻倍：Ant Design 设计工具 Kitchen 获客增长实践](https://zhuanlan.zhihu.com/p/68707241)
-- [专访蚂蚁金服体验技术 UED：Ant Design 希望成为世界级设计体系](https://zhuanlan.zhihu.com/p/66781635)
-- [写给设计师的 Ant Design 栅格指南](https://zhuanlan.zhihu.com/p/63580649)
-- [Ant Design 情感化设计](https://zhuanlan.zhihu.com/p/55364776)
-- [Ant Design 资产一起造 工作坊（上）](https://zhuanlan.zhihu.com/p/54887681)
-- [Ant Design 资产一起造 工作坊（下）](https://zhuanlan.zhihu.com/p/54901534)
-- [轻推转型之门：Ant Design Pro 在企业级产品的实践（附演讲视频）](https://zhuanlan.zhihu.com/p/32771546)
-- [Ant Design 3.0 背后的故事（附演讲视频）](https://zhuanlan.zhihu.com/p/32746810)
-- [用户故事地图浅析](https://zhuanlan.zhihu.com/p/31503749)
-- [体验，不只是用户的！Ant Design 在蚂蚁中台的应用](https://zhuanlan.zhihu.com/p/26846739)
-- [在用 Sketch 和 iconfont？试试 Kitchen 吧！](https://zhuanlan.zhihu.com/p/36657030)
-
-### Technology
-
-- [Ant Design 色板生成算法演进之路](https://zhuanlan.zhihu.com/p/32422584)
-- [如何向开源项目提交无法解答的问题](https://zhuanlan.zhihu.com/p/25795393)
-
 ## Reference
 
 Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
