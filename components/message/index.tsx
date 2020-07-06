@@ -208,6 +208,7 @@ export interface MessageApi {
   open(args: ArgsProps): MessageType;
   config(options: ConfigOptions): void;
   destroy(): void;
+  clearMessageInstance(): void;
 }
 
 export default api as MessageApi;
