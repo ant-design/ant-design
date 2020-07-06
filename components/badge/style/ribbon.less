@@ -1,0 +1,65 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@ribbon-prefix-cls: ~'@{ant-prefix}-ribbon';
+@ribbon-wrapper-prefix-cls: ~'@{ant-prefix}-ribbon-wrapper';
+
+.@{ribbon-wrapper-prefix-cls} {
+  .reset-component;
+
+  position: relative;
+
+  .@{ribbon-prefix-cls} {
+    position: absolute;
+    top: 8px;
+    right: -8px;
+    height: 22px;
+    padding: 0 8px;
+    color: white;
+    line-height: 22px;
+    // background-color: rgb(0, 160, 32);
+    border-radius: 2px;
+    border-bottom-right-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 8px;
+      height: 8px;
+      border: 4px solid;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      transform: scaleY(0.75);
+      transform-origin: top;
+      filter: brightness(0.75);
+    }
+    &-status-default {
+      background-color: @normal-color;
+      .@{ribbon-prefix-cls}-corner {
+        border-top-color: @normal-color;
+        border-left-color: @normal-color;
+      }
+    }
+    &-status-error {
+      background-color: @error-color;
+      .@{ribbon-prefix-cls}-corner {
+        border-top-color: @error-color;
+        border-left-color: @error-color;
+      }
+    }
+    &-status-warning {
+      background-color: @warning-color;
+      .@{ribbon-prefix-cls}-corner {
+        border-top-color: @warning-color;
+        border-left-color: @warning-color;
+      }
+    }
+    &-status-success {
+      background-color: @success-color;
+      .@{ribbon-prefix-cls}-corner {
+        border-top-color: @success-color;
+        border-left-color: @success-color;
+      }
+    }
+  }
+}
