@@ -6,10 +6,10 @@ import {
   HolderReadyCallback as RCHolderReadyCallback,
 } from 'rc-notification/lib/Notification';
 import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
-import { MessageInstance, ArgsProps, createTypeApi } from '..';
+import { MessageInstance, ArgsProps, attachTypeApi, ThenableArgument, getKey } from '..';
 
 export default function createUseMessage(
-  getMessageInstance: (
+  getRcNotificationInstance: (
     args: ArgsProps,
     callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
   ) => void,
@@ -30,20 +30,36 @@ export default function createUseMessage(
     const [hookNotify, holder] = useRCNotification(proxy);
 
     function notify(args: ArgsProps) {
-      console.log('ArgProps', args);
       const { prefixCls: customizePrefixCls } = args;
       const mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
-
-      getMessageInstance(
-        {
-          ...args,
-          prefixCls: mergedPrefixCls,
-        },
-        ({ prefixCls, instance }) => {
-          innerInstance = instance;
-          hookNotify(getRCNoticeProps(args, prefixCls));
-        },
-      );
+      const target = args.key || getKey();
+      const closePromise = new Promise(resolve => {
+        const callback = () => {
+          if (typeof args.onClose === 'function') {
+            args.onClose();
+          }
+          return resolve(true);
+        };
+        getRcNotificationInstance(
+          {
+            ...args,
+            prefixCls: mergedPrefixCls,
+          },
+          ({ prefixCls, instance }) => {
+            innerInstance = instance;
+            hookNotify(getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls));
+          },
+        );
+      });
+      const result: any = () => {
+        if (innerInstance) {
+          innerInstance.removeNotice(target);
+        }
+      };
+      result.then = (filled: ThenableArgument, rejected: ThenableArgument) =>
+        closePromise.then(filled, rejected);
+      result.promise = closePromise;
+      return result;
     }
 
     // Fill functions
@@ -52,7 +68,7 @@ export default function createUseMessage(
     hookApiRef.current.open = notify;
 
     ['success', 'info', 'warning', 'error', 'loading'].forEach(type =>
-      createTypeApi(hookApiRef.current, type),
+      attachTypeApi(hookApiRef.current, type),
     );
 
     return [

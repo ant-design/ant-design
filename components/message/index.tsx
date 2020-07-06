@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Notification from 'rc-notification';
+import RCNotification from 'rc-notification';
 import {
   NotificationInstance as RCNotificationInstance,
   NoticeContent,
@@ -23,6 +23,10 @@ let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
 let rtl = false;
+
+export function getKeyThenIncreaseKey() {
+  return key++;
+}
 
 export interface ConfigOptions {
   top?: number;
@@ -61,7 +65,7 @@ function setMessageConfig(options: ConfigOptions) {
   }
 }
 
-function getMessageInstance(
+function getRCNotificationInstance(
   args: ArgsProps,
   callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
 ) {
@@ -74,7 +78,7 @@ function getMessageInstance(
     });
     return;
   }
-  Notification.newInstance(
+  RCNotification.newInstance(
     {
       prefixCls: outerPrefixCls,
       transitionName,
@@ -159,7 +163,7 @@ function notice(args: ArgsProps): MessageType {
       }
       return resolve(true);
     };
-    getMessageInstance(args, ({ prefixCls, instance }) => {
+    getRCNotificationInstance(args, ({ prefixCls, instance }) => {
       instance.notice(getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls));
     });
   });
@@ -197,7 +201,7 @@ const api: any = {
   },
 };
 
-export function createTypeApi(injectedApi: any, type: string) {
+export function attachTypeApi(injectedApi: any, type: string) {
   injectedApi[type] = (
     content: JointContent,
     duration?: ConfigDuration,
@@ -216,10 +220,10 @@ export function createTypeApi(injectedApi: any, type: string) {
   };
 }
 
-['success', 'info', 'warning', 'error', 'loading'].forEach(type => createTypeApi(api, type));
+['success', 'info', 'warning', 'error', 'loading'].forEach(type => attachTypeApi(api, type));
 
 api.warn = api.warning;
-api.useMessage = createUseMessage(getMessageInstance, getRCNoticeProps);
+api.useMessage = createUseMessage(getRCNotificationInstance, getRCNoticeProps);
 
 export interface MessageInstance {
   info(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
