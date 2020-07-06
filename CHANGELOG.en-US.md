@@ -20,7 +20,7 @@ timeline: true
 `2020-07-06`
 
 - Menu
-  - 🐞 Fix `Menu.Item` use `a` tag color style issue. [#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
+  - 🐞 Fix Menu.Item use `a` tag color style issue. [#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
   - 💄 Optimize Menu collapse animation. [#25301](https://github.com/ant-design/ant-design/pull/25301)
 - 🐞 Fix Input disabled `backgroundColor` is override when inside a `error` or `warning` FormItem. [#25385](https://github.com/ant-design/ant-design/pull/25385)
 - 🐞 Fix Table header extra border of right side column. [#25378](https://github.com/ant-design/ant-design/pull/25378)
