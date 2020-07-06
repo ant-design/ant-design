@@ -86,6 +86,116 @@ describe('message.hooks', () => {
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
 
+  it('should work with onClose', done => {
+    // if not use real timer, done won't be called
+    jest.useRealTimers();
+    const Context = React.createContext('light');
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+      return (
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
+            <button
+              type="button"
+              onClick={() => {
+                api.open({
+                  content: (
+                    <Context.Consumer>
+                      {name => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
+                  duration: 1,
+                  onClose() {
+                    done();
+                  },
+                });
+              }}
+            />
+            {holder}
+          </Context.Provider>
+        </ConfigProvider>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('button').simulate('click');
+    jest.useFakeTimers();
+  });
+
+  it('should work with close promise', done => {
+    // if not use real timer, done won't be called
+    jest.useRealTimers();
+    const Context = React.createContext('light');
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+      return (
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
+            <button
+              type="button"
+              onClick={() => {
+                api
+                  .open({
+                    content: (
+                      <Context.Consumer>
+                        {name => <span className="hook-test-result">{name}</span>}
+                      </Context.Consumer>
+                    ),
+                    duration: 1,
+                  })
+                  .then(() => {
+                    done();
+                  });
+              }}
+            />
+            {holder}
+          </Context.Provider>
+        </ConfigProvider>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('button').simulate('click');
+    jest.useFakeTimers();
+  });
+
+  it('should work with close hide', () => {
+    // if not use real timer, done won't be called
+    let hide;
+    const Context = React.createContext('light');
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+      return (
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
+            <button
+              type="button"
+              onClick={() => {
+                hide = api.open({
+                  content: (
+                    <Context.Consumer>
+                      {name => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
+                  duration: 0,
+                });
+              }}
+            />
+            {holder}
+          </Context.Provider>
+        </ConfigProvider>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('button').simulate('click');
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
+    hide();
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(0);
+  });
+
   it('should be same hook', () => {
     let count = 0;
 

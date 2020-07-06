@@ -22,7 +22,14 @@ function Demo() {
   const [messsageApi, contextHolder] = message.useMessage();
   const info = () => {
     messsageApi
-      .info(<Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>, 3)
+      .open({
+        type: 'info',
+        content: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
+        duration: 1,
+        onClose: () => {
+          console.log('close me!');
+        },
+      })
       .then(() => {
         console.log('promise me');
       });
