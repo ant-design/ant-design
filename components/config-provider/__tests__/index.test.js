@@ -44,18 +44,6 @@ describe('ConfigProvider', () => {
     expect(wrapper.text()).toContain('empty placeholder');
   });
 
-  it('nest prefixCls', () => {
-    const wrapper = mount(
-      <ConfigProvider prefixCls="bamboo">
-        <ConfigProvider>
-          <Button />
-        </ConfigProvider>
-      </ConfigProvider>,
-    );
-
-    expect(wrapper.find('button').props().className).toEqual('bamboo-btn');
-  });
-
   it('input autoComplete', () => {
     const wrapper = mount(
       <ConfigProvider input={{ autoComplete: 'off' }}>
@@ -70,7 +58,7 @@ describe('ConfigProvider', () => {
     const App = () => {
       const { renderEmpty } = React.useContext(ConfigContext);
       return renderEmpty();
-    }
+    };
     const wrapper = mount(
       <ConfigProvider>
         <App />
