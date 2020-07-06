@@ -18,7 +18,7 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let defaultPrefixCls = 'ant-message';
+let defaultPrefixCls = 'ant';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
@@ -69,8 +69,7 @@ function getRCNotificationInstance(
   args: ArgsProps,
   callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
 ) {
-  const outerPrefixCls = args.prefixCls || defaultPrefixCls;
-  const prefixCls = `${outerPrefixCls}`;
+  const prefixCls = `${args.prefixCls || defaultPrefixCls}-message`;
   if (messageInstance) {
     callback({
       prefixCls,
@@ -80,7 +79,7 @@ function getRCNotificationInstance(
   }
   RCNotification.newInstance(
     {
-      prefixCls: outerPrefixCls,
+      prefixCls,
       transitionName,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,

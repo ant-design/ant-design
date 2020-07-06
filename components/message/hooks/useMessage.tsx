@@ -37,7 +37,9 @@ export default function createUseMessage(
 
     function notify(args: ArgsProps) {
       const { prefixCls: customizePrefixCls } = args;
-      const mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
+      // getPrefixCls's first arg is '', by default the mergedPrefixCls is 'ant'
+      // not set it to 'message' since getRcNotificationInstance will append 'message' suffix to it
+      const mergedPrefixCls = getPrefixCls('', customizePrefixCls);
       const target = args.key || getKeyThenIncreaseKey();
       const closePromise = new Promise(resolve => {
         const callback = () => {
