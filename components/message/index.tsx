@@ -18,7 +18,7 @@ let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
 let defaultTop: number;
 let key = 1;
-let defaultPrefixCls = 'ant';
+let localPrefixCls = 'ant-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
@@ -47,7 +47,7 @@ function setMessageConfig(options: ConfigOptions) {
     defaultDuration = options.duration;
   }
   if (options.prefixCls !== undefined) {
-    defaultPrefixCls = options.prefixCls;
+    localPrefixCls = options.prefixCls;
   }
   if (options.getContainer !== undefined) {
     getContainer = options.getContainer;
@@ -69,7 +69,7 @@ function getRCNotificationInstance(
   args: ArgsProps,
   callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
 ) {
-  const prefixCls = `${args.prefixCls || defaultPrefixCls}-message`;
+  const prefixCls = args.prefixCls || localPrefixCls;
   if (messageInstance) {
     callback({
       prefixCls,
