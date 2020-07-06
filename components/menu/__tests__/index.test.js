@@ -12,7 +12,6 @@ import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { resetWarned } from '../../_util/devWarning';
 
 const { SubMenu } = Menu;
 
@@ -503,40 +502,6 @@ describe('Menu', () => {
     );
     wrapper.find('Menu').at(1).simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
-  });
-
-  describe('motion', () => {
-    it('get correct animation type when switched from inline', () => {
-      const wrapper = mount(<Menu mode="inline" />);
-      wrapper.setProps({ mode: 'horizontal' });
-      expect(wrapper.find('InternalMenu').instance().getOpenMotionProps('')).toEqual({
-        motion: { motionName: '' },
-      });
-    });
-
-    it('warning if use `openAnimation` as object', () => {
-      resetWarned();
-
-      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      mount(<Menu openAnimation={{}} />);
-      expect(warnSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Menu] `openAnimation` do not support object. Please use `motion` instead.',
-      );
-      warnSpy.mockRestore();
-    });
-
-    it('motion object', () => {
-      const motion = { test: true };
-      const wrapper = mount(<Menu motion={motion} />);
-      expect(wrapper.find('InternalMenu').instance().getOpenMotionProps('')).toEqual({ motion });
-    });
-
-    it('legacy openTransitionName', () => {
-      const wrapper = mount(<Menu openTransitionName="legacy" />);
-      expect(wrapper.find('InternalMenu').instance().getOpenMotionProps('')).toEqual({
-        openTransitionName: 'legacy',
-      });
-    });
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
