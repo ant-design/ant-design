@@ -19,11 +19,14 @@ import { useState } from 'react';
 import { ConfigProvider, message, notification, Modal, Space, Button, Input } from 'antd';
 
 const messageInfo = () => {
-  message.info('info');
+  message.info('message');
 };
 
 const notifictionWarning = () => {
-  notification.warning('info');
+  notification.warning({
+    message: 'message',
+    description: 'description',
+  });
 };
 
 const confirm = () => {

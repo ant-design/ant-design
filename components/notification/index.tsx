@@ -8,6 +8,7 @@ import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
+import rootPrefixCls from '../config-provider/rootPrefixCls';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -19,10 +20,14 @@ const notificationInstance: {
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
-let defaultPrefixCls = 'ant-notification';
+let defaultPrefixCls = '';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;
+
+const getNotificationPrefixCls = () => {
+  return defaultPrefixCls || `${rootPrefixCls.get()}-notification`;
+};
 
 export interface ConfigProps {
   top?: number;
@@ -116,7 +121,7 @@ function getNotificationInstance(
     getContainer = defaultGetContainer,
     closeIcon = defaultCloseIcon,
   } = args;
-  const outerPrefixCls = args.prefixCls || defaultPrefixCls;
+  const outerPrefixCls = args.prefixCls || getNotificationPrefixCls();
   const prefixCls = `${outerPrefixCls}-notice`;
 
   const cacheKey = `${outerPrefixCls}-${placement}`;

@@ -7,6 +7,7 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
+import rootPrefixCls from '../config-provider/rootPrefixCls';
 
 export type ModalFunc = (
   props: ModalFuncProps,
@@ -59,6 +60,7 @@ export default function confirm(config: ModalFuncProps) {
       ReactDOM.render(
         <ConfirmDialog
           {...props}
+          prefixCls={`${rootPrefixCls.get()}-modal`}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,

@@ -6,16 +6,21 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import rootPrefixCls from '../config-provider/rootPrefixCls';
 
 let defaultDuration = 3;
 let defaultTop: number;
 let messageInstance: any;
 let key = 1;
-let prefixCls = 'ant-message';
+let prefixCls = '';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
 let rtl = false;
+
+const getMessagePrefixCls = () => {
+  return prefixCls || `${rootPrefixCls.get()}-message`;
+};
 
 function getMessageInstance(callback: (i: any) => void) {
   if (messageInstance) {
@@ -24,7 +29,7 @@ function getMessageInstance(callback: (i: any) => void) {
   }
   Notification.newInstance(
     {
-      prefixCls,
+      prefixCls: getMessagePrefixCls(),
       transitionName,
       style: { top: defaultTop }, // 覆盖原来的样式
       getContainer,
@@ -76,9 +81,10 @@ function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const IconComponent = iconMap[args.type];
 
-  const messageClass = classNames(`${prefixCls}-custom-content`, {
-    [`${prefixCls}-${args.type}`]: args.type,
-    [`${prefixCls}-rtl`]: rtl === true,
+  const messagePrefixCls = getMessagePrefixCls();
+  const messageClass = classNames(`${messagePrefixCls}-custom-content`, {
+    [`${messagePrefixCls}-${args.type}`]: args.type,
+    [`${messagePrefixCls}-rtl`]: rtl === true,
   });
 
   const target = args.key || key++;

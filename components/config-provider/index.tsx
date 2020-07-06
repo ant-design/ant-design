@@ -11,6 +11,7 @@ import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from '.
 import { SizeType, SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
+import rootPrefixCls from './rootPrefixCls';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
@@ -67,8 +68,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
 
   React.useEffect(() => {
     if (props.prefixCls) {
-      message.config({ prefixCls: props.prefixCls });
-      notification.config({ prefixCls: props.prefixCls });
+      rootPrefixCls.set(props.prefixCls);
     }
   }, [props.prefixCls]);
 
