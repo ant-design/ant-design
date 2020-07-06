@@ -45,7 +45,7 @@ const extname = (url: string = '') => {
 const isImageFileType = (type: string): boolean => type.indexOf('image/') === 0;
 
 export const isImageUrl = (file: UploadFile): boolean => {
-  if (file.type) {
+  if (file.type && !file.thumbUrl) {
     return isImageFileType(file.type);
   }
   const url: string = (file.thumbUrl || file.url) as string;
