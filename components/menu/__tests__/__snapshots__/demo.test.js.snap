@@ -3,6 +3,7 @@
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+  defaultmotions="[object Object]"
   role="menu"
 >
   <li
@@ -213,6 +214,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  defaultmotions="[object Object]"
   role="menu"
   style="width:256px"
 >
@@ -437,6 +439,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   </button>
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    defaultmotions="[object Object]"
     role="menu"
   >
     <li
@@ -647,6 +650,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  defaultmotions="[object Object]"
   role="menu"
   style="width:256px"
 >
@@ -847,6 +851,7 @@ Array [
   <br />,
   <ul
     class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+    defaultmotions="[object Object]"
     role="menu"
     style="width:256px"
   >
@@ -1087,6 +1092,7 @@ Array [
   <br />,
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    defaultmotions="[object Object]"
     role="menu"
     style="width:256px"
   >
@@ -1251,6 +1257,7 @@ Array [
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  defaultmotions="[object Object]"
   role="menu"
   style="width:256px"
 >

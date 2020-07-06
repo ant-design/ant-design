@@ -139,6 +139,8 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        collapsedwidth="80"
+        defaultmotions="[object Object]"
         role="menu"
       >
         <li
@@ -283,6 +285,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      defaultmotions="[object Object]"
       role="menu"
     >
       <li
@@ -458,6 +461,8 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        collapsedwidth="80"
+        defaultmotions="[object Object]"
         role="menu"
       >
         <li
@@ -834,6 +839,8 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        collapsedwidth="0"
+        defaultmotions="[object Object]"
         role="menu"
       >
         <li
@@ -1000,6 +1007,8 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        collapsedwidth="80"
+        defaultmotions="[object Object]"
         role="menu"
       >
         <li
@@ -1264,6 +1273,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      defaultmotions="[object Object]"
       role="menu"
     >
       <li
@@ -1434,6 +1444,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      defaultmotions="[object Object]"
       role="menu"
     >
       <li
@@ -1590,6 +1601,8 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         >
           <ul
             class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+            collapsedwidth="80"
+            defaultmotions="[object Object]"
             role="menu"
             style="height:100%"
           >
@@ -1779,6 +1792,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      defaultmotions="[object Object]"
       role="menu"
     >
       <li
@@ -1889,6 +1903,8 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       >
         <ul
           class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+          collapsedwidth="80"
+          defaultmotions="[object Object]"
           role="menu"
           style="height:100%;border-right:0"
         >
