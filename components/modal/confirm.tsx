@@ -50,7 +50,7 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render({ okText, cancelText, ...props }: any) {
+  function render({ okText, cancelText, prefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      * Sync render blocks React event. Let's make this async.
@@ -60,7 +60,7 @@ export default function confirm(config: ModalFuncProps) {
       ReactDOM.render(
         <ConfirmDialog
           {...props}
-          prefixCls={`${rootPrefixCls.get()}-modal`}
+          prefixCls={prefixCls || `${rootPrefixCls.get()}-modal`}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,

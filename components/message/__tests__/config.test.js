@@ -62,6 +62,7 @@ describe('message.config', () => {
     message.info('last');
     await sleep(600);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    message.destroy();
     message.config({
       duration: 3,
     });
@@ -74,6 +75,7 @@ describe('message.config', () => {
     message.info('last');
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
     expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    message.destroy();
     message.config({
       prefixCls: 'ant-message',
     });
