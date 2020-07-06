@@ -22,7 +22,7 @@ timeline: true
 - Menu
   - 🐞 Fix `Menu.Item` use `a` tag color style issue. [#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
   - 💄 Optimize Menu collapse animation. [#25301](https://github.com/ant-design/ant-design/pull/25301)
-- 🐞 Fix Input disabled `backgroundColor` is override when inside a `error` or `warning` FormItem. [#25385](https://github.com/ant-design/ant-design/pull/25385) [@07akioni](https://github.com/07akioni)
+- 🐞 Fix Input disabled `backgroundColor` is override when inside a `error` or `warning` FormItem. [#25385](https://github.com/ant-design/ant-design/pull/25385)
 - 🐞 Fix Table header extra border of right side column. [#25378](https://github.com/ant-design/ant-design/pull/25378)
 - 🐞 Fix Grid ResponsiveObserve not been unsubscribed correctly. [#25319](https://github.com/ant-design/ant-design/pull/25319) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 Fix Progress `success.progress` to `success.percent`. [#25356](https://github.com/ant-design/ant-design/pull/25356) [@fireairforce](https://github.com/fireairforce)
