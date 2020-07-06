@@ -20,7 +20,7 @@ timeline: true
 `2020-07-06`
 
 - Menu
-  - 🐞 修复 `Menu.Item` 中内嵌的 `a` 标签颜色样式问题。[#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
+  - 🐞 修复 Menu.Item 中内嵌的 `a` 标签颜色样式问题。[#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
   - 💄 优化 Menu 菜单收缩动画。[#25301](https://github.com/ant-design/ant-design/pull/25301)
 - 🐞 修复 Input 在禁用状态下背景颜色被 `error` 或 `warning` 的 FormItem 覆盖的问题。[#25385](https://github.com/ant-design/ant-design/pull/25385)
 - 🐞 修复 Table 固定列头最右侧的多余边框样式。[#25378](https://github.com/ant-design/ant-design/pull/25378)
