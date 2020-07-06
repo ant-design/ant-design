@@ -159,7 +159,7 @@ describe('message.hooks', () => {
     jest.useFakeTimers();
   });
 
-  it('should work with close hide', () => {
+  it('should work with hide', () => {
     let hide;
     const Context = React.createContext('light');
     const Demo = () => {
