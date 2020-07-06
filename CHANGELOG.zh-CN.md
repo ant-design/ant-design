@@ -23,14 +23,14 @@ timeline: true
   - 🐞 修复 Menu.Item 中内嵌的 `a` 标签颜色样式问题。[#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
   - 🐞 修复 Menu 内嵌菜单动画不正确问题。[#25341](https://github.com/ant-design/ant-design/pull/25341)
   - 💄 优化 Menu 菜单收缩动画。[#25301](https://github.com/ant-design/ant-design/pull/25301)
-- 🐞 修正 Input 在禁用状态下背景颜色被 `error` 或 `warning` 的 Form.Item 覆盖的问题。[#25385](https://github.com/ant-design/ant-design/pull/25385) [@07akioni](https://github.com/07akioni)
+- 🐞 修正 Input 在禁用状态下背景颜色被 `error` 或 `warning` 的 Form.Item 覆盖的问题。[#25385](https://github.com/ant-design/ant-design/pull/25385)
 - 🐞 修复 Table 固定列头最右侧的多余边框样式。[#25378](https://github.com/ant-design/ant-design/pull/25378)
 - 🐞 修复 Grid 响应式监听函数没有正确销毁的问题。[#25319](https://github.com/ant-design/ant-design/pull/25319) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 修复 Progress `successPercent` 警告信息并修正 Progress `success.progress` 为 `success.percent`。[#25356](https://github.com/ant-design/ant-design/pull/25356) [@fireairforce](https://github.com/fireairforce)
 - 🐞 修复 PageHeader 内 Tabs 不必要的 `margin-bottom`。[#25340](https://github.com/ant-design/ant-design/pull/25340) [@dickeylth](https://github.com/dickeylth)
 - Form
   - 🐞 修复 Form.Item `hidden` 属性不生效的问题。[#25336](https://github.com/ant-design/ant-design/pull/25336)
-  - 🐞 修正 Form.Item 在 `display: none` 的容器中提示信息可能不会消失的问题。[#25297](https://github.com/ant-design/ant-design/pull/25297) [@07akioni](https://github.com/07akioni)
+  - 🐞 修正 Form.Item 在 `display: none` 的容器中提示信息可能不会消失的问题。[#25297](https://github.com/ant-design/ant-design/pull/25297)
 - Radio
   - 🐞 修复 Radio.Group 报错 `Function components cannot be given refs` 的问题。[#25328](https://github.com/ant-design/ant-design/pull/25328)
   - 🐞 修复 Radio.Group 中 `children` 使用空格出现的样式异常问题。[#25304](https://github.com/ant-design/ant-design/pull/25304) [@ElderJames](https://github.com/ElderJames)
