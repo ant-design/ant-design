@@ -6,7 +6,13 @@ import {
   HolderReadyCallback as RCHolderReadyCallback,
 } from 'rc-notification/lib/Notification';
 import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
-import { MessageInstance, ArgsProps, attachTypeApi, ThenableArgument, getKey } from '..';
+import {
+  MessageInstance,
+  ArgsProps,
+  attachTypeApi,
+  ThenableArgument,
+  getKeyThenIncreaseKey,
+} from '..';
 
 export default function createUseMessage(
   getRcNotificationInstance: (
@@ -32,7 +38,7 @@ export default function createUseMessage(
     function notify(args: ArgsProps) {
       const { prefixCls: customizePrefixCls } = args;
       const mergedPrefixCls = getPrefixCls('message', customizePrefixCls);
-      const target = args.key || getKey();
+      const target = args.key || getKeyThenIncreaseKey();
       const closePromise = new Promise(resolve => {
         const callback = () => {
           if (typeof args.onClose === 'function') {
