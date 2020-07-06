@@ -39,8 +39,8 @@ timeline: true
 - 🇺🇦 更新 uk_UA 国际化。[#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
 - 🇳🇴 更新 nb_NO 国际化。[#25374](https://github.com/ant-design/ant-design/pull/25374) [@Johannes-Andersen](https://github.com/Johannes-Andersen)
 - TypeScript
-  - 修复 Slider `onChange` 定义问题。[#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
-  - 修复 Tooltip 自定义颜色类型定义。[#25315](https://github.com/ant-design/ant-design/pull/25315) [@CornerSkyless](https://github.com/CornerSkyless)
+  - 🐞 修复 Slider `onChange` 定义问题。[#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
+  - 🐞 修复 Tooltip 自定义颜色类型定义。[#25315](https://github.com/ant-design/ant-design/pull/25315) [@CornerSkyless](https://github.com/CornerSkyless)
 
 ## 4.4.0
 

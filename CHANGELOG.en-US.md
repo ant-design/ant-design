@@ -39,8 +39,8 @@ timeline: true
 - 🇺🇦 Update uk_UA localization. [#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
 - 🇳🇴 Update nb_NO localization. [#25374](https://github.com/ant-design/ant-design/pull/25374) [@Johannes-Andersen](https://github.com/Johannes-Andersen)
 - TypeScript
-  - Fix Slider `onChange` definition. [#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
-  - Fix Tooltip custom color type definition. [#25315](https://github.com/ant-design/ant-design/pull/25315) [@CornerSkyless](https://github.com/CornerSkyless)
+  - 🐞 Fix Slider `onChange` definition. [#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
+  - 🐞 Fix Tooltip custom color type definition. [#25315](https://github.com/ant-design/ant-design/pull/25315) [@CornerSkyless](https://github.com/CornerSkyless)
 
 ## 4.4.0
 
