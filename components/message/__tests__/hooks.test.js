@@ -160,7 +160,6 @@ describe('message.hooks', () => {
   });
 
   it('should work with close hide', () => {
-    // if not use real timer, done won't be called
     let hide;
     const Context = React.createContext('light');
     const Demo = () => {
