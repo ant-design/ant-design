@@ -33,7 +33,7 @@ timeline: true
   - 🐞 Fix Form.Item help message may not disappear in a `display:none` container. [#25297](https://github.com/ant-design/ant-design/pull/25297)
 - Radio
   - 🐞 Fix Radio.Group throw `Function components cannot be given refs` warning message. [#25328](https://github.com/ant-design/ant-design/pull/25328)
-  - 🐞 Fixed a style exception with children using spaces in Radio.Group. [#25304](https://github.com/ant-design/ant-design/pull/25304) [@ElderJames](https://github.com/ElderJames)
+  - 🐞 Fix Radio.Group style with extra spaces in `children`. [#25304](https://github.com/ant-design/ant-design/pull/25304) [@ElderJames](https://github.com/ElderJames)
 - 🐞 Fix Drawer click mask will trigger close event multiple times. [#25313](https://github.com/ant-design/ant-design/pull/25313)
 - 🐞 Fix Skeleton Button/Avatar/Input/Image default width to auto. [#25303](https://github.com/ant-design/ant-design/pull/25303)
 - 🇺🇦 Update uk_UA localization. [#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
