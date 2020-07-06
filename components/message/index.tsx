@@ -149,7 +149,6 @@ const api: any = {
   config(options: ConfigOptions) {
     if (options.top !== undefined) {
       defaultTop = options.top;
-      messageInstance = null; // delete messageInstance for new defaultTop
     }
     if (options.duration !== undefined) {
       defaultDuration = options.duration;
@@ -162,21 +161,23 @@ const api: any = {
     }
     if (options.transitionName !== undefined) {
       transitionName = options.transitionName;
-      messageInstance = null; // delete messageInstance for new transitionName
     }
     if (options.maxCount !== undefined) {
       maxCount = options.maxCount;
-      messageInstance = null;
     }
     if (options.rtl !== undefined) {
       rtl = options.rtl;
     }
+    messageInstance = null; // delete messageInstance for new config
   },
   destroy() {
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;
     }
+  },
+  clearMessageInstance() {
+    messageInstance = null;
   },
 };
 

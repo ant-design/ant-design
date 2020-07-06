@@ -69,6 +69,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
   React.useEffect(() => {
     if (props.prefixCls) {
       rootPrefixCls.set(props.prefixCls);
+      message.clearMessageInstance();
     }
   }, [props.prefixCls]);
 
