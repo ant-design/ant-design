@@ -3,7 +3,7 @@ order: 3
 title: 项目实战
 ---
 
-在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据流方案，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的数据流方案以及应用框架搭配使用。我们基于 Redux 推出了自己的最佳实践 dva，以及可插拔的企业级应用框架 umi，推荐你在项目中使用。
+在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据流方案，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的数据流方案以及应用框架搭配使用。我们基于业务场景的场景，推出了可插拔的企业级应用框架 umi，推荐你在项目中使用。
 
 [umi](http://umijs.org/) 则是一个可插拔的企业级 react 应用框架。umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh/guide/router.html)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh/plugin/umi-plugin-react.html#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh/plugin/)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求，同时提供 [Umi UI](https://umijs.org/zh/guide/umi-ui.html) 通过可视化辅助编程（VAP）提高开发体验和研发效率。
 
@@ -100,7 +100,7 @@ const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: strin
 export default ProductList;
 ```
 
-## 简易数据管理方案
+## Simple data management solution
 
 `@umijs/plugin-model` 是一种基于 hooks 范式的简单数据流方案，可以在一定情况下替代 dva 来进行中台的全局数据流。我们约定在 `src/models`目录下的文件为项目定义的 model 文件。每个文件需要默认导出一个 function，该 function 定义了一个 Hook，不符合规范的文件我们会过滤掉。
 
@@ -141,7 +141,7 @@ import { useModel } from 'umi';
 import ProductList from '@/components/ProductList';
 
 const Products = () => {
-  const { dataSource, reload, deleteProducts } = useModel('useUserList');
+  const { dataSource, reload, deleteProducts } = useModel('useProductList');
   return (
     <div>
       <a onClick={() => reload()}>reload</a>
@@ -169,7 +169,7 @@ $ yarn start
 
 并且支持 `side`, `mix`, `top` 三种模式，更是内置了菜单选中，菜单生成面包屑，自动设置页面标题的逻辑。可以帮助你快速的开始一个项目。
 
-![sie](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
+![site](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
 
 使用方式也是极为简单，只需要进行几个简单的设置。
 
