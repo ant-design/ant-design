@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.4.1
+
+`2020-07-06`
+
+- Menu
+  - 🐞 修复 `Menu.Item` 中内嵌的 `a` 标签颜色样式问题。[#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
+  - 💄 优化 Menu 菜单收缩动画。[#25301](https://github.com/ant-design/ant-design/pull/25301)
+- 🐞 修复 Input 在禁用状态下背景颜色被 `error` 或 `warning` 的 FormItem 覆盖的问题。[#25385](https://github.com/ant-design/ant-design/pull/25385) [@07akioni](https://github.com/07akioni)
+- 🐞 修复 Table 固定列头最右侧的多余边框样式。[#25378](https://github.com/ant-design/ant-design/pull/25378)
+- 🐞 修复 Grid 响应式监听函数没有正确销毁的问题。[#25319](https://github.com/ant-design/ant-design/pull/25319) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 修正 Progress `success.progress` 为 `success.percent`。[#25356](https://github.com/ant-design/ant-design/pull/25356) [@fireairforce](https://github.com/fireairforce)
+- 🐞 修复 Slider `onChange` 的定义问题。[#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
+- 🐞 修复 Form.Item `hidden` 属性不生效的问题。[#25336](https://github.com/ant-design/ant-design/pull/25336)
+- 🇺🇦 更新 uk_UA 国际化。[#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
+- 🐞 修复 Drawer 点击遮罩可能会触发多次关闭事件的问题。[#25313](https://github.com/ant-design/ant-design/pull/25313)
+
 ## 4.4.0
 
 `2020-06-29`
