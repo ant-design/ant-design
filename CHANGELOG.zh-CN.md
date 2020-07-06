@@ -28,6 +28,7 @@ timeline: true
 - 🐞 修正 Progress `success.progress` 为 `success.percent`。[#25356](https://github.com/ant-design/ant-design/pull/25356) [@fireairforce](https://github.com/fireairforce)
 - 🐞 修复 Slider `onChange` 的定义问题。[#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
 - 🐞 修复 Form.Item `hidden` 属性不生效的问题。[#25336](https://github.com/ant-design/ant-design/pull/25336)
+- 🐞 修复 Radio.Group 中 `ref` 缺失的问题。[#25328](https://github.com/ant-design/ant-design/pull/25328)
 - 🇺🇦 更新 uk_UA 国际化。[#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
 - 🐞 修复 Drawer 点击遮罩可能会触发多次关闭事件的问题。[#25313](https://github.com/ant-design/ant-design/pull/25313)
 

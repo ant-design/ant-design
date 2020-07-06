@@ -28,6 +28,7 @@ timeline: true
 - 🐞 Fix Progress `success.progress` to `success.percent`. [#25356](https://github.com/ant-design/ant-design/pull/25356) [@fireairforce](https://github.com/fireairforce)
 - 🐞 fix Slider `onChange` definition. [#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
 - 🐞 Fix Form.Item `hidden` not working. [#25336](https://github.com/ant-design/ant-design/pull/25336)
+- 🐞 Fix `ref` lost in Radio.Group. [#25328](https://github.com/ant-design/ant-design/pull/25328)
 - 🇺🇦 Update uk_UA localization. [#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
 - 🐞 Fix Drawer click mask will trigger close event multiple times. [#25313](https://github.com/ant-design/ant-design/pull/25313)
 
