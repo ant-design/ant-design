@@ -59,7 +59,7 @@ const Demo = () => {
   const [fields, setFields] = useState([{ name: ['username'], value: 'Ant Design' }]);
 
   return (
-    <div>
+    <>
       <CustomizedForm
         fields={fields}
         onChange={newFields => {
@@ -67,7 +67,7 @@ const Demo = () => {
         }}
       />
       <pre className="language-bash">{JSON.stringify(fields, null, 2)}</pre>
-    </div>
+    </>
   );
 };
 
