@@ -18,7 +18,7 @@
   color: @badge-text-color;
   line-height: 22px;
   white-space: nowrap;
-  background: @primary-color;
+  background-color: @primary-color;
   border-radius: 2px;
 
   &-corner {
@@ -30,7 +30,17 @@
     border-color: @primary-color;
     transform: scaleY(0.75);
     transform-origin: top;
-    filter: brightness(0.75);
+    // If not support IE 11, use filter: brightness(75%) instead
+    &::after {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: inherit;
+      height: inherit;
+      border: inherit;
+      border-color: rgba(0, 0, 0, 0.25);
+      content: '';
+    }
   }
 
   // colors
@@ -40,7 +50,7 @@
     @color: extract(@preset-colors, @i);
     @darkColor: '@{color}-6';
     &-color-@{color} {
-      background: @@darkColor;
+      background-color: @@darkColor;
       .@{ribbon-prefix-cls}-corner {
         border-color: @@darkColor;
       }
@@ -56,6 +66,10 @@
       right: 0;
       border-right-color: transparent;
       border-bottom-color: transparent;
+      &::after {
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+      }
     }
   }
   &-placement-left {
@@ -65,6 +79,10 @@
       left: 0;
       border-bottom-color: transparent;
       border-left-color: transparent;
+      &::after {
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+      }
     }
   }
 }
