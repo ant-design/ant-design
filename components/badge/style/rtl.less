@@ -61,6 +61,32 @@
 .@{ribbon-prefix-cls} {
   &-rtl {
     direction: rtl;
+    &.@{ribbon-prefix-cls}-placement-end {
+      left: -8px;
+      border-bottom-left-radius: 0;
+      .@{ribbon-prefix-cls}-corner {
+        left: 0;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        &::after {
+          border-bottom-color: transparent;
+          border-left-color: transparent;
+        }
+      }
+    }
+    &.@{ribbon-prefix-cls}-placement-start {
+      right: -8px;
+      border-bottom-right-radius: 0;
+      .@{ribbon-prefix-cls}-corner {
+        right: 0;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        &::after {
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+        }
+      }
+    }
   }
 }
 

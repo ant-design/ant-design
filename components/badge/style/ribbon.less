@@ -59,29 +59,31 @@
   .make-color-classes();
 
   // placement
-  &-placement-right {
-    right: -8px;
-    border-bottom-right-radius: 0;
-    .@{ribbon-prefix-cls}-corner {
-      right: 0;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-      &::after {
+  &:not(&-rtl) {
+    &.@{ribbon-prefix-cls}-placement-end {
+      right: -8px;
+      border-bottom-right-radius: 0;
+      .@{ribbon-prefix-cls}-corner {
+        right: 0;
         border-right-color: transparent;
         border-bottom-color: transparent;
+        &::after {
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+        }
       }
     }
-  }
-  &-placement-left {
-    left: -8px;
-    border-bottom-left-radius: 0;
-    .@{ribbon-prefix-cls}-corner {
-      left: 0;
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-      &::after {
+    &.@{ribbon-prefix-cls}-placement-start {
+      left: -8px;
+      border-bottom-left-radius: 0;
+      .@{ribbon-prefix-cls}-corner {
+        left: 0;
         border-bottom-color: transparent;
         border-left-color: transparent;
+        &::after {
+          border-bottom-color: transparent;
+          border-left-color: transparent;
+        }
       }
     }
   }

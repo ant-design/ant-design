@@ -38,7 +38,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
   const isRtl = direction === 'rtl';
   const mergedPlacement = getMergedPlacement(placement, isRtl);
-  const ribbonCls = classNames(prefixCls, className, `${prefixCls}-placement-${mergedPlacement}`, {
+  const ribbonCls = classNames(prefixCls, className, `${prefixCls}-placement-${placement}`, {
     [`${prefixCls}-rtl`]: isRtl,
     [`${prefixCls}-color-${color}`]: isPresetColor(color),
   });
