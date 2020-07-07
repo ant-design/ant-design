@@ -148,20 +148,6 @@ describe('Ribbon', () => {
   rtlTest(Badge.Ribbon);
 
   describe('placement', () => {
-    it('works with `left` & `right` placement', () => {
-      const wrapperLeft = mount(
-        <Badge.Ribbon placement="left">
-          <div />
-        </Badge.Ribbon>,
-      );
-      expect(wrapperLeft.find('.ant-ribbon-placement-left').length).toEqual(1);
-      const wrapperRight = mount(
-        <Badge.Ribbon placement="right">
-          <div />
-        </Badge.Ribbon>,
-      );
-      expect(wrapperRight.find('.ant-ribbon-placement-right').length).toEqual(1);
-    });
     it('works with `start` & `end` placement', () => {
       const wrapperStart = mount(
         <ConfigProvider>
@@ -209,7 +195,7 @@ describe('Ribbon', () => {
     });
     it('works with custom color', () => {
       const wrapperLeft = mount(
-        <Badge.Ribbon color="#888" placement="left">
+        <Badge.Ribbon color="#888" placement="start">
           <div />
         </Badge.Ribbon>,
       );
@@ -217,7 +203,7 @@ describe('Ribbon', () => {
       expect(wrapperLeft.find('.ant-ribbon-corner').prop('style').borderTopColor).toEqual('#888');
       expect(wrapperLeft.find('.ant-ribbon-corner').prop('style').borderRightColor).toEqual('#888');
       const wrapperRight = mount(
-        <Badge.Ribbon color="#888" placement="right">
+        <Badge.Ribbon color="#888" placement="end">
           <div />
         </Badge.Ribbon>,
       );

@@ -2071,162 +2071,199 @@ exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-right"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-      />
+        class="ant-ribbon ant-ribbon-placement-right"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-color-purple ant-ribbon-placement-right"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-      />
+        class="ant-ribbon ant-ribbon-placement-right ant-ribbon-color-purple"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-right"
-      style="background:#2db7f5"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-        style="border-top-color:#2db7f5;border-left-color:#2db7f5"
-      />
+        class="ant-ribbon ant-ribbon-placement-right"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-left"
-      style="background:#2db7f5"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-        style="border-top-color:#2db7f5;border-right-color:#2db7f5"
-      />
+        class="ant-ribbon ant-ribbon-placement-right"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-right"
-      style="background:#2db7f5"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-        style="border-top-color:#2db7f5;border-left-color:#2db7f5"
-      />
+        class="ant-ribbon ant-ribbon-placement-right"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-left"
-      style="background:#2db7f5"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-        style="border-top-color:#2db7f5;border-right-color:#2db7f5"
-      />
+        class="ant-ribbon ant-ribbon-placement-left"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="border-top-color:#2db7f5;border-right-color:#2db7f5"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-ribbon-wrapper"
     >
       <div
-        class="ant-card-body"
+        class="ant-card ant-card-bordered"
       >
-        推开窗户举起望远镜
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-ribbon ant-ribbon-placement-right"
-      style="background:#2db7f5"
-    >
-      啦啦啦啦
       <div
-        class="ant-ribbon-corner"
-        style="border-top-color:#2db7f5;border-left-color:#2db7f5"
-      />
+        class="ant-ribbon ant-ribbon-placement-right"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+        />
+      </div>
     </div>
   </div>
 </div>

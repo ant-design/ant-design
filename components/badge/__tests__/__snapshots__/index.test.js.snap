@@ -3166,7 +3166,7 @@ exports[`Ribbon rtl render component should be rendered correctly in RTL directi
   class="ant-ribbon-wrapper"
 >
   <div
-    class="ant-ribbon ant-ribbon-rtl ant-ribbon-placement-left"
+    class="ant-ribbon ant-ribbon-placement-left ant-ribbon-rtl"
   >
     <div
       class="ant-ribbon-corner"

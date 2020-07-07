@@ -32,5 +32,5 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | color | Customize Ribbon color | string | - |  |
-| placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `left` \| `right` \| `start` \| `end` | `end` |  |
+| placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
 | text | Content inside the Ribbon | ReactNode | - |  |

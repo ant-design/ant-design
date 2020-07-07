@@ -5,7 +5,7 @@ import { PresetColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
 import { isPresetColor } from './utils';
 
-type RibbonPlacement = 'left' | 'right' | 'start' | 'end';
+type RibbonPlacement = 'start' | 'end';
 type MergedRibbonPlacement = 'left' | 'right';
 
 export interface RibbonProps {
@@ -19,9 +19,6 @@ export interface RibbonProps {
 }
 
 function getMergedPlacement(placement: RibbonPlacement, isRtl: boolean): MergedRibbonPlacement {
-  if (placement === 'left' || placement === 'right') {
-    return placement;
-  }
   if (placement === 'start') {
     return isRtl ? 'right' : 'left';
   }
