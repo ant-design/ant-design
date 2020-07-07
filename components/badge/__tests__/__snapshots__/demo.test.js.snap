@@ -2081,13 +2081,13 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        Pushes open the window and raises the spyglass.
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-placement-right"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
       />
@@ -2102,13 +2102,13 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        666
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-color-purple ant-ribbon-placement-right"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
       />
@@ -2123,14 +2123,14 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        666
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-placement-right"
       style="background:#2db7f5"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
         style="border-top-color:#2db7f5;border-left-color:#2db7f5"
@@ -2146,14 +2146,14 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        Left
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-placement-left"
       style="background:#2db7f5"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
         style="border-top-color:#2db7f5;border-right-color:#2db7f5"
@@ -2169,14 +2169,14 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        Right
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-placement-right"
       style="background:#2db7f5"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
         style="border-top-color:#2db7f5;border-left-color:#2db7f5"
@@ -2192,14 +2192,14 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        Start
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-placement-left"
       style="background:#2db7f5"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
         style="border-top-color:#2db7f5;border-right-color:#2db7f5"
@@ -2215,14 +2215,14 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
       <div
         class="ant-card-body"
       >
-        End
+        推开窗户举起望远镜
       </div>
     </div>
     <div
       class="ant-ribbon ant-ribbon-placement-right"
       style="background:#2db7f5"
     >
-      中文 English
+      啦啦啦啦
       <div
         class="ant-ribbon-corner"
         style="border-top-color:#2db7f5;border-left-color:#2db7f5"
