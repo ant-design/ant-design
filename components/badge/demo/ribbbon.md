@@ -17,11 +17,9 @@ Use ribbon badge.
 import { Badge, Card } from 'antd';
 
 ReactDOM.render(
-  <div>
-    <Badge.Ribbon text="Pushes open the window">
-      <Card>And raises the spyglass.</Card>
-    </Badge.Ribbon>
-  </div>,
+  <Badge.Ribbon text="Pushes open the window">
+    <Card>And raises the spyglass.</Card>
+  </Badge.Ribbon>,
   mountNode,
 );
 ```

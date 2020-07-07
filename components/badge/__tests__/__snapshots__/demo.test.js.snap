@@ -2045,27 +2045,25 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
-<div>
+<div
+  class="ant-ribbon-wrapper"
+>
   <div
-    class="ant-ribbon-wrapper"
+    class="ant-card ant-card-bordered"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-card-body"
     >
-      <div
-        class="ant-card-body"
-      >
-        And raises the spyglass.
-      </div>
+      And raises the spyglass.
     </div>
+  </div>
+  <div
+    class="ant-ribbon ant-ribbon-placement-right"
+  >
+    Pushes open the window
     <div
-      class="ant-ribbon ant-ribbon-placement-right"
-    >
-      Pushes open the window
-      <div
-        class="ant-ribbon-corner"
-      />
-    </div>
+      class="ant-ribbon-corner"
+    />
   </div>
 </div>
 `;
