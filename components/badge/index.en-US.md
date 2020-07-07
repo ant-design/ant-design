@@ -27,7 +27,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | text | If `status` is set, `text` sets the display text of the status `dot` | ReactNode | - |  |
 | title | Text to show when hovering over the badge | string | - |  |
 
-### Badge.Ribbon
+### Badge.Ribbon (4.5.0+)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
