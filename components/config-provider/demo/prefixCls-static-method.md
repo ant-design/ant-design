@@ -16,7 +16,7 @@ Support `prefixCls` of `message.xxx` `notificaction.xxx` `Modal.xxx`.
 
 ```jsx
 import { useState } from 'react';
-import { ConfigProvider, message, notification, Modal, Space, Button, Input } from 'antd';
+import { ConfigProvider, message, notification, Modal, Button, Input } from 'antd';
 
 const messageInfo = () => {
   message.info('message');
@@ -49,11 +49,15 @@ const App = () => {
         />
       </div>
       <ConfigProvider prefixCls={prefixCls}>
-        <Space>
-          <Button onClick={messageInfo}>message.info</Button>
-          <Button onClick={notifictionWarning}>notifiction.warning</Button>
-          <Button onClick={confirm}>Modal.confirm</Button>
-        </Space>
+        <Button style={{ margin: '0 8px' }} onClick={messageInfo}>
+          message.info
+        </Button>
+        <Button style={{ margin: '0 8px' }} onClick={notifictionWarning}>
+          notifiction.warning
+        </Button>
+        <Button style={{ margin: '0 8px' }} onClick={confirm}>
+          Modal.confirm
+        </Button>
       </ConfigProvider>
     </>
   );
