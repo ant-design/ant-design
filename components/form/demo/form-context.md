@@ -88,7 +88,7 @@ const Demo = () => {
   };
 
   return (
-    <div>
+    <>
       <Form.Provider
         onFormFinish={(name, { values, forms }) => {
           if (name === 'userForm') {
@@ -137,7 +137,7 @@ const Demo = () => {
 
         <ModalForm visible={visible} onCancel={hideUserModal} />
       </Form.Provider>
-    </div>
+    </>
   );
 };
 

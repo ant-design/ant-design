@@ -46,7 +46,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <div className="site-checkbox-all-wrapper">
           <Checkbox
             indeterminate={this.state.indeterminate}
@@ -62,7 +62,7 @@ class App extends React.Component {
           value={this.state.checkedList}
           onChange={this.onChange}
         />
-      </div>
+      </>
     );
   }
 }
