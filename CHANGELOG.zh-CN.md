@@ -34,7 +34,6 @@ timeline: true
 - Radio
   - 🐞 修复 Radio.Group 报错 `Function components cannot be given refs` 的问题。[#25328](https://github.com/ant-design/ant-design/pull/25328)
   - 🐞 修复 Radio.Group 中 `children` 使用空格出现的样式异常问题。[#25304](https://github.com/ant-design/ant-design/pull/25304) [@ElderJames](https://github.com/ElderJames)
-  - 🐞 修复 Radio.Button 中 `Popover用在Radio.Button上时` 的样式异常问题。[#25449](https://github.com/ant-design/ant-design/pull/25449)
 - 🐞 修复 Drawer 点击遮罩可能会触发多次关闭事件的问题。[#25313](https://github.com/ant-design/ant-design/pull/25313)
 - 🐞 修复 Skeleton 中 Button/Avatar/Input/Image 默认宽度为 auto。[#25303](https://github.com/ant-design/ant-design/pull/25303)
 - 🇺🇦 更新 uk_UA 国际化。[#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
