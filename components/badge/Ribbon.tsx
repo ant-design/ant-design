@@ -39,36 +39,31 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
 }) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
-  const cornerPrefixCls = `${prefixCls}-corner`;
-  const wrapperPrefixCls = `${prefixCls}-wrapper`;
   const isRtl = direction === 'rtl';
   const mergedPlacement = getMergedPlacement(placement, isRtl);
-  const ribbonCls = classNames(prefixCls, className, {
+  const ribbonCls = classNames(prefixCls, className, `${prefixCls}-placement-${mergedPlacement}`, {
     [`${prefixCls}-rtl`]: isRtl,
     [`${prefixCls}-color-${color}`]: isPresetColor(color),
-    [`${prefixCls}-placement-${mergedPlacement}`]: true,
   });
-  const cornerCls = classNames(cornerPrefixCls);
-  const wrapperCls = classNames(wrapperPrefixCls);
   const colorStyle: React.CSSProperties = {};
   if (color && !isPresetColor(color)) {
     colorStyle.background = color;
   }
-  const cornerStatusStyle: React.CSSProperties = {};
+  const cornerColorStyle: React.CSSProperties = {};
   if (color && !isPresetColor(color)) {
-    cornerStatusStyle.borderTopColor = color;
+    cornerColorStyle.borderTopColor = color;
     if (mergedPlacement === 'left') {
-      cornerStatusStyle.borderRightColor = color;
+      cornerColorStyle.borderRightColor = color;
     } else {
-      cornerStatusStyle.borderLeftColor = color;
+      cornerColorStyle.borderLeftColor = color;
     }
   }
   return (
-    <div className={wrapperCls}>
+    <div className={`${prefixCls}-wrapper`}>
       {children}
       <div className={ribbonCls} style={{ ...colorStyle, ...style }}>
         {text}
-        <div className={cornerCls} style={cornerStatusStyle} />
+        <div className={`${prefixCls}-corner`} style={cornerColorStyle} />
       </div>
     </div>
   );
