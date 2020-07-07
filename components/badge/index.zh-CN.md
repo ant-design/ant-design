@@ -14,6 +14,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
 
 ## API
 
+### Badge
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | color | 自定义小圆点的颜色 | string | - |  |
@@ -25,3 +27,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
 | status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | string | - |  |
 | title | 设置鼠标放在状态点上时显示的文字 | string | - |  |
+
+### Badge.Ribbon
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| color | 自定义缎带的颜色 | string | - |  |
+| placement | 缎带的位置，`start` 和 `end` 随文字方向变动 | `left` \| `right` \| `start` \| `end` | `end` |  |
+| content | 缎带中填入的内容 | ReactNode | - |  |

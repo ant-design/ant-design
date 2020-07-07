@@ -13,6 +13,8 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 ## API
 
+### Badge
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | color | Customize Badge dot color | string | - |  |
@@ -24,3 +26,11 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | text | If `status` is set, `text` sets the display text of the status `dot` | string | - |  |
 | title | Text to show when hovering over the badge | string | - |  |
+
+### Badge.Ribbon
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| color | Customize Ribbon color | string | - |  |
+| placement | The placement of the Ribbon, `start` and `end` follow text direction | `left` \| `right` \| `start` \| `end` | `end` |  |
+| content | Content inside the Ribbon | ReactNode | - |  |

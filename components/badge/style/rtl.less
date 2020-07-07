@@ -3,6 +3,7 @@
 
 @badge-prefix-cls: ~'@{ant-prefix}-badge';
 @number-prefix-cls: ~'@{ant-prefix}-scroll-number';
+@ribbon-prefix-cls: ~'@{ant-prefix}-ribbon';
 
 .@{badge-prefix-cls} {
   &-rtl {
@@ -54,6 +55,12 @@
     .@{badge-prefix-cls}-count {
       transform: none;
     }
+  }
+}
+
+.@{ribbon-prefix-cls} {
+  &-rtl {
+    direction: rtl;
   }
 }
 

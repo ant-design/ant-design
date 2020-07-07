@@ -14,17 +14,26 @@ import { Badge, Card } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Badge.Ribbon text="中文 English" status="default">
+    <Badge.Ribbon text="中文 English">
       <Card>666</Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" status="success">
+    <Badge.Ribbon text="中文 English" color="purple">
       <Card>666</Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" status="error">
+    <Badge.Ribbon text="中文 English" color="#2db7f5">
       <Card>666</Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" status="warning">
-      <Card>666</Card>
+    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="left">
+      <Card>Left</Card>
+    </Badge.Ribbon>
+    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="right">
+      <Card>Right</Card>
+    </Badge.Ribbon>
+    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="start">
+      <Card>Start</Card>
+    </Badge.Ribbon>
+    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="end">
+      <Card>End</Card>
     </Badge.Ribbon>
   </div>,
   mountNode,
