@@ -25,7 +25,7 @@ function onAfterChange(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <Slider defaultValue={30} onChange={onChange} onAfterChange={onAfterChange} />
     <Slider
       range
@@ -34,7 +34,7 @@ ReactDOM.render(
       onChange={onChange}
       onAfterChange={onAfterChange}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

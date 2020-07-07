@@ -17,11 +17,11 @@ title:
 import { Switch } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Switch defaultChecked />
     <br />
     <Switch size="small" defaultChecked />
-  </div>,
+  </>,
   mountNode,
 );
 ```
