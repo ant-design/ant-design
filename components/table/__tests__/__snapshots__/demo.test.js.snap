@@ -4527,6 +4527,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <span
                 class="ant-select-selection-search"
+                title="10 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -7127,6 +7128,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <span
                 class="ant-select-selection-search"
+                title="10 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -8368,6 +8370,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <span
                 class="ant-select-selection-search"
+                title="50 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -9344,6 +9347,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <span
                 class="ant-select-selection-search"
+                title="10 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"

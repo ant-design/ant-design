@@ -318,24 +318,24 @@ validator(rule, value, callback) => {
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
 
-Before Modal open, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
+Before Modal opens, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
 
-### Why component `defaultValue` not working when inside Form.Item?
+### Why is component `defaultValue` not working when inside Form.Item?
 
-Components inside Form.Item with name property will turn into controlled mode, that makes `defaultValue` does not work anymore. Please try `initialValues` of Form to set default value.
+Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
 
 ### Why `resetFields` will re-mount component?
 
-`resetFields` will re-mount component under Field to clean up customize component side effect(like asyn data, cached state, etc.). It's by design.
+`resetFields` will re-mount component under Field to clean up customize component side effects (like async data, cached state, etc.). It's by design.
 
 ### Difference between Form initialValues and Item initialValue?
 
-In most case, we always recommend to use Form `initialValues`. Use Item `initialValue` only when dynamic field usage. Priority follow the rules:
+In most case, we always recommend to use Form `initialValues`. Use Item `initialValue` only with dynamic field usage. Priority follows the rules:
 
 1. Form `initialValues` is the first priority
-2. Field `initialValue` is secondary \*. Not work when multiple Item with same `name` setting the `initialValue`
+2. Field `initialValue` is secondary \*. Does not work when multiple Item with same `name` setting the `initialValue`
 
-### Why `onFieldsChange` trigger three times on change when field set `rules`?
+### Why `onFieldsChange` triggers three times on change when field sets `rules`?
 
 Validating is also part of the value updating. It pass follow steps:
 

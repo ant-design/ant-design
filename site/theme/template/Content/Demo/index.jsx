@@ -48,12 +48,13 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand, theme } = this.props;
+    const { expand, theme, showRiddleButton } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
       copyTooltipVisible !== nextState.copyTooltipVisible ||
-      nextProps.theme !== theme
+      nextProps.theme !== theme ||
+      nextProps.showRiddleButton !== showRiddleButton
     );
   }
 

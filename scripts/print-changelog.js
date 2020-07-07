@@ -20,9 +20,14 @@ const $ = jQuery(window);
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
 const QUERY_AUTHOR = '.timeline-comment-header-text .author:first';
-const MAINTAINERS = ['zombiej', 'afc163', 'chenshuai2144', 'shaodahong', 'xrkffgg'].map(author =>
-  author.toLowerCase(),
-);
+const MAINTAINERS = [
+  'zombiej',
+  'afc163',
+  'chenshuai2144',
+  'shaodahong',
+  'xrkffgg',
+  '07akioni',
+].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);

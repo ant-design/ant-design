@@ -37,22 +37,18 @@ const Demo = () => {
   };
 
   const actions = [
-    <span key="comment-basic-like">
-      <Tooltip title="Like">
-        {createElement(action === 'liked' ? LikeFilled : LikeOutlined, {
-          onClick: like,
-        })}
-      </Tooltip>
-      <span className="comment-action">{likes}</span>
-    </span>,
-    <span key="comment-basic-dislike">
-      <Tooltip title="Dislike">
-        {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined, {
-          onClick: dislike,
-        })}
-      </Tooltip>
-      <span className="comment-action">{dislikes}</span>
-    </span>,
+    <Tooltip key="comment-basic-like" title="Like">
+      <span onClick={like}>
+        {createElement(action === 'liked' ? LikeFilled : LikeOutlined)}
+        <span className="comment-action">{likes}</span>
+      </span>
+    </Tooltip>,
+    <Tooltip key="comment-basic-dislike" title="Dislike">
+      <span onClick={dislike}>
+        {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined)}
+        <span className="comment-action">{dislikes}</span>
+      </span>
+    </Tooltip>,
     <span key="comment-basic-reply-to">Reply to</span>,
   ];
 

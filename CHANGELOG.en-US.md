@@ -15,6 +15,33 @@ timeline: true
 
 ---
 
+## 4.4.1
+
+`2020-07-06`
+
+- Menu
+  - 🐞 Fix Menu.Item use `a` tag color style issue. [#25414](https://github.com/ant-design/ant-design/pull/25414) [@kaysonwu](https://github.com/kaysonwu)
+  - 🐞 Fix Menu inline animation not correct issue. [#25341](https://github.com/ant-design/ant-design/pull/25341)
+  - 💄 Optimize Menu collapse animation. [#25301](https://github.com/ant-design/ant-design/pull/25301)
+- 🐞 Fix Input disabled `backgroundColor` is override when inside a `error` or `warning` Form.Item. [#25385](https://github.com/ant-design/ant-design/pull/25385)
+- 🐞 Fix Table header extra border of right side column. [#25378](https://github.com/ant-design/ant-design/pull/25378)
+- 🐞 Fix Grid ResponsiveObserve not been unsubscribed correctly. [#25319](https://github.com/ant-design/ant-design/pull/25319) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 Fix Progress `successPercent` warning message and correct `success.progress` to `success.percent`. [#25356](https://github.com/ant-design/ant-design/pull/25356) [@fireairforce](https://github.com/fireairforce)
+- 🐞 Fix PageHeader Tabs unnecessary `margin-bottom`. [#25340](https://github.com/ant-design/ant-design/pull/25340) [@dickeylth](https://github.com/dickeylth)
+- Form
+  - 🐞 Fix Form.Item `hidden` no working. [#25336](https://github.com/ant-design/ant-design/pull/25336)
+  - 🐞 Fix Form.Item help message may not disappear in a `display:none` container. [#25297](https://github.com/ant-design/ant-design/pull/25297)
+- Radio
+  - 🐞 Fix Radio.Group throw `Function components cannot be given refs` warning message. [#25328](https://github.com/ant-design/ant-design/pull/25328)
+  - 🐞 Fix Radio.Group style with extra spaces in `children`. [#25304](https://github.com/ant-design/ant-design/pull/25304) [@ElderJames](https://github.com/ElderJames)
+- 🐞 Fix Drawer click mask will trigger close event multiple times. [#25313](https://github.com/ant-design/ant-design/pull/25313)
+- 🐞 Fix Skeleton Button/Avatar/Input/Image default width to auto. [#25303](https://github.com/ant-design/ant-design/pull/25303)
+- 🇺🇦 Update uk_UA localization. [#25402](https://github.com/ant-design/ant-design/pull/25402) [@kitsoRik](https://github.com/kitsoRik)
+- 🇳🇴 Update nb_NO localization. [#25374](https://github.com/ant-design/ant-design/pull/25374) [@Johannes-Andersen](https://github.com/Johannes-Andersen)
+- TypeScript
+  - 🐞 Fix Slider `onChange` definition. [#25358](https://github.com/ant-design/ant-design/pull/25358) [@CornerSkyless](https://github.com/CornerSkyless)
+  - 🐞 Fix Tooltip custom color type definition. [#25315](https://github.com/ant-design/ant-design/pull/25315) [@CornerSkyless](https://github.com/CornerSkyless)
+
 ## 4.4.0
 
 `2020-06-29`

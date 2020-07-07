@@ -170,7 +170,7 @@ Properties for expandable.
 | defaultExpandAllRows | Expand all rows initially | boolean | false |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
-| expandIconColumnIndex | Customize expand icon column index | number | - |
+| expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |

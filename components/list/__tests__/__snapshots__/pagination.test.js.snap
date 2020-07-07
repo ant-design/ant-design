@@ -213,6 +213,7 @@ exports[`List.pagination should change page size work 1`] = `
       >
         <span
           class="ant-select-selection-search"
+          title="10 / page"
         >
           <input
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
@@ -359,6 +360,7 @@ exports[`List.pagination should change page size work 2`] = `
       >
         <span
           class="ant-select-selection-search"
+          title="50 / page"
         >
           <input
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
@@ -637,6 +639,7 @@ exports[`List.pagination should default work 1`] = `
       >
         <span
           class="ant-select-selection-search"
+          title="3 / page"
         >
           <input
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
