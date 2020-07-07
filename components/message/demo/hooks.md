@@ -21,18 +21,11 @@ const Context = React.createContext({ name: 'Default' });
 function Demo() {
   const [messsageApi, contextHolder] = message.useMessage();
   const info = () => {
-    messsageApi
-      .open({
-        type: 'info',
-        content: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
-        duration: 1,
-        onClose: () => {
-          console.log('close me!');
-        },
-      })
-      .then(() => {
-        console.log('promise me');
-      });
+    messsageApi.open({
+      type: 'info',
+      content: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
+      duration: 1,
+    });
   };
 
   return (
