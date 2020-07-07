@@ -11,7 +11,6 @@ type MergedRibbonPlacement = 'left' | 'right';
 export interface RibbonProps {
   className?: string;
   prefixCls?: string;
-  wrapperPrefixCls?: string;
   style?: React.CSSProperties; // style of ribbon element, not the wrapper
   text?: React.ReactNode;
   color?: LiteralUnion<PresetColorType, string>;
