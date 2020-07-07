@@ -12,7 +12,7 @@ import MenuContext, { MenuTheme } from './MenuContext';
 
 export { MenuItemGroupProps } from 'rc-menu';
 
-export { MenuInfo as ClickParam, SelectInfo as   } from 'rc-menu/lib/interface';
+export { MenuInfo as ClickParam, SelectInfo as SelectParam } from 'rc-menu/lib/interface';
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
