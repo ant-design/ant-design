@@ -28,12 +28,6 @@ ReactDOM.render(
     <Badge.Ribbon text="啦啦啦啦" color="#2db7f5">
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text="啦啦啦啦" color="#2db7f5" placement="left">
-      <Card>推开窗户举起望远镜</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="啦啦啦啦" color="#2db7f5" placement="right">
-      <Card>推开窗户举起望远镜</Card>
-    </Badge.Ribbon>
     <Badge.Ribbon text="啦啦啦啦" color="#2db7f5" placement="start">
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
