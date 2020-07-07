@@ -58,33 +58,33 @@
   }
 }
 
-.@{ribbon-prefix-cls} {
-  &-rtl {
-    direction: rtl;
-    &.@{ribbon-prefix-cls}-placement-end {
-      left: -8px;
-      border-bottom-left-radius: 0;
-      .@{ribbon-prefix-cls}-corner {
-        left: 0;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        &::after {
-          border-bottom-color: transparent;
-          border-left-color: transparent;
-        }
+.@{ribbon-prefix-cls}-rtl {
+  direction: rtl;
+  &.@{ribbon-prefix-cls}-placement-end {
+    right: unset;
+    left: -8px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      right: unset;
+      left: 0;
+      border-color: currentColor currentColor transparent transparent;
+      &::after {
+        border-color: currentColor currentColor transparent transparent;
       }
     }
-    &.@{ribbon-prefix-cls}-placement-start {
-      right: -8px;
-      border-bottom-right-radius: 0;
-      .@{ribbon-prefix-cls}-corner {
-        right: 0;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        &::after {
-          border-right-color: transparent;
-          border-bottom-color: transparent;
-        }
+  }
+  &.@{ribbon-prefix-cls}-placement-start {
+    right: -8px;
+    left: unset;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    .@{ribbon-prefix-cls}-corner {
+      right: 0;
+      left: unset;
+      border-color: currentColor transparent transparent currentColor;
+      &::after {
+        border-color: currentColor transparent transparent currentColor;
       }
     }
   }

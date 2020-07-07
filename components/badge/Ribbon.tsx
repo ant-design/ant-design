@@ -6,7 +6,6 @@ import { ConfigContext } from '../config-provider';
 import { isPresetColor } from './utils';
 
 type RibbonPlacement = 'start' | 'end';
-type MergedRibbonPlacement = 'left' | 'right';
 
 export interface RibbonProps {
   className?: string;
@@ -16,13 +15,6 @@ export interface RibbonProps {
   color?: LiteralUnion<PresetColorType, string>;
   children?: React.ReactNode;
   placement?: RibbonPlacement;
-}
-
-function getMergedPlacement(placement: RibbonPlacement, isRtl: boolean): MergedRibbonPlacement {
-  if (placement === 'start') {
-    return isRtl ? 'right' : 'left';
-  }
-  return isRtl ? 'left' : 'right';
 }
 
 const Ribbon: React.FC<RibbonProps> = function Ribbon({
@@ -36,10 +28,8 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
 }) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
-  const isRtl = direction === 'rtl';
-  const mergedPlacement = getMergedPlacement(placement, isRtl);
   const ribbonCls = classNames(prefixCls, className, `${prefixCls}-placement-${placement}`, {
-    [`${prefixCls}-rtl`]: isRtl,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-color-${color}`]: isPresetColor(color),
   });
   const colorStyle: React.CSSProperties = {};
@@ -48,12 +38,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
   }
   const cornerColorStyle: React.CSSProperties = {};
   if (color && !isPresetColor(color)) {
-    cornerColorStyle.borderTopColor = color;
-    if (mergedPlacement === 'left') {
-      cornerColorStyle.borderRightColor = color;
-    } else {
-      cornerColorStyle.borderLeftColor = color;
-    }
+    cornerColorStyle.color = color;
   }
   return (
     <div className={`${prefixCls}-wrapper`}>

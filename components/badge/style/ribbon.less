@@ -26,8 +26,8 @@
     top: 100%;
     width: 8px;
     height: 8px;
+    color: @primary-color;
     border: 4px solid;
-    border-color: @primary-color;
     transform: scaleY(0.75);
     transform-origin: top;
     // If not support IE 11, use filter: brightness(75%) instead
@@ -37,8 +37,8 @@
       left: -4px;
       width: inherit;
       height: inherit;
+      color: rgba(0, 0, 0, 0.25);
       border: inherit;
-      border-color: rgba(0, 0, 0, 0.25);
       content: '';
     }
   }
@@ -52,38 +52,32 @@
     &-color-@{color} {
       background-color: @@darkColor;
       .@{ribbon-prefix-cls}-corner {
-        border-color: @@darkColor;
+        color: @@darkColor;
       }
     }
   }
   .make-color-classes();
 
   // placement
-  &:not(&-rtl) {
-    &.@{ribbon-prefix-cls}-placement-end {
-      right: -8px;
-      border-bottom-right-radius: 0;
-      .@{ribbon-prefix-cls}-corner {
-        right: 0;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        &::after {
-          border-right-color: transparent;
-          border-bottom-color: transparent;
-        }
+  &.@{ribbon-prefix-cls}-placement-end {
+    right: -8px;
+    border-bottom-right-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      right: 0;
+      border-color: currentColor transparent transparent currentColor;
+      &::after {
+        border-color: currentColor transparent transparent currentColor;
       }
     }
-    &.@{ribbon-prefix-cls}-placement-start {
-      left: -8px;
-      border-bottom-left-radius: 0;
-      .@{ribbon-prefix-cls}-corner {
-        left: 0;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        &::after {
-          border-bottom-color: transparent;
-          border-left-color: transparent;
-        }
+  }
+  &.@{ribbon-prefix-cls}-placement-start {
+    left: -8px;
+    border-bottom-left-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      left: 0;
+      border-color: currentColor currentColor transparent transparent;
+      &::after {
+        border-color: currentColor currentColor transparent transparent;
       }
     }
   }

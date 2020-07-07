@@ -2,7 +2,6 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -150,37 +149,18 @@ describe('Ribbon', () => {
   describe('placement', () => {
     it('works with `start` & `end` placement', () => {
       const wrapperStart = mount(
-        <ConfigProvider>
-          <Badge.Ribbon placement="start">
-            <div />
-          </Badge.Ribbon>
-        </ConfigProvider>,
+        <Badge.Ribbon placement="start">
+          <div />
+        </Badge.Ribbon>,
       );
-      const wrapperStartRtl = mount(
-        <ConfigProvider direction="rtl">
-          <Badge.Ribbon placement="start">
-            <div />
-          </Badge.Ribbon>
-        </ConfigProvider>,
-      );
-      expect(wrapperStart.find('.ant-ribbon-placement-left').length).toEqual(1);
-      expect(wrapperStartRtl.find('.ant-ribbon-placement-right').length).toEqual(1);
+      expect(wrapperStart.find('.ant-ribbon-placement-start').length).toEqual(1);
+
       const wrapperEnd = mount(
-        <ConfigProvider>
-          <Badge.Ribbon placement="end">
-            <div />
-          </Badge.Ribbon>
-        </ConfigProvider>,
+        <Badge.Ribbon placement="end">
+          <div />
+        </Badge.Ribbon>,
       );
-      const wrapperEndRtl = mount(
-        <ConfigProvider direction="rtl">
-          <Badge.Ribbon placement="end">
-            <div />
-          </Badge.Ribbon>
-        </ConfigProvider>,
-      );
-      expect(wrapperEnd.find('.ant-ribbon-placement-right').length).toEqual(1);
-      expect(wrapperEndRtl.find('.ant-ribbon-placement-left').length).toEqual(1);
+      expect(wrapperEnd.find('.ant-ribbon-placement-end').length).toEqual(1);
     });
   });
 
@@ -200,16 +180,14 @@ describe('Ribbon', () => {
         </Badge.Ribbon>,
       );
       expect(wrapperLeft.find('.ant-ribbon').prop('style').background).toEqual('#888');
-      expect(wrapperLeft.find('.ant-ribbon-corner').prop('style').borderTopColor).toEqual('#888');
-      expect(wrapperLeft.find('.ant-ribbon-corner').prop('style').borderRightColor).toEqual('#888');
+      expect(wrapperLeft.find('.ant-ribbon-corner').prop('style').color).toEqual('#888');
       const wrapperRight = mount(
         <Badge.Ribbon color="#888" placement="end">
           <div />
         </Badge.Ribbon>,
       );
       expect(wrapperRight.find('.ant-ribbon').prop('style').background).toEqual('#888');
-      expect(wrapperRight.find('.ant-ribbon-corner').prop('style').borderTopColor).toEqual('#888');
-      expect(wrapperRight.find('.ant-ribbon-corner').prop('style').borderLeftColor).toEqual('#888');
+      expect(wrapperRight.find('.ant-ribbon-corner').prop('style').color).toEqual('#888');
     });
   });
 
