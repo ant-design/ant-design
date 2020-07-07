@@ -2044,6 +2044,194 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
+<div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        And raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-right"
+    >
+      Pushes open the window
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
+<div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        Pushes open the window and raises the spyglass.
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-right"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        666
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-color-purple ant-ribbon-placement-right"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        666
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-right"
+      style="background:#2db7f5"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+        style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        Left
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-left"
+      style="background:#2db7f5"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+        style="border-top-color:#2db7f5;border-right-color:#2db7f5"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        Right
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-right"
+      style="background:#2db7f5"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+        style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        Start
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-left"
+      style="background:#2db7f5"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+        style="border-top-color:#2db7f5;border-right-color:#2db7f5"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-ribbon-wrapper"
+  >
+    <div
+      class="ant-card ant-card-bordered"
+    >
+      <div
+        class="ant-card-body"
+      >
+        End
+      </div>
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-right"
+      style="background:#2db7f5"
+    >
+      中文 English
+      <div
+        class="ant-ribbon-corner"
+        style="border-top-color:#2db7f5;border-left-color:#2db7f5"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/badge/demo/status.md correctly 1`] = `
 <div>
   <span

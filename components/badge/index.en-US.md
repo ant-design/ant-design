@@ -24,7 +24,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | overflowCount | Max count to show | number | 99 |  |
 | showZero | Whether to show badge when `count` is zero | boolean | false |  |
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
-| text | If `status` is set, `text` sets the display text of the status `dot` | string | - |  |
+| text | If `status` is set, `text` sets the display text of the status `dot` | ReactNode | - |  |
 | title | Text to show when hovering over the badge | string | - |  |
 
 ### Badge.Ribbon
@@ -33,4 +33,4 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | --- | --- | --- | --- | --- |
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction | `left` \| `right` \| `start` \| `end` | `end` |  |
-| content | Content inside the Ribbon | ReactNode | - |  |
+| text | Content inside the Ribbon | ReactNode | - |  |

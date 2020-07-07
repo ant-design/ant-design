@@ -18,7 +18,7 @@
   color: @badge-text-color;
   line-height: 22px;
   white-space: nowrap;
-  background-color: @primary-color;
+  background: @primary-color;
   border-radius: 2px;
 
   &-corner {
@@ -40,7 +40,7 @@
     @color: extract(@preset-colors, @i);
     @darkColor: '@{color}-6';
     &-color-@{color} {
-      background-color: @@darkColor;
+      background: @@darkColor;
       .@{ribbon-prefix-cls}-corner {
         border-color: @@darkColor;
       }

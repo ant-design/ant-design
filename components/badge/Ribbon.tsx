@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { LiteralUnion } from '../_util/type';
-import { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import { PresetColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
 import { isPresetColor } from './utils';
 

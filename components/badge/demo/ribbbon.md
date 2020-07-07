@@ -7,33 +7,19 @@ title:
 
 ## zh-CN
 
+使用缎带型的徽标。
+
 ## en-US
+
+Use ribbon badge.
 
 ```jsx
 import { Badge, Card } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Badge.Ribbon text="中文 English">
-      <Card>666</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" color="purple">
-      <Card>666</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" color="#2db7f5">
-      <Card>666</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="left">
-      <Card>Left</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="right">
-      <Card>Right</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="start">
-      <Card>Start</Card>
-    </Badge.Ribbon>
-    <Badge.Ribbon text="中文 English" color="#2db7f5" placement="end">
-      <Card>End</Card>
+    <Badge.Ribbon text="Pushes open the window">
+      <Card>And raises the spyglass.</Card>
     </Badge.Ribbon>
   </div>,
   mountNode,
