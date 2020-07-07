@@ -34,10 +34,7 @@ ReactDOM.render(
 ```
 
 <style>
-.anticon-notification {
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  font-size: 16px;
+.ant-card {
+  margin-bottom: 16px;
 }
 </style>
