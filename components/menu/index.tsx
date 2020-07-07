@@ -12,6 +12,8 @@ import MenuContext, { MenuTheme } from './MenuContext';
 
 export { MenuItemGroupProps } from 'rc-menu';
 
+export { MenuInfo, SelectInfo } from 'rc-menu/lib/interface';
+
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
 export interface MenuProps extends RcMenuProps {
