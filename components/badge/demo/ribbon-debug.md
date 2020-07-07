@@ -15,10 +15,10 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Badge, Card } from 'antd';
+import { Badge, Card, Space } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" style={{ width: '100%' }}>
     <Badge.Ribbon text="啦啦啦啦">
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
@@ -40,13 +40,7 @@ ReactDOM.render(
     <Badge.Ribbon text="啦啦啦啦" color="#2db7f5" placement="end">
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
-  </div>,
+  </Space>,
   mountNode,
 );
 ```
-
-<style>
-.ant-card {
-  margin-bottom: 16px;
-}
-</style>
