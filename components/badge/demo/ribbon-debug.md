@@ -44,3 +44,9 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+<style>
+.ant-card {
+  margin-bottom: 16px;
+}
+</style>
