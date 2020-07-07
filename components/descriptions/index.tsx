@@ -149,7 +149,6 @@ function Descriptions({
       style={style}
     >
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-
       <div className={`${prefixCls}-view`}>
         <table>
           <tbody>

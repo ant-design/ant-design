@@ -32,6 +32,20 @@
     }
   }
 
+  &-item {
+    padding-bottom: 0;
+
+    &-container {
+      display: flex;
+      align-items: baseline;
+
+      > span {
+        display: inline-flex;
+        align-items: baseline;
+      }
+    }
+  }
+
   &-item-label {
     color: @heading-color;
     font-weight: normal;
@@ -67,17 +81,10 @@
 
   &-item-content {
     display: table-cell;
+    flex: 1;
     color: @text-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
-  }
-
-  &-item {
-    padding-bottom: 0;
-    > span {
-      display: inline-flex;
-      align-items: baseline;
-    }
   }
 
   &-middle {
