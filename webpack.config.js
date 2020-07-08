@@ -65,7 +65,10 @@ function addBundleStatsWebpackPlugin(config) {
       token: process.env.BUNDLE_ANALYZER_TOKEN,
     }),
   );
-  config.plugins.push(new RelativeCiAgentWebpackPlugin());
+
+  if (config.entry['antd.min']) {
+    config.plugins.push(new RelativeCiAgentWebpackPlugin());
+  }
 }
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
