@@ -90,7 +90,9 @@
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
     "test-image": "npm run compile:less && docker-compose run tests",
-    "version": "node ./scripts/generate-version"
+    "version": "node ./scripts/generate-version",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -146,7 +148,8 @@
     "rc-upload": "~3.2.0",
     "rc-util": "^5.0.1",
     "scroll-into-view-if-needed": "^2.2.25",
-    "warning": "^4.0.3"
+    "warning": "^4.0.3",
+    "snyk": "^1.360.0"
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
@@ -309,5 +312,6 @@
   "tnpm": {
     "mode": "npm"
   },
-  "title": "Ant Design"
+  "title": "Ant Design",
+  "snyk": true
 }
