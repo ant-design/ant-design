@@ -3,6 +3,7 @@
 
 @badge-prefix-cls: ~'@{ant-prefix}-badge';
 @number-prefix-cls: ~'@{ant-prefix}-scroll-number';
+@ribbon-prefix-cls: ~'@{ant-prefix}-ribbon';
 
 .@{badge-prefix-cls} {
   &-rtl {
@@ -53,6 +54,38 @@
   &-not-a-wrapper {
     .@{badge-prefix-cls}-count {
       transform: none;
+    }
+  }
+}
+
+.@{ribbon-prefix-cls}-rtl {
+  direction: rtl;
+  &.@{ribbon-prefix-cls}-placement-end {
+    right: unset;
+    left: -8px;
+    border-bottom-right-radius: @border-radius-sm;
+    border-bottom-left-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      right: unset;
+      left: 0;
+      border-color: currentColor currentColor transparent transparent;
+      &::after {
+        border-color: currentColor currentColor transparent transparent;
+      }
+    }
+  }
+  &.@{ribbon-prefix-cls}-placement-start {
+    right: -8px;
+    left: unset;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: @border-radius-sm;
+    .@{ribbon-prefix-cls}-corner {
+      right: 0;
+      left: unset;
+      border-color: currentColor transparent transparent currentColor;
+      &::after {
+        border-color: currentColor transparent transparent currentColor;
+      }
     }
   }
 }

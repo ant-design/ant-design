@@ -2,12 +2,18 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import ScrollNumber from './ScrollNumber';
-import { PresetColorTypes, PresetColorType, PresetStatusColorType } from '../_util/colors';
+import Ribbon from './Ribbon';
+import { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
 import { LiteralUnion } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
+import { isPresetColor } from './utils';
 
 export { ScrollNumberProps } from './ScrollNumber';
+
+interface CompoundedComponent extends React.FC<BadgeProps> {
+  Ribbon: typeof Ribbon;
+}
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -28,11 +34,7 @@ export interface BadgeProps {
   title?: string;
 }
 
-function isPresetColor(color?: string): boolean {
-  return (PresetColorTypes as any[]).indexOf(color) !== -1;
-}
-
-const Badge: React.FC<BadgeProps> = ({
+const Badge: CompoundedComponent = ({
   prefixCls: customizePrefixCls,
   scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
   children,
@@ -209,5 +211,7 @@ const Badge: React.FC<BadgeProps> = ({
     </span>
   );
 };
+
+Badge.Ribbon = Ribbon;
 
 export default Badge;
