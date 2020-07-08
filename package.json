@@ -108,7 +108,6 @@
     "@ant-design/icons": "^4.2.1",
     "@ant-design/react-slick": "~0.26.1",
     "array-tree-filter": "^2.1.0",
-    "bundle-stats": "^2.2.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.13",
