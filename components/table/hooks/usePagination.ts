@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { PaginationProps } from '../../pagination';
 import { TablePaginationConfig } from '../interface';
 
@@ -82,11 +82,19 @@ export default function usePagination(
     });
   };
 
+  const paginationCurrentRef = useRef<number>();
+
+  const paginationPageSizeRef = useRef<number>();
+
   const onInternalChange: PaginationProps['onChange'] = (...args) => {
     const [current] = args;
+    const pageSize = args[1] || mergedPagination.pageSize!;
     refreshPagination(current);
-
-    onChange(current, args[1] || mergedPagination.pageSize!);
+    if (!(paginationCurrentRef.current === current && paginationPageSizeRef.current === pageSize)) {
+      paginationCurrentRef.current = current;
+      paginationPageSizeRef.current = pageSize;
+      onChange(current, pageSize);
+    }
 
     if (pagination && pagination.onChange) {
       pagination.onChange(...args);
@@ -94,14 +102,18 @@ export default function usePagination(
   };
 
   const onInternalShowSizeChange: PaginationProps['onShowSizeChange'] = (...args) => {
-    const [, pageSize] = args;
+    const [current, pageSize] = args;
     setInnerPagination({
       ...mergedPagination,
       current: 1,
       pageSize,
     });
 
-    onChange(1, pageSize);
+    if (!(paginationCurrentRef.current === current && paginationPageSizeRef.current === pageSize)) {
+      paginationCurrentRef.current = current;
+      paginationPageSizeRef.current = pageSize;
+      onChange(1, pageSize);
+    }
 
     if (pagination && pagination.onShowSizeChange) {
       pagination.onShowSizeChange(...args);
