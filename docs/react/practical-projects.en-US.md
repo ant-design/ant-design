@@ -171,20 +171,25 @@ And supports three modes of `side`, `mix`, and `top`, and it also has built-in m
 The method of use is also extremely simple, requiring only a few simple settings.
 
 ```tsx
-<ProLayout>
-  <PageContainer
-    extra={[
-      <Button key="3">Operating</Button>,
-      <Button key="2">Operating</Button>,
-      <Button key="1" type="primary">
-        Main Operating
-      </Button>,
-    ]}
-    footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
-  >
-    {children}
-  </PageContainer>
-</ProLayout>
+import { Button } from 'antd';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+
+export default (
+  <ProLayout>
+    <PageContainer
+      extra={[
+        <Button key="3">Operating</Button>,
+        <Button key="2">Operating</Button>,
+        <Button key="1" type="primary">
+          Main Operating
+        </Button>,
+      ]}
+      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+    >
+      {children}
+    </PageContainer>
+  </ProLayout>
+);
 ```
 
 Click here [Quick Start](https://prolayout.ant.design/getting-started).
@@ -195,6 +200,7 @@ Many data in an admin page does not need to be shared across pages, and models a
 
 ```tsx
 import ProTable from '@ant-design/pro-table';
+import { Popconfirm, Button } from 'antd';
 import { queryProductList } from '@/services/product';
 
 const Products = () => {

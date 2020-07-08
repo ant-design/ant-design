@@ -174,20 +174,25 @@ $ yarn start
 使用方式也是极为简单，只需要进行几个简单的设置。
 
 ```tsx
-<ProLayout>
-  <PageContainer
-    extra={[
-      <Button key="3">操作</Button>,
-      <Button key="2">操作</Button>,
-      <Button key="1" type="primary">
-        主操作
-      </Button>,
-    ]}
-    footer={[<Button>重置</Button>, <Button type="primary">提交</Button>]}
-  >
-    {children}
-  </PageContainer>
-</ProLayout>
+import { Button } from 'antd';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+
+export default (
+  <ProLayout>
+    <PageContainer
+      extra={[
+        <Button key="3">Operating</Button>,
+        <Button key="2">Operating</Button>,
+        <Button key="1" type="primary">
+          Main Operating
+        </Button>,
+      ]}
+      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+    >
+      {children}
+    </PageContainer>
+  </ProLayout>
+);
 ```
 
 点击这里[快速开始](https://prolayout.ant.design/getting-started)。
@@ -198,6 +203,7 @@ $ yarn start
 
 ```tsx
 import ProTable from '@ant-design/pro-table';
+import { Popconfirm, Button } from 'antd';
 import { queryProductList } from '@/services/product';
 
 const Products = () => {
