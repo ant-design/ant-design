@@ -101,8 +101,6 @@ export default function usePagination(
       pageSize,
     });
 
-    onChange(1, pageSize);
-
     if (pagination && pagination.onShowSizeChange) {
       pagination.onShowSizeChange(...args);
     }
