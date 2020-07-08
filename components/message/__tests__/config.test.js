@@ -62,9 +62,6 @@ describe('message.config', () => {
     message.info('last');
     await sleep(600);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    message.config({
-      duration: 3,
-    });
   });
 
   it('should be able to config prefixCls', () => {
