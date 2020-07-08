@@ -3,8 +3,6 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
-const { RelativeCiAgentWebpackPlugin } = require('@relative-ci/agent');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
@@ -58,6 +56,10 @@ function addBundleStatsWebpackPlugin(config) {
   if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
     return;
   }
+  // eslint-disable-next-line global-require
+  const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
+  // eslint-disable-next-line global-require
+  const { RelativeCiAgentWebpackPlugin } = require('@relative-ci/agent');
   config.plugins.push(
     new BundleStatsWebpackPlugin({
       token: process.env.BUNDLE_ANALYZER_TOKEN,
