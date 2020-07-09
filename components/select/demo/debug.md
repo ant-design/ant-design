@@ -43,6 +43,15 @@ ReactDOM.render(
       <Option value="Yiminghe">yiminghe</Option>
       <Option value="long">I am super super long!</Option>
     </Select>
+    <Select style={{ width: 120 }} onChange={handleChange} placeholder="233">
+      <Option value="jack">Jack</Option>
+      <Option value="lucy">Lucy</Option>
+      <Option value="disabled" disabled>
+        Disabled
+      </Option>
+      <Option value="Yiminghe">yiminghe</Option>
+      <Option value="long">I am super super long!</Option>
+    </Select>
     <Select
       mode="multiple"
       style={{ width: 120 }}
