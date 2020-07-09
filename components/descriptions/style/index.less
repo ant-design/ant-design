@@ -5,11 +5,24 @@
 
 .@{descriptions-prefix-cls} {
   &-title {
+    display: inline-block;
+    max-width: 600px;
     margin-bottom: @descriptions-title-margin-bottom;
+    overflow: hidden;
     color: @heading-color;
     font-weight: bold;
     font-size: @font-size-lg;
     line-height: @line-height-base;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-extra {
+    float: right;
+    margin-bottom: @descriptions-title-margin-bottom;
+    color: @heading-color;
+    font-weight: normal;
+    font-size: @font-size-base;
   }
 
   &-view {

@@ -10,6 +10,18 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
     User Info
   </div>
   <div
+    class="ant-descriptions-extra"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Edit
+      </span>
+    </button>
+  </div>
+  <div
     class="ant-descriptions-view"
   >
     <table>
