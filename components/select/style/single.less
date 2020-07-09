@@ -127,12 +127,9 @@
       .@{select-prefix-cls}-selector {
         height: @input-height;
 
+        &::after,
         .@{select-prefix-cls}-selection-item,
         .@{select-prefix-cls}-selection-placeholder {
-          line-height: @input-height - 2 * @border-width-base;
-        }
-
-        &::after {
           line-height: @input-height - 2 * @border-width-base;
         }
       }
