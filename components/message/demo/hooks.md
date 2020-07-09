@@ -30,9 +30,9 @@ function Demo() {
 
   return (
     <Context.Provider value={{ name: 'Ant Design' }}>
+      {contextHolder}
       <Button type="primary" onClick={info}>
         Display normal message
-        {contextHolder}
       </Button>
     </Context.Provider>
   );
