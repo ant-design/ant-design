@@ -24,7 +24,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | `maxLength` 和 `autoSize` 在 `4.4.5` 支持 |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.4.5 |
 | ellipsis | 设置自动溢出省略，需要设置元素宽度 | boolean | false |  |
 | mark | 添加标记样式 | boolean | false |  |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
@@ -40,7 +40,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | `maxLength` 和 `autoSize` 在 `4.4.5` 支持 |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.4.5 |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4` | number: 1, 2, 3, 4 | 1 |  |
 | mark | 添加标记样式 | boolean | false |  |
@@ -56,7 +56,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | `maxLength` 和 `autoSize` 在 `4.4.5` 支持 |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.4.5 |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| { rows: number, expandable: boolean, suffix: string, symbol: React.ReactNode, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
