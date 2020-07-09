@@ -14,10 +14,10 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Descriptions, Button } from 'antd';
+import { Descriptions } from 'antd';
 
 ReactDOM.render(
-  <Descriptions title="User Info" extra={<Button type="primary">Edit</Button>}>
+  <Descriptions title="User Info">
     <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
     <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
     <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
