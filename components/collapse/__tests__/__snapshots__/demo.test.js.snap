@@ -665,7 +665,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
     >
       <span
         class="ant-select-selection-search"
-        title="left"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -684,6 +683,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
       </span>
       <span
         class="ant-select-selection-item"
+        title="left"
       >
         left
       </span>
