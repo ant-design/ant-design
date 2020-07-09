@@ -5,6 +5,9 @@ exports[`Descriptions Descriptions support colon 1`] = `
   class="ant-descriptions"
 >
   <div
+    class="ant-descriptions-header"
+  />
+  <div
     class="ant-descriptions-view"
   >
     <table>
@@ -40,6 +43,9 @@ exports[`Descriptions Descriptions support style 1`] = `
   style="background-color: rgb(232, 232, 232);"
 >
   <div
+    class="ant-descriptions-header"
+  />
+  <div
     class="ant-descriptions-view"
   >
     <table>
@@ -68,6 +74,9 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
 <div
   class="ant-descriptions"
 >
+  <div
+    class="ant-descriptions-header"
+  />
   <div
     class="ant-descriptions-view"
   >
@@ -102,6 +111,9 @@ exports[`Descriptions column is number 1`] = `
 <div
   class="ant-descriptions"
 >
+  <div
+    class="ant-descriptions-header"
+  />
   <div
     class="ant-descriptions-view"
   >
@@ -186,6 +198,9 @@ exports[`Descriptions should work with React Fragment 1`] = `
   class="ant-descriptions"
 >
   <div
+    class="ant-descriptions-header"
+  />
+  <div
     class="ant-descriptions-view"
   >
     <table>
@@ -257,6 +272,9 @@ exports[`Descriptions vertical layout 1`] = `
 <div
   class="ant-descriptions"
 >
+  <div
+    class="ant-descriptions-header"
+  />
   <div
     class="ant-descriptions-view"
   >
@@ -384,6 +402,9 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
 <div
   class="ant-descriptions"
 >
+  <div
+    class="ant-descriptions-header"
+  />
   <div
     class="ant-descriptions-view"
   >

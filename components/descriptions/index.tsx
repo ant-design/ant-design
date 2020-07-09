@@ -150,8 +150,10 @@ function Descriptions({
       })}
       style={style}
     >
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+      <div className={`${prefixCls}-header`}>
+        {(title || extra) && <div className={`${prefixCls}-title`}>{title}</div>}
+        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+      </div>
 
       <div className={`${prefixCls}-view`}>
         <table>

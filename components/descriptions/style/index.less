@@ -4,10 +4,14 @@
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
 .@{descriptions-prefix-cls} {
-  &-title {
-    display: inline-block;
-    max-width: 600px;
+  &-header {
+    display: flex;
+    align-items: center;
     margin-bottom: @descriptions-title-margin-bottom;
+  }
+
+  &-title {
+    flex: 1;
     overflow: hidden;
     color: @heading-color;
     font-weight: bold;
@@ -18,8 +22,7 @@
   }
 
   &-extra {
-    float: right;
-    margin-bottom: @descriptions-title-margin-bottom;
+    margin-left: @descriptions-title-margin-bottom;
     color: @heading-color;
     font-weight: normal;
     font-size: @font-size-base;
