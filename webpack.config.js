@@ -60,12 +60,11 @@ function addBundleStatsWebpackPlugin(config) {
   const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
   // eslint-disable-next-line global-require
   const { RelativeCiAgentWebpackPlugin } = require('@relative-ci/agent');
-  config.plugins.push(
-    new BundleStatsWebpackPlugin({
-      token: process.env.BUNDLE_ANALYZER_TOKEN,
-    }),
-  );
-  config.plugins.push(new RelativeCiAgentWebpackPlugin());
+  config.plugins.push(new BundleStatsWebpackPlugin());
+
+  if (config.entry['antd.min']) {
+    config.plugins.push(new RelativeCiAgentWebpackPlugin());
+  }
 }
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {

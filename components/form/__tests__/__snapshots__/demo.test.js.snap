@@ -850,7 +850,6 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
               >
                 <span
                   class="ant-select-selection-search"
-                  title="RMB"
                 >
                   <input
                     aria-activedescendant="undefined_list_0"
@@ -869,6 +868,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                 </span>
                 <span
                   class="ant-select-selection-item"
+                  title="RMB"
                 >
                   RMB
                 </span>
@@ -3147,7 +3147,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   >
                     <span
                       class="ant-select-selection-search"
-                      title="+86"
                     >
                       <input
                         aria-activedescendant="register_prefix_list_0"
@@ -3167,6 +3166,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
+                      title="+86"
                     >
                       +86
                     </span>

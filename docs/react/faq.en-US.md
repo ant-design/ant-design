@@ -53,6 +53,10 @@ antd use shallow compare of props to optimize performance. You should always pas
 
 Try `defaultValue` or `onChange` to change `value`, and please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
 
+### Components are not vertically aligned when placed in single row.
+
+Try [Space](https://ant.design/components/space/) component to make them aligned.
+
 ### antd overrides my global styles
 
 Yes, antd is designed to develop a complete background application, we override some global styles for styling convenience, and it can't be removed now. More info at https://github.com/ant-design/ant-design/issues/4331 .

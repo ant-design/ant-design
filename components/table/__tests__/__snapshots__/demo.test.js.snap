@@ -4527,7 +4527,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             >
               <span
                 class="ant-select-selection-search"
-                title="10 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -4546,6 +4545,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               </span>
               <span
                 class="ant-select-selection-item"
+                title="10 / page"
               >
                 10 / page
               </span>
@@ -7128,7 +7128,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             >
               <span
                 class="ant-select-selection-search"
-                title="10 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -7147,6 +7146,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               </span>
               <span
                 class="ant-select-selection-item"
+                title="10 / page"
               >
                 10 / page
               </span>
@@ -8370,7 +8370,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             >
               <span
                 class="ant-select-selection-search"
-                title="50 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -8389,6 +8388,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
               </span>
               <span
                 class="ant-select-selection-item"
+                title="50 / page"
               >
                 50 / page
               </span>
@@ -9347,7 +9347,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <span
                 class="ant-select-selection-search"
-                title="10 / page"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -9366,6 +9365,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               </span>
               <span
                 class="ant-select-selection-item"
+                title="10 / page"
               >
                 10 / page
               </span>

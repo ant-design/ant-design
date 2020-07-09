@@ -180,7 +180,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="10 / page"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -199,6 +198,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -539,7 +539,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -558,6 +557,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -767,7 +767,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -788,6 +787,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -1074,7 +1074,6 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="10 / page"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1093,6 +1092,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -1305,7 +1305,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -1324,6 +1323,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -1542,7 +1542,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -1563,6 +1562,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -1854,7 +1854,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -1873,6 +1872,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -2263,7 +2263,6 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="10 / page"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -2282,6 +2281,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -2540,7 +2540,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="20 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -2559,6 +2558,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="20 / page"
           >
             20 / page
           </span>
@@ -2725,7 +2725,6 @@ Array [
         >
           <span
             class="ant-select-selection-search"
-            title="20 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -2744,6 +2743,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="20 / page"
           >
             20 / page
           </span>

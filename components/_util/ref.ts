@@ -15,13 +15,3 @@ export function composeRef<T>(...refs: React.Ref<T>[]): React.Ref<T> {
     });
   };
 }
-
-export function usePrevious<T = undefined>(value: T): T | undefined {
-  const ref = React.useRef<T>();
-
-  React.useEffect(() => {
-    ref.current = value;
-  }, [value]);
-
-  return ref.current;
-}

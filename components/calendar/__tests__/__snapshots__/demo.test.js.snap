@@ -15,7 +15,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="2016"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -34,6 +33,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="2016"
         >
           2016
         </span>
@@ -74,7 +74,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Nov"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -93,6 +92,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Nov"
         >
           Nov
         </span>
@@ -960,7 +960,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="2016"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -979,6 +978,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="2016"
           >
             2016
           </span>
@@ -1019,7 +1019,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="Nov"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -1038,6 +1037,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="Nov"
           >
             Nov
           </span>
@@ -1967,7 +1967,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
             >
               <span
                 class="ant-select-selection-search"
-                title="2016"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -1986,6 +1985,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               </span>
               <span
                 class="ant-select-selection-item"
+                title="2016"
               >
                 2016
               </span>
@@ -2031,7 +2031,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
             >
               <span
                 class="ant-select-selection-search"
-                title="Nov"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -2050,6 +2049,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
               </span>
               <span
                 class="ant-select-selection-item"
+                title="Nov"
               >
                 Nov
               </span>
@@ -2874,7 +2874,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="2016"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -2893,6 +2892,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="2016"
         >
           2016
         </span>
@@ -2933,7 +2933,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Nov"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -2952,6 +2951,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Nov"
         >
           Nov
         </span>
@@ -4227,7 +4227,6 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="2017"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -4246,6 +4245,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="2017"
           >
             2017
           </span>
@@ -4286,7 +4286,6 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="Jan"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -4305,6 +4304,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="Jan"
           >
             Jan
           </span>
