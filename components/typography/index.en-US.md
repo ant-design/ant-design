@@ -56,7 +56,7 @@ Basic text writing, including headings, body text, lists, and more.
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.5.0 |
+| editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false |  |
 | ellipsis | Display ellipsis when text overflows. Can configure rows expandable and suffix by using object | boolean \| { rows: number, expandable: boolean, suffix: string, symbol: React.ReactNode, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
 | mark | Marked style | boolean | false |  |
 | underline | Underlined style | boolean | false |  |
