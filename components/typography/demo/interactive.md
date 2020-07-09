@@ -22,6 +22,7 @@ const { Text, Paragraph } = Typography;
 class Demo extends React.Component {
   state = {
     str: 'This is an editable text.',
+    lengthLimitedStr: 'This is an editable text with limited length.',
   };
 
   onChange = str => {
@@ -29,10 +30,24 @@ class Demo extends React.Component {
     this.setState({ str });
   };
 
+  onLengthLimitedStrChange = lengthLimitedStr => {
+    this.setState({ lengthLimitedStr });
+  };
+
   render() {
     return (
       <>
         <Text editable={{ onChange: this.onChange }}>{this.state.str}</Text>
+        <br />
+        <Text
+          editable={{
+            onChange: this.onLengthLimitedStrChange,
+            maxLength: 50,
+            autoSize: { maxRows: 5, minRows: 3 },
+          }}
+        >
+          {this.state.lengthLimitedStr}
+        </Text>
         <br />
         <Text copyable>This is a copyable text.</Text>
         <br />
