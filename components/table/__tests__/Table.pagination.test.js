@@ -100,7 +100,7 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item').last().simulate('click');
-    expect(scrollTo).toHaveBeenCalledTimes(3);
+    expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
   it('fires change event', () => {
@@ -181,13 +181,13 @@ describe('Table.pagination', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/24913
-  it('should onChange called when pageSize change', () => {
+  it('should pagination onChange called when pageSize change', () => {
     const onChange = jest.fn();
     const onShowSizeChange = jest.fn();
     const wrapper = mount(
       createTable({
         pagination: {
-          current: 1,
+          current: 2,
           pageSize: 10,
           total: 200,
           onChange,
@@ -198,7 +198,59 @@ describe('Table.pagination', () => {
     wrapper.find('.ant-select-selector').simulate('mousedown');
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(1, 20);
+  });
+
+  it('should pagination onShowSizeChange called when pageSize change', () => {
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          current: 2,
+          pageSize: 10,
+          total: 200,
+          onShowSizeChange,
+        },
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(onShowSizeChange).toHaveBeenCalledTimes(1);
+    expect(onShowSizeChange).toHaveBeenCalledWith(1, 20);
+  });
+
+  it('should table onChange called when pageSize change', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange,
+        pagination: {
+          current: 2,
+          pageSize: 10,
+          total: 200,
+        },
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(
+      { current: 1, pageSize: 20, total: 200 },
+      {},
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
+        ],
+        action: 'paginate',
+      },
+    );
   });
 
   it('should not change page when pagination current is specified', () => {

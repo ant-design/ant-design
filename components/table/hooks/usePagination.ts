@@ -82,17 +82,23 @@ export default function usePagination(
     });
   };
 
-  const paginationCurrentRef = useRef<number>();
-
-  const paginationPageSizeRef = useRef<number>();
+  const paginationRefs = {
+    pageCurrent: useRef<number>(),
+    pageSize: useRef<number>(),
+  };
 
   const onInternalChange: PaginationProps['onChange'] = (...args) => {
     const [current] = args;
     const pageSize = args[1] || mergedPagination.pageSize!;
     refreshPagination(current);
-    if (!(paginationCurrentRef.current === current && paginationPageSizeRef.current === pageSize)) {
-      paginationCurrentRef.current = current;
-      paginationPageSizeRef.current = pageSize;
+    if (
+      !(
+        paginationRefs.pageCurrent.current === current &&
+        paginationRefs.pageSize.current === pageSize
+      )
+    ) {
+      paginationRefs.pageCurrent.current = current;
+      paginationRefs.pageSize.current = pageSize;
       onChange(current, pageSize);
     }
 
@@ -109,14 +115,19 @@ export default function usePagination(
       pageSize,
     });
 
-    if (!(paginationCurrentRef.current === current && paginationPageSizeRef.current === pageSize)) {
-      paginationCurrentRef.current = current;
-      paginationPageSizeRef.current = pageSize;
+    if (
+      !(
+        paginationRefs.pageCurrent.current === current &&
+        paginationRefs.pageSize.current === pageSize
+      )
+    ) {
+      paginationRefs.pageCurrent.current = current;
+      paginationRefs.pageSize.current = pageSize;
       onChange(1, pageSize);
     }
 
     if (pagination && pagination.onShowSizeChange) {
-      pagination.onShowSizeChange(...args);
+      pagination.onShowSizeChange(1, pageSize);
     }
   };
 
