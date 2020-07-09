@@ -4,6 +4,7 @@ references:
   container_config: &container_config
     docker:
       - image: circleci/node:14
+    parallelism: 4
     working_directory: ~/ant-design
 
   attach_workspace: &attach_workspace
