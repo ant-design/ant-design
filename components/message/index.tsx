@@ -200,14 +200,14 @@ const api: any = {
   },
 };
 
-export function attachTypeApi(injectedApi: any, type: string) {
-  injectedApi[type] = (
+export function attachTypeApi(originalApi: any, type: string) {
+  originalApi[type] = (
     content: JointContent,
     duration?: ConfigDuration,
     onClose?: ConfigOnClose,
   ) => {
     if (isArgsProps(content)) {
-      return injectedApi.open({ ...content, type });
+      return originalApi.open({ ...content, type });
     }
 
     if (typeof duration === 'function') {
@@ -215,7 +215,7 @@ export function attachTypeApi(injectedApi: any, type: string) {
       duration = undefined;
     }
 
-    return injectedApi.open({ content, duration, type, onClose });
+    return originalApi.open({ content, duration, type, onClose });
   };
 }
 
