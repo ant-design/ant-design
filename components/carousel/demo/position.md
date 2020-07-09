@@ -14,7 +14,7 @@ title:
 There are 4 position options available.
 
 ```jsx
-import { Carousel, Radio, Space } from 'antd';
+import { Carousel, Radio } from 'antd';
 
 class PositionCarouselDemo extends React.Component {
   state = {
@@ -26,8 +26,12 @@ class PositionCarouselDemo extends React.Component {
   render() {
     const { dotPosition } = this.state;
     return (
-      <Space direction="vertical">
-        <Radio.Group onChange={this.handlePositionChange} value={dotPosition}>
+      <>
+        <Radio.Group
+          onChange={this.handlePositionChange}
+          value={dotPosition}
+          style={{ marginBottom: 8 }}
+        >
           <Radio.Button value="top">Top</Radio.Button>
           <Radio.Button value="bottom">Bottom</Radio.Button>
           <Radio.Button value="left">Left</Radio.Button>
@@ -47,7 +51,7 @@ class PositionCarouselDemo extends React.Component {
             <h3>4</h3>
           </div>
         </Carousel>
-      </Space>
+      </>
     );
   }
 }
