@@ -2254,7 +2254,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             class="config-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -2273,6 +2272,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </span>
           <span
             class="config-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -2313,7 +2313,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             class="config-select-selection-search"
-            title="Sep"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -2332,6 +2331,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </span>
           <span
             class="config-select-selection-item"
+            title="Sep"
           >
             Sep
           </span>
@@ -3193,7 +3193,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         >
           <span
             class="config-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -3212,6 +3211,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </span>
           <span
             class="config-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -3539,7 +3539,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             class="config-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -3558,6 +3557,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </span>
           <span
             class="config-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -3598,7 +3598,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             class="config-select-selection-search"
-            title="Sep"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -3617,6 +3616,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </span>
           <span
             class="config-select-selection-item"
+            title="Sep"
           >
             Sep
           </span>
@@ -4478,7 +4478,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         >
           <span
             class="config-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -4497,6 +4496,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </span>
           <span
             class="config-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -4824,7 +4824,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             class="config-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -4843,6 +4842,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </span>
           <span
             class="config-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -4883,7 +4883,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             class="config-select-selection-search"
-            title="Sep"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -4902,6 +4901,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </span>
           <span
             class="config-select-selection-item"
+            title="Sep"
           >
             Sep
           </span>
@@ -5763,7 +5763,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         >
           <span
             class="config-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -5782,6 +5781,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </span>
           <span
             class="config-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -6109,7 +6109,6 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             class="ant-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -6128,6 +6127,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           </span>
           <span
             class="ant-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -6168,7 +6168,6 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             class="ant-select-selection-search"
-            title="Sep"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -6187,6 +6186,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           </span>
           <span
             class="ant-select-selection-item"
+            title="Sep"
           >
             Sep
           </span>
@@ -7048,7 +7048,6 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
         >
           <span
             class="ant-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -7067,6 +7066,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
           </span>
           <span
             class="ant-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -7394,7 +7394,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -7413,6 +7412,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -7453,7 +7453,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="Sep"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -7472,6 +7471,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="Sep"
           >
             Sep
           </span>
@@ -8333,7 +8333,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -8352,6 +8351,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -8679,7 +8679,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -8698,6 +8697,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -8738,7 +8738,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="Sep"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -8757,6 +8756,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="Sep"
           >
             Sep
           </span>
@@ -9618,7 +9618,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="2000"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -9637,6 +9636,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="2000"
           >
             2000
           </span>
@@ -17012,7 +17012,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <span
             class="config-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17031,6 +17030,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </span>
           <span
             class="config-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -17164,7 +17164,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         >
           <span
             class="config-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17183,6 +17182,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </span>
           <span
             class="config-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -17321,7 +17321,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <span
             class="config-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17340,6 +17339,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </span>
           <span
             class="config-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -17473,7 +17473,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         >
           <span
             class="config-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17492,6 +17491,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </span>
           <span
             class="config-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -17630,7 +17630,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <span
             class="config-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17649,6 +17648,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </span>
           <span
             class="config-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -17782,7 +17782,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         >
           <span
             class="config-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17801,6 +17800,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </span>
           <span
             class="config-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -17939,7 +17939,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -17958,6 +17957,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -18091,7 +18091,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -18110,6 +18109,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -18248,7 +18248,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -18267,6 +18266,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -18400,7 +18400,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -18419,6 +18418,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -18557,7 +18557,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -18576,6 +18575,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -18709,7 +18709,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="10 / page"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -18728,6 +18727,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
