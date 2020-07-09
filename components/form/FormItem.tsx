@@ -210,6 +210,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'labelAlign',
           'labelCol',
           'normalize',
+          'preserve',
           'required',
           'validateFirst',
           'validateStatus',

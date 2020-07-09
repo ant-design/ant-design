@@ -575,10 +575,10 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
   });
 
-  it('no warning of initialValue & getValueProps', () => {
+  it('no warning of initialValue & getValueProps & preserve', () => {
     mount(
       <Form>
-        <Form.Item initialValue="bamboo" getValueProps={() => null}>
+        <Form.Item initialValue="bamboo" getValueProps={() => null} preserve={false}>
           <Input />
         </Form.Item>
       </Form>,
