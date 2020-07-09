@@ -85,14 +85,14 @@ export default function usePagination(
 
   const onInternalChange: PaginationProps['onChange'] = (current, pageSize) => {
     const paginationPageSize = mergedPagination?.pageSize;
-    if (paginationPageSize && (pageSize !== paginationPageSize)) {
+    if (pageSize && pageSize !== paginationPageSize) {
       current = 1;
-      if (pagination && pageSize && pagination.onShowSizeChange) pagination.onShowSizeChange(current, pageSize);
+      if (pagination && pagination.onShowSizeChange) pagination.onShowSizeChange(current, pageSize);
     }
     if (pagination && pagination.onChange) pagination.onChange(current, pageSize);
 
     refreshPagination(current, pageSize);
-    onChange(current, pageSize || mergedPagination.pageSize!);
+    onChange(current, pageSize || paginationPageSize!);
   };
 
   if (pagination === false) {
