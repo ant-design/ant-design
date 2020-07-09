@@ -82,7 +82,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | htmlFor | Set sub label `htmlFor` | string | - |  |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.2.0 |
 | noStyle | No style for `true`, used as a pure field control | boolean | false |  |
-| label | Label text | string \| ReactNode | - |  |
+| label | Label text | string \| JSX.Element | - |  |
 | labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
