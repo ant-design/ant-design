@@ -7,7 +7,7 @@ title:
 If the text is short enough, there will be no truncation.
 
 ```jsx
-import MaxLengthText from '..'; // TODO: put back after deploy // import { MaxLengthText } from '@allenai/varnish';
+import { MaxLengthText } from '@allenai/varnish';
 
 ReactDOM.render(
   <MaxLengthText
