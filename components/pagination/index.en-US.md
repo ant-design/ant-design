@@ -31,7 +31,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | pageSizeOptions | Specify the sizeChanger options | string\[] | \[`10`, `20`, `50`, `100`] |  |
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
-| showSizeChanger | Determine whether to show `pageSize` select, it will be `true` when `total>=50` | boolean | - |  |
+| showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean | - |  |
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
 | simple | Whether to use simple mode | boolean | - |  |
