@@ -7,7 +7,7 @@ title:
 Set maxLength value to specify when to truncate.
 
 ```jsx
-import MaxLengthText from '..'; // TODO: put back after deploy // import { MaxLengthText } from '@allenai/varnish';
+import { MaxLengthText } from '@allenai/varnish';
 
 ReactDOM.render(
   <MaxLengthText maxLength={150}>
