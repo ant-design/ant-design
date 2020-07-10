@@ -1,4 +1,4 @@
 import '../../style/index.less';
 import './index.less';
 
-import '../../popover/index';
+import '../../popover/style/index.less';
