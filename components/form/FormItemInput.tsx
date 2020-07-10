@@ -55,7 +55,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
-  const [visible, cacheErrors] = useCacheErrors(
+  const [errorVisible, cacheErrors] = useCacheErrors(
     errors,
     changedVisible => {
       if (changedVisible) {
@@ -82,7 +82,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const memoErrors = useMemo(
     () => cacheErrors,
-    visible,
+    errorVisible,
     (_, nextVisible) => nextVisible,
   );
 
@@ -109,7 +109,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
         </div>
         <CSSMotion
           motionDeadline={500}
-          visible={visible}
+          visible={errorVisible || (help !== undefined && help !== null)}
           motionName="show-help"
           onLeaveEnd={() => {
             onDomErrorVisibleChange(false);
@@ -120,10 +120,14 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {({ className: motionClassName }: { className: string }) => {
             return (
               <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
-                {memoErrors.map((error, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <div key={index}>{error}</div>
-                ))}
+                {errorVisible ? (
+                  memoErrors.map((error, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <div key={index}>{error}</div>
+                  ))
+                ) : (
+                  <div>{help}</div>
+                )}
               </div>
             );
           }}

@@ -145,29 +145,18 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
     // ======================== Errors ========================
     let mergedErrors: React.ReactNode[];
-    if (help !== undefined && help !== null) {
-      mergedErrors = toArray(help);
-    } else {
-      mergedErrors = meta ? meta.errors : [];
-      Object.keys(inlineErrors).forEach(subName => {
-        const subErrors = inlineErrors[subName] || [];
-        if (subErrors.length) {
-          mergedErrors = [...mergedErrors, ...subErrors];
-        }
-      });
-    }
+    mergedErrors = meta ? meta.errors : [];
+    Object.keys(inlineErrors).forEach(subName => {
+      const subErrors = inlineErrors[subName] || [];
+      if (subErrors.length) mergedErrors = [...mergedErrors, ...subErrors];
+    });
 
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      mergedValidateStatus = validateStatus;
-    } else if (meta && meta.validating) {
-      mergedValidateStatus = 'validating';
-    } else if (!help && mergedErrors.length) {
-      mergedValidateStatus = 'error';
-    } else if (meta && meta.touched) {
-      mergedValidateStatus = 'success';
-    }
+    if (validateStatus !== undefined) mergedValidateStatus = validateStatus;
+    else if (meta?.validating) mergedValidateStatus = 'validating';
+    else if (mergedErrors.length) mergedValidateStatus = 'error';
+    else if (meta?.touched) mergedValidateStatus = 'success';
 
     if (domErrorVisible && help) {
       prevValidateStatusRef.current = mergedValidateStatus;

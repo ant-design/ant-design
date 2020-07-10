@@ -354,6 +354,19 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
   });
 
+  it('Form.Item should display validation message when set help', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="" rules={[{ required: true, message: 'message' }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await change(wrapper, 0, '');
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('message');
+  });
+
   // https://github.com/ant-design/ant-design/issues/21167
   it('`require` without `name`', () => {
     const wrapper = mount(
