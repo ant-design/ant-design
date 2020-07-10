@@ -26,7 +26,7 @@ class PositionCarouselDemo extends React.Component {
   render() {
     const { dotPosition } = this.state;
     return (
-      <div>
+      <>
         <Radio.Group
           onChange={this.handlePositionChange}
           value={dotPosition}
@@ -51,7 +51,7 @@ class PositionCarouselDemo extends React.Component {
             <h3>4</h3>
           </div>
         </Carousel>
-      </div>
+      </>
     );
   }
 }

@@ -460,7 +460,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 `;
 
 exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-collapse ant-collapse-icon-position-left"
   >
@@ -651,11 +651,11 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <span>
     Expand Icon Position: 
-  </span>
+  </span>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="margin:0 8px"
@@ -715,8 +715,8 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
