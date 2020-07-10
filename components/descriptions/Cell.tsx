@@ -54,16 +54,31 @@ const Cell: React.FC<CellProps> = ({
       style={style}
       colSpan={span}
     >
-      {label && (
-        <span
-          className={classNames(`${itemPrefixCls}-item-label`, {
-            [`${itemPrefixCls}-item-no-colon`]: !colon,
-          })}
-        >
-          {label}
-        </span>
-      )}
-      {content && <span className={classNames(`${itemPrefixCls}-item-content`)}>{content}</span>}
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
+        {label && (
+          <span
+            className={classNames(`${itemPrefixCls}-item-label`, {
+              [`${itemPrefixCls}-item-no-colon`]: !colon,
+            })}
+          >
+            {label}
+          </span>
+        )}
+        {content && (
+          <span
+            style={{
+              flex: 1,
+            }}
+            className={classNames(`${itemPrefixCls}-item-content`)}
+          >
+            {content}
+          </span>
+        )}
+      </div>
     </Component>
   );
 };
