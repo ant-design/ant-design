@@ -37,7 +37,7 @@ title: 社区精选组件
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | 文字轮播 | [react-text-loop](https://github.com/braposo/react-text-loop) |
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
-| 可拖拽列表 | [antd-nestable TS版本可用](https://github.com/tkvern/antd-nestable)
+| 可拖拽列表 | [antd-nestable TS版本可用](https://github.com/tkvern/antd-nestable) |
 
 ## 推荐产品 ✨
 
