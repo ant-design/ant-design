@@ -17,8 +17,6 @@ To load data asynchronously when click to expand a treeNode.
 import React, { useState } from 'react';
 import { Tree } from 'antd';
 
-const { TreeNode } = Tree;
-
 interface DataNode {
   title: string;
   key: string;
