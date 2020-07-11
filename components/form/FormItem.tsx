@@ -145,17 +145,23 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
     // ======================== Errors ========================
     let mergedErrors: React.ReactNode[];
-    mergedErrors = meta ? meta.errors : [];
-    Object.keys(inlineErrors).forEach(subName => {
-      const subErrors = inlineErrors[subName] || [];
-      if (subErrors.length) mergedErrors = [...mergedErrors, ...subErrors];
-    });
+    if (help !== undefined && help !== null) {
+      mergedErrors = toArray(help);
+    } else {
+      mergedErrors = meta ? meta.errors : [];
+      Object.keys(inlineErrors).forEach(subName => {
+        const subErrors = inlineErrors[subName] || [];
+        if (subErrors.length) {
+          mergedErrors = [...mergedErrors, ...subErrors];
+        }
+      });
+    }
 
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) mergedValidateStatus = validateStatus;
     else if (meta?.validating) mergedValidateStatus = 'validating';
-    else if (mergedErrors.length) mergedValidateStatus = 'error';
+    else if (meta?.errors?.length) mergedValidateStatus = 'error';
     else if (meta?.touched) mergedValidateStatus = 'success';
 
     if (domErrorVisible && help) {
