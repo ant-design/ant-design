@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.4.2
+
+`2020-07-11`
+
+- 🛠 Adjust Alert animation to remove directly dom operation. [#dd8e9f8](https://github.com/ant-design/ant-design/commit/dd8e9f8) [@Yunfly](https://github.com/Yunfly)
+- Select
+  - 🐞 Fix Select shifts vertically when searching. [#25536](https://github.com/ant-design/ant-design/pull/25536) [@07akioni](https://github.com/07akioni)
+  - 💄 Add `@select-item-select-color` to control the color when Select item is selected. [#25476](https://github.com/ant-design/ant-design/pull/25476)
+- 🐞 Fix Form.Item warning for `preserve` as invalidate dom prop. [#25518](https://github.com/ant-design/ant-design/pull/25518)
+- 🐞 Fix Card cover margin bug when bordered is false. [#25515](https://github.com/ant-design/ant-design/pull/25515) [@yutingzhao1991](https://github.com/yutingzhao1991)
+- 💄 Adjust Typography style to set `overflow-wrap: break-word` as default. [#25516](https://github.com/ant-design/ant-design/pull/25516)
+- 🐞 Fix Table `expandedRowRender` nested Table cell background color. [#25498](https://github.com/ant-design/ant-design/pull/25498)
+- 🐞 Fix Popover wrong positioning on Radio.Button. [#25449](https://github.com/ant-design/ant-design/pull/25449) [@zgoby](https://github.com/zgoby)
+- 🐞 Fix RangePicker clear icon position issue when `size=small`. [#25458](https://github.com/ant-design/ant-design/pull/25458)
+- 🆕 Upload supports to show thumbnail for non-image files as `thumbUrl` configured in `onChange` event. [#25432](https://github.com/ant-design/ant-design/pull/25432) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+- 🐞 Fix Table `onChange` triggered multiple times when change page size. [#25520](https://github.com/ant-design/ant-design/pull/25520) [@zhangchen915](https://github.com/zhangchen915)
+- 🛠 Remove `babel-runtime` and add `@babel/runtime` in dependencies, reduce gzipped bundle size `18.6KB`. [#25530](https://github.com/ant-design/ant-design/pull/25530)
+- 🇪🇸 Improve es_ES localization. [#25460](https://github.com/ant-design/ant-design/pull/25460) [@gersongams](https://github.com/gersongams)
+
 ## 4.4.1
 
 `2020-07-06`
