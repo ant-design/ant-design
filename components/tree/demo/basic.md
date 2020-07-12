@@ -16,8 +16,6 @@ The most basic usage, tell you how to use checkable, selectable, disabled, defau
 ```tsx
 import { Tree } from 'antd';
 
-const { TreeNode } = Tree;
-
 const treeData = [
   {
     title: 'parent 1',

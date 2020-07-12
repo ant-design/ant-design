@@ -75,37 +75,24 @@ export default function usePagination(
     }
   }
 
-  const refreshPagination = (current: number = 1) => {
+  const refreshPagination = (current: number = 1, pageSize?: number) => {
     setInnerPagination({
       ...mergedPagination,
       current,
+      pageSize: pageSize || mergedPagination.pageSize,
     });
   };
 
-  const onInternalChange: PaginationProps['onChange'] = (...args) => {
-    const [current] = args;
-    refreshPagination(current);
-
-    onChange(current, args[1] || mergedPagination.pageSize!);
-
-    if (pagination && pagination.onChange) {
-      pagination.onChange(...args);
+  const onInternalChange: PaginationProps['onChange'] = (current, pageSize) => {
+    const paginationPageSize = mergedPagination?.pageSize;
+    if (pageSize && pageSize !== paginationPageSize) {
+      current = 1;
+      if (pagination && pagination.onShowSizeChange) pagination.onShowSizeChange(current, pageSize);
     }
-  };
+    if (pagination && pagination.onChange) pagination.onChange(current, pageSize);
 
-  const onInternalShowSizeChange: PaginationProps['onShowSizeChange'] = (...args) => {
-    const [, pageSize] = args;
-    setInnerPagination({
-      ...mergedPagination,
-      current: 1,
-      pageSize,
-    });
-
-    onChange(1, pageSize);
-
-    if (pagination && pagination.onShowSizeChange) {
-      pagination.onShowSizeChange(...args);
-    }
+    refreshPagination(current, pageSize);
+    onChange(current, pageSize || paginationPageSize!);
   };
 
   if (pagination === false) {
@@ -116,7 +103,6 @@ export default function usePagination(
     {
       ...mergedPagination,
       onChange: onInternalChange,
-      onShowSizeChange: onInternalShowSizeChange,
     },
     refreshPagination,
   ];
