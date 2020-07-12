@@ -31,8 +31,8 @@ class Demo extends React.Component {
         </Avatar.Group>
         <Divider />
         <Avatar.Group
-          maxLength={2}
-          excessItemsStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+          maxAvatarCount={2}
+          maxAvatarStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
         >
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>

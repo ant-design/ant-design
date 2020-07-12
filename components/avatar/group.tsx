@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import toArray from 'rc-util/lib/Children/toArray';
+import { ConfigContext } from '../config-provider';
 import Avatar from './avatar';
 import Popover from '../popover';
 
@@ -9,48 +10,50 @@ export interface GroupProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
-  maxLength?: number;
-  excessItemsStyle?: React.CSSProperties;
-  excessPopoverPlacement?: 'top' | 'bottom';
+  maxAvatarCount?: number;
+  maxAvatarStyle?: React.CSSProperties;
+  maxAvatarPopoverPlacement?: 'top' | 'bottom';
 }
 
-const Group: React.FC<GroupProps> = props => (
-  <ConfigConsumer>
-    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, className = '', maxLength, excessItemsStyle } = props;
-      const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
-      const cls = classNames(
-        prefixCls,
-        {
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        },
-        className,
-      );
+const Group: React.FC<GroupProps> = props => {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls, className = '', maxAvatarCount, maxAvatarStyle } = props;
+  const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
-      const renderChildren = () => {
-        const { children, excessPopoverPlacement = 'top' } = props;
-        const numOfChildren = React.Children.count(children);
-        const childrenWithProps = React.Children.toArray(children);
-        if (maxLength && maxLength < numOfChildren) {
-          const childrenShow = childrenWithProps.slice(0, maxLength);
-          const childrenHidden = childrenWithProps.slice(maxLength, numOfChildren);
-          childrenShow.push(
-            <Popover content={childrenHidden} trigger="hover" placement={excessPopoverPlacement}>
-              <Avatar style={excessItemsStyle}>{`+${numOfChildren - maxLength}`}</Avatar>
-            </Popover>,
-          );
-          return childrenShow;
-        }
-        return children;
-      };
-
-      return (
-        <div className={cls} style={props.style}>
-          {renderChildren()}
-        </div>
+  const renderChildren = () => {
+    const { children, maxAvatarPopoverPlacement = 'top' } = props;
+    const childrenWithProps = toArray(children);
+    const numOfChildren = childrenWithProps.length;
+    if (maxAvatarCount && maxAvatarCount < numOfChildren) {
+      const childrenShow = childrenWithProps.slice(0, maxAvatarCount);
+      const childrenHidden = childrenWithProps.slice(maxAvatarCount, numOfChildren);
+      childrenShow.push(
+        <Popover
+          content={childrenHidden}
+          trigger="hover"
+          placement={maxAvatarPopoverPlacement}
+          overlayClassName={`${prefixCls}-popover`}
+        >
+          <Avatar style={maxAvatarStyle}>{`+${numOfChildren - maxAvatarCount}`}</Avatar>
+        </Popover>,
       );
-    }}
-  </ConfigConsumer>
-);
+      return childrenShow;
+    }
+    return children;
+  };
+
+  return (
+    <div className={cls} style={props.style}>
+      {renderChildren()}
+    </div>
+  );
+};
 
 export default Group;
