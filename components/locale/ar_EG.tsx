@@ -93,16 +93,16 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: 'أحرف ${len} يجب ان يكون ${label}',
+        len: 'أحرف ${len} ان يكون ${label} يجب',
         min: 'أحرف ${min} على الأقل ${label}',
         max: 'أحرف ${max} يصل إلى ${label}',
-        range: 'أحرف ${max}-${min} يجب ان يكون مابين ${label}',
+        range: 'أحرف ${max}-${min} ان يكون مابين ${label} يجب',
       },
       number: {
-        len: '${len} يجب ان يساوي ${label}',
-        min: '${min} الحد الأدنى هو ${label}',
-        max: '${max} الحد الأقصى هو ${label}',
-        range: '${max}-${min} يجب ان يكون مابين ${label}',
+        len: '${len} ان يساوي ${label} يجب',
+        min: '${min} الأدنى هو ${label} حد',
+        max: '${max} الأقصى هو ${label} حد',
+        range: '${max}-${min} ان يكون مابين ${label} يجب',
       },
       array: {
         len: '${len} طوله ${label} يجب أن يكون',
