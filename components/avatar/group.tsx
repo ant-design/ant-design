@@ -10,14 +10,14 @@ export interface GroupProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
-  maxAvatarCount?: number;
-  maxAvatarStyle?: React.CSSProperties;
-  maxAvatarPopoverPlacement?: 'top' | 'bottom';
+  maxCount?: number;
+  maxStyle?: React.CSSProperties;
+  maxPopoverPlacement?: 'top' | 'bottom';
 }
 
 const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', maxAvatarCount, maxAvatarStyle } = props;
+  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle } = props;
   const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
   const cls = classNames(
     prefixCls,
@@ -28,20 +28,20 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   const renderChildren = () => {
-    const { children, maxAvatarPopoverPlacement = 'top' } = props;
+    const { children, maxPopoverPlacement = 'top' } = props;
     const childrenWithProps = toArray(children);
     const numOfChildren = childrenWithProps.length;
-    if (maxAvatarCount && maxAvatarCount < numOfChildren) {
-      const childrenShow = childrenWithProps.slice(0, maxAvatarCount);
-      const childrenHidden = childrenWithProps.slice(maxAvatarCount, numOfChildren);
+    if (maxCount && maxCount < numOfChildren) {
+      const childrenShow = childrenWithProps.slice(0, maxCount);
+      const childrenHidden = childrenWithProps.slice(maxCount, numOfChildren);
       childrenShow.push(
         <Popover
           content={childrenHidden}
           trigger="hover"
-          placement={maxAvatarPopoverPlacement}
+          placement={maxPopoverPlacement}
           overlayClassName={`${prefixCls}-popover`}
         >
-          <Avatar style={maxAvatarStyle}>{`+${numOfChildren - maxAvatarCount}`}</Avatar>
+          <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
         </Popover>,
       );
       return childrenShow;
