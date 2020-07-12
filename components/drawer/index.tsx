@@ -19,6 +19,10 @@ type getContainerFunc = () => HTMLElement;
 
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
 type placementType = typeof PlacementTypes[number];
+
+export interface PushState {
+  distance: string | number;
+}
 export interface DrawerProps {
   closable?: boolean;
   closeIcon?: React.ReactNode;
@@ -39,7 +43,7 @@ export interface DrawerProps {
   height?: number | string;
   zIndex?: number;
   prefixCls?: string;
-  push?: boolean;
+  push?: boolean | PushState;
   placement?: placementType;
   onClose?: (e: EventType) => void;
   afterVisibleChange?: (visible: boolean) => void;
@@ -54,6 +58,7 @@ export interface IDrawerState {
   push?: boolean;
 }
 
+const defaultPushState: PushState = { distance: 180 };
 class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerState> {
   static defaultProps = {
     width: 256,
@@ -64,6 +69,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     mask: true,
     level: null,
     keyboard: true,
+    push: defaultPushState,
   };
 
   readonly state = {
@@ -103,15 +109,15 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   push = () => {
-    this.setState({
-      push: true,
-    });
+    if (this.props.push) {
+      this.setState({ push: true });
+    }
   };
 
   pull = () => {
-    this.setState({
-      push: false,
-    });
+    if (this.props.push) {
+      this.setState({ push: false });
+    }
   };
 
   onDestroyTransitionEnd = () => {
@@ -127,13 +133,26 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   getDestroyOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
+  getPushDistance = () => {
+    const { push } = this.props;
+    let distance: number | string;
+    if (typeof push === 'boolean') {
+      distance = push ? defaultPushState.distance : 0;
+    } else {
+      distance = push!.distance;
+    }
+    return parseFloat(String(distance || 0));
+  };
+
   // get drawer push width or height
   getPushTransform = (placement?: placementType) => {
+    const distance = this.getPushDistance();
+
     if (placement === 'left' || placement === 'right') {
-      return `translateX(${placement === 'left' ? 180 : -180}px)`;
+      return `translateX(${placement === 'left' ? distance : -distance}px)`;
     }
     if (placement === 'top' || placement === 'bottom') {
-      return `translateY(${placement === 'top' ? 180 : -180}px)`;
+      return `translateY(${placement === 'top' ? distance : -distance}px)`;
     }
   };
 
