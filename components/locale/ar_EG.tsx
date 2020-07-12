@@ -5,7 +5,7 @@ import TimePicker from '../time-picker/locale/ar_EG';
 import Calendar from '../calendar/locale/ar_EG';
 import { Locale } from '../locale-provider';
 
-const typeTemplate = '${label} ليس ${type} صالحًا';
+const typeTemplate = 'صالحًا ${type} من نوع ${label} ليس';
 
 const localeValues: Locale = {
   locale: 'ar',
