@@ -14,12 +14,12 @@ export interface RcFile extends File {
 }
 
 export interface RcCustomRequestOptions {
-  onProgress: (event: { percent: number }, file: File) => void;
+  onProgress: (event: { percent: number }, file: RcFile) => void;
   onError: (error: Error) => void;
-  onSuccess: (response: object, file: File) => void;
+  onSuccess: (response: object, file: RcFile) => void;
   data: object;
   filename: string;
-  file: File;
+  file: RcFile;
   withCredentials: boolean;
   action: string;
   headers: object;
