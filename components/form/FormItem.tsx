@@ -161,11 +161,11 @@ function FormItem(props: FormItemProps): React.ReactElement {
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) {
       mergedValidateStatus = validateStatus;
-    } else if (meta && meta.validating) {
+    } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (!help && mergedErrors.length) {
+    } else if (meta?.errors?.length) {
       mergedValidateStatus = 'error';
-    } else if (meta && meta.touched) {
+    } else if (meta?.touched) {
       mergedValidateStatus = 'success';
     }
 
