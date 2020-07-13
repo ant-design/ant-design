@@ -366,6 +366,20 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
   });
 
+  it('Form.Item with `help` should display error style when validate failed', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="help" rules={[{ required: true, message: 'message' }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await change(wrapper, 0, '');
+    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-has-error')).toBeTruthy();
+    expect(wrapper.find('.ant-form-item-explain').text()).toEqual('help');
+  });
+
   // https://github.com/ant-design/ant-design/issues/21167
   it('`require` without `name`', () => {
     const wrapper = mount(
