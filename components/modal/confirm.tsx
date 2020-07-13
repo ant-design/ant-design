@@ -149,7 +149,7 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   };
 }
 
-export function config({ prefixCls }: { prefixCls?: string }) {
+export function globalConfig({ prefixCls }: { prefixCls?: string }) {
   if (prefixCls) {
     defaultPrefixCls = prefixCls;
   }

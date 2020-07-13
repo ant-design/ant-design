@@ -6,7 +6,7 @@ import confirm, {
   withError,
   withConfirm,
   ModalStaticFunctions,
-  config,
+  globalConfig,
 } from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
@@ -49,6 +49,6 @@ Modal.destroyAll = function destroyAllFn() {
   }
 };
 
-Modal.config = config;
+Modal.config = globalConfig;
 
 export default Modal;
