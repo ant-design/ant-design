@@ -27,31 +27,31 @@ const Group: React.FC<GroupProps> = props => {
     className,
   );
 
-  const renderChildren = () => {
-    const { children, maxPopoverPlacement = 'top' } = props;
-    const childrenWithProps = toArray(children);
-    const numOfChildren = childrenWithProps.length;
-    if (maxCount && maxCount < numOfChildren) {
-      const childrenShow = childrenWithProps.slice(0, maxCount);
-      const childrenHidden = childrenWithProps.slice(maxCount, numOfChildren);
-      childrenShow.push(
-        <Popover
-          content={childrenHidden}
-          trigger="hover"
-          placement={maxPopoverPlacement}
-          overlayClassName={`${prefixCls}-popover`}
-        >
-          <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
-        </Popover>,
-      );
-      return childrenShow;
-    }
-    return children;
-  };
-
+  const { children, maxPopoverPlacement = 'top' } = props;
+  const childrenWithProps = toArray(children);
+  const numOfChildren = childrenWithProps.length;
+  if (maxCount && maxCount < numOfChildren) {
+    const childrenShow = childrenWithProps.slice(0, maxCount);
+    const childrenHidden = childrenWithProps.slice(maxCount, numOfChildren);
+    childrenShow.push(
+      <Popover
+        content={childrenHidden}
+        trigger="hover"
+        placement={maxPopoverPlacement}
+        overlayClassName={`${prefixCls}-popover`}
+      >
+        <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
+      </Popover>,
+    );
+    return (
+      <div className={cls} style={props.style}>
+        {childrenShow}
+      </div>
+    );
+  }
   return (
     <div className={cls} style={props.style}>
-      {renderChildren()}
+      {children}
     </div>
   );
 };
