@@ -4,6 +4,7 @@ import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import useBreakpoint from '../hooks/useBreakpoint';
+import ResponsiveObserve from '../../_util/responsiveObserve';
 
 describe('Grid', () => {
   mountTest(Row);
@@ -24,7 +25,12 @@ describe('Grid', () => {
 
   it('when typeof gutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper.instance().getGutter()).toEqual([8, 0]);
+    expect(wrapper.find('div').first().props().style).toEqual(
+      expect.objectContaining({
+        marginLeft: -4,
+        marginRight: -4,
+      }),
+    );
   });
 
   it('when typeof gutter is object array', () => {
@@ -36,11 +42,16 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(wrapper.instance().getGutter()).toEqual([8, 8]);
+    expect(wrapper.find('div').first().props().style).toEqual(
+      expect.objectContaining({
+        marginLeft: -4,
+        marginRight: -4,
+      }),
+    );
   });
 
   it('when typeof gutter is object array in large screen', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Row
         gutter={[
           { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
@@ -48,10 +59,7 @@ describe('Grid', () => {
         ]}
       />,
     );
-    wrapper.setState({
-      screens: { md: true, lg: true, xl: true },
-    });
-    expect(wrapper.instance().getGutter()).toEqual([40, 400]);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('renders wrapped Col correctly', () => {
@@ -68,10 +76,10 @@ describe('Grid', () => {
   });
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {
-    const wrapper = mount(<Row />);
-    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
+    const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
+    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
     wrapper.unmount();
-    expect(willUnmount).toHaveBeenCalled();
+    expect(Unmount).toHaveBeenCalled();
   });
 
   it('should work correct when gutter is object', () => {

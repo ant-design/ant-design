@@ -15,7 +15,6 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="2018年"
         >
           <input
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
@@ -35,6 +34,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="2018年"
         >
           2018年
         </span>
@@ -75,7 +75,6 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="10月"
         >
           <input
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
@@ -95,6 +94,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10月"
         >
           10月
         </span>
@@ -959,7 +959,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <span
           class="ant-select-selection-search"
-          title="2000"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -978,6 +977,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </span>
         <span
           class="ant-select-selection-item"
+          title="2000"
         >
           2000
         </span>
@@ -1018,7 +1018,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <span
           class="ant-select-selection-search"
-          title="Sep"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1037,6 +1036,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </span>
         <span
           class="ant-select-selection-item"
+          title="Sep"
         >
           Sep
         </span>

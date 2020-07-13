@@ -13,7 +13,7 @@ title: FAQ
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
+该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -21,7 +21,7 @@ https://ant.design/components/select/#Select-props
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentNode}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
+使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
@@ -52,6 +52,10 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 ### 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
 尝试使用 `defaultValue` 或 `onChange` 来改变 `value`，请参考 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
+
+### 多个组件放一排时没有垂直对齐怎么办？
+
+尝试使用 [Space](https://ant.design/components/space-cn/) 组件来使他们对齐。
 
 ### antd 覆盖了我的全局样式！
 

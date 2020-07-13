@@ -9,6 +9,8 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 ## API
 
+### Avatar
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | Custom icon type for an icon avatar | ReactNode | - |  |
@@ -21,3 +23,11 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | gap | Letter type unit distance between left and right sides | number | 4 | 4.3.0 |
 
 > Tip: You can set `icon` or `children` as the fallback for image load error, with the priority of `icon` > `children`
+
+### Avatar.Group (4.5.0+)
+
+| 参数                | 说明                                   | 类型              | 默认值 | 版本 |
+| ------------------- | -------------------------------------- | ----------------- | ------ | ---- |
+| maxCount            | Max avatars to show                    | number            | -      |      |
+| maxStyle            | The style of excess avatar style       | CSSProperties     | -      |      |
+| maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top`  |      |

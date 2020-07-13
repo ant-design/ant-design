@@ -99,9 +99,9 @@ class App extends React.Component {
   render() {
     const { targetKeys } = this.state;
     return (
-      <div>
+      <>
         <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={this.onChange} />
-      </div>
+      </>
     );
   }
 }

@@ -314,6 +314,10 @@ validator(rule, value, callback) => {
 }
 ```
 
+### How does name fill value when it's array?
+
+`name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.
+
 ### Why is there a form warning when used in Modal?
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?

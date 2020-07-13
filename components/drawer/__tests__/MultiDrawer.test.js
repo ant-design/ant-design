@@ -40,7 +40,7 @@ class MultiDrawer extends React.Component {
 
   render() {
     const { childrenDrawer, visible, hasChildren } = this.state;
-    const { placement } = this.props;
+    const { placement, push } = this.props;
     return (
       <div>
         <Button type="primary" id="open_drawer" onClick={this.showDrawer}>
@@ -57,6 +57,7 @@ class MultiDrawer extends React.Component {
           getContainer={false}
           placement={placement}
           visible={visible}
+          push={push}
         >
           <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
             Two-level drawer
@@ -146,5 +147,29 @@ describe('Drawer', () => {
     translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateY(180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
+  });
+
+  it('custom MultiDrawer push distance', () => {
+    const wrapper = mount(<MultiDrawer push={{ distance: 256 }} />);
+    wrapper.find('button#open_drawer').simulate('click');
+    wrapper.find('button#open_two_drawer').simulate('click');
+    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    expect(translateX).toEqual('translateX(-256px)');
+  });
+
+  it('custom MultiDrawer push with true', () => {
+    const wrapper = mount(<MultiDrawer push />);
+    wrapper.find('button#open_drawer').simulate('click');
+    wrapper.find('button#open_two_drawer').simulate('click');
+    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    expect(translateX).toEqual('translateX(-180px)');
+  });
+
+  it('custom MultiDrawer push with false', () => {
+    const wrapper = mount(<MultiDrawer push={false} />);
+    wrapper.find('button#open_drawer').simulate('click');
+    wrapper.find('button#open_two_drawer').simulate('click');
+    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    expect(translateX).toBeUndefined();
   });
 });

@@ -559,7 +559,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
 `;
 
 exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom:8px"
@@ -641,7 +641,7 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
         Right
       </span>
     </label>
-  </div>
+  </div>,
   <div
     class="ant-carousel"
   >
@@ -854,6 +854,6 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

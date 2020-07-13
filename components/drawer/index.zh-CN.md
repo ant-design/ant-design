@@ -17,8 +17,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |
@@ -43,3 +43,4 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
 | footer | 抽屉的页脚 | ReactNode | - |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |
+| push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |

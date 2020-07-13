@@ -2042,7 +2042,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
-<div>
+Array [
   <span
     class=""
   >
@@ -2253,9 +2253,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="upload-list-inline"
   >
@@ -2466,118 +2466,114 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
-<div>
-  <span
-    class=""
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
   >
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-picture"
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
     >
-      <span
-        class="ant-upload"
-        role="button"
-        tabindex="0"
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <button
+        class="ant-btn"
+        type="button"
       >
-        <input
-          accept=""
-          style="display:none"
-          type="file"
-        />
-        <button
-          class="ant-btn"
-          type="button"
+        <span
+          aria-label="upload"
+          class="anticon anticon-upload"
+          role="img"
         >
-          <span
-            aria-label="upload"
-            class="anticon anticon-upload"
-            role="img"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="upload"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="upload"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-             Upload
-          </span>
-        </button>
-      </span>
-    </div>
-    <div
-      class="ant-upload-list ant-upload-list-picture"
-    />
-  </span>
-</div>
+            <path
+              d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+        <span>
+           Upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  />
+</span>
 `;
 
 exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
-<div>
-  <span
-    class=""
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text"
   >
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-text"
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
     >
-      <span
-        class="ant-upload"
-        role="button"
-        tabindex="0"
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <button
+        class="ant-btn"
+        type="button"
       >
-        <input
-          accept=""
-          style="display:none"
-          type="file"
-        />
-        <button
-          class="ant-btn"
-          type="button"
+        <span
+          aria-label="upload"
+          class="anticon anticon-upload"
+          role="img"
         >
-          <span
-            aria-label="upload"
-            class="anticon anticon-upload"
-            role="img"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="upload"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="upload"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-             Upload
-          </span>
-        </button>
-      </span>
-    </div>
-    <div
-      class="ant-upload-list ant-upload-list-text"
-    />
-  </span>
-</div>
+            <path
+              d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+        <span>
+           Upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
 `;
 
 exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly 1`] = `
@@ -2891,7 +2887,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
 `;
 
 exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
-<div>
+Array [
   <span
     class=""
   >
@@ -2941,7 +2937,7 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
     <div
       class="ant-upload-list ant-upload-list-text"
     />
-  </span>
+  </span>,
   <button
     class="ant-btn ant-btn-primary"
     disabled=""
@@ -2951,8 +2947,8 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
     <span>
       Start Upload
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`] = `
