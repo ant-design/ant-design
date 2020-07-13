@@ -123,6 +123,16 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
+### Modal.config()
+
+Like `message.config()`, `Modal.config()` could set `Modal.confirm` props globally (such as `prefixCls`), and it will affect `Modal.confirm|success|info|error|warning` **static methods only**.
+
+```jsx
+Modal.config({
+  prefixCls: 'my-modal',
+});
+```
+
 ## FAQ
 
 ### Why I can not access context, redux in Modal.xxx?

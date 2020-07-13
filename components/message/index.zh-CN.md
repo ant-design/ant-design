@@ -79,6 +79,7 @@ message.config({
   duration: 2,
   maxCount: 3,
   rtl: true,
+  prefixCls: 'my-message',
 });
 ```
 
@@ -89,3 +90,4 @@ message.config({
 | maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |
 | top | 消息距离顶部的位置 | number | 24 |
 | rtl | 是否开启 RTL 模式 | boolean | false |
+| prefixCls | 消息节点的 className 前缀 | string | 'ant-message' |

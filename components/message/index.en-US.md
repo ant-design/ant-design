@@ -78,6 +78,7 @@ message.config({
   duration: 2,
   maxCount: 3,
   rtl: true,
+  prefixCls: 'my-message',
 });
 ```
 
@@ -88,3 +89,4 @@ message.config({
 | maxCount | Max message show, drop oldest if exceed limit | number | - |
 | top | Distance from top | number | 24 |
 | rtl | Whether to enable RTL mode | boolean | false |
+| prefixCls | prefix className of message node | string | 'ant-message' |

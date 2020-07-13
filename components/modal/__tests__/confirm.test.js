@@ -294,4 +294,30 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn-primary')[0].click();
     expect(onOk).toHaveBeenCalledTimes(3);
   });
+
+  it('should be able to config prefixCls', () => {
+    jest.useFakeTimers();
+    Modal.config({
+      prefixCls: 'prefix-test',
+    });
+    confirm({
+      title: 'title',
+    });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-modal-confirm').length).toBe(0);
+    expect(document.querySelectorAll('.prefix-test-confirm').length).toBe(1);
+    Modal.config({
+      prefixCls: 'prefix2',
+    });
+    confirm({
+      title: 'title',
+    });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-modal-confirm').length).toBe(0);
+    expect(document.querySelectorAll('.prefix2-confirm').length).toBe(1);
+    Modal.config({
+      prefixCls: 'ant-modal',
+    });
+    jest.useRealTimers();
+  });
 });
