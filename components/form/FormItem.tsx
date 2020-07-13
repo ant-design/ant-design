@@ -159,10 +159,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) mergedValidateStatus = validateStatus;
-    else if (meta?.validating) mergedValidateStatus = 'validating';
-    else if (meta?.errors?.length) mergedValidateStatus = 'error';
-    else if (meta?.touched) mergedValidateStatus = 'success';
+    if (validateStatus !== undefined) {
+      mergedValidateStatus = validateStatus;
+    } else if (meta?.validating) {
+      mergedValidateStatus = 'validating';
+    } else if (meta?.errors?.length) {
+      mergedValidateStatus = 'error';
+    } else if (meta?.touched) {
+      mergedValidateStatus = 'success';
+    }
 
     if (domErrorVisible && help) {
       prevValidateStatusRef.current = mergedValidateStatus;
