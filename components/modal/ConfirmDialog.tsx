@@ -28,6 +28,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelText,
     cancelButtonProps,
     direction,
+    prefixCls,
   } = props;
 
   devWarning(
@@ -38,7 +39,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
   const okType = props.okType || 'primary';
-  const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
   // 默认为 true，保持向下兼容
   const okCancel = 'okCancel' in props ? props.okCancel! : true;
