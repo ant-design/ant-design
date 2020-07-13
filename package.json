@@ -173,7 +173,7 @@
     "antd-img-crop": "^3.1.1",
     "antd-pro-merge-less": "^3.0.9",
     "antd-theme-generator": "^1.2.3",
-    "array-move": "^2.2.1",
+    "array-move": "^3.0.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^1.5.3",
