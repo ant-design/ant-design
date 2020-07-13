@@ -15,6 +15,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 
 ## API
 
+另外我们封装了 [ProList](https://prolist.ant.design/)，在 `antd` List 之上扩展了更多便捷易用的功能，比如多选，展开等功能，使用体验贴近 Table，欢迎尝试使用。
+
 ### List
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
