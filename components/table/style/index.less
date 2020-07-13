@@ -5,6 +5,7 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
@@ -482,6 +483,11 @@
       > td {
         background: @table-expanded-row-bg;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/25573
+    .@{descriptions-prefix-cls}-view table {
+      width: auto;
     }
   }
 
