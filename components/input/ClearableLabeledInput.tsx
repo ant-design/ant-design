@@ -28,6 +28,7 @@ interface BasicProps {
   direction?: any;
   focused?: boolean;
   readOnly?: boolean;
+  bordered: boolean;
 }
 
 /**
@@ -102,6 +103,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       direction,
       style,
       readOnly,
+      bordered,
     } = this.props;
     const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
@@ -120,6 +122,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
       [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
       [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+      [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
     });
     return (
       <span
@@ -132,7 +135,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         {cloneElement(element, {
           style: null,
           value,
-          className: getInputClassName(prefixCls, size, disabled),
+          className: getInputClassName(prefixCls, bordered, size, disabled),
         })}
         {suffixNode}
       </span>
