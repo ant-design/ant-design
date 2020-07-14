@@ -125,7 +125,7 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
-### Modal.config()
+### Modal.config() `4.5.0+`
 
 类似 `message.config()`，全局设置 `Modal.confirm` 等方法的属性（如 `prefixCls`）。
 
