@@ -89,4 +89,4 @@ message.config({
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | top | Distance from top | number | 24 |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
-| prefixCls | prefix className of message node | string | `ant-message` | 4.5.0 |
+| prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
