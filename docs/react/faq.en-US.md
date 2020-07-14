@@ -120,13 +120,13 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 ```js
 message.config({
-  prefixCls: 'my-message',
+  prefixCls: 'ant-message',
 });
 notification.config({
-  prefixCls: 'my-notification',
+  prefixCls: 'ant-notification',
 });
 Modal.config({
-  prefixCls: 'my-modal',
+  rootPrefixCls: 'ant',
 });
 ```
 

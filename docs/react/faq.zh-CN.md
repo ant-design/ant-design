@@ -120,19 +120,19 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage]([message.useMessage](https://ant.design/components/message-cn/#components-message-demo-hooks))、[notification.useNotification](https://ant.design/components/notification-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F) 和 [Modal.useModal](https://ant.design/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](<[message.useMessage](https://ant.design/components/message-cn/#components-message-demo-hooks)>)、[notification.useNotification](https://ant.design/components/notification-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F) 和 [Modal.useModal](https://ant.design/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F) 来调用这些方法。
 
 2. 使用 `message.config`、`notification.config` 和 `Modal.config` 方法全局设置 `prefixCls`。
 
 ```js
 message.config({
-  prefixCls: 'my-message',
+  prefixCls: 'ant-message',
 });
 notification.config({
-  prefixCls: 'my-notification',
+  prefixCls: 'ant-notification',
 });
 Modal.config({
-  prefixCls: 'my-modal',
+  rootPrefixCls: 'ant', // 因为 Modal.confirm 里有 button，所以 `prefixCls: 'ant-modal'` 不够用。
 });
 ```
 

@@ -129,7 +129,7 @@ Like `message.config()`, `Modal.config()` could set `Modal.confirm` props global
 
 ```jsx
 Modal.config({
-  prefixCls: 'my-modal',
+  rootPrefixCls: 'ant',
 });
 ```
 
