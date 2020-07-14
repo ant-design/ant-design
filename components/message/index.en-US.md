@@ -82,11 +82,11 @@ message.config({
 });
 ```
 
-| Argument | Description | Type | Default |
-| --- | --- | --- | --- |
-| duration | Time before auto-dismiss, in seconds | number | 1.5 |
-| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
-| maxCount | Max message show, drop oldest if exceed limit | number | - |
-| top | Distance from top | number | 24 |
-| rtl | Whether to enable RTL mode | boolean | false |
-| prefixCls | prefix className of message node | string | 'ant-message' |
+| Argument | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| duration | Time before auto-dismiss, in seconds | number | 1.5 |  |
+| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
+| maxCount | Max message show, drop oldest if exceed limit | number | - |  |
+| top | Distance from top | number | 24 |  |
+| rtl | Whether to enable RTL mode | boolean | false |  |
+| prefixCls | prefix className of message node | string | `ant-message` | 4.5.0 |
