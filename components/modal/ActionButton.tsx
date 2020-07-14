@@ -7,7 +7,7 @@ export interface ActionButtonProps {
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
   closeModal: Function;
   autoFocus?: boolean;
-  prefixCls?: string;
+  prefixCls: string;
   buttonProps?: ButtonProps;
 }
 
