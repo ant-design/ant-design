@@ -98,6 +98,20 @@ describe('Calendar', () => {
     expect(disabledDate(Moment('2018-04-02'))).toBe(false);
   });
 
+  it('validRange should work with disabledDate function', () => {
+    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const wrapper = mount(
+      <Calendar validRange={validRange} disabledDate={data => data.isSame(Moment('2018-02-03'))} />,
+    );
+
+    const { disabledDate } = wrapper.find('PickerPanel').props();
+    expect(disabledDate(Moment('2018-02-01'))).toBe(true);
+    expect(disabledDate(Moment('2018-02-02'))).toBe(false);
+    expect(disabledDate(Moment('2018-02-03'))).toBe(true);
+    expect(disabledDate(Moment('2018-02-04'))).toBe(false);
+    expect(disabledDate(Moment('2018-06-01'))).toBe(true);
+  });
+
   it('Calendar should change mode by prop', () => {
     const monthMode = 'month';
     const yearMode = 'year';
