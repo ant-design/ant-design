@@ -217,22 +217,16 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('prefixCls', () => {
-    jest.useFakeTimers();
     open({ prefixCls: 'custom-modal' });
-    jest.runAllTimers();
     expect($$('.custom-modal-mask')).toHaveLength(1);
     expect($$('.custom-modal-wrap')).toHaveLength(1);
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
-    jest.useRealTimers();
   });
 
   it('should be Modal.confirm without mask', () => {
-    jest.useFakeTimers();
     open({ mask: false });
-    jest.runAllTimers();
     expect($$('.ant-modal-mask')).toHaveLength(0);
-    jest.useRealTimers();
   });
 
   it('destroyFns should reduce when instance.destroy', () => {
@@ -279,19 +273,15 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('ok button should trigger onOk once when click it many times quickly', () => {
-    jest.useFakeTimers();
     const onOk = jest.fn();
     open({ onOk });
-    jest.runAllTimers();
     $$('.ant-btn-primary')[0].click();
     $$('.ant-btn-primary')[0].click();
     expect(onOk).toHaveBeenCalledTimes(1);
-    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/23358
   it('ok button should trigger onOk multiple times when onOk has close argument', () => {
-    jest.useFakeTimers();
     const onOk = jest.fn();
     open({
       onOk: close => {
@@ -299,11 +289,35 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         (() => {})(close); // do nothing
       },
     });
-    jest.runAllTimers();
     $$('.ant-btn-primary')[0].click();
     $$('.ant-btn-primary')[0].click();
     $$('.ant-btn-primary')[0].click();
     expect(onOk).toHaveBeenCalledTimes(3);
+  });
+
+  it('should be able to config prefixCls', () => {
+    jest.useFakeTimers();
+    Modal.config({
+      prefixCls: 'prefix-test',
+    });
+    confirm({
+      title: 'title',
+    });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-modal-confirm').length).toBe(0);
+    expect(document.querySelectorAll('.prefix-test-confirm').length).toBe(1);
+    Modal.config({
+      prefixCls: 'prefix2',
+    });
+    confirm({
+      title: 'title',
+    });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-modal-confirm').length).toBe(0);
+    expect(document.querySelectorAll('.prefix2-confirm').length).toBe(1);
+    Modal.config({
+      prefixCls: 'ant-modal',
+    });
     jest.useRealTimers();
   });
 });
