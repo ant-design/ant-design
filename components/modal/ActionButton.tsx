@@ -7,6 +7,7 @@ export interface ActionButtonProps {
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
   closeModal: Function;
   autoFocus?: boolean;
+  prefixCls: string;
   buttonProps?: ButtonProps;
 }
 
@@ -76,12 +77,13 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     handlePromiseOnOk(returnValueOfOnOk);
   };
 
-  const { type, children, buttonProps } = props;
+  const { type, children, prefixCls, buttonProps } = props;
   return (
     <Button
       {...convertLegacyProps(type)}
       onClick={onClick}
       loading={loading}
+      prefixCls={prefixCls}
       {...buttonProps}
       ref={ref}
     >

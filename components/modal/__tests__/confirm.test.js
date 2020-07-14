@@ -295,28 +295,32 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onOk).toHaveBeenCalledTimes(3);
   });
 
-  it('should be able to config prefixCls', () => {
+  it('should be able to config rootPrefixCls', () => {
     jest.useFakeTimers();
     Modal.config({
-      prefixCls: 'prefix-test',
+      rootPrefixCls: 'my',
     });
     confirm({
       title: 'title',
     });
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-modal-confirm').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-confirm').length).toBe(1);
+    expect(document.querySelectorAll('.ant-btn').length).toBe(0);
+    expect(document.querySelectorAll('.my-btn').length).toBe(2);
+    expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
     Modal.config({
-      prefixCls: 'prefix2',
+      rootPrefixCls: 'your',
     });
     confirm({
       title: 'title',
     });
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-modal-confirm').length).toBe(0);
-    expect(document.querySelectorAll('.prefix2-confirm').length).toBe(1);
+    expect(document.querySelectorAll('.ant-btn').length).toBe(0);
+    expect(document.querySelectorAll('.my-btn').length).toBe(2);
+    expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
+    expect(document.querySelectorAll('.your-btn').length).toBe(2);
+    expect(document.querySelectorAll('.your-modal-confirm').length).toBe(1);
     Modal.config({
-      prefixCls: 'ant-modal',
+      rootPrefixCls: 'ant',
     });
     jest.useRealTimers();
   });

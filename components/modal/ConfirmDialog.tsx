@@ -8,6 +8,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close: (...args: any[]) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
+  rootPrefixCls?: string;
 }
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
@@ -29,6 +30,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelButtonProps,
     direction,
     prefixCls,
+    rootPrefixCls,
   } = props;
 
   devWarning(
@@ -64,6 +66,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       closeModal={close}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
+      prefixCls={`${rootPrefixCls}-btn`}
     >
       {cancelText}
     </ActionButton>
@@ -107,6 +110,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
             closeModal={close}
             autoFocus={autoFocusButton === 'ok'}
             buttonProps={okButtonProps}
+            prefixCls={`${rootPrefixCls}-btn`}
           >
             {okText}
           </ActionButton>

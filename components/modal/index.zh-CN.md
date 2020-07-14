@@ -133,7 +133,7 @@ return <div>{contextHolder}</div>;
 
 ```jsx
 Modal.config({
-  prefixCls: 'my-modal',
+  rootPrefixCls: 'ant',
 });
 ```
 

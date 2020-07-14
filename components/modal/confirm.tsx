@@ -8,13 +8,10 @@ import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 
-let defaultPrefixCls = 'ant-modal';
+let defaultRootPrefixCls = 'ant';
 
-function getPrefixCls(prefixCls: string) {
-  if (prefixCls) {
-    return prefixCls;
-  }
-  return defaultPrefixCls;
+function getRootPrefixCls() {
+  return defaultRootPrefixCls;
 }
 
 export type ModalFunc = (
@@ -68,7 +65,8 @@ export default function confirm(config: ModalFuncProps) {
       ReactDOM.render(
         <ConfirmDialog
           {...props}
-          prefixCls={getPrefixCls(prefixCls)}
+          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
+          rootPrefixCls={getRootPrefixCls()}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
@@ -149,8 +147,8 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
   };
 }
 
-export function globalConfig({ prefixCls }: { prefixCls?: string }) {
-  if (prefixCls) {
-    defaultPrefixCls = prefixCls;
+export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
+  if (rootPrefixCls) {
+    defaultRootPrefixCls = rootPrefixCls;
   }
 }
