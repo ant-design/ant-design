@@ -75,7 +75,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     return (
       <RcTextArea
         {...omit(this.props, ['allowClear', 'bordered'])}
-        className={classNames({
+        className={classNames(this.props.className, {
           [`${prefixCls}-borderless`]: !bordered,
         })}
         prefixCls={prefixCls}

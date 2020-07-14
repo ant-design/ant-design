@@ -49,7 +49,6 @@ Array [
             >
               <span
                 class="ant-select-selection-search"
-                title="http://"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -68,6 +67,7 @@ Array [
               </span>
               <span
                 class="ant-select-selection-item"
+                title="http://"
               >
                 http://
               </span>
@@ -117,7 +117,6 @@ Array [
             >
               <span
                 class="ant-select-selection-search"
-                title=".com"
               >
                 <input
                   aria-activedescendant="undefined_list_0"
@@ -136,6 +135,7 @@ Array [
               </span>
               <span
                 class="ant-select-selection-item"
+                title=".com"
               >
                 .com
               </span>
@@ -526,7 +526,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Jack"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -545,6 +544,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Jack"
       >
         Jack
       </span>
@@ -1258,7 +1258,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Zhejiang"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1277,6 +1276,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Zhejiang"
         >
           Zhejiang
         </span>
@@ -1374,7 +1374,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Option1"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1393,6 +1392,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Option1"
         >
           Option1
         </span>
@@ -1668,7 +1668,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Option1-1"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1687,6 +1686,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Option1-1"
         >
           Option1-1
         </span>
@@ -1727,7 +1727,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Option2-2"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1746,6 +1745,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Option2-2"
         >
           Option2-2
         </span>
@@ -1791,7 +1791,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Between"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1810,6 +1809,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Between"
         >
           Between
         </span>
@@ -1878,7 +1878,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Sign Up"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1897,6 +1896,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Sign Up"
         >
           Sign Up
         </span>
@@ -1972,7 +1972,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <span
           class="ant-select-selection-search"
-          title="Home"
         >
           <input
             aria-activedescendant="undefined_list_0"
@@ -1991,6 +1990,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Home"
         >
           Home
         </span>
