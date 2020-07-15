@@ -123,21 +123,16 @@ describe('message.hooks', () => {
   it('should work with close promise', done => {
     // if not use real timer, done won't be called
     jest.useRealTimers();
-    const Context = React.createContext('light');
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
-        <Context.Provider value="bamboo">
+        <>
           <button
             type="button"
             onClick={() => {
               api
                 .open({
-                  content: (
-                    <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
-                    </Context.Consumer>
-                  ),
+                  content: 'good',
                   duration: 1,
                 })
                 .then(() => {
@@ -146,7 +141,7 @@ describe('message.hooks', () => {
             }}
           />
           {holder}
-        </Context.Provider>
+        </>
       );
     };
 
@@ -157,27 +152,20 @@ describe('message.hooks', () => {
 
   it('should work with hide', () => {
     let hide;
-    const Context = React.createContext('light');
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <ConfigProvider prefixCls="my-test">
-          <Context.Provider value="bamboo">
-            <button
-              type="button"
-              onClick={() => {
-                hide = api.open({
-                  content: (
-                    <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
-                    </Context.Consumer>
-                  ),
-                  duration: 0,
-                });
-              }}
-            />
-            {holder}
-          </Context.Provider>
+          <button
+            type="button"
+            onClick={() => {
+              hide = api.open({
+                content: 'nice',
+                duration: 0,
+              });
+            }}
+          />
+          {holder}
         </ConfigProvider>
       );
     };
