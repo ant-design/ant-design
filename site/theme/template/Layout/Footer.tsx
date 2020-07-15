@@ -110,9 +110,9 @@ class Footer extends React.Component<WrappedComponentProps> {
             openExternal: true,
           },
           {
-            title: 'Umi Hooks',
+            title: 'ahooks',
             description: <FormattedMessage id="app.footer.hooks" />,
-            url: 'https://github.com/umijs/hooks',
+            url: 'https://github.com/alibaba/hooks',
             openExternal: true,
           },
           {

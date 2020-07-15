@@ -8,7 +8,7 @@ title: 社区精选组件
 | 类型 | 推荐组件 |
 | --- | --- |
 | 可视化图表 | [AntV 数据可视化解决方案](https://antv.vision/zh) [🔥 AntV 图表库](https://g2plot.antv.vision/zh) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
-| React Hooks 库 | [umi-hooks](https://github.com/umijs/hooks) |
+| React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](https://github.com/whoisandy/react-blocks) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
