@@ -77,9 +77,10 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 #### Input.Password
 
-| 参数             | 说明             | 类型    | 默认值 |
-| ---------------- | ---------------- | ------- | ------ |
-| visibilityToggle | 是否显示切换按钮 | boolean | true   |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| visibilityToggle | 是否显示切换按钮 | boolean | true |  |
+| iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 
 ## FAQ
 
