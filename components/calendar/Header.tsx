@@ -95,7 +95,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
   const month = generateConfig.getMonth(value);
 
   let start = 0;
-  let end = 12;
+  let end = 11;
 
   if (validRange) {
     const [rangeStart, rangeEnd] = validRange;
@@ -110,7 +110,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
 
   const months = locale.shortMonths || generateConfig.locale.getShortMonths!(locale.locale);
   const options: { label: string; value: number }[] = [];
-  for (let index = start; index < end; index += 1) {
+  for (let index = start; index <= end; index += 1) {
     options.push({
       label: months[index],
       value: index,
