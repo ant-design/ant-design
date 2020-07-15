@@ -22,7 +22,7 @@ ReactDOM.render(
     <Input.Password placeholder="input password" />
     <Input.Password
       placeholder="input password"
-      iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+      visibilityToggle
     />
   </Space>,
   mountNode,
