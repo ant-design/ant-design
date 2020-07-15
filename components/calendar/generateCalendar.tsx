@@ -122,7 +122,8 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     );
 
     // Disabled Date
-    const mergedDisabledDate = React.useMemo(() => (date: DateType) => {
+    const mergedDisabledDate = React.useCallback(
+      (date: DateType) => {
         const notInRange = validRange
           ? generateConfig.isAfter(validRange[0], date) ||
             generateConfig.isAfter(date, validRange[1])
