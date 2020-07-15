@@ -98,6 +98,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
+        indeterminate: record.name === 'Tom',
         name: record.name,
       }),
     };
@@ -109,6 +110,22 @@ describe('Table.rowSelection', () => {
     expect(checkboxes.at(1).props().name).toEqual(data[0].name);
     expect(checkboxes.at(2).props().disabled).toBe(true);
     expect(checkboxes.at(2).props().name).toEqual(data[1].name);
+
+    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
+  });
+
+  it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
+    const rowSelection = {
+      getCheckboxProps: record => ({
+        disabled: record.name === 'Lucy',
+        indeterminate: record.name === 'Tom',
+        name: record.name,
+      }),
+      selectedRowKeys: [2],
+    };
+
+    const wrapper = mount(createTable({ rowSelection }));
+    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
   });
 
   it('works with pagination', () => {
