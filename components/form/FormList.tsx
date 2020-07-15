@@ -11,7 +11,7 @@ interface FieldData {
 
 interface Operation {
   add: (defaultValue?: StoreValue) => void;
-  remove: (index: number) => void;
+  remove: (index: number | number[]) => void;
   move: (from: number, to: number) => void;
 }
 
