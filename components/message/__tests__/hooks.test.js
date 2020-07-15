@@ -89,20 +89,15 @@ describe('message.hooks', () => {
   it('should work with onClose', done => {
     // if not use real timer, done won't be called
     jest.useRealTimers();
-    const Context = React.createContext('light');
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
-        <Context.Provider value="bamboo">
+        <>
           <button
             type="button"
             onClick={() => {
               api.open({
-                content: (
-                  <Context.Consumer>
-                    {name => <span className="hook-test-result">{name}</span>}
-                  </Context.Consumer>
-                ),
+                content: 'amazing',
                 duration: 1,
                 onClose() {
                   done();
@@ -111,7 +106,7 @@ describe('message.hooks', () => {
             }}
           />
           {holder}
-        </Context.Provider>
+        </>
       );
     };
 
