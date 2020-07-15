@@ -168,6 +168,16 @@ Provides array management for fields.
 </Form.List>
 ```
 
+## operation
+
+Some operator functions in render form of Form.List.
+
+| Property | Description      | Type                                | Default         |
+| -------- | ---------------- | ----------------------------------- | --------------- |
+| add      | add form item    | (defaultValue?: any) => void        | -               |
+| remove   | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move     | move form item   | (from: number, to: number) => void  | -               |
+
 ## Form.Provider
 
 Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
