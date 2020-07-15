@@ -181,7 +181,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement) {
-    const { value, allowClear, className, style, direction } = this.props;
+    const { value, allowClear, className, style, direction, bordered } = this.props;
     if (!allowClear) {
       return cloneElement(element, {
         value,
@@ -190,8 +190,11 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     const affixWrapperCls = classNames(
       className,
       `${prefixCls}-affix-wrapper`,
-      { [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl' },
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
+      {
+        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+      },
     );
     return (
       <span className={affixWrapperCls} style={style}>

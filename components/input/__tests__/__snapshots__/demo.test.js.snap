@@ -1073,25 +1073,27 @@ exports[`renders ./components/input/demo/borderless.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
-Array [
+<div
+  style="background-color:rgba(0, 0, 128, .2)"
+>
   <input
     class="ant-input ant-input-borderless"
     placeholder="Unbordered"
     type="text"
     value=""
-  />,
+  />
   <input
     class="ant-input ant-input-lg ant-input-borderless"
     placeholder="Unbordered"
     type="text"
     value=""
-  />,
+  />
   <textarea
     class="ant-input ant-input-borderless"
     placeholder="Unbordered"
-  />,
+  />
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
   >
     <textarea
       class="ant-input ant-input-borderless"
@@ -1118,7 +1120,7 @@ Array [
         />
       </svg>
     </span>
-  </span>,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
@@ -1153,7 +1155,7 @@ Array [
         </svg>
       </span>
     </span>
-  </span>,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
@@ -1172,7 +1174,7 @@ Array [
     >
       RMB
     </span>
-  </span>,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-affix-wrapper-borderless"
   >
@@ -1192,8 +1194,8 @@ Array [
     >
       RMB
     </span>
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`renders ./components/input/demo/group.md correctly 1`] = `
