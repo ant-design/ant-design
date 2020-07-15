@@ -177,7 +177,7 @@ Form.List 渲染表单相关操作函数。
 | 参数   | 说明       | 类型                                | 默认值 |
 | ------ | ---------- | ----------------------------------- | ------ |
 | add    | 新增表单项 | (defaultValue?: any) => void        | -      |
-| remove | 删除表单项 | (index: number \| number[]) => void | -      |
+| remove | 删除表单项 | (index: number \| number[]) => void | 4.5.0  |
 | move   | 移动表单项 | (from: number, to: number) => void  | -      |
 
 ## Form.Provider
