@@ -93,27 +93,25 @@ describe('message.hooks', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
-        <ConfigProvider prefixCls="my-test">
-          <Context.Provider value="bamboo">
-            <button
-              type="button"
-              onClick={() => {
-                api.open({
-                  content: (
-                    <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
-                    </Context.Consumer>
-                  ),
-                  duration: 1,
-                  onClose() {
-                    done();
-                  },
-                });
-              }}
-            />
-            {holder}
-          </Context.Provider>
-        </ConfigProvider>
+        <Context.Provider value="bamboo">
+          <button
+            type="button"
+            onClick={() => {
+              api.open({
+                content: (
+                  <Context.Consumer>
+                    {name => <span className="hook-test-result">{name}</span>}
+                  </Context.Consumer>
+                ),
+                duration: 1,
+                onClose() {
+                  done();
+                },
+              });
+            }}
+          />
+          {holder}
+        </Context.Provider>
       );
     };
 
@@ -129,28 +127,26 @@ describe('message.hooks', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
-        <ConfigProvider prefixCls="my-test">
-          <Context.Provider value="bamboo">
-            <button
-              type="button"
-              onClick={() => {
-                api
-                  .open({
-                    content: (
-                      <Context.Consumer>
-                        {name => <span className="hook-test-result">{name}</span>}
-                      </Context.Consumer>
-                    ),
-                    duration: 1,
-                  })
-                  .then(() => {
-                    done();
-                  });
-              }}
-            />
-            {holder}
-          </Context.Provider>
-        </ConfigProvider>
+        <Context.Provider value="bamboo">
+          <button
+            type="button"
+            onClick={() => {
+              api
+                .open({
+                  content: (
+                    <Context.Consumer>
+                      {name => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
+                  duration: 1,
+                })
+                .then(() => {
+                  done();
+                });
+            }}
+          />
+          {holder}
+        </Context.Provider>
       );
     };
 
