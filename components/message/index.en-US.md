@@ -90,3 +90,27 @@ message.config({
 | top | Distance from top | number | 24 |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
+
+## FAQ
+
+### Why I can not access context, redux in message?
+
+antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context.
+
+When you need context info (like ConfigProvider context), you can use `message.useMessage` to get `api` instance and `contextHolder` node. And put it in your children:
+
+```tsx
+const [api, contextHolder] = message.useMessage();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder is inside Context1 which means api will get value of Context1 */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder is outside Context2 which means api will **not** get value of Context2 */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
