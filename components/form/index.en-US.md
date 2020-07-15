@@ -174,7 +174,7 @@ Some operator functions in render form of Form.List.
 
 | Property | Description      | Type                                | Default |
 | -------- | ---------------- | ----------------------------------- | ------- |
-| add      | add form item    | (index: number) => void             | -       |
+| add      | add form item    | (defaultValue?: any) => void        | -       |
 | remove   | remove form item | (index: number \| number[]) => void | -       |
 | move     | move form item   | (from: number, to: number) => void  | -       |
 
