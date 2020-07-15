@@ -13,6 +13,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
       value=""
     >
       <ClearableLabeledInput
+        bordered={true}
         element={
           <input
             className="ant-input"
@@ -141,6 +142,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
       value="a"
     >
       <ClearableLabeledInput
+        bordered={true}
         element={
           <input
             className="ant-input"
