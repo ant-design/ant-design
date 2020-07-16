@@ -34,7 +34,7 @@ class LocalizedModal extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showModal}>
           Modal
         </Button>
@@ -50,7 +50,7 @@ class LocalizedModal extends React.Component {
           <p>Bla bla ...</p>
           <p>Bla bla ...</p>
         </Modal>
-      </div>
+      </>
     );
   }
 }
