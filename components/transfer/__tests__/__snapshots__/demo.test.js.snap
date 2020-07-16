@@ -3763,7 +3763,9 @@ Array [
                     tabindex="0"
                     title="1"
                   >
-                    <a>
+                    <a
+                      rel="nofollow"
+                    >
                       1
                     </a>
                   </li>
@@ -3772,7 +3774,9 @@ Array [
                     tabindex="0"
                     title="2"
                   >
-                    <a>
+                    <a
+                      rel="nofollow"
+                    >
                       2
                     </a>
                   </li>
@@ -4198,7 +4202,9 @@ Array [
                     tabindex="0"
                     title="1"
                   >
-                    <a>
+                    <a
+                      rel="nofollow"
+                    >
                       1
                     </a>
                   </li>
