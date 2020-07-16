@@ -8,7 +8,7 @@ title: Third-Party Libraries
 | Category | Recommended Components |
 | --- | --- |
 | Visualization and charts | [AntV Data Visualization](https://antv.vision/en) [🔥 AntV Charting Library](https://g2plot.antv.vision/en) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
-| React Hooks Library | [umi-hooks](https://github.com/umijs/hooks) |
+| React Hooks Library | [ahooks](https://github.com/alibaba/hooks) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
 | Layout | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](http://whoisandy.github.io/react-blocks/) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | Drag and drop | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
