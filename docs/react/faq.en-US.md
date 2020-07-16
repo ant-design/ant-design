@@ -99,18 +99,18 @@ If you need some features which should not be included in antd, try to extend an
 
 You can configure `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
 
-### When I set `mode` to DatePicker/RangePicker, why can I not select a year or month anymore?
+### When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
 
 In a real world development, you may need a `YearPicker`, `MonthRangePicker` or `WeekRangePicker`. You are trying to add `mode` to `DatePicker`/`RangePicker` expected to implement those pickers. However, the `DatePicker`/`RangePicker` cannot be selected and the panels won't close now.
 
 - Reproduction link: https://codesandbox.io/s/dank-brook-v1csy
 - Same issues：[#15572](https://github.com/ant-design/ant-design/issues/15572), [#16436](https://github.com/ant-design/ant-design/issues/16436), [#11938](https://github.com/ant-design/ant-design/issues/11938), [#11735](https://github.com/ant-design/ant-design/issues/11735), [#11586](https://github.com/ant-design/ant-design/issues/11586), [#10425](https://github.com/ant-design/ant-design/issues/10425), [#11053](https://github.com/ant-design/ant-design/issues/11053)
 
-Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker/RangePicker` (for instance you will still need to click date cell to finish selection in a DatePicker, whatever the `mode` is).
+Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
 
 ##### Workaround
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are already planning to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirments.
+You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are already planning to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements.
 
 ### How to spell Ant Design correctly?
 
