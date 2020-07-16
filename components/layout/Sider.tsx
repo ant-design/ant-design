@@ -195,7 +195,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
           )}
           style={zeroWidthTriggerStyle}
         >
-          <BarsOutlined />
+          {trigger || <BarsOutlined />}
         </span>
       ) : null;
     const iconObj = {
