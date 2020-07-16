@@ -15,7 +15,25 @@ debug: true
 Basic modal.
 
 ```jsx
-import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch, Typography, Dropdown } from 'antd';
+import {
+  Modal,
+  DatePicker,
+  Slider,
+  Tree,
+  Badge,
+  Collapse,
+  Timeline,
+  Tabs,
+  Anchor,
+  Table,
+  Card,
+  Button,
+  Calendar,
+  Transfer,
+  Switch,
+  Typography,
+  Dropdown,
+} from 'antd';
 import moment from 'moment';
 import difference from 'lodash/difference';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
@@ -287,15 +305,15 @@ class App extends React.Component {
     showSearch: false,
   };
 
-  handleDisable = (disabled) => {
+  handleDisable = disabled => {
     this.setState({
       disabled,
-    })
-  }
+    });
+  };
 
   handleTableTransferChange = nextTargetKeys => {
     this.setState({ targetKeys: nextTargetKeys });
-  }
+  };
 
   triggerDisable = disabled => {
     this.setState({ disabled });
@@ -305,7 +323,7 @@ class App extends React.Component {
     this.setState({ showSearch });
   };
 
-  handleTransferChange = (nextTargetKeys) => {
+  handleTransferChange = nextTargetKeys => {
     this.setState({ targetKeys: nextTargetKeys });
   };
 
@@ -374,7 +392,7 @@ class App extends React.Component {
       },
     ];
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showModal}>
           Open Modal
         </Button>
@@ -391,11 +409,9 @@ class App extends React.Component {
             onChange={this.handleDisable}
             style={{ marginBottom: 16 }}
           />
-           <Card title="Card Title">
+          <Card title="Card Title">
             <Card.Grid>Content</Card.Grid>
-            <Card.Grid hoverable={false}>
-              Content
-            </Card.Grid>
+            <Card.Grid hoverable={false}>Content</Card.Grid>
             <Card.Grid>Content</Card.Grid>
             <Card.Grid>Content</Card.Grid>
             <Card.Grid>Content</Card.Grid>
@@ -470,7 +486,11 @@ class App extends React.Component {
           <Anchor>
             <Link href="#components-anchor-demo-basic" title="Basic demo" />
             <Link href="#components-anchor-demo-static" title="Static demo" />
-            <Link href="#components-anchor-demo-basic" title="Basic demo with Target" target="_blank" />
+            <Link
+              href="#components-anchor-demo-basic"
+              title="Basic demo with Target"
+              target="_blank"
+            />
             <Link href="#API" title="API">
               <Link href="#Anchor-Props" title="Anchor Props" />
               <Link href="#Link-Props" title="Link Props" />
@@ -496,11 +516,7 @@ class App extends React.Component {
             <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
           </Timeline>
           <Calendar />
-          <Tree
-            showLine
-            switcherIcon={<DownOutlined />}
-            defaultExpandedKeys={['0-0-0']}
-          >
+          <Tree showLine switcherIcon={<DownOutlined />} defaultExpandedKeys={['0-0-0']}>
             <TreeNode title="parent 1" key="0-0">
               <TreeNode title="parent 1-0" key="0-0-0">
                 <TreeNode title="leaf" key="0-0-0-0" />
@@ -517,7 +533,7 @@ class App extends React.Component {
             </TreeNode>
           </Tree>
           <Table columns={columns} dataSource={data} footer={() => 'Footer'} />
-           <Table
+          <Table
             columns={columnsTable}
             dataSource={dataTable}
             pagination={false}
@@ -554,16 +570,14 @@ class App extends React.Component {
             }}
           />
           <br />
-          <Table
-            columns={columnsNest}
-            expandable={{ expandedRowRender }}
-            dataSource={dataNest}
-          />
+          <Table columns={columnsNest} expandable={{ expandedRowRender }} dataSource={dataNest} />
           <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300, y: 100 }} />
           <Card
             hoverable
             style={{ width: 240 }}
-            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            cover={
+              <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+            }
           >
             <Meta title="Europe Street beat" description="www.instagram.com" />
           </Card>
@@ -573,7 +587,7 @@ class App extends React.Component {
             <a href="#" className="head-example" />
           </Badge>
         </Modal>
-      </div>
+      </>
     );
   }
 }
