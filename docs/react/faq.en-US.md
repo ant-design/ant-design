@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ### Will you provide Sass/Stylus(etc.) style files in addition to the Less style files currently included?
 
-There is currently no plan to add support for Sass/Stylus style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
+There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
@@ -19,7 +19,7 @@ https://ant.design/components/select/#Select-props
 
 Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-### How do you prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
+### How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
 
 Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](https://ant.design/components/select-cn/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](https://ant.design/components/config-provider-cn/#API))
 
@@ -35,11 +35,11 @@ No, we follow Ant Design's design specification.
 
 Related issue: https://github.com/ant-design/ant-design/issues/1241
 
-### How do you modify `Menu`/`Button`(etc.)'s style?
+### How do I modify `Menu`/`Button`(etc.)'s style?
 
 While you can override a component's style, we don't recommend doing so. antd is not only a set of React components, but also a design specification as well.
 
-### How do you replace Moment.js with Day.js to reduce bundle size？
+### How do I replace Moment.js with Day.js to reduce bundle size？
 
 Please refer to [Replace Moment.js](/docs/react/replace-moment).
 
@@ -67,7 +67,7 @@ Alternatively, follow the instructions in [How to avoid modifying global styles?
 
 ### I cannot install `antd` and `antd`'s dependencies in mainland China.
 
-Long live the Great Firewall! To potentially solve this, try [cnpm](http://npm.taobao.org/).
+To potentially solve this, try [cnpm](http://npm.taobao.org/).
 
 ### I set `dependencies.antd` as the git repository in `package.json`, but it doesn't work.
 
