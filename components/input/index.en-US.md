@@ -76,9 +76,10 @@ Supports all props of `Input`.
 
 #### Input.Password
 
-| Property         | Description                | Type    | Default |
-| ---------------- | -------------------------- | ------- | ------- |
-| visibilityToggle | Whether show toggle button | boolean | true    |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| visibilityToggle | Whether show toggle button | boolean | true |  |
+| iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 
 ## FAQ
 

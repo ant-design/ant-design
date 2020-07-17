@@ -40,10 +40,5 @@ function showConfirm() {
   }
 }
 
-ReactDOM.render(
-  <div>
-    <Button onClick={showConfirm}>Confirm</Button>
-  </div>,
-  mountNode,
-);
+ReactDOM.render(<Button onClick={showConfirm}>Confirm</Button>, mountNode);
 ```

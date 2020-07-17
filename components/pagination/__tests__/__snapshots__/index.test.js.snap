@@ -43,7 +43,9 @@ exports[`Pagination rtl render component should be rendered correctly in RTL dir
     tabindex="0"
     title="0"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       0
     </a>
   </li>
@@ -126,7 +128,9 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -135,7 +139,9 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -144,7 +150,9 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -153,7 +161,9 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -162,7 +172,9 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
