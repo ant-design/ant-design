@@ -9,7 +9,7 @@ import { fixControlledValue, resolveOnChange } from './Input';
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
-  hasCount?:boolean;
+  hasCount?: boolean;
 }
 
 export interface TextAreaState {
@@ -77,22 +77,28 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
   };
 
-  renderTextArea = (prefixCls: string, bordered: boolean,hasCount:boolean,value:string,maxLength:number) => {
-    let characterLength = countSymbols(value);
-    let maxLen = hasCount?maxLength:false;
-   
+  renderTextArea = (
+    prefixCls: string,
+    bordered: boolean,
+    hasCount: boolean,
+    value: string,
+    maxLength: number|undefined,
+  ) => {
+    const characterLength = countSymbols(value);
+    const maxLen = hasCount ? maxLength : false;
+
     return (
       <div className={`${prefixCls}-control`}>
-      <RcTextArea
-        {...omit(this.props, ['allowClear', 'bordered'])}
-        className={classNames(this.props.className, {
-          [`${prefixCls}-borderless`]: !bordered,
-        })}
-        maxLength={maxLen}
-        prefixCls={prefixCls}
-        onChange={this.handleChange}
-        ref={this.saveTextArea}
-      />
+        <RcTextArea
+          {...omit(this.props, ['allowClear', 'bordered'])}
+          className={classNames(this.props.className, {
+            [`${prefixCls}-borderless`]: !bordered,
+          })}
+          maxLength={maxLen}
+          prefixCls={prefixCls}
+          onChange={this.handleChange}
+          ref={this.saveTextArea}
+        />
         {hasCount && (
           <span className={`${prefixCls}-control-count`}>
             <span>{characterLength}</span>/{maxLength}
@@ -104,7 +110,12 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
   renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true ,hasCount=true ,maxLength=hasCount?500:undefined} = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      bordered = true,
+      hasCount = false,
+      maxLength = hasCount ? 500 : undefined,
+    } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     return (
       <ClearableLabeledInput
@@ -113,12 +124,11 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         direction={direction}
         inputType="text"
         value={fixControlledValue(value)}
-        element={this.renderTextArea(prefixCls,bordered,hasCount,value,maxLength)}
+        element={this.renderTextArea(prefixCls, bordered, hasCount, value, maxLength)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
         triggerFocus={this.focus}
         bordered={bordered}
-       
       />
     );
   };

@@ -241,4 +241,28 @@ describe('TextArea allowClear', () => {
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
   });
+
+  it('should count words correctly', async () => {
+    const wrapper = mount(<Input.TextArea hasCount autoSize />, { attachTo: document.body });
+    const countNum = wrapper.find('.ant-input-control-count>span');
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'You are Welcome',
+      },
+    });
+    expect(countNum.text()).toBe('15');
+    wrapper.unmount();
+  });
+
+  it('should not contain any counting number without "hasCount"', async () => {
+    const wrapper = mount(<Input.TextArea autoSize />, { attachTo: document.body });
+    const countNum = wrapper.find('.ant-input-control-count>span');
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'You are Welcome',
+      },
+    });
+    expect(countNum).toEqual({});
+    wrapper.unmount();
+  });
 });
