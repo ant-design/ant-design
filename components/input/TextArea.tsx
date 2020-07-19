@@ -82,7 +82,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     bordered: boolean,
     hasCount: boolean,
     value: string,
-    maxLength: number|undefined,
+    maxLength: number | undefined,
   ) => {
     const characterLength = countSymbols(value);
     const maxLen = hasCount ? maxLength : false;

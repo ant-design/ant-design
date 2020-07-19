@@ -51,7 +51,6 @@ The rest of the props of Input are exactly the same as the original [input](http
 | bordered | Whether has border style | boolean | true | 4.5.0 |
 | hasCount | Whether has word count | boolean | false | 4.5.0 |
 
-
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 #### Input.Search
