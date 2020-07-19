@@ -4,11 +4,16 @@ exports[`TextArea allowClear should change type when click 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
 >
-  <textarea
-    class="ant-input"
+  <div
+    class="ant-input-control"
+    value="111"
   >
-    111
-  </textarea>
+    <textarea
+      class="ant-input"
+    >
+      111
+    </textarea>
+  </div>
   <span
     aria-label="close-circle"
     class="anticon anticon-close-circle ant-input-textarea-clear-icon"
@@ -37,9 +42,16 @@ exports[`TextArea allowClear should change type when click 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
 >
-  <textarea
-    class="ant-input"
-  />
+  <div
+    class="ant-input-control"
+    value=""
+  >
+    <textarea
+      class="ant-input"
+    >
+      111
+    </textarea>
+  </div>
   <span
     aria-label="close-circle"
     class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
@@ -251,15 +263,24 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 `;
 
 exports[`TextArea should support disabled 1`] = `
-<textarea
-  class="ant-input ant-input-disabled"
-  disabled=""
-/>
+<div
+  class="ant-input-control"
+  value=""
+>
+  <textarea
+    class="ant-input ant-input-disabled"
+    disabled=""
+  />
+</div>
 `;
 
 exports[`TextArea should support maxLength 1`] = `
-<textarea
-  class="ant-input"
-  maxlength="10"
-/>
+<div
+  class="ant-input-control"
+  value=""
+>
+  <textarea
+    class="ant-input"
+  />
+</div>
 `;

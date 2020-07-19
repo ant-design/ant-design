@@ -258,11 +258,16 @@ Array [
       rows="1"
     />
   </div>,
-  <textarea
-    class="ant-input"
-    rows="1"
-    style="width:100px"
-  />,
+  <div
+    class="ant-input-control"
+    value=""
+  >
+    <textarea
+      class="ant-input"
+      rows="1"
+      style="width:100px"
+    />
+  </div>,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -1002,10 +1007,15 @@ Array [
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
   >
-    <textarea
-      class="ant-input"
-      placeholder="textarea with clear icon"
-    />
+    <div
+      class="ant-input-control"
+      value=""
+    >
+      <textarea
+        class="ant-input"
+        placeholder="textarea with clear icon"
+      />
+    </div>
     <span
       aria-label="close-circle"
       class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
@@ -1033,24 +1043,39 @@ Array [
 
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 Array [
-  <textarea
-    class="ant-input"
-    placeholder="Autosize height based on content lines"
-  />,
+  <div
+    class="ant-input-control"
+    value=""
+  >
+    <textarea
+      class="ant-input"
+      placeholder="Autosize height based on content lines"
+    />
+  </div>,
   <div
     style="margin:24px 0"
   />,
-  <textarea
-    class="ant-input"
-    placeholder="Autosize height with minimum and maximum number of lines"
-  />,
+  <div
+    class="ant-input-control"
+    value=""
+  >
+    <textarea
+      class="ant-input"
+      placeholder="Autosize height with minimum and maximum number of lines"
+    />
+  </div>,
   <div
     style="margin:24px 0"
   />,
-  <textarea
-    class="ant-input"
-    placeholder="Controlled autosize"
-  />,
+  <div
+    class="ant-input-control"
+    value=""
+  >
+    <textarea
+      class="ant-input"
+      placeholder="Controlled autosize"
+    />
+  </div>,
 ]
 `;
 
@@ -1088,17 +1113,27 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     type="text"
     value=""
   />
-  <textarea
-    class="ant-input ant-input-borderless"
-    placeholder="Unbordered"
-  />
-  <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
+  <div
+    class="ant-input-control"
+    value=""
   >
     <textarea
       class="ant-input ant-input-borderless"
       placeholder="Unbordered"
     />
+  </div>
+  <span
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
+  >
+    <div
+      class="ant-input-control"
+      value=""
+    >
+      <textarea
+        class="ant-input ant-input-borderless"
+        placeholder="Unbordered"
+      />
+    </div>
     <span
       aria-label="close-circle"
       class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
@@ -2638,10 +2673,15 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
-<textarea
-  class="ant-input"
-  rows="4"
-/>
+<div
+  class="ant-input-control"
+  value=""
+>
+  <textarea
+    class="ant-input"
+    rows="4"
+  />
+</div>
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
@@ -2655,12 +2695,17 @@ Array [
       Auto Resize: false
     </span>
   </button>,
-  <textarea
-    class="ant-input"
-    rows="4"
+  <div
+    class="ant-input-control"
+    value="The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows."
   >
-    The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
-  </textarea>,
+    <textarea
+      class="ant-input"
+      rows="4"
+    >
+      The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
+    </textarea>
+  </div>,
 ]
 `;
 

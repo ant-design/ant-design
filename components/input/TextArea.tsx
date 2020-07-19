@@ -16,14 +16,14 @@ export interface TextAreaState {
   value: any;
 }
 
-function countSymbols(text = '') {
+function countSymbols(text = ''): number {
+  if (text == null || text == undefined) return 0;
   const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]|\n/g;
-  return text.replace(regexAstralSymbols, '_').length;
+  return text.toString().replace(regexAstralSymbols, '_').length;
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   resizableTextArea: ResizableTextArea;
-
   clearableInput: ClearableLabeledInput;
 
   constructor(props: TextAreaProps) {
@@ -85,7 +85,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     maxLength: number | undefined,
   ) => {
     const characterLength = countSymbols(value);
-    const maxLen = hasCount ? maxLength : false;
+    const maxLen = hasCount ? maxLength : undefined;
 
     return (
       <div className={`${prefixCls}-control`}>
@@ -109,7 +109,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { value } = this.state;
+    const { value = '' } = this.state;
     const {
       prefixCls: customizePrefixCls,
       bordered = true,

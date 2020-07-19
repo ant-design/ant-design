@@ -241,7 +241,9 @@ describe('TextArea allowClear', () => {
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
   });
+});
 
+describe('TextArea hasCount',()=>{
   it('should count words correctly', async () => {
     const wrapper = mount(<Input.TextArea hasCount autoSize />, { attachTo: document.body });
     const countNum = wrapper.find('.ant-input-control-count>span');
@@ -265,4 +267,4 @@ describe('TextArea allowClear', () => {
     expect(countNum).toEqual({});
     wrapper.unmount();
   });
-});
+})
