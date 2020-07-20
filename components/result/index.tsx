@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
@@ -50,7 +50,7 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  * @param {status, icon}
  */
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
-  const className = classnames(`${prefixCls}-icon`);
+  const className = classNames(`${prefixCls}-icon`);
 
   devWarning(
     !(typeof icon === 'string' && icon.length > 2),
@@ -96,7 +96,7 @@ const Result: ResultType = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
+      const className = classNames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       });
       return (
