@@ -79,7 +79,13 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ### `antd` 是否有国内镜像？
 
-有的，你可以点击 https://ant-design.gitee.io/index-cn 访问。历史版本[国内镜像](https://github.com/ant-design/ant-design/issues/25661)。
+有的，你可以点击 https://ant-design.gitee.io/index-cn 访问。
+
+历史版本:
+
+- 3.x: https://ant-design-3x.gitee.io/
+- 2.x: https://ant-design-2x.gitee.io/
+- 1.x: https://ant-design-1x.gitee.io/
 
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
