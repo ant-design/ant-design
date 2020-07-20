@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.4.3
+
+`2020-07-20`
+
+- 🐞 Fix Layout `trigger` cannot customize zero width trigger. [#25653](https://github.com/ant-design/ant-design/pull/25653)
+- 🐞 Fix Upload `customRequest` file interface. [#25598](https://github.com/ant-design/ant-design/pull/25598) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+- 🐞 Fix Form.Item `help` style when verification fails. [#25582](https://github.com/ant-design/ant-design/pull/25582) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 Fix Descriptions abnormal style inside Table `expandedRowRender`. [#25593](https://github.com/ant-design/ant-design/pull/25593)
+- 🛠 Upgrade react-slick to reduce bundle size [#25599](https://github.com/ant-design/ant-design/pull/25599)
+- 🌐 Improve Catalan ca_ES localization. [#25583](https://github.com/ant-design/ant-design/pull/25583) [@albertms10](https://github.com/albertms10)
+- 🌐 Improve ar_EG localization. [#25587](https://github.com/ant-design/ant-design/pull/25587) [@amir5000](https://github.com/amir5000)
+
 ## 4.4.2
 
 `2020-07-11`
