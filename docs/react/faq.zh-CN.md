@@ -77,6 +77,16 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 请浏览 [And Design Mobile](http://mobile.ant.design) 以了解详情，`antd` 并非针对移动端设计。你可以试试 [react-component](https://github.com/react-component/)，其中带有 'm-' 'rn-' 前缀的库是为移动端设计的。
 
+### `antd` 是否有国内镜像？
+
+有的，你可以点击 https://ant-design.gitee.io/index-cn 访问。
+
+历史版本:
+
+- 3.x: https://ant-design-3x.gitee.io/
+- 2.x: https://ant-design-2x.gitee.io/
+- 1.x: https://ant-design-1x.gitee.io/
+
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
 是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
