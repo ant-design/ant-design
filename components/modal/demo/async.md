@@ -63,7 +63,7 @@ class App extends React.Component {
           confirmLoading={confirmLoading}
           onCancel={this.handleCancel}
         >
-          <p>{ModalText}</p>
+          <p>{this.state.ModalText}</p>
         </Modal>
       </>
     );
