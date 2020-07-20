@@ -107,7 +107,7 @@ class Footer extends React.Component {
           },
           {
             title: <FormattedMessage id="app.footer.chinamirror" />,
-            url: 'https://ant-design.gitee.io/',
+            url: 'https://ant-design-3x.gitee.io/',
           },
         ],
       },
