@@ -16964,7 +16964,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -17116,7 +17118,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -17273,7 +17277,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -17425,7 +17431,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -17582,7 +17590,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -17734,7 +17744,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -17891,7 +17903,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -18043,7 +18057,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -18200,7 +18216,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -18352,7 +18370,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -18509,7 +18529,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -18661,7 +18683,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       tabindex="0"
       title="0"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         0
       </a>
     </li>
@@ -18783,7 +18807,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   </span>
   <div>
     <div
-      class="config-popover"
+      class="config-popover config-popconfirm"
       style="opacity:0"
     >
       <div
@@ -18867,7 +18891,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
   </span>
   <div>
     <div
-      class="config-popover"
+      class="config-popover config-popconfirm"
       style="opacity:0"
     >
       <div
@@ -18951,7 +18975,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
   </span>
   <div>
     <div
-      class="config-popover"
+      class="config-popover config-popconfirm"
       style="opacity:0"
     >
       <div
@@ -19035,7 +19059,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
   </span>
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popconfirm"
       style="opacity:0"
     >
       <div
@@ -19119,7 +19143,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   </span>
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popconfirm"
       style="opacity:0"
     >
       <div
@@ -19203,7 +19227,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   </span>
   <div>
     <div
-      class="prefix-Popconfirm"
+      class="prefix-Popconfirm prefix-Popconfirm"
       style="opacity:0"
     >
       <div

@@ -120,7 +120,9 @@ exports[`Table.expand click to expand 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>

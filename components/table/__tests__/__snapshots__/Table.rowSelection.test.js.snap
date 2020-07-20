@@ -295,7 +295,9 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -583,7 +585,9 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -876,7 +880,9 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -1234,7 +1240,9 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -1565,7 +1573,9 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -1835,7 +1845,9 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>

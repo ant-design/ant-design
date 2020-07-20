@@ -124,7 +124,9 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -271,7 +273,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
@@ -280,7 +284,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           tabindex="0"
           title="2"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             2
           </a>
         </li>
@@ -447,7 +453,9 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
           tabindex="0"
           title="1"
         >
-          <a>
+          <a
+            rel="nofollow"
+          >
             1
           </a>
         </li>
