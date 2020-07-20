@@ -77,7 +77,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 请浏览 [And Design Mobile](http://mobile.ant.design) 以了解详情，`antd` 并非针对移动端设计。你可以试试 [react-component](https://github.com/react-component/)，其中带有 'm-' 'rn-' 前缀的库是为移动端设计的。
 
-### `antd` 是否有 “国内镜像” ？
+### `antd` 是否有国内镜像？
 
 有的，你可以点击 https://ant-design.gitee.io/index-cn 访问。历史版本[国内镜像](https://github.com/ant-design/ant-design/issues/25661)。
 
