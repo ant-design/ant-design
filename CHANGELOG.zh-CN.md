@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.4.3
 
-`2020-07-02`
+`2020-07-20`
 
 - 🐞 修复 Layout `trigger` 属性无法定制零宽触发器的问题。[#25653](https://github.com/ant-design/ant-design/pull/25653)
 - 🐞 修复 Upload `customRequest` 的 File 定义。[#25598](https://github.com/ant-design/ant-design/pull/25598) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
