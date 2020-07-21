@@ -14,7 +14,7 @@ title:
 To customize the text of the buttons, you need to set `okText` and `cancelText` props.
 
 ```jsx
-import { Modal, Button } from 'antd';
+import { Modal, Button, Space } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 class LocalizedModal extends React.Component {
@@ -66,11 +66,10 @@ function confirm() {
 }
 
 ReactDOM.render(
-  <div>
+  <Space>
     <LocalizedModal />
-    <br />
     <Button onClick={confirm}>Confirm</Button>
-  </div>,
+  </Space>,
   mountNode,
 );
 ```
