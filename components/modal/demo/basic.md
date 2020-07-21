@@ -62,9 +62,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
-.ant-modal p {
-  margin: 0;
-}
-</style>
