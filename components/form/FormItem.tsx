@@ -122,12 +122,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const updateChildItemErrors = noStyle
     ? updateItemErrors
     : (subName: string, subErrors: string[]) => {
-        if (!isEqual(inlineErrors[subName], subErrors)) {
-          setInlineErrors(prevInlineErrors => ({
-            ...prevInlineErrors,
-            [subName]: subErrors,
-          }));
-        }
+        setInlineErrors((prevInlineErrors = {}) => {
+          if (!isEqual(prevInlineErrors[subName], subErrors)) {
+            return {
+              ...prevInlineErrors,
+              [subName]: subErrors,
+            };
+          }
+          return prevInlineErrors;
+        });
       };
 
   // ===================== Children Ref =====================
