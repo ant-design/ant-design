@@ -58,6 +58,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | The open state of picker | boolean | - |  |
+| panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
@@ -158,7 +159,7 @@ Added in `4.1.0`.
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | To set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0  | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
 <style>

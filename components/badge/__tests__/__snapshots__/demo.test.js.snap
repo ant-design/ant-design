@@ -2044,6 +2044,173 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
+<div
+  class="ant-ribbon-wrapper"
+>
+  <div
+    class="ant-card ant-card-bordered"
+  >
+    <div
+      class="ant-card-body"
+    >
+      And raises the spyglass.
+    </div>
+  </div>
+  <div
+    class="ant-ribbon ant-ribbon-placement-end"
+  >
+    Pushes open the window
+    <div
+      class="ant-ribbon-corner"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="color:#2db7f5"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-start"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="color:#2db7f5"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-ribbon-wrapper"
+    >
+      <div
+        class="ant-card ant-card-bordered"
+      >
+        <div
+          class="ant-card-body"
+        >
+          推开窗户举起望远镜
+        </div>
+      </div>
+      <div
+        class="ant-ribbon ant-ribbon-placement-end"
+        style="background:#2db7f5"
+      >
+        啦啦啦啦
+        <div
+          class="ant-ribbon-corner"
+          style="color:#2db7f5"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/badge/demo/status.md correctly 1`] = `
 <div>
   <span

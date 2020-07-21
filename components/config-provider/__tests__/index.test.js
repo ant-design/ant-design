@@ -70,7 +70,7 @@ describe('ConfigProvider', () => {
     const App = () => {
       const { renderEmpty } = React.useContext(ConfigContext);
       return renderEmpty();
-    }
+    };
     const wrapper = mount(
       <ConfigProvider>
         <App />

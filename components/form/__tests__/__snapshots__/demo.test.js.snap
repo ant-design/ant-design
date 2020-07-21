@@ -1450,6 +1450,81 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
 </form>
 `;
 
+exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="debug"
+>
+  0
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="debug_debug1"
+        title="debug1"
+      >
+        debug1
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="debug_debug1"
+            type="text"
+            value="debug1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="debug_debug2"
+        title="debug2"
+      >
+        debug2
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="debug_debug2"
+            type="text"
+            value="debug2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"

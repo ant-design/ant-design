@@ -3160,3 +3160,17 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
   />
 </span>
 `;
+
+exports[`Ribbon rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-ribbon-wrapper"
+>
+  <div
+    class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
+  >
+    <div
+      class="ant-ribbon-corner"
+    />
+  </div>
+</div>
+`;
