@@ -6421,7 +6421,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
