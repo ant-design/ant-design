@@ -122,7 +122,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
               <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
                 {memoErrors.map((error, index) => (
                   // eslint-disable-next-line react/no-array-index-key
-                  <div key={index}>{error}</div>
+                  <div key={index} role="alert">
+                    {error}
+                  </div>
                 ))}
               </div>
             );
