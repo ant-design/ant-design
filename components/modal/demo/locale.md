@@ -68,7 +68,6 @@ function confirm() {
 ReactDOM.render(
   <Space>
     <LocalizedModal />
-    <br />
     <Button onClick={confirm}>Confirm</Button>
   </Space>,
   mountNode,

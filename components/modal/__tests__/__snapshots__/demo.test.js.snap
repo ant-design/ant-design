@@ -259,12 +259,6 @@ exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <br />
-  </div>
-  <div
-    class="ant-space-item"
   >
     <button
       class="ant-btn"
