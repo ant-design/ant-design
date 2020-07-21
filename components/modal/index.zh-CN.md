@@ -48,9 +48,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 
 #### 注意
 
-> - `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
->
-> - `Modal.method()` RTL 模式仅支持 hooks 用法。
+- `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+- `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnClose` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
+- `Modal.method()` RTL 模式仅支持 hooks 用法。
 
 ### Modal.method()
 

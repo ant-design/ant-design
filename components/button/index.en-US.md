@@ -11,7 +11,7 @@ To trigger an operation.
 
 A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.
 
-In Ant Design we provide 4 types of button.
+In Ant Design we provide 5 types of button.
 
 - Primary button: indicate the main action, one primary button at most in one section.
 - Default button: indicate a series of actions without priority.
@@ -41,7 +41,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | shape | Can be set to `circle`, `round` or omitted | string | - |  |
 | size | Set the size of button | `large` \| `middle` \| `small` | - |  |
 | target | Same as target attribute of a, works when href is specified | string | - |  |
-| type | Can be set to `primary` `ghost` `dashed` `danger` `link` `text` | string | - |  |
+| type | Can be set to `primary` `ghost` `dashed` `danger` `link` `text` `default` | string | `default` |  |
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | block | Option to fit button width to its parent width | boolean | false |  |
 | danger | Set the danger status of button | boolean | false |  |
