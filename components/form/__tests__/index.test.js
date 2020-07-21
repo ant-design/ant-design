@@ -485,6 +485,26 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
+  it('validation message should has alert role', async () => {
+    // https://github.com/ant-design/ant-design/issues/25711
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: 'name is good!' }}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
+      'alert',
+    );
+  });
+
   it('return same form instance', () => {
     const instances = new Set();
 

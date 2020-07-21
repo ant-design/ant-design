@@ -14162,7 +14162,9 @@ exports[`ConfigProvider components Form configProvider 1`] = `
       <div
         class="config-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Bamboo is Light
         </div>
       </div>
@@ -14197,7 +14199,9 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
       <div
         class="config-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Bamboo is Light
         </div>
       </div>
@@ -14232,7 +14236,9 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
       <div
         class="config-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Bamboo is Light
         </div>
       </div>
@@ -14267,7 +14273,9 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Bamboo is Light
         </div>
       </div>
@@ -14302,7 +14310,9 @@ exports[`ConfigProvider components Form normal 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Bamboo is Light
         </div>
       </div>
@@ -14337,7 +14347,9 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
       <div
         class="prefix-Form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Bamboo is Light
         </div>
       </div>
