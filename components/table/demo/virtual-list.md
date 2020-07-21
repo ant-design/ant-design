@@ -58,7 +58,6 @@ function VirtualTable(props) {
     });
   };
 
-  useEffect(() => resetVirtualGrid, []);
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
   const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
