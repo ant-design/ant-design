@@ -144,17 +144,19 @@ function FormItem(props: FormItemProps): React.ReactElement {
     }
 
     // ======================== Errors ========================
+    // >>> collect sub errors
+    let subErrorList: string[] = [];
+    Object.keys(inlineErrors).forEach(subName => {
+      subErrorList = [...subErrorList, ...(inlineErrors[subName] || [])];
+    });
+
+    // >>> merged errors
     let mergedErrors: React.ReactNode[];
     if (help !== undefined && help !== null) {
       mergedErrors = toArray(help);
     } else {
       mergedErrors = meta ? meta.errors : [];
-      Object.keys(inlineErrors).forEach(subName => {
-        const subErrors = inlineErrors[subName] || [];
-        if (subErrors.length) {
-          mergedErrors = [...mergedErrors, ...subErrors];
-        }
-      });
+      mergedErrors = [...mergedErrors, ...subErrorList];
     }
 
     // ======================== Status ========================
@@ -163,7 +165,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = validateStatus;
     } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (meta?.errors?.length) {
+    } else if (meta?.errors?.length || subErrorList.length) {
       mergedValidateStatus = 'error';
     } else if (meta?.touched) {
       mergedValidateStatus = 'success';
