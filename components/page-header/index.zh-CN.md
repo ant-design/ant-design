@@ -26,7 +26,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg
 | extra | 操作区，位于 title 行的行尾 | ReactNode | - |  |
 | breadcrumb | 面包屑的配置 | [Breadcrumb](/components/breadcrumb/) | - |  |
 | footer | PageHeader 的页脚，一般用于渲染 TabBar | ReactNode | - |  |
-| onBack | 返回按钮的点击事件 | ()=>void | ()=>history.back() |  |
+| onBack | 返回按钮的点击事件 | ()=>void | - |  |
 
 <style>
   [data-theme="dark"] .site-page-header {
