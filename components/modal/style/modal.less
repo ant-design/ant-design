@@ -10,6 +10,7 @@
   margin: 0 auto;
   padding-bottom: 24px;
   pointer-events: none;
+  max-width: calc(100vw - 16px);
 
   &-wrap {
     position: fixed;
@@ -81,7 +82,8 @@
     padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
-    border-bottom: @modal-header-border-width @modal-header-border-style @modal-header-border-color-split;
+    border-bottom: @modal-header-border-width @modal-header-border-style
+      @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -96,7 +98,8 @@
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
     background: @modal-footer-bg;
-    border-top: @modal-footer-border-width @modal-footer-border-style @modal-footer-border-color-split;
+    border-top: @modal-footer-border-width @modal-footer-border-style
+      @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
 
     button + button {
@@ -153,7 +156,6 @@
 
 @media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
-    max-width: calc(100vw - 16px);
     margin: 8px auto;
   }
   .@{dialog-prefix-cls}-centered {
