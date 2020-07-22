@@ -162,7 +162,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)[childrenColumnName])) {
+    if (rawData.some(item => childrenColumnName in item)) {
       return 'nest';
     }
 
@@ -222,18 +222,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(
-        changeInfo.pagination!,
-        changeInfo.filters!,
-        changeInfo.sorter!,
-        {
-          currentDataSource: getFilterData(
-            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-            changeInfo.filterStates!,
-          ),
-          action,
-        },
-      );
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+        currentDataSource: getFilterData(
+          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+          changeInfo.filterStates!,
+        ),
+        action,
+      });
     }
   };
 
