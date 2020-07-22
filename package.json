@@ -141,7 +141,7 @@
     "rc-textarea": "~0.3.0",
     "rc-tooltip": "~4.2.0",
     "rc-tree": "~3.6.0",
-    "rc-tree-select": "~4.0.2",
+    "rc-tree-select": "~4.1.0",
     "rc-trigger": "~4.3.0",
     "rc-upload": "~3.2.0",
     "rc-util": "^5.0.1",
