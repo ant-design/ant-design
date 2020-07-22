@@ -35,6 +35,10 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
   return treeData || convertTreeToData(children);
 }
 
+function getPropsWithoutChildren({ children: _, ...props }: DirectoryTreeProps) {
+  return props;
+}
+
 const DirectoryTree: React.FC<DirectoryTreeProps> = ({
   defaultExpandAll,
   defaultExpandParent,
@@ -222,7 +226,8 @@ const DirectoryTree: React.FC<DirectoryTreeProps> = ({
       icon={getIcon}
       ref={ref}
       blockNode
-      {...otherProps}
+      treeData={getTreeData(props)}
+      {...getPropsWithoutChildren(otherProps)}
       prefixCls={prefixCls}
       className={connectClassName}
       expandedKeys={expandedKeys}
