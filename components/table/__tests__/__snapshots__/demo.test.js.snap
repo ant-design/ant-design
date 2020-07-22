@@ -15790,28 +15790,9 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:0;min-width:0"
-                />
-                <col
-                  style="width:0;min-width:0"
-                />
-                <col
-                  style="width:0;min-width:0"
-                />
-                <col
-                  style="width:200px;min-width:200px"
-                />
-                <col
-                  style="width:100px;min-width:100px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >

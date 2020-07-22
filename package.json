@@ -106,7 +106,7 @@
   "dependencies": {
     "@ant-design/css-animation": "^1.7.2",
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/react-slick": "~0.26.3",
+    "@ant-design/react-slick": "~0.27.0",
     "@babel/runtime": "^7.10.4",
     "array-tree-filter": "^2.1.0",
     "classnames": "^2.2.6",
