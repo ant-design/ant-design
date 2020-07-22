@@ -40,10 +40,7 @@ const data = [
 describe('Table.expand', () => {
   it('click to expand', () => {
     const wrapper = mount(<Table columns={columns} dataSource={data} />);
-    wrapper
-      .find('.ant-table-row-expand-icon')
-      .last()
-      .simulate('click');
+    wrapper.find('.ant-table-row-expand-icon').last().simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -59,10 +56,7 @@ describe('Table.expand', () => {
       />,
     );
 
-    wrapper
-      .find('.ant-table-row-expand-icon')
-      .first()
-      .simulate('click');
+    wrapper.find('.ant-table-row-expand-icon').first().simulate('click');
     expect(
       wrapper
         .find('.ant-table-row-expand-icon')
@@ -70,10 +64,7 @@ describe('Table.expand', () => {
         .hasClass('ant-table-row-expand-icon-expanded'),
     ).toBeTruthy();
 
-    wrapper
-      .find('.ant-table-row-expand-icon')
-      .first()
-      .simulate('click');
+    wrapper.find('.ant-table-row-expand-icon').first().simulate('click');
     expect(
       wrapper
         .find('.ant-table-row-expand-icon')
@@ -109,18 +100,8 @@ describe('Table.expand', () => {
         />,
       );
 
-      expect(
-        wrapper
-          .find('td')
-          .at(0)
-          .text(),
-      ).toEqual('bamboo');
-      expect(
-        wrapper
-          .find('td')
-          .at(1)
-          .find('.ant-table-row-expand-icon').length,
-      ).toBeTruthy();
+      expect(wrapper.find('td').at(0).text()).toEqual('bamboo');
+      expect(wrapper.find('td').at(1).find('.ant-table-row-expand-icon').length).toBeTruthy();
     });
 
     it('work with selection', () => {
@@ -136,24 +117,31 @@ describe('Table.expand', () => {
         />,
       );
 
-      expect(
-        wrapper
-          .find('td')
-          .at(0)
-          .find('.ant-checkbox-input').length,
-      ).toBeTruthy();
-      expect(
-        wrapper
-          .find('td')
-          .at(1)
-          .text(),
-      ).toEqual('bamboo');
-      expect(
-        wrapper
-          .find('td')
-          .at(2)
-          .find('.ant-table-row-expand-icon').length,
-      ).toBeTruthy();
+      expect(wrapper.find('td').at(0).find('.ant-checkbox-input').length).toBeTruthy();
+      expect(wrapper.find('td').at(1).text()).toEqual('bamboo');
+      expect(wrapper.find('td').at(2).find('.ant-table-row-expand-icon').length).toBeTruthy();
+    });
+  });
+
+  describe('nest children', () => {
+    [null, undefined].forEach(children => {
+      it(String(children), () => {
+        const wrapper = mount(
+          <Table
+            columns={[{ dataIndex: 'key' }]}
+            dataSource={[{ key: 1, children }]}
+            rowSelection={{}}
+          />,
+        );
+        expect(
+          wrapper.find('tbody tr').last().find('td').first().find('.ant-table-row-expand-icon')
+            .length,
+        ).toBeFalsy();
+        expect(
+          wrapper.find('tbody tr').last().find('td').last().find('.ant-table-row-expand-icon')
+            .length,
+        ).toBeTruthy();
+      });
     });
   });
 });
