@@ -43,16 +43,8 @@ function injectWarningCondition(config) {
         {
           loader: 'string-replace-loader',
           options: {
-            multiple: [
-              {
-                search: 'devWarning(',
-                replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
-              },
-              {
-                search: 'devNote(',
-                replace: "if (process.env.NODE_ENV !== 'production') devNote(",
-              },
-            ],
+            search: 'devWarning(',
+            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
           },
         },
       ];

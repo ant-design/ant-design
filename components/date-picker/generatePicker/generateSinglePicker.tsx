@@ -8,7 +8,7 @@ import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
 import { getPlaceholder } from '../util';
-import { devNote } from '../../_util/devWarning';
+import devWarning from '../../_util/devWarning';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
@@ -39,7 +39,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       constructor(props: InnerPickerProps) {
         super(props);
-        devNote(
+        devWarning(
           picker !== 'quarter',
           displayName!,
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
