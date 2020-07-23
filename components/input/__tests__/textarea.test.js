@@ -243,9 +243,9 @@ describe('TextArea allowClear', () => {
   });
 });
 
-describe('TextArea hasCount',()=>{
+describe('TextArea showCount', () => {
   it('should count words correctly', async () => {
-    const wrapper = mount(<Input.TextArea hasCount autoSize />, { attachTo: document.body });
+    const wrapper = mount(<Input.TextArea showCount autoSize />, { attachTo: document.body });
     const countNum = wrapper.find('.ant-input-control-count>span');
     wrapper.find('textarea').simulate('change', {
       target: {
@@ -256,7 +256,7 @@ describe('TextArea hasCount',()=>{
     wrapper.unmount();
   });
 
-  it('should not contain any counting number without "hasCount"', async () => {
+  it('should not contain any counting number without "showCount"', async () => {
     const wrapper = mount(<Input.TextArea autoSize />, { attachTo: document.body });
     const countNum = wrapper.find('.ant-input-control-count>span');
     wrapper.find('textarea').simulate('change', {
@@ -267,4 +267,4 @@ describe('TextArea hasCount',()=>{
     expect(countNum).toEqual({});
     wrapper.unmount();
   });
-})
+});

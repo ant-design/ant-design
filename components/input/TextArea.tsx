@@ -9,7 +9,7 @@ import { fixControlledValue, resolveOnChange } from './Input';
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
-  hasCount?: boolean;
+  showCount?: boolean;
 }
 
 export interface TextAreaState {
@@ -17,13 +17,14 @@ export interface TextAreaState {
 }
 
 function countSymbols(text = ''): number {
-  if (text == null || text == undefined) return 0;
+  if (text == null) return 0;
   const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]|\n/g;
   return text.toString().replace(regexAstralSymbols, '_').length;
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   resizableTextArea: ResizableTextArea;
+
   clearableInput: ClearableLabeledInput;
 
   constructor(props: TextAreaProps) {
@@ -80,12 +81,12 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   renderTextArea = (
     prefixCls: string,
     bordered: boolean,
-    hasCount: boolean,
+    showCount: boolean,
     value: string,
     maxLength: number | undefined,
   ) => {
     const characterLength = countSymbols(value);
-    const maxLen = hasCount ? maxLength : undefined;
+    const maxLen = showCount ? maxLength : undefined;
 
     return (
       <div className={`${prefixCls}-control`}>
@@ -99,7 +100,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
           onChange={this.handleChange}
           ref={this.saveTextArea}
         />
-        {hasCount && (
+        {showCount && (
           <span className={`${prefixCls}-control-count`}>
             <span>{characterLength}</span>/{maxLength}
           </span>
@@ -113,8 +114,8 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const {
       prefixCls: customizePrefixCls,
       bordered = true,
-      hasCount = false,
-      maxLength = hasCount ? 500 : undefined,
+      showCount = false,
+      maxLength = showCount ? 500 : undefined,
     } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     return (
@@ -124,7 +125,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         direction={direction}
         inputType="text"
         value={fixControlledValue(value)}
-        element={this.renderTextArea(prefixCls, bordered, hasCount, value, maxLength)}
+        element={this.renderTextArea(prefixCls, bordered, showCount, value, maxLength)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
         triggerFocus={this.focus}
