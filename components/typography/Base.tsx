@@ -56,7 +56,7 @@ export interface BlockProps extends TypographyProps {
    * version 4.5.0
    * ellipsis support tooltip
    */
-  tooltip: boolean | AbstractTooltipProps;
+  tooltip?: boolean | AbstractTooltipProps;
   ellipsis?: boolean | EllipsisConfig;
   // decorations
   code?: boolean;
