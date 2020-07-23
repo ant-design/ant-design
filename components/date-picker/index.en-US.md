@@ -16,11 +16,11 @@ By clicking the input box, you can select a date from a popup calendar.
 There are five kinds of picker:
 
 - DatePicker
-- MonthPicker
+- DatePicker\[picker="month"]
+- DatePicker\[picker="week"]
+- DatePicker\[picker="year"]
+- DatePicker\[picker="quarter"] (Added in 4.1.0)
 - RangePicker
-- WeekPicker
-- YearPicker
-- QuarterPicker (Added in 4.1.0)
 
 ### Localization
 
@@ -43,7 +43,7 @@ import moment from 'moment';
 
 ### Common API
 
-The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicker, WeekPicker.
+The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 | showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 
-### YearPicker
+### DatePicker\[picker=year]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
-### QuarterPicker
+### DatePicker\[picker=quarter]
 
 Added in `4.1.0`.
 
@@ -118,7 +118,7 @@ Added in `4.1.0`.
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
-### MonthPicker
+### DatePicker\[picker=month]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -130,7 +130,7 @@ Added in `4.1.0`.
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
-### WeekPicker
+### DatePicker\[picker=week]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
