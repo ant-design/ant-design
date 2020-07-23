@@ -62,6 +62,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
+        role="alert"
       >
         <span
           class="ant-alert-message"
@@ -135,6 +136,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
+        role="alert"
       >
         <span
           class="ant-alert-message"
@@ -288,6 +290,7 @@ exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
     <div
       class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
       data-show="true"
+      role="alert"
     >
       <span
         class="ant-alert-message"
