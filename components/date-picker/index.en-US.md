@@ -16,11 +16,11 @@ By clicking the input box, you can select a date from a popup calendar.
 There are five kinds of picker:
 
 - DatePicker
-- MonthPicker
+- DatePicker[picker="month"]
+- DatePicker[picker="week"]
+- DatePicker[picker="year"]
+- DatePicker[picker="quarter"] (Added in 4.1.0)
 - RangePicker
-- WeekPicker
-- YearPicker
-- QuarterPicker (Added in 4.1.0)
 
 ### Localization
 

@@ -17,11 +17,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 日期类组件包括以下五种形式。
 
 - DatePicker
-- MonthPicker
+- DatePicker[picker="month"]
+- DatePicker[picker="week"]
+- DatePicker[picker="year"]
+- DatePicker[picker="quarter"] (4.1.0 新增)
 - RangePicker
-- WeekPicker
-- YearPicker
-- QuarterPicker (4.1.0 新增)
 
 ### 国际化配置
 

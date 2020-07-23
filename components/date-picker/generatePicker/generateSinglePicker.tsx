@@ -40,7 +40,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       constructor(props: InnerPickerProps) {
         super(props);
         devNote(
-          !picker,
+          picker !== 'quarter',
           displayName!,
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
