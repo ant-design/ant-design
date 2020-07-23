@@ -17,6 +17,7 @@ jest.mock('copy-to-clipboard');
 describe('Typography', () => {
   mountTest(Paragraph);
   mountTest(Base);
+  mountTest(Typography);
   mountTest(Title);
   mountTest(Link);
 
@@ -319,5 +320,28 @@ describe('Typography', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
+  });
+
+  it('textNode Tooltip', async () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Base
+        ellipsis
+        tooltip={{ onVisibleChange, mouseEnterDelay: 0, mouseLeaveDelay: 0 }}
+        style={{
+          width: 100,
+        }}
+      >
+        1234567890123456789012345678901234567890
+      </Base>,
+    );
+
+    await sleep(20);
+    wrapper.update();
+
+    expect(wrapper.find('span')).toHaveLength(2);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
   });
 });

@@ -67,6 +67,20 @@ class Demo extends React.Component {
         <p>
           2333<Text ellipsis>2333</Text>2333
         </p>
+
+        <div>
+          <Text
+            ellipsis
+            tooltip
+            copyable={copyable}
+            editable={editable}
+            style={{
+              width: 100,
+            }}
+          >
+            1234567890123456789012345678901234567890
+          </Text>
+        </div>
       </>
     );
   }

@@ -30,6 +30,7 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
+| tooltip | Typography tooltip config | `boolean` \| `TooltipProps` | false | 4.5.0 |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
 
 ### Typography.Title

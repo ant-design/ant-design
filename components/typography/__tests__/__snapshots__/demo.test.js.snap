@@ -321,6 +321,18 @@ Array [
     </span>
     2333
   </p>,
+  <div>
+    <span
+      class="ant-typography ant-typography-ellipsis"
+      style="width:100px"
+    >
+      <span
+        aria-hidden="true"
+      >
+        1234567890123456789012345678901234567890
+      </span>
+    </span>
+  </div>,
 ]
 `;
 

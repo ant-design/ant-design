@@ -26,6 +26,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |
 | ellipsis | 设置自动溢出省略，需要设置元素宽度 | boolean | false |  |
+| tooltip | Typography tooltip 的配置 | `boolean` \| `TooltipProps` | false | 4.5.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | underline | 添加下划线样式 | boolean | false |  |

@@ -14,7 +14,7 @@ import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
-import Tooltip from '../tooltip';
+import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import measure from './util';
@@ -52,6 +52,11 @@ export interface BlockProps extends TypographyProps {
   copyable?: boolean | CopyConfig;
   type?: BaseType;
   disabled?: boolean;
+  /**
+   * version 4.5.0
+   * ellipsis support tooltip
+   */
+  tooltip: boolean | AbstractTooltipProps;
   ellipsis?: boolean | EllipsisConfig;
   // decorations
   code?: boolean;
@@ -281,8 +286,10 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
-    const { editable, copyable } = this.props;
+    const { editable, copyable, tooltip } = this.props;
     const { rows, expandable, suffix, onEllipsis } = this.getEllipsis();
+    // tooltip 下使用 css 计算，会导致 tooltip 对齐出问题
+    if (tooltip) return false;
 
     if (suffix) return false;
     // Can't use css ellipsis since we need to provide the place for button
@@ -421,6 +428,21 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     );
   }
 
+  /**
+   * 根据 props.tooltip 判断要不要展示 tooltip
+   */
+  renderTextNode(textNode: React.ReactNode, ariaLabel?: string) {
+    const { tooltip } = this.props;
+    if (tooltip) {
+      return (
+        <Tooltip title={ariaLabel} {...tooltip}>
+          <span aria-hidden="true">{textNode}</span>
+        </Tooltip>
+      );
+    }
+    return textNode;
+  }
+
   renderContent() {
     const { ellipsisContent, isEllipsis, expanded } = this.state;
     const { component, children, className, type, disabled, style, ...restProps } = this.props;
@@ -439,6 +461,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       'delete',
       'underline',
       'strong',
+      'tooltip',
       'keyboard',
       ...configConsumerProps,
     ]);
@@ -474,7 +497,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     }
 
     textNode = wrapperDecorations(this.props, textNode);
-
+    textNode = this.renderTextNode(textNode, ariaLabel);
     return (
       <LocaleReceiver componentName="Text">
         {({ edit, copy: copyStr, copied, expand }: Locale) => {
