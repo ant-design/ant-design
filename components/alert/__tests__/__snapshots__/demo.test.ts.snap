@@ -5,6 +5,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-banner"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="exclamation-circle"
@@ -39,6 +40,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-banner ant-alert-closable"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="exclamation-circle"
@@ -99,6 +101,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -113,6 +116,7 @@ Array [
   <div
     class="ant-alert ant-alert-error ant-alert-banner"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="close-circle"
@@ -150,6 +154,7 @@ exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -167,6 +172,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-closable"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -206,6 +212,7 @@ Array [
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -251,6 +258,7 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-closable"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -279,6 +287,7 @@ Array [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -292,6 +301,7 @@ Array [
   <div
     class="ant-alert ant-alert-success"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -325,6 +335,7 @@ Array [
   <div
     class="ant-alert ant-alert-info"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -358,6 +369,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -391,6 +403,7 @@ Array [
   <div
     class="ant-alert ant-alert-error"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -424,6 +437,7 @@ Array [
   <div
     class="ant-alert ant-alert-success ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -459,6 +473,7 @@ Array [
   <div
     class="ant-alert ant-alert-info ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -494,6 +509,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -529,6 +545,7 @@ Array [
   <div
     class="ant-alert ant-alert-error ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="smile"
@@ -569,6 +586,7 @@ Array [
   <div
     class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -584,6 +602,7 @@ Array [
   <div
     class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -599,6 +618,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -614,6 +634,7 @@ Array [
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -645,6 +666,7 @@ Array [
   <div
     class="ant-alert ant-alert-success"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="check-circle"
@@ -678,6 +700,7 @@ Array [
   <div
     class="ant-alert ant-alert-info"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="info-circle"
@@ -711,6 +734,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-closable"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="exclamation-circle"
@@ -770,6 +794,7 @@ Array [
   <div
     class="ant-alert ant-alert-error"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="close-circle"
@@ -803,6 +828,7 @@ Array [
   <div
     class="ant-alert ant-alert-success ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="check-circle"
@@ -841,6 +867,7 @@ Array [
   <div
     class="ant-alert ant-alert-info ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="info-circle"
@@ -879,6 +906,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-closable"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="exclamation-circle"
@@ -943,6 +971,7 @@ Array [
   <div
     class="ant-alert ant-alert-error ant-alert-with-description"
     data-show="true"
+    role="alert"
   >
     <span
       aria-label="close-circle"
@@ -985,6 +1014,7 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
 <div
   class="ant-alert ant-alert-warning ant-alert-banner"
   data-show="true"
+  role="alert"
 >
   <span
     aria-label="exclamation-circle"
@@ -1037,6 +1067,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon ant-alert-closable"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -1084,6 +1115,7 @@ Array [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -1097,6 +1129,7 @@ Array [
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -1110,6 +1143,7 @@ Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -1123,6 +1157,7 @@ Array [
   <div
     class="ant-alert ant-alert-error ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"

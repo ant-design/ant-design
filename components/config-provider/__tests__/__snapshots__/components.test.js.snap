@@ -4,6 +4,7 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="config-alert-message"
@@ -20,6 +21,7 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="config-alert-message"
@@ -36,6 +38,7 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="config-alert-message"
@@ -52,6 +55,7 @@ exports[`ConfigProvider components Alert configProvider virtual and dropdownMatc
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -68,6 +72,7 @@ exports[`ConfigProvider components Alert normal 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -84,6 +89,7 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
 <div
   class="prefix-Alert prefix-Alert-success prefix-Alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="prefix-Alert-message"

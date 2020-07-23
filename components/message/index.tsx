@@ -96,7 +96,7 @@ function notice(args: ArgsProps): MessageType {
         style: args.style || {},
         className: args.className,
         content: (
-          <div className={messageClass}>
+          <div className={messageClass} role="alert">
             {args.icon || (IconComponent && <IconComponent />)}
             <span>{args.content}</span>
           </div>
