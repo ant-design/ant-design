@@ -74,7 +74,7 @@ function VirtualTable(props) {
         }}
         height={scroll.y}
         rowCount={rawData.length}
-        rowHeight={54}
+        rowHeight={() => 54}
         width={tableWidth}
         onScroll={({ scrollLeft }) => {
           onScroll({ scrollLeft });
