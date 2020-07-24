@@ -44,7 +44,7 @@ import itIT from '../it_IT';
 import jaJP from '../ja_JP';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
-import kuIQ from '../ku_IQ';
+import kmrKU from '../kmr_KU';
 import lvLV from '../lv_LV';
 import mkMK from '../mk_MK';
 import mnMN from '../mn_MN';
@@ -99,7 +99,7 @@ const locales = [
   jaJP,
   knIN,
   koKR,
-  kuIQ,
+  kmrKU,
   mkMK,
   msMY,
   mnMN,

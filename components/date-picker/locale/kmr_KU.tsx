@@ -1,5 +1,5 @@
-import CalendarLocale from 'rc-picker/lib/locale/ku_IQ';
-import TimePickerLocale from '../../time-picker/locale/ku_IQ';
+import CalendarLocale from 'rc-picker/lib/locale/kmr_KU';
+import TimePickerLocale from '../../time-picker/locale/kmr_KU';
 import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
