@@ -1,3 +1,3 @@
-import kmrKU from '../../date-picker/locale/mkr_KU';
+import kmrKU from '../../date-picker/locale/kmr_KU';
 
 export default kmrKU;
