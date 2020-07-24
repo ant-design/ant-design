@@ -115,7 +115,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       prefixCls: customizePrefixCls,
       bordered = true,
       showCount = false,
-      maxLength = showCount ? 500 : undefined,
+      maxLength = showCount ? 200 : undefined,
     } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     return (
