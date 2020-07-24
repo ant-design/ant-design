@@ -1079,7 +1079,7 @@ timeline: true
 
 Ant Design 4.0-rc released! Here is the release [document](https://github.com/ant-design/ant-design/issues/20661).
 
-⚠️ Migrate from v3 to v4 please ref to [migration document](/docs/react/migration-v4).
+⚠️ Migrate from v3 to v4 please ref to [migration document](/docs/react/migration-v4.en-US.md).
 
 ### New features and improvements
 
