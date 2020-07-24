@@ -18,39 +18,39 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: '编辑器设计系列：每天都在用，你真的了解它么？',
+    title: '设计考古：工具类产品 Office',
     description:
-      '提起编辑器，你会想到什么？也许你从来没有意识到，但是从接触计算机开始，你就和各种编辑器打上了交道。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c88yR4TO1z8AAAAAAAAAAABkARQnAQ',
-    date: '2020-04-15',
+      '微软 Office 办公系列产品的精髓在于 Ribbon（功能区）设计模式，它很好的解决了文档类、工具类复杂产品的高交互密度设计难题。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*nJogR776K8EAAAAAAAAAAABkARQnAQ',
+    date: '2019-11-05',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/113961511',
+    href: 'https://zhuanlan.zhihu.com/p/90304083',
   },
   {
-    title: '让价值被发现：如何在 B 端做增长',
+    title: '数据可视化的驱动与使能',
     description:
-      '在蚂蚁体验技术部，我们除了做好体验设计的「老本行」外，也在现有的增长理论指导下，结合自身业务，边落地实践，边沉淀总结。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6ZajSKDM3MMAAAAAAAAAAABkARQnAQ',
-    date: '2020-01-17',
+      '“指哪打哪”形容听从驱使。在数据可视化设计中，操作“听从驱使”的可视化作品又是一种什么样的体验呢？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kGFrS4JCGo8AAAAAAAAAAABkARQnAQ',
+    date: '2019-10-30',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/103093131',
+    href: 'https://zhuanlan.zhihu.com/p/89352118',
   },
   {
-    title: '蚂蚁前端研发最佳实践',
+    title: '【AntV 关系图编辑器】交互设计沉思录',
     description:
-      '本文介绍了蚂蚁前端研发的最佳实践，其中提取了三个比较重要的点，每个点都是我们实践和深入思考后的结果，希望能对大家有所启发。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eHjqRLpxlcsAAAAAAAAAAABkARQnAQ',
-    date: '2019-12-03',
+      'AntV 是 Ant Design 设计语言中的可视化部分。本文讲述的是关系型数据 G6 中流程图编辑器的搭建经验。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1fTSTKxbOqAAAAAAAAAAAABkARQnAQ',
+    date: '2019-09-11',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/94949118',
+    href: 'https://zhuanlan.zhihu.com/p/82146871',
   },
   {
-    title: '“炫酷狂拽”的 AntV - L7 地图可视化设计',
-    description: '不忘初心，方致千里，L7 从「心」出发，知设计体系之源，致地图可视化设计之远。本文揭秘 L7 这次探寻之旅中的 4 大发现。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGj_Tq9PtPMAAAAAAAAAAABkARQnAQ',
-    date: '2019-11-28',
+    title: '设计法则「映射」: 让你的设计更符合直觉',
+    description: '影响一个东西好不好用的因素有很多，本文将从125条通用设计法则中的「映射Mapping」出发，探讨一下这个法则对事物可用性的影响。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*AVELR486CNcAAAAAAAAAAABkARQnAQ',
+    date: '2019-08-24',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/94203386',
+    href: 'https://zhuanlan.zhihu.com/p/79632824',
   },
 ];
 
