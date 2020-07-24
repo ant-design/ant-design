@@ -338,6 +338,12 @@
       position: relative;
       top: 1px;
       display: inline-block;
+      margin: @menu-item-padding;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: @menu-item-padding;
+      padding-right: 0;
+      padding-left: 0;
       vertical-align: bottom;
       border-bottom: 2px solid transparent;
 
@@ -348,6 +354,10 @@
         color: @menu-highlight-color;
         border-bottom: 2px solid @menu-highlight-color;
       }
+    }
+
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      padding: 0;
     }
 
     > .@{menu-prefix-cls}-item {
