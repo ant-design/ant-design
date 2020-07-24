@@ -432,7 +432,17 @@ export default function useSelection<RecordType>(
           const checked = keySet.has(key);
           const indeterminate = derivedHalfSelectedKeySet.has(key);
           const checkboxProps = checkboxPropsMap.get(key);
-          const mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
+          let mergedIndeterminate: boolean;
+          if (expandType === 'nest') {
+            mergedIndeterminate = indeterminate;
+            devWarning(
+              !(typeof checkboxProps?.indeterminate === 'boolean'),
+              'Table',
+              'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
+            );
+          } else {
+            mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
+          }
           // Record checked
           return {
             node: (

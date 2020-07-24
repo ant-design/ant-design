@@ -1058,6 +1058,26 @@ describe('Table.rowSelection', () => {
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
     });
+    it('warns when set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured data.', () => {
+      resetWarned();
+      mount(
+        createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            getCheckboxProps() {
+              return {
+                indeterminate: true,
+              };
+            },
+          },
+        }),
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
+      );
+    });
   });
 
   describe('cache with selected keys', () => {
