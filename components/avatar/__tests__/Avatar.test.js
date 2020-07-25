@@ -158,6 +158,7 @@ describe('Avatar Render', () => {
     wrapper.simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
   });
+
   it('fallback', () => {
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
