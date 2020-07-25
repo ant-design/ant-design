@@ -32,6 +32,7 @@ export interface AvatarProps {
 
 const Avatar: React.FC<AvatarProps> = props => {
   const [scale, setScale] = React.useState(1);
+  const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
 
   const avatarNodeRef = React.useRef<HTMLElement>();
@@ -65,13 +66,17 @@ const Avatar: React.FC<AvatarProps> = props => {
   };
 
   React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
     setIsImgExist(true);
     setScale(1);
   }, [props.src]);
 
   React.useEffect(() => {
     setScaleParam();
-  }, [props.children, props.gap]);
+  }, [props.children, props.gap, props.size]);
 
   React.useEffect(() => {
     if (props.children) {
@@ -137,7 +142,7 @@ const Avatar: React.FC<AvatarProps> = props => {
     );
   } else if (icon) {
     childrenToRender = icon;
-  } else if (avatarChildrenRef.current || scale !== 1) {
+  } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale}) translateX(-50%)`;
     const childrenStyle: React.CSSProperties = {
       msTransform: transformString,
