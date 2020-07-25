@@ -6,6 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
+const sunflowerVars = require('./scripts/sunflower-vars');
 
 const { webpack } = getWebpackConfig;
 
@@ -100,6 +101,7 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
+const webpackSunflowerConfig = getWebpackConfig(false);
 
 webpackConfig.forEach(config => {
   injectWarningCondition(config);
@@ -130,6 +132,12 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
   processWebpackThemeConfig(webpackCompactConfig, 'compact', compactVars);
+  processWebpackThemeConfig(webpackSunflowerConfig, 'sunflower', sunflowerVars);
 }
 
-module.exports = [...webpackConfig, ...webpackDarkConfig, ...webpackCompactConfig];
+module.exports = [
+  ...webpackConfig,
+  ...webpackDarkConfig,
+  ...webpackCompactConfig,
+  ...webpackSunflowerConfig,
+];
