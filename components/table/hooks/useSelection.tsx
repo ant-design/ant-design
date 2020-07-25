@@ -431,14 +431,25 @@ export default function useSelection<RecordType>(
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const indeterminate = derivedHalfSelectedKeySet.has(key);
-
+          const checkboxProps = checkboxPropsMap.get(key);
+          let mergedIndeterminate: boolean;
+          if (expandType === 'nest') {
+            mergedIndeterminate = indeterminate;
+            devWarning(
+              !(typeof checkboxProps?.indeterminate === 'boolean'),
+              'Table',
+              'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
+            );
+          } else {
+            mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
+          }
           // Record checked
           return {
             node: (
               <Checkbox
-                {...checkboxPropsMap.get(key)}
+                {...checkboxProps}
+                indeterminate={mergedIndeterminate}
                 checked={checked}
-                indeterminate={indeterminate}
                 onClick={e => e.stopPropagation()}
                 onChange={({ nativeEvent }) => {
                   const { shiftKey } = nativeEvent;

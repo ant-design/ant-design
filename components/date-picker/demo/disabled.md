@@ -17,14 +17,14 @@ A disabled state of the `DatePicker`. You can also set as array to disable one o
 import { DatePicker } from 'antd';
 import moment from 'moment';
 
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
 ReactDOM.render(
   <>
     <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
     <br />
-    <MonthPicker defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
+    <DatePicker picker="month" defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
     <br />
     <RangePicker
       defaultValue={[moment('2015-06-06', dateFormat), moment('2015-06-06', dateFormat)]}

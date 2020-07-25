@@ -17,11 +17,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 日期类组件包括以下五种形式。
 
 - DatePicker
-- MonthPicker
+- DatePicker\[picker="month"]
+- DatePicker\[picker="week"]
+- DatePicker\[picker="year"]
+- DatePicker\[picker="quarter"] (4.1.0 新增)
 - RangePicker
-- WeekPicker
-- YearPicker
-- QuarterPicker (4.1.0 新增)
 
 ### 国际化配置
 
@@ -45,7 +45,7 @@ import 'moment/locale/zh-cn';
 
 ### 共同的 API
 
-以下 API 为 DatePicker、YearPicker、MonthPicker、RangePicker, WeekPicker 共享的 API。
+以下 API 为 DatePicker、 RangePicker 共享的 API。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ import 'moment/locale/zh-cn';
 | onPanelChange | 日期面板变化时的回调 | function(value, mode) | - |  |
 | showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
-### YearPicker
+### DatePicker\[picker=year]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -108,7 +108,7 @@ import 'moment/locale/zh-cn';
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
-### QuarterPicker
+### DatePicker\[picker=quarter]
 
 `4.1.0` 新增。
 
@@ -121,7 +121,7 @@ import 'moment/locale/zh-cn';
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
-### MonthPicker
+### DatePicker\[picker=month]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -133,7 +133,7 @@ import 'moment/locale/zh-cn';
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
-### WeekPicker
+### DatePicker\[picker=week]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

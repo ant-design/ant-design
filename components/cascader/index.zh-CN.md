@@ -56,7 +56,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | --- | --- | --- | --- | --- |
 | filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false | function(inputValue, path): boolean | - |  |
 | limit | 搜索结果展示数量 | number \| false | 50 |  |
-| matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | true |  |
+| matchInputWidth | 搜索结果列表是否与输入框同宽（[效果](https://github.com/ant-design/ant-design/issues/25779)） | boolean | true |  |
 | render | 用于渲染 filter 后的选项 | function(inputValue, path): ReactNode | - |  |
 | sort | 用于排序 filter 后的选项 | function(a, b, inputValue) | - |  |
 
