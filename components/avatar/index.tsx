@@ -32,7 +32,6 @@ export interface AvatarProps {
 
 const Avatar: React.FC<AvatarProps> = props => {
   const [scale, setScale] = React.useState(1);
-  const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
 
   const avatarNodeRef = React.useRef<HTMLElement>();
@@ -64,11 +63,6 @@ const Avatar: React.FC<AvatarProps> = props => {
       setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
     }
   };
-
-  React.useEffect(() => {
-    setScaleParam();
-    setMounted(true);
-  }, []);
 
   React.useEffect(() => {
     setIsImgExist(true);
@@ -103,6 +97,7 @@ const Avatar: React.FC<AvatarProps> = props => {
     className,
     alt,
     draggable,
+    children,
     ...others
   } = props;
 
@@ -135,64 +130,58 @@ const Avatar: React.FC<AvatarProps> = props => {
         }
       : {};
 
-  let { children } = props;
+  let childrenToRender;
   if (src && isImgExist) {
-    children = (
+    childrenToRender = (
       <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
     );
   } else if (icon) {
-    children = icon;
+    childrenToRender = icon;
+  } else if (avatarChildrenRef.current || scale !== 1) {
+    const transformString = `scale(${scale}) translateX(-50%)`;
+    const childrenStyle: React.CSSProperties = {
+      msTransform: transformString,
+      WebkitTransform: transformString,
+      transform: transformString,
+    };
+
+    const sizeChildrenStyle: React.CSSProperties =
+      typeof size === 'number'
+        ? {
+            lineHeight: `${size}px`,
+          }
+        : {};
+
+    childrenToRender = (
+      <span
+        className={`${prefixCls}-string`}
+        ref={(node: HTMLElement) => {
+          avatarChildrenRef.current = node;
+        }}
+        style={{ ...sizeChildrenStyle, ...childrenStyle }}
+      >
+        {children}
+      </span>
+    );
   } else {
-    const childrenNode = avatarChildrenRef.current;
-    if (childrenNode || scale !== 1) {
-      const transformString = `scale(${scale}) translateX(-50%)`;
-      const childrenStyle: React.CSSProperties = {
-        msTransform: transformString,
-        WebkitTransform: transformString,
-        transform: transformString,
-      };
-
-      const sizeChildrenStyle: React.CSSProperties =
-        typeof size === 'number'
-          ? {
-              lineHeight: `${size}px`,
-            }
-          : {};
-      children = (
-        <span
-          className={`${prefixCls}-string`}
-          ref={(node: HTMLElement) => {
-            avatarChildrenRef.current = node;
-          }}
-          style={{ ...sizeChildrenStyle, ...childrenStyle }}
-        >
-          {children}
-        </span>
-      );
-    } else {
-      const childrenStyle: React.CSSProperties = {};
-      if (!mounted) {
-        childrenStyle.opacity = 0;
-      }
-
-      children = (
-        <span
-          className={`${prefixCls}-string`}
-          style={{ opacity: 0 }}
-          ref={(node: HTMLElement) => {
-            avatarChildrenRef.current = node;
-          }}
-        >
-          {children}
-        </span>
-      );
-    }
+    childrenToRender = (
+      <span
+        className={`${prefixCls}-string`}
+        style={{ opacity: 0 }}
+        ref={(node: HTMLElement) => {
+          avatarChildrenRef.current = node;
+        }}
+      >
+        {children}
+      </span>
+    );
   }
 
   // The event is triggered twice from bubbling up the DOM tree.
   // see https://codesandbox.io/s/kind-snow-9lidz
   delete others.onError;
   delete others.gap;
+
   return (
     <span
       {...others}
@@ -202,7 +191,7 @@ const Avatar: React.FC<AvatarProps> = props => {
         avatarNodeRef.current = node;
       }}
     >
-      {children}
+      {childrenToRender}
     </span>
   );
 };
