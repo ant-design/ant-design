@@ -8,6 +8,12 @@ import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 
+let defaultRootPrefixCls = 'ant';
+
+function getRootPrefixCls() {
+  return defaultRootPrefixCls;
+}
+
 export type ModalFunc = (
   props: ModalFuncProps,
 ) => {
@@ -49,7 +55,7 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render({ okText, cancelText, ...props }: any) {
+  function render({ okText, cancelText, prefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      * Sync render blocks React event. Let's make this async.
@@ -59,6 +65,8 @@ export default function confirm(config: ModalFuncProps) {
       ReactDOM.render(
         <ConfirmDialog
           {...props}
+          prefixCls={prefixCls || `${getRootPrefixCls()}-modal`}
+          rootPrefixCls={getRootPrefixCls()}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
@@ -137,4 +145,10 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
     okCancel: true,
     ...props,
   };
+}
+
+export function globalConfig({ rootPrefixCls }: { rootPrefixCls?: string }) {
+  if (rootPrefixCls) {
+    defaultRootPrefixCls = rootPrefixCls;
+  }
 }

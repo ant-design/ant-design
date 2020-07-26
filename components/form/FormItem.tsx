@@ -305,14 +305,20 @@ function FormItem(props: FormItemProps): React.ReactElement {
         };
 
         let childNode: React.ReactNode = null;
+
+        devWarning(
+          !(shouldUpdate && dependencies),
+          'Form.Item',
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+        );
         if (Array.isArray(children) && hasName) {
           devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
-        } else if (isRenderProps && (!shouldUpdate || hasName)) {
+        } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           devWarning(
-            !!shouldUpdate,
+            !!(shouldUpdate || dependencies),
             'Form.Item',
-            '`children` of render props only work with `shouldUpdate`.',
+            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
           );
           devWarning(
             !hasName,
@@ -362,7 +368,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
               {cloneElement(children, childProps)}
             </MemoInput>
           );
-        } else if (isRenderProps && shouldUpdate && !hasName) {
+        } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
           devWarning(

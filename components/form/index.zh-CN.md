@@ -93,7 +93,7 @@ const validateMessages = {
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
 | trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
-| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |  |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
@@ -109,6 +109,10 @@ const validateMessages = {
 ### dependencies
 
 当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-register)。
+
+`dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
+
+从 `4.5.0` 版本开始，`dependencies` 支持使用 render props 类型 children 的 `Form.Item`。
 
 ### shouldUpdate
 
@@ -162,8 +166,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
       ))}
     </div>
   )}
+  1
 </Form.List>
 ```
+
+## operation
+
+Form.List 渲染表单相关操作函数。
+
+| 参数   | 说明       | 类型                                | 默认值          |
+| ------ | ---------- | ----------------------------------- | --------------- |
+| add    | 新增表单项 | (defaultValue?: any) => void        | -               |
+| remove | 删除表单项 | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move   | 移动表单项 | (from: number, to: number) => void  | -               |
 
 ## Form.Provider
 

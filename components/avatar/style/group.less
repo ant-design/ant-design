@@ -1,0 +1,22 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@avatar-prefix-cls: ~'@{ant-prefix}-avatar';
+
+.@{avatar-prefix-cls}-group {
+  display: inline-flex;
+
+  .@{avatar-prefix-cls} {
+    border: 1px solid @avatar-group-border-color;
+
+    &:not(:first-child) {
+      margin-left: @avatar-group-overlapping;
+    }
+  }
+
+  &-popover {
+    .@{ant-prefix}-avatar + .@{ant-prefix}-avatar {
+      margin-left: @avatar-group-space;
+    }
+  }
+}

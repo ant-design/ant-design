@@ -60,6 +60,7 @@ import 'moment/locale/zh-cn';
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | 控制弹层是否展开 | boolean | - |  |
+| panelRender | 自定义渲染面板 | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
@@ -160,7 +161,7 @@ import 'moment/locale/zh-cn';
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | 日期 | [moment](http://momentjs.com/)\[] | - |  |
-| onCalendarChange | 待选日期发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
+| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment\], dateStrings: \[string, string\], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
 
 <style>
