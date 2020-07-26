@@ -128,7 +128,7 @@
     "rc-menu": "~8.5.0",
     "rc-notification": "~4.4.0",
     "rc-pagination": "~2.4.1",
-    "rc-picker": "~1.13.0",
+    "rc-picker": "~1.14.0",
     "rc-progress": "~3.0.0",
     "rc-rate": "~2.8.2",
     "rc-resize-observer": "^0.2.3",
