@@ -122,12 +122,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const updateChildItemErrors = noStyle
     ? updateItemErrors
     : (subName: string, subErrors: string[]) => {
-        if (!isEqual(inlineErrors[subName], subErrors)) {
-          setInlineErrors(prevInlineErrors => ({
-            ...prevInlineErrors,
-            [subName]: subErrors,
-          }));
-        }
+        setInlineErrors((prevInlineErrors = {}) => {
+          if (!isEqual(prevInlineErrors[subName], subErrors)) {
+            return {
+              ...prevInlineErrors,
+              [subName]: subErrors,
+            };
+          }
+          return prevInlineErrors;
+        });
       };
 
   // ===================== Children Ref =====================
@@ -144,28 +147,30 @@ function FormItem(props: FormItemProps): React.ReactElement {
     }
 
     // ======================== Errors ========================
+    // >>> collect sub errors
+    let subErrorList: string[] = [];
+    Object.keys(inlineErrors).forEach(subName => {
+      subErrorList = [...subErrorList, ...(inlineErrors[subName] || [])];
+    });
+
+    // >>> merged errors
     let mergedErrors: React.ReactNode[];
     if (help !== undefined && help !== null) {
       mergedErrors = toArray(help);
     } else {
       mergedErrors = meta ? meta.errors : [];
-      Object.keys(inlineErrors).forEach(subName => {
-        const subErrors = inlineErrors[subName] || [];
-        if (subErrors.length) {
-          mergedErrors = [...mergedErrors, ...subErrors];
-        }
-      });
+      mergedErrors = [...mergedErrors, ...subErrorList];
     }
 
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) {
       mergedValidateStatus = validateStatus;
-    } else if (meta && meta.validating) {
+    } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (!help && mergedErrors.length) {
+    } else if (meta?.errors?.length || subErrorList.length) {
       mergedValidateStatus = 'error';
-    } else if (meta && meta.touched) {
+    } else if (meta?.touched) {
       mergedValidateStatus = 'success';
     }
 
@@ -210,6 +215,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'labelAlign',
           'labelCol',
           'normalize',
+          'preserve',
           'required',
           'validateFirst',
           'validateStatus',

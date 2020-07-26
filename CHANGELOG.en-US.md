@@ -15,6 +15,39 @@ timeline: true
 
 ---
 
+## 4.4.3
+
+`2020-07-20`
+
+- 🐞 Fix Layout `trigger` cannot customize zero width to trigger. [#25653](https://github.com/ant-design/ant-design/pull/25653)
+- 🐞 Fix Form.Item `help` style when verification fails. [#25582](https://github.com/ant-design/ant-design/pull/25582) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 Fix Descriptions abnormal style inside Table `expandedRowRender`. [#25593](https://github.com/ant-design/ant-design/pull/25593)
+- 💄 Add `@zindex-popconfirm: 1060` less variable, and improve `@zindex-tooltip` into `1070`. [#25693](https://github.com/ant-design/ant-design/pull/25693)
+- 🛠 Upgrade `react-slick` to reduce bundle size. [#25599](https://github.com/ant-design/ant-design/pull/25599)
+- 🌐 Improve Catalan ca_ES localization. [#25583](https://github.com/ant-design/ant-design/pull/25583) [@albertms10](https://github.com/albertms10)
+- 🇸🇦 Improve ar_EG localization. [#25587](https://github.com/ant-design/ant-design/pull/25587) [@amir5000](https://github.com/amir5000)
+- TypeScript
+  - 🐞 Fix Upload `customRequest` file interface. [#25598](https://github.com/ant-design/ant-design/pull/25598) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+
+## 4.4.2
+
+`2020-07-11`
+
+- 🛠 Adjust Alert animation to remove directly dom operation. [#dd8e9f8](https://github.com/ant-design/ant-design/commit/dd8e9f8) [@Yunfly](https://github.com/Yunfly)
+- Select
+  - 🐞 Fix Select shifts vertically when searching. [#25536](https://github.com/ant-design/ant-design/pull/25536) [@07akioni](https://github.com/07akioni)
+  - 💄 Add `@select-item-select-color` to control the color when Select item is selected. [#25476](https://github.com/ant-design/ant-design/pull/25476)
+- 🐞 Fix Form.Item warning for `preserve` as invalidate dom prop. [#25518](https://github.com/ant-design/ant-design/pull/25518)
+- 🐞 Fix Card cover margin bug when bordered is false. [#25515](https://github.com/ant-design/ant-design/pull/25515) [@yutingzhao1991](https://github.com/yutingzhao1991)
+- 💄 Adjust Typography style to set `overflow-wrap: break-word` as default. [#25516](https://github.com/ant-design/ant-design/pull/25516)
+- 🐞 Fix Table `expandedRowRender` nested Table cell background color. [#25498](https://github.com/ant-design/ant-design/pull/25498)
+- 🐞 Fix Popover wrong positioning on Radio.Button. [#25449](https://github.com/ant-design/ant-design/pull/25449) [@zgoby](https://github.com/zgoby)
+- 🐞 Fix RangePicker clear icon position issue when `size=small`. [#25458](https://github.com/ant-design/ant-design/pull/25458)
+- 🆕 Upload supports to show thumbnail for non-image files as `thumbUrl` configured in `onChange` event. [#25432](https://github.com/ant-design/ant-design/pull/25432) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+- 🐞 Fix Table `onChange` triggered multiple times when change page size. [#25520](https://github.com/ant-design/ant-design/pull/25520) [@zhangchen915](https://github.com/zhangchen915)
+- 🛠 Remove `babel-runtime` and add `@babel/runtime` in dependencies, reduce gzipped bundle size `18.6KB`. [#25530](https://github.com/ant-design/ant-design/pull/25530)
+- 🇪🇸 Improve es_ES localization. [#25460](https://github.com/ant-design/ant-design/pull/25460) [@gersongams](https://github.com/gersongams)
+
 ## 4.4.1
 
 `2020-07-06`
@@ -222,7 +255,7 @@ timeline: true
 
 `2020-05-31`
 
-- 🔥 Rewrite Tabs for better user experience. [#24552](https://github.com/ant-design/ant-design/pull/24552)
+- 🔥 Rewrite Tabs for better user experience, dom structure is changed. [#24552](https://github.com/ant-design/ant-design/pull/24552)
 - 📖 Add components [overview page](https://ant.design/components/overview). [#24491](https://github.com/ant-design/ant-design/pull/24491) [@arvinxx](https://github.com/arvinxx)
 - 🛠 Optimize dependencies to reduce overall package size. [#24584](https://github.com/ant-design/ant-design/pull/24584)
 - Button

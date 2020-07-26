@@ -48,9 +48,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 
 #### 注意
 
-> - `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
->
-> - `Modal.method()` RTL 模式仅支持 hooks 用法。
+- `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+- `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnClose` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
+- `Modal.method()` RTL 模式仅支持 hooks 用法。
 
 ### Modal.method()
 
@@ -98,7 +98,7 @@ modal.destroy();
 
 - `Modal.destroyAll`
 
-使用 `Modal.destroyAll()` 可以销毁弹出的确认窗（即上述的 Modal.info、Modal.success、Modal.error、Modal.warning、Modal.confirm）。通常用于路由监听当中，处理路由前进、后退不能销毁确认对话框的问题，而不用各处去使用实例的返回值进行关闭（modal.destroy() 适用于主动关闭，而不是路由这样被动关闭）
+使用 `Modal.destroyAll()` 可以销毁弹出的确认窗（即上述的 `Modal.info`、`Modal.success`、`Modal.error`、`Modal.warning`、`Modal.confirm`）。通常用于路由监听当中，处理路由前进、后退不能销毁确认对话框的问题，而不用各处去使用实例的返回值进行关闭（`modal.destroy()` 适用于主动关闭，而不是路由这样被动关闭）
 
 ```jsx
 import { browserHistory } from 'react-router';
@@ -123,6 +123,18 @@ React.useEffect(() => {
 }, []);
 
 return <div>{contextHolder}</div>;
+```
+
+### Modal.config() `4.5.0+`
+
+类似 `message.config()`，全局设置 `Modal.confirm` 等方法的属性（如 `prefixCls`）。
+
+> 此方法只对 `Modal.confirm|success|info|error|warning` 等**静态方法**生效，`<Modal />` 的调用方式是读取 ConfigProvider 的设置。
+
+```jsx
+Modal.config({
+  rootPrefixCls: 'ant',
+});
 ```
 
 ## FAQ

@@ -295,7 +295,7 @@ Also you can use the action from extra param to determine when return to first p
 
 ### Why Table pagination show size changer?
 
-In order to improve user experience, Pagination show size changer by default when `total >= 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
+In order to improve user experience, Pagination show size changer by default when `total > 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
 
 ### Why Table fully render when state change?
 

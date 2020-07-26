@@ -166,8 +166,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
       ))}
     </div>
   )}
+  1
 </Form.List>
 ```
+
+## operation
+
+Form.List 渲染表单相关操作函数。
+
+| 参数   | 说明       | 类型                                | 默认值          |
+| ------ | ---------- | ----------------------------------- | --------------- |
+| add    | 新增表单项 | (defaultValue?: any) => void        | -               |
+| remove | 删除表单项 | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move   | 移动表单项 | (from: number, to: number) => void  | -               |
 
 ## Form.Provider
 
@@ -314,6 +325,10 @@ validator(rule, value, callback) => {
   }
 }
 ```
+
+### name 为数组使的转换规则？
+
+当 `name` 为数组时，会按照顺序填充路径。当存在数字且 form store 中没有该字段时会自动转变成数组。因而如果需要数组为 key 时请使用 string 如：`['1', 'name']`。
 
 ### 为何在 Modal 中调用 form 控制台会报错？
 

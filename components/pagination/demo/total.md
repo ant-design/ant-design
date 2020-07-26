@@ -17,7 +17,7 @@ You can show the total number of data by setting `showTotal`.
 import { Pagination } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Pagination
       total={85}
       showTotal={total => `Total ${total} items`}
@@ -31,7 +31,7 @@ ReactDOM.render(
       defaultPageSize={20}
       defaultCurrent={1}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

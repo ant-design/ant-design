@@ -100,7 +100,7 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item').last().simulate('click');
-    expect(scrollTo).toHaveBeenCalledTimes(3);
+    expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
   it('fires change event', () => {
@@ -332,6 +332,24 @@ describe('Table.pagination', () => {
   it('renders pagination topLeft and bottomRight', () => {
     const wrapper = mount(createTable({ pagination: ['topLeft', 'bottomRight'] }));
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should call onChange when change pagination size', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+        },
+        onChange,
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
+
+    expect(onChange).toBeCalledTimes(1);
   });
 
   it('dynamic warning', () => {

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
   >
@@ -113,11 +113,11 @@ exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />
+  />,
   <div
     class="ant-steps ant-steps-vertical"
   >
@@ -229,8 +229,8 @@ exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`] = `
@@ -731,7 +731,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 `;
 
 exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
   >
@@ -880,7 +880,7 @@ exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-label-horizontal ant-steps-navigation"
   >
@@ -1027,7 +1027,7 @@ exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
   >
@@ -1191,12 +1191,12 @@ exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
   >
@@ -1308,11 +1308,11 @@ exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />
+  />,
   <div
     class="ant-steps ant-steps-vertical ant-steps-dot"
   >
@@ -1496,8 +1496,8 @@ exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
@@ -1748,7 +1748,7 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
 `;
 
 exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
   >
@@ -1839,12 +1839,12 @@ exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="steps-content"
   >
     First-content
-  </div>
+  </div>,
   <div
     class="steps-action"
   >
@@ -1856,8 +1856,8 @@ exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
         Next
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `

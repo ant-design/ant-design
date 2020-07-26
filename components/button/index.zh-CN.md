@@ -12,7 +12,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
-在 Ant Design 中我们提供了四种按钮。
+在 Ant Design 中我们提供了五种按钮。
 
 - 主按钮：用于主行动点，一个操作区域只能有一个主按钮。
 - 默认按钮：用于没有主次之分的一组行动点。
@@ -44,7 +44,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 | shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设 | string | - |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | - |  |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
-| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `danger` \| `link` \| `text` | - |  |
+| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `danger` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
 | danger | 设置危险按钮 | boolean | false |  |

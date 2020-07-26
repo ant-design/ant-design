@@ -33,7 +33,7 @@ const FormSizeDemo = () => {
     setComponentSize(size);
   };
   return (
-    <div>
+    <>
       <Form
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
@@ -93,7 +93,7 @@ const FormSizeDemo = () => {
           <Button>Button</Button>
         </Form.Item>
       </Form>
-    </div>
+    </>
   );
 };
 ReactDOM.render(<FormSizeDemo />, mountNode);

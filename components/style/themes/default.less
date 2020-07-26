@@ -239,6 +239,7 @@
 @descriptions-item-trailing-colon: true;
 @descriptions-item-label-colon-margin-right: 8px;
 @descriptions-item-label-colon-margin-left: 2px;
+@descriptions-extra-color: @text-color;
 
 // Divider
 @divider-text-padding: 1em;
@@ -336,7 +337,8 @@
 @zindex-popover: 1030;
 @zindex-dropdown: 1050;
 @zindex-picker: 1050;
-@zindex-tooltip: 1060;
+@zindex-popoconfirm: 1060;
+@zindex-tooltip: 1070;
 
 // Animation
 @animation-duration-slow: 0.3s; // Modal
@@ -413,6 +415,7 @@
 // Select
 // ---
 @select-border-color: @border-color-base;
+@select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
 @select-item-selected-bg: @primary-1;
@@ -668,7 +671,7 @@
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
 @card-padding-base-sm: @card-padding-base / 2;
-@card-actions-background: @background-color-light;
+@card-actions-background: @component-background;
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
@@ -738,6 +741,9 @@
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
+@avatar-group-overlapping: -8px;
+@avatar-group-space: 3px;
+@avatar-group-border-color: #fff;
 
 // Switch
 // ---

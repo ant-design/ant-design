@@ -78,6 +78,19 @@
     .disabled();
   }
 
+  &-borderless {
+    &,
+    &:hover,
+    &:focus,
+    &-focused,
+    &-disabled,
+    &[disabled] {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
   // Reset height for `textarea`s
   textarea& {
     max-width: 100%; // prevent textearea resize from coming out of its container

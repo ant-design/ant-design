@@ -15,6 +15,39 @@ timeline: true
 
 ---
 
+## 4.4.3
+
+`2020-07-20`
+
+- 🐞 修复 Layout `trigger` 属性无法定制零宽触发器的问题。[#25653](https://github.com/ant-design/ant-design/pull/25653)
+- 🐞 修复 Form.Item `help` 在校验失败时的样式。[#25582](https://github.com/ant-design/ant-design/pull/25582) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 修复 Descriptions 在 Table `expandedRowRender` 样式异常的问题。[#25593](https://github.com/ant-design/ant-design/pull/25593)
+- 💄 新增 `@zindex-popconfirm: 1060` less 变量，并将 `@zindex-tooltip` 提升为 `1070`。[#25693](https://github.com/ant-design/ant-design/pull/25693)
+- 🛠 更新 `react-slick` 依赖优化包大小。[#25599](https://github.com/ant-design/ant-design/pull/25599)
+- 🌐 改进加泰罗尼亚语 ca_ES 国际化。[#25583](https://github.com/ant-design/ant-design/pull/25583) [@albertms10](https://github.com/albertms10)
+- 🇸🇦 改进阿拉伯语 ar_EG 国际化。[#25587](https://github.com/ant-design/ant-design/pull/25587) [@amir5000](https://github.com/amir5000)
+- TypeScript
+  - 🐞 修复 Upload `customRequest` 的 File 定义。[#25598](https://github.com/ant-design/ant-design/pull/25598) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+
+## 4.4.2
+
+`2020-07-11`
+
+- 🛠 调整 Alert 组件关闭动画实现移除直接的 dom 操作。[#dd8e9f8](https://github.com/ant-design/ant-design/commit/dd8e9f8) [@Yunfly](https://github.com/Yunfly)
+- Select
+  - 🐞 修正了 Select 在搜索时纵向位移的问题。[#25536](https://github.com/ant-design/ant-design/pull/25536) [@07akioni](https://github.com/07akioni)
+  - 💄 增加 `@select-item-selected-color` 以控制 Select 选项选中时的颜色。[#25476](https://github.com/ant-design/ant-design/pull/25476)
+- 🐞 修复 Form.Item 警告 `preserve` 是无效 dom 属性的问题。[#25518](https://github.com/ant-design/ant-design/pull/25518)
+- 🐞 修复当 Card 组件无边框时封面图边距的问题。[#25515](https://github.com/ant-design/ant-design/pull/25515) [@yutingzhao1991](https://github.com/yutingzhao1991)
+- 💄 调整 Typography 样式添加 `overflow-wrap: break-word` 默认样式。[#25516](https://github.com/ant-design/ant-design/pull/25516)
+- 🐞 修复 Table `expandedRowRender` 内嵌 Table 时单元格背景丢失的问题。[#25498](https://github.com/ant-design/ant-design/pull/25498)
+- 🐞 修复 Radio.Button 上使用 Popover 时的位置异常问题。[#25449](https://github.com/ant-design/ant-design/pull/25449) [@zgoby](https://github.com/zgoby)
+- 🐞 修复 RangePicker 在 `size=small` 时清除按钮的位置问题。[#25458](https://github.com/ant-design/ant-design/pull/25458)
+- 🆕 Upload 支持上传非图片文件时在 `onChange` 事件中设置 `thumbUrl` 来展示缩略图。[#25432](https://github.com/ant-design/ant-design/pull/25432) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+- 🐞 修复 Table 切换页条目数时 `onChange` 触发多次的问题。[#25520](https://github.com/ant-design/ant-design/pull/25520) [@zhangchen915](https://github.com/zhangchen915)
+- 🛠 移除 `babel-runtime` 并添加 `@babel/runtime` 依赖，减少 gzipped 包体积 `18.6KB`。[#25530](https://github.com/ant-design/ant-design/pull/25530)
+- 🇪🇸 改进 es_ES 国际化。[#25460](https://github.com/ant-design/ant-design/pull/25460) [@gersongams](https://github.com/gersongams)
+
 ## 4.4.1
 
 `2020-07-06`
@@ -223,7 +256,7 @@ timeline: true
 
 `2020-05-31`
 
-- 🔥 重做 Tabs 以提升多标签在不同环境下的用户体验。[#24552](https://github.com/ant-design/ant-design/pull/24552)
+- 🔥 重做 Tabs 以提升多标签在不同环境下的用户体验，**DOM 结构完全重写**，请注意覆盖样式丢失的问题。[#24552](https://github.com/ant-design/ant-design/pull/24552)
 - 📖 新增组件[总览页面](https://ant.design/components/overview-cn)。[#24491](https://github.com/ant-design/ant-design/pull/24491) [@arvinxx](https://github.com/arvinxx)
 - 🛠 增加大量功能，同时减少了包体积（相比 `4.2.5` 减少了 2KB）。[#24584](https://github.com/ant-design/ant-design/pull/24584)
 - Button

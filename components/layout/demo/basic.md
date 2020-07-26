@@ -92,10 +92,7 @@ ReactDOM.render(
 [data-theme="dark"] #components-layout-demo-basic .ant-layout-content {
   background: #107bcb;
 }
-#components-layout-demo-basic > .code-box-demo > div > .ant-layout {
-  margin-bottom: 48px;
-}
-#components-layout-demo-basic > .code-box-demo > div > .ant-layout:last-child {
-  margin: 0;
+#components-layout-demo-basic > .code-box-demo > .ant-layout + .ant-layout {
+  margin-top: 48px;
 }
 </style>

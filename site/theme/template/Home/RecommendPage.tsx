@@ -16,49 +16,51 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: '蚂蚁金服体验技术部招聘啦！',
+    title: 'Ant Design 1.0 背后的故事：把艺术变成技术',
     description:
-      '欢迎志同道合的你加入我们，一同在「引领全球体验科技，创造一流用户体验」的愿景指引下前行。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BPVATKTgfXwAAAAAAAAAAABkARQnAQ',
-    href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
+      'Ant Design 是一个设计体系，而 Ant Designers 是一群人。本文将讲讲 Ant Design 1.0 背后的故事，还原那些人、那些事。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h21tT45dgD8AAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/104027273',
     popularize: true,
   },
   {
-    title: '图表库 G2Plot 1.0 发布了！',
+    title: 'Ant Design Pro V5 已经支持预览',
     description:
-      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/113888415',
+      '经过长时间的准备，Pro V5 已经基本完成。在新版本中我们进行了很多预设，对于数据流和布局更是进行了大刀阔斧的改进。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oY1sTrR5FswAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/141740103',
   },
   {
-    title: 'Ant Design 暗黑模式设计解析',
-    description: '让我们一起来看下，Ant Design 这一针对企业级的设计体系是如何设计暗黑模式的？',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/112470365',
+    title: 'JCD 驱动 - 复杂系统设计应对之道',
+    description:
+      '基于蚂蚁集团 CTO 线的业务土壤，我们探索出以 JCD 为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循，有方法可用。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'Ant Experience Technology Department Wants You!',
+    title: 'The Story behind Ant Design 1.0: Turn Art into Technology',
     description:
-      '⚡️ Our vision is ’To Lead Global Experience Technology, to Create First-Class User Experience.‘. Welcome to join us.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Jd4sQJ9mmaQAAAAAAAAAAABkARQnAQ',
-    href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
+      '🌺 While Ant Design is a design system, Ant Designers are a group of people. This article will tell you the story behind Ant Design 1.0.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h21tT45dgD8AAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/104027273',
     popularize: true,
   },
   {
-    title: 'Chart Library G2Plot 1.0 has Come!',
+    title: 'Ant Design Pro V5 has Supported Preview!',
     description:
-      '📈 G2Plot 1.0 supports 40+ types of charts, including built-in statistic & analysis components and complicated interactions. Now it is ready for use out of the box.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/113888415',
+      '📈 After a long time of preparation, Pro V5 has been basically completed. In this new version, we have done a lot of presets, and have made radical improvements to the data flow and layouts.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oY1sTrR5FswAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/141740103',
   },
   {
-    title: 'Dark Theme of Ant Design',
-    description: '🌃 Let us take a look at how to design the dark theme of Ant Design.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/112470365',
+    title: 'Driven by JCD: How to Design Complicated Systems',
+    description:
+      '🏦 Based on the business practice of Ant Group CTO line, we have summed up a design thinking system of enterprise product, which is called JCD.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
 ];
 

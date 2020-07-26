@@ -934,7 +934,7 @@ Array [
               aria-hidden="true"
               class="ant-tabs-tabpane"
               role="tabpanel"
-              style="visibility:hidden;height:0;overflow-y:hidden"
+              style="display:none"
               tabindex="-1"
             />
           </div>
@@ -1067,13 +1067,12 @@ Array [
         >
           <div
             class="ant-tabs-content ant-tabs-content-top"
-            style="margin-left:-100%"
           >
             <div
               aria-hidden="true"
               class="ant-tabs-tabpane"
               role="tabpanel"
-              style="visibility:hidden;height:0;overflow-y:hidden"
+              style="display:none"
               tabindex="-1"
             />
             <div
@@ -1086,7 +1085,7 @@ Array [
               aria-hidden="true"
               class="ant-tabs-tabpane"
               role="tabpanel"
-              style="visibility:hidden;height:0;overflow-y:hidden"
+              style="display:none"
               tabindex="-1"
             />
           </div>

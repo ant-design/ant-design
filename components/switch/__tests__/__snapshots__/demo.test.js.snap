@@ -17,7 +17,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked ant-switch-disabled"
@@ -31,8 +31,8 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     />
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -40,12 +40,12 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
     <span>
       Toggle disabled
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-loading ant-switch-checked ant-switch-disabled"
@@ -80,8 +80,8 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     />
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="false"
     class="ant-switch ant-switch-small ant-switch-loading ant-switch-disabled"
@@ -116,12 +116,12 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/switch/demo/size.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -134,8 +134,8 @@ exports[`renders ./components/switch/demo/size.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     />
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="true"
     class="ant-switch ant-switch-small ant-switch-checked"
@@ -148,12 +148,12 @@ exports[`renders ./components/switch/demo/size.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/switch/demo/text.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -168,8 +168,8 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
     >
       开启
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="false"
     class="ant-switch"
@@ -184,8 +184,8 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
     >
       0
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -219,6 +219,6 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;

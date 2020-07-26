@@ -18,15 +18,6 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: 'Ant Design 4.0 的一些杂事儿 - Space 篇',
-    description:
-      '作为前端开发者，我们总是不断的在与样式做斗争。今天，我们聊聊 Ant Design 中新增的 Space 组件。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jHvSR48tRccAAAAAAAAAAABkARQnAQ',
-    date: '2020-04-24',
-    source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/135446399',
-  },
-  {
     title: '编辑器设计系列：每天都在用，你真的了解它么？',
     description:
       '提起编辑器，你会想到什么？也许你从来没有意识到，但是从接触计算机开始，你就和各种编辑器打上了交道。',
@@ -36,21 +27,31 @@ const MORE_LIST: MoreProps[] = [
     href: 'https://zhuanlan.zhihu.com/p/113961511',
   },
   {
-    title: 'JCD 驱动 - 复杂系统设计应对之道',
+    title: '让价值被发现：如何在 B 端做增长',
     description:
-      '基于蚂蚁金服CTO线的业务土壤，我们探索出以JCD为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y-xiQoZzBCEAAAAAAAAAAABkARQnAQ',
+      '在蚂蚁体验技术部，我们除了做好体验设计的「老本行」外，也在现有的增长理论指导下，结合自身业务，边落地实践，边沉淀总结。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6ZajSKDM3MMAAAAAAAAAAABkARQnAQ',
     date: '2020-01-17',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/103237648',
+    href: 'https://zhuanlan.zhihu.com/p/103093131',
   },
   {
-    title: '折柱饼 +3 个套路，简单图表你真的会用吗？',
-    description: '本文一句话概括：数据可视化中，如何用最简单的图表高效地传递信息。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q1DMQpLCDQgAAAAAAAAAAABkARQnAQ',
+    title: '蚂蚁前端研发最佳实践',
+    description:
+      '本文介绍了蚂蚁前端研发的最佳实践，其中提取了三个比较重要的点，每个点都是我们实践和深入思考后的结果，希望能对大家有所启发。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eHjqRLpxlcsAAAAAAAAAAABkARQnAQ',
+    date: '2019-12-03',
+    source: 'zhihu',
+    href: 'https://zhuanlan.zhihu.com/p/94949118',
+  },
+  {
+    title: '“炫酷狂拽”的 AntV - L7 地图可视化设计',
+    description:
+      '不忘初心，方致千里，L7 从「心」出发，知设计体系之源，致地图可视化设计之远。本文揭秘 L7 这次探寻之旅中的 4 大发现。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGj_Tq9PtPMAAAAAAAAAAABkARQnAQ',
     date: '2019-11-28',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/93808863',
+    href: 'https://zhuanlan.zhihu.com/p/94203386',
   },
 ];
 

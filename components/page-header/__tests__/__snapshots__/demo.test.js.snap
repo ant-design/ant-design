@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-page-header site-page-header ant-page-header-ghost"
   >
@@ -186,8 +186,8 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-page-header ant-page-header-ghost"
   >
@@ -371,8 +371,8 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
@@ -915,35 +915,330 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 `;
 
 exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
-<div>
+<div
+  class="ant-page-header site-page-header-responsive has-footer ant-page-header-ghost"
+>
   <div
-    class="ant-page-header site-page-header-responsive has-footer ant-page-header-ghost"
+    class="ant-page-header-heading"
   >
     <div
-      class="ant-page-header-heading"
+      class="ant-page-header-heading-left"
     >
       <div
-        class="ant-page-header-heading-left"
+        class="ant-page-header-back"
       >
         <div
-          class="ant-page-header-back"
+          aria-label="Back"
+          class="ant-page-header-back-button"
+          role="button"
+          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+          tabindex="0"
+        >
+          <span
+            aria-label="arrow-left"
+            class="anticon anticon-arrow-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="arrow-left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <span
+        class="ant-page-header-heading-title"
+        title="Title"
+      >
+        Title
+      </span>
+      <span
+        class="ant-page-header-heading-sub-title"
+        title="This is a subtitle"
+      >
+        This is a subtitle
+      </span>
+    </div>
+    <span
+      class="ant-page-header-heading-extra"
+    >
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Operation
+        </span>
+      </button>
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Operation
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Primary
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-page-header-content"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="main"
+      >
+        <div
+          class="ant-descriptions ant-descriptions-small"
         >
           <div
-            aria-label="Back"
-            class="ant-page-header-back-button"
-            role="button"
-            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-            tabindex="0"
+            class="ant-descriptions-view"
+          >
+            <table>
+              <tbody>
+                <tr
+                  class="ant-descriptions-row"
+                >
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Created
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Lili Qu
+                    </span>
+                  </td>
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Association
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      <a>
+                        421421
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-descriptions-row"
+                >
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Creation Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-01-10
+                    </span>
+                  </td>
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Effective Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-10-10
+                    </span>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-descriptions-row"
+                >
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="2"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Remarks
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div
+        class="extra"
+      >
+        <div
+          style="display:flex;width:max-content;justify-content:flex-end"
+        >
+          <div
+            class="ant-statistic"
+            style="margin-right:32px"
+          >
+            <div
+              class="ant-statistic-title"
+            >
+              Status
+            </div>
+            <div
+              class="ant-statistic-content"
+            >
+              <span
+                class="ant-statistic-content-value"
+              >
+                Pending
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-statistic"
+          >
+            <div
+              class="ant-statistic-title"
+            >
+              Price
+            </div>
+            <div
+              class="ant-statistic-content"
+            >
+              <span
+                class="ant-statistic-content-prefix"
+              >
+                $
+              </span>
+              <span
+                class="ant-statistic-content-value"
+              >
+                <span
+                  class="ant-statistic-content-value-int"
+                >
+                  568
+                </span>
+                <span
+                  class="ant-statistic-content-value-decimal"
+                >
+                  .08
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-page-header-footer"
+  >
+    <div
+      class="ant-tabs ant-tabs-top"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform:translate(0px, 0px)"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+            >
+              <div
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Details
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Rule
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="null-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="null-more"
+            style="visibility:hidden;order:1"
+            tabindex="-1"
+            type="button"
           >
             <span
-              aria-label="arrow-left"
-              class="anticon anticon-arrow-left"
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
               role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="arrow-left"
+                data-icon="ellipsis"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -951,329 +1246,32 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
                 />
               </svg>
             </span>
-          </div>
-        </div>
-        <span
-          class="ant-page-header-heading-title"
-          title="Title"
-        >
-          Title
-        </span>
-        <span
-          class="ant-page-header-heading-sub-title"
-          title="This is a subtitle"
-        >
-          This is a subtitle
-        </span>
-      </div>
-      <span
-        class="ant-page-header-heading-extra"
-      >
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
-      </span>
-    </div>
-    <div
-      class="ant-page-header-content"
-    >
-      <div
-        class="content"
-      >
-        <div
-          class="main"
-        >
-          <div
-            class="ant-descriptions ant-descriptions-small"
-          >
-            <div
-              class="ant-descriptions-view"
-            >
-              <table>
-                <tbody>
-                  <tr
-                    class="ant-descriptions-row"
-                  >
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        Created
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        Lili Qu
-                      </span>
-                    </td>
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        Association
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        <a>
-                          421421
-                        </a>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-descriptions-row"
-                  >
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        Creation Time
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        2017-01-10
-                      </span>
-                    </td>
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        Effective Time
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        2017-10-10
-                      </span>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-descriptions-row"
-                  >
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="2"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        Remarks
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div
-          class="extra"
-        >
-          <div
-            style="display:flex;width:max-content;justify-content:flex-end"
-          >
-            <div
-              class="ant-statistic"
-              style="margin-right:32px"
-            >
-              <div
-                class="ant-statistic-title"
-              >
-                Status
-              </div>
-              <div
-                class="ant-statistic-content"
-              >
-                <span
-                  class="ant-statistic-content-value"
-                >
-                  Pending
-                </span>
-              </div>
-            </div>
-            <div
-              class="ant-statistic"
-            >
-              <div
-                class="ant-statistic-title"
-              >
-                Price
-              </div>
-              <div
-                class="ant-statistic-content"
-              >
-                <span
-                  class="ant-statistic-content-prefix"
-                >
-                  $
-                </span>
-                <span
-                  class="ant-statistic-content-value"
-                >
-                  <span
-                    class="ant-statistic-content-value-int"
-                  >
-                    568
-                  </span>
-                  <span
-                    class="ant-statistic-content-value-decimal"
-                  >
-                    .08
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
+          </button>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-page-header-footer"
-    >
       <div
-        class="ant-tabs ant-tabs-top"
+        class="ant-tabs-content-holder"
       >
         <div
-          class="ant-tabs-nav"
-          role="tablist"
+          class="ant-tabs-content ant-tabs-content-top"
         >
           <div
-            class="ant-tabs-nav-wrap"
-          >
-            <div
-              class="ant-tabs-nav-list"
-              style="transform:translate(0px, 0px)"
-            >
-              <div
-                class="ant-tabs-tab ant-tabs-tab-active"
-              >
-                <div
-                  aria-selected="true"
-                  class="ant-tabs-tab-btn"
-                  role="tab"
-                  tabindex="0"
-                >
-                  Details
-                </div>
-              </div>
-              <div
-                class="ant-tabs-tab"
-              >
-                <div
-                  aria-selected="false"
-                  class="ant-tabs-tab-btn"
-                  role="tab"
-                  tabindex="0"
-                >
-                  Rule
-                </div>
-              </div>
-              <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-            </div>
-          </div>
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            role="tabpanel"
+            tabindex="0"
+          />
           <div
-            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-          >
-            <button
-              aria-controls="null-more-popup"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-hidden="true"
-              class="ant-tabs-nav-more"
-              id="null-more"
-              style="visibility:hidden;order:1"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="ellipsis"
-                class="anticon anticon-ellipsis"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="ellipsis"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          class="ant-tabs-content-holder"
-        >
-          <div
-            class="ant-tabs-content ant-tabs-content-top"
-          >
-            <div
-              aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
-              role="tabpanel"
-              tabindex="0"
-            />
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="visibility:hidden;height:0;overflow-y:hidden"
-              tabindex="-1"
-            />
-          </div>
+            aria-hidden="true"
+            class="ant-tabs-tabpane"
+            role="tabpanel"
+            style="display:none"
+            tabindex="-1"
+          />
         </div>
       </div>
     </div>

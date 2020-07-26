@@ -168,6 +168,16 @@ Provides array management for fields.
 </Form.List>
 ```
 
+## operation
+
+Some operator functions in render form of Form.List.
+
+| Property | Description      | Type                                | Default         |
+| -------- | ---------------- | ----------------------------------- | --------------- |
+| add      | add form item    | (defaultValue?: any) => void        | -               |
+| remove   | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move     | move form item   | (from: number, to: number) => void  | -               |
+
 ## Form.Provider
 
 Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
@@ -313,6 +323,10 @@ validator(rule, value, callback) => {
   }
 }
 ```
+
+### How does name fill value when it's array?
+
+`name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.
 
 ### Why is there a form warning when used in Modal?
 

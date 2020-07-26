@@ -1,30 +1,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import Radio from './radio';
 import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
-import { usePrevious } from '../_util/ref';
 
 const RadioGroup = React.forwardRef<unknown, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
-  let initValue;
-  if (props.value !== undefined) {
-    initValue = props.value;
-  } else if (props.defaultValue !== undefined) {
-    initValue = props.defaultValue;
-  }
-  const [value, setValue] = React.useState(initValue);
-  const prevPropValue = usePrevious(props.value);
-
-  React.useEffect(() => {
-    if (props.value !== undefined || prevPropValue !== props.value) {
-      setValue(props.value);
-    }
-  }, [props.value]);
+  const [value, setValue] = useMergedState(props.defaultValue, {
+    value: props.value,
+  });
 
   const onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = value;

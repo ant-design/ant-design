@@ -162,7 +162,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-input-number ant-input-number-disabled"
   >
@@ -243,7 +243,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         value="3"
       />
     </div>
-  </div>
+  </div>,
   <div
     style="margin-top:20px"
   >
@@ -255,12 +255,12 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         Toggle disabled
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-input-number"
   >
@@ -338,7 +338,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         value="$ 1,000"
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-input-number"
   >
@@ -417,8 +417,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         value="100%"
       />
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input-number/demo/size.md correctly 1`] = `

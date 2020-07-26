@@ -62,7 +62,7 @@ class App extends React.Component {
   render() {
     const { targetKeys, selectedKeys, disabled } = this.state;
     return (
-      <div>
+      <>
         <Transfer
           dataSource={mockData}
           titles={['Source', 'Target']}
@@ -83,7 +83,7 @@ class App extends React.Component {
             onChange={this.handleDisable}
           />
         </Space>
-      </div>
+      </>
     );
   }
 }

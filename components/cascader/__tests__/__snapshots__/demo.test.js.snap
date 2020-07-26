@@ -469,7 +469,7 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
 `;
 
 exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-cascader-picker ant-cascader-picker-large"
     tabindex="0"
@@ -506,9 +506,9 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-cascader-picker"
     tabindex="0"
@@ -545,9 +545,9 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-cascader-picker ant-cascader-picker-small"
     tabindex="0"
@@ -584,10 +584,10 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-  <br />
-  <br />
-</div>
+  </span>,
+  <br />,
+  <br />,
+]
 `;
 
 exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `

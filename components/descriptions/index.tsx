@@ -100,6 +100,7 @@ export interface DescriptionsProps {
   size?: 'middle' | 'small' | 'default';
   children?: React.ReactNode;
   title?: React.ReactNode;
+  extra?: React.ReactNode;
   column?: number | Partial<Record<Breakpoint, number>>;
   layout?: 'horizontal' | 'vertical';
   colon?: boolean;
@@ -108,6 +109,7 @@ export interface DescriptionsProps {
 function Descriptions({
   prefixCls: customizePrefixCls,
   title,
+  extra,
   column = DEFAULT_COLUMN_MAP,
   colon = true,
   bordered,
@@ -148,7 +150,12 @@ function Descriptions({
       })}
       style={style}
     >
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
+      {(title || extra) && (
+        <div className={`${prefixCls}-header`}>
+          {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        </div>
+      )}
 
       <div className={`${prefixCls}-view`}>
         <table>
