@@ -5,7 +5,7 @@ title: Replace Moment.js
 
 ## How to use DatePicker with a custom date library like dayjs
 
-Considering it's bundle size, you might want to replace Moment.js with a different date library of your choice. We provide two ways to customize which date library is used:
+Considering it's bundle size, you might want to replace Moment.js with a different date library(now support dayjs and date-fns) of your choice. We provide two ways to customize which date library is used:
 
 ### Custom component
 
