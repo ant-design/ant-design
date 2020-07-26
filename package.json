@@ -144,7 +144,7 @@
     "rc-tree-select": "~4.1.0",
     "rc-trigger": "~4.3.0",
     "rc-upload": "~3.2.0",
-    "rc-util": "^5.0.1",
+    "rc-util": "5.0.5",
     "scroll-into-view-if-needed": "^2.2.25",
     "warning": "^4.0.3"
   },
@@ -307,8 +307,5 @@
       "maxSize": "65 kB"
     }
   ],
-  "tnpm": {
-    "mode": "npm"
-  },
   "title": "Ant Design"
 }
