@@ -48,7 +48,7 @@ timeline: true
 - 🆕 Tree support `titleRender` to customize tree node title with unique function. [#25624](https://github.com/ant-design/ant-design/pull/25624)
 - 🆕 Descriptions add `extra` prop. [#25512](https://github.com/ant-design/ant-design/pull/25512) [@zzz111](https://github.com/zzz111)
 - 🆕 Add `Modal.config` to set `rootPrefixCls` for Modal statis methods. [#25613](https://github.com/ant-design/ant-design/pull/25613)
-- 🆕 Drawer support push prop for multi-Drawer linkage.([#21382](https://github.com/ant-design/ant-design/issues/21382)). [#25445](https://github.com/ant-design/ant-design/pull/25445) [@jinxin0112](https://github.com/jinxin0112)
+- 🆕 Drawer support `push` prop for multi-Drawer linkage.([#21382](https://github.com/ant-design/ant-design/issues/21382)). [#25445](https://github.com/ant-design/ant-design/pull/25445) [@jinxin0112](https://github.com/jinxin0112)
 - 🆕 Add Badge.Ribbon component. [#25456](https://github.com/ant-design/ant-design/pull/25456)
 - 💄 Card action pane color is unified with body color. [#25722](https://github.com/ant-design/ant-design/pull/25722)
 - 💄 **Menu.Item's blue indicator line and dropdown width are the same as its content's width in `horizontal` mode.** [#25622](https://github.com/ant-design/ant-design/pull/25622)
