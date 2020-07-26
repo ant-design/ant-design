@@ -469,6 +469,25 @@ Array [
 ]
 `;
 
+exports[`renders ./components/avatar/demo/fallback.md correctly 1`] = `
+Array [
+  <span
+    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  >
+    <img
+      src="http://abc.com/not-exist.jpg"
+    />
+  </span>,
+  <span
+    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  >
+    <img
+      src="http://abc.com/not-exist.jpg"
+    />
+  </span>,
+]
+`;
+
 exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
 Array [
   <button
