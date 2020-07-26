@@ -25,18 +25,18 @@ timeline: true
 - DatePicker
   - 🛎 Adjust DatePicker doc to remove DatePicker.XxxPicker usage and add notice to recommend developer move to `picker='xxx'` instead. [#25768](https://github.com/ant-design/ant-design/pull/25768)
   - 🆕 improve DatePicker hovering experience, the placeholder will change to format value of target-date when hovering a date cell. ([#25050](https://github.com/ant-design/ant-design/issues/25050)). [#25784](https://github.com/ant-design/ant-design/pull/25784) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
-  - 🆕 RangePicker onCalendarChange info support. [#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
+  - 🆕 RangePicker `onCalendarChange` support info. [#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
   - 🆕 DatePicker support `panelRender` to customize panel. [#25488](https://github.com/ant-design/ant-design/pull/25488)
 - Form
   - 🐞 Fix Form.Item sometime not clean up prev error message. [#25737](https://github.com/ant-design/ant-design/pull/25737)
   - 🐞 Fix Form.Item not collect `validateStatus` when children Form.Item with `noStyle` has an error. [#25734](https://github.com/ant-design/ant-design/pull/25734)
   - 🐞 Fix Form.Item labelCol's offset isn't work if layout is vertical. [#25713](https://github.com/ant-design/ant-design/pull/25713) [@zhangchen915](https://github.com/zhangchen915)
   - 🆕 Form add `role="alert"` attribute to validation message node. [#25735](https://github.com/ant-design/ant-design/pull/25735) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
-  - 🆕 Form.List support array in remove method. [#25638](https://github.com/ant-design/ant-design/pull/25638) [@fireairforce](https://github.com/fireairforce)
+  - 🆕 Form.List support array in `remove` method. [#25638](https://github.com/ant-design/ant-design/pull/25638) [@fireairforce](https://github.com/fireairforce)
   - 🆕 Form.Item supports `dependencies` to control updating logic with render props children. [#25408](https://github.com/ant-design/ant-design/pull/25408)
   - 🆕 Adjust Form.Item validateFist to validate in order. Origin logic use parallel to validate. [#25321](https://github.com/ant-design/ant-design/pull/25321)
 - Calendar
-  - 🐞 Fix Calendar validRange prevents disabledDate. [#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
+  - 🐞 Fix Calendar `validRange` prevents `disabledDate`. [#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
   - Fix Calendar month select display. [#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 Fix Table `indeterminate` returned by `getCheckboxProps` not working. [#25649](https://github.com/ant-design/ant-design/pull/25649)
 - 🐞 Fix Select clear icon position in Form.Item. [#25728](https://github.com/ant-design/ant-design/pull/25728)
