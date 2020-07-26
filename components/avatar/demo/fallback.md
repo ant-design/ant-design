@@ -16,7 +16,6 @@ debug: true
 
 ```tsx
 import { Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <>
@@ -36,14 +35,3 @@ ReactDOM.render(
   mountNode,
 );
 ```
-
-<style>
-#components-avatar-demo-basic .ant-avatar {
-  margin-top: 16px;
-  margin-right: 16px;
-}
-.ant-row-rtl #components-avatar-demo-basic .ant-avatar {
-  margin-right: 0;
-  margin-left: 16px;
-}
-</style>
