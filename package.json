@@ -278,7 +278,6 @@
     "theme-switcher": "^1.0.2",
     "typescript": "~3.9.2",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack": "~4.43.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
     "yaml-front-matter": "^4.0.0"
