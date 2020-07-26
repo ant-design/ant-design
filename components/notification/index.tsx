@@ -205,7 +205,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
 
   return {
     content: (
-      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+      <div className={iconNode ? `${prefixCls}-with-icon` : ''} role="alert">
         {iconNode}
         <div className={`${prefixCls}-message`}>
           {autoMarginTag}
