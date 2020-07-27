@@ -14,16 +14,12 @@ title:
 Steps with progress.
 
 ```jsx
-import { Steps, Popover } from 'antd';
+import { Steps } from 'antd';
 
 const { Step } = Steps;
 
-const progressIconRender = ({ node, percentage }) => {
-  return <Popover content={`${percentage}%`}>{node}</Popover>;
-};
-
 ReactDOM.render(
-  <Steps current={1} percentage={60} progressIcon={progressIconRender}>
+  <Steps current={1} percent={60}>
     <Step title="Finished" description="This is a description." />
     <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
     <Step title="Waiting" description="This is a description." />

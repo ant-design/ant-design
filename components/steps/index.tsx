@@ -21,8 +21,7 @@ export interface StepsProps {
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
-  progressIcon?: ProgressIconRender;
-  percentage?: number;
+  percent?: number;
   onChange?: (current: number) => void;
 }
 
@@ -38,15 +37,6 @@ export interface StepProps {
   style?: React.CSSProperties;
 }
 
-type ProgressIconRender = (options: {
-  node: React.ReactNode;
-  index: number;
-  status: string;
-  title: string | React.ReactNode;
-  description: string | React.ReactNode;
-  percentage: number;
-}) => React.ReactNode;
-
 export default class Steps extends React.Component<StepsProps, any> {
   static Step = RcSteps.Step as React.ClassicComponentClass<StepProps>;
 
@@ -60,7 +50,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     const className = classNames(this.props.className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
-    const { percentage, progressIcon, size } = this.props;
+    const { percent, size } = this.props;
     const icons = {
       finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
       error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
@@ -68,9 +58,6 @@ export default class Steps extends React.Component<StepsProps, any> {
     const stepIconRender = ({
       node,
       status,
-      index,
-      title,
-      description,
     }: {
       node: React.ReactNode;
       index: number;
@@ -78,14 +65,14 @@ export default class Steps extends React.Component<StepsProps, any> {
       title: string | React.ReactNode;
       description: string | React.ReactNode;
     }) => {
-      if (status === 'process' && percentage !== undefined) {
+      if (status === 'process' && percent !== undefined) {
         // currently it's hard-coded, since we can't easily read the actually width of icon
         const progressWidth = size === 'small' ? 30 : 38;
         const iconWithProgress = (
           <div className={`${prefixCls}-progress-icon`}>
             <Progress
               type="circle"
-              percent={percentage}
+              percent={percent}
               width={progressWidth}
               strokeWidth={4}
               format={() => null}
@@ -93,16 +80,6 @@ export default class Steps extends React.Component<StepsProps, any> {
             {node}
           </div>
         );
-        if (progressIcon) {
-          return progressIcon({
-            index,
-            status,
-            title,
-            description,
-            percentage,
-            node: iconWithProgress,
-          });
-        }
         return iconWithProgress;
       }
       return node;
