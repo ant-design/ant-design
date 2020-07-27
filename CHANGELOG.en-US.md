@@ -26,6 +26,7 @@ timeline: true
 - 🆕 Add `Modal.config` to set `rootPrefixCls` for Modal statis methods. [#25613](https://github.com/ant-design/ant-design/pull/25613)
 - 🆕 Drawer support `push` prop for multi-Drawer linkage. [#25445](https://github.com/ant-design/ant-design/pull/25445) [@jinxin0112](https://github.com/jinxin0112)
 - 🆕 Add Badge.Ribbon component. [#25456](https://github.com/ant-design/ant-design/pull/25456)
+- 🆕 Steps support `percent` prop to show step icon progress. [#25839](https://github.com/ant-design/ant-design/pull/25839)
 - 💄 **Menu.Item's blue indicator line and dropdown width are the same as its content's width in `horizontal` mode.** [#25622](https://github.com/ant-design/ant-design/pull/25622)
 - Avatar
   - 🆕 Add Avatar.Group for showing a set of avatars. [#25192](https://github.com/ant-design/ant-design/pull/25192)

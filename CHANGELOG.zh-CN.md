@@ -26,6 +26,7 @@ timeline: true
 - 🆕 新增 `Modal.config` 用于全局配置 Modal 静态方法的 `rootPrefixCls`。[#25613](https://github.com/ant-design/ant-design/pull/25613)
 - 🆕 Drawer 增加 `push` 属性用于自定义多层级 Drawer 之间的联动。[#25445](https://github.com/ant-design/ant-design/pull/25445) [@jinxin0112](https://github.com/jinxin0112)
 - 🆕 新增 Badge.Ribbon 缎带组件。[#25456](https://github.com/ant-design/ant-design/pull/25456)
+- 🆕 Steps 新增 `percent` 属性来展示步骤图标的进度。[#25839](https://github.com/ant-design/ant-design/pull/25839)
 - 💄 **Menu.Item 水平模式的蓝色指示线和下拉菜单宽度现在和其文字内容宽度一致。**[#25622](https://github.com/ant-design/ant-design/pull/25622)
 - Avatar
   - 🆕 新增 Avatar.Group 用于展现一组头像集合。[#25192](https://github.com/ant-design/ant-design/pull/25192)
