@@ -36,7 +36,7 @@ timeline: true
   - 🆕 RangePicker `onCalendarChange` 支持 info。[#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
   - 🆕 DatePicker 支持 `panelRender` 以自定义渲染面板。[#25488](https://github.com/ant-design/ant-design/pull/25488)
 - Form
-  - 🆕 Form 错误信息节点增加属性 `role="alert"`。[#25735](https://github.com/ant-design/ant-design/pull/25735) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+  - ⌨️ Form 错误信息节点增加属性 `role="alert"` 以增强可访问性。[#25735](https://github.com/ant-design/ant-design/pull/25735) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
   - 🆕 Form.List 中的 `remove` 方法支持数组类型。[#25638](https://github.com/ant-design/ant-design/pull/25638) [@fireairforce](https://github.com/fireairforce)
   - 🆕 Form.Item 在用 render props 作为 children 时支持使用 `dependencies` 控制更新逻辑。[#25408](https://github.com/ant-design/ant-design/pull/25408)
   - 🆕 调整 Form.Item `validateFirst` 属性为依次执行校验，原并行逻辑改由配置 `parallel` 开启。[#25321](https://github.com/ant-design/ant-design/pull/25321)
