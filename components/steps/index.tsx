@@ -47,11 +47,9 @@ export default class Steps extends React.Component<StepsProps, any> {
   renderSteps = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
-    const { percent, size, status } = this.props;
-    const hasProgressIcon = status === 'process' && percent !== undefined;
+    const { percent, size } = this.props;
     const className = classNames(this.props.className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-progress`]: hasProgressIcon,
     });
     const icons = {
       finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
@@ -59,6 +57,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     };
     const stepIconRender = ({
       node,
+      status,
     }: {
       node: React.ReactNode;
       index: number;
@@ -66,7 +65,7 @@ export default class Steps extends React.Component<StepsProps, any> {
       title: string | React.ReactNode;
       description: string | React.ReactNode;
     }) => {
-      if (hasProgressIcon) {
+      if (status === 'process' && percent !== undefined) {
         // currently it's hard-coded, since we can't easily read the actually width of icon
         const progressWidth = size === 'small' ? 30 : 38;
         const iconWithProgress = (
