@@ -134,7 +134,7 @@
     "rc-resize-observer": "^0.2.3",
     "rc-select": "^11.0.10",
     "rc-slider": "~9.3.0",
-    "rc-steps": "^4.1.0",
+    "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
     "rc-table": "~7.8.0",
     "rc-tabs": "~11.5.0",
