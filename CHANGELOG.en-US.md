@@ -44,7 +44,7 @@ timeline: true
   - 🐞 Fix Form.Item not collect `validateStatus` when children Form.Item with `noStyle` has an error. [#25734](https://github.com/ant-design/ant-design/pull/25734)
   - 🐞 Fix Form.Item labelCol's offset isn't work if layout is vertical. [#25713](https://github.com/ant-design/ant-design/pull/25713) [@zhangchen915](https://github.com/zhangchen915)
 - Calendar
-  - 🐞 Fix Calendar validRange prevents disabledDate. [#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
+  - 🐞 Fix Calendar `validRange` prevents `disabledDate`. [#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
   - 🐞 Fix Calendar month select display. [#25626](https://github.com/ant-design/ant-design/pull/25626) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 Fix Table `indeterminate` returned by `getCheckboxProps` not working. [#25649](https://github.com/ant-design/ant-design/pull/25649)
 - 🐞 Fix Select clear icon position in Form.Item. [#25728](https://github.com/ant-design/ant-design/pull/25728)
