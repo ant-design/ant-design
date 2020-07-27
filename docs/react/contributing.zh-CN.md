@@ -16,7 +16,7 @@ toc: false
 
 ## 分支管理
 
-基于我们的 [发布周期](/changelog)，我们长期维护两个分支 `master` 和 `feature`。如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](/changelog)，我们长期维护两个分支 `master` 和 `feature`。如果你要修一个 bug，那么请发 pull request 到 `master`，我们会每周从 master 发布一个 patch 版本；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做，每月末我们会合并 feature 到 master，并发布一个包含新特性的 minor 版本。
 
 ## Bugs
 
