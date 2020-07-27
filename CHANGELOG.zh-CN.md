@@ -53,7 +53,7 @@ timeline: true
 - 🐞 修复 Carousel 在 React 严格模式下的 `findDOMNode` 废弃警告。[#25744](https://github.com/ant-design/ant-design/pull/25744)
 - 💄 Card 操作面板颜色与主体颜色统一。[#25722](https://github.com/ant-design/ant-design/pull/25722)
 - ⌨️ 提升 Alert/message/notification 组件的可访问性。[#25774](https://github.com/ant-design/ant-design/pull/25774)
-- 🇭🇰 新增 zh-HK 本地化。[#7d7cbf8](https://github.com/ant-design/ant-design/commit/7d7cbf8) [@wuchu](https://github.com/wuchu)
+- 🇭🇰 新增 zh-HK 本地化。[#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
 
 ## 4.4.3
 

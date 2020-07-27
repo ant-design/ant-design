@@ -53,7 +53,7 @@ timeline: true
 - 🐞 Fix Carousel `findDOMNode` warning in strict mode. [#25744](https://github.com/ant-design/ant-design/pull/25744)
 - 💄 Card action pane color is unified with body color. [#25722](https://github.com/ant-design/ant-design/pull/25722)
 - ⌨️ Improve Alert/message/notification accessibility by adding role attribute. [#25774](https://github.com/ant-design/ant-design/pull/25774)
-- 🇭🇰 Add zh-HK locale. [#7d7cbf8](https://github.com/ant-design/ant-design/commit/7d7cbf8) [@wuchu](https://github.com/wuchu)
+- 🇭🇰 Add zh-HK locale. [#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
 
 ## 4.4.3
 
