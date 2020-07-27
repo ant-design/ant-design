@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.5.0
 
-`2020-07-26`
+`2020-07-27`
 
 - 🆕 Input 和 Input.TextArea 支持 `bordered` 属性。[#25617](https://github.com/ant-design/ant-design/pull/25617)
 - 🆕 Message 新增 `useMessage` hook，以支持 `context` 访问。[#25422](https://github.com/ant-design/ant-design/pull/25422)

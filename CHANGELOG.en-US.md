@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.5.0
 
-`2020-07-26`
+`2020-07-27`
 
 - 🆕 Input and Input.TextArea support `bordered` prop. [#25617](https://github.com/ant-design/ant-design/pull/25617)
 - 🆕 Add `useMessage` hook for Message to support `context` access. [#25422](https://github.com/ant-design/ant-design/pull/25422)
