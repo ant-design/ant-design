@@ -183,6 +183,14 @@
       cursor: not-allowed;
     }
 
+    &&-disabled &-btn,
+    &&-disabled &-remove {
+      &:focus,
+      &:active {
+        color: @disabled-color;
+      }
+    }
+
     & &-remove .@{iconfont-css-prefix} {
       margin: 0;
     }
