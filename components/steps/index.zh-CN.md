@@ -39,6 +39,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
 | initial | 起始序号，从 0 开始记数 | number | 0 |  |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  |
+| percentage | 当前 `process` 步骤显示的进度条进度 | number | - | 4.5.0 |
+| progressIcon | 渲染包含进度的步骤的图标 | ({node, index, status, title, description, percentage}) => ReactNode | - | 4.5.0 |
 
 ### Steps.Step
 

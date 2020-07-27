@@ -38,6 +38,8 @@ The whole of the step bar.
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | initial | Set the initial step, counting from 0 | number | 0 |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
+| percentage | Progress circle percentage of current step in `process` status | number | - | 4.5.0 |
+| progressIcon | Render step icon with percentage | ({node, index, status, title, description, percentage}) => ReactNode | - | 4.5.0 |
 
 ### Steps.Step
 
