@@ -21,6 +21,8 @@ export interface StepsProps {
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
+  progressIcon?: ProgressIconRender;
+  percentage?: number;
   onChange?: (current: number) => void;
 }
 
@@ -34,8 +36,6 @@ export interface StepProps {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
-  progressIcon?: ProgressIconRender;
-  percentage?: number;
 }
 
 type ProgressIconRender = (options: {
@@ -65,7 +65,19 @@ export default class Steps extends React.Component<StepsProps, any> {
       finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
       error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
     };
-    const stepIconRender = ({ node, status, index, title, description }) => {
+    const stepIconRender = ({
+      node,
+      status,
+      index,
+      title,
+      description,
+    }: {
+      node: React.ReactNode;
+      index: number;
+      status: string;
+      title: string | React.ReactNode;
+      description: string | React.ReactNode;
+    }) => {
       if (status === 'process' && percentage !== undefined) {
         // currently it's hard-coded, since we can't easily read the actually width of icon
         const progressWidth = size === 'small' ? 30 : 38;
