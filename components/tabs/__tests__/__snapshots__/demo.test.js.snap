@@ -2410,7 +2410,6 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
         >
           <span
             class="ant-select-selection-search"
-            title="top"
           >
             <input
               aria-activedescendant="undefined_list_0"
@@ -2429,6 +2428,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           </span>
           <span
             class="ant-select-selection-item"
+            title="top"
           >
             top
           </span>

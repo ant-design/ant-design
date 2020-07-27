@@ -48,7 +48,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -67,6 +66,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -108,7 +108,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -129,6 +128,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -170,7 +170,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -189,6 +188,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -230,7 +230,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -249,6 +248,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -430,7 +430,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -449,6 +448,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -490,7 +490,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -511,6 +510,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -557,7 +557,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Zhejiang"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -576,6 +575,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Zhejiang"
       >
         Zhejiang
       </span>
@@ -617,7 +617,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Hangzhou"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -636,6 +635,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Hangzhou"
       >
         Hangzhou
       </span>
@@ -1035,7 +1035,6 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
   >
     <span
       class="ant-select-selection-search"
-      title="Lucy (101)"
     >
       <input
         aria-activedescendant="undefined_list_0"
@@ -1054,6 +1053,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
     </span>
     <span
       class="ant-select-selection-item"
+      title="Lucy (101)"
     >
       Lucy (101)
     </span>
@@ -1207,7 +1207,6 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
   >
     <span
       class="ant-select-selection-search"
-      title="Lucy"
     >
       <input
         aria-activedescendant="undefined_list_0"
@@ -1226,6 +1225,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
     </span>
     <span
       class="ant-select-selection-item"
+      title="Lucy"
     >
       Lucy
     </span>
@@ -1547,7 +1547,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="a1"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -1566,6 +1565,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="a1"
       >
         a1
       </span>
@@ -1823,7 +1823,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -1842,6 +1841,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
@@ -1883,7 +1883,6 @@ Array [
     >
       <span
         class="ant-select-selection-search"
-        title="Lucy"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -1904,6 +1903,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Lucy"
       >
         Lucy
       </span>
