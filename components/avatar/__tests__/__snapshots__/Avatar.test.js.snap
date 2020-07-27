@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Avatar Render fallback 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle ant-avatar-image"
+>
+  <img
+    src="http://error.url"
+  />
+</span>
+`;
+
 exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"

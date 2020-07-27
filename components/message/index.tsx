@@ -162,6 +162,7 @@ function notice(args: ArgsProps): MessageType {
       }
       return resolve(true);
     };
+
     getRCNotificationInstance(args, ({ prefixCls, instance }) => {
       instance.notice(getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls));
     });
