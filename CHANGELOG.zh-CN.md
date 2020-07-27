@@ -31,10 +31,11 @@ timeline: true
   - 🆕 新增 Avatar.Group 用于展现一组头像集合。[#25192](https://github.com/ant-design/ant-design/pull/25192)
   - 🐞 修复 Avatar `src` 图片地址失效时没有正确 fallback 的问题。[#25806](https://github.com/ant-design/ant-design/pull/25806)
 - DatePicker
-  - 🐞 修复 QuarterPicker 无法使用的问题，同时更新官网示例将 XxxPicker 调整为 `picker='xxx'`，这是 v4 更推荐的写法。[#25768](https://github.com/ant-design/ant-design/pull/25768)
+  - 🆕 DatePicker 支持 [date-fns](https://date-fns.org/) 日期库。[#25822](https://github.com/ant-design/ant-design/pull/25822) [@fireairforce](https://github.com/fireairforce)
   - 🆕 提升日期组件悬停体验，当悬停在某个日期上时占位符将变为对应的日期格式化后的值。([#25050](https://github.com/ant-design/ant-design/issues/25050))。[#25784](https://github.com/ant-design/ant-design/pull/25784) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
   - 🆕 RangePicker `onCalendarChange` 参数中增加 `range` 用于指示当前触发面板。[#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
   - 🆕 DatePicker 支持 `panelRender` 以自定义渲染面板。[#25488](https://github.com/ant-design/ant-design/pull/25488)
+  - 🐞 修复 QuarterPicker 无法使用的问题，同时更新官网示例将 XxxPicker 调整为 `picker='xxx'`，这是 v4 更推荐的写法。[#25768](https://github.com/ant-design/ant-design/pull/25768)
 - Form
   - 🆕 Form.List 中的 `remove` 方法支持数组类型。[#25638](https://github.com/ant-design/ant-design/pull/25638) [@fireairforce](https://github.com/fireairforce)
   - 🆕 Form.Item 在 `children` 形为 `render props` 时支持使用 `dependencies` 控制更新逻辑。[#25408](https://github.com/ant-design/ant-design/pull/25408)
@@ -51,9 +52,11 @@ timeline: true
 - 🐞 修复 Pagination 翻页按钮的鼠标样式。[#25772](https://github.com/ant-design/ant-design/pull/25772)
 - 🐞 修复 TreeSelect `treeNodeLabelProp` 会影响树节点展示内容的问题。[#25755](https://github.com/ant-design/ant-design/pull/25755)
 - 🐞 修复 Carousel 在 React 严格模式下的 `findDOMNode` 废弃警告。[#25744](https://github.com/ant-design/ant-design/pull/25744)
+- 🐞 修复 Radio 在 `webpack@4.44.0` SSR 构建出错的问题。[25821](https://github.com/ant-design/ant-design/pull/25821) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
 - 💄 Card 操作面板颜色与主体颜色统一。[#25722](https://github.com/ant-design/ant-design/pull/25722)
 - ⌨️ 提升 Alert/message/notification 组件的可访问性。[#25774](https://github.com/ant-design/ant-design/pull/25774)
-- 🇭🇰 新增 zh-HK 本地化。[#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
+- 🇭🇰 新增 zh_HK 本地化。[#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
+- 🇩🇪 改进 de_DE 本地化。[#25823](https://github.com/ant-design/ant-design/pull/25823) [@LukeTimeWalker](https://github.com/LukeTimeWalker)
 
 ## 4.4.3
 

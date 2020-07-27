@@ -31,10 +31,11 @@ timeline: true
   - 🆕 Add Avatar.Group for showing a set of avatars. [#25192](https://github.com/ant-design/ant-design/pull/25192)
   - 🐞 Fix Avatar not fallback correctly when `src` is invalid. [#25806](https://github.com/ant-design/ant-design/pull/25806)
 - DatePicker
-  - 🐞 Fix QuarterPicker not working, remove DatePicker.XxxPicker and recommend `picker='xxx'` usage instead. [#25768](https://github.com/ant-design/ant-design/pull/25768)
+  - 🆕 DatePicker support [date-fns](https://date-fns.org/). [#25822](https://github.com/ant-design/ant-design/pull/25822) [@fireairforce](https://github.com/fireairforce)
   - 🆕 Improve DatePicker hovering experience, the placeholder will change to format value of target-date when hovering a date cell. ([#25050](https://github.com/ant-design/ant-design/issues/25050)). [#25784](https://github.com/ant-design/ant-design/pull/25784) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
   - 🆕 RangePicker `onCalendarChange` add `range` param to indicate currently activated pane. [#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
   - 🆕 DatePicker support `panelRender` to customize panel. [#25488](https://github.com/ant-design/ant-design/pull/25488)
+  - 🐞 Fix QuarterPicker not working, remove DatePicker.XxxPicker and recommend `picker='xxx'` usage instead. [#25768](https://github.com/ant-design/ant-design/pull/25768)
 - Form
   - 🆕 Form.List support array in `remove` method. [#25638](https://github.com/ant-design/ant-design/pull/25638) [@fireairforce](https://github.com/fireairforce)
   - 🆕 Form.Item supports `dependencies` to control updating logic with render props `children`. [#25408](https://github.com/ant-design/ant-design/pull/25408)
@@ -51,9 +52,11 @@ timeline: true
 - 🐞 Fix Pagination mouse style of the page turning button. [#25772](https://github.com/ant-design/ant-design/pull/25772)
 - 🐞 Fix TreeSelect `treeNodeLabelProp` affect tree node render result. [#25755](https://github.com/ant-design/ant-design/pull/25755)
 - 🐞 Fix Carousel `findDOMNode` warning in strict mode. [#25744](https://github.com/ant-design/ant-design/pull/25744)
+- 🐞 Fix Radio causing SSR build errors with `webpack@4.44.0`. [25821](https://github.com/ant-design/ant-design/pull/25821) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
 - 💄 Card action pane color is unified with body color. [#25722](https://github.com/ant-design/ant-design/pull/25722)
 - ⌨️ Improve Alert/message/notification accessibility by adding role attribute. [#25774](https://github.com/ant-design/ant-design/pull/25774)
-- 🇭🇰 Add zh-HK locale. [#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
+- 🇭🇰 Add zh_HK localization. [#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
+- 🇩🇪 Improve de_DE localization. [#25823](https://github.com/ant-design/ant-design/pull/25823) [@LukeTimeWalker](https://github.com/LukeTimeWalker)
 
 ## 4.4.3
 
