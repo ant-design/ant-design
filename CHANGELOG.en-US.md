@@ -24,8 +24,8 @@ timeline: true
   - 🆕 Add Avatar.Group for showing a set of avatars. [#25192](https://github.com/ant-design/ant-design/pull/25192)
 - DatePicker
   - 🛎 Adjust DatePicker doc to remove DatePicker.XxxPicker usage and add notice to recommend developer move to `picker='xxx'` instead. [#25768](https://github.com/ant-design/ant-design/pull/25768)
-  - 🆕 improve DatePicker hovering experience, the placeholder will change to format value of target-date when hovering a date cell. ([#25050](https://github.com/ant-design/ant-design/issues/25050)). [#25784](https://github.com/ant-design/ant-design/pull/25784) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
-  - 🆕 RangePicker `onCalendarChange` support info. [#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
+  - 🆕 Improve DatePicker hovering experience, the placeholder will change to format value of target-date when hovering a date cell. ([#25050](https://github.com/ant-design/ant-design/issues/25050)). [#25784](https://github.com/ant-design/ant-design/pull/25784) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+  - 🆕 RangePicker onCalendarChange info support. [#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
   - 🆕 DatePicker support `panelRender` to customize panel. [#25488](https://github.com/ant-design/ant-design/pull/25488)
 - Form
   - 🐞 Fix Form.Item sometime not clean up prev error message. [#25737](https://github.com/ant-design/ant-design/pull/25737)
