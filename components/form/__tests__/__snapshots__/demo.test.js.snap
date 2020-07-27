@@ -2458,7 +2458,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -2485,7 +2485,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -3937,7 +3937,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -3964,7 +3964,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -4833,7 +4833,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -4860,7 +4860,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -6885,7 +6885,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -6912,7 +6912,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -7303,7 +7303,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -7330,7 +7330,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
