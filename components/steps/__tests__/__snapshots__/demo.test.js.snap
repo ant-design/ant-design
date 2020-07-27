@@ -1198,7 +1198,7 @@ Array [
 exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-  percentage="60"
+  percent="60"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -1433,7 +1433,7 @@ Array [
   </button>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-    percentage="0"
+    percent="0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1608,7 +1608,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal"
-    percentage="0"
+    percent="0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1783,7 +1783,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-vertical"
-    percentage="0"
+    percent="0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -1958,7 +1958,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-vertical ant-steps-small"
-    percentage="0"
+    percent="0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
