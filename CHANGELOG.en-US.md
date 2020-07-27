@@ -31,7 +31,7 @@ timeline: true
   - 🆕 Add Avatar.Group for showing a set of avatars. [#25192](https://github.com/ant-design/ant-design/pull/25192)
   - 🐞 Fix Avatar not fallback correctly when `src` is invalid. [#25806](https://github.com/ant-design/ant-design/pull/25806)
 - DatePicker
-  - 🛎 Adjust DatePicker doc to remove DatePicker.XxxPicker usage and add notice to recommend developer move to `picker='xxx'` instead. [#25768](https://github.com/ant-design/ant-design/pull/25768)
+  - 🐞 Fix QuarterPicker not working. Update DatePicker doc to remove DatePicker.XxxPicker usage and add notice to recommend developer move to `picker='xxx'` instead. [#25768](https://github.com/ant-design/ant-design/pull/25768)
   - 🆕 Improve DatePicker hovering experience, the placeholder will change to format value of target-date when hovering a date cell. ([#25050](https://github.com/ant-design/ant-design/issues/25050)). [#25784](https://github.com/ant-design/ant-design/pull/25784) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
   - 🆕 RangePicker onCalendarChange info support. [#25568](https://github.com/ant-design/ant-design/pull/25568) [@Kim-Wing-Fung](https://github.com/Kim-Wing-Fung)
   - 🆕 DatePicker support `panelRender` to customize panel. [#25488](https://github.com/ant-design/ant-design/pull/25488)
