@@ -19,14 +19,14 @@ import { Space, Transfer, Switch } from 'antd';
 const mockData = [];
 for (let i = 0; i < 20; i++) {
   mockData.push({
-    key: i.toString(),
+    key: i,
     title: `content${i + 1}`,
     description: `description of content${i + 1}`,
     disabled: i % 3 < 1,
   });
 }
 
-const oriTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
+const oriTargetKeys = mockData.filter(item => item.key % 3 > 1).map(item => item.key);
 
 class App extends React.Component {
   state = {
