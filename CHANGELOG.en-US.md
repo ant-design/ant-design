@@ -19,12 +19,12 @@ timeline: true
 
 `2020-07-28`
 
-- 🐞 修复 Badge 样式导致构建出错的问题。[#25863](https://github.com/ant-design/ant-design/pull/25863)
-- 🐞 修复 Menu 在 `horizontal` `dark` 状态下 Menu.Item 背景样式出错。[#25850](https://github.com/ant-design/ant-design/pull/25850)
-- 💄 优化 Divider 颜色在非白底背景上的表现。[#25855](https://github.com/ant-design/ant-design/pull/25855)
-- 💄 移除多选 Select 选项的动画效果使交互更流畅。[#25852](https://github.com/ant-design/ant-design/pull/25852)
+- 🐞 Fix Badge style causing build error. [#25863](https://github.com/ant-design/ant-design/pull/25863)
+- 🐞 Fix Menu in `horizontal` `dark` status Menu.Item background style glitch. [#25850](https://github.com/ant-design/ant-design/pull/25850)
+- 💄 Optimize Divider color in none-white background. [#25855](https://github.com/ant-design/ant-design/pull/25855)
+- 💄 Remove multiple Select choice animation of item. [#25852](https://github.com/ant-design/ant-design/pull/25852)
 - TypeScript
-  - 导出 Form `FormList` 接口 (#25849)。[#cffa9af](https://github.com/ant-design/ant-design/commit/cffa9af)
+  - Export Form `FormList` interface (#25849). [#cffa9af](https://github.com/ant-design/ant-design/commit/cffa9af)
 
 ## 4.5.0
 
