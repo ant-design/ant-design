@@ -91,8 +91,8 @@ export interface ModalFuncProps {
   title?: React.ReactNode;
   content?: React.ReactNode;
   // TODO: find out exact types
-  onOk?: (...args: any[]) => void;
-  onCancel?: (...args: any[]) => void;
+  onOk?: (...args: any[]) => any;
+  onCancel?: (...args: any[]) => any;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
   centered?: boolean;
