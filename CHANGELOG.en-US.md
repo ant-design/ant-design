@@ -24,7 +24,7 @@ timeline: true
 - 💄 Optimize Divider color in none-white background. [#25855](https://github.com/ant-design/ant-design/pull/25855)
 - 💄 Remove multiple Select choice animation of item. [#25852](https://github.com/ant-design/ant-design/pull/25852)
 - TypeScript
-  - Export Form `FormList` interface (#25849). [#cffa9af](https://github.com/ant-design/ant-design/commit/cffa9af)
+  - Export Form `FormList` interface. [#25849](https://github.com/ant-design/ant-design/pull/25849)
 
 ## 4.5.0
 

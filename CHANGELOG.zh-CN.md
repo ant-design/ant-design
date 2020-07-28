@@ -24,7 +24,7 @@ timeline: true
 - 💄 优化 Divider 颜色在非白底背景上的表现。[#25855](https://github.com/ant-design/ant-design/pull/25855)
 - 💄 移除多选 Select 选项的动画效果使交互更流畅。[#25852](https://github.com/ant-design/ant-design/pull/25852)
 - TypeScript
-  - 导出 Form `FormList` 接口 (#25849)。[#cffa9af](https://github.com/ant-design/ant-design/commit/cffa9af)
+  - 导出 Form `FormList` 接口 (#25849)。[#25849](https://github.com/ant-design/ant-design/pull/25849)
 
 ## 4.5.0
 
