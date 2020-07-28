@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
+import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import TextArea from '../input/TextArea';
 
 interface EditableProps {
@@ -13,6 +14,8 @@ interface EditableProps {
   className?: string;
   style?: React.CSSProperties;
   direction?: 'ltr' | 'rtl';
+  maxLength?: number;
+  autoSize?: boolean | AutoSizeType;
 }
 
 interface EditableState {
@@ -115,8 +118,15 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   render() {
     const { current } = this.state;
-    const { prefixCls, 'aria-label': ariaLabel, className, style, direction } = this.props;
-
+    const {
+      prefixCls,
+      'aria-label': ariaLabel,
+      className,
+      style,
+      direction,
+      maxLength,
+      autoSize,
+    } = this.props;
     const textAreaClassName = classNames(prefixCls, className, `${prefixCls}-edit-content`, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
@@ -124,6 +134,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
       <div className={textAreaClassName} style={style}>
         <TextArea
           ref={this.setTextarea}
+          maxLength={maxLength}
           value={current}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
@@ -132,7 +143,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
           onCompositionEnd={this.onCompositionEnd}
           onBlur={this.onBlur}
           aria-label={ariaLabel}
-          autoSize
+          autoSize={autoSize === undefined || autoSize}
         />
         <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
       </div>
