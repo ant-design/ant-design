@@ -55,7 +55,6 @@ class Sider extends React.Component {
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
           mode="horizontal"
-          defaultOpenKeys={['sub1']}
         >
           <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One Long Long Long Long">
             <Menu.Item key="1">Option 1</Menu.Item>
