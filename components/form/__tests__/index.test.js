@@ -22,7 +22,7 @@ describe('Form', () => {
 
   async function change(wrapper, index, value) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });
-    await sleep(100);
+    await sleep(200);
     wrapper.update();
   }
 
