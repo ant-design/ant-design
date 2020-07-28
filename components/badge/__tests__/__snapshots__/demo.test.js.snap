@@ -2212,7 +2212,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
 `;
 
 exports[`renders ./components/badge/demo/size.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-badge"
   >
@@ -2381,7 +2381,7 @@ exports[`renders ./components/badge/demo/size.md correctly 1`] = `
         </p>
       </span>
     </sup>
-  </span>
+  </span>,
   <span
     class="ant-badge"
   >
@@ -2550,8 +2550,8 @@ exports[`renders ./components/badge/demo/size.md correctly 1`] = `
         </p>
       </span>
     </sup>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/badge/demo/status.md correctly 1`] = `
