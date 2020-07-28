@@ -47,7 +47,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
   static defaultProps = {
     transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
+    choiceTransitionName: '',
     bordered: true,
   };
 
