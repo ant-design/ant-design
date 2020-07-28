@@ -7,24 +7,24 @@ title:
 
 ## zh-CN
 
-对有数字的 Badge 的大小
+可以设置有数字徽标的大小
 
 ## en-US
 
-Size of Badge.
+Set size of numeral Badge.
 
 ```jsx
 import { Badge } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Badge size="default" count={5}>
       <a href="#" className="head-example" />
     </Badge>
     <Badge size="small" count={5}>
       <a href="#" className="head-example" />
     </Badge>
-  </div>,
+  </>,
   mountNode,
 );
 ```
