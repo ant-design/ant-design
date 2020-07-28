@@ -899,5 +899,10 @@ Array [
   >
     h4. Ant Design
   </h4>,
+  <h5
+    class="ant-typography"
+  >
+    h5. Ant Design
+  </h5>,
 ]
 `;
