@@ -42,7 +42,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.6.0 |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
-| level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4` | number: 1, 2, 3, 4 | 1 |  |
+| level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |

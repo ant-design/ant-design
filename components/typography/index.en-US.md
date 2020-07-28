@@ -42,7 +42,7 @@ Basic text writing, including headings, body text, lists, and more.
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.6.0 |
 | ellipsis | Display ellipsis when text overflows. Can configure rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
-| level | Set content importance. Match with `h1`, `h2`, `h3`, `h4` | number: 1, 2, 3, 4 | 1 |  |
+| level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
