@@ -15,9 +15,20 @@ timeline: true
 
 ---
 
+## 4.5.1
+
+`2020-07-28`
+
+- 🐞 Fix Badge style causing build error. [#25863](https://github.com/ant-design/ant-design/pull/25863)
+- 🐞 Fix Menu in `horizontal` `dark` status Menu.Item background style glitch. [#25850](https://github.com/ant-design/ant-design/pull/25850)
+- 💄 Optimize Divider color in none-white background. [#25855](https://github.com/ant-design/ant-design/pull/25855)
+- 💄 Remove multiple Select choice animation of item. [#25852](https://github.com/ant-design/ant-design/pull/25852)
+- TypeScript
+  - Export Form `FormList` interface. [#25849](https://github.com/ant-design/ant-design/pull/25849)
+
 ## 4.5.0
 
-`2020-07-27`
+`2020-07-28`
 
 - 🆕 Input and Input.TextArea support `bordered` prop. [#25617](https://github.com/ant-design/ant-design/pull/25617)
 - 🆕 Add `useMessage` hook for Message to support `context` access. [#25422](https://github.com/ant-design/ant-design/pull/25422)
@@ -58,7 +69,7 @@ timeline: true
 - 💄 Card action pane color is unified with body color. [#25722](https://github.com/ant-design/ant-design/pull/25722)
 - ⌨️ Improve Alert/message/notification accessibility by adding role attribute. [#25774](https://github.com/ant-design/ant-design/pull/25774)
 - 🇭🇰 Add zh_HK localization. [#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
-- 🇩🇪 Improve de_DE localization. [#25823](https://github.com/ant-design/ant-design/pull/25823) [@LukeTimeWalker](https://github.com/LukeTimeWalker)
+- 🇩🇪 Improve Form de_DE localization. [#25823](https://github.com/ant-design/ant-design/pull/25823) [@LukeTimeWalker](https://github.com/LukeTimeWalker)
 
 ## 4.4.3
 
