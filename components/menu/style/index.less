@@ -100,6 +100,11 @@
     color: @menu-highlight-color;
   }
 
+  &-horizontal &-item,
+  &-horizontal &-submenu {
+    margin-top: -1px;
+  }
+
   &-horizontal > &-item:hover,
   &-horizontal > &-item-active,
   &-horizontal > &-submenu &-submenu-title:hover {
@@ -343,6 +348,7 @@
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       position: relative;
+      top: 1px;
       display: inline-block;
       vertical-align: bottom;
       border-bottom: 2px solid transparent;
