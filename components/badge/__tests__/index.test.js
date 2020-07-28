@@ -140,6 +140,20 @@ describe('Badge', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('render Badge size when contains children', () => {
+    const wrapper = render(
+      <>
+        <Badge size="default" count={5}>
+          <a />
+        </Badge>
+        <Badge size="small" count={5}>
+          <a />
+        </Badge>
+      </>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
 describe('Ribbon', () => {

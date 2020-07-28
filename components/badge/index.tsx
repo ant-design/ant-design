@@ -30,6 +30,7 @@ export interface BadgeProps {
   status?: PresetStatusColorType;
   color?: LiteralUnion<PresetColorType, string>;
   text?: React.ReactNode;
+  size?: 'default' | 'small';
   offset?: [number | string, number | string];
   title?: string;
 }
@@ -44,6 +45,7 @@ const Badge: CompoundedComponent = ({
   count = null,
   overflowCount = 99,
   dot = false,
+  size = 'default',
   title,
   offset,
   style,
@@ -140,6 +142,7 @@ const Badge: CompoundedComponent = ({
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: bDot,
       [`${prefixCls}-count`]: !bDot,
+      [`${prefixCls}-count-sm`]: size === 'small',
       [`${prefixCls}-multiple-words`]:
         !bDot && count && count.toString && count.toString().length > 1,
       [`${prefixCls}-status-${status}`]: !!status,
