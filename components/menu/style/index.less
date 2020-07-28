@@ -41,6 +41,9 @@
     transition: all 0.3s;
   }
 
+  &-horizontal &-submenu {
+    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out;
+  }
   &-submenu,
   &-submenu-inline {
     transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out,
@@ -167,6 +170,11 @@
     min-width: 114px; // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
   }
 
+  &-horizontal &-item,
+  &-horizontal &-submenu-title {
+    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
+      background 0.3s @ease-in-out;
+  }
   &-item,
   &-submenu-title {
     position: relative;
