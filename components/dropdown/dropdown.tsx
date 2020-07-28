@@ -39,6 +39,7 @@ export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
+  onClick?: (e: MouseEvent) => void;
   visible?: boolean;
   disabled?: boolean;
   align?: Align;
