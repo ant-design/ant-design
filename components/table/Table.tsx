@@ -404,8 +404,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }
 
   // Indent size
-  if (mergedExpandable.indentSize === null || mergedExpandable.indentSize === undefined) {
-    mergedExpandable.indentSize = indentSize !== null && indentSize !== undefined ? indentSize : 15;
+  if (typeof mergedExpandable.indentSize !== 'number') {
+    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
   }
 
   // ============================ Render ============================
