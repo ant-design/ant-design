@@ -93,6 +93,8 @@ jobs:
 
       - name: dist
         run: npm run dist
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: check
         run: node ./tests/dekko/dist.test.js

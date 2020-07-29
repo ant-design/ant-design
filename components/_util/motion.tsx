@@ -28,10 +28,7 @@ interface Motion {
 const getCollapsedHeight: MotionFunc = () => ({ height: 0, opacity: 0 });
 const getRealHeight: MotionFunc = node => ({ height: node.scrollHeight, opacity: 1 });
 const getCurrentHeight: MotionFunc = node => ({ height: node.offsetHeight });
-
-function skipOpacityTransition(_: HTMLElement, event: TransitionEvent) {
-  return event.propertyName === 'height';
-}
+const skipOpacityTransition: MotionEndFunc = (_, event) => event.propertyName === 'height';
 
 const collapseMotion: Motion = {
   motionName: 'ant-motion-collapse',
@@ -41,11 +38,9 @@ const collapseMotion: Motion = {
   onEnterActive: getRealHeight,
   onLeaveStart: getCurrentHeight,
   onLeaveActive: getCollapsedHeight,
-
   onAppearEnd: skipOpacityTransition,
   onEnterEnd: skipOpacityTransition,
   onLeaveEnd: skipOpacityTransition,
-
   motionDeadline: 500,
 };
 

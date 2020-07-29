@@ -41,6 +41,9 @@
     transition: all 0.3s;
   }
 
+  &-horizontal &-submenu {
+    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out;
+  }
   &-submenu,
   &-submenu-inline {
     transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out,
@@ -167,6 +170,11 @@
     min-width: 114px; // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
   }
 
+  &-horizontal &-item,
+  &-horizontal &-submenu-title {
+    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
+      background 0.3s @ease-in-out;
+  }
   &-item,
   &-submenu-title {
     position: relative;
@@ -333,17 +341,23 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
 
+    &:not(.@{menu-prefix-cls}-dark) {
+      > .@{menu-prefix-cls}-item,
+      > .@{menu-prefix-cls}-submenu {
+        margin: @menu-item-padding;
+        margin-top: -1px;
+        margin-bottom: 0;
+        padding: @menu-item-padding;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       position: relative;
       top: 1px;
       display: inline-block;
-      margin: @menu-item-padding;
-      margin-top: 0;
-      margin-bottom: 0;
-      padding: @menu-item-padding;
-      padding-right: 0;
-      padding-left: 0;
       vertical-align: bottom;
       border-bottom: 2px solid transparent;
 

@@ -46,7 +46,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
 
   static defaultProps = {
     transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
+    choiceTransitionName: '',
     bordered: true,
   };
 

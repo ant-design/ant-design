@@ -15,9 +15,20 @@ timeline: true
 
 ---
 
+## 4.5.1
+
+`2020-07-28`
+
+- 🐞 修复 Badge 样式导致构建出错的问题。[#25863](https://github.com/ant-design/ant-design/pull/25863)
+- 🐞 修复 Menu 在 `horizontal` `dark` 状态下 Menu.Item 背景样式出错。[#25850](https://github.com/ant-design/ant-design/pull/25850)
+- 💄 优化 Divider 颜色在非白底背景上的表现。[#25855](https://github.com/ant-design/ant-design/pull/25855)
+- 💄 移除多选 Select 选项的动画效果使交互更流畅。[#25852](https://github.com/ant-design/ant-design/pull/25852)
+- TypeScript
+  - 导出 Form `FormList` 接口。[#25849](https://github.com/ant-design/ant-design/pull/25849)
+
 ## 4.5.0
 
-`2020-07-27`
+`2020-07-28`
 
 - 🆕 Input 和 Input.TextArea 支持 `bordered` 属性。[#25617](https://github.com/ant-design/ant-design/pull/25617)
 - 🆕 Message 新增 `useMessage` hook，以支持 `context` 访问。[#25422](https://github.com/ant-design/ant-design/pull/25422)
@@ -57,8 +68,8 @@ timeline: true
 - 🐞 修复 Tabs 禁用时 focus & active 状态的颜色。[25827](https://github.com/ant-design/ant-design/pull/25827) [hsuanxyz](https://github.com/hsuanxyz)
 - 💄 Card 操作面板颜色与主体颜色统一。[#25722](https://github.com/ant-design/ant-design/pull/25722)
 - ⌨️ 提升 Alert/message/notification 组件的可访问性。[#25774](https://github.com/ant-design/ant-design/pull/25774)
-- 🇭🇰 新增 zh_HK 本地化。[#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
-- 🇩🇪 改进 de_DE 本地化。[#25823](https://github.com/ant-design/ant-design/pull/25823) [@LukeTimeWalker](https://github.com/LukeTimeWalker)
+- 🇭🇰 增加中文繁体（香港） zh_HK 本地化。[#25731](https://github.com/ant-design/ant-design/pull/25731) [@wuchu](https://github.com/wuchu)
+- 🇩🇪 新增 Form 校验文案的德语 de_DE 本地化。[#25823](https://github.com/ant-design/ant-design/pull/25823) [@LukeTimeWalker](https://github.com/LukeTimeWalker)
 
 ## 4.4.3
 
