@@ -1078,8 +1078,11 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
       motionEnter={false}
       motionLeave={false}
       motionName="slide-up"
+      onAppearStart={[Function]}
       onEnterEnd={[Function]}
+      onEnterStart={[Function]}
       onLeaveEnd={[Function]}
+      onLeaveStart={[Function]}
       removeOnLeave={false}
       visible={true}
     >
@@ -1089,8 +1092,11 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
         motionEnter={false}
         motionLeave={false}
         motionName="slide-up"
+        onAppearStart={[Function]}
         onEnterEnd={[Function]}
+        onEnterStart={[Function]}
         onLeaveEnd={[Function]}
+        onLeaveStart={[Function]}
         removeOnLeave={false}
         visible={true}
       >
@@ -1512,8 +1518,11 @@ exports[`Cascader should render not found content 1`] = `
       motionEnter={false}
       motionLeave={false}
       motionName="slide-up"
+      onAppearStart={[Function]}
       onEnterEnd={[Function]}
+      onEnterStart={[Function]}
       onLeaveEnd={[Function]}
+      onLeaveStart={[Function]}
       removeOnLeave={false}
       visible={true}
     >
@@ -1523,8 +1532,11 @@ exports[`Cascader should render not found content 1`] = `
         motionEnter={false}
         motionLeave={false}
         motionName="slide-up"
+        onAppearStart={[Function]}
         onEnterEnd={[Function]}
+        onEnterStart={[Function]}
         onLeaveEnd={[Function]}
+        onLeaveStart={[Function]}
         removeOnLeave={false}
         visible={true}
       >
@@ -1827,8 +1839,11 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
       motionEnter={false}
       motionLeave={false}
       motionName="slide-up"
+      onAppearStart={[Function]}
       onEnterEnd={[Function]}
+      onEnterStart={[Function]}
       onLeaveEnd={[Function]}
+      onLeaveStart={[Function]}
       removeOnLeave={false}
       visible={true}
     >
@@ -1838,8 +1853,11 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
         motionEnter={false}
         motionLeave={false}
         motionName="slide-up"
+        onAppearStart={[Function]}
         onEnterEnd={[Function]}
+        onEnterStart={[Function]}
         onLeaveEnd={[Function]}
+        onLeaveStart={[Function]}
         removeOnLeave={false}
         visible={true}
       >
