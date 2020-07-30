@@ -27,7 +27,7 @@ module.exports = {
     '^react-dnd-test-utils$': 'react-dnd-test-utils/dist/cjs',
     '\\.(css|less)$': 'identity-obj-proxy',
   },
-  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js'],
+  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',

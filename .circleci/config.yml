@@ -158,6 +158,15 @@ jobs:
       - *attach_workspace
       - run: node ./scripts/check-demo.js
 
+  test_image:
+    <<: *container_config
+    <<: *react_16
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run test-image
+      - run: npm run argos
+
 workflows:
   version: 2
   build_test:
