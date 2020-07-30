@@ -2,6 +2,7 @@
   "name": "antd",
   "version": "4.5.1",
   "description": "An enterprise-class UI design language and React components implementation",
+  "title": "Ant Design",
   "keywords": [
     "ant",
     "component",
@@ -47,7 +48,7 @@
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
-    "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
+    "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist && size-limit",
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit",
     "prestart": "npm run version",
@@ -154,6 +155,7 @@
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^10.0.1",
     "@qixian.cs/github-contributors-list": "^1.0.3",
+    "@size-limit/preset-big-lib": "^4.5.5",
     "@stackblitz/sdk": "^1.3.0",
     "@types/classnames": "^2.2.8",
     "@types/enzyme": "^3.10.5",
@@ -266,6 +268,7 @@
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
     "simple-git": "^2.0.0",
+    "size-limit": "^4.5.5",
     "string-replace-loader": "^2.3.0",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
@@ -325,6 +328,5 @@
   ],
   "tnpm": {
     "mode": "npm"
-  },
-  "title": "Ant Design"
+  }
 }
