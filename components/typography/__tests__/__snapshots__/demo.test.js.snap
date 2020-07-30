@@ -326,7 +326,7 @@ Array [
 
 exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
 Array [
-  <span
+  <div
     class="ant-typography"
   >
     This is an editable text.
@@ -358,9 +358,8 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
-  <span
+  </div>,
+  <div
     class="ant-typography"
   >
     This is a copyable text.
@@ -392,9 +391,8 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
-  <span
+  </div>,
+  <div
     class="ant-typography"
   >
     Replace copy text.
@@ -426,9 +424,8 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
-  <span
+  </div>,
+  <div
     class="ant-typography"
   >
     Custom icon.
@@ -460,7 +457,7 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
+  </div>,
   <div
     class="ant-typography"
   >
