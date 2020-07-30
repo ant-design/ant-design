@@ -29,6 +29,7 @@ The default locale is en-US, if you need to use other languages, recommend to us
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
+import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
@@ -37,8 +38,12 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
 import moment from 'moment';
+import 'moment/locale/zh-cn';
+import locale from 'antd/es/locale/zh_CN';
 
-<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
+<ConfigProvider locale={locale}>
+  <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+</ConfigProvider>;
 ```
 
 ### Common API
@@ -159,7 +164,7 @@ Added in `4.1.0`.
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | To set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0  | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
 <style>
@@ -173,18 +178,26 @@ Added in `4.1.0`.
 
 ## FAQ
 
-- [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
+### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
 
-- [How to use DatePicker with customize date library like dayjs?](/docs/react/replace-moment#DatePicker)
+Please refer [FAQ](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
 
-- How to modify start day of week?
+### How to use DatePicker with customize date library like dayjs?
 
-  Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: https://codesandbox.io/s/moment-day-of-week-b24k5
+Please refer [replace moment](/docs/react/replace-moment#DatePicker)
 
-  ```js
-  moment.locale('en', {
-    week: {
-      dow: 1,
-    },
-  });
-  ```
+### Why config moment.locale globally not work?
+
+DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
+
+### How to modify start day of week?
+
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: https://codesandbox.io/s/moment-day-of-week-6dby5
+
+```js
+moment.locale('en', {
+  week: {
+    dow: 1,
+  },
+});
+```
