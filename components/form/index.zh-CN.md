@@ -326,7 +326,7 @@ validator(rule, value, callback) => {
 }
 ```
 
-### name 为数组使的转换规则？
+### name 为数组时的转换规则？
 
 当 `name` 为数组时，会按照顺序填充路径。当存在数字且 form store 中没有该字段时会自动转变成数组。因而如果需要数组为 key 时请使用 string 如：`['1', 'name']`。
 
