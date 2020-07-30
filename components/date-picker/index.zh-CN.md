@@ -168,15 +168,6 @@ import locale from 'antd/es/locale/zh_CN';
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment\], dateStrings: \[string, string\], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
 
-<style>
-.code-box-demo .ant-picker {
-  margin: 0 8px 12px 0;
-}
-.ant-row-rtl .code-box-demo .ant-picker {
-  margin: 0 0 12px 8px;
-}
-</style>
-
 ## FAQ
 
 ### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？

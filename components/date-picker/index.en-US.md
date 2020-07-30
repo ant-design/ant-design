@@ -167,15 +167,6 @@ Added in `4.1.0`.
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
-<style>
-.code-box-demo .ant-picker {
-  margin: 0 8px 12px 0;
-}
-.ant-row-rtl .code-box-demo .ant-picker {
-  margin: 0 0 12px 8px;
-}
-</style>
-
 ## FAQ
 
 ### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
