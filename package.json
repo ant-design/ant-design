@@ -311,19 +311,19 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "300 kB"
+      "limit": "300 KB"
     },
     {
       "path": "./dist/antd.min.css",
-      "limit": "65 kB"
+      "limit": "65 KB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "limit": "65 kB"
+      "limit": "65 KB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "limit": "65 kB"
+      "limit": "65 KB"
     }
   ],
   "tnpm": {
