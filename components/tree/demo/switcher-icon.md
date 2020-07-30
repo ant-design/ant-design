@@ -17,8 +17,6 @@ customize collapse/expand icon of tree node
 import { Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
-const { TreeNode } = Tree;
-
 class Demo extends React.Component {
   onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
