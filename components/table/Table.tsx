@@ -222,18 +222,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(
-        changeInfo.pagination!,
-        changeInfo.filters!,
-        changeInfo.sorter!,
-        {
-          currentDataSource: getFilterData(
-            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-            changeInfo.filterStates!,
-          ),
-          action,
-        },
-      );
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+        currentDataSource: getFilterData(
+          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+          changeInfo.filterStates!,
+        ),
+        action,
+      });
     }
   };
 
@@ -409,7 +404,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }
 
   // Indent size
-  mergedExpandable.indentSize = mergedExpandable.indentSize || indentSize || 15;
+  if (typeof mergedExpandable.indentSize !== 'number') {
+    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
+  }
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
