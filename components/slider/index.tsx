@@ -78,6 +78,16 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>((
     setVisibles(temp);
   };
 
+  const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
+    if (tooltipPlacement) {
+      return tooltipPlacement;
+    }
+    if (!vertical) {
+      return 'top';
+    }
+    return direction === 'rtl' ? 'left' : 'right';
+  };
+
   const handleWithTooltip: HandleGeneratorFn = ({
     tooltipPrefixCls,
     prefixCls,
@@ -97,7 +107,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>((
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
-        placement={tooltipPlacement || (vertical ? 'right' : 'top')}
+        placement={getTooltipPlacement(tooltipPlacement, vertical)}
         transitionName="zoom-down"
         key={index}
         overlayClassName={`${prefixCls}-tooltip`}
