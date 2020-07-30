@@ -143,7 +143,7 @@ describe('ConfigProvider.Locale', () => {
       const wrapper = wrapperComponent({ validateMessages: { required: '必须' } });
 
       wrapper.find('form').simulate('submit');
-      await delay(50);
+      await delay(200);
       wrapper.update();
 
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
