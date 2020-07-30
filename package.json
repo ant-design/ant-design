@@ -48,7 +48,7 @@
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
-    "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist && size-limit",
+    "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit",
     "prestart": "npm run version",
@@ -155,7 +155,6 @@
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^10.0.1",
     "@qixian.cs/github-contributors-list": "^1.0.3",
-    "@size-limit/preset-app": "^4.5.5",
     "@stackblitz/sdk": "^1.3.0",
     "@types/classnames": "^2.2.8",
     "@types/enzyme": "^3.10.5",
@@ -268,7 +267,6 @@
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
     "simple-git": "^2.0.0",
-    "size-limit": "^4.5.5",
     "string-replace-loader": "^2.3.0",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
@@ -306,24 +304,6 @@
     {
       "path": "./dist/antd.compact.min.css",
       "maxSize": "65 kB"
-    }
-  ],
-  "size-limit": [
-    {
-      "path": "./dist/antd.min.js",
-      "limit": "300 KB"
-    },
-    {
-      "path": "./dist/antd.min.css",
-      "limit": "65 KB"
-    },
-    {
-      "path": "./dist/antd.dark.min.css",
-      "limit": "65 KB"
-    },
-    {
-      "path": "./dist/antd.compact.min.css",
-      "limit": "65 KB"
     }
   ],
   "tnpm": {

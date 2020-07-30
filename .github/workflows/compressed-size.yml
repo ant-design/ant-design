@@ -1,4 +1,4 @@
-name: 📦 Size Limit
+name: 📦 Compressed Size
 
 on: [pull_request]
 
@@ -11,6 +11,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: andresz1/size-limit-action@v1.4.0
+    - uses: preactjs/compressed-size-action@v2
       with:
-        github_token: "${{ secrets.GITHUB_TOKEN }}"
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
