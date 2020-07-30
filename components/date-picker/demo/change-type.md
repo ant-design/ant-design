@@ -14,13 +14,13 @@ title:
 Switch different type of Picker.
 
 ```jsx
-import { DatePicker, TimePicker, Select } from 'antd';
+import { DatePicker, TimePicker, Select, Space } from 'antd';
 
 const { Option } = Select;
 
 function TypeSelect({ type, onChange }) {
   return (
-    <Select value={type} onChange={onChange} style={{ marginRight: 8 }}>
+    <Select value={type} onChange={onChange}>
       <Option value="time">Time</Option>
       <Option value="date">Date</Option>
       <Option value="week">Week</Option>
@@ -43,10 +43,10 @@ function SwitchablePicker() {
     console.log(value);
   };
   return (
-    <>
+    <Space>
       <TypeSelect type={type} onChange={setType} />
       <PickerWithType type={type} onChange={onChange} />
-    </>
+    </Space>
   );
 }
 
