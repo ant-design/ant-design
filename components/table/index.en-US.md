@@ -224,7 +224,7 @@ import { Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
 interface User {
-  key: number,
+  key: number;
   name: string;
 }
 
@@ -239,24 +239,19 @@ const data: User[] = [{
   name: 'Jack',
 }];
 
-class UserTable extends Table<User> {}
-
-<UserTable columns={columns} dataSource={data} />
-
-// Use JSX style API
-class NameColumn extends Table.Column<User> {}
-
-<UserTable dataSource={data}>
-  <NameColumn key="name" title="Name" dataIndex="name" />
-</UserTable>
-
-// after TypeScript 2.9 can write like this
-// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
-<Table<User> columns={columns} dataSource={data} />
-<Table<User> dataSource={data}>
-  <Table.Column<User> key="name" title="Name" dataIndex="name" />
-</Table>
+export default () => (
+  <>
+    <Table<User> columns={columns} dataSource={data} />
+  
+    /* JSX style usage */
+    <Table<User> dataSource={data}>
+      <Table.Column<User> key="name" title="Name" dataIndex="name" />
+    </Table>
+  </>
+);
 ```
+
+Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).
 
 ## Note
 
