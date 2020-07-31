@@ -595,6 +595,34 @@
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
+  &-sticky {
+    &-header {
+      position: sticky;
+      z-index: 10;
+    }
+    &-scroll {
+      position: fixed;
+      bottom: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #f3f3f3;
+      opacity: 0.6;
+      transition: transform 0.1s ease-in 0s;
+      &:hover {
+        transform: scaleY(1.2);
+        transform-origin: center bottom;
+      }
+      &-bar {
+        height: 8px;
+        background-color: #aaa;
+        border-radius: 4px;
+        &:hover {
+          background-color: #666;
+        }
+      }
+    }
+  }
 }
 
 @media all and (-ms-high-contrast: none) {
