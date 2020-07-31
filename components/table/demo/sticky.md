@@ -2,7 +2,7 @@
 order: 99
 title:
   en-US: Sticky header and scroll
-  zh-CN: 黏性头部和滚动条
+  zh-CN: 粘性的头部和滚动条
 ---
 
 ## zh-CN
