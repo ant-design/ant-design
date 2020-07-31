@@ -1,4 +1,3 @@
-import React from 'react';
 import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
 import InternalForm, { useForm, FormInstance, FormProps } from './Form';
 import Item, { FormItemProps } from './FormItem';
