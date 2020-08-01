@@ -73,9 +73,9 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>((
   const [visibles, setVisibles] = React.useState<Visibles>({});
 
   const toggleTooltipVisible = (index: number, visible: boolean) => {
-    const temp = { ...visibles };
-    temp[index] = visible;
-    setVisibles(temp);
+    setVisibles((prev: Visibles) => {
+      return { ...prev, [index]: visible };
+    });
   };
 
   const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
