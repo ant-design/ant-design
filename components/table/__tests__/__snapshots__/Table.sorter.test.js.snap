@@ -224,9 +224,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
           tabindex="0"
           title="1"
         >
-          <a
-            rel="nofollow"
-          >
+          <a>
             1
           </a>
         </li>

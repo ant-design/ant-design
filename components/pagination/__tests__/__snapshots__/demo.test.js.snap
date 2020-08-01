@@ -48,9 +48,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -59,9 +57,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       2
     </a>
   </li>
@@ -70,9 +66,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       3
     </a>
   </li>
@@ -81,9 +75,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       4
     </a>
   </li>
@@ -92,9 +84,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       5
     </a>
   </li>
@@ -142,9 +132,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="9"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       9
     </a>
   </li>
@@ -299,9 +287,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -310,9 +296,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       2
     </a>
   </li>
@@ -321,9 +305,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       3
     </a>
   </li>
@@ -332,9 +314,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       4
     </a>
   </li>
@@ -343,9 +323,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       5
     </a>
   </li>
@@ -429,9 +407,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -440,9 +416,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -451,9 +425,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -462,9 +434,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -473,9 +443,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -523,9 +491,7 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         50
       </a>
     </li>
@@ -669,9 +635,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -680,9 +644,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -691,9 +653,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -702,9 +662,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -713,9 +671,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -763,9 +719,7 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         50
       </a>
     </li>
@@ -914,9 +868,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -925,9 +877,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       2
     </a>
   </li>
@@ -936,9 +886,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       3
     </a>
   </li>
@@ -947,9 +895,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       4
     </a>
   </li>
@@ -958,9 +904,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       5
     </a>
   </li>
@@ -1021,9 +965,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -1032,9 +974,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       2
     </a>
   </li>
@@ -1043,9 +983,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       3
     </a>
   </li>
@@ -1054,9 +992,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       4
     </a>
   </li>
@@ -1065,9 +1001,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       5
     </a>
   </li>
@@ -1115,9 +1049,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="50"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       50
     </a>
   </li>
@@ -1241,9 +1173,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -1252,9 +1182,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -1263,9 +1191,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -1274,9 +1200,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -1285,9 +1209,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -1335,9 +1257,7 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         50
       </a>
     </li>
@@ -1490,9 +1410,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -1501,9 +1419,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -1512,9 +1428,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -1523,9 +1437,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -1534,9 +1446,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -1584,9 +1494,7 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         50
       </a>
     </li>
@@ -1746,9 +1654,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -1757,9 +1663,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -1768,9 +1672,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -1779,9 +1681,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -1790,9 +1690,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -1872,9 +1770,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -1883,9 +1779,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -1894,9 +1788,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -1905,9 +1797,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -1916,9 +1806,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -2075,9 +1963,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -2086,9 +1972,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -2097,9 +1981,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -2108,9 +1990,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -2119,9 +1999,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -2205,9 +2083,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -2255,9 +2131,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       4
     </a>
   </li>
@@ -2266,9 +2140,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       5
     </a>
   </li>
@@ -2277,9 +2149,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="6"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       6
     </a>
   </li>
@@ -2288,9 +2158,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="7"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       7
     </a>
   </li>
@@ -2299,9 +2167,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="8"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       8
     </a>
   </li>
@@ -2349,9 +2215,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="50"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       50
     </a>
   </li>
@@ -2592,9 +2456,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -2603,9 +2465,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -2614,9 +2474,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -2625,9 +2483,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -2636,9 +2492,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>
@@ -2787,9 +2641,7 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         1
       </a>
     </li>
@@ -2798,9 +2650,7 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         2
       </a>
     </li>
@@ -2809,9 +2659,7 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         3
       </a>
     </li>
@@ -2820,9 +2668,7 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         4
       </a>
     </li>
@@ -2831,9 +2677,7 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         5
       </a>
     </li>

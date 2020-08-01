@@ -14969,7 +14969,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="up"
@@ -14996,7 +14996,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="down"
@@ -15049,7 +15049,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="up"
@@ -15076,7 +15076,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="down"
@@ -15129,7 +15129,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="up"
@@ -15156,7 +15156,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="down"
@@ -15209,7 +15209,7 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="up"
@@ -15236,7 +15236,7 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="down"
@@ -15289,7 +15289,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="up"
@@ -15316,7 +15316,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="down"
@@ -15369,7 +15369,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       aria-label="Increase Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-up"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="up"
@@ -15396,7 +15396,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       aria-label="Decrease Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-down"
       role="button"
-      unselectable="on"
+      unselectable="unselectable"
     >
       <span
         aria-label="down"
@@ -16982,9 +16982,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -17136,9 +17134,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -17295,9 +17291,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -17449,9 +17443,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -17608,9 +17600,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -17762,9 +17752,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -17921,9 +17909,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -18075,9 +18061,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -18234,9 +18218,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -18388,9 +18370,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -18547,9 +18527,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>
@@ -18701,9 +18679,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       tabindex="0"
       title="0"
     >
-      <a
-        rel="nofollow"
-      >
+      <a>
         0
       </a>
     </li>

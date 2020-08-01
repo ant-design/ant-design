@@ -71,9 +71,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
         tabindex="0"
         title="1"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           1
         </a>
       </li>
@@ -82,9 +80,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
         tabindex="0"
         title="2"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           2
         </a>
       </li>
@@ -169,9 +165,7 @@ exports[`List.pagination should change page size work 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -318,9 +312,7 @@ exports[`List.pagination should change page size work 2`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -590,9 +582,7 @@ exports[`List.pagination should default work 1`] = `
     tabindex="0"
     title="1"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       1
     </a>
   </li>
@@ -601,9 +591,7 @@ exports[`List.pagination should default work 1`] = `
     tabindex="0"
     title="2"
   >
-    <a
-      rel="nofollow"
-    >
+    <a>
       2
     </a>
   </li>

@@ -2175,9 +2175,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="1"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           1
         </a>
       </li>
@@ -2186,9 +2184,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="2"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           2
         </a>
       </li>
@@ -2197,9 +2193,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="3"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           3
         </a>
       </li>
@@ -2208,9 +2202,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="4"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           4
         </a>
       </li>
@@ -2219,9 +2211,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="5"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           5
         </a>
       </li>
@@ -2269,9 +2259,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="8"
       >
-        <a
-          rel="nofollow"
-        >
+        <a>
           8
         </a>
       </li>
