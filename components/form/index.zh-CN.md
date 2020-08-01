@@ -206,7 +206,7 @@ Form.List 渲染表单相关操作函数。
 
 | 名称 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| getFieldInstance | 获取对应字段示例 | (name: [NamePath](#NamePath)) => any | 4.4.0 |
+| getFieldInstance | 获取对应字段实例 | (name: [NamePath](#NamePath)) => any | 4.4.0 |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |  |
 | getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |  |
