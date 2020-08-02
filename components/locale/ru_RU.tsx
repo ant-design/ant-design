@@ -68,13 +68,13 @@ const localeValues: Locale = {
     icon: 'иконка',
   },
   Text: {
-    edit: 'редактировать',
-    copy: 'копировать',
-    copied: 'скопировано',
-    expand: 'раскрыть',
+    edit: 'Редактировать',
+    copy: 'Копировать',
+    copied: 'Скопировано',
+    expand: 'Раскрыть',
   },
   PageHeader: {
-    back: 'назад',
+    back: 'Назад',
   },
   Form: {
     defaultValidateMessages: {
