@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { SmileOutlined, LikeOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
@@ -204,15 +205,31 @@ describe('Typography', () => {
     });
 
     describe('copyable', () => {
-      function copyTest(name, text, target) {
+      function copyTest(name, text, target, icon, tooltips) {
         it(name, () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
           const wrapper = mount(
-            <Base component="p" copyable={{ text, onCopy }}>
+            <Base component="p" copyable={{ text, onCopy, icon, tooltips }}>
               test copy
             </Base>,
           );
+
+          if (icon) {
+            expect(wrapper.find('.anticon-smile').length).toBeTruthy();
+          } else {
+            expect(wrapper.find('.anticon-copy').length).toBeTruthy();
+          }
+
+          if (tooltips === undefined) {
+            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('Copy');
+          } else if (tooltips === false) {
+            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('');
+          } else {
+            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
+              tooltips[0],
+            );
+          }
 
           wrapper.find('.ant-typography-copy').first().simulate('click');
           expect(copy.lastStr).toEqual(target);
@@ -220,19 +237,46 @@ describe('Typography', () => {
           wrapper.update();
           expect(onCopy).toHaveBeenCalled();
 
-          expect(wrapper.find('.anticon-check').length).toBeTruthy();
+          let copiedIcon = '.anticon-check';
+          if (icon && icon.length > 1) {
+            copiedIcon = '.anticon-like';
+          } else {
+            copiedIcon = '.anticon-check';
+          }
+
+          expect(wrapper.find(copiedIcon).length).toBeTruthy();
+
+          if (tooltips === undefined) {
+            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
+              'Copied',
+            );
+          } else if (tooltips === false) {
+            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('');
+          } else {
+            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
+              tooltips[1],
+            );
+          }
 
           jest.runAllTimers();
           wrapper.update();
 
           // Will set back when 3 seconds pass
-          expect(wrapper.find('.anticon-check').length).toBeFalsy();
+          expect(wrapper.find(copiedIcon).length).toBeFalsy();
           jest.useRealTimers();
         });
       }
 
       copyTest('basic copy', undefined, 'test copy');
       copyTest('customize copy', 'bamboo', 'bamboo');
+      copyTest('customize copy', 'bamboo', 'bamboo', <SmileOutlined />);
+      copyTest('customize copy', 'bamboo', 'bamboo', [<SmileOutlined key="copy-icon" />]);
+      copyTest('customize copy', 'bamboo', 'bamboo', [
+        <SmileOutlined key="copy-icon" />,
+        <LikeOutlined key="copied-icon" />,
+      ]);
+      copyTest('customize copy', 'bamboo', 'bamboo', undefined, false);
+      copyTest('customize copy', 'bamboo', 'bamboo', undefined, ['click here', 'you clicked!!']);
     });
 
     describe('editable', () => {
