@@ -10,7 +10,14 @@ import { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Выберите дату',
+    yearPlaceholder: 'Выберите год',
+    quarterPlaceholder: 'Выберите квартал',
+    monthPlaceholder: 'Выберите месяц',
+    weekPlaceholder: 'Выберите неделю',
     rangePlaceholder: ['Начальная дата', 'Конечная дата'],
+    rangeYearPlaceholder: ['Начальный годr', 'Год окончания'],
+    rangeMonthPlaceholder: ['Начальный месяц', 'Конечный месяц'],
+    rangeWeekPlaceholder: ['Начальная неделя', 'Конечная неделя'],
     ...CalendarLocale,
   },
   timePickerLocale: {
