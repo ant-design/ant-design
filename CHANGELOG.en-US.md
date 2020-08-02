@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.5.2
+
+`2020-08-02`
+
+- 🐞 Fix Slider tooltip abnormal visibility. [#25945](https://github.com/ant-design/ant-design/pull/25945) [@lihqi](https://github.com/lihqi)
+- 🐞 Fix Divider color in dark mode. [#25922](https://github.com/ant-design/ant-design/pull/25922)
+- 🐞 Fix Radio.Button text color when `disabled` and `checked`. [#25911](https://github.com/ant-design/ant-design/pull/25911)
+- 🐞 Fix Carousel children height smaller then parent node issue. [#25906](https://github.com/ant-design/ant-design/pull/25906)
+- 🐞 Fix Table `indentSize` couldn't be zero value. [#25890](https://github.com/ant-design/ant-design/pull/25890) [@OmriGM](https://github.com/OmriGM)
+- 🐞 Fix List `actions` show cursor outside clickable area. [#25961](https://github.com/ant-design/ant-design/pull/25961)
+- 🇷🇺 Improve Russian locale. [#25958](https://github.com/ant-design/ant-design/pull/25958) [@addictional](https://github.com/addictional)
+- RTL
+  - 🐞 Fixed vertical Slider default `tooltipPlacement` in RTL mode. [#25909](https://github.com/ant-design/ant-design/pull/25909)
+  - 🐞 Fix Tabs RTL style of `card` type. [#25936](https://github.com/ant-design/ant-design/pull/25936)
+  - 🐞 Fix nested Table RTL style under dark theme. [#25938](https://github.com/ant-design/ant-design/pull/25938)
+
 ## 4.5.1
 
 `2020-07-28`
