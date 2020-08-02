@@ -303,6 +303,26 @@ describe('Typography', () => {
       });
     });
 
+    describe('auto focus', () => {
+      it('should auto focus when autoFocus prop is true on an editable', () => {
+        const wrapper = mount(
+          <Paragraph autoFocus editable>
+            Bamboo
+          </Paragraph>,
+        );
+        expect(wrapper.find('TextArea').at(0).prop('value')).toBe('Bamboo');
+      });
+
+      it('should not focus when autoFocus prop is true on non editable', () => {
+        const wrapper = mount(
+          <Paragraph autoFocus copyable>
+            Bamboo
+          </Paragraph>,
+        );
+        expect(wrapper.contains('TextArea')).toBe(false);
+      });
+    });
+
     it('should focus at the end of textarea', () => {
       const wrapper = mount(<Paragraph editable>content</Paragraph>);
       wrapper.find('.ant-typography-edit').first().simulate('click');

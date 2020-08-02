@@ -60,6 +60,7 @@ export interface BlockProps extends TypographyProps {
   delete?: boolean;
   strong?: boolean;
   keyboard?: boolean;
+  autoFocus?: boolean;
 }
 
 function wrapperDecorations(
@@ -156,7 +157,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   componentDidMount() {
+    const { autoFocus, editable } = this.props;
     this.setState({ clientRendered: true });
+    if (autoFocus && editable) this.triggerEdit(true);
     this.resizeOnNextFrame();
   }
 

@@ -31,6 +31,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+| autoFocus | Automatic focus on the TextArea (only works if `editable` is true) | boolean | false |  |
 
 ### Typography.Title
 
@@ -47,6 +48,7 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+| autoFocus | Automatic focus on the TextArea (only works if `editable` is true) | boolean | false |  |
 
 ### Typography.Paragraph
 
@@ -63,6 +65,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+| autoFocus | Automatic focus on the TextArea (only works if `editable` is true) | boolean | false |  |
 
 ## FAQ
 
