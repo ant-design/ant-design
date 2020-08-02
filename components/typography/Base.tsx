@@ -385,11 +385,9 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const { tooltips } = copyable as CopyConfig;
     let title: string | React.ReactNode = '';
-    if (Array.isArray(tooltips)) {
-      const tooltipsNode = toArray(tooltips);
-      title = copied ? tooltipsNode[1] || this.copiedStr : tooltipsNode[0] || this.copyStr;
-    } else if (tooltips === undefined || tooltips) {
-      title = copied ? this.copiedStr : this.copyStr;
+    if (tooltips !== false) {
+      const tooltipNodes = toArray(tooltips);
+      title = copied ? tooltipNodes[1] || this.copiedStr : tooltipNodes[0] || this.copyStr;
     }
 
     const ariaLabel = typeof title === 'string' ? title : '';
