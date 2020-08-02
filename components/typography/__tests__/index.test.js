@@ -221,7 +221,7 @@ describe('Typography', () => {
             expect(wrapper.find('.anticon-copy').length).toBeTruthy();
           }
 
-          if (tooltips === undefined) {
+          if (tooltips === undefined || tooltips === true) {
             expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('Copy');
           } else if (tooltips === false) {
             expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('');
@@ -246,7 +246,7 @@ describe('Typography', () => {
 
           expect(wrapper.find(copiedIcon).length).toBeTruthy();
 
-          if (tooltips === undefined) {
+          if (tooltips === undefined || tooltips === true) {
             expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
               'Copied',
             );
@@ -275,6 +275,7 @@ describe('Typography', () => {
         <SmileOutlined key="copy-icon" />,
         <LikeOutlined key="copied-icon" />,
       ]);
+      copyTest('customize copy', 'bamboo', 'bamboo', undefined, true);
       copyTest('customize copy', 'bamboo', 'bamboo', undefined, false);
       copyTest('customize copy', 'bamboo', 'bamboo', undefined, ['click here', 'you clicked!!']);
     });

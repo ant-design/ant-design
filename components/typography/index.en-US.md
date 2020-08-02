@@ -20,7 +20,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode \| \[ReactNode, ReactNode\], tooltips: boolean \| \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.6.0 |
@@ -37,7 +37,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode \| \[ReactNode, ReactNode\], tooltips: boolean \| \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.6.0 |
@@ -53,7 +53,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode \| \[ReactNode, ReactNode\], tooltips: boolean \| \[ReactNode, ReactNode\] } | false | icon and tooltips: 4.4.0 |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string) } | false | maxLength and autoSize: 4.6.0 |
