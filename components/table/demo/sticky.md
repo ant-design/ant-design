@@ -1,13 +1,17 @@
 ---
 order: 99
 title:
-  en-US: Sticky header and scroll
-  zh-CN: 粘性的头部和滚动条
+  en-US: Fixed header and scroll bar with the page
+  zh-CN: 随页面滚动的固定表头和滚动条
 ---
 
 ## zh-CN
 
+对于长表格，需要滚动才能查看表头和滚动条，那么现在可以设置跟随页面固定表头和滚动条。
+
 ## en-US
+
+For long table，need to scroll to view the header and scroll bar，then you can now set the fixed header and scroll bar to follow the page.
 
 ```jsx
 import { Table } from 'antd';
@@ -90,7 +94,7 @@ for (let i = 0; i < 100; i++) {
 }
 
 ReactDOM.render(
-  <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} sticky />,
+  <Table columns={columns} dataSource={data} scroll={{ x: 1500 }} sticky />,
   mountNode,
 );
 ```

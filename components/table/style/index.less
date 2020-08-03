@@ -9,6 +9,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
+@table-sticky-zindex: @table-fix-zindex + 1;
 
 .@{table-prefix-cls}-wrapper {
   max-width: 100%;
@@ -516,7 +517,7 @@
   &-cell-fix-right {
     position: -webkit-sticky !important;
     position: sticky !important;
-    z-index: 2;
+    z-index: @table-fix-zindex;
     background: @table-bg;
   }
 
@@ -598,15 +599,16 @@
   &-sticky {
     &-header {
       position: sticky;
-      z-index: 10;
+      z-index: @table-sticky-zindex;
     }
     &-scroll {
       position: fixed;
       bottom: 0;
-      z-index: 3;
+      z-index: @table-sticky-zindex;
       display: flex;
       align-items: center;
-      border-top: 1px solid #f3f3f3;
+      background: lighten(@border-color-split, 80%);
+      border-top: 1px solid @border-color-split;
       opacity: 0.6;
       transition: transform 0.1s ease-in 0s;
       &:hover {
@@ -615,10 +617,10 @@
       }
       &-bar {
         height: 8px;
-        background-color: #aaa;
+        background-color: @disabled-color;
         border-radius: 4px;
         &:hover {
-          background-color: #666;
+          background-color: fade(@disabled-color, 80%);
         }
       }
     }
