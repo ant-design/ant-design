@@ -31,7 +31,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | underline | 添加下划线样式 | boolean | false |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
-| autoFocus | 自动聚焦文本区域 (仅在 “可编辑” 为 true 时有效) | boolean | false |  |
+| autoFocus | 自动聚焦文本区域 (仅在 `editable` 为 true 时有效) | boolean | false | 4.6.0 |
 
 ### Typography.Title
 
@@ -48,7 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
-| autoFocus | 自动聚焦文本区域 (仅在 “可编辑” 为 true 时有效) | boolean | false |  |
+| autoFocus | 自动聚焦文本区域 (仅在 `editable` 为 true 时有效) | boolean | false | 4.6.0 |
 
 ### Typography.Paragraph
 
@@ -65,7 +65,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
-| autoFocus | 自动聚焦文本区域 (仅在 “可编辑” 为 true 时有效) | boolean | false |  |
+| autoFocus | 自动聚焦文本区域 (仅在 `editable` 为 true 时有效) | boolean | false | 4.6.0 |
 
 ## FAQ
 

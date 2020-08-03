@@ -31,7 +31,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
-| autoFocus | Automatic focus on the TextArea (only works if `editable` is true) | boolean | false |  |
+| autoFocus | Automatic focus on the TextArea (only valid if `editable` is true) | boolean | false | 4.6.0 |
 
 ### Typography.Title
 
@@ -48,7 +48,7 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
-| autoFocus | Automatic focus on the TextArea (only works if `editable` is true) | boolean | false |  |
+| autoFocus | Automatic focus on the TextArea (only valid if `editable` is true) | boolean | false | 4.6.0 |
 
 ### Typography.Paragraph
 
@@ -65,7 +65,7 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
-| autoFocus | Automatic focus on the TextArea (only works if `editable` is true) | boolean | false |  |
+| autoFocus | Automatic focus on the TextArea (only valid if `editable` is true) | boolean | false | 4.6.0 |
 
 ## FAQ
 
