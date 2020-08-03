@@ -153,7 +153,7 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item>Location</Breadcrumb.Item>
         <MockComponent />
         <Breadcrumb.Item>Application Center</Breadcrumb.Item>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
     expect(wrapper).toMatchSnapshot();
   });
