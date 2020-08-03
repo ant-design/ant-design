@@ -15232,7 +15232,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -15313,7 +15313,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x:auto;overflow-y:scroll;max-height:300px"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:1500px;min-width:100%;table-layout:fixed"
