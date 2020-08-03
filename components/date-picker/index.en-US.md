@@ -31,7 +31,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 <DatePicker locale={locale} />;
 ```
 
-**Note:** Part of locale of DatePicker, MonthPicker, RangePicker, WeekPicker is read from value. So, please set the locale of moment correctly.
+**Note:** Part of locale of DatePicker, MonthPicker, RangePicker (except `mode`), WeekPicker is read from value. So, please set the locale of moment correctly.
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
@@ -56,7 +56,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | dropdownClassName | to customize the className of the popup calendar | string | - | 3.3.0 |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
-| mode | picker panel mode（[Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) | `time|date|month|year|decade` | 'date' |  |
+| mode | picker panel mode ([Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)) | `time|date|month|year|decade` | 'date' |  |
 | open | open state of picker | boolean | - |  |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |  |
 | popupStyle | to customize the style of the popup calendar | object | {} |  |
@@ -121,6 +121,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - | 3.10.8 |
 | disabledTime | to specify the time that cannot be selected | function(dates: \[moment, moment], partial: `'start'|'end'`) | - |  |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD HH:mm:ss" |  |
+| mode | picker panel mode ([Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)) | `['time', 'time']|['date', 'date']|['month', 'month']|['year', 'year']|['decade', 'decade']` | ['date', 'date'\] |  |
 | ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |  |
 | separator | set separator between inputs | string | '~' | 3.14.0 |

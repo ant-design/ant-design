@@ -45,7 +45,7 @@ moment.locale('zh-cn');
 
 ### 共同的 API
 
-以下 API 为 DatePicker、MonthPicker、RangePicker, WeekPicker 共享的 API。
+以下 API 为 DatePicker、MonthPicker、RangePicker (`mode`除外)、WeekPicker 共享的 API。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -123,6 +123,7 @@ moment.locale('zh-cn');
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 | 3.10.8 |
 | disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 |  |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |  |
+| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `['time', 'time']|['date', 'date']|['month', 'month']|['year', 'year']|['decade', 'decade']` | ['date', 'date'\] |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | string | '~' | 3.14.0 |
