@@ -384,7 +384,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const prefixCls = this.getPrefixCls();
 
     const { tooltips } = copyable as CopyConfig;
-    let title: string | React.ReactNode = '';
+    let title: React.ReactNode = '';
     if (tooltips !== false) {
       const tooltipNodes = toArray(tooltips);
       title = copied ? tooltipNodes[1] || this.copiedStr : tooltipNodes[0] || this.copyStr;
