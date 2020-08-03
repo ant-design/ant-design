@@ -15,7 +15,7 @@ const locale: PickerLocale = {
     monthPlaceholder: 'Выберите месяц',
     weekPlaceholder: 'Выберите неделю',
     rangePlaceholder: ['Начальная дата', 'Конечная дата'],
-    rangeYearPlaceholder: ['Начальный годr', 'Год окончания'],
+    rangeYearPlaceholder: ['Начальный год', 'Год окончания'],
     rangeMonthPlaceholder: ['Начальный месяц', 'Конечный месяц'],
     rangeWeekPlaceholder: ['Начальная неделя', 'Конечная неделя'],
     ...CalendarLocale,
