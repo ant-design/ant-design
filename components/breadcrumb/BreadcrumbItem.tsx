@@ -17,7 +17,7 @@ interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
 }
 const BreadcrumbItem: BreadcrumbItemInterface = ({
   prefixCls: customizePrefixCls,
-  separator,
+  separator = '/',
   children,
   overlay,
   dropdownProps,

@@ -138,4 +138,23 @@ describe('Breadcrumb', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/25975
+  it('should support Breadcrumb.Item default separator', () => {
+    const MockComponent = () => {
+      return (
+        <span>
+          <Breadcrumb.Item>Mock Node</Breadcrumb.Item>
+        </span>
+      );
+    };
+    const wrapper = render(
+      <Breadcrumb>
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <MockComponent />
+        <Breadcrumb.Item>Application Center</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
