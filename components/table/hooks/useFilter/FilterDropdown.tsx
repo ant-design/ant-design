@@ -34,17 +34,21 @@ function renderFilterItems({
   locale: TableLocale;
 }) {
   if (filters.length === 0) {
+    // wrapped with <></> to avoid react warning
+    // https://github.com/ant-design/ant-design/issues/25979
     return (
-      <Empty
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-        description={locale.filterEmptyText}
-        style={{
-          margin: '16px 0',
-        }}
-        imageStyle={{
-          height: 24,
-        }}
-      />
+      <>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={locale.filterEmptyText}
+          style={{
+            margin: '16px 0',
+          }}
+          imageStyle={{
+            height: 24,
+          }}
+        />
+      </>
     );
   }
   return filters.map((filter, index) => {
