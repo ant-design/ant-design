@@ -282,6 +282,13 @@
       &:hover {
         border-color: @primary-color;
       }
+
+      &[disabled] {
+        color: @disabled-color;
+        background: @disabled-bg;
+        border-color: @border-color-base;
+        cursor: not-allowed;
+      }
     }
   }
 
@@ -377,6 +384,9 @@
       background: @disabled-bg;
       border-color: @border-color-base;
       cursor: not-allowed;
+      .@{pagination-prefix-cls}-simple& {
+        background: transparent;
+      }
     }
 
     .@{pagination-prefix-cls}-item-link-icon {
@@ -385,6 +395,10 @@
 
     .@{pagination-prefix-cls}-item-ellipsis {
       opacity: 1;
+    }
+
+    .@{pagination-prefix-cls}-simple-pager {
+      color: @disabled-color;
     }
   }
 }
