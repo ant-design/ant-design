@@ -142,7 +142,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     meta?: Meta,
     isRequired?: boolean,
   ): React.ReactNode {
-    if (noStyle) {
+    if (noStyle && !hidden) {
       return baseChildren;
     }
 
