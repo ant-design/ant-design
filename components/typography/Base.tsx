@@ -34,6 +34,8 @@ interface CopyConfig {
 
 interface EditConfig {
   editing?: boolean;
+  icon?: React.ReactNode;
+  tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
   maxLength?: number;
@@ -362,15 +364,20 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { editable } = this.props;
     if (!editable) return;
 
+    const { icon, tooltip } = editable as EditConfig;
+
+    const title = toArray(tooltip)[0] || this.editStr;
+    const ariaLabel = typeof title === 'string' ? title : '';
+
     return (
-      <Tooltip key="edit" title={this.editStr}>
+      <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={this.setEditRef}
           className={`${this.getPrefixCls()}-edit`}
           onClick={this.onEditClick}
-          aria-label={this.editStr}
+          aria-label={ariaLabel}
         >
-          <EditOutlined role="button" />
+          {icon || <EditOutlined role="button" />}
         </TransButton>
       </Tooltip>
     );
@@ -384,17 +391,14 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const prefixCls = this.getPrefixCls();
 
     const { tooltips } = copyable as CopyConfig;
-    let title: React.ReactNode = '';
-    if (tooltips !== false) {
-      const tooltipNodes = toArray(tooltips);
-      title = copied ? tooltipNodes[1] || this.copiedStr : tooltipNodes[0] || this.copyStr;
-    }
+    const tooltipNodes = toArray(tooltips);
+    const title = copied ? tooltipNodes[1] || this.copiedStr : tooltipNodes[0] || this.copyStr;
 
     const ariaLabel = typeof title === 'string' ? title : '';
     const icons = toArray((copyable as CopyConfig).icon);
 
     return (
-      <Tooltip key="copy" title={title}>
+      <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}

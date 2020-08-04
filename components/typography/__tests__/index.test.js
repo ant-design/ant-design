@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SmileOutlined, LikeOutlined } from '@ant-design/icons';
+import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
@@ -221,14 +221,16 @@ describe('Typography', () => {
             expect(wrapper.find('.anticon-copy').length).toBeTruthy();
           }
 
+          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          jest.runAllTimers();
+          wrapper.update();
+
           if (tooltips === undefined || tooltips === true) {
-            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('Copy');
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copy');
           } else if (tooltips === false) {
-            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('');
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else {
-            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
-              tooltips[0],
-            );
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
           }
 
           wrapper.find('.ant-typography-copy').first().simulate('click');
@@ -247,15 +249,11 @@ describe('Typography', () => {
           expect(wrapper.find(copiedIcon).length).toBeTruthy();
 
           if (tooltips === undefined || tooltips === true) {
-            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
-              'Copied',
-            );
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copied');
           } else if (tooltips === false) {
-            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe('');
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else {
-            expect(wrapper.find('.ant-typography-copy').first().props()['aria-label']).toBe(
-              tooltips[1],
-            );
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
           }
 
           jest.runAllTimers();
@@ -269,20 +267,26 @@ describe('Typography', () => {
 
       copyTest('basic copy', undefined, 'test copy');
       copyTest('customize copy', 'bamboo', 'bamboo');
-      copyTest('customize copy', 'bamboo', 'bamboo', <SmileOutlined />);
-      copyTest('customize copy', 'bamboo', 'bamboo', [<SmileOutlined key="copy-icon" />]);
-      copyTest('customize copy', 'bamboo', 'bamboo', [
+      copyTest('customize copy icon', 'bamboo', 'bamboo', <SmileOutlined />);
+      copyTest('customize copy icon by pass array', 'bamboo', 'bamboo', [
+        <SmileOutlined key="copy-icon" />,
+      ]);
+      copyTest('customize copy icon and copied icon ', 'bamboo', 'bamboo', [
         <SmileOutlined key="copy-icon" />,
         <LikeOutlined key="copied-icon" />,
       ]);
-      copyTest('customize copy', 'bamboo', 'bamboo', undefined, true);
-      copyTest('customize copy', 'bamboo', 'bamboo', undefined, false);
-      copyTest('customize copy', 'bamboo', 'bamboo', undefined, ['click here', 'you clicked!!']);
+      copyTest('customize copy show tooltips', 'bamboo', 'bamboo', undefined, true);
+      copyTest('customize copy hide tooltips', 'bamboo', 'bamboo', undefined, false);
+      copyTest('customize copy tooltips text', 'bamboo', 'bamboo', undefined, [
+        'click here',
+        'you clicked!!',
+      ]);
     });
 
     describe('editable', () => {
-      function testStep(name, submitFunc, expectFunc) {
+      function testStep({ name = '', icon, tooltip } = {}, submitFunc, expectFunc) {
         it(name, () => {
+          jest.useFakeTimers();
           const onStart = jest.fn();
           const onChange = jest.fn();
 
@@ -290,10 +294,32 @@ describe('Typography', () => {
           const style = {};
 
           const wrapper = mount(
-            <Paragraph editable={{ onChange, onStart }} className={className} style={style}>
+            <Paragraph
+              editable={{ onChange, onStart, icon, tooltip }}
+              className={className}
+              style={style}
+            >
               Bamboo
             </Paragraph>,
           );
+
+          if (icon) {
+            expect(wrapper.find('.anticon-highlight').length).toBeTruthy();
+          } else {
+            expect(wrapper.find('.anticon-edit').length).toBeTruthy();
+          }
+
+          wrapper.find('.ant-typography-edit').first().simulate('mouseenter');
+          jest.runAllTimers();
+          wrapper.update();
+
+          if (tooltip === undefined || tooltip === true) {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Edit');
+          } else if (tooltip === false) {
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltip);
+          }
 
           wrapper.find('.ant-typography-edit').first().simulate('click');
 
@@ -308,7 +334,11 @@ describe('Typography', () => {
             target: { value: 'Bamboo' },
           });
 
-          submitFunc(wrapper);
+          if (submitFunc) {
+            submitFunc(wrapper);
+          } else {
+            return;
+          }
 
           if (expectFunc) {
             expectFunc(onChange);
@@ -319,7 +349,7 @@ describe('Typography', () => {
         });
       }
 
-      testStep('by key up', wrapper => {
+      testStep({ name: 'by key up' }, wrapper => {
         // Not trigger when inComposition
         wrapper.find(TextArea).simulate('compositionStart');
         wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ENTER });
@@ -332,7 +362,7 @@ describe('Typography', () => {
       });
 
       testStep(
-        'by esc key',
+        { name: 'by esc key' },
         wrapper => {
           wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ESC });
           wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ESC });
@@ -343,9 +373,14 @@ describe('Typography', () => {
         },
       );
 
-      testStep('by blur', wrapper => {
+      testStep({ name: 'by blur' }, wrapper => {
         wrapper.find(TextArea).simulate('blur');
       });
+
+      testStep({ name: 'customize edit icon', icon: <HighlightOutlined /> });
+      testStep({ name: 'customize edit show tooltip', tooltip: true });
+      testStep({ name: 'customize edit hide tooltip', tooltip: false });
+      testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
     });
 
     it('should focus at the end of textarea', () => {

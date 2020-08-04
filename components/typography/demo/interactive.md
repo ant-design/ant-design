@@ -15,19 +15,29 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import { Typography } from 'antd';
-import { SmileOutlined, SmileFilled } from '@ant-design/icons';
+import { HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
     str: 'This is an editable text.',
+    customIconStr: 'Custom Edit icon and replace tooltip text.',
+    hideTooltipStr: 'Hide Edit tooltip.',
     lengthLimitedStr: 'This is an editable text with limited length.',
   };
 
   onChange = str => {
     console.log('Content change:', str);
     this.setState({ str });
+  };
+
+  onCustomIconStrChange = customIconStr => {
+    this.setState({ customIconStr });
+  };
+
+  onHideTooltipStrChange = hideTooltipStr => {
+    this.setState({ hideTooltipStr });
   };
 
   onLengthLimitedStrChange = lengthLimitedStr => {
@@ -40,6 +50,20 @@ class Demo extends React.Component {
       <>
         <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>
         <Paragraph
+          editable={{
+            icon: <HighlightOutlined />,
+            tooltip: ['click to edit text'],
+            onChange: this.onCustomIconStrChange,
+          }}
+        >
+          {this.state.customIconStr}
+        </Text>
+        <br />
+        <Text editable={{ tooltip: false, onChange: this.onHideTooltipStrChange }}>
+          {this.state.hideTooltipStr}
+        </Text>
+        <br />
+        <Text
           editable={{
             onChange: this.onLengthLimitedStrChange,
             maxLength: 50,
@@ -56,14 +80,13 @@ class Demo extends React.Component {
         <Text
           copyable={{
             icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],
+            tooltips: ['click here', 'you clicked!!'],
           }}
         >
-          Custom icon.
+          Custom Copy icon and replace tooltips text.
         </Text>
         <br />
-        <Text copyable={{ tooltips: ['click here', 'you clicked!!'] }}>Replace tooltips text.</Text>
-        <br />
-        <Paragraph copyable={{ tooltips: false }}>Hide tooltips.</Paragraph>
+        <Paragraph copyable={{ tooltips: false }}>Hide Copy tooltips.</Paragraph>
       </>
     );
   }

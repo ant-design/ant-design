@@ -362,6 +362,73 @@ Array [
   <div
     class="ant-typography"
   >
+    Custom Edit icon and replace tooltip text.
+    <div
+      aria-label="click to edit text"
+      class="ant-typography-edit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <span
+        aria-label="highlight"
+        class="anticon anticon-highlight"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="highlight"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
+          />
+        </svg>
+      </span>
+    </div>
+  </span>,
+  <br />,
+  <span
+    class="ant-typography"
+  >
+    Hide Edit tooltip.
+    <div
+      aria-label="Edit"
+      class="ant-typography-edit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <span
+        aria-label="edit"
+        class="anticon anticon-edit"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="edit"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-typography"
+  >
     This is an editable text with limited length.
     <div
       aria-label="Edit"
@@ -457,13 +524,14 @@ Array [
         </svg>
       </span>
     </div>
-  </div>,
-  <div
+  </span>,
+  <br />,
+  <span
     class="ant-typography"
   >
-    Custom icon.
+    Custom Copy icon and replace tooltips text.
     <div
-      aria-label="Copy"
+      aria-label="click here"
       class="ant-typography-copy"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -492,46 +560,12 @@ Array [
     </div>
   </span>,
   <br />,
-  <span
-    class="ant-typography"
-  >
-    Replace tooltips text.
-    <div
-      aria-label="click here"
-      class="ant-typography-copy"
-      role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-      tabindex="0"
-    >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </div>
-  </span>,
-  <br />,
   <div
     class="ant-typography"
   >
-    Hide tooltips.
+    Hide Copy tooltips.
     <div
-      aria-label=""
+      aria-label="Copy"
       class="ant-typography-copy"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
