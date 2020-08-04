@@ -18,6 +18,7 @@ When a numeric value needs to be provided.
 | autoFocus | If get focus when component mounted | boolean | false |
 | defaultValue | The initial value | number | - |
 | disabled | If disable the input | boolean | false |
+| readOnly | If readonly the input | boolean | false |
 | formatter | Specifies the format of the value presented | function(value: number \| string): string | - |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) |
