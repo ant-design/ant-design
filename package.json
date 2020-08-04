@@ -86,7 +86,7 @@
     "start:preact": "antd-tools run clean && cross-env NODE_ENV=development REACT_ENV=preact concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
     "test": "jest --config .jest.js --no-cache",
     "test:update": "jest --config .jest.js --no-cache --update-snapshot",
-    "test-all": "./scripts/test-all.sh",
+    "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
