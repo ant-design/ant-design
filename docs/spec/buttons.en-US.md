@@ -53,7 +53,7 @@ Common button types could be used to showcase to different **emphasis**.
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3WUkT5pD1SUAAAAAAAAAAABkARQnAQ" alt="Do" description="1. Emphasiz on the primary action. <br/>2. If there is no primary action, then default buttons is the safest choice.">
 
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zBtTRq2xbTYAAAAAAAAAAABkARQnAQ" alt="Don't" description="Put 2 icons in the same button.">
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="Do" description="Should place the buttons in the order of importance. <br/>The less important actions should be place on right or at bottom.">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="Do" description="1. Should place the buttons in the order of importance. <br/>2. The less important actions should be place on right or at bottom.">
 
 ### Special Button Types
 
@@ -83,13 +83,13 @@ Used in the dark or colored background.
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
 
-Usually appeared alone and intend to used as a command. For example, it is used in the landing page or welcome banner. It could be the as wide as its parent container. It is recommend to have just 1 "Call to Action" button in 1 screen.
+Usually appeared alone and intend to used as a command. For example, it is used in the landing page or welcome banner. It could be as wide as its parent container. It is recommend to have just 1 "Call to Action" button in 1 screen.
 
 ## Placement
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*B8D0RJnirLkAAAAAAAAAAABkARQnAQ">
 
-Place buttons in the users' reading pattern for the ease of discovery, such as the "F-Shaped Reading Pattern" and "Z-Shaped Readig Pattern".
+Place buttons in the users' reading pattern for the ease of discovery, such as the "F-Shaped Reading Pattern" and "Z-Shaped Reading Pattern".
 
 ### How to Decide Button Placement?
 
@@ -99,9 +99,9 @@ Place buttons in the users' reading pattern for the ease of discovery, such as t
 
 - Header: subject's heading, summary and navigation
 - Body: detailed content
-- Footer: suplementary information or toolbar
+- Footer: supplementary information or toolbar
 
-Place buttons in different areas could have different meaning.
+Place buttons in different areas could have different meanings.
 
 ### When to Put Buttons in the Footer?
 
@@ -123,7 +123,7 @@ Recommend to start from the reading flow, collapsed content should always be on 
 **How to Decide Button Ordering**
 
 - Conversation Flow: place buttons in the order similar to a conversation between computers and users. **Ask users the needed actions or your desired actions, then present the risks involved.**
-- Navigation Flow: for example, if button represents going back, should be placed on the left implying it is going to the previous step.
+- Navigation Flow: for example, if a button represents going back, should be placed on the left implying it is going to the previous step.
 
 ### Button Group
 
@@ -154,14 +154,14 @@ When there are too many buttons on the screen, we could group relevant buttons t
 
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*238RTb4kaPwAAAAAAAAAAABkARQnAQ" alt="Don't" description="Should use verb">
 
-Labels should clearly indicate to users what would happend when buttons got clicked.
+Labels should clearly indicate to users what would happen when buttons got clicked.
 
 - Should use verb (except dropdown buttons)
 - Should be relevant to the context and be concise.
 
 Ant Design use "OK / Cancel" as default label, but you could still use below methods to customize the label text:
 
-- Desicrbe action result.
+- Describe the action result.
 
   > Publish, Login, Register.
 
