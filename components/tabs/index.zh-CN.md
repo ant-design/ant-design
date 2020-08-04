@@ -33,7 +33,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
 | size | 大小，提供 `large` `default` 和 `small` 三种大小 | string | `default` |  |
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
-| tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
+| tabBarExtraContent | tab bar 上额外的元素 | `ReactNode` \| `{left?: ReactNode, right?: ReactNode}` | - |  |
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | object | - |  |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |

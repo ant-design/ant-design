@@ -30,7 +30,7 @@ Ant Design has 3 types of Tabs for different situations.
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | size | Preset tab bar size | `large` \| `default` \| `small` | `default` |  |
 | centered | Centers tabs | boolean | false | 4.4.0 |
-| tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
+| tabBarExtraContent | Extra content in tab bar | `ReactNode` \| `{left?: ReactNode, right?: ReactNode}` | - |  |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | object | - |  |
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
