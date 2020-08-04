@@ -2919,38 +2919,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3003,38 +3012,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3087,38 +3105,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3171,38 +3198,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3255,38 +3291,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3339,38 +3384,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3423,38 +3477,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3507,38 +3570,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3591,38 +3663,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -3675,38 +3756,47 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Delete
-                        </a>
-                        <a
-                          class="ant-dropdown-link"
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
                         >
-                          More actions 
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <a
+                            class="ant-dropdown-link"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            More actions 
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down"
+                              role="img"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </span>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -11463,16 +11553,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Invite John Brown
-                        </a>
-                        <a>
-                          Delete
-                        </a>
-                      </span>
+                          <a>
+                            Invite John Brown
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -11510,16 +11609,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Invite Jim Green
-                        </a>
-                        <a>
-                          Delete
-                        </a>
-                      </span>
+                          <a>
+                            Invite Jim Green
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -11562,16 +11670,25 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <span>
-                        <a
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
                           style="margin-right:16px"
                         >
-                          Invite Joe Black
-                        </a>
-                        <a>
-                          Delete
-                        </a>
-                      </span>
+                          <a>
+                            Invite Joe Black
+                          </a>
+                        </div>
+                        <div
+                          class="ant-space-item"
+                        >
+                          <a>
+                            Delete
+                          </a>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </tbody>

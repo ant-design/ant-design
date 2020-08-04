@@ -184,8 +184,8 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| onFormChange | Triggered when a sub form field updates | Function(formName: string, info: { changedFields, forms }) | - |
-| onFormFinish | Triggered when a sub form submits | Function(formName: string, info: { values, forms }) | - |
+| onFormChange | Triggered when a sub form field updates | function(formName: string, info: { changedFields, forms }) | - |
+| onFormFinish | Triggered when a sub form submits | function(formName: string, info: { values, forms }) | - |
 
 ```jsx
 <Form.Provider

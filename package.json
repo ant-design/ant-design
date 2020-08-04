@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -86,7 +86,7 @@
     "start:preact": "antd-tools run clean && cross-env NODE_ENV=development REACT_ENV=preact concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
     "test": "jest --config .jest.js --no-cache",
     "test:update": "jest --config .jest.js --no-cache --update-snapshot",
-    "test-all": "./scripts/test-all.sh",
+    "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
@@ -128,8 +128,8 @@
     "rc-mentions": "~1.4.0",
     "rc-menu": "~8.5.0",
     "rc-notification": "~4.4.0",
-    "rc-pagination": "~2.4.1",
-    "rc-picker": "~1.15.0",
+    "rc-pagination": "~2.4.5",
+    "rc-picker": "~1.15.1",
     "rc-progress": "~3.0.0",
     "rc-rate": "~2.8.2",
     "rc-resize-observer": "^0.2.3",

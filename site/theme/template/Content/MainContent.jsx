@@ -59,11 +59,11 @@ function getSideBarOpenKeys(nextProps) {
 }
 
 function updateActiveToc(id) {
-  [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-    node.className = '';
-  });
   const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${id}"]`)[0];
   if (currentNode) {
+    [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
+      node.className = '';
+    });
     currentNode.className = 'current';
   }
 }
@@ -76,8 +76,7 @@ class MainContent extends Component {
   };
 
   componentDidMount() {
-    this.componentDidUpdate();
-    window.addEventListener('load', this.handleInitialHashOnLoad);
+    window.addEventListener('load', this.handleLoad);
     window.addEventListener('hashchange', this.handleHashChange);
   }
 
@@ -188,18 +187,11 @@ class MainContent extends Component {
     this.setState({ openKeys });
   };
 
-  handleInitialHashOnLoad = () => {
-    setTimeout(() => {
-      if (!window.location.hash) {
-        return;
-      }
-      const element = document.getElementById(
-        decodeURIComponent(window.location.hash.replace('#', '')),
-      );
-      if (element && document.documentElement.scrollTop === 0) {
-        element.scrollIntoView();
-      }
-    }, 0);
+  handleLoad = () => {
+    if (window.location.hash) {
+      updateActiveToc(window.location.hash.replace(/^#/, ''));
+    }
+    this.bindScroller();
   };
 
   handleHashChange = () => {
@@ -223,7 +215,7 @@ class MainContent extends Component {
     this.scroller
       .setup({
         step: '.markdown > h2, .code-box', // required
-        offset: 0,
+        offset: '10px',
       })
       .onStepEnter(({ element }) => {
         updateActiveToc(element.id);
