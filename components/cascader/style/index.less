@@ -192,8 +192,10 @@
   }
   &-menu-item {
     padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+    overflow: hidden;
     line-height: @cascader-dropdown-line-height;
     white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
