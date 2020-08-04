@@ -54,11 +54,7 @@ const Cell: React.FC<CellProps> = ({
       style={style}
       colSpan={span}
     >
-      <div
-        style={{
-          display: 'flex',
-        }}
-      >
+      <div className={`${itemPrefixCls}-item-container`}>
         {label && (
           <span
             className={classNames(`${itemPrefixCls}-item-label`, {
