@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-The separator can be customized by setting the separator property: `Breadcrumb.Separator`
+The separator can be customized by setting the separator property: `Breadcrumb.Separator`.
 
 ```jsx
 import { Breadcrumb } from 'antd';
