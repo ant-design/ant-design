@@ -113,7 +113,6 @@ Array [
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       Lili Qu
                     </span>
@@ -133,7 +132,6 @@ Array [
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       <a>
                         421421
@@ -155,7 +153,6 @@ Array [
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       2017-01-10
                     </span>
@@ -179,7 +176,6 @@ Array [
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       2017-10-10
                     </span>
@@ -199,7 +195,6 @@ Array [
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
                     </span>
@@ -862,7 +857,6 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       Lili Qu
                     </span>
@@ -882,7 +876,6 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       <a>
                         421421
@@ -904,7 +897,6 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       2017-01-10
                     </span>
@@ -928,7 +920,6 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       2017-10-10
                     </span>
@@ -948,7 +939,6 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-descriptions-item-content"
-                      style="flex:1"
                     >
                       Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
                     </span>
@@ -1082,7 +1072,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       </span>
                       <span
                         class="ant-descriptions-item-content"
-                        style="flex:1"
                       >
                         Lili Qu
                       </span>
@@ -1102,7 +1091,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       </span>
                       <span
                         class="ant-descriptions-item-content"
-                        style="flex:1"
                       >
                         <a>
                           421421
@@ -1128,7 +1116,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       </span>
                       <span
                         class="ant-descriptions-item-content"
-                        style="flex:1"
                       >
                         2017-01-10
                       </span>
@@ -1148,7 +1135,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       </span>
                       <span
                         class="ant-descriptions-item-content"
-                        style="flex:1"
                       >
                         2017-10-10
                       </span>
@@ -1172,7 +1158,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       </span>
                       <span
                         class="ant-descriptions-item-content"
-                        style="flex:1"
                       >
                         Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
                       </span>

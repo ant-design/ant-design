@@ -64,16 +64,7 @@ const Cell: React.FC<CellProps> = ({
             {label}
           </span>
         )}
-        {content && (
-          <span
-            style={{
-              flex: 1,
-            }}
-            className={classNames(`${itemPrefixCls}-item-content`)}
-          >
-            {content}
-          </span>
-        )}
+        {content && <span className={classNames(`${itemPrefixCls}-item-content`)}>{content}</span>}
       </div>
     </Component>
   );

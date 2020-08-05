@@ -35,7 +35,6 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Zhou Maomao
               </span>
@@ -55,7 +54,6 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 1810000000
               </span>
@@ -75,7 +73,6 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Hangzhou, Zhejiang
               </span>
@@ -99,7 +96,6 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 empty
               </span>
@@ -119,7 +115,6 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
               </span>
@@ -704,7 +699,6 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="flex:1"
                 >
                   Cloud Database
                 </span>
@@ -724,7 +718,6 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="flex:1"
                 >
                   Prepaid
                 </span>
@@ -744,7 +737,6 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="flex:1"
                 >
                   18:00:00
                 </span>
@@ -768,7 +760,6 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="flex:1"
                 >
                   $80.00
                 </span>
@@ -788,7 +779,6 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="flex:1"
                 >
                   $20.00
                 </span>
@@ -808,7 +798,6 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="flex:1"
                 >
                   $60.00
                 </span>
@@ -857,7 +846,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Cloud Database
               </span>
@@ -877,7 +865,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Prepaid
               </span>
@@ -901,7 +888,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 YES
               </span>
@@ -921,7 +907,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 2018-04-24 18:00:00
               </span>
@@ -945,7 +930,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 2019-04-24 18:00:00
               </span>
@@ -969,7 +953,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 <span
                   class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1004,7 +987,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 $80.00
               </span>
@@ -1024,7 +1006,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 $20.00
               </span>
@@ -1048,7 +1029,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 $60.00
               </span>
@@ -1068,7 +1048,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Data disk type: MongoDB
                 <br />
@@ -1103,7 +1082,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 $60.00
               </span>
@@ -1123,7 +1101,6 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 <div
                   class="ant-table-wrapper"
@@ -1305,7 +1282,6 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Zhou Maomao
               </span>
@@ -1320,7 +1296,6 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 1810000000
               </span>
@@ -1335,7 +1310,6 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 Hangzhou, Zhejiang
               </span>
@@ -1386,7 +1360,6 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
               </span>
@@ -1401,7 +1374,6 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex:1"
               >
                 empty
               </span>

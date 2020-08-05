@@ -26,7 +26,6 @@ exports[`Descriptions Descriptions support colon 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Cloud Database
               </span>
@@ -61,7 +60,6 @@ exports[`Descriptions Descriptions support style 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Cloud Database
               </span>
@@ -100,7 +98,6 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Cloud Database
               </span>
@@ -139,7 +136,6 @@ exports[`Descriptions column is number 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Cloud Database
               </span>
@@ -159,7 +155,6 @@ exports[`Descriptions column is number 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Prepaid
               </span>
@@ -179,7 +174,6 @@ exports[`Descriptions column is number 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 18:00:00
               </span>
@@ -203,7 +197,6 @@ exports[`Descriptions column is number 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 $80.00
               </span>
@@ -242,7 +235,6 @@ exports[`Descriptions should work with React Fragment 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 bamboo
               </span>
@@ -266,7 +258,6 @@ exports[`Descriptions should work with React Fragment 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 bamboo
               </span>
@@ -290,7 +281,6 @@ exports[`Descriptions should work with React Fragment 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 bamboo
               </span>
@@ -342,7 +332,6 @@ exports[`Descriptions vertical layout 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Cloud Database
               </span>
@@ -379,7 +368,6 @@ exports[`Descriptions vertical layout 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Prepaid
               </span>
@@ -416,7 +404,6 @@ exports[`Descriptions vertical layout 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 18:00:00
               </span>
@@ -453,7 +440,6 @@ exports[`Descriptions vertical layout 1`] = `
             >
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 $80.00
               </span>
@@ -492,7 +478,6 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Cloud Database
               </span>
@@ -516,7 +501,6 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 Prepaid
               </span>
@@ -540,7 +524,6 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 18:00:00
               </span>
@@ -564,7 +547,6 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
               </span>
               <span
                 class="ant-descriptions-item-content"
-                style="flex: 1;"
               >
                 $80.00
               </span>
