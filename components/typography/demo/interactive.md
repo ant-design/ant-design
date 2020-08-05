@@ -57,13 +57,11 @@ class Demo extends React.Component {
           }}
         >
           {this.state.customIconStr}
-        </Text>
-        <br />
-        <Text editable={{ tooltip: false, onChange: this.onHideTooltipStrChange }}>
+        </Paragraph>
+        <Paragraph editable={{ tooltip: false, onChange: this.onHideTooltipStrChange }}>
           {this.state.hideTooltipStr}
-        </Text>
-        <br />
-        <Text
+        </Paragraph>
+        <Paragraph
           editable={{
             onChange: this.onLengthLimitedStrChange,
             maxLength: 50,
@@ -71,21 +69,17 @@ class Demo extends React.Component {
           }}
         >
           {this.state.lengthLimitedStr}
-        </Text>
-        <br />
-        <Text copyable>This is a copyable text.</Text>
-        <br />
-        <Text copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Text>
-        <br />
-        <Text
+        </Paragraph>
+        <Paragraph copyable>This is a copyable text.</Paragraph>
+        <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+        <Paragraph
           copyable={{
             icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],
             tooltips: ['click here', 'you clicked!!'],
           }}
         >
           Custom Copy icon and replace tooltips text.
-        </Text>
-        <br />
+        </Paragraph>
         <Paragraph copyable={{ tooltips: false }}>Hide Copy tooltips.</Paragraph>
       </>
     );

@@ -391,9 +391,8 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
-  <span
+  </div>,
+  <div
     class="ant-typography"
   >
     Hide Edit tooltip.
@@ -524,9 +523,8 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
-  <span
+  </div>,
+  <div
     class="ant-typography"
   >
     Custom Copy icon and replace tooltips text.
@@ -558,8 +556,7 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
+  </div>,
   <div
     class="ant-typography"
   >
