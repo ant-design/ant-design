@@ -699,14 +699,27 @@ describe('Form', () => {
     expect(wrapper.find('input').prop('onBlur')).toBeTruthy();
   });
 
-  it('Form item hidden', () => {
-    const wrapper = mount(
-      <Form>
-        <Form.Item name="light" hidden>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
-    expect(wrapper).toMatchRenderedSnapshot();
+  describe('Form item hidden', () => {
+    it('should work', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item name="light" hidden>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(wrapper).toMatchRenderedSnapshot();
+    });
+
+    it('noStyle should not work when hidden', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item name="light" hidden noStyle>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(wrapper).toMatchRenderedSnapshot();
+    });
   });
 });
