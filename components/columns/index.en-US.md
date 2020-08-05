@@ -3,6 +3,7 @@ category: Components
 type: Layout
 title: Columns
 cols: 1
+cover: https://allenai.org/favicon.ico
 ---
 
 Convenience wrapper of Grid.

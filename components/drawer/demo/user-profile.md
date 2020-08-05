@@ -154,8 +154,8 @@ class App extends React.Component {
               <DescriptionItem
                 title="Github"
                 content={
-                  <a href="http://github.com/ant-design/ant-design/">
-                    github.com/ant-design/ant-design/
+                  <a href="http://github.com/allenai/varnish">
+                    github.com/allenai/varnish/
                   </a>
                 }
               />

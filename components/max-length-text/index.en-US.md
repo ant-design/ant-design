@@ -3,6 +3,7 @@ category: Components
 type: Other
 title: Max Length Text
 cols: 2
+cover: https://allenai.org/favicon.ico
 ---
 
 A custom component for rendering text with a configurable limit. The

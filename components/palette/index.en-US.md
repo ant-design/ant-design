@@ -3,6 +3,7 @@ category: Components
 type: General
 title: Palette
 cols: 2
+cover: https://allenai.org/favicon.ico
 ---
 
 Official AI2 Colors Palette

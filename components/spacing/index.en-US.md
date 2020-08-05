@@ -3,6 +3,7 @@ category: Components
 type: Layout
 title: Spacing
 cols: 2
+cover: https://allenai.org/favicon.ico
 ---
 
 Standard spacing units.

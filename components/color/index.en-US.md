@@ -3,6 +3,7 @@ category: Components
 type: General
 title: Colors
 cols: 2
+cover: https://allenai.org/favicon.ico
 ---
 
 Official AI2 Colors

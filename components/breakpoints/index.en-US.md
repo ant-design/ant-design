@@ -3,6 +3,7 @@ category: Components
 type: Layout
 title: Breakpoints
 cols: 1
+cover: https://allenai.org/favicon.ico
 ---
 
 Standard breakpoints values.

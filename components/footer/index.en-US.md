@@ -3,6 +3,7 @@ category: Components
 type: Layout
 title: Footer
 cols: 1
+cover: https://allenai.org/favicon.ico
 ---
 
 Default Footer for use on AI2 demos and applications.

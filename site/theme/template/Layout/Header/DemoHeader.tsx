@@ -103,7 +103,7 @@ class DemoHeader extends React.Component<HeaderProps, HeaderState> {
               id="nav"
             >
               <Menu.Item key="components">
-                <Link to={utils.getLocalizedPathname('/components/button/')}>
+                <Link to={utils.getLocalizedPathname('/components/overview/')}>
                   Components
                 </Link>
               </Menu.Item>

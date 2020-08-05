@@ -3,6 +3,7 @@ category: Components
 type: Layout
 title: AI2 Header
 cols: 1
+cover: https://allenai.org/favicon.ico
 ---
 
 Unified header for all AI2 properties.

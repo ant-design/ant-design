@@ -3,6 +3,7 @@ category: Components
 type: General
 title: AI2 Logos
 cols: 2
+cover: https://allenai.org/favicon.ico
 ---
 
 AI2 Specific Logos as inline SVG elements.

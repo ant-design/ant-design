@@ -22,17 +22,17 @@ const { Paragraph } = Typography;
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         1st menu item
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         2nd menu item
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         3rd menu item
       </a>
     </Menu.Item>

@@ -2,6 +2,8 @@
 category: Components
 type: General
 title: Theme
+cols: 1
+cover: https://allenai.org/favicon.ico
 ---
 
 Theme for Varnish Theming.

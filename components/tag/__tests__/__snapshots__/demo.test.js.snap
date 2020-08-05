@@ -299,6 +299,16 @@ Array [
     >
       purple
     </span>
+    <span
+      class="ant-tag ant-tag-pink"
+    >
+      pink
+    </span>
+    <span
+      class="ant-tag ant-tag-yellow"
+    >
+      yellow
+    </span>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
