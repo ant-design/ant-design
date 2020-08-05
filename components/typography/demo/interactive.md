@@ -15,7 +15,7 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import { Typography } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
@@ -46,14 +46,24 @@ class Demo extends React.Component {
             autoSize: { maxRows: 5, minRows: 3 },
           }}
         >
-          {lengthLimitedStr}
-        </Paragraph>
-        <Paragraph copyable>This is a copyable text.</Paragraph>
-        <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
-        <Paragraph copyable={{ icon: <SmileOutlined /> }}>Custom icon.</Paragraph>
-        <Paragraph copyable={{ tooltips: ['click here', 'you clicked!!'] }}>
-          Replace tooltips text.
-        </Paragraph>
+          {this.state.lengthLimitedStr}
+        </Text>
+        <br />
+        <Text copyable>This is a copyable text.</Text>
+        <br />
+        <Text copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Text>
+        <br />
+        <Text
+          copyable={{
+            icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],
+          }}
+        >
+          Custom icon.
+        </Text>
+        <br />
+        <Text copyable={{ tooltips: ['click here', 'you clicked!!'] }}>Replace tooltips text.</Text>
+        <br />
+        <Paragraph copyable={{ tooltips: false }}>Hide tooltips.</Paragraph>
       </>
     );
   }

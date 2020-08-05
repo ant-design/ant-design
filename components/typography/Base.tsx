@@ -28,8 +28,8 @@ const isTextOverflowSupport = isStyleSupport('textOverflow');
 interface CopyConfig {
   text?: string;
   onCopy?: () => void;
-  icon?: React.ReactNode;
-  tooltips?: [React.ReactNode, React.ReactNode];
+  icon?: React.ReactNode | Array<React.ReactNode>;
+  tooltips?: boolean | Array<React.ReactNode>;
 }
 
 interface EditConfig {
@@ -383,11 +383,26 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const title = copied
-      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
-      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
+    const { tooltips } = copyable as CopyConfig;
+
+    let title: string | React.ReactNode = '';
+    if (Array.isArray(tooltips)) {
+      title = copied
+        ? (tooltips as Array<React.ReactNode>)[1] || this.copiedStr
+        : (tooltips as Array<React.ReactNode>)[0] || this.copyStr;
+    } else if (typeof tooltips === 'undefined' || tooltips) {
+      title = copied ? this.copiedStr : this.copyStr;
+    } else {
+      title = '';
+    }
 
     const ariaLabel = typeof title === 'string' ? title : '';
+
+    const icons = Array.isArray((copyable as CopyConfig).icon)
+      ? (copyable as CopyConfig).icon
+      : [(copyable as CopyConfig).icon];
+    const copyIcon = (icons as Array<React.ReactNode>)[0] || <CopyOutlined />;
+    const copiedIcon = (icons as Array<React.ReactNode>)[1] || <CheckOutlined />;
 
     return (
       <Tooltip key="copy" title={title}>
@@ -396,7 +411,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
+          {copied ? copiedIcon : copyIcon}
         </TransButton>
       </Tooltip>
     );
