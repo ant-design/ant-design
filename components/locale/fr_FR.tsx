@@ -22,7 +22,7 @@ const localeValues: Locale = {
     collapse: 'Réduire la ligne',
     triggerDesc: 'Trier par ordre décroissant',
     triggerAsc: 'Trier par ordre croissant',
-    cancelSort: 'Annuler le trie',
+    cancelSort: 'Annuler le tri',
   },
   Modal: {
     okText: 'OK',
