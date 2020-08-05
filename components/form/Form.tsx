@@ -12,7 +12,7 @@ import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/S
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-export interface FormProps extends Omit<RcFormProps, 'form'> {
+export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
   prefixCls?: string;
   hideRequiredMark?: boolean;
   colon?: boolean;
@@ -21,7 +21,7 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
-  form?: FormInstance;
+  form?: FormInstance<Values>;
   size?: SizeType;
   scrollToFirstError?: boolean;
 }
@@ -105,7 +105,9 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   );
 };
 
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm);
+const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values = any>(
+  props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
+) => React.ReactElement;
 
 export { useForm, List, FormInstance };
 
