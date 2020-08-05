@@ -176,6 +176,7 @@ const Alert: AlertInterface = ({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onClick}
+        role="alert"
         {...dataOrAriaProps}
       >
         {isShowIcon ? renderIconNode() : null}

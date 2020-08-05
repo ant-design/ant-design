@@ -48,11 +48,16 @@
   h4 {
     .typography-title-4();
   }
+  h5&,
+  h5 {
+    .typography-title-5();
+  }
 
   h1&,
   h2&,
   h3&,
-  h4& {
+  h4&,
+  h5& {
     .@{typography-prefix-cls} + & {
       margin-top: @typography-title-margin-top;
     }
@@ -65,11 +70,13 @@
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5 {
     + h1,
     + h2,
     + h3,
-    + h4 {
+    + h4,
+    + h5 {
       margin-top: @typography-title-margin-top;
     }
   }

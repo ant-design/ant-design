@@ -16,7 +16,7 @@ The `value` of time-related components is a `moment` object, which we need to pr
 ```tsx
 import { Form, DatePicker, TimePicker, Button } from 'antd';
 
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 
 const formItemLayout = {
   labelCol: {
@@ -64,7 +64,7 @@ const TimeRelatedForm = () => {
         <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
       </Form.Item>
       <Form.Item name="month-picker" label="MonthPicker" {...config}>
-        <MonthPicker />
+        <DatePicker picker="month" />
       </Form.Item>
       <Form.Item name="range-picker" label="RangePicker" {...rangeConfig}>
         <RangePicker />

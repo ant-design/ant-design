@@ -4,6 +4,7 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="config-alert-message"
@@ -20,6 +21,7 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="config-alert-message"
@@ -36,6 +38,7 @@ exports[`ConfigProvider components Alert configProvider componentSize middle 1`]
 <div
   class="config-alert config-alert-success config-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="config-alert-message"
@@ -52,6 +55,7 @@ exports[`ConfigProvider components Alert configProvider virtual and dropdownMatc
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -68,6 +72,7 @@ exports[`ConfigProvider components Alert normal 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -84,6 +89,7 @@ exports[`ConfigProvider components Alert prefixCls 1`] = `
 <div
   class="prefix-Alert prefix-Alert-success prefix-Alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="prefix-Alert-message"
@@ -14963,7 +14969,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -14990,7 +14996,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -15043,7 +15049,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -15070,7 +15076,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -15123,7 +15129,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       aria-label="Increase Value"
       class="config-input-number-handler config-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -15150,7 +15156,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
       aria-label="Decrease Value"
       class="config-input-number-handler config-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -15203,7 +15209,7 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -15230,7 +15236,7 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -15283,7 +15289,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -15310,7 +15316,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -15363,7 +15369,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       aria-label="Increase Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -15390,7 +15396,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       aria-label="Decrease Value"
       class="prefix-InputNumber-handler prefix-InputNumber-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"

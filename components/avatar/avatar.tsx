@@ -40,7 +40,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   const avatarChildrenRef = React.useRef<HTMLElement>();
 
   const avatarNodeMergeRef = composeRef(ref, avatarNodeRef);
-  const avatarChildrenMergeRef = composeRef(ref, avatarChildrenRef);
 
   let lastChildrenWidth: number;
   let lastNodeWidth: number;
@@ -70,7 +69,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   };
 
   React.useEffect(() => {
-    setScaleParam();
     setMounted(true);
   }, []);
 
@@ -81,7 +79,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   React.useEffect(() => {
     setScaleParam();
-  }, [props.children, props.gap]);
+  }, [props.children, props.gap, props.size]);
 
   React.useEffect(() => {
     if (props.children) {
@@ -107,6 +105,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     className,
     alt,
     draggable,
+    children,
     ...others
   } = props;
 
@@ -139,60 +138,58 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
         }
       : {};
 
-  let { children } = props;
+  let childrenToRender;
   if (src && isImgExist) {
-    children = (
+    childrenToRender = (
       <img src={src} draggable={draggable} srcSet={srcSet} onError={handleImgLoadError} alt={alt} />
     );
   } else if (icon) {
-    children = icon;
+    childrenToRender = icon;
+  } else if (mounted || scale !== 1) {
+    const transformString = `scale(${scale}) translateX(-50%)`;
+    const childrenStyle: React.CSSProperties = {
+      msTransform: transformString,
+      WebkitTransform: transformString,
+      transform: transformString,
+    };
+
+    const sizeChildrenStyle: React.CSSProperties =
+      typeof size === 'number'
+        ? {
+            lineHeight: `${size}px`,
+          }
+        : {};
+
+    childrenToRender = (
+      <span
+        className={`${prefixCls}-string`}
+        ref={(node: HTMLElement) => {
+          avatarChildrenRef.current = node;
+        }}
+        style={{ ...sizeChildrenStyle, ...childrenStyle }}
+      >
+        {children}
+      </span>
+    );
   } else {
-    const childrenNode = avatarChildrenRef.current;
-    if (childrenNode || scale !== 1) {
-      const transformString = `scale(${scale}) translateX(-50%)`;
-      const childrenStyle: React.CSSProperties = {
-        msTransform: transformString,
-        WebkitTransform: transformString,
-        transform: transformString,
-      };
-
-      const sizeChildrenStyle: React.CSSProperties =
-        typeof size === 'number'
-          ? {
-              lineHeight: `${size}px`,
-            }
-          : {};
-      children = (
-        <span
-          className={`${prefixCls}-string`}
-          ref={avatarChildrenMergeRef as any}
-          style={{ ...sizeChildrenStyle, ...childrenStyle }}
-        >
-          {children}
-        </span>
-      );
-    } else {
-      const childrenStyle: React.CSSProperties = {};
-      if (!mounted) {
-        childrenStyle.opacity = 0;
-      }
-
-      children = (
-        <span
-          className={`${prefixCls}-string`}
-          style={{ opacity: 0 }}
-          ref={avatarChildrenMergeRef as any}
-        >
-          {children}
-        </span>
-      );
-    }
+    childrenToRender = (
+      <span
+        className={`${prefixCls}-string`}
+        style={{ opacity: 0 }}
+        ref={(node: HTMLElement) => {
+          avatarChildrenRef.current = node;
+        }}
+      >
+        {children}
+      </span>
+    );
   }
 
   // The event is triggered twice from bubbling up the DOM tree.
   // see https://codesandbox.io/s/kind-snow-9lidz
   delete others.onError;
   delete others.gap;
+
   return (
     <span
       {...others}
@@ -200,7 +197,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       className={classString}
       ref={avatarNodeMergeRef as any}
     >
-      {children}
+      {childrenToRender}
     </span>
   );
 };

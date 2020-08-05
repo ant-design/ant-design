@@ -55,7 +55,7 @@ Fields in `showSearch`:
 | --- | --- | --- | --- | --- |
 | filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | function(inputValue, path): boolean | - |  |
 | limit | Set the count of filtered items | number \| false | 50 |  |
-| matchInputWidth | Whether the width of result list equals to input's | boolean | true |  |
+| matchInputWidth | Whether the width of list matches input, ([how it looks](https://github.com/ant-design/ant-design/issues/25779)) | boolean | true |  |
 | render | Used to render filtered options | function(inputValue, path): ReactNode | - |  |
 | sort | Used to sort filtered options | function(a, b, inputValue) | - |  |
 
