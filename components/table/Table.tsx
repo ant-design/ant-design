@@ -162,7 +162,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)[childrenColumnName])) {
+    if (rawData.some(item => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -183,7 +183,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       return rowKey;
     }
 
-    return (record: RecordType) => (record as any)[rowKey as string];
+    return (record: RecordType) => (record as any)?.[rowKey as string];
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);

@@ -160,6 +160,19 @@ describe('Table', () => {
     );
   });
 
+  it('should not crash when dataSource is array with none-object items', () => {
+    mount(
+      <Table
+        columns={[
+          {
+            title: 'name',
+          },
+        ]}
+        dataSource={['1', 2, undefined, {}, null, true, false, 0]}
+      />,
+    );
+  });
+
   it('prevent touch event', () => {
     const wrapper = mount(
       <Table
