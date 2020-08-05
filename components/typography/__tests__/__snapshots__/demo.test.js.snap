@@ -391,9 +391,8 @@ Array [
         </svg>
       </span>
     </div>
-  </span>,
-  <br />,
-  <span
+  </div>,
+  <div
     class="ant-typography"
   >
     This is a copyable text.
