@@ -248,4 +248,16 @@ describe('Table', () => {
     mount(<Table columns={columns} rowKey={record => record.key} />);
     expect(warnSpy).not.toBeCalled();
   });
+
+  it('not crash with raw data', () => {
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+      },
+    ];
+    expect(() => {
+      mount(<Table columns={columns} dataSource={[122, '2333', true]} />);
+    }).not.toThrow();
+  });
 });
