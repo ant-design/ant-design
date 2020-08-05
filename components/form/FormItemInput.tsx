@@ -5,7 +5,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import CSSMotion from 'rc-animate/lib/CSSMotion';
+import CSSMotion from 'rc-motion';
 
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
