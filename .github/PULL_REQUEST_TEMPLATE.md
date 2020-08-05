@@ -18,6 +18,8 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] TypeScript definition update
 - [ ] Bundle size optimization
 - [ ] Performance optimization
+- [ ] Enhancement feature
+- [ ] Internationalization
 - [ ] Refactoring
 - [ ] Code style optimization
 - [ ] Test Case
