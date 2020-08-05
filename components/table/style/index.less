@@ -10,6 +10,7 @@
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 @table-sticky-zindex: @zindex-table-fixed-column + 1;
+@table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
   max-width: 100%;
@@ -617,10 +618,13 @@
       }
       &-bar {
         height: 8px;
-        background-color: @disabled-color;
-        border-radius: 4px;
+        background-color: @table-sticky-scroll-bar-bg;
+        border-radius: @table-sticky-scroll-bar-radius;
         &:hover {
-          background-color: fade(@disabled-color, 80%);
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+        &-active {
+          background-color: @table-sticky-scroll-bar-active-bg;
         }
       }
     }

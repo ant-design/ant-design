@@ -15250,13 +15250,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-sticky"
                     style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
                     style="position:sticky;left:0"
                   >
                     Age
@@ -15302,7 +15302,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                     Column 8
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
                     style="position:sticky;right:0"
                   >
                     Action
