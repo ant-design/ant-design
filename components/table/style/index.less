@@ -9,7 +9,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
-@table-sticky-zindex: @zindex-table-fixed-column + 1;
+@table-sticky-zindex: @zindex-table-fixed + 1;
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
@@ -518,7 +518,7 @@
   &-cell-fix-right {
     position: -webkit-sticky !important;
     position: sticky !important;
-    z-index: @zindex-table-fixed-column;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
   }
 
