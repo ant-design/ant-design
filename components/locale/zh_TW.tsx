@@ -20,6 +20,7 @@ const localeValues: Locale = {
     filterTitle: '篩選器',
     filterConfirm: '確定',
     filterReset: '重置',
+    filterEmptyText: '無篩選項',
     selectAll: '全部選取',
     selectInvert: '反向選取',
     selectionAll: '全選所有',

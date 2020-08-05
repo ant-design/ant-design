@@ -88,13 +88,6 @@ const Alert: AlertInterface = ({
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const dom = ref.current as HTMLElement;
-    dom.style.height = `${dom.offsetHeight}px`;
-    // Magic code
-    // 重复一次后才能正确设置 height
-    dom.style.height = `${dom.offsetHeight}px`;
-
     setClosing(true);
     props.onClose?.(e);
   };
@@ -183,6 +176,7 @@ const Alert: AlertInterface = ({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onClick}
+        role="alert"
         {...dataOrAriaProps}
       >
         {isShowIcon ? renderIconNode() : null}

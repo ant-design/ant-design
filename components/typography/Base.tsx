@@ -8,8 +8,7 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
-import { ConfigConsumerProps, configConsumerProps } from '../config-provider';
-import { withConfigConsumer } from '../config-provider/context';
+import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
@@ -28,6 +27,8 @@ const isTextOverflowSupport = isStyleSupport('textOverflow');
 interface CopyConfig {
   text?: string;
   onCopy?: () => void;
+  icon?: React.ReactNode;
+  tooltips?: [React.ReactNode, React.ReactNode];
 }
 
 interface EditConfig {
@@ -40,6 +41,7 @@ interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
+  symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
 }
@@ -57,10 +59,11 @@ export interface BlockProps extends TypographyProps {
   underline?: boolean;
   delete?: boolean;
   strong?: boolean;
+  keyboard?: boolean;
 }
 
 function wrapperDecorations(
-  { mark, code, underline, delete: del, strong }: BlockProps,
+  { mark, code, underline, delete: del, strong, keyboard }: BlockProps,
   content: React.ReactNode,
 ) {
   let currentContent = content;
@@ -76,6 +79,7 @@ function wrapperDecorations(
   wrap(del, 'del');
   wrap(code, 'code');
   wrap(mark, 'mark');
+  wrap(keyboard, 'kbd');
 
   return currentContent;
 }
@@ -103,7 +107,9 @@ interface Locale {
 
 const ELLIPSIS_STR = '...';
 
-class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, BaseState> {
+class Base extends React.Component<InternalBlockProps, BaseState> {
+  static contextType = ConfigContext;
+
   static defaultProps = {
     children: '',
   };
@@ -120,9 +126,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     return {};
   }
 
+  context: ConfigConsumerProps;
+
   editIcon?: TransButton;
 
-  content?: HTMLElement;
+  contentRef = React.createRef<HTMLElement>();
 
   copyId?: number;
 
@@ -165,6 +173,12 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     window.clearTimeout(this.copyId);
     raf.cancel(this.rafId);
   }
+
+  getPrefixCls = () => {
+    const { prefixCls: customizePrefixCls } = this.props;
+    const { getPrefixCls } = this.context;
+    return getPrefixCls('typography', customizePrefixCls);
+  };
 
   // =============== Expand ===============
   onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
@@ -239,10 +253,6 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     };
   }
 
-  setContentRef = (node: HTMLElement) => {
-    this.content = node;
-  };
-
   setEditRef = (node: TransButton) => {
     this.editIcon = node;
   };
@@ -291,7 +301,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     const { ellipsisText, isEllipsis, expanded } = this.state;
     const { rows, suffix, onEllipsis } = this.getEllipsis();
     const { children } = this.props;
-    if (!rows || rows < 0 || !this.content || expanded) return;
+    if (!rows || rows < 0 || !this.contentRef.current || expanded) return;
 
     // Do not measure if css already support ellipsis
     if (this.canUseCSSEllipsis()) return;
@@ -303,7 +313,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     );
 
     const { content, text, ellipsis } = measure(
-      findDOMNode(this.content),
+      findDOMNode(this.contentRef.current),
       { rows, suffix },
       children,
       this.renderOperations(true),
@@ -318,8 +328,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   renderExpand(forceRender?: boolean) {
-    const { expandable } = this.getEllipsis();
-    const { prefixCls } = this.props;
+    const { expandable, symbol } = this.getEllipsis();
     const { expanded, isEllipsis } = this.state;
 
     if (!expandable) return null;
@@ -327,27 +336,34 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     // force render expand icon for measure usage or it will cause dead loop
     if (!forceRender && (expanded || !isEllipsis)) return null;
 
+    let expandContent: React.ReactNode;
+    if (symbol) {
+      expandContent = symbol;
+    } else {
+      expandContent = this.expandStr;
+    }
+
     return (
       <a
         key="expand"
-        className={`${prefixCls}-expand`}
+        className={`${this.getPrefixCls()}-expand`}
         onClick={this.onExpandClick}
         aria-label={this.expandStr}
       >
-        {this.expandStr}
+        {expandContent}
       </a>
     );
   }
 
   renderEdit() {
-    const { editable, prefixCls } = this.props;
+    const { editable } = this.props;
     if (!editable) return;
 
     return (
       <Tooltip key="edit" title={this.editStr}>
         <TransButton
           ref={this.setEditRef}
-          className={`${prefixCls}-edit`}
+          className={`${this.getPrefixCls()}-edit`}
           onClick={this.onEditClick}
           aria-label={this.editStr}
         >
@@ -359,31 +375,39 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   renderCopy() {
     const { copied } = this.state;
-    const { copyable, prefixCls } = this.props;
+    const { copyable } = this.props;
     if (!copyable) return;
 
-    const title = copied ? this.copiedStr : this.copyStr;
+    const prefixCls = this.getPrefixCls();
+
+    const title = copied
+      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
+      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
+
+    const ariaLabel = typeof title === 'string' ? title : '';
+
     return (
       <Tooltip key="copy" title={title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
-          aria-label={title}
+          aria-label={ariaLabel}
         >
-          {copied ? <CheckOutlined /> : <CopyOutlined />}
+          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );
   }
 
   renderEditInput() {
-    const { children, prefixCls, className, style, direction } = this.props;
+    const { children, className, style } = this.props;
+    const { direction } = this.context;
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
         onSave={this.onEditChange}
         onCancel={this.onEditCancel}
-        prefixCls={prefixCls}
+        prefixCls={this.getPrefixCls()}
         className={className}
         style={style}
         direction={direction}
@@ -399,17 +423,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   renderContent() {
     const { ellipsisContent, isEllipsis, expanded } = this.state;
-    const {
-      component,
-      children,
-      className,
-      prefixCls,
-      type,
-      disabled,
-      style,
-      ...restProps
-    } = this.props;
+    const { component, children, className, type, disabled, style, ...restProps } = this.props;
+    const { direction } = this.context;
     const { rows, suffix } = this.getEllipsis();
+
+    const prefixCls = this.getPrefixCls();
 
     const textProps = omit(restProps, [
       'prefixCls',
@@ -417,12 +435,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       'copyable',
       'ellipsis',
       'mark',
-      'underline',
-      'mark',
       'code',
       'delete',
       'underline',
       'strong',
+      'keyboard',
       ...configConsumerProps,
     ]);
     const cssEllipsis = this.canUseCSSEllipsis();
@@ -481,8 +498,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
                   WebkitLineClamp: cssLineClamp ? rows : null,
                 }}
                 component={component}
-                ref={this.setContentRef}
+                ref={this.contentRef}
                 aria-label={ariaLabel}
+                direction={direction}
                 {...textProps}
               >
                 {textNode}
@@ -505,6 +523,4 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 }
 
-export default withConfigConsumer<InternalBlockProps>({
-  prefixCls: 'typography',
-})(Base);
+export default Base;

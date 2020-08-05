@@ -14,6 +14,7 @@ export interface TransferOperationProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   direction?: 'ltr' | 'rtl';
+  oneWay?: boolean;
 }
 
 const Operation = ({
@@ -27,6 +28,7 @@ const Operation = ({
   className,
   style,
   direction,
+  oneWay,
 }: TransferOperationProps) => (
   <div className={className} style={style}>
     <Button
@@ -38,15 +40,17 @@ const Operation = ({
     >
       {rightArrowText}
     </Button>
-    <Button
-      type="primary"
-      size="small"
-      disabled={disabled || !leftActive}
-      onClick={moveToLeft}
-      icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
-    >
-      {leftArrowText}
-    </Button>
+    {!oneWay && (
+      <Button
+        type="primary"
+        size="small"
+        disabled={disabled || !leftActive}
+        onClick={moveToLeft}
+        icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
+      >
+        {leftArrowText}
+      </Button>
+    )}
   </div>
 );
 

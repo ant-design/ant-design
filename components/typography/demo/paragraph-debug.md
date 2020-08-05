@@ -22,7 +22,7 @@ import { Typography } from '@allenai/varnish';
 const { Title, Paragraph, Text } = Typography;
 
 ReactDOM.render(
-  <div>
+  <>
     <Title>Introduction</Title>
     <Paragraph>
       In the process of internal desktop applications development, many different design specs and
@@ -82,7 +82,7 @@ ReactDOM.render(
         </li>
       </ol>
     </Paragraph>
-  </div>,
+  </>,
   mountNode,
 );
 ```

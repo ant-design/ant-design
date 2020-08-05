@@ -14,8 +14,9 @@ title:
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
 ```jsx
-import { Badge } from '@allenai/varnish';
 import { ClockCircleOutlined } from '@ant-design/icons';
+import Badge from '..';
+// TODO: put back after deploy // import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

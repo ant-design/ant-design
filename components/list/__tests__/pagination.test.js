@@ -136,6 +136,27 @@ describe('List.pagination', () => {
     expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
   });
 
+  // https://github.com/ant-design/ant-design/issues/24913
+  // https://github.com/ant-design/ant-design/issues/24501
+  it('should onChange called when pageSize change', () => {
+    const handlePaginationChange = jest.fn();
+    const handlePageSizeChange = () => {};
+    const wrapper = mount(
+      createList({
+        pagination: {
+          ...pagination,
+          showSizeChanger: true,
+          onChange: handlePaginationChange,
+          onShowSizeChange: handlePageSizeChange,
+        },
+      }),
+    );
+
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    expect(handlePaginationChange).toHaveBeenCalledWith(1, 10);
+  });
+
   it('should default work', () => {
     const wrapper = mount(
       createList({

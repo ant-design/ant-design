@@ -9,9 +9,9 @@ title:
 Use `BasicFilterDropdown` for a simple text filter.  Use `FilterIcon` as the default icon for text filtering.
 
 ```jsx
-import Table, { BasicFilterDropdown, FilterIcon } from '..';
-// TODO: put back after deploy // import { Table } from '@allenai/varnish';
-// TODO: put back after deploy // const { BasicFilterDropdown, FilterIcon } = Table;
+import { Table } from '@allenai/varnish';
+
+const { BasicFilterDropdown, FilterIcon } = Table;
 
 const columns = [
   {

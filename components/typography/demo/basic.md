@@ -56,6 +56,7 @@ ReactDOM.render(
         </li>
       </ul>
     </Paragraph>
+    {/* Chinese example removed by Varnish */}
   </Typography>,
   mountNode,
 );

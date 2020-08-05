@@ -15,7 +15,7 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ```jsx
-import { DatePicker } from '@allenai/varnish';
+import { DatePicker, Space } from '@allenai/varnish';
 import { SmileOutlined } from '@ant-design/icons';
 
 const smileIcon = <SmileOutlined />;
@@ -26,23 +26,16 @@ function onChange(date, dateString) {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
-    <br />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
-    <br />
     <RangePicker suffixIcon={smileIcon} onChange={onChange} />
-    <br />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="week" />
-    <br />
     <DatePicker suffixIcon="ab" onChange={onChange} />
-    <br />
     <DatePicker suffixIcon="ab" onChange={onChange} picker="month" />
-    <br />
     <RangePicker suffixIcon="ab" onChange={onChange} />
-    <br />
     <DatePicker suffixIcon="ab" onChange={onChange} picker="week" />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

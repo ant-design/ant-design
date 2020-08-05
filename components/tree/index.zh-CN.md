@@ -3,6 +3,7 @@ category: Components
 type: 数据展示
 title: Tree
 subtitle: 树形控件
+cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 ---
 
 多层次的结构列表。
@@ -25,9 +26,9 @@ subtitle: 树形控件
 | defaultCheckedKeys | 默认选中复选框的树节点 | string\[] | \[] |  |
 | defaultExpandAll | 默认展开所有树节点 | boolean | false |  |
 | defaultExpandedKeys | 默认展开指定的树节点 | string\[] | \[] |  |
-| defaultExpandParent | 默认展开父节点 | bool | true |  |
+| defaultExpandParent | 默认展开父节点 | boolean | true |  |
 | defaultSelectedKeys | 默认选中的树节点 | string\[] | \[] |  |
-| disabled | 将树禁用 | bool | false |  |
+| disabled | 将树禁用 | boolean | false |  |
 | draggable | 设置节点可拖拽（IE>8） | boolean | false |  |
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |  |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  |
@@ -38,9 +39,10 @@ subtitle: 树形控件
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |
-| showLine | 是否展示连接线 | boolean | false |  |
-| treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array\<{key, title, children, \[disabled, selectable]}> | - |  |
-| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | true | 4.1.0 |
+| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean} | false |  |
+| titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
+| treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
+| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |
 | onDragEnter | dragenter 触发时调用 | function({event, node, expandedKeys}) | - |  |
@@ -52,6 +54,7 @@ subtitle: 树形控件
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| icon | 自定义树节点图标。 | ReactNode \| (props) => ReactNode | - |  |
 
 ### TreeNode props
 
@@ -60,17 +63,17 @@ subtitle: 树形控件
 | checkable | 当树为 checkable 时，设置独立节点是否展示 Checkbox | boolean | - |
 | disableCheckbox | 禁掉 checkbox | boolean | false |
 | disabled | 禁掉响应 | boolean | false |
-| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode/Function(props):ReactNode | - |
+| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode \| (props) => ReactNode | - |  |
 | isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
-| key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
+| key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | (内部计算出的节点位置) |
 | selectable | 设置节点是否可被选中 | boolean | true |
-| title | 标题 | string\|ReactNode | '---' |
+| title | 标题 | string \| ReactNode | `---` |
 
 ### DirectoryTree props
 
-| 参数         | 说明                                                 | 类型   | 默认值 |
-| ------------ | ---------------------------------------------------- | ------ | ------ |
-| expandAction | 目录展开逻辑，可选 `false` `'click'` `'doubleClick'` | string | click  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
 ## 注意
 
@@ -89,6 +92,12 @@ subtitle: 树形控件
   );
 }
 ```
+
+### Tree 方法
+
+| 名称              | 说明                            |
+| ----------------- | ------------------------------- |
+| scrollTo({ key }) | 虚拟滚动下，滚动到指定 key 条目 |
 
 ## FAQ
 

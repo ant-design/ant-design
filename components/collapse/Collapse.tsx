@@ -23,6 +23,7 @@ export interface CollapseProps {
   prefixCls?: string;
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
   expandIconPosition?: ExpandIconPosition;
+  ghost?: boolean;
 }
 
 interface PanelProps {
@@ -42,7 +43,7 @@ interface CollapseInterface extends React.FC<CollapseProps> {
 
 const Collapse: CollapseInterface = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', bordered } = props;
+  const { prefixCls: customizePrefixCls, className = '', bordered, ghost } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
 
   const getIconPosition = () => {
@@ -72,6 +73,7 @@ const Collapse: CollapseInterface = props => {
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-icon-position-${iconPosition}`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-ghost`]: !!ghost,
     },
     className,
   );

@@ -18,11 +18,11 @@ import { Progress } from '@allenai/varnish';
 
 ReactDOM.render(
   <>
-    <Progress percent={50} steps={3} strokeColor="#1890ff" />
+    <Progress percent={50} steps={3} />
     <br />
-    <Progress percent={30} steps={5} strokeColor="#1890ff" />
+    <Progress percent={30} steps={5} />
     <br />
-    <Progress percent={100} steps={5} size="small" strokeColor="#1890ff" />
+    <Progress percent={100} steps={5} size="small" strokeColor="#52c41a" />
   </>,
   mountNode,
 );

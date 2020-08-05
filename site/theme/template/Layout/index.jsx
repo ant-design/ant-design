@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
@@ -42,7 +41,8 @@ if (typeof window !== 'undefined') {
   window.react = React;
   window['react-dom'] = ReactDOM;
   // eslint-disable-next-line global-require
-  window.antd = require('antd');
+  window.antd = require('@allenai/varnish');
+  window['@allenai/varnish'] = require('@allenai/varnish');
   // eslint-disable-next-line global-require
   window['@ant-design/icons'] = require('@ant-design/icons');
 
@@ -76,16 +76,7 @@ const themeConfig = {
 const { switcher } = themeSwitcher(themeConfig);
 
 export default class Layout extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-  };
-
-  static childContextTypes = {
-    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
-    setTheme: PropTypes.func,
-    direction: PropTypes.string,
-    setIframeTheme: PropTypes.func,
-  };
+  static contextType = SiteContext;
 
   constructor(props) {
     super(props);
@@ -102,19 +93,11 @@ export default class Layout extends React.Component {
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
     };
-
-    this.changeDirection = this.changeDirection.bind(this);
-  }
-
-  getChildContext() {
-    const { theme, setTheme, direction, setIframeTheme } = this.state;
-    return { theme, setTheme, direction, setIframeTheme };
   }
 
   componentDidMount() {
     const { theme } = this.state;
-    const { location } = this.props;
-    const { router } = this.context;
+    const { location, router } = this.props;
     router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
@@ -198,22 +181,19 @@ export default class Layout extends React.Component {
     setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
   };
 
-  changeDirection(direction) {
+  changeDirection = direction => {
     this.setState({
       direction,
     });
-  }
+  };
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale, direction, isMobile } = this.state;
+    const { appLocale, direction, isMobile, theme, setTheme, setIframeTheme } = this.state;
     const title = 'Varnish';
-    const description =
-      appLocale.locale === 'zh-CN'
-        ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
-        : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
+    const description = 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
-      <SiteContext.Provider value={{ isMobile, direction }}>
+      <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
         <HelmetProvider context={helmetContext}>
           <Helmet encodeSpecialCharacters={false}>
             <html

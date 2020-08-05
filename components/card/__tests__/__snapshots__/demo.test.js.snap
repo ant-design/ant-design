@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/card/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-card ant-card-bordered"
     style="width:300px"
@@ -41,7 +41,7 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
         Card content
       </p>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-card ant-card-bordered ant-card-small"
     style="width:300px"
@@ -81,8 +81,8 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
         Card content
       </p>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
@@ -340,11 +340,6 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
   <div
     class="ant-card-body"
   >
-    <p
-      class="site-card-demo-inner-p"
-    >
-      Group title
-    </p>
     <div
       class="ant-card ant-card-bordered ant-card-type-inner"
     >
@@ -413,7 +408,7 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
 `;
 
 exports[`renders ./components/card/demo/loading.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="false"
     class="ant-switch"
@@ -426,7 +421,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <div
     class="ant-card ant-card-loading ant-card-bordered"
     style="width:300px;margin-top:16px"
@@ -544,7 +539,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-card ant-card-bordered"
     style="width:300px;margin-top:16px"
@@ -660,8 +655,8 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
         </span>
       </li>
     </ul>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/card/demo/meta.md correctly 1`] = `
@@ -817,7 +812,7 @@ exports[`renders ./components/card/demo/simple.md correctly 1`] = `
 `;
 
 exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-card ant-card-bordered ant-card-contain-tabs"
     style="width:100%"
@@ -980,9 +975,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         content1
       </p>
     </div>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-card ant-card-bordered ant-card-contain-tabs"
     style="width:100%"
@@ -1158,6 +1153,6 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         app content
       </p>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

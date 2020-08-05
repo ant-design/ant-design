@@ -1,39 +1,37 @@
 ---
-order: 2
+order: 2.1
 title:
-  zh-CN: 骨架按钮、头像和输入框。
-  en-US: Skeleton button and avatar
+  zh-CN: 按钮/头像/输入框/图像
+  en-US: Button/Avatar/Input/Image
 ---
 
 ## zh-CN
 
-骨架按钮、头像和输入框。
+骨架按钮、头像、输入框和图像。
 
 ## en-US
 
-Skeleton button, avatar and input.
+Skeleton Button, Avatar, Input and Image.
 
 ```jsx
-import { Skeleton, Switch, Form, Radio } from '@allenai/varnish';
+import { Space, Divider, Switch, Form, Radio } from '@allenai/varnish';
+import Skeleton from '..';
+// TODO: put back after deploy // import { Skeleton, Space, Divider, Switch, Form, Radio } from '@allenai/varnish';
 
 class Demo extends React.Component {
   state = {
-    buttonActive: false,
-    avatarActive: false,
-    inputActive: false,
-    buttonSize: 'default',
-    avatarSize: 'default',
-    inputSize: 'default',
+    active: false,
+    size: 'default',
     buttonShape: 'default',
     avatarShape: 'circle',
   };
 
-  handleActiveChange = prop => checked => {
-    this.setState({ [prop]: checked });
+  handleActiveChange = checked => {
+    this.setState({ active: checked });
   };
 
-  handleSizeChange = prop => e => {
-    this.setState({ [prop]: e.target.value });
+  handleSizeChange = e => {
+    this.setState({ size: e.target.value });
   };
 
   handleShapeChange = prop => e => {
@@ -41,79 +39,45 @@ class Demo extends React.Component {
   };
 
   render() {
-    const {
-      buttonActive,
-      avatarActive,
-      inputActive,
-      buttonSize,
-      avatarSize,
-      inputSize,
-      buttonShape,
-      avatarShape,
-    } = this.state;
+    const { active, size, buttonShape, avatarShape } = this.state;
     return (
-      <div>
-        <div>
-          <Form layout="inline" style={{ marginBottom: 16 }}>
-            <Form.Item label="ButtonActive">
-              <Switch checked={buttonActive} onChange={this.handleActiveChange('buttonActive')} />
-            </Form.Item>
-            <Form.Item label="ButtonSize">
-              <Radio.Group value={buttonSize} onChange={this.handleSizeChange('buttonSize')}>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-            <Form.Item label="ButtonShape">
-              <Radio.Group value={buttonShape} onChange={this.handleShapeChange('buttonShape')}>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="round">Round</Radio.Button>
-                <Radio.Button value="circle">Circle</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-          </Form>
-          <Skeleton.Button active={buttonActive} size={buttonSize} shape={buttonShape} />
-        </div>
+      <>
+        <Space>
+          <Skeleton.Button active={active} size={size} shape={buttonShape} />
+          <Skeleton.Button active={active} size={size} shape={buttonShape} />
+          <Skeleton.Avatar active={active} size={size} shape={avatarShape} />
+          <Skeleton.Input style={{ width: 200 }} active={active} size={size} />
+        </Space>
         <br />
-        <div>
-          <Form layout="inline" style={{ marginBottom: 16 }}>
-            <Form.Item label="AvatarActive">
-              <Switch checked={avatarActive} onChange={this.handleActiveChange('avatarActive')} />
-            </Form.Item>
-            <Form.Item label="AvatarSize">
-              <Radio.Group value={avatarSize} onChange={this.handleSizeChange('avatarSize')}>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-            <Form.Item label="AvatarShape">
-              <Radio.Group value={avatarShape} onChange={this.handleShapeChange('avatarShape')}>
-                <Radio.Button value="square">Square</Radio.Button>
-                <Radio.Button value="circle">Circle</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-          </Form>
-          <Skeleton.Avatar active={avatarActive} size={avatarSize} shape={avatarShape} />
-        </div>
         <br />
-        <div>
-          <Form layout="inline" style={{ marginBottom: 16 }}>
-            <Form.Item label="InputActive">
-              <Switch checked={inputActive} onChange={this.handleActiveChange('inputActive')} />
-            </Form.Item>
-            <Form.Item label="InputSize">
-              <Radio.Group value={inputSize} onChange={this.handleSizeChange('inputSize')}>
-                <Radio.Button value="default">Default</Radio.Button>
-                <Radio.Button value="large">Large</Radio.Button>
-                <Radio.Button value="small">Small</Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-          </Form>
-          <Skeleton.Input style={{ width: '300px' }} active={inputActive} size={inputSize} />
-        </div>
-      </div>
+        <Skeleton.Image />
+        <Divider />
+        <Form layout="inline" style={{ margin: '16px 0' }}>
+          <Form.Item label="Active">
+            <Switch checked={active} onChange={this.handleActiveChange} />
+          </Form.Item>
+          <Form.Item label="Size">
+            <Radio.Group value={size} onChange={this.handleSizeChange}>
+              <Radio.Button value="default">Default</Radio.Button>
+              <Radio.Button value="large">Large</Radio.Button>
+              <Radio.Button value="small">Small</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Button Shape">
+            <Radio.Group value={buttonShape} onChange={this.handleShapeChange('buttonShape')}>
+              <Radio.Button value="default">Default</Radio.Button>
+              <Radio.Button value="round">Round</Radio.Button>
+              <Radio.Button value="circle">Circle</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Avatar Shape">
+            <Radio.Group value={avatarShape} onChange={this.handleShapeChange('avatarShape')}>
+              <Radio.Button value="square">Square</Radio.Button>
+              <Radio.Button value="circle">Circle</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      </>
     );
   }
 }

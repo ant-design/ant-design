@@ -26,6 +26,7 @@
   display: flex;
   width: 100%;
   font-size: 0;
+  text-align: initial;
 }
 
 .@{steps-prefix-cls}-item {
@@ -66,7 +67,7 @@
     border-radius: @steps-icon-size;
     transition: background-color 0.3s, border-color 0.3s;
 
-    > .@{steps-prefix-cls}-icon {
+    .@{steps-prefix-cls}-icon {
       position: relative;
       top: @steps-icon-top;
       color: @primary-color;
@@ -124,7 +125,7 @@
   .step-item-status(process);
   &-process &-icon {
     background: @process-icon-color;
-    > .@{steps-prefix-cls}-icon {
+    .@{steps-prefix-cls}-icon {
       color: @process-icon-text-color;
     }
   }
@@ -151,6 +152,7 @@
 
       .@{steps-prefix-cls}-item {
         &-title,
+        &-subtitle,
         &-description,
         &-icon .@{steps-prefix-cls}-icon {
           transition: color 0.3s;
@@ -186,11 +188,11 @@
 
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
-    margin-right: 16px;
+    padding-left: 16px;
     white-space: nowrap;
 
-    &:last-child {
-      margin-right: 0;
+    &:first-child {
+      padding-left: 0;
     }
     &:last-child .@{steps-prefix-cls}-item-title {
       padding-right: 0;
@@ -241,3 +243,4 @@
 @import 'progress-dot';
 @import 'nav';
 @import './rtl';
+@import './progress.less';

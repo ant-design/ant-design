@@ -14,8 +14,10 @@ title:
 Usually used for reminders and notifications.
 
 ```tsx
-import { Avatar, Badge } from '@allenai/varnish';
 import { UserOutlined } from '@ant-design/icons';
+import Avatar from '..';
+import Badge from '../../badge';
+// TODO: put back after deploy // import { Avatar, Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

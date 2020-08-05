@@ -41,7 +41,7 @@ const FormLayoutDemo = () => {
       : null;
 
   return (
-    <div>
+    <>
       <Form
         {...formItemLayout}
         layout={formLayout}
@@ -66,7 +66,7 @@ const FormLayoutDemo = () => {
           <Button type="primary">Submit</Button>
         </Form.Item>
       </Form>
-    </div>
+    </>
   );
 };
 

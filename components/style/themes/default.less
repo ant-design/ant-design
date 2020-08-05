@@ -228,6 +228,8 @@ with varnish... would make code cleaner, but merges harder */
 @btn-height-lg: @btn-height-base + @v-spacing-xs;
 @btn-height-sm: @btn-height-base - @v-spacing-xs;
 
+@btn-line-height: @line-height-base;
+
 @btn-circle-size: @btn-height-base;
 @btn-circle-size-lg: @btn-height-lg;
 @btn-circle-size-sm: @btn-height-sm;
@@ -241,8 +243,9 @@ with varnish... would make code cleaner, but merges harder */
 
 @btn-group-border: @primary-5;
 
-@btn-link-ghost-color: @component-background;
 @btn-link-ghost-hover-color: @v-color-b2; // Added by Varnish
+@btn-link-hover-bg: transparent;
+@btn-text-hover-bg: rgba(0, 0, 0, 0.018);
 
 // Checkbox
 @checkbox-size: 16px;
@@ -259,6 +262,15 @@ with varnish... would make code cleaner, but merges harder */
 @descriptions-middle-padding: @padding-sm @padding-lg;
 @descriptions-small-padding: @padding-xs @padding-md;
 @descriptions-item-padding-bottom: @padding-md;
+@descriptions-item-trailing-colon: true;
+@descriptions-item-label-colon-margin-right: 8px;
+@descriptions-item-label-colon-margin-left: 2px;
+@descriptions-extra-color: @text-color;
+
+// Divider
+@divider-text-padding: 1em;
+@divider-orientation-margin: 5%;
+@divider-color: rgba(0, 0, 0, 6%);
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
@@ -281,7 +293,7 @@ with varnish... would make code cleaner, but merges harder */
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
 @radio-disabled-button-checked-bg: tint(@black, 90%);
-@radio-disabled-button-checked-color: @text-color-inverse;
+@radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: @v-spacing-xs;
 
 // Media queries breakpoints
@@ -339,10 +351,10 @@ with varnish... would make code cleaner, but merges harder */
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
-@zindex-table-fixed: @v-z-index-fixed-table;
+@zindex-badge: @v-z-index-badge;
+@zindex-table-fixed: @v-z-index-table-fixed;
 @zindex-affix: @v-z-index-affix;
 @zindex-back-top: @v-z-index-back-top;
-@zindex-badge: @v-z-index-badge;
 @zindex-picker-panel: @v-z-index-picker-panel;
 @zindex-popup-close: @v-z-index-popup-close;
 @zindex-modal: @v-z-index-modal;
@@ -352,6 +364,7 @@ with varnish... would make code cleaner, but merges harder */
 @zindex-popover: @v-z-index-popover;
 @zindex-dropdown: @v-z-index-dropdown;
 @zindex-picker: @v-z-index-picker;
+@zindex-popoconfirm: @v-z-index-popoconfirm;
 @zindex-tooltip: @v-z-index-tooltip;
 
 // Animation
@@ -424,6 +437,7 @@ with varnish... would make code cleaner, but merges harder */
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
 @input-icon-hover-color: fade(@black, 85%);
+@input-disabled-color: @disabled-color;
 
 // Mentions
 // ---
@@ -433,6 +447,7 @@ with varnish... would make code cleaner, but merges harder */
 // Select
 // ---
 @select-border-color: @border-color-base;
+@select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
 @select-item-selected-bg: @primary-1;
@@ -449,6 +464,9 @@ with varnish... would make code cleaner, but merges harder */
 @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
 @select-multiple-item-height-lg: 32px;
 @select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-disabled-background: @input-disabled-bg;
+@select-multiple-item-disabled-color: #bfbfbf;
+@select-multiple-item-disabled-border-color: @select-border-color;
 
 // Cascader
 // ---
@@ -468,7 +486,9 @@ with varnish... would make code cleaner, but merges harder */
 // ---
 @anchor-bg: @component-background;
 @anchor-border-color: @border-color-split;
-@anchor-link-padding: 7px 0 7px 16px;
+@anchor-link-top: 7px;
+@anchor-link-left: 16px;
+@anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
 
 // Tooltip
 // ---
@@ -507,9 +527,15 @@ with varnish... would make code cleaner, but merges harder */
 
 // Modal
 // --
+@modal-header-padding-vertical: @v-spacing-md;
+@modal-header-padding-horizontal: @v-spacing-md;
 @modal-body-padding: @v-spacing-md;
-@modal-header-padding: @v-spacing-md;
 @modal-header-bg: @v-palette-background-light;
+@modal-header-padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
+@modal-header-border-width: @border-width-base;
+@modal-header-border-style: @border-style-base;
+@modal-header-title-line-height: 22px;
+@modal-header-title-font-size: @font-size-lg;
 @modal-header-border-color-split: @v-palette-border-default;
 @modal-header-close-size: 56px;
 @modal-content-bg: @component-background;
@@ -517,8 +543,10 @@ with varnish... would make code cleaner, but merges harder */
 @modal-close-color: @text-color-secondary;
 @modal-footer-bg: transparent;
 @modal-footer-border-color-split: @border-color-split;
+@modal-footer-border-style: @border-style-base;
 @modal-footer-padding-vertical: @v-spacing-md;
 @modal-footer-padding-horizontal: @v-spacing-md;
+@modal-footer-border-width: @border-width-base;
 @modal-mask-bg: fade(@black, 45%);
 @modal-confirm-body-padding: 32px 32px 24px;
 
@@ -541,7 +569,9 @@ with varnish... would make code cleaner, but merges harder */
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
+@menu-highlight-danger-color: @error-color;
 @menu-item-active-bg: @primary-1;
+@menu-item-active-danger-bg: @red-1;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 @menu-item-vertical-margin: 4px;
@@ -556,11 +586,13 @@ with varnish... would make code cleaner, but merges harder */
 
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
+@menu-dark-danger-color: @error-color;
 @menu-dark-bg: @layout-header-background;
 @menu-dark-arrow-color: #fff;
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
+@menu-dark-item-active-danger-bg: @error-color;
 @menu-dark-selected-item-icon-color: @white;
 @menu-dark-selected-item-text-color: @white;
 @menu-dark-item-hover-bg: transparent;
@@ -593,6 +625,9 @@ with varnish... would make code cleaner, but merges harder */
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
 @table-header-bg-sm: @table-header-bg;
+@table-font-size: @font-size-base;
+@table-font-size-md: @table-font-size;
+@table-font-size-sm: @table-font-size;
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
@@ -656,6 +691,7 @@ with varnish... would make code cleaner, but merges harder */
 @rate-star-color: @v-color-o5;
 @rate-star-bg: @v-color-n4;
 @rate-star-size: 20px;
+@rate-star-hover-scale: scale(1.1);
 
 // Card
 // ---
@@ -670,7 +706,7 @@ with varnish... would make code cleaner, but merges harder */
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
 @card-padding-base-sm: @card-padding-base / 2;
-@card-actions-background: @background-color-light;
+@card-actions-background: @component-background;
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
@@ -704,6 +740,7 @@ with varnish... would make code cleaner, but merges harder */
     @tabs-card-height - floor(@font-size-base * @line-height-base)
   ) / 2 - @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
+@tabs-card-horizontal-padding-lg: 7px @padding-md 6px;
 @tabs-title-font-size: @font-size-base;
 @tabs-title-font-size-lg: @font-size-lg;
 @tabs-title-font-size-sm: @font-size-base;
@@ -741,6 +778,9 @@ with varnish... would make code cleaner, but merges harder */
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
+@avatar-group-overlapping: -8px;
+@avatar-group-space: 3px;
+@avatar-group-border-color: #fff;
 
 // Switch
 // ---
@@ -886,7 +926,8 @@ with varnish... would make code cleaner, but merges harder */
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
-  @alert-with-description-no-icon-padding-vertical - 1px 64px;
+  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size * 2 +
+  @alert-with-description-padding-vertical;
 @alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
 @alert-with-description-icon-size: 24px;
 @alert-with-description-icon-top: @alert-with-description-padding-vertical;
@@ -975,7 +1016,14 @@ with varnish... would make code cleaner, but merges harder */
 @result-title-font-size: 24px;
 @result-subtitle-font-size: @font-size-base;
 @result-icon-font-size: 72px;
-@result-extra-margin: 32px 0 0 0;
+
+// Image
+// ---
+@image-size-base: 48px;
+@image-font-size-base: 24px;
+@image-bg: #ccc;
+@image-color: #fff;
 
 // Varnish overrides
+/// ---
 @import '../../../dist_varnish/varnish';

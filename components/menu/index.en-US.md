@@ -3,13 +3,14 @@ category: Components
 cols: 1
 type: Navigation
 title: Menu
+cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---
 
 A versatile menu for navigation.
 
 ## When To Use
 
-Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently. Ant Design offers top and side navigation options. Top navigation provides all the categories and functions of the website. Side navigation provides the multi-level structure of the website.
+Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently. Varnish offers top and side navigation options. Top navigation provides all the categories and functions of the website. Side navigation provides the multi-level structure of the website.
 
 More layouts with navigation: [Layout](/components/layout).
 
@@ -28,24 +29,25 @@ More layouts with navigation: [Layout](/components/layout).
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| defaultOpenKeys | Array with the keys of default opened sub menus | string\[] |  |  |
-| defaultSelectedKeys | Array with the keys of default selected menu items | string\[] |  |  |
+| defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
+| defaultSelectedKeys | Array with the keys of default selected menu items | string\[] | - |  |
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
 | mode | Type of menu; `vertical`, `horizontal`, or `inline` | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
-| openKeys | Array with the keys of currently opened sub-menus | string\[] |  |  |
+| openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
 | selectable | Allows selecting menu items | boolean | true |  |
-| selectedKeys | Array with the keys of currently selected menu items | string\[] |  |  |
-| style | Style of the root node | CSSProperties |  |  |
+| selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
+| style | Style of the root node | CSSProperties | - |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
 | theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
-| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | noop |  |
-| onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | none |  |
+| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` |  |
+| onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
+| onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
 | overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
@@ -55,9 +57,10 @@ More layouts with navigation: [Layout](/components/layout).
 | Param    | Description                          | Type      | Default value | Version |
 | -------- | ------------------------------------ | --------- | ------------- | ------- |
 | disabled | Whether menu item is disabled        | boolean   | false         |         |
-| key      | Unique ID of the menu item           | string    |               |         |
-| title    | Set display title for collapsed item | string    |               |         |
-| icon     | icon of the menu item                | ReactNode |               | 4.2.0   |
+| key      | Unique ID of the menu item           | string    | -             |         |
+| title    | Set display title for collapsed item | string    | -             |         |
+| icon     | The icon of the menu item            | ReactNode | -             | 4.2.0   |
+| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
 
 > Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
 >
@@ -82,20 +85,20 @@ More layouts with navigation: [Layout](/components/layout).
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| popupClassName | Sub-menu class name | string |  |  |
-| children | Sub-menus or sub-menu items | Array&lt;MenuItem\|SubMenu> |  |  |
+| popupClassName | Sub-menu class name | string | - |  |
+| children | Sub-menus or sub-menu items | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
-| key | Unique ID of the sub-menu | string |  |  |
-| title | Title of sub menu | string\|ReactNode |  |  |
-| icon | Icon of sub menu | ReactNode |  | 4.2.0 |
-| onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) |  |  |
+| key | Unique ID of the sub-menu | string | - |  |
+| title | Title of sub menu | string \| ReactNode | - |  |
+| icon | Icon of sub menu | ReactNode | - | 4.2.0 |
+| onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
 
-| Param    | Description        | Type              | Default value | Version |
-| -------- | ------------------ | ----------------- | ------------- | ------- |
-| children | sub-menu items     | MenuItem\[]       |               |         |
-| title    | title of the group | string\|ReactNode |               |         |
+| Param    | Description            | Type                | Default value | Version |
+| -------- | ---------------------- | ------------------- | ------------- | ------- |
+| children | Sub-menu items         | MenuItem\[]         | -             |         |
+| title    | The title of the group | string \| ReactNode | -             |         |
 
 ### Menu.Divider
 

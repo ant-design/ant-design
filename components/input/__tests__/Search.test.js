@@ -7,7 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Input.Search', () => {
-  focusTest(Search);
+  focusTest(Search, { refFocus: true });
   mountTest(Search);
   rtlTest(Search);
 
@@ -183,5 +183,30 @@ describe('Input.Search', () => {
   it('should support invalid addonAfter', () => {
     const wrapper = mount(<Search addonAfter={[]} enterButton />);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should prevent search button mousedown event', () => {
+    const ref = React.createRef();
+    const wrapper = mount(<Search ref={ref} enterButton="button text" />, {
+      attachTo: document.body,
+    });
+    let prevented = false;
+    ref.current.focus();
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
+    wrapper.find('button').simulate('mousedown', {
+      preventDefault: () => {
+        prevented = true;
+      },
+    });
+    expect(prevented).toBeTruthy();
+    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
+  });
+
+  it('not crash when use function ref', () => {
+    const ref = jest.fn();
+    const wrapper = mount(<Search ref={ref} enterButton />);
+    expect(() => {
+      wrapper.find('button').simulate('mousedown');
+    }).not.toThrow();
   });
 });

@@ -14,7 +14,7 @@ title:
 The input box comes in three sizes. `default` will be used if `size` is omitted.
 
 ```jsx
-import { DatePicker, Radio } from '@allenai/varnish';
+import { DatePicker, Radio, Space } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 
@@ -30,22 +30,17 @@ class PickerSizesDemo extends React.Component {
   render() {
     const { size } = this.state;
     return (
-      <div>
+      <Space direction="vertical" size={12}>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
           <Radio.Button value="large">Large</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
-        <br />
-        <br />
         <DatePicker size={size} />
-        <br />
         <DatePicker size={size} picker="month" />
-        <br />
         <RangePicker size={size} />
-        <br />
         <DatePicker size={size} picker="week" />
-      </div>
+      </Space>
     );
   }
 }

@@ -42,6 +42,12 @@ const localeValues: Locale = {
   Empty: {
     description: 'Ei kohteita',
   },
+  Text: {
+    edit: 'Muokkaa',
+    copy: 'Kopioi',
+    copied: 'Kopioitu',
+    expand: 'Näytä lisää',
+  },
 };
 
 export default localeValues;

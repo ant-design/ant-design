@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const isValidElement = React.isValidElement;
+export const { isValidElement } = React;
 
 export function replaceElement(
   element: React.ReactNode,

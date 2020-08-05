@@ -50,7 +50,7 @@ class App extends React.Component {
     const { loading } = this.state;
 
     return (
-      <div>
+      <>
         <Switch checked={!loading} onChange={this.onChange} />
 
         <List
@@ -88,7 +88,7 @@ class App extends React.Component {
             </List.Item>
           )}
         />
-      </div>
+      </>
     );
   }
 }

@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Radio } from '@allenai/varnish';
+import { Table, Tag, Radio, Space } from '@allenai/varnish';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },
@@ -71,10 +71,10 @@ const columns = [
     title: 'Action',
     key: 'action',
     render: (text, record) => (
-      <span>
-        <a style={{ marginRight: 16 }}>Invite {record.name}</a>
+      <Space size="middle">
+        <a>Invite {record.name}</a>
         <a>Delete</a>
-      </span>
+      </Space>
     ),
   },
 ];

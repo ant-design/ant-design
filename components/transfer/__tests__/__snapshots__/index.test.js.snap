@@ -26,15 +26,33 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -169,15 +187,33 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-dropdown-rtl ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -264,15 +300,33 @@ exports[`Transfer should render correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          1/2 items
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        1/2 items
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -406,15 +460,33 @@ exports[`Transfer should render correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          1 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        1 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -450,7 +522,7 @@ exports[`Transfer should render correctly 1`] = `
 </div>
 `;
 
-exports[`Transfer should show sorted targetkey 1`] = `
+exports[`Transfer should show sorted targetKey 1`] = `
 <div
   class="ant-transfer"
 >
@@ -476,15 +548,33 @@ exports[`Transfer should show sorted targetkey 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          1 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        1 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -598,15 +688,33 @@ exports[`Transfer should show sorted targetkey 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          2 items
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        2 items
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -691,7 +799,13 @@ exports[`Transfer should support render value and label in item 1`] = `
       Object {
         "itemUnit": "item",
         "itemsUnit": "items",
+        "remove": "Remove",
+        "removeAll": "Remove all data",
+        "removeCurrent": "Remove current page",
         "searchPlaceholder": "Search here",
+        "selectAll": "Select all data",
+        "selectCurrent": "Select current page",
+        "selectInvert": "Invert current page",
         "titles": Array [
           "",
           "",
@@ -726,8 +840,14 @@ exports[`Transfer should support render value and label in item 1`] = `
         onItemSelectAll={[Function]}
         onScroll={[Function]}
         prefixCls="ant-transfer-list"
+        remove="Remove"
+        removeAll="Remove all data"
+        removeCurrent="Remove current page"
         render={[Function]}
         searchPlaceholder="Search here"
+        selectAll="Select all data"
+        selectCurrent="Select current page"
+        selectInvert="Invert current page"
         showSearch={false}
         titleText=""
         titles={
@@ -781,18 +901,276 @@ exports[`Transfer should support render value and label in item 1`] = `
                 </Checkbox>
               </label>
             </Checkbox>
+            <Dropdown
+              className="ant-transfer-list-header-dropdown"
+              mouseEnterDelay={0.15}
+              mouseLeaveDelay={0.1}
+              overlay={
+                <Menu>
+                  <MenuItem
+                    onClick={[Function]}
+                  >
+                    Select all data
+                  </MenuItem>
+                  <MenuItem
+                    onClick={[Function]}
+                  >
+                    Invert current page
+                  </MenuItem>
+                </Menu>
+              }
+            >
+              <ForwardRef(Dropdown)
+                className="ant-transfer-list-header-dropdown"
+                mouseEnterDelay={0.15}
+                mouseLeaveDelay={0.1}
+                overlay={[Function]}
+                overlayClassName=""
+                placement="bottomLeft"
+                prefixCls="ant-dropdown"
+                transitionName="slide-up"
+              >
+                <Trigger
+                  action={
+                    Array [
+                      "hover",
+                    ]
+                  }
+                  afterPopupVisibleChange={[Function]}
+                  autoDestroy={false}
+                  blurDelay={0.15}
+                  builtinPlacements={
+                    Object {
+                      "bottomCenter": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tc",
+                          "bc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "bottomLeft": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tl",
+                          "bl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "bottomRight": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tr",
+                          "br",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topCenter": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bc",
+                          "tc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topLeft": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bl",
+                          "tl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topRight": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "br",
+                          "tr",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                    }
+                  }
+                  className="ant-transfer-list-header-dropdown"
+                  defaultPopupVisible={false}
+                  destroyPopupOnHide={false}
+                  focusDelay={0}
+                  getDocument={[Function]}
+                  getPopupClassNameFromAlign={[Function]}
+                  hideAction={Array []}
+                  mask={false}
+                  maskClosable={true}
+                  mouseEnterDelay={0.15}
+                  mouseLeaveDelay={0.1}
+                  onPopupAlign={[Function]}
+                  onPopupVisibleChange={[Function]}
+                  overlay={[Function]}
+                  popup={[Function]}
+                  popupAlign={Object {}}
+                  popupClassName=""
+                  popupPlacement="bottomLeft"
+                  popupStyle={Object {}}
+                  popupTransitionName="slide-up"
+                  prefixCls="ant-dropdown"
+                  showAction={Array []}
+                  stretch="minWidth"
+                >
+                  <ForwardRef(DownOutlined)
+                    className="ant-dropdown-trigger ant-transfer-list-header-dropdown"
+                    key="trigger"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                  >
+                    <AntdIcon
+                      className="ant-dropdown-trigger ant-transfer-list-header-dropdown"
+                      icon={
+                        Object {
+                          "icon": Object {
+                            "attrs": Object {
+                              "focusable": "false",
+                              "viewBox": "64 64 896 896",
+                            },
+                            "children": Array [
+                              Object {
+                                "attrs": Object {
+                                  "d": "M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z",
+                                },
+                                "tag": "path",
+                              },
+                            ],
+                            "tag": "svg",
+                          },
+                          "name": "down",
+                          "theme": "outlined",
+                        }
+                      }
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                    >
+                      <span
+                        aria-label="down"
+                        className="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        role="img"
+                      >
+                        <IconReact
+                          className=""
+                          icon={
+                            Object {
+                              "icon": Object {
+                                "attrs": Object {
+                                  "focusable": "false",
+                                  "viewBox": "64 64 896 896",
+                                },
+                                "children": Array [
+                                  Object {
+                                    "attrs": Object {
+                                      "d": "M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z",
+                                    },
+                                    "tag": "path",
+                                  },
+                                ],
+                                "tag": "svg",
+                              },
+                              "name": "down",
+                              "theme": "outlined",
+                            }
+                          }
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className=""
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            key="svg-down"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              key="svg-down-svg-0"
+                            />
+                          </svg>
+                        </IconReact>
+                      </span>
+                    </AntdIcon>
+                  </ForwardRef(DownOutlined)>
+                </Trigger>
+              </ForwardRef(Dropdown)>
+            </Dropdown>
             <span
               className="ant-transfer-list-header-selected"
             >
-              <span>
-                1
-                 
-                item
-              </span>
-              <span
-                className="ant-transfer-list-header-title"
-              />
+              1
+               
+              item
             </span>
+            <span
+              className="ant-transfer-list-header-title"
+            />
           </div>
           <div
             className="ant-transfer-list-body"
@@ -838,8 +1216,14 @@ exports[`Transfer should support render value and label in item 1`] = `
               onItemSelectAll={[Function]}
               onScroll={[Function]}
               prefixCls="ant-transfer-list"
+              remove="Remove"
+              removeAll="Remove all data"
+              removeCurrent="Remove current page"
               render={[Function]}
               searchPlaceholder="Search here"
+              selectAll="Select all data"
+              selectCurrent="Select current page"
+              selectInvert="Invert current page"
               selectedKeys={Array []}
               showSearch={false}
               titleText=""
@@ -864,58 +1248,80 @@ exports[`Transfer should support render value and label in item 1`] = `
                   }
                   key="a"
                   onClick={[Function]}
+                  onRemove={[Function]}
                   prefixCls="ant-transfer-list"
                   renderedEl="label"
                   renderedText="title value"
                 >
-                  <li
-                    className="ant-transfer-list-content-item"
-                    onClick={[Function]}
-                    title="title value"
+                  <LocaleReceiver
+                    componentName="Transfer"
+                    defaultLocale={
+                      Object {
+                        "itemUnit": "item",
+                        "itemsUnit": "items",
+                        "remove": "Remove",
+                        "removeAll": "Remove all data",
+                        "removeCurrent": "Remove current page",
+                        "searchPlaceholder": "Search here",
+                        "selectAll": "Select all data",
+                        "selectCurrent": "Select current page",
+                        "selectInvert": "Invert current page",
+                        "titles": Array [
+                          "",
+                          "",
+                        ],
+                      }
+                    }
                   >
-                    <Checkbox
-                      checked={false}
-                      indeterminate={false}
+                    <li
+                      className="ant-transfer-list-content-item"
+                      onClick={[Function]}
+                      title="title value"
                     >
-                      <label
-                        className="ant-checkbox-wrapper"
+                      <Checkbox
+                        checked={false}
+                        indeterminate={false}
                       >
-                        <Checkbox
-                          checked={false}
-                          className=""
-                          defaultChecked={false}
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          prefixCls="ant-checkbox"
-                          style={Object {}}
-                          type="checkbox"
+                        <label
+                          className="ant-checkbox-wrapper"
                         >
-                          <span
-                            className="ant-checkbox"
+                          <Checkbox
+                            checked={false}
+                            className=""
+                            defaultChecked={false}
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            prefixCls="ant-checkbox"
                             style={Object {}}
+                            type="checkbox"
                           >
-                            <input
-                              checked={false}
-                              className="ant-checkbox-input"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="checkbox"
-                            />
                             <span
-                              className="ant-checkbox-inner"
-                            />
-                          </span>
-                        </Checkbox>
-                      </label>
-                    </Checkbox>
-                    <span
-                      className="ant-transfer-list-content-item-text"
-                    >
-                      label
-                    </span>
-                  </li>
+                              className="ant-checkbox"
+                              style={Object {}}
+                            >
+                              <input
+                                checked={false}
+                                className="ant-checkbox-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="ant-checkbox-inner"
+                              />
+                            </span>
+                          </Checkbox>
+                        </label>
+                      </Checkbox>
+                      <span
+                        className="ant-transfer-list-content-item-text"
+                      >
+                        label
+                      </span>
+                    </li>
+                  </LocaleReceiver>
                 </Memo(ListItem)>
               </ul>
             </ListBody>
@@ -1135,12 +1541,19 @@ exports[`Transfer should support render value and label in item 1`] = `
             [Function]
           </Context.Consumer>
         }
+        onItemRemove={[Function]}
         onItemSelect={[Function]}
         onItemSelectAll={[Function]}
         onScroll={[Function]}
         prefixCls="ant-transfer-list"
+        remove="Remove"
+        removeAll="Remove all data"
+        removeCurrent="Remove current page"
         render={[Function]}
         searchPlaceholder="Search here"
+        selectAll="Select all data"
+        selectCurrent="Select current page"
+        selectInvert="Invert current page"
         showSearch={false}
         titleText=""
         titles={
@@ -1194,18 +1607,276 @@ exports[`Transfer should support render value and label in item 1`] = `
                 </Checkbox>
               </label>
             </Checkbox>
+            <Dropdown
+              className="ant-transfer-list-header-dropdown"
+              mouseEnterDelay={0.15}
+              mouseLeaveDelay={0.1}
+              overlay={
+                <Menu>
+                  <MenuItem
+                    onClick={[Function]}
+                  >
+                    Select all data
+                  </MenuItem>
+                  <MenuItem
+                    onClick={[Function]}
+                  >
+                    Invert current page
+                  </MenuItem>
+                </Menu>
+              }
+            >
+              <ForwardRef(Dropdown)
+                className="ant-transfer-list-header-dropdown"
+                mouseEnterDelay={0.15}
+                mouseLeaveDelay={0.1}
+                overlay={[Function]}
+                overlayClassName=""
+                placement="bottomLeft"
+                prefixCls="ant-dropdown"
+                transitionName="slide-up"
+              >
+                <Trigger
+                  action={
+                    Array [
+                      "hover",
+                    ]
+                  }
+                  afterPopupVisibleChange={[Function]}
+                  autoDestroy={false}
+                  blurDelay={0.15}
+                  builtinPlacements={
+                    Object {
+                      "bottomCenter": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tc",
+                          "bc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "bottomLeft": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tl",
+                          "bl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "bottomRight": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tr",
+                          "br",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topCenter": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bc",
+                          "tc",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topLeft": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bl",
+                          "tl",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "topRight": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "br",
+                          "tr",
+                        ],
+                        "targetOffset": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                    }
+                  }
+                  className="ant-transfer-list-header-dropdown"
+                  defaultPopupVisible={false}
+                  destroyPopupOnHide={false}
+                  focusDelay={0}
+                  getDocument={[Function]}
+                  getPopupClassNameFromAlign={[Function]}
+                  hideAction={Array []}
+                  mask={false}
+                  maskClosable={true}
+                  mouseEnterDelay={0.15}
+                  mouseLeaveDelay={0.1}
+                  onPopupAlign={[Function]}
+                  onPopupVisibleChange={[Function]}
+                  overlay={[Function]}
+                  popup={[Function]}
+                  popupAlign={Object {}}
+                  popupClassName=""
+                  popupPlacement="bottomLeft"
+                  popupStyle={Object {}}
+                  popupTransitionName="slide-up"
+                  prefixCls="ant-dropdown"
+                  showAction={Array []}
+                  stretch="minWidth"
+                >
+                  <ForwardRef(DownOutlined)
+                    className="ant-dropdown-trigger ant-transfer-list-header-dropdown"
+                    key="trigger"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                  >
+                    <AntdIcon
+                      className="ant-dropdown-trigger ant-transfer-list-header-dropdown"
+                      icon={
+                        Object {
+                          "icon": Object {
+                            "attrs": Object {
+                              "focusable": "false",
+                              "viewBox": "64 64 896 896",
+                            },
+                            "children": Array [
+                              Object {
+                                "attrs": Object {
+                                  "d": "M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z",
+                                },
+                                "tag": "path",
+                              },
+                            ],
+                            "tag": "svg",
+                          },
+                          "name": "down",
+                          "theme": "outlined",
+                        }
+                      }
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                    >
+                      <span
+                        aria-label="down"
+                        className="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        role="img"
+                      >
+                        <IconReact
+                          className=""
+                          icon={
+                            Object {
+                              "icon": Object {
+                                "attrs": Object {
+                                  "focusable": "false",
+                                  "viewBox": "64 64 896 896",
+                                },
+                                "children": Array [
+                                  Object {
+                                    "attrs": Object {
+                                      "d": "M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z",
+                                    },
+                                    "tag": "path",
+                                  },
+                                ],
+                                "tag": "svg",
+                              },
+                              "name": "down",
+                              "theme": "outlined",
+                            }
+                          }
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className=""
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            key="svg-down"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              key="svg-down-svg-0"
+                            />
+                          </svg>
+                        </IconReact>
+                      </span>
+                    </AntdIcon>
+                  </ForwardRef(DownOutlined)>
+                </Trigger>
+              </ForwardRef(Dropdown)>
+            </Dropdown>
             <span
               className="ant-transfer-list-header-selected"
             >
-              <span>
-                0
-                 
-                item
-              </span>
-              <span
-                className="ant-transfer-list-header-title"
-              />
+              0
+               
+              item
             </span>
+            <span
+              className="ant-transfer-list-header-title"
+            />
           </div>
           <div
             className="ant-transfer-list-body"

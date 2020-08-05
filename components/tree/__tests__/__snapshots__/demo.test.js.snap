@@ -1804,6 +1804,22 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
         class="ant-switch-inner"
       />
     </button>
+    <br />
+    <br />
+    showLeafIcon: 
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
   </div>
   <div
     class="ant-tree ant-tree-icon-hide ant-tree-show-line"

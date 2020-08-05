@@ -19,7 +19,7 @@ import { Layout } from '@allenai/varnish';
 const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
-  <div>
+  <>
     <Layout>
       <Header>Header</Header>
       <Content>Content</Content>
@@ -52,7 +52,7 @@ ReactDOM.render(
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
-  </div>,
+  </>,
   mountNode,
 );
 ```
@@ -92,10 +92,7 @@ ReactDOM.render(
 [data-theme="dark"] #components-layout-demo-basic .ant-layout-content {
   background: #107bcb;
 }
-#components-layout-demo-basic > .code-box-demo > div > .ant-layout {
-  margin-bottom: 48px;
-}
-#components-layout-demo-basic > .code-box-demo > div > .ant-layout:last-child {
-  margin: 0;
+#components-layout-demo-basic > .code-box-demo > .ant-layout + .ant-layout {
+  margin-top: 48px;
 }
 </style>

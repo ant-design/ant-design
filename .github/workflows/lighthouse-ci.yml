@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: Lighthouse Check
 on: [pull_request]
 
@@ -22,3 +23,16 @@ jobs:
         with:
           name: Lighthouse reports
           path: /tmp/artifacts
+=======
+name: CI
+on: [push]
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install && npm install -g @lhci/cli@0.4.x
+      - run: npm run site
+      - run: lhci autorun --upload.target=temporary-public-storage
+>>>>>>> 5131c24b79c65a132e4813ed6746852bbb4bb52e

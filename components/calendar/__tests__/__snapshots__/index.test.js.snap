@@ -34,6 +34,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="2018年"
         >
           2018年
         </span>
@@ -45,7 +46,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -82,6 +83,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10月"
         >
           10月
         </span>
@@ -93,7 +95,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -953,6 +955,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </span>
         <span
           class="ant-select-selection-item"
+          title="2000"
         >
           2000
         </span>
@@ -964,7 +967,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1000,6 +1003,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </span>
         <span
           class="ant-select-selection-item"
+          title="Sep"
         >
           Sep
         </span>
@@ -1011,7 +1015,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img

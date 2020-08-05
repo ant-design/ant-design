@@ -809,6 +809,216 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 </ul>
 `;
 
+exports[`renders ./components/menu/demo/style-debug.md correctly 1`] = `
+Array [
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      Dark
+    </span>
+  </button>,
+  <br />,
+  <br />,
+  <ul
+    class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+    role="menu"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
+      role="menuitem"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span
+          aria-label="mail"
+          class="anticon anticon-mail"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="mail"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation One Long Long Long Long
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal"
+      role="menuitem"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Two
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Option 11
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Option 12
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="visibility:hidden;position:absolute"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>,
+]
+`;
+
 exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
 Array [
   <button
@@ -1302,30 +1512,28 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
       class="ant-menu-submenu-title"
       role="button"
     >
-      <span>
-        <span
-          aria-label="appstore"
-          class="anticon anticon-appstore"
-          role="img"
+      <span
+        aria-label="appstore"
+        class="anticon anticon-appstore"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="appstore"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="appstore"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-            />
-          </svg>
-        </span>
-        <span>
-          Navigation Two
-        </span>
+          <path
+            d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation Two
       </span>
       <i
         class="ant-menu-submenu-arrow"

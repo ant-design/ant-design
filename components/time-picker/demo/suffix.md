@@ -23,11 +23,9 @@ function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-const icon = <SmileOutlined />;
-
 ReactDOM.render(
   <TimePicker
-    suffixIcon={icon}
+    suffixIcon={<SmileOutlined />}
     onChange={onChange}
     defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
   />,

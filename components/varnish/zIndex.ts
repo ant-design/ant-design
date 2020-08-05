@@ -8,12 +8,14 @@
  */
 // eslint-disable-next-line import/prefer-default-export
 export const zIndex = {
-  fixedTable: 'auto',
-  backTop: 10,
+  badge: 'auto',
+  tableFixed: 'auto',
+  // 0-5 reserved for user
   affix: 10,
-  badge: 10,
+  backTop: 10,
   pickerPanel: 10,
   popupClose: 10,
+  // 20-900 reserved for user
   header: 950,
   modal: 1000,
   modalMask: 1000,
@@ -22,5 +24,7 @@ export const zIndex = {
   popover: 1030,
   dropdown: 1050,
   picker: 1050,
-  tooltip: 1060,
+  popoconfirm: 1060,
+  tooltip: 1070,
+  // 1100-2000 reserved for user
 };

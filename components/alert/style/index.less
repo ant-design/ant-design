@@ -7,6 +7,7 @@
   .reset-component;
 
   position: relative;
+  max-height: 1000vh;
   padding: 8px 15px 8px 37px;
   word-wrap: break-word;
   border-radius: @border-radius-base;
@@ -76,7 +77,7 @@
   &-close-icon {
     position: absolute;
     top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
-    right: 16px;
+    right: @padding-md;
     padding: 0;
     overflow: hidden;
     font-size: @font-size-sm;
@@ -124,8 +125,8 @@
 
   &-with-description &-close-icon {
     position: absolute;
-    top: @padding-xs;
-    right: @padding-xs;
+    top: @padding-md;
+    right: @padding-md;
     font-size: @font-size-base;
     cursor: pointer;
   }
@@ -146,7 +147,7 @@
   }
 
   &&-closing {
-    height: 0 !important;
+    max-height: 0;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;

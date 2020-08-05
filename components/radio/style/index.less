@@ -12,6 +12,7 @@
   .reset-component;
 
   display: inline-block;
+  font-size: 0;
   line-height: unset;
 
   .@{ant-prefix}-badge-count {
@@ -165,6 +166,7 @@ span.@{radio-prefix-cls} + * {
   margin: 0;
   padding: 0 @padding-md - 1px;
   color: @radio-button-color;
+  font-size: @font-size-base;
   line-height: @btn-height-base - 2px;
   background: @radio-button-bg;
   border: @border-width-base @border-style-base @border-color-base;
@@ -180,10 +182,11 @@ span.@{radio-prefix-cls} + * {
   }
 
   > .@{radio-prefix-cls}-button {
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .@{radio-group-prefix-cls}-large & {

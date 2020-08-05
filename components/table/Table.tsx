@@ -24,6 +24,7 @@ import {
   TablePaginationConfig,
   SortOrder,
   TableLocale,
+  TableAction,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
@@ -60,7 +61,13 @@ interface ChangeEventInfo<RecordType> {
 export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
-    'transformColumns' | 'internalHooks' | 'internalRefs' | 'data' | 'columns' | 'scroll'
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
@@ -116,6 +123,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     locale,
     showSorterTooltip = true,
   } = props;
+
+  devWarning(
+    !(typeof rowKey === 'function' && rowKey.length > 1),
+    'Table',
+    '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+  );
 
   const screens = useBreakpoint();
   const mergedColumns = React.useMemo(() => {
@@ -178,7 +191,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Events =============================
   const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
-  const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>, reset: boolean = false) => {
+  const triggerOnChange = (
+    info: Partial<ChangeEventInfo<RecordType>>,
+    action: TableAction,
+    reset: boolean = false,
+  ) => {
     const changeInfo = {
       ...changeEventInfo,
       ...info,
@@ -210,6 +227,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
           changeInfo.filterStates!,
         ),
+        action,
       });
     }
   };
@@ -231,6 +249,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         sorter,
         sorterStates,
       },
+      'sort',
       false,
     );
   };
@@ -260,6 +279,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         filters,
         filterStates,
       },
+      'filter',
       true,
     );
   };
@@ -288,9 +308,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
-    triggerOnChange({
-      pagination: { ...changeEventInfo.pagination, current, pageSize },
-    });
+    triggerOnChange(
+      {
+        pagination: { ...changeEventInfo.pagination, current, pageSize },
+      },
+      'paginate',
+    );
   };
 
   const [mergedPagination, resetPagination] = usePagination(
@@ -381,7 +404,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }
 
   // Indent size
-  mergedExpandable.indentSize = mergedExpandable.indentSize || indentSize || 15;
+  if (typeof mergedExpandable.indentSize !== 'number') {
+    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
+  }
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(

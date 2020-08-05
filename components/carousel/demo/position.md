@@ -16,6 +16,14 @@ There are 4 position options available.
 ```jsx
 import { Carousel, Radio } from '@allenai/varnish';
 
+const contentStyle = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
 class PositionCarouselDemo extends React.Component {
   state = {
     dotPosition: 'top',
@@ -26,7 +34,7 @@ class PositionCarouselDemo extends React.Component {
   render() {
     const { dotPosition } = this.state;
     return (
-      <div>
+      <>
         <Radio.Group
           onChange={this.handlePositionChange}
           value={dotPosition}
@@ -39,37 +47,22 @@ class PositionCarouselDemo extends React.Component {
         </Radio.Group>
         <Carousel dotPosition={dotPosition}>
           <div>
-            <h3>1</h3>
+            <h3 style={contentStyle}>1</h3>
           </div>
           <div>
-            <h3>2</h3>
+            <h3 style={contentStyle}>2</h3>
           </div>
           <div>
-            <h3>3</h3>
+            <h3 style={contentStyle}>3</h3>
           </div>
           <div>
-            <h3>4</h3>
+            <h3 style={contentStyle}>4</h3>
           </div>
         </Carousel>
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<PositionCarouselDemo />, mountNode);
-```
-
-```css
-/* For demo */
-.ant-carousel .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 160px;
-  background: #364d79;
-  overflow: hidden;
-}
-
-.ant-carousel .slick-slide h3 {
-  color: #fff;
-}
 ```

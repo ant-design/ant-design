@@ -1,7 +1,8 @@
 .@{menu-prefix-cls} {
   // dark theme
   &&-dark,
-  &-dark &-sub {
+  &-dark &-sub,
+  &&-dark &-sub {
     color: @menu-dark-color;
     background: @menu-dark-bg;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
@@ -30,6 +31,7 @@
   &-dark&-horizontal > &-submenu {
     top: 0;
     margin-top: 0;
+    padding: @menu-item-padding;
     border-color: @menu-dark-bg;
     border-bottom: 0;
   }

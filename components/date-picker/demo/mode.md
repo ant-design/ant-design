@@ -15,7 +15,7 @@ debug: true
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```jsx
-import { DatePicker } from '@allenai/varnish';
+import { DatePicker, Space } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 
@@ -77,11 +77,10 @@ class ControlledRangePicker extends React.Component {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <ControlledDatePicker />
-    <br />
     <ControlledRangePicker />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

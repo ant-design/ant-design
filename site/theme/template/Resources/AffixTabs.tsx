@@ -35,7 +35,7 @@ export default () => {
 
   const onSyncAffix = React.useMemo(() => {
     function doSync() {
-      const scrollY = window.scrollY;
+      const { scrollY } = window;
       const containerHeight = containerRef.current!.offsetHeight;
 
       for (let i = idsRef.current.length - 1; i >= 0; i -= 1) {

@@ -119,7 +119,9 @@
 
   // https://github.com/ant-design/ant-design/pull/12407#issuecomment-424657810
   &-picker-label:hover + &-input {
-    .hover;
+    &:not(.@{cascader-prefix-cls}-picker-disabled &) {
+      .hover;
+    }
   }
 
   &-picker-small &-picker-clear,
@@ -190,8 +192,10 @@
   }
   &-menu-item {
     padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+    overflow: hidden;
     line-height: @cascader-dropdown-line-height;
     white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
@@ -228,6 +232,10 @@
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
+
+      .@{cascader-prefix-cls}-menu-item-disabled& {
+        color: @disabled-color;
+      }
     }
 
     & &-keyword {

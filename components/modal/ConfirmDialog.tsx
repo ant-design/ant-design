@@ -8,6 +8,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close: (...args: any[]) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
+  rootPrefixCls?: string;
 }
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
@@ -27,6 +28,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     okButtonProps,
     cancelText,
     cancelButtonProps,
+    direction,
+    prefixCls,
+    rootPrefixCls,
   } = props;
 
   devWarning(
@@ -37,7 +41,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
   const okType = props.okType || 'primary';
-  const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
   // 默认为 true，保持向下兼容
   const okCancel = 'okCancel' in props ? props.okCancel! : true;
@@ -53,6 +56,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const classString = classNames(
     contentPrefixCls,
     `${contentPrefixCls}-${props.type}`,
+    { [`${contentPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
 
@@ -62,6 +66,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       closeModal={close}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
+      prefixCls={`${rootPrefixCls}-btn`}
     >
       {cancelText}
     </ActionButton>
@@ -105,6 +110,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
             closeModal={close}
             autoFocus={autoFocusButton === 'ok'}
             buttonProps={okButtonProps}
+            prefixCls={`${rootPrefixCls}-btn`}
           >
             {okText}
           </ActionButton>

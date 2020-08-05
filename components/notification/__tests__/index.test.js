@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { UserOutlined } from '@ant-design/icons';
 import notification from '..';
 
 describe('notification', () => {
@@ -98,6 +99,21 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-rtl').length).toBe(1);
   });
 
+  it('should be able to config prefixCls', () => {
+    notification.config({
+      prefixCls: 'prefix-test',
+    });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
+    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    notification.config({
+      prefixCls: 'ant-notification',
+    });
+  });
+
   it('should be able to open with icon', async () => {
     const openNotificationWithIcon = async type => {
       const iconPrefix = '.ant-notification-notice-icon';
@@ -144,5 +160,24 @@ describe('notification', () => {
       closeIcon: <span className="test-customize-icon" />,
     });
     expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
+  });
+
+  it('support config duration', () => {
+    notification.config({
+      duration: 0,
+    });
+    notification.open({
+      message: 'whatever',
+    });
+    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+  });
+
+  it('support icon', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      icon: <UserOutlined />,
+    });
+    expect(document.querySelectorAll('.anticon-user').length).toBe(1);
   });
 });

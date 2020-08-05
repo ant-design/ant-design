@@ -22,12 +22,12 @@ const { Title } = Typography;
 const text = 'AI for the Common Good';
 
 ReactDOM.render(
-  <div>
+  <>
     <Title>h1. {text}</Title>
     <Title level={2}>h2. {text}</Title>
     <Title level={3}>h3. {text}</Title>
     <Title level={4}>h4. {text}</Title>
-  </div>,
+  </>,
   mountNode,
 );
 ```

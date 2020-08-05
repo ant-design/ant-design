@@ -7,7 +7,6 @@ import { RenderEmptyHandler, ConfigContext } from '../config-provider';
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
-import { cloneElement } from '../_util/reactNode';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
@@ -244,16 +243,15 @@ function List<T>({
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: any, index: number) => renderInnerItem(item, index));
-    const childrenList = React.Children.map(items, (child: any, index) =>
-      cloneElement(child, {
-        key: keys[index],
-        colStyle,
-      }),
-    );
+    const childrenList = React.Children.map(items, (child: any, index) => (
+      <div key={keys[index]} style={colStyle}>
+        {child}
+      </div>
+    ));
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>{childrenList}</Row>
     ) : (
-      <ul className={`${prefixCls}-items`}>{childrenList}</ul>
+      <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
     childrenContent = renderEmptyFunc(prefixCls, renderEmpty);

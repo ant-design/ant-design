@@ -3,6 +3,7 @@ category: Components
 subtitle: 面包屑
 type: 导航
 title: Breadcrumb
+cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
@@ -22,7 +23,7 @@ title: Breadcrumb
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
 | routes | router 的路由栈信息 | [routes\[\]](#routes) | - |  |
-| separator | 分隔符自定义 | string\|ReactNode | '/' |  |
+| separator | 分隔符自定义 | string \| ReactNode | `/` |  |
 
 ### Breadcrumb.Item
 
@@ -35,9 +36,9 @@ title: Breadcrumb
 
 ### Breadcrumb.Separator
 
-| 参数     | 说明           | 类型              | 默认值 | 版本 |
-| -------- | -------------- | ----------------- | ------ | ---- |
-| children | 要显示的分隔符 | string\|ReactNode | '/'    |      |
+| 参数     | 说明           | 类型                | 默认值 | 版本 |
+| -------- | -------------- | ------------------- | ------ | ---- |
+| children | 要显示的分隔符 | string \| ReactNode | `/`    |      |
 
 > 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
 

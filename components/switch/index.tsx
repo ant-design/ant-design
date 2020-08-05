@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
 import Wave from '../_util/wave';
@@ -35,50 +34,55 @@ interface CompoundedComponent
   __ANT_SWITCH: boolean;
 }
 
-const Switch = React.forwardRef<unknown, SwitchProps>((props, ref) => {
-  devWarning(
-    'checked' in props || !('value' in props),
-    'Switch',
-    '`value` is not a valid prop, do you mean `checked`?',
-  );
+const Switch = React.forwardRef<unknown, SwitchProps>(
+  (
+    {
+      prefixCls: customizePrefixCls,
+      size: customizeSize,
+      loading,
+      className = '',
+      disabled,
+      ...props
+    },
+    ref,
+  ) => {
+    devWarning(
+      'checked' in props || !('value' in props),
+      'Switch',
+      '`value` is not a valid prop, do you mean `checked`?',
+    );
 
-  const {
-    prefixCls: customizePrefixCls,
-    size: customizeSize,
-    loading,
-    className = '',
-    disabled,
-  } = props;
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const size = React.useContext(SizeContext);
+    const prefixCls = getPrefixCls('switch', customizePrefixCls);
+    const loadingIcon = (
+      <div className={`${prefixCls}-handle`}>
+        {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
+      </div>
+    );
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
-  const prefixCls = getPrefixCls('switch', customizePrefixCls);
-  const loadingIcon = (
-    <div className={`${prefixCls}-handle`}>
-      {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
-    </div>
-  );
+    const classes = classNames(className, {
+      [`${prefixCls}-small`]: (customizeSize || size) === 'small',
+      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
 
-  const classes = classNames(className, {
-    [`${prefixCls}-small`]: (customizeSize || size) === 'small',
-    [`${prefixCls}-loading`]: loading,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
-
-  return (
-    <Wave insertExtraNode>
-      <RcSwitch
-        {...omit(props, ['loading'])}
-        prefixCls={prefixCls}
-        className={classes}
-        disabled={disabled || loading}
-        ref={ref}
-        loadingIcon={loadingIcon}
-      />
-    </Wave>
-  );
-}) as CompoundedComponent;
+    return (
+      <Wave insertExtraNode>
+        <RcSwitch
+          {...props}
+          prefixCls={prefixCls}
+          className={classes}
+          disabled={disabled || loading}
+          ref={ref}
+          loadingIcon={loadingIcon}
+        />
+      </Wave>
+    );
+  },
+) as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
+Switch.displayName = 'Switch';
 
 export default Switch;

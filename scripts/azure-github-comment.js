@@ -4,7 +4,7 @@ const REPO = process.env.ACCESS_REPO;
 const TOKEN = process.env.ACCESS_TOKEN;
 const PR = process.env.SYSTEM_PULLREQUEST_PULLREQUESTNUMBER;
 
-const argv = process.argv;
+const { argv } = process;
 
 const comment = argv[argv.length - 1];
 const isUiTest = argv.includes('-ui');

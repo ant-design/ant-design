@@ -14,7 +14,7 @@ title:
 Showing more detailed info of every row.
 
 ```jsx
-import { Table, Badge, Menu, Dropdown } from '@allenai/varnish';
+import { Table, Badge, Menu, Dropdown, Space } from '@allenai/varnish';
 import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
@@ -45,7 +45,7 @@ function NestedTable() {
         dataIndex: 'operation',
         key: 'operation',
         render: () => (
-          <span className="table-operation">
+          <Space size="middle">
             <a>Pause</a>
             <a>Stop</a>
             <Dropdown overlay={menu}>
@@ -53,7 +53,7 @@ function NestedTable() {
                 More <DownOutlined />
               </a>
             </Dropdown>
-          </span>
+          </Space>
         ),
       },
     ];

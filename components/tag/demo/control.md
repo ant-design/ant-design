@@ -71,14 +71,18 @@ class EditableTagGroup extends React.Component {
     });
   };
 
-  saveInputRef = input => (this.input = input);
+  saveInputRef = input => {
+    this.input = input;
+  };
 
-  saveEditInputRef = input => (this.editInput = input);
+  saveEditInputRef = input => {
+    this.editInput = input;
+  };
 
   render() {
     const { tags, inputVisible, inputValue, editInputIndex, editInputValue } = this.state;
     return (
-      <div>
+      <>
         {tags.map((tag, index) => {
           if (editInputIndex === index) {
             return (
@@ -143,7 +147,7 @@ class EditableTagGroup extends React.Component {
             <PlusOutlined /> New Tag
           </Tag>
         )}
-      </div>
+      </>
     );
   }
 }

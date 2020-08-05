@@ -310,7 +310,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/rate/demo/character.md correctly 1`] = `
-<div>
+Array [
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -616,8 +616,8 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         </div>
       </div>
     </li>
-  </ul>
-  <br />
+  </ul>,
+  <br />,
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -734,8 +734,8 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         </div>
       </div>
     </li>
-  </ul>
-  <br />
+  </ul>,
+  <br />,
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -851,12 +851,210 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         </div>
       </div>
     </li>
-  </ul>
-</div>
+  </ul>,
+]
+`;
+
+exports[`renders ./components/rate/demo/character-function.md correctly 1`] = `
+Array [
+  <ul
+    class="ant-rate"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="1"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="2"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="3"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="4"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="5"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+  </ul>,
+  <br />,
+  <ul
+    class="ant-rate"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="1"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="2"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        aria-checked="true"
+        aria-posinset="3"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="4"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        aria-checked="false"
+        aria-posinset="5"
+        aria-setsize="5"
+        role="radio"
+        tabindex="0"
+      >
+        <div
+          class="ant-rate-star-first"
+        />
+        <div
+          class="ant-rate-star-second"
+        />
+      </div>
+    </li>
+  </ul>,
+]
 `;
 
 exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
-<div>
+Array [
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -1162,13 +1360,13 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         </div>
       </div>
     </li>
-  </ul>
+  </ul>,
   <span
     class="ant-rate-text"
   >
     allowClear: true
-  </span>
-  <br />
+  </span>,
+  <br />,
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -1474,13 +1672,13 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         </div>
       </div>
     </li>
-  </ul>
+  </ul>,
   <span
     class="ant-rate-text"
   >
     allowClear: false
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `

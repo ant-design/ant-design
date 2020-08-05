@@ -14,12 +14,12 @@ title:
 We can customize the rendering of date cells in the calendar by providing a `dateRender` function to `DatePicker`.
 
 ```jsx
-import { DatePicker } from '@allenai/varnish';
+import { DatePicker, Space } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePicker
       dateRender={current => {
         const style = {};
@@ -48,7 +48,7 @@ ReactDOM.render(
         );
       }}
     />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

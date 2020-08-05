@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Radio', () => {
-  focusTest(Radio);
+  focusTest(Radio, { refFocus: true });
   mountTest(Radio);
   mountTest(Group);
   mountTest(Button);

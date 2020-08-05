@@ -111,21 +111,6 @@ describe('Breadcrumb', () => {
   it('should accept undefined routes', () => {
     const wrapper = render(<Breadcrumb routes={undefined} />);
     expect(wrapper).toMatchSnapshot();
-   })
-
-  it('props#linkRender and props#nameRender do not warn anymore', () => {
-    const linkRender = jest.fn();
-    const nameRender = jest.fn();
-    mount(
-      <Breadcrumb linkRender={linkRender} nameRender={nameRender}>
-        <Breadcrumb.Item />
-        <Breadcrumb.Item>xxx</Breadcrumb.Item>
-      </Breadcrumb>,
-    );
-
-    expect(errorSpy.mock.calls.length).toBe(0);
-    expect(linkRender).not.toHaveBeenCalled();
-    expect(nameRender).not.toHaveBeenCalled();
   });
 
   it('should support custom attribute', () => {
@@ -149,6 +134,25 @@ describe('Breadcrumb', () => {
         {0}
         {null}
         {undefined}
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/25975
+  it('should support Breadcrumb.Item default separator', () => {
+    const MockComponent = () => {
+      return (
+        <span>
+          <Breadcrumb.Item>Mock Node</Breadcrumb.Item>
+        </span>
+      );
+    };
+    const wrapper = render(
+      <Breadcrumb>
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <MockComponent />
+        <Breadcrumb.Item>Application Center</Breadcrumb.Item>
       </Breadcrumb>,
     );
     expect(wrapper).toMatchSnapshot();

@@ -1,46 +1,41 @@
 ---
 order: 2
 title:
-  zh-CN: 文本组件
-  en-US: Text Component
+  zh-CN: 文本与超链接组件
+  en-US: Text and Link Component
 ---
 
 ## zh-CN
 
-内置不同样式的文本。
+内置不同样式的文本以及超链接组件。
 
 ## en-US
 
-Provides multiple types of text.
+Provides multiple types of text and link.
 
 ```jsx
-import { Typography } from '@allenai/varnish';
+import { Space } from '@allenai/varnish';
+import Typography from '..';
+// TODO: put back after deploy // import { Typography, Space } from '@allenai/varnish';
 
-const { Text } = Typography;
+const { Text, Link } = Typography;
+
 const text = 'The best way to predict the future is to invent it';
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical">
     <Text>{text}</Text>
-    <br />
     <Text type="secondary">{text}</Text>
-    <br />
     <Text type="warning">{text}</Text>
-    <br />
     <Text type="danger">{text}</Text>
-    <br />
     <Text disabled>{text}</Text>
-    <br />
     <Text mark>{text}</Text>
-    <br />
     <Text code>{text}</Text>
-    <br />
     <Text underline>{text}</Text>
-    <br />
     <Text delete>{text}</Text>
-    <br />
     <Text strong>{text}</Text>
-  </div>,
+    <Link href="https://varnish.allenai.org/" target="_blank" rel="noopener noreferrer">{text}</Link>
+  </Space>,
   mountNode,
 );
 ```

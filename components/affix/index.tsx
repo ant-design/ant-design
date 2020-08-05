@@ -107,6 +107,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
         this.updatePosition();
       }
 
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ prevTarget: newTarget });
     }
 

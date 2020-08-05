@@ -3,12 +3,12 @@ order: 9
 title: 社区精选组件
 ---
 
-`antd` 是 Ant Design 设计规范的 React 实现，所以我们倾向于只提供符合该规范、且带有视觉展现的 UI 组件，也尽量不重复造轮子。我们推荐使用以下社区已有的优秀实现，与 antd 形成互补：
+`antd` 是基于 Ant Design 设计规范实现的 [高质量 React 组件库](/components/overview)，我们倾向于只提供符合该规范且带有视觉展现的 UI 组件，也尽量不重复造轮子。我们推荐使用以下社区已有的优秀实现，与 antd 形成互补。
 
 | 类型 | 推荐组件 |
 | --- | --- |
 | 可视化图表 | [AntV 数据可视化解决方案](https://antv.vision/zh) [🔥 AntV 图表库](https://g2plot.antv.vision/zh) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
-| React Hooks 库 | [umi-hooks](https://github.com/umijs/hooks) |
+| React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](https://github.com/whoisandy/react-blocks) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
@@ -32,9 +32,10 @@ title: 社区精选组件
 | 右键菜单 | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |
 | Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
 | 分割面板 | [react-split-pane](https://github.com/tomkp/react-split-pane) |
-| 图片裁切 | [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
+| 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
+| 文字轮播 | [react-text-loop](https://github.com/braposo/react-text-loop) |
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 
 ## 推荐产品 ✨

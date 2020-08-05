@@ -32,7 +32,7 @@ class Demo extends React.Component {
     const { current } = this.state;
 
     return (
-      <div>
+      <>
         <Steps current={current} onChange={this.onChange}>
           <Step title="Step 1" description="This is a description." />
           <Step title="Step 2" description="This is a description." />
@@ -46,7 +46,7 @@ class Demo extends React.Component {
           <Step title="Step 2" description="This is a description." />
           <Step title="Step 3" description="This is a description." />
         </Steps>
-      </div>
+      </>
     );
   }
 }

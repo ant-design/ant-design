@@ -14,22 +14,18 @@ title:
 Set range picker type by `picker` prop.
 
 ```jsx
-import { DatePicker } from '@allenai/varnish';
+import { DatePicker, Space } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <RangePicker />
-    <br />
     <RangePicker showTime />
-    <br />
     <RangePicker picker="week" />
-    <br />
     <RangePicker picker="month" />
-    <br />
     <RangePicker picker="year" />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

@@ -16,7 +16,9 @@ Text inside Avatar should be set a proper font size when toggle it's visibility.
 
 ```tsx
 import React, { useState } from 'react';
-import { Avatar, Button } from '@allenai/varnish';
+import { Button } from '@allenai/varnish';
+import Avatar from '..';
+// TODO: put back after deploy // import { Avatar, Button } from '@allenai/varnish';
 
 type SizeType = 'large' | 'small' | 'default' | number;
 const App: React.FC = () => {

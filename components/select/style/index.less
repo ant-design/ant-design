@@ -46,6 +46,8 @@
 /* Reset search input style */
 .select-search-input-without-border() {
   .@{select-prefix-cls}-selection-search-input {
+    margin: 0;
+    padding: 0;
     background: transparent;
     border: none;
     outline: none;
@@ -118,9 +120,13 @@
         vertical-align: top;
       }
 
-      &:not(.@{iconfont-css-prefix}-down) {
+      &:not(.@{select-prefix-cls}-suffix) {
         pointer-events: auto;
       }
+    }
+
+    .@{select-prefix-cls}-disabled & {
+      cursor: not-allowed;
     }
   }
 
@@ -254,7 +260,7 @@
       }
 
       &-selected:not(&-disabled) {
-        color: @text-color;
+        color: @select-item-selected-color;
         font-weight: @select-item-selected-font-weight;
         background-color: @select-item-selected-bg;
 

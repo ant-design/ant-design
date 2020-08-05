@@ -40,10 +40,7 @@ const data = [
 describe('Table.expand', () => {
   it('click to expand', () => {
     const wrapper = mount(<Table columns={columns} dataSource={data} />);
-    wrapper
-      .find('.ant-table-row-expand-icon')
-      .last()
-      .simulate('click');
+    wrapper.find('.ant-table-row-expand-icon').last().simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -90,6 +87,16 @@ describe('Table.expand', () => {
     expect(wrapper.find('.expand-icon')).toHaveLength(1);
   });
 
+  it('row indent padding should be 0px when indentSize defined as 0', () => {
+    const wrapper = mount(<Table indentSize={0} columns={columns} dataSource={data} />);
+    const button = wrapper.find('.ant-table-row-expand-icon').at(0);
+    button.simulate('click');
+    expect(wrapper.find('.indent-level-1').at(0).prop('style')).toHaveProperty(
+      'paddingLeft',
+      '0px',
+    );
+  });
+
   describe('expandIconColumnIndex', () => {
     it('basic', () => {
       const wrapper = mount(
@@ -103,18 +110,8 @@ describe('Table.expand', () => {
         />,
       );
 
-      expect(
-        wrapper
-          .find('td')
-          .at(0)
-          .text(),
-      ).toEqual('bamboo');
-      expect(
-        wrapper
-          .find('td')
-          .at(1)
-          .find('.ant-table-row-expand-icon').length,
-      ).toBeTruthy();
+      expect(wrapper.find('td').at(0).text()).toEqual('bamboo');
+      expect(wrapper.find('td').at(1).find('.ant-table-row-expand-icon').length).toBeTruthy();
     });
 
     it('work with selection', () => {
@@ -130,24 +127,9 @@ describe('Table.expand', () => {
         />,
       );
 
-      expect(
-        wrapper
-          .find('td')
-          .at(0)
-          .find('.ant-checkbox-input').length,
-      ).toBeTruthy();
-      expect(
-        wrapper
-          .find('td')
-          .at(1)
-          .text(),
-      ).toEqual('bamboo');
-      expect(
-        wrapper
-          .find('td')
-          .at(2)
-          .find('.ant-table-row-expand-icon').length,
-      ).toBeTruthy();
+      expect(wrapper.find('td').at(0).find('.ant-checkbox-input').length).toBeTruthy();
+      expect(wrapper.find('td').at(1).text()).toEqual('bamboo');
+      expect(wrapper.find('td').at(2).find('.ant-table-row-expand-icon').length).toBeTruthy();
     });
   });
 });

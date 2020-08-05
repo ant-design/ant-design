@@ -14,7 +14,7 @@ title:
 This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
 
 ```jsx
-import { DatePicker } from '@allenai/varnish';
+import { DatePicker, Space } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 
@@ -28,16 +28,15 @@ function onOk(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePicker showTime onChange={onChange} onOk={onOk} />
-    <br />
     <RangePicker
       showTime={{ format: 'HH:mm' }}
       format="YYYY-MM-DD HH:mm"
       onChange={onChange}
       onOk={onOk}
     />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```
