@@ -82,16 +82,23 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
-    const wrapper = mount(createTable({
-      columns: [
-        {
-          ...column,
-          filters: [],
-        },
-      ],
-    }));
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [],
+          },
+        ],
+      }),
+    );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
     expect(wrapper.find('Empty').length).toBe(1);
+    // eslint-disable-next-line no-console
+    expect(console.error).not.toHaveBeenCalled();
+    // eslint-disable-next-line no-console
+    console.error.mockRestore();
   });
 
   it('renders radio filter correctly', () => {

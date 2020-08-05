@@ -18,8 +18,8 @@ import { ConfigProvider } from 'antd';
 
 // ...
 
-return (
-  <ConfigProvider {...yourConfig}>
+export default () => (
+  <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );

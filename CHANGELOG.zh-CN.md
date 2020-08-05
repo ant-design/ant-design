@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.5.2
+
+`2020-08-02`
+
+- 🐞 修复 Slider `tooltip` 显隐异常的问题。[#25945](https://github.com/ant-design/ant-design/pull/25945) [@lihqi](https://github.com/lihqi)
+- 🐞 修复 Divider 暗黑模式下分割线颜色。[#25922](https://github.com/ant-design/ant-design/pull/25922)
+- 🐞 修正 Radio.Button 在 `disabled` 和 `checked` 状态下的文字颜色。[#25911](https://github.com/ant-design/ant-design/pull/25911)
+- 🐞 修复 Carousel 内子节点高度和容器相差几个像素的问题。[#25906](https://github.com/ant-design/ant-design/pull/25906)
+- 🐞 修复 Table `indentSize` 设置为 `0` 无效的问题。[#25890](https://github.com/ant-design/ant-design/pull/25890) [@OmriGM](https://github.com/OmriGM)
+- 🐞 修复 List `actions` 不必要的 `cursor: pointer` 样式。[#25961](https://github.com/ant-design/ant-design/pull/25961)
+- 🇷🇺 补充俄罗斯语本地化文案。[#25958](https://github.com/ant-design/ant-design/pull/25958) [@addictional](https://github.com/addictional)
+- RTL
+  - 🐞 修复嵌套 Table 在其他主题下的 RTL 样式。[#25938](https://github.com/ant-design/ant-design/pull/25938)
+  - 🐞 修复 Tabs `card` 类型的 RTL 样式。[#25936](https://github.com/ant-design/ant-design/pull/25936)
+  - 🐞 修复垂直方向 Slider 在 RTL 模式下默认的 `tooltipPlacement`。[#25909](https://github.com/ant-design/ant-design/pull/25909)
+
 ## 4.5.1
 
 `2020-07-28`

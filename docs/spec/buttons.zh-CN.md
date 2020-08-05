@@ -1,14 +1,8 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 全局规则
-  en-US: Global Rules
+category: 设计模式
+type: 全局规则
 order: 6
-title:
-  zh-CN: 按钮
-  en-US: Button
+title: 按钮
 ---
 
 ## 设计目标
@@ -55,14 +49,11 @@ title:
 
 ### Do&Don't
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*di8jS5EWYSIAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在一个按钮区放置超过一个主按钮">
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3WUkT5pD1SUAAAAAAAAAAABkARQnAQ" alt="正确示范" description="1、强调一个主要操作；<br/>2、操作无主次，次按钮是最安全的选择。。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*di8jS5EWYSIAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在一个按钮区放置超过一个主按钮。">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3WUkT5pD1SUAAAAAAAAAAABkARQnAQ" alt="正确示范" description="1、强调一个主要操作；<br/>2、操作无主次，次按钮是最安全的选择。">
 
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zBtTRq2xbTYAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在按钮中放置两个图标。">
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="正确示范" description="按照主次展示全部操作。<br/>将次要操作收纳至右侧下拉按钮中。">
-
-
-
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="正确示范" description="1、1按照主次展示全部操作。<br/>2、将次要操作收纳至右侧下拉按钮中。">
 
 ### 特殊按钮
 

@@ -30,6 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
 ```jsx
+import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
@@ -39,8 +40,11 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import locale from 'antd/es/locale/zh_CN';
 
-<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
+<ConfigProvider locale={locale}>
+  <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+</ConfigProvider>;
 ```
 
 ### 共同的 API
@@ -164,30 +168,29 @@ import 'moment/locale/zh-cn';
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment\], dateStrings: \[string, string\], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
 
-<style>
-.code-box-demo .ant-picker {
-  margin: 0 8px 12px 0;
-}
-.ant-row-rtl .code-box-demo .ant-picker {
-  margin: 0 0 12px 8px;
-}
-</style>
-
 ## FAQ
 
-- [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
+### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？
 
-- [如何在 DatePicker 中使用自定义日期库（如 dayjs ）？](/docs/react/replace-moment#DatePicker)
+请参考[常见问答](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
 
-- 如何修改周的起始日？
+### 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？
 
-  请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：https://codesandbox.io/s/moment-day-of-week-b24k5
+请参考[《替换 Moment.js》](/docs/react/replace-moment#DatePicker)
 
-  ```js
-  moment.locale('en', {
-    // 注意请修改你正在使用的 locale 语言，比如 zh-cn
-    week: {
-      dow: 1,
-    },
-  });
-  ```
+### 为何全局修改 moment.locale 不生效？
+
+v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `locale` 属性来单独设置，也可以通过 [ConfigProvider `locale`](/components/config-provider) 属性来配置。
+
+### 如何修改周的起始日？
+
+请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：https://codesandbox.io/s/moment-day-of-week-6dby5
+
+```js
+moment.locale('en', {
+  // 注意请修改你正在使用的 locale 语言，比如 zh-cn
+  week: {
+    dow: 1,
+  },
+});
+```

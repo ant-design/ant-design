@@ -52,21 +52,6 @@ function injectWarningCondition(config) {
   });
 }
 
-function addBundleStatsWebpackPlugin(config) {
-  if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
-    return;
-  }
-  // eslint-disable-next-line global-require
-  const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
-  // eslint-disable-next-line global-require
-  const { RelativeCiAgentWebpackPlugin } = require('@relative-ci/agent');
-  config.plugins.push(new BundleStatsWebpackPlugin());
-
-  if (config.entry['antd.min']) {
-    config.plugins.push(new RelativeCiAgentWebpackPlugin());
-  }
-}
-
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -124,8 +109,6 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         reportFilename: '../report.html',
       }),
     );
-
-    addBundleStatsWebpackPlugin(config);
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);

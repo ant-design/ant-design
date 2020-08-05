@@ -35,6 +35,8 @@ describe('Modal.hook', () => {
     wrapper.find('button').simulate('click');
 
     expect(wrapper.find('.test-hook').text()).toEqual('bamboo');
+    expect(wrapper.find('.ant-btn').length).toBeTruthy();
+    expect(wrapper.find('.ant-modal-body').length).toBeTruthy();
 
     // Update instance
     instance.update({
