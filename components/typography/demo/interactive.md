@@ -45,7 +45,6 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { lengthLimitedStr } = this.state;
     return (
       <>
         <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>

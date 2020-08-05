@@ -43,7 +43,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -83,7 +83,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -298,7 +298,7 @@ Array [
   <div
     class="ant-typography ant-typography-ellipsis"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
     <span
       class="ant-typography"
     >
@@ -634,7 +634,7 @@ Array [
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
