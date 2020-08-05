@@ -1,0 +1,111 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@number-prefix-cls: ~'@{ant-prefix}-scroll-number';
+@ribbon-prefix-cls: ~'@{ant-prefix}-ribbon';
+
+.@{badge-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-count,
+  &-dot,
+  .@{number-prefix-cls}-custom-component {
+    .@{badge-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+      direction: ltr;
+      transform: translate(-50%, -50%);
+      transform-origin: 0% 0%;
+    }
+  }
+
+  .@{badge-prefix-cls}-rtl& .@{number-prefix-cls}-custom-component {
+    right: auto;
+    left: 0;
+    transform: translate(-50%, -50%);
+    transform-origin: 0% 0%;
+  }
+
+  &-status {
+    &-text {
+      .@{badge-prefix-cls}-rtl & {
+        margin-right: 8px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    .@{badge-prefix-cls}-rtl & {
+      animation-name: antZoomBadgeInRtl;
+    }
+  }
+
+  &-zoom-leave {
+    .@{badge-prefix-cls}-rtl & {
+      animation-name: antZoomBadgeOutRtl;
+    }
+  }
+
+  &-not-a-wrapper {
+    .@{badge-prefix-cls}-count {
+      transform: none;
+    }
+  }
+}
+
+.@{ribbon-prefix-cls}-rtl {
+  direction: rtl;
+  &.@{ribbon-prefix-cls}-placement-end {
+    right: unset;
+    left: -8px;
+    border-bottom-right-radius: @border-radius-sm;
+    border-bottom-left-radius: 0;
+    .@{ribbon-prefix-cls}-corner {
+      right: unset;
+      left: 0;
+      border-color: currentColor currentColor transparent transparent;
+      &::after {
+        border-color: currentColor currentColor transparent transparent;
+      }
+    }
+  }
+  &.@{ribbon-prefix-cls}-placement-start {
+    right: -8px;
+    left: unset;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: @border-radius-sm;
+    .@{ribbon-prefix-cls}-corner {
+      right: 0;
+      left: unset;
+      border-color: currentColor transparent transparent currentColor;
+      &::after {
+        border-color: currentColor transparent transparent currentColor;
+      }
+    }
+  }
+}
+
+@keyframes antZoomBadgeInRtl {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes antZoomBadgeOutRtl {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+}

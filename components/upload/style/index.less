@@ -35,6 +35,7 @@
 
   &&-select-picture-card {
     display: table;
+    float: left;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
     margin-right: 8px;
@@ -51,13 +52,16 @@
       display: table-cell;
       width: 100%;
       height: 100%;
-      padding: 8px;
+      padding: @padding-xs;
       text-align: center;
       vertical-align: middle;
     }
 
     &:hover {
       border-color: @primary-color;
+      .@{upload-prefix-cls}-disabled& {
+        border-color: @border-color-base;
+      }
     }
   }
 
@@ -73,7 +77,7 @@
     transition: border-color 0.3s;
 
     .@{upload-prefix-cls} {
-      padding: 16px 0;
+      padding: @padding-md 0;
     }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
@@ -115,6 +119,7 @@
       color: @text-color-secondary;
       font-size: @font-size-base;
     }
+
     .@{iconfont-css-prefix}-plus {
       color: @disabled-color;
       font-size: 30px;
@@ -127,23 +132,73 @@
       color: @text-color-secondary;
     }
   }
+
+  &-picture-card-wrapper {
+    .clearfix;
+
+    display: inline-block;
+    width: 100%;
+  }
 }
 
 .@{upload-prefix-cls}-list {
   .reset-component;
   .clearfix;
+  line-height: @line-height-base;
+  &-item-list-type-text {
+    &:hover {
+      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
+        padding-right: 14px;
+      }
+      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
+        padding-right: 28px;
+      }
+    }
+  }
   &-item {
     position: relative;
-    height: 22px;
-    margin-top: 8px;
+    height: @line-height-base * @font-size-base;
+    margin-top: @margin-xs;
     font-size: @font-size-base;
     &-name {
       display: inline-block;
       width: 100%;
       padding-left: @font-size-base + 8px;
       overflow: hidden;
+      line-height: @line-height-base;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    &-name-icon-count-1 {
+      padding-right: 14px;
+    }
+
+    &-card-actions {
+      position: absolute;
+      right: 0;
+
+      &-btn {
+        opacity: 0;
+      }
+      &-btn.@{ant-prefix}-btn-sm {
+        height: 20px;
+        line-height: 1;
+      }
+
+      &.picture {
+        top: 22px;
+        line-height: 0;
+      }
+
+      &-btn:focus,
+      &.picture &-btn {
+        opacity: 1;
+      }
+
+      .@{iconfont-css-prefix} {
+        color: @upload-actions-color;
+      }
     }
 
     &-info {
@@ -153,14 +208,18 @@
 
       > span {
         display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .@{iconfont-css-prefix}-loading,
-      .@{iconfont-css-prefix}-paper-clip {
-        position: absolute;
-        top: @font-size-base / 2 - 2px;
-        color: @text-color-secondary;
-        font-size: @font-size-base;
+      .@{upload-prefix-cls}-text-icon {
+        .@{iconfont-css-prefix} {
+          position: absolute;
+          top: @font-size-base / 2 - 2px;
+          color: @text-color-secondary;
+          font-size: @font-size-base;
+        }
       }
     }
 
@@ -175,6 +234,7 @@
       cursor: pointer;
       opacity: 0;
       transition: all 0.3s;
+
       &:hover {
         color: @text-color;
       }
@@ -188,15 +248,23 @@
       opacity: 1;
     }
 
+    &:hover &-card-actions-btn {
+      opacity: 1;
+    }
+
     &-error,
-    &-error .@{iconfont-css-prefix}-paper-clip,
+    &-error .@{upload-prefix-cls}-text-icon > .@{iconfont-css-prefix},
     &-error &-name {
       color: @error-color;
     }
 
-    &-error .@{iconfont-css-prefix}-close {
-      color: @error-color !important;
-      opacity: 1;
+    &-error &-card-actions {
+      .@{iconfont-css-prefix} {
+        color: @error-color;
+      }
+      &-btn {
+        opacity: 1;
+      }
     }
 
     &-progress {
@@ -214,12 +282,14 @@
     .@{upload-item} {
       position: relative;
       height: 66px;
-      padding: 8px;
+      padding: @padding-xs;
       border: @border-width-base @upload-picture-card-border-style @border-color-base;
       border-radius: @border-radius-base;
+
       &:hover {
         background: transparent;
       }
+
       &-error {
         border-color: @error-color;
       }
@@ -243,10 +313,28 @@
       left: 8px;
       width: 48px;
       height: 48px;
-      font-size: 26px;
       line-height: 54px;
       text-align: center;
       opacity: 0.8;
+
+      .@{iconfont-css-prefix} {
+        font-size: 26px;
+      }
+    }
+
+    // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
+    .@{upload-item}-error .@{upload-item}-thumbnail {
+      .@{iconfont-css-prefix} {
+        svg path {
+          &[fill='#e6f7ff'] {
+            fill: color(~`colorPalette('@{error-color}', 1) `);
+          }
+
+          &[fill='#1890ff'] {
+            fill: @error-color;
+          }
+        }
+      }
     }
 
     .@{upload-item}-icon {
@@ -255,6 +343,14 @@
       left: 50%;
       font-size: 26px;
       transform: translate(-50%, -50%);
+
+      .@{iconfont-css-prefix} {
+        font-size: 26px;
+      }
+    }
+
+    .@{upload-item}-image {
+      max-width: 100%;
     }
 
     .@{upload-item}-thumbnail img {
@@ -278,6 +374,14 @@
       transition: all 0.3s;
     }
 
+    .@{upload-item}-name-icon-count-1 {
+      padding-right: 18px;
+    }
+
+    .@{upload-item}-name-icon-count-2 {
+      padding-right: 36px;
+    }
+
     .@{upload-item}-uploading .@{upload-item}-name {
       line-height: 28px;
     }
@@ -299,17 +403,22 @@
   }
 
   &-picture-card {
-    // https://github.com/ant-design/ant-design/issues/11183
-    float: left;
-
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }
+
+    &-container {
+      float: left;
+      width: @upload-picture-card-size;
+      height: @upload-picture-card-size;
+      margin: 0 @margin-xs @margin-xs 0;
+    }
+
     .@{upload-item} {
       float: left;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
-      margin: 0 8px 8px 0;
+      margin: 0 @margin-xs @margin-xs 0;
     }
 
     .@{upload-item}-info {
@@ -343,7 +452,8 @@
       opacity: 0;
       transition: all 0.3s;
 
-      .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-eye,
+      .@{iconfont-css-prefix}-download,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
         width: 16px;
@@ -352,6 +462,7 @@
         font-size: 16px;
         cursor: pointer;
         transition: all 0.3s;
+
         &:hover {
           color: @text-color-inverse;
         }
@@ -369,6 +480,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
 
     .@{upload-item}-name {
@@ -379,7 +491,9 @@
       text-align: center;
     }
 
-    .anticon-picture + .@{upload-item}-name {
+    .@{upload-item}-file + .@{upload-item}-name {
+      position: absolute;
+      bottom: 10px;
       display: block;
     }
 
@@ -390,16 +504,12 @@
 
       .@{upload-item}-info {
         height: auto;
+
         &::before,
-        .@{iconfont-css-prefix}-eye-o,
+        .@{iconfont-css-prefix}-eye,
         .@{iconfont-css-prefix}-delete {
           display: none;
         }
-      }
-
-      &-text {
-        margin-top: 18px;
-        color: @text-color-secondary;
       }
     }
 
@@ -476,3 +586,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl';

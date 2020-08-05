@@ -14,7 +14,8 @@ title:
 If you need several buttons, we recommend that you use 1 primary button + n secondary buttons, and if there are more than three operations, you can group some of them into `Dropdown.Button`.
 
 ```jsx
-import { Button, Menu, Dropdown, Icon } from 'antd';
+import { Button, Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 function handleMenuClick(e) {
   console.log('click', e);
@@ -29,15 +30,15 @@ const menu = (
 );
 
 ReactDOM.render(
-  <div>
+  <>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>
     <Dropdown overlay={menu}>
       <Button>
-        Actions <Icon type="down" />
+        Actions <DownOutlined />
       </Button>
     </Dropdown>
-  </div>,
+  </>,
   mountNode,
 );
 ```

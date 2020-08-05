@@ -1,0 +1,12 @@
+version: '3'
+services:
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui-test
+    volumes:
+      - './components:/app/components'
+      - './tests:/app/tests'
+      - './jest-stare:/app/jest-stare'
+      - './dist:/app/dist'
+    entrypoint: "jest --config .jest.image.js --no-cache"

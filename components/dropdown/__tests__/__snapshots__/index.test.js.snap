@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown overlay is function and has custom transitionName 1`] = `
+Array [
+  <button
+    class="ant-dropdown-trigger"
+    type="button"
+  >
+    button
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown"
+      style="opacity:0"
+    >
+      <div>
+        menu
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Dropdown overlay is string 1`] = `
+Array [
+  <button
+    class="ant-dropdown-trigger"
+    type="button"
+  >
+    button
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown"
+      style="opacity:0"
+    >
+      <span>
+        overlayNode
+      </span>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Dropdown rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-dropdown-trigger ant-dropdown-rtl"
+/>
+`;

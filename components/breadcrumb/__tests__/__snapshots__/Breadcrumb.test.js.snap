@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Breadcrumb filter React.Fragment 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Location
+    </span>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    :
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      Application Center
+    </a>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    /
+  </span>
+</div>
+`;
+
+exports[`Breadcrumb rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-breadcrumb ant-breadcrumb-rtl"
+/>
+`;
+
+exports[`Breadcrumb should accept undefined routes 1`] = `
+<div
+  class="ant-breadcrumb"
+/>
+`;
+
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 <div
   class="ant-breadcrumb"
@@ -83,9 +127,10 @@ exports[`Breadcrumb should render a menu 1`] = `
           first
         </a>
       </span>
-      <i
-        aria-label="icon: down"
+      <span
+        aria-label="down"
         class="anticon anticon-down"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -101,7 +146,7 @@ exports[`Breadcrumb should render a menu 1`] = `
             d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="ant-breadcrumb-separator"
@@ -113,9 +158,145 @@ exports[`Breadcrumb should render a menu 1`] = `
     <span
       class="ant-breadcrumb-link"
     >
-      <span>
+      <a
+        href="#/index/first/second"
+      >
         second
+      </a>
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      <span />
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Location
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Mock Node
       </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Application Center
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  0
+</div>
+`;
+
+exports[`Breadcrumb should support custom attribute 1`] = `
+<div
+  class="ant-breadcrumb"
+  data-custom="custom"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+      data-custom="custom-item"
+    >
+      xxx
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
     </span>
     <span
       class="ant-breadcrumb-separator"

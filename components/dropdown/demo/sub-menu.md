@@ -14,14 +14,17 @@ title:
 The menu has multiple levels.
 
 ```jsx
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
 const menu = (
   <Menu>
-    <Menu.Item>1st menu item</Menu.Item>
-    <Menu.Item>2nd menu item</Menu.Item>
+    <Menu.ItemGroup title="Group title">
+      <Menu.Item>1st menu item</Menu.Item>
+      <Menu.Item>2nd menu item</Menu.Item>
+    </Menu.ItemGroup>
     <SubMenu title="sub menu">
       <Menu.Item>3rd menu item</Menu.Item>
       <Menu.Item>4th menu item</Menu.Item>
@@ -35,8 +38,8 @@ const menu = (
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" href="#">
-      Cascading menu <Icon type="down" />
+    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+      Cascading menu <DownOutlined />
     </a>
   </Dropdown>,
   mountNode,

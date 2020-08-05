@@ -17,7 +17,7 @@ The vertical Slider.
 import { Slider } from 'antd';
 
 const style = {
-  float: 'left',
+  display: 'inline-block',
   height: 300,
   marginLeft: 70,
 };
@@ -35,7 +35,7 @@ const marks = {
 };
 
 ReactDOM.render(
-  <div style={{ height: 300 }}>
+  <>
     <div style={style}>
       <Slider vertical defaultValue={30} />
     </div>
@@ -45,7 +45,7 @@ ReactDOM.render(
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```

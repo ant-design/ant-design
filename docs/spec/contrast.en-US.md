@@ -1,5 +1,6 @@
 ---
-category: Principles
+category: Design Patterns
+type: Principles
 order: 3
 title: Contrast
 ---
@@ -45,4 +46,4 @@ Taking advantage of changing the typesetting, the typeface and the size, we high
 
 Taking advantage of changing colors and adding assistant shapes, we realize the comparison of state relation, which could help users differentiate various information better
 
-The forms we usually see include 『static contrast』 and 『dynamic contrast』.
+The forms we usually see include 「static contrast」 and 「dynamic contrast」.

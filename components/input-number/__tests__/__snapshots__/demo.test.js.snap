@@ -8,15 +8,15 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
-      <i
-        aria-label="icon: up"
+      <span
+        aria-label="up"
         class="anticon anticon-up ant-input-number-handler-up-inner"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -29,21 +29,21 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
-      <i
-        aria-label="icon: down"
+      <span
+        aria-label="down"
         class="anticon anticon-down ant-input-number-handler-down-inner"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -59,21 +59,21 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
             d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </div>
   <div
-    aria-valuemax="10"
-    aria-valuemin="1"
-    aria-valuenow="3"
     class="ant-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="3"
       autocomplete="off"
       class="ant-input-number-input"
       max="10"
       min="1"
+      role="spinbutton"
       step="1"
       value="3"
     />
@@ -89,15 +89,15 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
-      <i
-        aria-label="icon: up"
+      <span
+        aria-label="up"
         class="anticon anticon-up ant-input-number-handler-up-inner"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -110,21 +110,21 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
-      <i
-        aria-label="icon: down"
+      <span
+        aria-label="down"
         class="anticon anticon-down ant-input-number-handler-down-inner"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -140,20 +140,20 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
             d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </div>
   <div
-    aria-valuemax="10"
-    aria-valuemin="0"
     class="ant-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemax="10"
+      aria-valuemin="0"
       autocomplete="off"
       class="ant-input-number-input"
       max="10"
       min="0"
+      role="spinbutton"
       step="0.1"
       value=""
     />
@@ -162,7 +162,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-input-number ant-input-number-disabled"
   >
@@ -172,13 +172,14 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
       <span
         aria-disabled="true"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -191,21 +192,22 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
         aria-disabled="true"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -221,27 +223,27 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
-      aria-valuemax="10"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="10"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         disabled=""
         max="10"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />
     </div>
-  </div>
+  </div>,
   <div
     style="margin-top:20px"
   >
@@ -253,12 +255,12 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         Toggle disabled
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-input-number"
   >
@@ -266,15 +268,15 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -287,21 +289,21 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -317,24 +319,26 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
-      aria-valuemin="-9007199254740991"
-      aria-valuenow="1000"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="9007199254740991"
+        aria-valuemin="-9007199254740991"
+        aria-valuenow="1000"
         autocomplete="off"
         class="ant-input-number-input"
+        max="9007199254740991"
         min="-9007199254740991"
+        role="spinbutton"
         step="1"
         value="$ 1,000"
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-input-number"
   >
@@ -346,11 +350,12 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         aria-label="Increase Value"
         class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -363,21 +368,21 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -393,31 +398,33 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="100"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
         autocomplete="off"
         class="ant-input-number-input"
         max="100"
         min="0"
+        role="spinbutton"
         step="1"
         value="100%"
       />
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
-<div>
+<div
+  class="site-input-number-wrapper"
+>
   <div
     class="ant-input-number ant-input-number-lg"
   >
@@ -425,15 +432,15 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -446,21 +453,21 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -476,21 +483,21 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
-      aria-valuemax="100000"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100000"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         max="100000"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />
@@ -503,15 +510,15 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -524,21 +531,21 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -554,21 +561,21 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
-      aria-valuemax="100000"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100000"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         max="100000"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />
@@ -581,15 +588,15 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -602,21 +609,21 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -632,21 +639,21 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
-      aria-valuemax="100000"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100000"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         max="100000"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />

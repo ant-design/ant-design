@@ -9,7 +9,7 @@
   background-color: @collapse-header-bg;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
-  border-radius: @border-radius-base;
+  border-radius: @collapse-panel-border-radius;
 
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
@@ -17,7 +17,7 @@
     &:last-child {
       &,
       & > .@{collapse-prefix-cls}-header {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
+        border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
       }
     }
 
@@ -26,16 +26,17 @@
       padding: @collapse-header-padding;
       padding-left: @collapse-header-padding-extra;
       color: @heading-color;
-      line-height: 22px;
+      line-height: @line-height-base;
       cursor: pointer;
       transition: all 0.3s;
+      .clearfix;
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
 
         position: absolute;
         top: 50%;
-        left: @padding-md;
+        left: @collapse-header-arrow-left;
         display: inline-block;
         font-size: @font-size-sm;
         transform: translateY(-50%);
@@ -70,7 +71,7 @@
 
         .@{collapse-prefix-cls}-arrow {
           right: @padding-md;
-          left: initial;
+          left: auto;
         }
       }
     }
@@ -97,12 +98,12 @@
 
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
+      border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
     }
   }
 
   &-borderless {
-    background-color: @component-background;
+    background-color: @collapse-header-bg;
     border: 0;
   }
 
@@ -124,6 +125,22 @@
     padding-top: 4px;
   }
 
+  &-ghost {
+    background-color: transparent;
+    border: 0;
+    > .@{collapse-prefix-cls}-item {
+      border-bottom: 0;
+      > .@{collapse-prefix-cls}-content {
+        background-color: transparent;
+        border-top: 0;
+        > .@{collapse-prefix-cls}-content-box {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+      }
+    }
+  }
+
   & &-item-disabled > &-header {
     &,
     & > .arrow {
@@ -132,3 +149,5 @@
     }
   }
 }
+
+@import './rtl';

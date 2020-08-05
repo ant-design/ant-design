@@ -66,7 +66,7 @@ class TabsCard extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Card
           style={{ width: '100%' }}
           title="Card title"
@@ -85,13 +85,14 @@ class TabsCard extends React.Component {
           style={{ width: '100%' }}
           tabList={tabListNoTitle}
           activeTabKey={this.state.noTitleKey}
+          tabBarExtraContent={<a href="#">More</a>}
           onTabChange={key => {
             this.onTabChange(key, 'noTitleKey');
           }}
         >
           {contentListNoTitle[this.state.noTitleKey]}
         </Card>
-      </div>
+      </>
     );
   }
 }

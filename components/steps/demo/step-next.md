@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     const { current } = this.state;
     return (
-      <div>
+      <>
         <Steps current={current}>
           {steps.map(item => (
             <Step key={item.title} title={item.title} />
@@ -73,12 +73,12 @@ class App extends React.Component {
             </Button>
           )}
           {current > 0 && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+            <Button style={{ margin: '0 8px' }} onClick={() => this.prev()}>
               Previous
             </Button>
           )}
         </div>
-      </div>
+      </>
     );
   }
 }
@@ -90,7 +90,7 @@ ReactDOM.render(<App />, mountNode);
 .steps-content {
   margin-top: 16px;
   border: 1px dashed #e9e9e9;
-  border-radius: 6px;
+  border-radius: 2px;
   background-color: #fafafa;
   min-height: 200px;
   text-align: center;
@@ -101,3 +101,13 @@ ReactDOM.render(<App />, mountNode);
   margin-top: 24px;
 }
 ```
+
+<style>
+[data-theme="dark"] .steps-content {
+  margin-top: 16px;
+  border: 1px dashed #303030;
+  background-color: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.65);
+  padding-top: 80px;
+}
+</style>

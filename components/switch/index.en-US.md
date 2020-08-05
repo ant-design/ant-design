@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Switch
+cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 ---
 
 Switching Selector.
@@ -15,21 +16,21 @@ Switching Selector.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| autoFocus | get focus when component mounted | boolean | false |
-| checked | determine whether the `Switch` is checked | boolean | false |
-| checkedChildren | content to be shown when the state is checked | string\|ReactNode |  |
-| defaultChecked | to set the initial state | boolean | false |
+| autoFocus | Whether get focus when component mounted | boolean | false |
+| checked | Determine whether the Switch is checked | boolean | false |
+| checkedChildren | The content to be shown when the state is checked | string \| ReactNode | - |
+| defaultChecked | Whether to set the initial state | boolean | false |
 | disabled | Disable switch | boolean | false |
-| loading | loading state of switch | boolean | false |
-| size | the size of the `Switch`, options: `default` `small` | string | default |
-| unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode |  |
-| onChange | trigger when the checked state is changing | Function(checked: boolean, event: Event) |  |
-| onClick | trigger when clicked | Function(checked: boolean, event: Event) |  |
-| className | additional class to Switch | string | - |
+| loading | Loading state of switch | boolean | false |
+| size | The size of the Switch, options: `default` `small` | string | `default` |
+| unCheckedChildren | The content to be shown when the state is unchecked | string \| ReactNode | - |
+| onChange | Trigger when the checked state is changing | function(checked: boolean, event: Event) | - |
+| onClick | Trigger when clicked | function(checked: boolean, event: Event) | - |
+| className | The additional class to Switch | string | - |
 
 ## Methods
 
 | Name    | Description  |
 | ------- | ------------ |
-| blur()  | remove focus |
-| focus() | get focus    |
+| blur()  | Remove focus |
+| focus() | Get focus    |

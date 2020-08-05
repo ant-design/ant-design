@@ -10,17 +10,43 @@
 @gray-1: #fff;
 @gray-2: #fafafa;
 @gray-3: #f5f5f5;
-@gray-4: #e8e8e8;
+@gray-4: #f0f0f0;
 @gray-5: #d9d9d9;
 @gray-6: #bfbfbf;
 @gray-7: #8c8c8c;
 @gray-8: #595959;
-@gray-9: #262626;
-@gray-10: #000;
+@gray-9: #434343;
+@gray-10: #262626;
+@gray-11: #1f1f1f;
+@gray-12: #141414;
+@gray-13: #000;
 @border-color: rgba(229, 231, 235, 100);
 
 .color-palettes {
   margin: 0 1%;
+  &-dark {
+    margin: 0;
+    padding: 0 28px;
+    background-color: #141414;
+    .color-title {
+      color: fade(@white, 85);
+    }
+    .color-description {
+      color: fade(@white, 45);
+    }
+    .color-palette {
+      margin: 45px 3.5% 45px 0;
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      .main-color-item {
+        margin-right: 0;
+        &:hover {
+          margin-right: -8px;
+        }
+      }
+    }
+  }
 }
 .color-palette {
   display: inline-block;
@@ -39,6 +65,10 @@
       margin-left: 16px;
       font-size: 14px;
       font-family: Consolas, sans-serif;
+      .ant-row-rtl & {
+        margin-right: 16px;
+        margin-left: 0;
+      }
     }
     &-validation {
       position: relative;
@@ -46,6 +76,13 @@
       margin-left: 16px;
       color: @error-color;
       font-size: 13px;
+      .ant-row-rtl & {
+        margin-right: 16px;
+        margin-left: 0;
+      }
+      &-dark {
+        margin-left: 0;
+      }
     }
   }
 }
@@ -64,6 +101,16 @@
   .make-palette(lime);
   .make-palette(geekblue);
   .make-palette(gray);
+
+  .palette-gray-11 {
+    background: @gray-11;
+  }
+  .palette-gray-12 {
+    background: @gray-12;
+  }
+  .palette-gray-13 {
+    background: @gray-13;
+  }
 
   text-align: left;
 
@@ -128,6 +175,25 @@
 
 .color-palette-horizontal {
   width: 100%;
+  &-dark {
+    height: 303px;
+    padding: 32px 28px;
+    background-color: #141414;
+    .color-palette-picker {
+      margin-bottom: 0;
+    }
+    .color-palette-pick {
+      color: fade(@white, 65);
+      text-align: left;
+      &-hex {
+        color: fade(@white, 65);
+      }
+      .ant-row-rtl & {
+        direction: rtl;
+        text-align: right;
+      }
+    }
+  }
 
   .main-color {
     display: flex;

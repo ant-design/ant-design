@@ -43,7 +43,7 @@ class IntegerStep extends React.Component {
           <InputNumber
             min={1}
             max={20}
-            style={{ marginLeft: 16 }}
+            style={{ margin: '0 16px' }}
             value={inputValue}
             onChange={this.onChange}
           />
@@ -59,7 +59,7 @@ class DecimalStep extends React.Component {
   };
 
   onChange = value => {
-    if (Number.isNaN(value)) {
+    if (isNaN(value)) {
       return;
     }
     this.setState({
@@ -84,7 +84,7 @@ class DecimalStep extends React.Component {
           <InputNumber
             min={0}
             max={1}
-            style={{ marginLeft: 16 }}
+            style={{ margin: '0 16px' }}
             step={0.01}
             value={inputValue}
             onChange={this.onChange}

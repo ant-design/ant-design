@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 11
 title:
   zh-CN: 三种大小
   en-US: Three Sizes
@@ -14,9 +14,9 @@ title:
 The input box comes in three sizes. `default` will be used if `size` is omitted.
 
 ```jsx
-import { DatePicker, Radio } from 'antd';
+import { DatePicker, Radio, Space } from 'antd';
 
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
+const { RangePicker } = DatePicker;
 
 class PickerSizesDemo extends React.Component {
   state = {
@@ -30,22 +30,17 @@ class PickerSizesDemo extends React.Component {
   render() {
     const { size } = this.state;
     return (
-      <div>
+      <Space direction="vertical" size={12}>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
           <Radio.Button value="large">Large</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
-        <br />
-        <br />
         <DatePicker size={size} />
-        <br />
-        <MonthPicker size={size} placeholder="Select Month" />
-        <br />
+        <DatePicker size={size} picker="month" />
         <RangePicker size={size} />
-        <br />
-        <WeekPicker size={size} placeholder="Select Week" />
-      </div>
+        <DatePicker size={size} picker="week" />
+      </Space>
     );
   }
 }

@@ -22,9 +22,9 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
-<div>
+Array [
   <div
-    style="border-bottom:1px solid #E9E9E9"
+    class="site-checkbox-all-wrapper"
   >
     <label
       class="ant-checkbox-wrapper"
@@ -44,8 +44,8 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
         Check all
       </span>
     </label>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-checkbox-group"
   >
@@ -108,12 +108,12 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
         Orange
       </span>
     </label>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
-<div>
+Array [
   <p
     style="margin-bottom:20px"
   >
@@ -136,7 +136,7 @@ exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
         Checked-Enabled
       </span>
     </label>
-  </p>
+  </p>,
   <p>
     <button
       class="ant-btn ant-btn-primary ant-btn-sm"
@@ -148,19 +148,19 @@ exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-sm"
-      style="margin-left:10px"
+      style="margin:0 10px"
       type="button"
     >
       <span>
         Disable
       </span>
     </button>
-  </p>
-</div>
+  </p>,
+]
 `;
 
 exports[`renders ./components/checkbox/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
@@ -176,8 +176,8 @@ exports[`renders ./components/checkbox/demo/disabled.md correctly 1`] = `
         class="ant-checkbox-inner"
       />
     </span>
-  </label>
-  <br />
+  </label>,
+  <br />,
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
@@ -194,12 +194,12 @@ exports[`renders ./components/checkbox/demo/disabled.md correctly 1`] = `
         class="ant-checkbox-inner"
       />
     </span>
-  </label>
-</div>
+  </label>,
+]
 `;
 
 exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-checkbox-group"
   >
@@ -261,9 +261,9 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         Orange
       </span>
     </label>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-checkbox-group"
   >
@@ -325,9 +325,9 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         Orange
       </span>
     </label>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-checkbox-group"
   >
@@ -392,8 +392,8 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         Orange
       </span>
     </label>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `

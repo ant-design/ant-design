@@ -14,6 +14,26 @@
     font-size: @font-size-base;
   }
 
+  &-steps {
+    display: inline-block;
+    &-outer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    &-item {
+      flex-shrink: 0;
+      min-width: 2px;
+      margin-right: 2px;
+      background: @progress-steps-item-bg;
+      transition: all 0.3s;
+
+      &-active {
+        background: @progress-default-color;
+      }
+    }
+  }
+
   &-small&-line,
   &-small&-line &-text .@{iconfont-css-prefix} {
     font-size: @font-size-sm;
@@ -34,9 +54,10 @@
     position: relative;
     display: inline-block;
     width: 100%;
+    overflow: hidden;
     vertical-align: middle;
     background-color: @progress-remaining-color;
-    border-radius: 100px;
+    border-radius: @progress-radius;
   }
 
   &-circle-trail {
@@ -45,13 +66,19 @@
 
   &-circle-path {
     animation: ~'@{ant-prefix}-progress-appear' 0.3s;
-    stroke: @progress-default-color;
+  }
+
+  &-inner:not(.@{ant-prefix}-progress-circle-gradient) {
+    .@{ant-prefix}-progress-circle-path {
+      stroke: @progress-default-color;
+    }
   }
 
   &-success-bg,
   &-bg {
     position: relative;
     background-color: @progress-default-color;
+    border-radius: @progress-radius;
     transition: all 0.4s @ease-out-circ 0s;
   }
 
@@ -67,7 +94,7 @@
     width: 2em;
     margin-left: 8px;
     color: @text-color-secondary;
-    font-size: 1em;
+    font-size: @progress-text-font-size;
     line-height: 1;
     white-space: nowrap;
     text-align: left;
@@ -100,6 +127,9 @@
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
+  }
+
+  &-status-exception &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
       stroke: @error-color;
     }
@@ -112,6 +142,9 @@
     .@{progress-prefix-cls}-text {
       color: @success-color;
     }
+  }
+
+  &-status-success &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
       stroke: @success-color;
     }
@@ -131,6 +164,7 @@
     margin: 0;
     padding: 0;
     color: @progress-text-color;
+    font-size: @progress-circle-text-font-size;
     line-height: 1;
     white-space: normal;
     text-align: center;
@@ -167,3 +201,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl';

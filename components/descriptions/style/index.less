@@ -3,17 +3,28 @@
 
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
-@descriptions-default-padding: 16px 24px;
-@descriptions-middle-padding: 12px 24px;
-@descriptions-small-padding: 8px 16px;
-
 .@{descriptions-prefix-cls} {
+  &-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: @descriptions-title-margin-bottom;
+  }
+
   &-title {
-    margin-bottom: 20px;
+    flex: auto;
+    overflow: hidden;
     color: @heading-color;
     font-weight: bold;
     font-size: @font-size-lg;
     line-height: @line-height-base;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-extra {
+    margin-left: auto;
+    color: @descriptions-extra-color;
+    font-size: @font-size-base;
   }
 
   &-view {
@@ -27,8 +38,9 @@
   }
 
   &-row {
+    > th,
     > td {
-      padding-bottom: 16px;
+      padding-bottom: @descriptions-item-padding-bottom;
     }
     &:last-child {
       border-bottom: none;
@@ -37,14 +49,34 @@
 
   &-item-label {
     color: @heading-color;
+    font-weight: normal;
     font-size: @font-size-base;
     line-height: @line-height-base;
-    white-space: nowrap;
+    text-align: start;
+
     &::after {
+      & when (@descriptions-item-trailing-colon=true) {
+        content: ':';
+      }
+      & when not (@descriptions-item-trailing-colon=true) {
+        content: ' ';
+      }
+
       position: relative;
       top: -0.5px;
-      margin: 0 8px 0 2px;
-      content: ':';
+      margin: 0 @descriptions-item-label-colon-margin-right 0
+        @descriptions-item-label-colon-margin-left;
+    }
+
+    &.@{descriptions-prefix-cls}-item-no-colon::after {
+      content: ' ';
+    }
+  }
+
+  &-item-no-label {
+    &::after {
+      margin: 0;
+      content: '';
     }
   }
 
@@ -58,51 +90,52 @@
   &-item {
     padding-bottom: 0;
     > span {
-      display: inline-block;
-    }
-    .@{descriptions-prefix-cls}-item-label {
-      float: left;
-      padding: 0 !important;
-    }
-    .@{descriptions-prefix-cls}-item-content {
-      float: left;
-      padding: 0 !important;
+      display: inline-flex;
+      align-items: baseline;
     }
   }
 
-  // padding setting
-  .@{descriptions-prefix-cls}-item-label,
-  .@{descriptions-prefix-cls}-item-content {
-    padding: @descriptions-default-padding;
+  &-middle {
+    .@{descriptions-prefix-cls}-row {
+      > th,
+      > td {
+        padding-bottom: @padding-sm;
+      }
+    }
   }
 
-  &.bordered.middle {
-    .@{descriptions-prefix-cls}-item-label,
-    .@{descriptions-prefix-cls}-item-content {
-      padding: @descriptions-middle-padding;
+  &-small {
+    .@{descriptions-prefix-cls}-row {
+      > th,
+      > td {
+        padding-bottom: @padding-xs;
+      }
     }
   }
-  &.bordered.small {
-    .@{descriptions-prefix-cls}-item-label,
-    .@{descriptions-prefix-cls}-item-content {
-      padding: @descriptions-small-padding;
-    }
-  }
-  &.bordered {
+
+  &-bordered {
     .@{descriptions-prefix-cls}-view {
       border: 1px solid @border-color-split;
       > table {
         table-layout: auto;
       }
     }
+
     .@{descriptions-prefix-cls}-item-label,
     .@{descriptions-prefix-cls}-item-content {
+      padding: @descriptions-default-padding;
       border-right: 1px solid @border-color-split;
+
+      &:last-child {
+        border-right: none;
+      }
     }
 
-    .@{descriptions-prefix-cls}-item-label:last-child,
-    .@{descriptions-prefix-cls}-item-content:last-child {
-      border-right: none;
+    .@{descriptions-prefix-cls}-item-label {
+      background-color: @descriptions-bg;
+      &::after {
+        display: none;
+      }
     }
 
     .@{descriptions-prefix-cls}-row {
@@ -112,11 +145,20 @@
       }
     }
 
-    .@{descriptions-prefix-cls}-item-label {
-      background-color: #fafafa;
-      &::after {
-        display: none;
+    &.@{descriptions-prefix-cls}-middle {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        padding: @descriptions-middle-padding;
+      }
+    }
+
+    &.@{descriptions-prefix-cls}-small {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        padding: @descriptions-small-padding;
       }
     }
   }
 }
+
+@import './rtl';

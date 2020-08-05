@@ -14,12 +14,13 @@ title:
 Use skeleton in list component.
 
 ```jsx
-import { Skeleton, Switch, List, Avatar, Icon } from 'antd';
+import { Skeleton, Switch, List, Avatar } from 'antd';
+import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 
 const listData = [];
 for (let i = 0; i < 3; i++) {
   listData.push({
-    href: 'http://ant.design',
+    href: 'https://ant.design',
     title: `ant design part ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     description:
@@ -29,9 +30,9 @@ for (let i = 0; i < 3; i++) {
   });
 }
 
-const IconText = ({ type, text }) => (
+const IconText = ({ icon, text }) => (
   <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
+    {React.createElement(icon, { style: { marginRight: 8 } })}
     {text}
   </span>
 );
@@ -49,7 +50,7 @@ class App extends React.Component {
     const { loading } = this.state;
 
     return (
-      <div>
+      <>
         <Switch checked={!loading} onChange={this.onChange} />
 
         <List
@@ -61,9 +62,9 @@ class App extends React.Component {
               key={item.title}
               actions={
                 !loading && [
-                  <IconText type="star-o" text="156" />,
-                  <IconText type="like-o" text="156" />,
-                  <IconText type="message" text="2" />,
+                  <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                  <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+                  <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
                 ]
               }
               extra={
@@ -87,7 +88,7 @@ class App extends React.Component {
             </List.Item>
           )}
         />
-      </div>
+      </>
     );
   }
 }

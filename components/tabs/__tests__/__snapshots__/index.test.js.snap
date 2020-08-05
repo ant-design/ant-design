@@ -2,139 +2,183 @@
 
 exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top"
 >
   <div>
     custom-tab-bar
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
+      class="ant-tabs-content ant-tabs-content-top"
     >
       <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
         tabindex="0"
-      />
-      foo
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-rtl"
+>
+  <div
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <div
+      class="ant-tabs-nav-wrap"
+    >
       <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
+        class="ant-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            xx
+          </div>
+        </div>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
         tabindex="0"
       />
     </div>
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;
 
 exports[`Tabs tabPosition remove card 1`] = `
 <div
-  class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line"
+  class="ant-tabs ant-tabs-left"
 >
   <div
-    class="ant-tabs-bar ant-tabs-left-bar"
+    class="ant-tabs-nav"
     role="tablist"
-    tabindex="0"
   >
     <div
-      class="ant-tabs-nav-container"
+      class="ant-tabs-nav-wrap"
     >
-      <span
-        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-prev-icon"
-        >
-          <i
-            aria-label="icon: up"
-            class="anticon anticon-up ant-tabs-tab-prev-icon-target"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="up"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-              />
-            </svg>
-          </i>
-        </span>
-      </span>
-      <span
-        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-next-icon"
-        >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-tabs-tab-next-icon-target"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
-        </span>
-      </span>
       <div
-        class="ant-tabs-nav-wrap"
+        class="ant-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
         <div
-          class="ant-tabs-nav-scroll"
+          class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
-            class="ant-tabs-nav ant-tabs-nav-animated"
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div>
-              <div
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                role="tab"
-              >
-                foo
-              </div>
-            </div>
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
+            foo
           </div>
         </div>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       class="ant-tabs-extra-content"
@@ -143,36 +187,20 @@ exports[`Tabs tabPosition remove card 1`] = `
     </div>
   </div>
   <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
-  <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-left-content"
-    style="margin-top:0%"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
+      class="ant-tabs-content ant-tabs-content-left"
     >
       <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
         tabindex="0"
-      />
-      foo
-      <div
-        role="presentation"
-        style="width:0;height:0;overflow:hidden;position:absolute"
-        tabindex="0"
-      />
+      >
+        foo
+      </div>
     </div>
   </div>
-  <div
-    role="presentation"
-    style="width:0;height:0;overflow:hidden;position:absolute"
-    tabindex="0"
-  />
 </div>
 `;

@@ -5,6 +5,7 @@
 
 .@{comment-prefix-cls} {
   position: relative;
+  background-color: @comment-bg;
 
   &-inner {
     display: flex;
@@ -14,8 +15,9 @@
   &-avatar {
     position: relative;
     flex-shrink: 0;
-    margin-right: 12px;
+    margin-right: @margin-sm;
     cursor: pointer;
+
     img {
       width: 32px;
       height: 32px;
@@ -32,13 +34,13 @@
 
     &-author {
       display: flex;
+      flex-wrap: wrap;
       justify-content: flex-start;
-      margin-bottom: 4px;
+      margin-bottom: @margin-xss;
       font-size: @comment-font-size-base;
       & > a,
       & > span {
-        height: 18px;
-        padding-right: 8px;
+        padding-right: @padding-xs;
         font-size: @comment-font-size-sm;
         line-height: 18px;
       }
@@ -63,23 +65,27 @@
     }
 
     &-detail p {
+      margin-bottom: @comment-content-detail-p-margin-bottom;
       white-space: pre-wrap;
     }
   }
 
   &-actions {
-    margin-top: 12px;
+    margin-top: @comment-actions-margin-top;
+    margin-bottom: @comment-actions-margin-bottom;
     padding-left: 0;
+
     > li {
       display: inline-block;
       color: @comment-action-color;
       > span {
-        padding-right: 10px;
+        margin-right: 10px;
         color: @comment-action-color;
         font-size: @comment-font-size-sm;
         cursor: pointer;
         transition: color 0.3s;
         user-select: none;
+
         &:hover {
           color: @comment-action-hover-color;
         }
@@ -91,3 +97,5 @@
     margin-left: @comment-nest-indent;
   }
 }
+
+@import './rtl';

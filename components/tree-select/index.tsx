@@ -1,35 +1,61 @@
 import * as React from 'react';
-import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
+import RcTreeSelect, {
+  TreeNode,
+  SHOW_ALL,
+  SHOW_PARENT,
+  SHOW_CHILD,
+  TreeSelectProps as RcTreeSelectProps,
+} from 'rc-tree-select';
 import classNames from 'classnames';
-import { TreeSelectProps, TreeNodeValue } from './interface';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
-import Icon from '../icon';
-import { AntTreeNodeProps } from '../tree';
 import omit from 'omit.js';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import devWarning from '../_util/devWarning';
+import { AntTreeNodeProps } from '../tree';
+import getIcons from '../select/utils/iconUtil';
+import renderSwitcherIcon from '../tree/utils/iconUtil';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
-export { TreeNode, TreeSelectProps } from './interface';
+type RawValue = string | number;
 
-export default class TreeSelect<T extends TreeNodeValue> extends React.Component<
-  TreeSelectProps<T>,
-  any
-> {
+export interface LabeledValue {
+  key?: string;
+  value: RawValue;
+  label: React.ReactNode;
+}
+
+export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
+
+export interface TreeSelectProps<T>
+  extends Omit<
+    RcTreeSelectProps<T>,
+    'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
+  > {
+  suffixIcon?: React.ReactNode;
+  size?: SizeType;
+  bordered?: boolean;
+}
+
+class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   static TreeNode = TreeNode;
-  static SHOW_ALL = SHOW_ALL;
-  static SHOW_PARENT = SHOW_PARENT;
-  static SHOW_CHILD = SHOW_CHILD;
+
+  static SHOW_ALL: typeof SHOW_ALL = SHOW_ALL;
+
+  static SHOW_PARENT: typeof SHOW_PARENT = SHOW_PARENT;
+
+  static SHOW_CHILD: typeof SHOW_CHILD = SHOW_CHILD;
 
   static defaultProps = {
     transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
+    choiceTransitionName: '',
+    bordered: true,
   };
 
-  private rcTreeSelect: any;
+  selectRef = React.createRef<RcTreeSelect>();
 
   constructor(props: TreeSelectProps<T>) {
     super(props);
 
-    warning(
+    devWarning(
       props.multiple !== false || !props.treeCheckable,
       'TreeSelect',
       '`multiple` will alway be `true` when `treeCheckable` is true',
@@ -37,95 +63,131 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
   }
 
   focus() {
-    this.rcTreeSelect.focus();
+    if (this.selectRef.current) {
+      this.selectRef.current.focus();
+    }
   }
 
   blur() {
-    this.rcTreeSelect.blur();
+    if (this.selectRef.current) {
+      this.selectRef.current.blur();
+    }
   }
-
-  saveTreeSelect = (node: typeof RcTreeSelect) => {
-    this.rcTreeSelect = node;
-  };
-
-  renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
-    if (loading) {
-      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
-    }
-    if (isLeaf) {
-      return null;
-    }
-    return <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />;
-  };
 
   renderTreeSelect = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    direction,
+    virtual,
+    dropdownMatchSelectWidth,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
+      size: customizeSize,
       className,
-      size,
+      treeCheckable,
+      multiple,
+      listHeight = 256,
+      listItemHeight = 26,
       notFoundContent,
-      dropdownStyle,
-      dropdownClassName,
-      suffixIcon,
+      switcherIcon,
+      treeLine,
       getPopupContainer,
-      ...restProps
+      dropdownClassName,
+      bordered,
+      treeIcon = false,
     } = this.props;
-    const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
-    const cls = classNames(
+    const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
+    const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
+
+    const mergedDropdownClassName = classNames(
+      dropdownClassName,
+      `${treeSelectPrefixCls}-dropdown`,
       {
-        [`${prefixCls}-lg`]: size === 'large',
-        [`${prefixCls}-sm`]: size === 'small',
+        [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
       },
-      className,
     );
 
-    // showSearch: single - false, multiple - true
-    let { showSearch } = restProps;
-    if (!('showSearch' in restProps)) {
-      showSearch = !!(restProps.multiple || restProps.treeCheckable);
+    const isMultiple = !!(treeCheckable || multiple);
+
+    // ===================== Icons =====================
+    const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+      ...this.props,
+      multiple: isMultiple,
+      prefixCls,
+    });
+
+    // ===================== Empty =====================
+    let mergedNotFound: React.ReactNode;
+    if (notFoundContent !== undefined) {
+      mergedNotFound = notFoundContent;
+    } else {
+      mergedNotFound = renderEmpty('Select');
     }
 
-    let checkable = rest.treeCheckable;
-    if (checkable) {
-      checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
-    }
-
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon)
-        : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
-
-    const removeIcon = <Icon type="close" className={`${prefixCls}-remove-icon`} />;
-
-    const clearIcon = (
-      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
-    );
+    // ==================== Render =====================
+    const selectProps = omit(this.props, [
+      'prefixCls',
+      'suffixIcon',
+      'itemIcon',
+      'removeIcon',
+      'clearIcon',
+      'switcherIcon',
+      'size',
+      'bordered',
+    ]);
 
     return (
-      <RcTreeSelect
-        switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          this.renderSwitcherIcon(prefixCls, nodeProps)
-        }
-        inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
-        {...rest}
-        showSearch={showSearch}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
-        prefixCls={prefixCls}
-        className={cls}
-        dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
-        treeCheckable={checkable}
-        notFoundContent={notFoundContent || renderEmpty('Select')}
-        ref={this.saveTreeSelect}
-      />
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const mergedClassName = classNames(
+            !customizePrefixCls && treeSelectPrefixCls,
+            {
+              [`${prefixCls}-lg`]: mergedSize === 'large',
+              [`${prefixCls}-sm`]: mergedSize === 'small',
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+              [`${prefixCls}-borderless`]: !bordered,
+            },
+            className,
+          );
+
+          return (
+            <RcTreeSelect
+              virtual={virtual}
+              dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+              {...selectProps}
+              ref={this.selectRef}
+              prefixCls={prefixCls}
+              className={mergedClassName}
+              listHeight={listHeight}
+              listItemHeight={listItemHeight}
+              treeCheckable={
+                treeCheckable ? (
+                  <span className={`${prefixCls}-tree-checkbox-inner`} />
+                ) : (
+                  treeCheckable
+                )
+              }
+              inputIcon={suffixIcon}
+              menuItemSelectedIcon={itemIcon}
+              removeIcon={removeIcon}
+              clearIcon={clearIcon}
+              switcherIcon={(nodeProps: AntTreeNodeProps) =>
+                renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
+              }
+              showTreeIcon={treeIcon}
+              notFoundContent={mergedNotFound}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              treeMotion={null}
+              dropdownClassName={mergedDropdownClassName}
+            />
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 
@@ -133,3 +195,7 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
     return <ConfigConsumer>{this.renderTreeSelect}</ConfigConsumer>;
   }
 }
+
+export { TreeNode };
+
+export default TreeSelect;

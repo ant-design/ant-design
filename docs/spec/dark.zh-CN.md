@@ -1,0 +1,45 @@
+---
+category: 全局样式
+order: 6
+title: 暗黑模式
+---
+
+暗黑模式是指把所有 UI 换成黑色或者深色的一个主题模式。
+
+## 何时使用
+
+- 当需要长时间在暗光环境下工作时，建议使用暗黑模式，减小亮度对比带来的视觉压力，保证使用者的体验舒适。
+- 当需要沉浸式的专注工作内容时，建议使用暗黑模式，可以帮助使用者更关注凸显出来的内容和操作。
+  > 如同在电影院看电影时要全场关灯，是一样的原理。
+
+## 设计原则
+
+1. **内容的舒适性**
+
+   暗黑模式下避免使用对比很强的色彩或内容，长时间使用会带来疲劳感。
+
+2. **信息的一致性**
+
+   暗黑模式下的信息内容需要和浅色模式保持一致性，不应该打破原有的层级关系。
+
+## 色彩
+
+颜色的应用上，我们基于 12 套基础色板，并结合透明度规则处理，来让色彩在不同的环境色下可以更好融合。
+
+### 基础色板
+
+```__react
+import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
+
+ReactDOM.render(<ColorPalettes dark />, mountNode);
+```
+
+### 色板生成工具
+
+同样，我们也提供了一套暗色下的色板生成工具，需要选择你的主色以及页面的背景色，我们会为你生成一套暗色下的色板
+
+```__react
+import ColorPaletteToolDark from '../../site/theme/template/Color/ColorPaletteToolDark';
+
+ReactDOM.render(<ColorPaletteToolDark />, mountNode);
+```

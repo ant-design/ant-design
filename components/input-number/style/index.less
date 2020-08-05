@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 
 @input-number-prefix-cls: ~'@{ant-prefix}-input-number';
+@form-item-prefix-cls: ~'@{ant-prefix}-form-item';
 
 .@{input-number-prefix-cls} {
   .reset-component;
@@ -31,7 +32,7 @@
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
-      color: @primary-5;
+      color: @input-number-handler-hover-bg;
     }
   }
 
@@ -50,7 +51,11 @@
   }
 
   &:hover {
-    .hover();
+    .hover(@input-number-hover-border-color);
+    & + .@{form-item-prefix-cls}-children-icon {
+      opacity: 0;
+      transition: opacity 0.24s linear 0.24s;
+    }
   }
 
   &-focused {
@@ -111,8 +116,8 @@
     right: 0;
     width: 22px;
     height: 100%;
-    background: @component-background;
-    border-left: @border-width-base @border-style-base @border-color-base;
+    background: @input-number-handler-bg;
+    border-left: @border-width-base @border-style-base @input-number-handler-border-color;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
@@ -140,6 +145,7 @@
   }
 
   &-handler-up {
+    border-top-right-radius: @border-radius-base;
     cursor: pointer;
     &-inner {
       top: 50%;
@@ -154,11 +160,12 @@
   &-handler-down {
     top: 0;
     border-top: @border-width-base @border-style-base @border-color-base;
+    border-bottom-right-radius: @border-radius-base;
     cursor: pointer;
     &-inner {
       top: 50%;
-      margin-top: -6px;
       text-align: center;
+      transform: translateY(-50%);
     }
     &:hover {
       height: 60% !important;
@@ -175,3 +182,5 @@
     color: @disabled-color;
   }
 }
+
+@import './rtl';

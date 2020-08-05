@@ -1,14 +1,12 @@
-import classNames from 'classnames';
-import omit from 'omit.js';
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
+import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
-import { OptionProps as RcOptionProps } from 'rc-mentions/lib/Option';
 import Spin from '../spin';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import { composeRef } from '../_util/ref';
 
-const Option: React.FunctionComponent<RcOptionProps> = RcMentions.Option;
+export const { Option } = RcMentions;
 
 function loadingFilterOption() {
   return true;
@@ -40,76 +38,57 @@ interface MentionsEntity {
   value: string;
 }
 
-class Mentions extends React.Component<MentionProps, MentionState> {
-  static Option = Option;
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<HTMLElement>> {
+  Option: typeof Option;
+  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
+}
 
-  static getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
-    const { prefix = '@', split = ' ' } = config || {};
-    const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
+const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = (
+  {
+    prefixCls: customizePrefixCls,
+    className,
+    disabled,
+    loading,
+    filterOption,
+    children,
+    notFoundContent,
+    ...restProps
+  },
+  ref,
+) => {
+  const [focused, setFocused] = React.useState(false);
+  const innerRef = React.useRef<HTMLElement>();
+  const mergedRef = composeRef(ref, innerRef);
+  const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
 
-    return value
-      .split(split)
-      .map((str = ''): MentionsEntity | null => {
-        let hitPrefix: string | null = null;
-
-        prefixList.some(prefixStr => {
-          const startStr = str.slice(0, prefixStr.length);
-          if (startStr === prefixStr) {
-            hitPrefix = prefixStr;
-            return true;
-          }
-          return false;
-        });
-
-        if (hitPrefix !== null) {
-          return {
-            prefix: hitPrefix,
-            value: str.slice(hitPrefix!.length),
-          };
-        }
-        return null;
-      })
-      .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
-  };
-
-  state = {
-    focused: false,
-  };
-
-  onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
-    const { onFocus } = this.props;
-    if (onFocus) {
-      onFocus(...args);
+  const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
+    if (restProps.onFocus) {
+      restProps.onFocus(...args);
     }
-    this.setState({
-      focused: true,
-    });
+    setFocused(true);
   };
 
-  onBlur: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
-    const { onBlur } = this.props;
-    if (onBlur) {
-      onBlur(...args);
+  const onBlur: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
+    if (restProps.onBlur) {
+      restProps.onBlur(...args);
     }
-    this.setState({
-      focused: false,
-    });
+
+    setFocused(false);
   };
 
-  getNotFoundContent(renderEmpty: RenderEmptyHandler) {
-    const { notFoundContent } = this.props;
+  const getNotFoundContent = () => {
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
 
     return renderEmpty('Select');
-  }
+  };
 
-  getOptions = () => {
-    const { children, loading } = this.props;
+  const getOptions = () => {
     if (loading) {
       return (
-        <Option value={'ANTD_SEARCHING'} disabled>
+        <Option value="ANTD_SEARCHING" disabled>
           <Spin size="small" />
         </Option>
       );
@@ -118,46 +97,70 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     return children;
   };
 
-  getFilterOption = (): any => {
-    const { filterOption, loading } = this.props;
+  const getFilterOption = (): any => {
     if (loading) {
       return loadingFilterOption;
     }
     return filterOption;
   };
 
-  renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
-    const { focused } = this.state;
-    const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
-    const prefixCls = getPrefixCls('mentions', customizePrefixCls);
-    const mentionsProps = omit(restProps, ['loading']);
+  const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
-    const mergedClassName = classNames(className, {
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-focused`]: focused,
-    });
+  const mergedClassName = classNames(className, {
+    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-focused`]: focused,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
 
-    return (
-      <RcMentions
-        prefixCls={prefixCls}
-        notFoundContent={this.getNotFoundContent(renderEmpty)}
-        className={mergedClassName}
-        disabled={disabled}
-        {...mentionsProps}
-        filterOption={this.getFilterOption()}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-      >
-        {this.getOptions()}
-      </RcMentions>
-    );
-  };
+  return (
+    <RcMentions
+      prefixCls={prefixCls}
+      notFoundContent={getNotFoundContent()}
+      className={mergedClassName}
+      disabled={disabled}
+      direction={direction}
+      {...restProps}
+      filterOption={getFilterOption()}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      ref={mergedRef as any}
+    >
+      {getOptions()}
+    </RcMentions>
+  );
+};
 
-  render() {
-    return <ConfigConsumer>{this.renderMentions}</ConfigConsumer>;
-  }
-}
+const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
+Mentions.displayName = 'Mentions';
+Mentions.Option = Option;
 
-polyfill(Mentions);
+Mentions.getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
+  const { prefix = '@', split = ' ' } = config || {};
+  const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
+
+  return value
+    .split(split)
+    .map((str = ''): MentionsEntity | null => {
+      let hitPrefix: string | null = null;
+
+      prefixList.some(prefixStr => {
+        const startStr = str.slice(0, prefixStr.length);
+        if (startStr === prefixStr) {
+          hitPrefix = prefixStr;
+          return true;
+        }
+        return false;
+      });
+
+      if (hitPrefix !== null) {
+        return {
+          prefix: hitPrefix,
+          value: str.slice(hitPrefix!.length),
+        };
+      }
+      return null;
+    })
+    .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
+};
 
 export default Mentions;

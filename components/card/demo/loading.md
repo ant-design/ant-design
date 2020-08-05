@@ -14,7 +14,8 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ```jsx
-import { Skeleton, Switch, Card, Icon, Avatar } from 'antd';
+import { Skeleton, Switch, Card, Avatar } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
@@ -31,7 +32,7 @@ class App extends React.Component {
     const { loading } = this.state;
 
     return (
-      <div>
+      <>
         <Switch checked={!loading} onChange={this.onChange} />
 
         <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
@@ -46,7 +47,11 @@ class App extends React.Component {
 
         <Card
           style={{ width: 300, marginTop: 16 }}
-          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+          actions={[
+            <SettingOutlined key="setting" />,
+            <EditOutlined key="edit" />,
+            <EllipsisOutlined key="ellipsis" />,
+          ]}
         >
           <Skeleton loading={loading} avatar active>
             <Meta
@@ -58,7 +63,7 @@ class App extends React.Component {
             />
           </Skeleton>
         </Card>
-      </div>
+      </>
     );
   }
 }

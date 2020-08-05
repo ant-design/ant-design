@@ -3,6 +3,7 @@ category: Components
 subtitle: 文字提示
 type: 数据展示
 title: Tooltip
+cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 ---
 
 简单的文字提示气泡框。
@@ -15,29 +16,31 @@ title: Tooltip
 
 ## API
 
-| 参数  | 说明     | 类型                               | 默认值 |
-| ----- | -------- | ---------------------------------- | ------ |
-| title | 提示文字 | string\|ReactNode\|() => ReactNode | 无     |
+| 参数  | 说明     | 类型                                   | 默认值 |
+| ----- | -------- | -------------------------------------- | ------ |
+| title | 提示文字 | string \| ReactNode \| () => ReactNode | -      |
 
 ### 共同的 API
 
 以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| arrowPointAtCenter | 箭头是否指向目标元素中心，`antd@1.11+` 支持 | boolean | `false` |
-| autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | `true` |
-| defaultVisible | 默认是否显隐 | boolean | false |
-| getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | Function(triggerNode) | () => document.body |
-| mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |
-| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |
-| overlayClassName | 卡片类名 | string | 无 |
-| overlayStyle | 卡片样式 | object | 无 |
-| placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | top |
-| trigger | 触发行为，可选 `hover/focus/click/contextMenu` | string | hover |
-| visible | 用于手动控制浮层显隐 | boolean | false |
-| onVisibleChange | 显示隐藏的回调 | (visible) => void | 无 |
-| align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | Object | 无 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | false |  |
+| autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
+| defaultVisible | 默认是否显隐 | boolean | false |  |
+| color | 背景颜色 | string | - | 4.3.0 |
+| getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | function(triggerNode) | () => document.body |  |
+| mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
+| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
+| overlayClassName | 卡片类名 | string | - |  |
+| overlayStyle | 卡片样式 | object | - |  |
+| placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
+| trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string[] | `hover` |  |
+| visible | 用于手动控制浮层显隐 | boolean | false |  |
+| onVisibleChange | 显示隐藏的回调 | (visible) => void | - |  |
+| align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
+| destroyTooltipOnHide | 关闭后是否销毁 Tooltip，当 `keepParent` 为 `false` 时销毁父容器 | boolean \| { keepParent?: boolean } | false |  |
 
 ## 注意
 

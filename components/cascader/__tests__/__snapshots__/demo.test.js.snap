@@ -17,9 +17,10 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -35,7 +36,7 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -56,9 +57,10 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -74,7 +76,47 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
+</span>
+`;
+
+exports[`renders ./components/cascader/demo/custom-dropdown.md correctly 1`] = `
+<span
+  class="ant-cascader-picker"
+  tabindex="0"
+>
+  <span
+    class="ant-cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="ant-input ant-cascader-input "
+    placeholder="Please select"
+    readonly=""
+    tabindex="-1"
+    type="text"
+    value=""
+  />
+  <span
+    aria-label="down"
+    class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="down"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </span>
 </span>
 `;
 
@@ -109,9 +151,10 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: close-circle"
+  <span
+    aria-label="close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    role="img"
     tabindex="-1"
   >
     <svg
@@ -125,13 +168,14 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
       width="1em"
     >
       <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
       />
     </svg>
-  </i>
-  <i
-    aria-label="icon: down"
+  </span>
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -147,7 +191,7 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -181,9 +225,10 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: close-circle"
+  <span
+    aria-label="close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    role="img"
     tabindex="-1"
   >
     <svg
@@ -197,13 +242,14 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
       width="1em"
     >
       <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
       />
     </svg>
-  </i>
-  <i
-    aria-label="icon: down"
+  </span>
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -219,7 +265,7 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -240,9 +286,10 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -258,7 +305,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -279,9 +326,10 @@ exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -297,7 +345,7 @@ exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -318,9 +366,10 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -336,7 +385,7 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -357,9 +406,10 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -375,7 +425,7 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
@@ -395,9 +445,10 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
     type="text"
     value=""
   />
-  <i
-    aria-label="icon: down"
+  <span
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
   >
     <svg
       aria-hidden="true"
@@ -413,12 +464,12 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
         d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
       />
     </svg>
-  </i>
+  </span>
 </span>
 `;
 
 exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-cascader-picker ant-cascader-picker-large"
     tabindex="0"
@@ -435,9 +486,10 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-    <i
-      aria-label="icon: down"
+    <span
+      aria-label="down"
       class="anticon anticon-down ant-cascader-picker-arrow"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -453,10 +505,10 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
           d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
         />
       </svg>
-    </i>
-  </span>
-  <br />
-  <br />
+    </span>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-cascader-picker"
     tabindex="0"
@@ -473,9 +525,10 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-    <i
-      aria-label="icon: down"
+    <span
+      aria-label="down"
       class="anticon anticon-down ant-cascader-picker-arrow"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -491,10 +544,10 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
           d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
         />
       </svg>
-    </i>
-  </span>
-  <br />
-  <br />
+    </span>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-cascader-picker ant-cascader-picker-small"
     tabindex="0"
@@ -511,9 +564,10 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-    <i
-      aria-label="icon: down"
+    <span
+      aria-label="down"
       class="anticon anticon-down ant-cascader-picker-arrow"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -529,15 +583,15 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
           d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
         />
       </svg>
-    </i>
-  </span>
-  <br />
-  <br />
-</div>
+    </span>
+  </span>,
+  <br />,
+  <br />,
+]
 `;
 
 exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-cascader-picker"
     tabindex="0"
@@ -554,9 +608,10 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
       type="text"
       value=""
     />
-    <i
-      aria-label="icon: smile"
+    <span
+      aria-label="smile"
       class="anticon anticon-smile ant-cascader-picker-arrow"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -569,14 +624,15 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
         width="1em"
       >
         <path
-          d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+          d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
         />
       </svg>
-    </i>
-  </span>
+    </span>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-cascader-picker"
-    style="margin-top:1rem"
     tabindex="0"
   >
     <span
@@ -596,6 +652,84 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
     >
       ab
     </span>
-  </span>
-</div>
+  </span>,
+  <br />,
+  <br />,
+  <span
+    class="ant-cascader-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-cascader-picker-label"
+    />
+    <input
+      autocomplete="off"
+      class="ant-input ant-cascader-input "
+      placeholder="Please select"
+      readonly=""
+      tabindex="-1"
+      type="text"
+      value=""
+    />
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-cascader-picker-arrow"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>,
+  <br />,
+  <br />,
+  <span
+    class="ant-cascader-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-cascader-picker-label"
+    />
+    <input
+      autocomplete="off"
+      class="ant-input ant-cascader-input "
+      placeholder="Please select"
+      readonly=""
+      tabindex="-1"
+      type="text"
+      value=""
+    />
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-cascader-picker-arrow"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>,
+]
 `;

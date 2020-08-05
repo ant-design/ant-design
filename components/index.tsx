@@ -5,9 +5,10 @@ if (
   ENV !== 'production' &&
   ENV !== 'test' &&
   typeof console !== 'undefined' &&
-  console.warn &&
+  console.warn && // eslint-disable-line no-console
   typeof window !== 'undefined'
 ) {
+  // eslint-disable-next-line no-console
   console.warn(
     'You are using a whole package of antd, ' +
       'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
@@ -65,7 +66,7 @@ export { default as Empty } from './empty';
 
 export { default as Form } from './form';
 
-export { default as Icon } from './icon';
+export { default as Grid } from './grid';
 
 export { default as Input } from './input';
 
@@ -74,8 +75,6 @@ export { default as InputNumber } from './input-number';
 export { default as Layout } from './layout';
 
 export { default as List } from './list';
-
-export { default as LocaleProvider } from './locale-provider';
 
 export { default as message } from './message';
 
@@ -103,6 +102,8 @@ export { default as Radio } from './radio';
 
 export { default as Rate } from './rate';
 
+export { default as Result } from './result';
+
 export { default as Row } from './row';
 
 export { default as Select } from './select';
@@ -110,6 +111,8 @@ export { default as Select } from './select';
 export { default as Skeleton } from './skeleton';
 
 export { default as Slider } from './slider';
+
+export { default as Space } from './space';
 
 export { default as Spin } from './spin';
 
@@ -136,8 +139,6 @@ export { default as Timeline } from './timeline';
 export { default as Tooltip } from './tooltip';
 
 export { default as Typography } from './typography';
-
-export { default as Mention } from './mention';
 
 export { default as Upload } from './upload';
 

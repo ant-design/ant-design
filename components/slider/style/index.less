@@ -24,7 +24,7 @@
     width: 100%;
     height: 4px;
     background-color: @slider-rail-background-color;
-    border-radius: 2px;
+    border-radius: @border-radius-base;
     transition: background-color 0.3s;
   }
 
@@ -33,22 +33,26 @@
     height: 4px;
     background-color: @slider-track-background-color;
     border-radius: @border-radius-base;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
   }
 
   &-handle {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    margin-top: -5px;
-    margin-left: -7px;
-    background-color: @component-background;
-    border: solid 2px @slider-handle-color;
+    width: @slider-handle-size;
+    height: @slider-handle-size;
+    margin-top: @slider-handle-margin-top;
+    background-color: @slider-handle-background-color;
+    border: solid @slider-handle-border-width @slider-handle-color;
     border-radius: 50%;
-    box-shadow: 0;
+    box-shadow: @slider-handle-shadow;
     cursor: pointer;
     transition: border-color 0.3s, box-shadow 0.6s,
       transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+    &-dragging&-dragging&-dragging {
+      border-color: @slider-handle-color-focus;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
+    }
 
     &:focus {
       border-color: @slider-handle-color-focus;
@@ -88,6 +92,7 @@
     text-align: center;
     word-break: keep-all;
     cursor: pointer;
+    user-select: none;
 
     &-active {
       color: @text-color;
@@ -111,6 +116,7 @@
     border: 2px solid @slider-dot-border-color;
     border-radius: 50%;
     cursor: pointer;
+
     &:first-child {
       margin-left: -4px;
     }
@@ -161,7 +167,7 @@
     }
 
     .@{slider-prefix-cls}-handle {
-      margin-bottom: -7px;
+      margin-top: -6px; // we chould consider border width as well: (10 + 2 ) / 2
       margin-left: -5px;
     }
 
@@ -188,4 +194,13 @@
       margin-bottom: -4px;
     }
   }
+
+  &-tooltip {
+    // https://github.com/ant-design/ant-design/issues/20014
+    .@{ant-prefix}-tooltip-inner {
+      min-width: unset;
+    }
+  }
 }
+
+@import './rtl';

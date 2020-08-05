@@ -1,8 +1,13 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Spin from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Spin', () => {
+  mountTest(Spin);
+  rtlTest(Spin);
+
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const wrapper = mount(
       <Spin style={{ background: 'red' }}>
@@ -34,5 +39,17 @@ describe('Spin', () => {
     expect(wrapper.instance().state.spinning).toBe(false);
     wrapper.setProps({ spinning: true });
     expect(wrapper.instance().state.spinning).toBe(true);
+  });
+
+  it('if indicator set null should not be render default indicator', () => {
+    const wrapper = mount(<Spin indicator={null} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support static method Spin.setDefaultIndicator', () => {
+    Spin.setDefaultIndicator(<em className="custom-spinner" />);
+    const wrapper = mount(<Spin />);
+    expect(wrapper).toMatchSnapshot();
+    Spin.setDefaultIndicator(null);
   });
 });

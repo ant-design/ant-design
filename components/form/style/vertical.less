@@ -1,0 +1,84 @@
+@import './index';
+
+// ================== Label ==================
+.make-vertical-layout-label() {
+  & when (@form-vertical-label-margin > 0) {
+    margin: @form-vertical-label-margin;
+  }
+  padding: @form-vertical-label-padding;
+  line-height: @line-height-base;
+  white-space: initial;
+  text-align: left;
+
+  > label {
+    margin: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.make-vertical-layout() {
+  .@{form-prefix-cls}-item .@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+  .@{form-prefix-cls} {
+    .@{form-prefix-cls}-item {
+      flex-wrap: wrap;
+      .@{form-prefix-cls}-item-label,
+      .@{form-prefix-cls}-item-control {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.@{form-prefix-cls}-vertical {
+  .@{form-item-prefix-cls} {
+    flex-direction: column;
+
+    &-label > label {
+      height: auto;
+    }
+  }
+}
+
+.@{form-prefix-cls}-vertical .@{form-item-prefix-cls}-label,
+  // when labelCol is 24, it is a vertical form
+.@{ant-prefix}-col-24.@{form-item-prefix-cls}-label,
+.@{ant-prefix}-col-xl-24.@{form-item-prefix-cls}-label {
+  .make-vertical-layout-label();
+}
+
+@media (max-width: @screen-xs-max) {
+  .make-vertical-layout();
+  .@{ant-prefix}-col-xs-24.@{form-item-prefix-cls}-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  .@{ant-prefix}-col-sm-24.@{form-item-prefix-cls}-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-md-max) {
+  .@{ant-prefix}-col-md-24.@{form-item-prefix-cls}-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-lg-max) {
+  .@{ant-prefix}-col-lg-24.@{form-item-prefix-cls}-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-xl-max) {
+  .@{ant-prefix}-col-xl-24.@{form-item-prefix-cls}-label {
+    .make-vertical-layout-label();
+  }
+}

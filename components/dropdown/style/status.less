@@ -1,0 +1,12 @@
+@import './index';
+
+.@{dropdown-prefix-cls}-menu-item {
+  &&-danger {
+    color: @error-color;
+
+    &:hover {
+      color: @text-color-inverse;
+      background-color: @error-color;
+    }
+  }
+}

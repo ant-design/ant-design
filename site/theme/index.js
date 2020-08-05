@@ -2,7 +2,7 @@ const path = require('path');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
-const redirectTmpl = './template/Redirect';
+const resourcesTmpl = './template/Resources/index';
 const appShellTmpl = './template/AppShell';
 
 function pickerGenerator(module) {
@@ -43,15 +43,13 @@ module.exports = {
       }
       return null;
     },
-    'docs/pattern': pickerGenerator('pattern'),
     'docs/react': pickerGenerator('react'),
-    'docs/resource': pickerGenerator('resource'),
     'docs/spec': pickerGenerator('spec'),
   },
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-antd?injectProvider',
+    '@ant-design/bisheng-plugin?injectProvider',
     'bisheng-plugin-react?lang=__react',
   ],
   routes: {
@@ -68,10 +66,6 @@ module.exports = {
         component: homeTmpl,
       },
       {
-        path: 'docs/pattern/:children',
-        component: redirectTmpl,
-      },
-      {
         path: 'docs/react/:children',
         component: contentTmpl,
       },
@@ -84,24 +78,28 @@ module.exports = {
         component: contentTmpl,
       },
       {
-        path: 'components/:children/',
+        path: 'components/form/v3',
         component: contentTmpl,
       },
       {
-        path: 'docs/spec/feature',
-        component: redirectTmpl,
+        path: 'components/form/v3-cn',
+        component: contentTmpl,
       },
       {
-        path: 'docs/spec/feature-cn',
-        component: redirectTmpl,
+        path: 'components/:children/',
+        component: contentTmpl,
       },
       {
         path: 'docs/spec/:children',
         component: contentTmpl,
       },
       {
-        path: 'docs/resource/:children',
-        component: redirectTmpl,
+        path: 'docs/resources',
+        component: resourcesTmpl,
+      },
+      {
+        path: 'docs/resources-cn',
+        component: resourcesTmpl,
       },
     ],
   },

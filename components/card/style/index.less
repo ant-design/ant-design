@@ -2,24 +2,29 @@
 @import '../../style/mixins/index';
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
-@card-head-height: 48px;
-@card-hover-border: fade(@black, 9%);
+@card-hoverable-hover-border: transparent;
+@card-action-icon-size: 16px;
 
-@gradient-min: fade(@card-background, 20%);
-@gradient-max: fade(@card-background, 40%);
+@gradient-min: fade(@card-skeleton-bg, 20%);
+@gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
 
   position: relative;
-  background: @component-background;
+  background: @card-background;
   border-radius: @card-radius;
-  transition: all 0.3s;
+
+  &-rtl {
+    direction: rtl;
+  }
 
   &-hoverable {
     cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s;
+
     &:hover {
-      border-color: @card-hover-border;
+      border-color: @card-hoverable-hover-border;
       box-shadow: @card-shadow;
     }
   }
@@ -34,7 +39,7 @@
     padding: 0 @card-padding-base;
     color: @card-head-color;
     font-weight: 500;
-    font-size: @font-size-lg;
+    font-size: @card-head-font-size;
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: @card-radius @card-radius 0 0;
@@ -56,7 +61,7 @@
 
     .@{ant-prefix}-tabs {
       clear: both;
-      margin-bottom: -17px;
+      margin-bottom: @card-head-tabs-margin-bottom;
       color: @text-color;
       font-weight: normal;
       font-size: @font-size-base;
@@ -72,9 +77,14 @@
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
     padding: @card-head-padding 0;
-    color: @text-color;
+    color: @card-head-extra-color;
     font-weight: normal;
     font-size: @font-size-base;
+
+    .@{card-prefix-cls}-rtl & {
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
   &-body {
@@ -97,10 +107,17 @@
       1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
       0 1px 0 0 @border-color-split inset;
     transition: all 0.3s;
-    &:hover {
-      position: relative;
-      z-index: 1;
-      box-shadow: @box-shadow-base;
+
+    .@{card-prefix-cls}-rtl & {
+      float: right;
+    }
+
+    &-hoverable {
+      &:hover {
+        position: relative;
+        z-index: 1;
+        box-shadow: @card-shadow;
+      }
     }
   }
 
@@ -113,11 +130,17 @@
     padding-bottom: 0;
   }
 
+  &-bordered &-cover {
+    margin-right: -1px;
+    margin-left: -1px;
+  }
+
   &-cover {
     > * {
       display: block;
       width: 100%;
     }
+
     img {
       border-radius: @card-radius @card-radius 0 0;
     }
@@ -133,16 +156,20 @@
 
     & > li {
       float: left;
-      margin: 12px 0;
+      margin: @card-actions-li-margin;
       color: @text-color-secondary;
       text-align: center;
 
-      & > span {
+      .@{card-prefix-cls}-rtl & {
+        float: right;
+      }
+
+      > span {
         position: relative;
-        display: inline-block;
+        display: block;
         min-width: 32px;
-        font-size: 14px;
-        line-height: 22px;
+        font-size: @font-size-base;
+        line-height: @line-height-base;
         cursor: pointer;
 
         &:hover {
@@ -150,20 +177,22 @@
           transition: color 0.3s;
         }
 
-        & > .anticon {
-          font-size: 16px;
-          line-height: 22px;
-        }
-
-        a {
+        a:not(.@{ant-prefix}-btn),
+        > .anticon {
           display: inline-block;
           width: 100%;
           color: @text-color-secondary;
           line-height: 22px;
+          transition: color 0.3s;
 
           &:hover {
             color: @primary-color;
           }
+        }
+
+        > .anticon {
+          font-size: @card-action-icon-size;
+          line-height: 22px;
         }
       }
 
@@ -198,12 +227,18 @@
     &-avatar {
       float: left;
       padding-right: 16px;
+
+      .@{card-prefix-cls}-rtl & {
+        float: right;
+        padding-right: 0;
+        padding-left: 16px;
+      }
     }
 
     &-detail {
       overflow: hidden;
       > div:not(:last-child) {
-        margin-bottom: 8px;
+        margin-bottom: @margin-xs;
       }
     }
 

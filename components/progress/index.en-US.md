@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Progress
+cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 ---
 
 Display the current progress of an operation flow.
@@ -19,34 +20,37 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| type | to set the type, options: `line` `circle` `dashboard` | string | `line` |
-| format | template function of the content | function(percent, successPercent) | `percent => percent + '%'` |
-| percent | to set the completion percentage | number | 0 |
-| showInfo | whether to display the progress value and the status icon | boolean | true |
-| status | to set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
-| strokeLinecap | to set the style of the progress linecap | Enum{ 'round', 'square' } | `round` |
-| strokeColor | color of progress bar | string | - |
-| successPercent | segmented success percent | number | 0 |
+| type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
+| format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` |
+| percent | To set the completion percentage | number | 0 |
+| showInfo | Whether to display the progress value and the status icon | boolean | true |
+| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
+| strokeLinecap | To set the style of the progress linecap | `round` \| `square` | `round` |
+| strokeColor | The color of progress bar | string | - |
+| trailColor | The color of unfilled part | string | - |
+| success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - |
 
 ### `type="line"`
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| strokeWidth | to set the width of the progress bar, unit: `px` | number | 10 |
-| strokeColor | color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - |
+| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 |
+| strokeColor | The color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - |
+| steps | The total step count | number | - |
 
 ### `type="circle"`
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| width | to set the canvas width of the circular progress, unit: `px` | number | 132 |
-| strokeWidth | to set the width of the circular progress, unit: percentage of the canvas width | number | 6 |
+| width | To set the canvas width of the circular progress, unit: `px` | number | 132 |
+| strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 |
+| strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - |
 
 ### `type="dashboard"`
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| width | to set the canvas width of the dashboard progress, unit: `px` | number | 132 |
-| strokeWidth | to set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
-| gapDegree | the gap degree of half circle, 0 ~ 360 | number | 0 |
-| gapPosition | the gap position, options: `top` `bottom` `left` `right` | string | `top` |
+| width | To set the canvas width of the dashboard progress, unit: `px` | number | 132 |
+| strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
+| gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
+| gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |

@@ -1,6 +1,7 @@
 import React from 'react';
 import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { presetDarkPalettes } from '@ant-design/colors';
 
 const rgbToHex = rgbString => {
   const rgb = rgbString.match(/\d+/g);
@@ -32,13 +33,20 @@ export default class Palette extends React.Component {
     const {
       showTitle,
       direction,
-      color: { name, description, english, chinese },
+      dark,
+      color: { name, description, english, chinese, count = 10 },
     } = this.props;
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
     const colors = [];
     const colorName = `${english} / ${chinese}`;
-    for (let i = 1; i <= 10; i += 1) {
+    const colorPaletteMap = {
+      dark: ['#fff', 'unset'],
+      default: ['rgba(0,0,0,0.85)', '#fff'],
+    };
+    const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
+    for (let i = 1; i <= count; i += 1) {
       const colorText = `${name}-${i}`;
+      const defaultBgStyle = dark ? presetDarkPalettes[name][i - 1] : '';
       colors.push(
         <CopyToClipboard
           text={this.hexColors ? this.hexColors[colorText] : ''}
@@ -52,8 +60,9 @@ export default class Palette extends React.Component {
             }}
             className={`main-color-item palette-${name}-${i}`}
             style={{
-              color: (name === 'yellow' ? i > 6 : i > 5) ? '#fff' : 'unset',
+              color: (name === 'yellow' ? i > 6 : i > 5) ? firstColor : lastColor,
               fontWeight: i === 6 ? 'bold' : 'normal',
+              backgroundColor: defaultBgStyle,
             }}
             title="click to copy color"
           >

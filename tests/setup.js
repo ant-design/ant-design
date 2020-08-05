@@ -1,3 +1,8 @@
+const React = require('react');
+
+// eslint-disable-next-line no-console
+console.log('Current React Version:', React.version);
+
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
@@ -6,20 +11,30 @@ if (typeof window !== 'undefined') {
     global.window.dispatchEvent(new Event('resize'));
   };
   global.window.scrollTo = () => {};
+  // ref: https://github.com/ant-design/ant-design/issues/18774
+  if (!window.matchMedia) {
+    Object.defineProperty(global.window, 'matchMedia', {
+      value: jest.fn(query => ({
+        matches: query.includes('max-width'),
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  }
 }
-
-// The built-in requestAnimationFrame and cancelAnimationFrame not working with jest.runFakeTimes()
-// https://github.com/facebook/jest/issues/5147
-global.requestAnimationFrame = cb => setTimeout(cb, 0);
-global.cancelAnimationFrame = cb => clearTimeout(cb, 0);
 
 const Enzyme = require('enzyme');
 
-let Adapter;
-if (process.env.REACT === '15') {
-  Adapter = require('enzyme-adapter-react-15'); // eslint-disable-line
-} else {
-  Adapter = require('enzyme-adapter-react-16');
-}
+const Adapter = require('enzyme-adapter-react-16');
 
 Enzyme.configure({ adapter: new Adapter() });
+
+Object.assign(Enzyme.ReactWrapper.prototype, {
+  findObserver() {
+    return this.find('ResizeObserver');
+  },
+  triggerResize() {
+    const ob = this.findObserver();
+    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  },
+});

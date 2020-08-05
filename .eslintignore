@@ -1,9 +1,30 @@
 components/**/*.js
 components/**/*.jsx
-components/*/__tests__/type.tsx
 !components/*/__tests__/**/*.js
 !components/*/demo/*
 !.*.js
 # Docs templates
+site/theme/template/Color/ColorPicker.jsx
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
+site/theme/template/IconDisplay/fields.js
+site/theme/template/Home/**/*.jsx
+site/theme/template/utils.jsx
+site/theme/template/Layout/**/*.jsx
+site/theme/template/Layout/Footer.jsx
+site/theme/template/Content/Article.jsx
+site/theme/template/Content/EditButton.jsx
+site/theme/template/Resources/*.jsx
+site/theme/template/Resources/**/*.jsx
+site/theme/template/NotFound.jsx
+typings
+es/**/*
+lib/**/*
+node_modules
+_site
+dist
+coverage
+**/*.d.ts
+# Scripts
+scripts/previewEditor/**/*
+jest-stare

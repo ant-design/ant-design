@@ -1,0 +1,469 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/anchor/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Basic demo"
+          >
+            Basic demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-static"
+            title="Static demo"
+          >
+            Static demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            target="_blank"
+            title="Basic demo with Target"
+          >
+            Basic demo with Target
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#API"
+            title="API"
+          >
+            API
+          </a>
+          <div
+            class="ant-anchor-link"
+          >
+            <a
+              class="ant-anchor-link-title"
+              href="#Anchor-Props"
+              title="Anchor Props"
+            >
+              Anchor Props
+            </a>
+          </div>
+          <div
+            class="ant-anchor-link"
+          >
+            <a
+              class="ant-anchor-link-title"
+              href="#Link-Props"
+              title="Link Props"
+            >
+              Link Props
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/anchor/demo/customizeHighlight.md correctly 1`] = `
+<div
+  class="ant-anchor-wrapper"
+  style="max-height:100vh"
+>
+  <div
+    class="ant-anchor fixed"
+  >
+    <div
+      class="ant-anchor-ink"
+    >
+      <span
+        class="ant-anchor-ink-ball"
+      />
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-basic"
+        title="Basic demo"
+      >
+        Basic demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-static"
+        title="Static demo"
+      >
+        Static demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#API"
+        title="API"
+      >
+        API
+      </a>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Anchor-Props"
+          title="Anchor Props"
+        >
+          Anchor Props
+        </a>
+      </div>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Link-Props"
+          title="Link Props"
+        >
+          Link Props
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/anchor/demo/onChange.md correctly 1`] = `
+<div
+  class="ant-anchor-wrapper"
+  style="max-height:100vh"
+>
+  <div
+    class="ant-anchor fixed"
+  >
+    <div
+      class="ant-anchor-ink"
+    >
+      <span
+        class="ant-anchor-ink-ball"
+      />
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-basic"
+        title="Basic demo"
+      >
+        Basic demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-static"
+        title="Static demo"
+      >
+        Static demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#API"
+        title="API"
+      >
+        API
+      </a>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Anchor-Props"
+          title="Anchor Props"
+        >
+          Anchor Props
+        </a>
+      </div>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Link-Props"
+          title="Link Props"
+        >
+          Link Props
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/anchor/demo/onClick.md correctly 1`] = `
+<div
+  class="ant-anchor-wrapper"
+  style="max-height:100vh"
+>
+  <div
+    class="ant-anchor fixed"
+  >
+    <div
+      class="ant-anchor-ink"
+    >
+      <span
+        class="ant-anchor-ink-ball"
+      />
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-basic"
+        title="Basic demo"
+      >
+        Basic demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-static"
+        title="Static demo"
+      >
+        Static demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#API"
+        title="API"
+      >
+        API
+      </a>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Anchor-Props"
+          title="Anchor Props"
+        >
+          Anchor Props
+        </a>
+      </div>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Link-Props"
+          title="Link Props"
+        >
+          Link Props
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/anchor/demo/static.md correctly 1`] = `
+<div
+  class="ant-anchor-wrapper"
+  style="max-height:100vh"
+>
+  <div
+    class="ant-anchor fixed"
+  >
+    <div
+      class="ant-anchor-ink"
+    >
+      <span
+        class="ant-anchor-ink-ball"
+      />
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-basic"
+        title="Basic demo"
+      >
+        Basic demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-static"
+        title="Static demo"
+      >
+        Static demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link"
+    >
+      <a
+        class="ant-anchor-link-title"
+        href="#API"
+        title="API"
+      >
+        API
+      </a>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Anchor-Props"
+          title="Anchor Props"
+        >
+          Anchor Props
+        </a>
+      </div>
+      <div
+        class="ant-anchor-link"
+      >
+        <a
+          class="ant-anchor-link-title"
+          href="#Link-Props"
+          title="Link Props"
+        >
+          Link Props
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/anchor/demo/targetOffset.md correctly 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Basic demo"
+          >
+            Basic demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-static"
+            title="Static demo"
+          >
+            Static demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#API"
+            title="API"
+          >
+            API
+          </a>
+          <div
+            class="ant-anchor-link"
+          >
+            <a
+              class="ant-anchor-link-title"
+              href="#Anchor-Props"
+              title="Anchor Props"
+            >
+              Anchor Props
+            </a>
+          </div>
+          <div
+            class="ant-anchor-link"
+          >
+            <a
+              class="ant-anchor-link-title"
+              href="#Link-Props"
+              title="Link Props"
+            >
+              Link Props
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

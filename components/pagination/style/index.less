@@ -41,7 +41,7 @@
     text-align: center;
     vertical-align: middle;
     list-style: none;
-    background-color: @component-background;
+    background-color: @pagination-item-bg;
     border: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base;
     outline: 0;
@@ -53,6 +53,10 @@
       padding: 0 6px;
       color: @text-color;
       transition: none;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     &:focus,
@@ -92,9 +96,8 @@
       position: relative;
 
       .@{pagination-prefix-cls}-item-link-icon {
-        .iconfont-size-under-12px(12px);
-
         color: @primary-color;
+        font-size: @font-size-sm;
         letter-spacing: -1px;
         opacity: 0;
         transition: all 0.2s;
@@ -162,21 +165,23 @@
   &-next {
     outline: 0;
 
-    a {
+    button {
       color: @text-color;
+      cursor: pointer;
       user-select: none;
     }
 
-    &:hover a {
+    &:hover button {
       border-color: @primary-5;
     }
 
     .@{pagination-prefix-cls}-item-link {
       display: block;
+      width: 100%;
       height: 100%;
       font-size: 12px;
       text-align: center;
-      background-color: @component-background;
+      background-color: @pagination-item-link-bg;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-base;
       outline: none;
@@ -195,7 +200,6 @@
     &:hover,
     &:focus {
       cursor: not-allowed;
-      a,
       .@{pagination-prefix-cls}-item-link {
         color: @disabled-color;
         border-color: @border-color-base;
@@ -212,6 +216,14 @@
     display: inline-block;
     margin-left: 16px;
     vertical-align: middle;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        vertical-align: top;
+      }
+    }
 
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
@@ -241,6 +253,7 @@
     vertical-align: top;
     .@{pagination-prefix-cls}-item-link {
       height: @pagination-item-size-sm;
+      background-color: transparent;
       border: 0;
       &::after {
         height: @pagination-item-size-sm;
@@ -260,7 +273,7 @@
       margin-right: 8px;
       padding: 0 6px;
       text-align: center;
-      background-color: @component-background;
+      background-color: @pagination-item-input-bg;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-base;
       outline: none;
@@ -268,6 +281,13 @@
 
       &:hover {
         border-color: @primary-color;
+      }
+
+      &[disabled] {
+        color: @disabled-color;
+        background: @disabled-bg;
+        border-color: @border-color-base;
+        cursor: not-allowed;
       }
     }
   }
@@ -317,6 +337,11 @@
 
   &.mini &-options {
     margin-left: 2px;
+
+    &-size-changer {
+      top: @pagination-mini-options-size-changer-top;
+    }
+
     &-quick-jumper {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;
@@ -346,36 +371,34 @@
       }
 
       &-active {
-        background: darken(@disabled-bg, 10%);
+        background: @pagination-item-disabled-bg-active;
         border-color: transparent;
         a {
-          color: #fff;
+          color: @pagination-item-disabled-color-active;
         }
       }
     }
 
     .@{pagination-prefix-cls}-item-link {
-      &,
-      &:hover,
-      &:focus {
-        color: @text-color-secondary;
-        background: @disabled-bg;
-        border-color: @border-color-base;
-        cursor: not-allowed;
+      color: @disabled-color;
+      background: @disabled-bg;
+      border-color: @border-color-base;
+      cursor: not-allowed;
+      .@{pagination-prefix-cls}-simple& {
+        background: transparent;
       }
     }
 
-    .@{pagination-prefix-cls}-jump-prev,
-    .@{pagination-prefix-cls}-jump-next {
-      &:focus,
-      &:hover {
-        .@{pagination-prefix-cls}-item-link-icon {
-          opacity: 0;
-        }
-        .@{pagination-prefix-cls}-item-ellipsis {
-          opacity: 1;
-        }
-      }
+    .@{pagination-prefix-cls}-item-link-icon {
+      opacity: 0;
+    }
+
+    .@{pagination-prefix-cls}-item-ellipsis {
+      opacity: 1;
+    }
+
+    .@{pagination-prefix-cls}-simple-pager {
+      color: @disabled-color;
     }
   }
 }
@@ -394,3 +417,5 @@
     display: none;
   }
 }
+
+@import './rtl';

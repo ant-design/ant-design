@@ -13,18 +13,20 @@
 // -----------------------------
 .@{btn-prefix-cls} {
   // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // Fixing https://github.com/ant-design/ant-design/issues/20058
+  // Fixing https://github.com/ant-design/ant-design/issues/19972
+  // Fixing https://github.com/ant-design/ant-design/issues/18107
+  // Fixing https://github.com/ant-design/ant-design/issues/13214
   // It is a render problem of chrome, which is only happened in the codesandbox demo
   // 0.001px solution works and I don't why
-  line-height: @line-height-base - 0.001;
+  line-height: @btn-line-height;
   .btn;
   .btn-default;
 
-  // Make sure that the target of Button's click event always be `button`
-  // Ref: https://github.com/ant-design/ant-design/issues/7034
-  > i,
+  // Fix loading button animation
+  // https://github.com/ant-design/ant-design/issues/24323
   > span {
     display: inline-block;
-    pointer-events: none;
   }
 
   &-primary {
@@ -42,6 +44,7 @@
     .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
         border-right-color: @btn-group-border;
+
         &[disabled] {
           border-right-color: @btn-default-border;
         }
@@ -51,6 +54,7 @@
     .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + & {
       border-left-color: @btn-group-border;
+
       &[disabled] {
         border-left-color: @btn-default-border;
       }
@@ -65,6 +69,8 @@
     .btn-dashed;
   }
 
+  // type="danger" will deprecated
+  // use danger instead
   &-danger {
     .btn-danger;
   }
@@ -73,8 +79,36 @@
     .btn-link;
   }
 
+  &-text {
+    .btn-text;
+  }
+
+  &-dangerous {
+    .btn-danger-default;
+  }
+
+  &-dangerous&-primary {
+    .btn-danger;
+  }
+
+  &-dangerous&-link {
+    .btn-danger-link;
+  }
+
+  &-dangerous&-text {
+    .btn-danger-text;
+  }
+
+  &-icon-only {
+    .btn-square(@btn-prefix-cls);
+    vertical-align: -0.5px;
+  }
+
   &-round {
     .btn-round(@btn-prefix-cls);
+    &.@{btn-prefix-cls}-icon-only {
+      width: auto;
+    }
   }
 
   &-circle,
@@ -113,34 +147,31 @@
 
   &&-loading {
     position: relative;
-    pointer-events: none;
-  }
+    &:not([disabled]) {
+      pointer-events: none;
+    }
 
-  &&-loading::before {
-    display: block;
-  }
-
-  &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 29px;
-    .@{iconfont-css-prefix}:not(:last-child) {
-      margin-left: -14px;
+    &::before {
+      display: block;
     }
   }
 
-  &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 24px;
+  & > &-loading-icon {
+    transition: all 0.3s @ease-in-out;
+
     .@{iconfont-css-prefix} {
-      margin-left: -17px;
+      padding-right: @margin-xs;
+    }
+
+    &:only-child {
+      .@{iconfont-css-prefix} {
+        padding-right: 0;
+      }
     }
   }
 
   &-group {
     .btn-group(@btn-prefix-cls);
-  }
-
-  &:not(&-circle):not(&-circle-outline)&-icon-only {
-    padding-right: 8px;
-    padding-left: 8px;
   }
 
   // http://stackoverflow.com/a/21281554/3040605
@@ -152,13 +183,13 @@
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,
   > span + .@{iconfont-css-prefix} {
-    margin-left: 8px;
+    margin-left: @margin-xs;
   }
 
   &-background-ghost {
-    color: @component-background;
-    background: transparent !important;
-    border-color: @component-background;
+    color: @btn-default-ghost-color;
+    background: @btn-default-ghost-bg !important;
+    border-color: @btn-default-ghost-border;
   }
 
   &-background-ghost&-primary {
@@ -166,13 +197,15 @@
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-color);
+    .button-variant-ghost(@btn-danger-border);
   }
 
-  &-background-ghost&-link {
-    .button-variant-ghost(@link-color; transparent);
+  &-background-ghost&-dangerous {
+    .button-variant-ghost(@btn-danger-border);
+  }
 
-    color: @component-background;
+  &-background-ghost&-dangerous&-link {
+    .button-variant-ghost(@btn-danger-border, transparent);
   }
 
   &-two-chinese-chars::first-letter {
@@ -189,13 +222,22 @@
   }
 
   // https://github.com/ant-design/ant-design/issues/12681
+  // same method as Select
   &:empty {
-    vertical-align: top;
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+    content: '\a0';
   }
 }
 
 a.@{btn-prefix-cls} {
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.1px for padding-top solution works and I don't why
+  padding-top: 0.1px;
   line-height: @btn-height-base - 2px;
+
   &-lg {
     line-height: @btn-height-lg - 2px;
   }
@@ -203,3 +245,5 @@ a.@{btn-prefix-cls} {
     line-height: @btn-height-sm - 2px;
   }
 }
+
+@import './rtl';

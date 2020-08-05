@@ -1,20 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DropdownButton should support href like Button 1`] = `
+exports[`DropdownButton rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-btn-group ant-dropdown-button"
+  class="ant-btn-group ant-btn-group-rtl ant-dropdown-button"
 >
-  <a
-    class="ant-btn ant-btn-default"
-    href="https://ant.design"
+  <button
+    class="ant-btn ant-btn-default ant-btn-rtl"
+    type="button"
   />
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default"
+    class="ant-btn ant-dropdown-trigger ant-dropdown-rtl ant-btn-default ant-btn-icon-only ant-btn-rtl"
     type="button"
   >
-    <i
-      aria-label="icon: ellipsis"
+    <span
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -27,10 +28,46 @@ exports[`DropdownButton should support href like Button 1`] = `
         width="1em"
       >
         <path
-          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
         />
       </svg>
-    </i>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`DropdownButton should support href like Button 1`] = `
+<div
+  class="ant-btn-group ant-dropdown-button"
+>
+  <a
+    class="ant-btn ant-btn-default"
+    href="https://ant.design"
+  />
+  <button
+    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    type="button"
+  >
+    <span
+      aria-label="ellipsis"
+      class="anticon anticon-ellipsis"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="ellipsis"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+        />
+      </svg>
+    </span>
   </button>
 </div>
 `;

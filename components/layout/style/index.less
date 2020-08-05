@@ -32,6 +32,7 @@
   &-header {
     height: @layout-header-height;
     padding: @layout-header-padding;
+    color: @layout-header-color;
     line-height: @layout-header-height;
     background: @layout-header-background;
   }
@@ -114,6 +115,7 @@
 
         &-right {
           left: -@layout-zero-trigger-width;
+          border-radius: @border-radius-base 0 0 @border-radius-base;
         }
       }
     }
@@ -121,3 +123,4 @@
 }
 
 @import './light';
+@import './rtl';

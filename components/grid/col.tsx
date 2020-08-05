@@ -1,13 +1,12 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
-
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
+
+type FlexType = number | 'none' | 'auto' | string;
 
 export interface ColSize {
   span?: ColSpanType;
@@ -30,27 +29,23 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   xl?: ColSpanType | ColSize;
   xxl?: ColSpanType | ColSize;
   prefixCls?: string;
+  flex?: FlexType;
 }
 
-export default class Col extends React.Component<ColProps, {}> {
-  static propTypes = {
-    span: PropTypes.number,
-    order: PropTypes.number,
-    offset: PropTypes.number,
-    push: PropTypes.number,
-    pull: PropTypes.number,
-    className: PropTypes.string,
-    children: PropTypes.node,
-    xs: objectOrNumber,
-    sm: objectOrNumber,
-    md: objectOrNumber,
-    lg: objectOrNumber,
-    xl: objectOrNumber,
-    xxl: objectOrNumber,
-  };
+function parseFlex(flex: FlexType): string {
+  if (typeof flex === 'number') {
+    return `${flex} ${flex} auto`;
+  }
 
-  renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props: any = this.props;
+  if (/^\d+(\.\d+)?(px|em|rem|%)$/.test(flex)) {
+    return `0 0 ${flex}`;
+  }
+
+  return flex;
+}
+
+const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
+  const renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       span,
@@ -60,19 +55,22 @@ export default class Col extends React.Component<ColProps, {}> {
       pull,
       className,
       children,
+      flex,
+      style,
       ...others
     } = props;
     const prefixCls = getPrefixCls('col', customizePrefixCls);
     let sizeClassObj = {};
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
-      if (typeof props[size] === 'number') {
-        sizeProps.span = props[size];
-      } else if (typeof props[size] === 'object') {
-        sizeProps = props[size] || {};
+      const propSize = (props as any)[size];
+      if (typeof propSize === 'number') {
+        sizeProps.span = propSize;
+      } else if (typeof propSize === 'object') {
+        sizeProps = propSize || {};
       }
 
-      delete others[size];
+      delete (others as any)[size];
 
       sizeClassObj = {
         ...sizeClassObj,
@@ -82,6 +80,7 @@ export default class Col extends React.Component<ColProps, {}> {
           sizeProps.offset || sizeProps.offset === 0,
         [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
         [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       };
     });
     const classes = classNames(
@@ -100,16 +99,30 @@ export default class Col extends React.Component<ColProps, {}> {
     return (
       <RowContext.Consumer>
         {({ gutter }) => {
-          let style = others.style;
-          if (gutter! > 0) {
-            style = {
-              paddingLeft: gutter! / 2,
-              paddingRight: gutter! / 2,
-              ...style,
+          let mergedStyle: React.CSSProperties = { ...style };
+          if (gutter) {
+            mergedStyle = {
+              ...(gutter[0]! > 0
+                ? {
+                    paddingLeft: gutter[0]! / 2,
+                    paddingRight: gutter[0]! / 2,
+                  }
+                : {}),
+              ...(gutter[1]! > 0
+                ? {
+                    paddingTop: gutter[1]! / 2,
+                    paddingBottom: gutter[1]! / 2,
+                  }
+                : {}),
+              ...mergedStyle,
             };
           }
+          if (flex) {
+            mergedStyle.flex = parseFlex(flex);
+          }
+
           return (
-            <div {...others} style={style} className={classes}>
+            <div {...others} style={mergedStyle} className={classes} ref={ref}>
               {children}
             </div>
           );
@@ -118,7 +131,9 @@ export default class Col extends React.Component<ColProps, {}> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderCol}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderCol}</ConfigConsumer>;
+});
+
+Col.displayName = 'Col';
+
+export default Col;

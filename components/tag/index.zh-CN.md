@@ -3,6 +3,7 @@ category: Components
 subtitle: 标签
 type: 数据展示
 title: Tag
+cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 ---
 
 进行标记和分类的小标签。
@@ -16,13 +17,14 @@ title: Tag
 
 ### Tag
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| afterClose | 关闭动画完成后的回调，请使用 `onClose`, 我们将在下个版本删除此项 | () => void | - |
-| closable | 标签是否可以关闭 | boolean | false |
-| color | 标签色 | string | - |
-| onClose | 关闭时的回调 | (e) => void | - |
-| visible | 是否显示标签 | boolean | `true` |
+| 参数      | 说明             | 类型        | 默认值 | 版本  |
+| --------- | ---------------- | ----------- | ------ | ----- |
+| closable  | 标签是否可以关闭 | boolean     | false  |       |
+| color     | 标签色           | string      | -      |       |
+| closeIcon | 自定义关闭按钮   | ReactNode   | -      | 4.4.0 |
+| onClose   | 关闭时的回调     | (e) => void | -      |       |
+| visible   | 是否显示标签     | boolean     | true   |       |
+| icon      | 设置图标         | ReactNode   | -      |       |
 
 ### Tag.CheckableTag
 

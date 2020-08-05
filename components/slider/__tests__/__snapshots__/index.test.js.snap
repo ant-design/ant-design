@@ -1,16 +1,158 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Slider should show tooltip when hovering slider handler 1`] = `
+exports[`Slider rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-slider ant-slider-rtl"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <div
+    class="ant-slider-track"
+    style="right:0%;left:auto;width:0%"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="ant-slider-handle"
+    role="slider"
+    style="right:0%;left:auto;transform:translateX(+50%)"
+    tabindex="0"
+  />
+  <div
+    class="ant-slider-mark"
+  />
+</div>
+`;
+
+exports[`Slider should render in RTL direction 1`] = `
+<div
+  class="ant-slider ant-slider-rtl"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <div
+    class="ant-slider-track"
+    style="right:0%;left:auto;width:30%"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="30"
+    class="ant-slider-handle ant-tooltip-open"
+    role="slider"
+    style="right:30%;left:auto;transform:translateX(+50%)"
+    tabindex="0"
+  />
+  <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-rtl"
+      style="opacity:0"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          30
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-slider-mark"
+  />
+</div>
+`;
+
+exports[`Slider should show correct placement tooltip when set tooltipPlacement 1`] = `
 <div>
   <div
-    class="ant-tooltip  ant-tooltip-placement-top "
+    class="ant-tooltip ant-slider-tooltip"
+    style="opacity:0"
   >
     <div
       class="ant-tooltip-content"
     >
       <div
         class="ant-tooltip-arrow"
-      />
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        30
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider should show correct placement tooltip when set tooltipPlacement 2`] = `
+<div>
+  <div
+    class="ant-tooltip ant-slider-tooltip ant-tooltip-hidden"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        30
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider should show tooltip when hovering slider handler 1`] = `
+<div>
+  <div
+    class="ant-tooltip ant-slider-tooltip"
+    style="opacity:0"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -25,14 +167,18 @@ exports[`Slider should show tooltip when hovering slider handler 1`] = `
 exports[`Slider should show tooltip when hovering slider handler 2`] = `
 <div>
   <div
-    class="ant-tooltip  ant-tooltip-placement-top  ant-tooltip-hidden"
+    class="ant-tooltip ant-slider-tooltip ant-tooltip-hidden"
   >
     <div
       class="ant-tooltip-content"
     >
       <div
         class="ant-tooltip-arrow"
-      />
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       <div
         class="ant-tooltip-inner"
         role="tooltip"

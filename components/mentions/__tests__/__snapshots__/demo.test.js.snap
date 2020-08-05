@@ -6,6 +6,19 @@ exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/autoSize.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    class="rc-textarea"
     rows="1"
   />
 </div>
@@ -17,6 +30,7 @@ exports[`renders ./components/mentions/demo/basic.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
     rows="1"
   >
     @afc163
@@ -36,32 +50,31 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <label
         class=""
-        for="mention"
+        for="coders"
         title="Top coders"
       >
         Top coders
       </label>
     </div>
     <div
-      class="ant-col ant-col-16 ant-form-item-control-wrapper"
+      class="ant-col ant-col-16 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <div
+          class="ant-form-item-control-input-content"
         >
           <div
             class="ant-mentions"
           >
             <textarea
-              data-__field="[object Object]"
-              data-__meta="[object Object]"
-              id="mention"
-              rows="3"
+              class="rc-textarea"
+              id="coders"
+              rows="1"
             />
           </div>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -69,17 +82,54 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper"
+      class="ant-col ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="bio"
+        title="Bio"
+      >
+        Bio
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-mentions"
+          >
+            <textarea
+              class="rc-textarea"
+              id="bio"
+              placeholder="You can use @ to ref user here"
+              rows="3"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
         >
           <button
             class="ant-btn ant-btn-primary"
-            type="button"
+            type="submit"
           >
             <span>
               Submit
@@ -94,7 +144,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
               Reset
             </span>
           </button>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -107,6 +157,7 @@ exports[`renders ./components/mentions/demo/placement.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
     rows="1"
   />
 </div>
@@ -118,6 +169,7 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
     placeholder="input @ to mention people, # to mention tag"
     rows="1"
   />
@@ -125,7 +177,7 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
-<div>
+Array [
   <div
     style="margin-bottom:10px"
   >
@@ -134,21 +186,23 @@ exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
       style="width:100%"
     >
       <textarea
+        class="rc-textarea rc-textarea-disabled"
         disabled=""
         placeholder="this is disabled Mentions"
         rows="1"
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-mentions"
     style="width:100%"
   >
     <textarea
+      class="rc-textarea"
       placeholder="this is readOnly Mentions"
       readonly=""
       rows="1"
     />
-  </div>
-</div>
+  </div>,
+]
 `;

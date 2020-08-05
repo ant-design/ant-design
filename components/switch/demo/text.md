@@ -14,20 +14,21 @@ title:
 With text and icon.
 
 ```jsx
-import { Switch, Icon } from 'antd';
+import { Switch } from 'antd';
+import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div>
-    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+  <>
+    <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
     <br />
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <br />
     <Switch
-      checkedChildren={<Icon type="check" />}
-      unCheckedChildren={<Icon type="close" />}
+      checkedChildren={<CheckOutlined />}
+      unCheckedChildren={<CloseOutlined />}
       defaultChecked
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

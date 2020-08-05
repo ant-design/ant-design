@@ -18,7 +18,6 @@ import {
   ConfigProvider,
   Switch,
   Divider,
-  Icon,
   TreeSelect,
   Select,
   Cascader,
@@ -26,10 +25,11 @@ import {
   Table,
   List,
 } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>
-    <Icon type="smile" style={{ fontSize: 20 }} />
+    <SmileOutlined style={{ fontSize: 20 }} />
     <p>Data Not Found</p>
   </div>
 );

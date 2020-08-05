@@ -1,55 +1,44 @@
-declare module '*.svg';
+// https://github.com/facebook/create-react-app/blob/f09d3d3a52c1b938cecc977c2bbc0942ea0a7e70/packages/react-scripts/lib/react-app.d.ts#L42-L49
+declare module '*.svg' {
+  import * as React from 'react';
 
-declare module 'rc-calendar*';
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 
-declare module 'rc-time-picker*';
+  const src: string;
+  export default src;
+}
 
-declare module 'rc-pagination*';
+declare module 'bisheng/collect';
+
+declare module 'bisheng/router';
+
+declare module 'react-github-button';
+
+declare module 'jsonml.js/*';
+
+declare module 'rc-pagination/*';
 
 declare module 'omit.js';
 
-declare module 'rc-animate';
+declare module 'rc-animate*';
 
 declare module 'rc-util*';
 
-declare module 'shallowequal';
-
-declare module 'css-animation*';
-
-declare module 'rc-select';
-
-declare module 'rc-cascader';
-
-declare module 'array-tree-filter';
+declare module '@ant-design/css-animation*';
 
 declare module 'rc-checkbox';
 
 declare module 'rc-radio';
 
-declare module 'rc-dropdown';
-
 declare module 'rc-editor-mention';
-
-declare module 'rc-progress';
-
-declare module 'rc-menu';
-
-declare module 'rc-drawer';
 
 declare module 'rc-tabs*';
 
-declare module 'rc-tree';
 declare module 'rc-tree/lib/util';
-
-declare module 'rc-tooltip*';
-
-declare module 'rc-calendar';
 
 declare module 'rc-input-number';
 
-declare module 'rc-pagination';
-
-declare module 'rc-notification';
+declare module 'rc-collapse';
 
 declare module 'rc-dialog';
 
@@ -69,40 +58,10 @@ declare module 'rc-steps';
 
 declare module 'rc-switch';
 
-declare module 'rc-table';
-
-declare module 'rc-tree-select';
-
 declare module 'rc-upload';
-
-declare module 'rc-collapse';
-
-declare module 'rc-form*';
-
-declare module 'react-lazy-load';
-
-declare module 'dom-closest';
 
 declare module '*.json' {
   const value: any;
   export const version: string;
   export default value;
 }
-
-declare module 'lodash/debounce';
-
-declare module 'lodash/padStart';
-
-declare module 'lodash/padEnd';
-
-declare module 'lodash/repeat';
-
-declare module 'lodash/uniqBy';
-
-declare module 'lodash/findIndex';
-
-declare module 'raf';
-
-declare module 'react-lifecycles-compat';
-
-declare module 'react-copy-to-clipboard';

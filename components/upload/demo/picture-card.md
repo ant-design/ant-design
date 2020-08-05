@@ -14,7 +14,8 @@ title:
 After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
 ```jsx
-import { Upload, Icon, Modal } from 'antd';
+import { Upload, Modal } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -29,12 +30,36 @@ class PicturesWall extends React.Component {
   state = {
     previewVisible: false,
     previewImage: '',
+    previewTitle: '',
     fileList: [
       {
         uid: '-1',
-        name: 'xxx.png',
+        name: 'image.png',
         status: 'done',
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-2',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-3',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-4',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-5',
+        name: 'image.png',
+        status: 'error',
       },
     ],
   };
@@ -49,16 +74,17 @@ class PicturesWall extends React.Component {
     this.setState({
       previewImage: file.url || file.preview,
       previewVisible: true,
+      previewTitle: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
     });
   };
 
   handleChange = ({ fileList }) => this.setState({ fileList });
 
   render() {
-    const { previewVisible, previewImage, fileList } = this.state;
+    const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
       <div>
-        <Icon type="plus" />
+        <PlusOutlined />
         <div className="ant-upload-text">Upload</div>
       </div>
     );
@@ -71,9 +97,14 @@ class PicturesWall extends React.Component {
           onPreview={this.handlePreview}
           onChange={this.handleChange}
         >
-          {fileList.length >= 3 ? null : uploadButton}
+          {fileList.length >= 8 ? null : uploadButton}
         </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+        <Modal
+          visible={previewVisible}
+          title={previewTitle}
+          footer={null}
+          onCancel={this.handleCancel}
+        >
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
       </div>
@@ -87,8 +118,8 @@ ReactDOM.render(<PicturesWall />, mountNode);
 ```css
 /* you can make up upload button and sample style by using stylesheets */
 .ant-upload-select-picture-card i {
-  font-size: 32px;
   color: #999;
+  font-size: 32px;
 }
 
 .ant-upload-select-picture-card .ant-upload-text {

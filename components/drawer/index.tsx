@@ -1,75 +1,65 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcDrawer from 'rc-drawer';
-import createReactContext from '@ant-design/create-react-context';
-import warning from '../_util/warning';
+import getScrollBarSize from 'rc-util/lib/getScrollBarSize';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import Icon from '../icon';
-import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import omit from 'omit.js';
+
+import { ConfigConsumerProps } from '../config-provider';
+import { withConfigConsumer, ConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
 
-const DrawerContext = createReactContext<Drawer | null>(null);
+const DrawerContext = React.createContext<Drawer | null>(null);
 
-type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
+type EventType =
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
 type getContainerFunc = () => HTMLElement;
 
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
-type placementType = (typeof PlacementTypes)[number];
+type placementType = typeof PlacementTypes[number];
+
+export interface PushState {
+  distance: string | number;
+}
 export interface DrawerProps {
   closable?: boolean;
+  closeIcon?: React.ReactNode;
   destroyOnClose?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc;
+  forceRender?: boolean;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;
   maskStyle?: React.CSSProperties;
   style?: React.CSSProperties;
+  /** wrapper dom node style of header and body */
+  drawerStyle?: React.CSSProperties;
+  headerStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;
   height?: number | string;
-  /* deprecated, use className instead */
-  wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
-  push?: boolean;
+  push?: boolean | PushState;
   placement?: placementType;
   onClose?: (e: EventType) => void;
   afterVisibleChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
+  keyboard?: boolean;
+  footer?: React.ReactNode;
+  footerStyle?: React.CSSProperties;
 }
 
 export interface IDrawerState {
   push?: boolean;
 }
 
+const defaultPushState: PushState = { distance: 180 };
 class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerState> {
-  static propTypes = {
-    closable: PropTypes.bool,
-    destroyOnClose: PropTypes.bool,
-    getContainer: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object as PropTypes.Requireable<HTMLElement>,
-      PropTypes.func,
-      PropTypes.bool,
-    ]),
-    maskClosable: PropTypes.bool,
-    mask: PropTypes.bool,
-    maskStyle: PropTypes.object,
-    style: PropTypes.object,
-    title: PropTypes.node,
-    visible: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    zIndex: PropTypes.number,
-    prefixCls: PropTypes.string,
-    placement: PropTypes.oneOf(PlacementTypes),
-    onClose: PropTypes.func,
-    afterVisibleChange: PropTypes.func,
-    className: PropTypes.string,
-  };
-
   static defaultProps = {
     width: 256,
     height: 256,
@@ -78,14 +68,26 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     maskClosable: true,
     mask: true,
     level: null,
+    keyboard: true,
+    push: defaultPushState,
   };
 
   readonly state = {
     push: false,
   };
 
-  parentDrawer: Drawer;
+  parentDrawer: Drawer | null;
+
   destroyClose: boolean;
+
+  public componentDidMount() {
+    // fix: delete drawer in child and re-render, no push started.
+    // <Drawer>{show && <Drawer />}</Drawer>
+    const { visible } = this.props;
+    if (visible && this.parentDrawer) {
+      this.parentDrawer.push();
+    }
+  }
 
   public componentDidUpdate(preProps: DrawerProps) {
     const { visible } = this.props;
@@ -98,30 +100,24 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     }
   }
 
-  close = (e: EventType) => {
-    const { visible, onClose } = this.props;
-    if (visible !== undefined && onClose) {
-      onClose(e);
+  public componentWillUnmount() {
+    // unmount drawer in child, clear push.
+    if (this.parentDrawer) {
+      this.parentDrawer.pull();
+      this.parentDrawer = null;
     }
-  };
-
-  onMaskClick = (e: EventType) => {
-    if (!this.props.maskClosable) {
-      return;
-    }
-    this.close(e);
-  };
+  }
 
   push = () => {
-    this.setState({
-      push: true,
-    });
+    if (this.props.push) {
+      this.setState({ push: true });
+    }
   };
 
   pull = () => {
-    this.setState({
-      push: false,
-    });
+    if (this.props.push) {
+      this.setState({ push: false });
+    }
   };
 
   onDestroyTransitionEnd = () => {
@@ -137,47 +133,103 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   getDestroyOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
-  // get drawar push width or height
+  getPushDistance = () => {
+    const { push } = this.props;
+    let distance: number | string;
+    if (typeof push === 'boolean') {
+      distance = push ? defaultPushState.distance : 0;
+    } else {
+      distance = push!.distance;
+    }
+    return parseFloat(String(distance || 0));
+  };
+
+  // get drawer push width or height
   getPushTransform = (placement?: placementType) => {
+    const distance = this.getPushDistance();
+
     if (placement === 'left' || placement === 'right') {
-      return `translateX(${placement === 'left' ? 180 : -180}px)`;
+      return `translateX(${placement === 'left' ? distance : -distance}px)`;
     }
     if (placement === 'top' || placement === 'bottom') {
-      return `translateY(${placement === 'top' ? 180 : -180}px)`;
+      return `translateY(${placement === 'top' ? distance : -distance}px)`;
     }
   };
 
+  getOffsetStyle() {
+    const { placement, width, height, visible, mask } = this.props;
+    // https://github.com/ant-design/ant-design/issues/24287
+    if (!visible && !mask) {
+      return {};
+    }
+    const offsetStyle: any = {};
+    if (placement === 'left' || placement === 'right') {
+      offsetStyle.width = width;
+    } else {
+      offsetStyle.height = height;
+    }
+    return offsetStyle;
+  }
+
   getRcDrawerStyle = () => {
-    const { zIndex, placement, style } = this.props;
+    const { zIndex, placement, mask, style } = this.props;
     const { push } = this.state;
+    // 当无 mask 时，将 width 应用到外层容器上
+    // 解决 https://github.com/ant-design/ant-design/issues/12401 的问题
+    const offsetStyle = mask ? {} : this.getOffsetStyle();
     return {
       zIndex,
       transform: push ? this.getPushTransform(placement) : undefined,
+      ...offsetStyle,
       ...style,
     };
   };
 
   renderHeader() {
-    const { title, prefixCls, closable } = this.props;
+    const { title, prefixCls, closable, headerStyle } = this.props;
     if (!title && !closable) {
       return null;
     }
 
     const headerClassName = title ? `${prefixCls}-header` : `${prefixCls}-header-no-title`;
     return (
-      <div className={headerClassName}>
+      <div className={headerClassName} style={headerStyle}>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
         {closable && this.renderCloseIcon()}
       </div>
     );
   }
 
+  renderFooter() {
+    const { footer, footerStyle, prefixCls } = this.props;
+    if (!footer) {
+      return null;
+    }
+
+    const footerClassName = `${prefixCls}-footer`;
+    return (
+      <div className={footerClassName} style={footerStyle}>
+        {footer}
+      </div>
+    );
+  }
+
   renderCloseIcon() {
-    const { closable, prefixCls } = this.props;
+    const { closable, closeIcon = <CloseOutlined />, prefixCls, onClose } = this.props;
     return (
       closable && (
-        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
-          <Icon type="close" />
+        // eslint-disable-next-line react/button-has-type
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className={`${prefixCls}-close`}
+          style={
+            {
+              '--scroll-bar': `${getScrollBarSize()}px`,
+            } as any
+          }
+        >
+          {closeIcon}
         </button>
       )
     );
@@ -185,19 +237,13 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render drawer body dom
   renderBody = () => {
-    const { bodyStyle, placement, prefixCls, visible } = this.props;
+    const { bodyStyle, drawerStyle, prefixCls, visible } = this.props;
     if (this.destroyClose && !visible) {
       return null;
     }
     this.destroyClose = false;
 
-    const containerStyle: React.CSSProperties =
-      placement === 'left' || placement === 'right'
-        ? {
-            overflow: 'auto',
-            height: '100%',
-          }
-        : {};
+    const containerStyle: React.CSSProperties = {};
 
     const isDestroyOnClose = this.getDestroyOnClose();
 
@@ -210,60 +256,96 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     return (
       <div
         className={`${prefixCls}-wrapper-body`}
-        style={containerStyle}
+        style={{
+          ...containerStyle,
+          ...drawerStyle,
+        }}
         onTransitionEnd={this.onDestroyTransitionEnd}
       >
         {this.renderHeader()}
         <div className={`${prefixCls}-body`} style={bodyStyle}>
           {this.props.children}
         </div>
+        {this.renderFooter()}
       </div>
     );
   };
 
-  // render Provider for Multi-level drawe
+  // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const {
-      prefixCls,
-      zIndex,
-      style,
-      placement,
-      className,
-      wrapClassName,
-      width,
-      height,
-      ...rest
-    } = this.props;
-    warning(
-      wrapClassName === undefined,
-      'Drawer',
-      'wrapClassName is deprecated, please use className instead.',
-    );
-    const haveMask = rest.mask ? '' : 'no-mask';
     this.parentDrawer = value;
-    const offsetStyle: any = {};
-    if (placement === 'left' || placement === 'right') {
-      offsetStyle.width = width;
-    } else {
-      offsetStyle.height = height;
-    }
+
     return (
-      <DrawerContext.Provider value={this}>
-        <RcDrawer
-          handler={false}
-          {...rest}
-          {...offsetStyle}
-          prefixCls={prefixCls}
-          open={this.props.visible}
-          onMaskClick={this.onMaskClick}
-          showMask={this.props.mask}
-          placement={placement}
-          style={this.getRcDrawerStyle()}
-          className={classNames(wrapClassName, className, haveMask)}
-        >
-          {this.renderBody()}
-        </RcDrawer>
-      </DrawerContext.Provider>
+      <ConfigConsumer>
+        {({ getPopupContainer, getPrefixCls }) => {
+          const {
+            prefixCls: customizePrefixCls,
+            placement,
+            className,
+            mask,
+            direction,
+            visible,
+            ...rest
+          } = this.props;
+
+          const prefixCls = getPrefixCls('select', customizePrefixCls);
+          const drawerClassName = classNames(className, {
+            'no-mask': !mask,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
+          const offsetStyle = mask ? this.getOffsetStyle() : {};
+
+          return (
+            <DrawerContext.Provider value={this}>
+              <RcDrawer
+                handler={false}
+                {...omit(rest, [
+                  'zIndex',
+                  'style',
+                  'closable',
+                  'closeIcon',
+                  'destroyOnClose',
+                  'drawerStyle',
+                  'headerStyle',
+                  'bodyStyle',
+                  'footerStyle',
+                  'footer',
+                  'locale',
+                  'title',
+                  'push',
+                  'visible',
+                  'getPopupContainer',
+                  'rootPrefixCls',
+                  'getPrefixCls',
+                  'renderEmpty',
+                  'csp',
+                  'pageHeader',
+                  'autoInsertSpaceInButton',
+                  'width',
+                  'height',
+                  'dropdownMatchSelectWidth',
+                  'getTargetContainer',
+                ])}
+                getContainer={
+                  // 有可能为 false，所以不能直接判断
+                  rest.getContainer === undefined && getPopupContainer
+                    ? () => getPopupContainer(document.body)
+                    : rest.getContainer
+                }
+                {...offsetStyle}
+                prefixCls={prefixCls}
+                open={visible}
+                showMask={mask}
+                placement={placement}
+                style={this.getRcDrawerStyle()}
+                className={drawerClassName}
+              >
+                {this.renderBody()}
+              </RcDrawer>
+            </DrawerContext.Provider>
+          );
+        }}
+      </ConfigConsumer>
     );
   };
 

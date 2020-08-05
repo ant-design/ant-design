@@ -2,6 +2,7 @@
 category: Components
 type: Data Entry
 title: Cascader
+cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 ---
 
 Cascade selection box.
@@ -14,56 +15,64 @@ Cascade selection box.
 
 ## API
 
-```html
-<Cascader options="{options}" onChange="{onChange}" />
+```jsx
+<Cascader options={options} onChange={onChange} />
 ```
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| allowClear | whether allow clear | boolean | true |
-| autoFocus | get focus when component mounted | boolean | false |
-| changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
-| className | additional css class | string | - |
-| defaultValue | initial selected value | string\[] | \[] |
-| disabled | whether disabled select | boolean | false |
-| displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
-| expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |
-| fieldNames | custom field name for label and value and children (before 3.7.0 it calls `filedNames` which is typo）) | object | `{ label: 'label', value: 'value', children: 'children' }` |
-| getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
-| loadData | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void` | - |
-| notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |
-| options | data options of cascade | object | - |
-| placeholder | input placeholder | string | 'Please select' |
-| popupClassName | additional className of popup overlay | string | - |
-| popupPlacement | use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |
-| popupVisible | set visible of cascader popup | boolean | - |
-| showSearch | Whether show search input in single mode. | boolean\|object | false |
-| size | input size, one of `large` `default` `small` | string | `default` |
-| style | additional style | string | - |
-| suffixIcon | The custom suffix icon | ReactNode | - |
-| value | selected value | string\[] | - |
-| onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
-| onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| allowClear | Whether allow clear | boolean | true |  |
+| autoFocus | If get focus when component mounted | boolean | false |  |
+| bordered | Whether has border style | boolean | true |  |
+| changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
+| className | The additional css class | string | - |  |
+| defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
+| disabled | Whether disabled select | boolean | false |  |
+| displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
+| expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
+| expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
+| fieldNames | Custom field name for label and value and children | object | { label: `label`, value: `value`, children: `children` } |  |
+| getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
+| loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) => void | - |  |
+| notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
+| options | The data options of cascade | [Option](#Option)[] | - |  |
+| placeholder | The input placeholder | string | `Please select` |  |
+| popupClassName | The additional className of popup overlay | string | - |  |
+| popupPlacement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
+| popupVisible | Set visible of cascader popup | boolean | - |  |
+| showSearch | Whether show search input in single mode | boolean \| object | false |  |
+| size | The input size | `large` \| `middle` \| `small` | - |  |
+| style | The additional style | CSSProperties | - |  |
+| suffixIcon | The custom suffix icon | ReactNode | - |  |
+| value | The selected value | string\[] \| number\[] | - |  |
+| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
+| onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
 
 Fields in `showSearch`:
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded. | `function(inputValue, path): boolean` |  |
-| limit | Set the count of filtered items | number \| false | 50 |
-| matchInputWidth | Whether the width of result list equals to input's | boolean |  |
-| render | Used to render filtered options. | `function(inputValue, path): ReactNode` |  |
-| sort | Used to sort filtered options. | `function(a, b, inputValue)` |  |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | function(inputValue, path): boolean | - |  |
+| limit | Set the count of filtered items | number \| false | 50 |  |
+| matchInputWidth | Whether the width of list matches input, ([how it looks](https://github.com/ant-design/ant-design/issues/25779)) | boolean | true |  |
+| render | Used to render filtered options | function(inputValue, path): ReactNode | - |  |
+| sort | Used to sort filtered options | function(a, b, inputValue) | - |  |
+
+### Option
+
+```typescript
+interface Option {
+  value: string | number;
+  label?: React.ReactNode;
+  disabled?: boolean;
+  children?: Option[];
+}
+```
 
 ## Methods
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | remove focus |
-| focus() | get focus    |
-
-<style>
-.ant-cascader-picker {
-  width: 300px;
-}
-</style>
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |

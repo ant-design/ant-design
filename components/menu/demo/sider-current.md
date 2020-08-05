@@ -14,7 +14,8 @@ title:
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
 
 ```jsx
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -49,7 +50,7 @@ class Sider extends React.Component {
           key="sub1"
           title={
             <span>
-              <Icon type="mail" />
+              <MailOutlined />
               <span>Navigation One</span>
             </span>
           }
@@ -59,15 +60,7 @@ class Sider extends React.Component {
           <Menu.Item key="3">Option 3</Menu.Item>
           <Menu.Item key="4">Option 4</Menu.Item>
         </SubMenu>
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="appstore" />
-              <span>Navigation Two</span>
-            </span>
-          }
-        >
+        <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
           <Menu.Item key="5">Option 5</Menu.Item>
           <Menu.Item key="6">Option 6</Menu.Item>
           <SubMenu key="sub3" title="Submenu">
@@ -75,15 +68,7 @@ class Sider extends React.Component {
             <Menu.Item key="8">Option 8</Menu.Item>
           </SubMenu>
         </SubMenu>
-        <SubMenu
-          key="sub4"
-          title={
-            <span>
-              <Icon type="setting" />
-              <span>Navigation Three</span>
-            </span>
-          }
-        >
+        <SubMenu key="sub4" icon={<SettingOutlined />} title="Navigation Three">
           <Menu.Item key="9">Option 9</Menu.Item>
           <Menu.Item key="10">Option 10</Menu.Item>
           <Menu.Item key="11">Option 11</Menu.Item>

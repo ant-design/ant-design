@@ -22,23 +22,12 @@ const listCommonProps = {
   ],
   checkedKeys: ['a'],
   notFoundContent: 'Not Found',
-  lazy: false,
 };
 
 describe('Transfer.List', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   it('should render correctly', () => {
     const wrapper = mount(<List {...listCommonProps} />);
-    jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('ListBody').state().mounted).toBeTruthy();
     expect(wrapper.render()).toMatchSnapshot();
   });
 

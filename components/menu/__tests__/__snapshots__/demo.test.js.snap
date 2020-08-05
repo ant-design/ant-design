@@ -14,6 +14,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
       <span>
         ···
@@ -27,9 +28,10 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     class="ant-menu-item ant-menu-item-selected"
     role="menuitem"
   >
-    <i
-      aria-label="icon: mail"
+    <span
+      aria-label="mail"
       class="anticon anticon-mail"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -42,11 +44,13 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         width="1em"
       >
         <path
-          d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+          d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
         />
       </svg>
-    </i>
-    Navigation One
+    </span>
+    <span>
+      Navigation One
+    </span>
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -57,6 +61,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
       <span>
         ···
@@ -71,9 +76,10 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     class="ant-menu-item ant-menu-item-disabled"
     role="menuitem"
   >
-    <i
-      aria-label="icon: appstore"
+    <span
+      aria-label="appstore"
       class="anticon anticon-appstore"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -89,8 +95,10 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
           d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
         />
       </svg>
-    </i>
-    Navigation Two
+    </span>
+    <span>
+      Navigation Two
+    </span>
   </li>
   <li
     class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
@@ -101,6 +109,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
       <span>
         ···
@@ -118,29 +127,29 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
       <span
-        class="submenu-title-wrapper"
+        aria-label="setting"
+        class="anticon anticon-setting"
+        role="img"
       >
-        <i
-          aria-label="icon: setting"
-          class="anticon anticon-setting"
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="setting"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="setting"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
-            />
-          </svg>
-        </i>
+          <path
+            d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+          />
+        </svg>
+      </span>
+      <span>
         Navigation Three - Submenu
       </span>
       <i
@@ -157,6 +166,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
       <span>
         ···
@@ -167,7 +177,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-item"
+    class="ant-menu-item ant-menu-item-only-child"
     role="menuitem"
   >
     <a
@@ -187,6 +197,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
       <span>
         ···
@@ -214,12 +225,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       aria-haspopup="true"
       aria-owns="sub1$Menu"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
     >
       <span>
-        <i
-          aria-label="icon: mail"
+        <span
+          aria-label="mail"
           class="anticon anticon-mail"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -232,10 +245,10 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
             />
           </svg>
-        </i>
+        </span>
         <span>
           Navigation One
         </span>
@@ -245,7 +258,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -262,14 +275,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item ant-menu-item-selected"
+            class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
             role="menuitem"
             style="padding-left:48px"
           >
             Option 1
           </li>
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -290,14 +303,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
             Option 3
           </li>
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -315,31 +328,31 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
     >
-      <span>
-        <i
-          aria-label="icon: appstore"
-          class="anticon anticon-appstore"
+      <span
+        aria-label="appstore"
+        class="anticon anticon-appstore"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="appstore"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="appstore"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-            />
-          </svg>
-        </i>
-        <span>
-          Navigation Two
-        </span>
+          <path
+            d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation Two
       </span>
       <i
         class="ant-menu-submenu-arrow"
@@ -355,12 +368,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
     >
       <span>
-        <i
-          aria-label="icon: setting"
+        <span
+          aria-label="setting"
           class="anticon anticon-setting"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -373,10 +388,10 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
+              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
             />
           </svg>
-        </i>
+        </span>
         <span>
           Navigation Three
         </span>
@@ -399,9 +414,10 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     style="margin-bottom:16px"
     type="button"
   >
-    <i
-      aria-label="icon: menu-fold"
+    <span
+      aria-label="menu-fold"
       class="anticon anticon-menu-fold"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -414,10 +430,10 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         width="1em"
       >
         <path
-          d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"
+          d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
         />
       </svg>
-    </i>
+    </span>
   </button>
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
@@ -428,9 +444,10 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       role="menuitem"
       style="padding-left:24px"
     >
-      <i
-        aria-label="icon: pie-chart"
+      <span
+        aria-label="pie-chart"
         class="anticon anticon-pie-chart"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -443,10 +460,10 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 0 0-282.8 117.1 398.19 398.19 0 0 0-85.7 127.1A397.61 397.61 0 0 0 72 552a398.46 398.46 0 0 0 117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 0 0 472 952a398.46 398.46 0 0 0 282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 0 0 872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 0 1 470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 0 0 589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 0 1 166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
+            d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 00-282.8 117.1 398.19 398.19 0 00-85.7 127.1A397.61 397.61 0 0072 552a398.46 398.46 0 00117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 00472 952a398.46 398.46 0 00282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 00872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 01470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 00589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 01166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
           />
         </svg>
-      </i>
+      </span>
       <span>
         Option 1
       </span>
@@ -456,9 +473,10 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       role="menuitem"
       style="padding-left:24px"
     >
-      <i
-        aria-label="icon: desktop"
+      <span
+        aria-label="desktop"
         class="anticon anticon-desktop"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -474,7 +492,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             d="M928 140H96c-17.7 0-32 14.3-32 32v496c0 17.7 14.3 32 32 32h380v112H304c-8.8 0-16 7.2-16 16v48c0 4.4 3.6 8 8 8h432c4.4 0 8-3.6 8-8v-48c0-8.8-7.2-16-16-16H548V700h380c17.7 0 32-14.3 32-32V172c0-17.7-14.3-32-32-32zm-40 488H136V212h752v416z"
           />
         </svg>
-      </i>
+      </span>
       <span>
         Option 2
       </span>
@@ -484,25 +502,26 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       role="menuitem"
       style="padding-left:24px"
     >
-      <i
-        aria-label="icon: inbox"
-        class="anticon anticon-inbox"
+      <span
+        aria-label="container"
+        class="anticon anticon-container"
+        role="img"
       >
         <svg
           aria-hidden="true"
           class=""
-          data-icon="inbox"
+          data-icon="container"
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="0 0 1024 1024"
+          viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M885.2 446.3l-.2-.8-112.2-285.1c-5-16.1-19.9-27.2-36.8-27.2H281.2c-17 0-32.1 11.3-36.9 27.6L139.4 443l-.3.7-.2.8c-1.3 4.9-1.7 9.9-1 14.8-.1 1.6-.2 3.2-.2 4.8V830a60.9 60.9 0 0 0 60.8 60.8h627.2c33.5 0 60.8-27.3 60.9-60.8V464.1c0-1.3 0-2.6-.1-3.7.4-4.9 0-9.6-1.3-14.1zm-295.8-43l-.3 15.7c-.8 44.9-31.8 75.1-77.1 75.1-22.1 0-41.1-7.1-54.8-20.6S436 441.2 435.6 419l-.3-15.7H229.5L309 210h399.2l81.7 193.3H589.4zm-375 76.8h157.3c24.3 57.1 76 90.8 140.4 90.8 33.7 0 65-9.4 90.3-27.2 22.2-15.6 39.5-37.4 50.7-63.6h156.5V814H214.4V480.1z"
+            d="M832 64H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V96c0-17.7-14.3-32-32-32zm-40 824H232V687h97.9c11.6 32.8 32 62.3 59.1 84.7 34.5 28.5 78.2 44.3 123 44.3s88.5-15.7 123-44.3c27.1-22.4 47.5-51.9 59.1-84.7H792v-63H643.6l-5.2 24.7C626.4 708.5 573.2 752 512 752s-114.4-43.5-126.5-103.3l-5.2-24.7H232V136h560v752zM320 341h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 160h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
           />
         </svg>
-      </i>
+      </span>
       <span>
         Option 3
       </span>
@@ -516,64 +535,64 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         aria-haspopup="true"
         aria-owns="sub1$Menu"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: mail"
-            class="anticon anticon-mail"
+        <span
+          aria-label="mail"
+          class="anticon anticon-mail"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="mail"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="mail"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigation One
-          </span>
+            <path
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation One
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
       <ul
-        class="ant-menu  ant-menu-sub ant-menu-inline"
+        class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 5
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 6
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 7
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -589,31 +608,31 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: appstore"
-            class="anticon anticon-appstore"
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="appstore"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigation Two
-          </span>
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Two
         </span>
         <i
           class="ant-menu-submenu-arrow"
@@ -640,12 +659,14 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       aria-haspopup="true"
       aria-owns="sub1$Menu"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
     >
       <span>
-        <i
-          aria-label="icon: mail"
+        <span
+          aria-label="mail"
           class="anticon anticon-mail"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -658,10 +679,10 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
             />
           </svg>
-        </i>
+        </span>
         <span>
           Navigation One
         </span>
@@ -671,33 +692,33 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 1
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 2
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 3
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
@@ -713,31 +734,31 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
     >
-      <span>
-        <i
-          aria-label="icon: appstore"
-          class="anticon anticon-appstore"
+      <span
+        aria-label="appstore"
+        class="anticon anticon-appstore"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="appstore"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="appstore"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-            />
-          </svg>
-        </i>
-        <span>
-          Navigation Two
-        </span>
+          <path
+            d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation Two
       </span>
       <i
         class="ant-menu-submenu-arrow"
@@ -753,31 +774,31 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
     >
-      <span>
-        <i
-          aria-label="icon: setting"
-          class="anticon anticon-setting"
+      <span
+        aria-label="setting"
+        class="anticon anticon-setting"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="setting"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="setting"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
-            />
-          </svg>
-        </i>
-        <span>
-          Navigation Three
-        </span>
+          <path
+            d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation Three
       </span>
       <i
         class="ant-menu-submenu-arrow"
@@ -788,36 +809,252 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 </ul>
 `;
 
+exports[`renders ./components/menu/demo/style-debug.md correctly 1`] = `
+Array [
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      Dark
+    </span>
+  </button>,
+  <br />,
+  <br />,
+  <ul
+    class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+    role="menu"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-submenu-selected"
+      role="menuitem"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span
+          aria-label="mail"
+          class="anticon anticon-mail"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="mail"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation One Long Long Long Long
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal"
+      role="menuitem"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Two
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Option 11
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Option 12
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="visibility:hidden;position:absolute"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>,
+]
+`;
+
 exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="false"
     class="ant-switch"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-   Change Mode
-  <span
-    class="ant-divider"
-    style="margin:0 1em"
-  />
+  </button>,
+  " Change Mode",
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />,
   <button
     aria-checked="false"
     class="ant-switch"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-   Change Theme
-  <br />
-  <br />
+  </button>,
+  " Change Style",
+  <br />,
+  <br />,
   <ul
     class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
     role="menu"
@@ -828,9 +1065,10 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       role="menuitem"
       style="padding-left:24px"
     >
-      <i
-        aria-label="icon: mail"
+      <span
+        aria-label="mail"
         class="anticon anticon-mail"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -843,20 +1081,23 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+            d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
           />
         </svg>
-      </i>
-      Navigation One
+      </span>
+      <span>
+        Navigation One
+      </span>
     </li>
     <li
       class="ant-menu-item"
       role="menuitem"
       style="padding-left:24px"
     >
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -872,8 +1113,10 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
-      Navigation Two
+      </span>
+      <span>
+        Navigation Two
+      </span>
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
@@ -884,50 +1127,50 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         aria-haspopup="true"
         aria-owns="sub1$Menu"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: appstore"
-            class="anticon anticon-appstore"
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="appstore"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigation Three
-          </span>
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Two
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
       <ul
-        class="ant-menu  ant-menu-sub ant-menu-inline"
+        class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 3
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -941,6 +1184,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            role="button"
             style="padding-left:48px"
             title="Submenu"
           >
@@ -961,31 +1205,31 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: setting"
-            class="anticon anticon-setting"
+        <span
+          aria-label="setting"
+          class="anticon anticon-setting"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="setting"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="setting"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigation Four
-          </span>
+            <path
+              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Three
         </span>
         <i
           class="ant-menu-submenu-arrow"
@@ -993,27 +1237,64 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       </div>
       <div />
     </li>
-  </ul>
-</div>
+    <li
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px"
+    >
+      <span
+        aria-label="link"
+        class="anticon anticon-link"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="link"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M574 665.4a8.03 8.03 0 00-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8a8.03 8.03 0 00-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zm258.6-474c-84.6-84.6-221.5-84.6-306 0L410.3 307.6a8.03 8.03 0 000 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6a8.03 8.03 0 000 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1zM610.1 372.3a8.03 8.03 0 00-11.3 0L372.3 598.7a8.03 8.03 0 000 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z"
+          />
+        </svg>
+      </span>
+      <span>
+        <a
+          href="https://ant.design"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Ant Design
+        </a>
+      </span>
+    </li>
+  </ul>,
+]
 `;
 
 exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
-    checked=""
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
       Dark
     </span>
-  </button>
-  <br />
-  <br />
+  </button>,
+  <br />,
+  <br />,
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
     role="menu"
@@ -1028,64 +1309,64 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         aria-haspopup="true"
         aria-owns="sub1$Menu"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: mail"
-            class="anticon anticon-mail"
+        <span
+          aria-label="mail"
+          class="anticon anticon-mail"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="mail"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="mail"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigation One
-          </span>
+            <path
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation One
         </span>
         <i
           class="ant-menu-submenu-arrow"
         />
       </div>
       <ul
-        class="ant-menu  ant-menu-sub ant-menu-inline"
+        class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
         <li
-          class="ant-menu-item ant-menu-item-selected"
+          class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 1
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 2
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 3
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -1101,31 +1382,31 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: appstore"
-            class="anticon anticon-appstore"
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="appstore"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigtion Two
-          </span>
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Two
         </span>
         <i
           class="ant-menu-submenu-arrow"
@@ -1141,31 +1422,31 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
+        role="button"
         style="padding-left:24px"
       >
-        <span>
-          <i
-            aria-label="icon: setting"
-            class="anticon anticon-setting"
+        <span
+          aria-label="setting"
+          class="anticon anticon-setting"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="setting"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="setting"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
-              />
-            </svg>
-          </i>
-          <span>
-            Navigation Three
-          </span>
+            <path
+              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+            />
+          </svg>
+        </span>
+        <span>
+          Navigation Three
         </span>
         <i
           class="ant-menu-submenu-arrow"
@@ -1173,8 +1454,8 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       </div>
       <div />
     </li>
-  </ul>
-</div>
+  </ul>,
+]
 `;
 
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
@@ -1191,30 +1472,30 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
-      <span>
-        <i
-          aria-label="icon: mail"
-          class="anticon anticon-mail"
+      <span
+        aria-label="mail"
+        class="anticon anticon-mail"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="mail"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="mail"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
-            />
-          </svg>
-        </i>
-        <span>
-          Navigation One
-        </span>
+          <path
+            d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation One
       </span>
       <i
         class="ant-menu-submenu-arrow"
@@ -1229,30 +1510,30 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
-      <span>
-        <i
-          aria-label="icon: appstore"
-          class="anticon anticon-appstore"
+      <span
+        aria-label="appstore"
+        class="anticon anticon-appstore"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="appstore"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="appstore"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
-            />
-          </svg>
-        </i>
-        <span>
-          Navigation Two
-        </span>
+          <path
+            d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation Two
       </span>
       <i
         class="ant-menu-submenu-arrow"
@@ -1267,30 +1548,30 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
     >
-      <span>
-        <i
-          aria-label="icon: setting"
-          class="anticon anticon-setting"
+      <span
+        aria-label="setting"
+        class="anticon anticon-setting"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="setting"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="setting"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
-            />
-          </svg>
-        </i>
-        <span>
-          Navigation Three
-        </span>
+          <path
+            d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        Navigation Three
       </span>
       <i
         class="ant-menu-submenu-arrow"

@@ -14,7 +14,8 @@ title:
 More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
 
 ```jsx
-import { Collapse, Icon, Select } from 'antd';
+import { Collapse, Select } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -30,8 +31,7 @@ const text = `
 `;
 
 const genExtra = () => (
-  <Icon
-    type="setting"
+  <SettingOutlined
     onClick={event => {
       // If you don't want click extra trigger collapse, you can prevent this:
       event.stopPropagation();
@@ -51,7 +51,7 @@ class Demo extends React.Component {
   render() {
     const { expandIconPosition } = this.state;
     return (
-      <div>
+      <>
         <Collapse
           defaultActiveKey={['1']}
           onChange={callback}
@@ -68,12 +68,16 @@ class Demo extends React.Component {
           </Panel>
         </Collapse>
         <br />
-        Expand Icon Position:{' '}
-        <Select value={expandIconPosition} onChange={this.onPositionChange}>
+        <span>Expand Icon Position: </span>
+        <Select
+          value={expandIconPosition}
+          style={{ margin: '0 8px' }}
+          onChange={this.onPositionChange}
+        >
           <Option value="left">left</Option>
           <Option value="right">right</Option>
         </Select>
-      </div>
+      </>
     );
   }
 }

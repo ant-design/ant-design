@@ -1,69 +1,117 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-name: ant design
+name: Ant Design
 
-trigger:
-  batch: true
+trigger: none
+
+pr:
+  autoCancel: true
   branches:
     exclude:
       - gh-pages
 
-jobs:
-  - job: test_
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    strategy:
-      matrix:
-        Lint:
-          TEST_TYPE: lint
-        dist-react@16:
-          REACT: 16
-          TEST_TYPE: test:dist
-        lib-react@16:
-          REACT: 16
-          TEST_TYPE: test:lib
-        es-react@16:
-          REACT: 16
-          TEST_TYPE: test:es
-        dom-react@16:
-          REACT: 16
-          TEST_TYPE: test:dom
-        node-react@16:
-          REACT: 16
-          TEST_TYPE: test:node
-        dist-react@15:
-          REACT: 15
-          TEST_TYPE: test:dist
-        lib-react@15:
-          REACT: 15
-          TEST_TYPE: test:lib
-        es-react@15:
-          REACT: 15
-          TEST_TYPE: test:es
-        dom-react@15:
-          REACT: 15
-          TEST_TYPE: test:dom
-        node-react@15:
-          REACT: 15
-          TEST_TYPE: test:node
-    steps:
-      - checkout: self
-        fetchDepth: 1
-        clean: false
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '10.x'
-      - script: npm install
-        displayName: install
-      - script: scripts/install-react.sh
-        displayName: install-react
-      - script: scripts/travis-script.sh
-        displayName: test
-      - task: PublishBuildArtifacts@1
-        # 主分支，并且运行成功
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        inputs:
-          pathtoPublish: './package-lock.json'
-          artifactName: lock
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: site
+    jobs:
+      - job: Build_Site
+        steps:
+          - checkout: self
+            displayName: 'Checkout'
+            clean: true
+            fetchDepth: 1
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '12.13.1'
+          - script: npm install
+            displayName: 'Install modules'
+          - script: |
+              node ./scripts/azure-github-comment.js "[![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
+            displayName: 'Comment on github'
+          - script: npm run site
+            displayName: 'Build sites'
+          - script: ls -al _site/
+            displayName: 'List build'
+          - script: |
+              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
+              echo "Deploy to $DEPLOY_DOMAIN"
+              npx surge --project ./_site --domain $DEPLOY_DOMAIN
+            displayName: 'Deploy Site'
+          - script: |
+              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
+              node ./scripts/azure-github-comment.js "[<img width="306" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">]($DEPLOY_DOMAIN)"
+            displayName: 'Update comment on github'
+      - job: Build_Site_Failed
+        dependsOn: Build_Site
+        condition: failed()
+        steps:
+          - checkout: self
+            displayName: 'Checkout'
+            clean: true
+            fetchDepth: 1
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '12.13.1'
+          - script: npm install
+            displayName: 'Install modules'
+          - script: |
+              node ./scripts/azure-github-comment.js "[<img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
+            displayName: 'Comment on github'
+  - stage: ui
+    dependsOn: []
+    jobs:
+      - job: UI_Test
+        steps:
+          - checkout: self
+            displayName: 'Checkout'
+            clean: true
+            fetchDepth: 1
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '12.16.3'
+          - script: npm install
+            displayName: 'Install modules'
+          - script: |
+              node ./scripts/azure-github-comment.js -ui "[![UI Testing](https://user-images.githubusercontent.com/14831261/82744255-6bfc8800-9da8-11ea-9017-857933e8433b.gif)](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
+            displayName: 'Comment on github'
+          - script: npm run test-image
+            displayName: 'UI Test'
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: $(System.DefaultWorkingDirectory)/jest-stare
+              artifactName: jestStare
+            condition: failed()
+          - script: |
+              node ./scripts/azure-github-comment.js -ui "[<img width="306" src="https://user-images.githubusercontent.com/14831261/82744259-6e5ee200-9da8-11ea-8479-685f6e280b77.jpg">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
+            displayName: 'Update comment on github'
+      - job: UI_Test_Failed
+        dependsOn: UI_Test
+        condition: failed()
+        steps:
+          - checkout: self
+            displayName: 'Checkout'
+            clean: true
+            fetchDepth: 1
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '12.13.1'
+          - script: npm install
+            displayName: 'Install modules'
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: jestStare
+              path: './jest-stare'
+          - script: ls -al ./jest-stare
+            displayName: 'List report'
+          - script: |
+              export DEPLOY_DOMAIN=https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
+              echo "Deploy to $DEPLOY_DOMAIN"
+              npx surge --project ./jest-stare --domain $DEPLOY_DOMAIN
+            displayName: 'Deploy Report Site'
+          - script: |
+              node ./scripts/azure-github-comment.js -ui "[<img width="306" src="https://user-images.githubusercontent.com/14831261/82744257-6dc64b80-9da8-11ea-80cf-05b2279a5602.jpg">](https://ui-test-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh)"
+            displayName: 'Update comment on github'

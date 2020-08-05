@@ -14,7 +14,8 @@ title:
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
 
 ```jsx
-import { Upload, Button, Icon } from 'antd';
+import { Upload, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 
 const fileList = [
   {
@@ -27,9 +28,7 @@ const fileList = [
   {
     uid: '-2',
     name: 'yyy.png',
-    status: 'done',
-    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    status: 'error',
   },
 ];
 
@@ -47,20 +46,20 @@ const props2 = {
 };
 
 ReactDOM.render(
-  <div>
+  <>
     <Upload {...props}>
       <Button>
-        <Icon type="upload" /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
     <br />
     <br />
     <Upload {...props2}>
       <Button>
-        <Icon type="upload" /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
-  </div>,
+  </>,
   mountNode,
 );
 ```
@@ -71,6 +70,10 @@ ReactDOM.render(
   float: left;
   width: 200px;
   margin-right: 8px;
+}
+
+.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+  float: right;
 }
 .upload-list-inline .ant-upload-animate-enter {
   animation-name: uploadAnimateInlineIn;

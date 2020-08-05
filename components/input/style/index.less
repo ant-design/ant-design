@@ -1,64 +1,50 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
+@import './affix';
+@import './allow-clear';
 
 // Input styles
 .@{ant-prefix}-input {
   .reset-component;
   .input;
-}
 
-//== Style for input-group: input with label, with button or dropdown...
-.@{ant-prefix}-input-group {
-  .reset-component;
-  .input-group(~'@{ant-prefix}-input');
-  &-wrapper {
-    display: inline-block;
-    width: 100%;
-    text-align: start;
-    vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+  //== Style for input-group: input with label, with button or dropdown...
+  &-group {
+    .reset-component;
+    .input-group(~'@{ant-prefix}-input');
+    &-wrapper {
+      display: inline-block;
+      width: 100%;
+      text-align: start;
+      vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+    }
   }
-}
 
-// Input with affix: prefix or suffix
-.@{ant-prefix}-input-affix-wrapper {
-  .reset-component;
-  .input-affix-wrapper(~'@{ant-prefix}-input');
-
-  // https://github.com/ant-design/ant-design/issues/6144
-  .@{ant-prefix}-input {
-    min-height: 100%; // use min-height, assume that no smaller height to override
-  }
-}
-
-.@{ant-prefix}-input-password-icon {
-  color: @text-color-secondary;
-  cursor: pointer;
-  transition: all 0.3s;
-
-  &:hover {
-    color: #333;
-  }
-}
-
-.@{ant-prefix}-input-clear-icon {
-  color: @disabled-color;
-  font-size: @font-size-sm;
-  vertical-align: top;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:hover {
+  &-password-icon {
     color: @text-color-secondary;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: @input-icon-hover-color;
+    }
   }
 
-  &:active {
-    color: @text-color;
-  }
+  &[type='color'] {
+    height: @input-height-base;
 
-  + i {
-    margin-left: 6px;
+    &.@{ant-prefix}-input-lg {
+      height: @input-height-lg;
+    }
+    &.@{ant-prefix}-input-sm {
+      height: @input-height-sm;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
   }
 }
 
 @import './search-input';
+@import './rtl';
+@import './IE11';

@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   zh-CN: 栅格配置器
   en-US: Playground
@@ -16,27 +16,33 @@ A simple playground for column count and gutter.
 ```jsx
 import { Row, Col, Slider } from 'antd';
 
+const gutters = {};
+const vgutters = {};
+const colCounts = {};
+
+[8, 16, 24, 32, 40, 48].forEach((value, i) => {
+  gutters[i] = value;
+});
+[8, 16, 24, 32, 40, 48].forEach((value, i) => {
+  vgutters[i] = value;
+});
+[2, 3, 4, 6, 8, 12].forEach((value, i) => {
+  colCounts[i] = value;
+});
+
 class App extends React.Component {
-  gutters = {};
-
-  colCounts = {};
-
-  constructor() {
-    super();
-    this.state = {
-      gutterKey: 1,
-      colCountKey: 2,
-    };
-    [8, 16, 24, 32, 40, 48].forEach((value, i) => {
-      this.gutters[i] = value;
-    });
-    [2, 3, 4, 6, 8, 12].forEach((value, i) => {
-      this.colCounts[i] = value;
-    });
-  }
+  state = {
+    gutterKey: 1,
+    vgutterKey: 1,
+    colCountKey: 2,
+  };
 
   onGutterChange = gutterKey => {
     this.setState({ gutterKey });
+  };
+
+  onVGutterChange = vgutterKey => {
+    this.setState({ vgutterKey });
   };
 
   onColCountChange = colCountKey => {
@@ -44,9 +50,9 @@ class App extends React.Component {
   };
 
   render() {
-    const { gutterKey, colCountKey } = this.state;
+    const { gutterKey, vgutterKey, colCountKey } = this.state;
     const cols = [];
-    const colCount = this.colCounts[colCountKey];
+    const colCount = colCounts[colCountKey];
     let colCode = '';
     for (let i = 0; i < colCount; i++) {
       cols.push(
@@ -57,34 +63,48 @@ class App extends React.Component {
       colCode += `  <Col span={${24 / colCount}} />\n`;
     }
     return (
-      <div>
-        <div style={{ marginBottom: 16 }}>
-          <span style={{ marginRight: 6 }}>Gutter (px): </span>
-          <div style={{ width: '50%' }}>
-            <Slider
-              min={0}
-              max={Object.keys(this.gutters).length - 1}
-              value={gutterKey}
-              onChange={this.onGutterChange}
-              marks={this.gutters}
-              step={null}
-            />
-          </div>
-          <span style={{ marginRight: 6 }}>Column Count:</span>
-          <div style={{ width: '50%' }}>
-            <Slider
-              min={0}
-              max={Object.keys(this.colCounts).length - 1}
-              value={colCountKey}
-              onChange={this.onColCountChange}
-              marks={this.colCounts}
-              step={null}
-            />
-          </div>
+      <>
+        <span>Horizontal Gutter (px): </span>
+        <div style={{ width: '50%' }}>
+          <Slider
+            min={0}
+            max={Object.keys(gutters).length - 1}
+            value={gutterKey}
+            onChange={this.onGutterChange}
+            marks={gutters}
+            step={null}
+            tipFormatter={value => gutters[value]}
+          />
         </div>
-        <Row gutter={this.gutters[gutterKey]}>{cols}</Row>
-        <pre>{`<Row gutter={${this.gutters[gutterKey]}}>\n${colCode}</Row>`}</pre>
-      </div>
+        <span>Vertical Gutter (px): </span>
+        <div style={{ width: '50%' }}>
+          <Slider
+            min={0}
+            max={Object.keys(vgutters).length - 1}
+            value={vgutterKey}
+            onChange={this.onVGutterChange}
+            marks={vgutters}
+            step={null}
+            tipFormatter={value => vgutters[value]}
+          />
+        </div>
+        <span>Column Count:</span>
+        <div style={{ width: '50%', marginBottom: 48 }}>
+          <Slider
+            min={0}
+            max={Object.keys(colCounts).length - 1}
+            value={colCountKey}
+            onChange={this.onColCountChange}
+            marks={colCounts}
+            step={null}
+            tipFormatter={value => colCounts[value]}
+          />
+        </div>
+        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
+        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
+        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+      </>
     );
   }
 }
@@ -98,15 +118,25 @@ ReactDOM.render(<App />, mountNode);
   border: 0;
 }
 #components-grid-demo-playground [class~='ant-col'] > div {
-  background: #00a0e9;
   height: 120px;
+  font-size: 14px;
   line-height: 120px;
-  font-size: 13px;
+  background: #0092ff;
+  border-radius: 4px;
 }
 #components-grid-demo-playground pre {
+  padding: 8px 16px;
+  font-size: 13px;
   background: #f9f9f9;
   border-radius: 6px;
-  font-size: 13px;
-  padding: 8px 16px;
+}
+#components-grid-demo-playground pre.demo-code {
+  direction: ltr;
 }
 ```
+
+<style>
+[data-theme="dark"] #components-grid-demo-playground [class~='ant-col'] > div {
+  background: #028ac8;
+}
+</style>

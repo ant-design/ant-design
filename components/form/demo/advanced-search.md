@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 13
 title:
   zh-CN: 高级搜索
   en-US: Advanced search
@@ -17,80 +17,81 @@ Three columns layout is often used for advanced searching of data table.
 
 Because the width of label is not fixed, you may need to adjust it by customizing its style.
 
-```jsx
-import { Form, Row, Col, Input, Button, Icon } from 'antd';
+```tsx
+import React, { useState } from 'react';
+import { Form, Row, Col, Input, Button } from 'antd';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
-class AdvancedSearchForm extends React.Component {
-  state = {
-    expand: false,
-  };
+const AdvancedSearchForm = () => {
+  const [expand, setExpand] = useState(false);
+  const [form] = Form.useForm();
 
-  // To generate mock Form.Item
-  getFields() {
-    const count = this.state.expand ? 10 : 6;
-    const { getFieldDecorator } = this.props.form;
+  const getFields = () => {
+    const count = expand ? 10 : 6;
     const children = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < count; i++) {
       children.push(
-        <Col span={8} key={i} style={{ display: i < count ? 'block' : 'none' }}>
-          <Form.Item label={`Field ${i}`}>
-            {getFieldDecorator(`field-${i}`, {
-              rules: [
-                {
-                  required: true,
-                  message: 'Input something!',
-                },
-              ],
-            })(<Input placeholder="placeholder" />)}
+        <Col span={8} key={i}>
+          <Form.Item
+            name={`field-${i}`}
+            label={`Field ${i}`}
+            rules={[
+              {
+                required: true,
+                message: 'Input something!',
+              },
+            ]}
+          >
+            <Input placeholder="placeholder" />
           </Form.Item>
         </Col>,
       );
     }
     return children;
-  }
-
-  handleSearch = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      console.log('Received values of form: ', values);
-    });
   };
 
-  handleReset = () => {
-    this.props.form.resetFields();
+  const onFinish = values => {
+    console.log('Received values of form: ', values);
   };
 
-  toggle = () => {
-    const { expand } = this.state;
-    this.setState({ expand: !expand });
-  };
+  return (
+    <Form
+      form={form}
+      name="advanced_search"
+      className="ant-advanced-search-form"
+      onFinish={onFinish}
+    >
+      <Row gutter={24}>{getFields()}</Row>
+      <Row>
+        <Col span={24} style={{ textAlign: 'right' }}>
+          <Button type="primary" htmlType="submit">
+            Search
+          </Button>
+          <Button
+            style={{ margin: '0 8px' }}
+            onClick={() => {
+              form.resetFields();
+            }}
+          >
+            Clear
+          </Button>
+          <a
+            style={{ fontSize: 12 }}
+            onClick={() => {
+              setExpand(!expand);
+            }}
+          >
+            {expand ? <UpOutlined /> : <DownOutlined />} Collapse
+          </a>
+        </Col>
+      </Row>
+    </Form>
+  );
+};
 
-  render() {
-    return (
-      <Form className="ant-advanced-search-form" onSubmit={this.handleSearch}>
-        <Row gutter={24}>{this.getFields()}</Row>
-        <Row>
-          <Col span={24} style={{ textAlign: 'right' }}>
-            <Button type="primary" htmlType="submit">
-              Search
-            </Button>
-            <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
-              Clear
-            </Button>
-            <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggle}>
-              Collapse <Icon type={this.state.expand ? 'up' : 'down'} />
-            </a>
-          </Col>
-        </Row>
-      </Form>
-    );
-  }
-}
-
-const WrappedAdvancedSearchForm = Form.create({ name: 'advanced_search' })(AdvancedSearchForm);
 ReactDOM.render(
   <div>
-    <WrappedAdvancedSearchForm />
+    <AdvancedSearchForm />
     <div className="search-result-list">Search Result List</div>
   </div>,
   mountNode,
@@ -98,17 +99,20 @@ ReactDOM.render(
 ```
 
 ```css
+[data-theme='compact'] .ant-advanced-search-form,
 .ant-advanced-search-form {
   padding: 24px;
   background: #fbfbfb;
   border: 1px solid #d9d9d9;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
+[data-theme='compact'] .ant-advanced-search-form .ant-form-item,
 .ant-advanced-search-form .ant-form-item {
   display: flex;
 }
 
+[data-theme='compact'] .ant-advanced-search-form .ant-form-item-control-wrapper,
 .ant-advanced-search-form .ant-form-item-control-wrapper {
   flex: 1;
 }
@@ -121,10 +125,20 @@ ReactDOM.render(
 #components-form-demo-advanced-search .search-result-list {
   margin-top: 16px;
   border: 1px dashed #e9e9e9;
-  border-radius: 6px;
+  border-radius: 2px;
   background-color: #fafafa;
   min-height: 200px;
   text-align: center;
   padding-top: 80px;
+}
+[data-theme="dark"] .ant-advanced-search-form  {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #434343;
+  padding: 24px;
+  border-radius: 2px;
+}
+[data-theme="dark"] #components-form-demo-advanced-search .search-result-list {
+  border: 1px dashed #434343;
+  background: rgba(255,255,255,0.04);
 }
 </style>

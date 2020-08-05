@@ -1,3 +1,3 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('form');
+demoTest('form', { skip: ['complex-form-control.md'] });

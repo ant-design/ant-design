@@ -14,12 +14,13 @@ title:
 Add unit through `prefix` and `suffix`.
 
 ```jsx
-import { Statistic, Row, Col, Icon } from 'antd';
+import { Statistic, Row, Col } from 'antd';
+import { LikeOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Statistic title="Feedback" value={1128} prefix={<Icon type="like" />} />
+      <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
     </Col>
     <Col span={12}>
       <Statistic title="Unmerged" value={93} suffix="/ 100" />

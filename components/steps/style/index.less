@@ -5,7 +5,6 @@
 @process-icon-color: @primary-color;
 @process-title-color: @heading-color;
 @process-description-color: @text-color;
-@process-tail-color: @border-color-split;
 @process-icon-text-color: @text-color-inverse;
 @wait-icon-color: @disabled-color;
 @wait-title-color: @text-color-secondary;
@@ -19,13 +18,7 @@
 @error-title-color: @error-color;
 @error-description-color: @error-color;
 @error-tail-color: @wait-tail-color;
-@steps-background: @component-background;
-
-@steps-icon-size: 32px;
-@steps-small-icon-size: 24px;
-@steps-dot-size: 8px;
-@steps-current-dot-size: 10px;
-@steps-desciption-max-width: 140px;
+@steps-nav-active-color: @primary-color;
 
 .@{steps-prefix-cls} {
   .reset-component;
@@ -33,6 +26,7 @@
   display: flex;
   width: 100%;
   font-size: 0;
+  text-align: initial;
 }
 
 .@{steps-prefix-cls}-item {
@@ -42,12 +36,16 @@
   overflow: hidden;
   vertical-align: top;
 
+  &-container {
+    outline: none;
+  }
+
   &:last-child {
     flex: none;
   }
 
-  &:last-child > &-tail,
-  &:last-child > &-content > &-title::after {
+  &:last-child > &-container > &-tail,
+  &:last-child > &-container > &-content > &-title::after {
     display: none;
   }
 
@@ -60,8 +58,8 @@
   &-icon {
     width: @steps-icon-size;
     height: @steps-icon-size;
-    margin-right: 8px;
-    font-size: @font-size-lg;
+    margin: @steps-icon-margin;
+    font-size: @steps-icon-font-size;
     font-family: @font-family;
     line-height: @steps-icon-size;
     text-align: center;
@@ -69,9 +67,9 @@
     border-radius: @steps-icon-size;
     transition: background-color 0.3s, border-color 0.3s;
 
-    > .@{steps-prefix-cls}-icon {
+    .@{steps-prefix-cls}-icon {
       position: relative;
-      top: -1px;
+      top: @steps-icon-top;
       color: @primary-color;
       line-height: 1;
     }
@@ -82,6 +80,7 @@
     left: 0;
     width: 100%;
     padding: 0 10px;
+
     &::after {
       display: inline-block;
       width: 100%;
@@ -98,10 +97,11 @@
     padding-right: 16px;
     color: @text-color;
     font-size: @font-size-lg;
-    line-height: @steps-icon-size;
+    line-height: @steps-title-line-height;
+
     &::after {
       position: absolute;
-      top: @steps-icon-size / 2;
+      top: @steps-title-line-height / 2;
       left: 100%;
       display: block;
       width: 9999px;
@@ -109,6 +109,13 @@
       background: @wait-tail-color;
       content: '';
     }
+  }
+  &-subtitle {
+    display: inline;
+    margin-left: 8px;
+    color: @text-color-secondary;
+    font-weight: normal;
+    font-size: @font-size-base;
   }
   &-description {
     color: @text-color-secondary;
@@ -118,7 +125,7 @@
   .step-item-status(process);
   &-process &-icon {
     background: @process-icon-color;
-    > .@{steps-prefix-cls}-icon {
+    .@{steps-prefix-cls}-icon {
       color: @process-icon-text-color;
     }
   }
@@ -132,15 +139,20 @@
     background: @error-icon-color;
   }
 
-  // ===================== Clickable =====================
-  &[role='button'] {
-    outline: none;
+  &-disabled {
+    cursor: not-allowed;
+  }
+}
 
-    &:not(.@{steps-prefix-cls}-item-process) {
+// ===================== Clickable =====================
+.@{steps-prefix-cls} .@{steps-prefix-cls}-item {
+  &:not(.@{steps-prefix-cls}-item-active) {
+    & > .@{steps-prefix-cls}-item-container[role='button'] {
       cursor: pointer;
 
       .@{steps-prefix-cls}-item {
         &-title,
+        &-subtitle,
         &-description,
         &-icon .@{steps-prefix-cls}-icon {
           transition: color 0.3s;
@@ -150,10 +162,17 @@
       &:hover {
         .@{steps-prefix-cls}-item {
           &-title,
+          &-subtitle,
           &-description {
             color: @primary-color;
           }
+        }
+      }
+    }
 
+    &:not(.@{steps-prefix-cls}-item-process) {
+      & > .@{steps-prefix-cls}-item-container[role='button']:hover {
+        .@{steps-prefix-cls}-item {
           &-icon {
             border-color: @primary-color;
 
@@ -169,10 +188,11 @@
 
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
-    margin-right: 16px;
+    padding-left: 16px;
     white-space: nowrap;
-    &:last-child {
-      margin-right: 0;
+
+    &:first-child {
+      padding-left: 0;
     }
     &:last-child .@{steps-prefix-cls}-item-title {
       padding-right: 0;
@@ -202,16 +222,16 @@
       }
     }
   }
-  &-@{status} > &-content > &-title {
+  &-@{status} > &-container > &-content > &-title {
     color: @@title-color;
     &::after {
       background-color: @@tail-color;
     }
   }
-  &-@{status} > &-content > &-description {
+  &-@{status} > &-container > &-content > &-description {
     color: @@description-color;
   }
-  &-@{status} > &-tail::after {
+  &-@{status} > &-container > &-tail::after {
     background-color: @@tail-color;
   }
 }
@@ -221,4 +241,6 @@
 @import 'vertical';
 @import 'label-placement';
 @import 'progress-dot';
-@import 'compatibility';
+@import 'nav';
+@import './rtl';
+@import './progress.less';

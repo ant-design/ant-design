@@ -14,9 +14,10 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       role="tab"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -29,10 +30,10 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 1
     </div>
   </div>
@@ -45,9 +46,10 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       role="tab"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -60,10 +62,10 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 2
     </div>
   </div>
@@ -76,9 +78,10 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       role="tab"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -91,10 +94,10 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 3
     </div>
   </div>
@@ -114,9 +117,10 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -130,10 +134,10 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 1
     </div>
     <div
@@ -161,9 +165,10 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -176,10 +181,10 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 2
     </div>
   </div>
@@ -192,9 +197,10 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       role="button"
       tabindex="-1"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -207,10 +213,10 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 3
     </div>
   </div>
@@ -230,9 +236,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -246,10 +253,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 1
     </div>
     <div
@@ -275,9 +282,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -290,10 +298,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 2
     </div>
   </div>
@@ -306,9 +314,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -321,10 +330,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 3
     </div>
   </div>
@@ -333,11 +342,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left site-collapse-custom-collapse"
 >
   <div
-    class="ant-collapse-item ant-collapse-item-active"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+    class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
   >
     <div
       aria-expanded="true"
@@ -345,9 +353,10 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: caret-right"
+      <span
+        aria-label="caret-right"
         class="anticon anticon-caret-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -364,7 +373,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
             d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 1
     </div>
     <div
@@ -384,8 +393,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+    class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
       aria-expanded="false"
@@ -393,9 +401,10 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: caret-right"
+      <span
+        aria-label="caret-right"
         class="anticon anticon-caret-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -411,13 +420,12 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
             d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 2
     </div>
   </div>
   <div
-    class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+    class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
       aria-expanded="false"
@@ -425,9 +433,10 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: caret-right"
+      <span
+        aria-label="caret-right"
         class="anticon anticon-caret-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -443,7 +452,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
             d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 3
     </div>
   </div>
@@ -451,7 +460,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 `;
 
 exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-collapse ant-collapse-icon-position-left"
   >
@@ -464,9 +473,10 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         role="button"
         tabindex="0"
       >
-        <i
-          aria-label="icon: right"
+        <span
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -480,17 +490,18 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
             />
           </svg>
-        </i>
+        </span>
         This is panel header 1
         <div
           class="ant-collapse-extra"
         >
-          <i
-            aria-label="icon: setting"
+          <span
+            aria-label="setting"
             class="anticon anticon-setting"
+            role="img"
             tabindex="-1"
           >
             <svg
@@ -504,10 +515,10 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
       <div
@@ -535,9 +546,10 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         role="button"
         tabindex="0"
       >
-        <i
-          aria-label="icon: right"
+        <span
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -550,17 +562,18 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
             />
           </svg>
-        </i>
+        </span>
         This is panel header 2
         <div
           class="ant-collapse-extra"
         >
-          <i
-            aria-label="icon: setting"
+          <span
+            aria-label="setting"
             class="anticon anticon-setting"
+            role="img"
             tabindex="-1"
           >
             <svg
@@ -574,10 +587,10 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
     </div>
@@ -590,9 +603,10 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         role="button"
         tabindex="0"
       >
-        <i
-          aria-label="icon: right"
+        <span
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -605,17 +619,18 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
             />
           </svg>
-        </i>
+        </span>
         This is panel header 3
         <div
           class="ant-collapse-extra"
         >
-          <i
-            aria-label="icon: setting"
+          <span
+            aria-label="setting"
             class="anticon anticon-setting"
+            role="img"
             tabindex="-1"
           >
             <svg
@@ -629,65 +644,195 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
     </div>
-  </div>
-  <br />
-  Expand Icon Position: 
+  </div>,
+  <br />,
+  <span>
+    Expand Icon Position: 
+  </span>,
   <div
-    class="ant-select ant-select-enabled"
+    class="ant-select ant-select-single ant-select-show-arrow"
+    style="margin:0 8px"
   >
     <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-select-selection
-            ant-select-selection--single"
-      role="combobox"
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-item"
+        title="left"
+      >
+        left
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+]
+`;
+
+exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
+<div
+  class="ant-collapse ant-collapse-icon-position-left ant-collapse-ghost"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="button"
       tabindex="0"
     >
-      <div
-        class="ant-select-selection__rendered"
-      >
-        <div
-          class="ant-select-selection-selected-value"
-          style="display:block;opacity:1"
-          title="left"
-        >
-          left
-        </div>
-      </div>
       <span
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
+        aria-label="right"
+        class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
-        <i
-          aria-label="icon: down"
-          class="anticon anticon-down ant-select-arrow-icon"
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </i>
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+          />
+        </svg>
       </span>
+      This is panel header 1
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
+          
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        aria-label="right"
+        class="anticon anticon-right ant-collapse-arrow"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+          />
+        </svg>
+      </span>
+      This is panel header 2
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        aria-label="right"
+        class="anticon anticon-right ant-collapse-arrow"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+          />
+        </svg>
+      </span>
+      This is panel header 3
     </div>
   </div>
 </div>
@@ -706,9 +851,10 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -721,10 +867,10 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 1
     </div>
   </div>
@@ -737,9 +883,10 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -752,10 +899,10 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 2
     </div>
   </div>
@@ -768,9 +915,10 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -783,10 +931,10 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header 3
     </div>
   </div>
@@ -806,9 +954,10 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right ant-collapse-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -822,10 +971,10 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
       This is panel header with arrow icon
     </div>
     <div

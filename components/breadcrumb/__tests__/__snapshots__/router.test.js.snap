@@ -73,14 +73,12 @@ exports[`react router react router 3 1`] = `
       },
     ]
   }
-  separator="/"
 >
   <div
     className="ant-breadcrumb"
   >
     <BreadcrumbItem
       key="Home"
-      overlay={null}
       separator="/"
     >
       <span>
@@ -101,8 +99,7 @@ exports[`react router react router 3 1`] = `
       </span>
     </BreadcrumbItem>
     <BreadcrumbItem
-      key="Application List"
-      overlay={null}
+      key="apps"
       separator="/"
     >
       <span>
@@ -123,8 +120,7 @@ exports[`react router react router 3 1`] = `
       </span>
     </BreadcrumbItem>
     <BreadcrumbItem
-      key="Application:id"
-      overlay={null}
+      key="1"
       separator="/"
     >
       <span>
@@ -145,8 +141,7 @@ exports[`react router react router 3 1`] = `
       </span>
     </BreadcrumbItem>
     <BreadcrumbItem
-      key="Detail"
-      overlay={null}
+      key="detail"
       separator="/"
     >
       <span>

@@ -14,14 +14,14 @@ title:
 Simple table with actions.
 
 ```jsx
-import { Table, Divider, Tag } from 'antd';
+import { Table, Tag, Space } from 'antd';
 
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -38,7 +38,7 @@ const columns = [
     key: 'tags',
     dataIndex: 'tags',
     render: tags => (
-      <span>
+      <>
         {tags.map(tag => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
@@ -50,18 +50,17 @@ const columns = [
             </Tag>
           );
         })}
-      </span>
+      </>
     ),
   },
   {
     title: 'Action',
     key: 'action',
     render: (text, record) => (
-      <span>
-        <a href="javascript:;">Invite {record.name}</a>
-        <Divider type="vertical" />
-        <a href="javascript:;">Delete</a>
-      </span>
+      <Space size="middle">
+        <a>Invite {record.name}</a>
+        <a>Delete</a>
+      </Space>
     ),
   },
 ];

@@ -1,8 +1,9 @@
-import CalendarLocale from 'rc-calendar/lib/locale/hr_HR';
+import CalendarLocale from 'rc-picker/lib/locale/hr_HR';
 import TimePickerLocale from '../../time-picker/locale/hr_HR';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
-const locale = {
+const locale: PickerLocale = {
   lang: {
     placeholder: 'Odaberite datum',
     rangePlaceholder: ['Početni datum', 'Završni datum'],

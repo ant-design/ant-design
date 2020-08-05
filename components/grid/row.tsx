@@ -1,112 +1,124 @@
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import * as React from 'react';
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
 import ResponsiveObserve, {
   Breakpoint,
-  BreakpointMap,
+  ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
 
-const RowAligns = tuple('top', 'middle', 'bottom');
+const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
+
+export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
-  gutter?: number | Partial<Record<Breakpoint, number>>;
-  type?: 'flex';
-  align?: (typeof RowAligns)[number];
-  justify?: (typeof RowJustify)[number];
+  gutter?: Gutter | [Gutter, Gutter];
+  align?: typeof RowAligns[number];
+  justify?: typeof RowJustify[number];
   prefixCls?: string;
 }
 
-export interface RowState {
-  screens: BreakpointMap;
-}
+const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
+  const [screens, setScreens] = React.useState<ScreenMap>({
+    xs: true,
+    sm: true,
+    md: true,
+    lg: true,
+    xl: true,
+    xxl: true,
+  });
+  const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>();
+  gutterRef.current = props.gutter;
 
-export default class Row extends React.Component<RowProps, RowState> {
-  static defaultProps = {
-    gutter: 0,
-  };
-
-  static propTypes = {
-    type: PropTypes.oneOf<'flex'>(['flex']),
-    align: PropTypes.oneOf(RowAligns),
-    justify: PropTypes.oneOf(RowJustify),
-    className: PropTypes.string,
-    children: PropTypes.node,
-    gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    prefixCls: PropTypes.string,
-  };
-
-  state: RowState = {
-    screens: {},
-  };
-  token: string;
-  componentDidMount() {
-    this.token = ResponsiveObserve.subscribe(screens => {
-      if (typeof this.props.gutter === 'object') {
-        this.setState({ screens });
+  React.useEffect(() => {
+    const token = ResponsiveObserve.subscribe(screen => {
+      const currentGutter = gutterRef.current || 0;
+      if (
+        (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
+        (Array.isArray(currentGutter) &&
+          (typeof currentGutter[0] === 'object' || typeof currentGutter[1] === 'object'))
+      ) {
+        setScreens(screen);
       }
     });
-  }
-  componentWillUnmount() {
-    ResponsiveObserve.unsubscribe(this.token);
-  }
-  getGutter(): number | undefined {
-    const { gutter } = this.props;
-    if (typeof gutter === 'object') {
-      for (let i = 0; i < responsiveArray.length; i++) {
-        const breakpoint: Breakpoint = responsiveArray[i];
-        if (this.state.screens[breakpoint] && gutter[breakpoint] !== undefined) {
-          return gutter[breakpoint];
+    return () => {
+      ResponsiveObserve.unsubscribe(token);
+    };
+  }, []);
+
+  const getGutter = (): [number, number] => {
+    const results: [number, number] = [0, 0];
+    const { gutter = 0 } = props;
+    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
+    normalizedGutter.forEach((g, index) => {
+      if (typeof g === 'object') {
+        for (let i = 0; i < responsiveArray.length; i++) {
+          const breakpoint: Breakpoint = responsiveArray[i];
+          if (screens[breakpoint] && g[breakpoint] !== undefined) {
+            results[index] = g[breakpoint] as number;
+            break;
+          }
         }
+      } else {
+        results[index] = g || 0;
       }
-    }
-    return gutter as number;
-  }
-  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
+    });
+    return results;
+  };
+
+  const renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      type,
       justify,
       align,
       className,
       style,
       children,
       ...others
-    } = this.props;
+    } = props;
     const prefixCls = getPrefixCls('row', customizePrefixCls);
-    const gutter = this.getGutter();
+    const gutter = getGutter();
     const classes = classNames(
+      prefixCls,
       {
-        [prefixCls]: !type,
-        [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-${type}-${justify}`]: type && justify,
-        [`${prefixCls}-${type}-${align}`]: type && align,
+        [`${prefixCls}-${justify}`]: justify,
+        [`${prefixCls}-${align}`]: align,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
-    const rowStyle =
-      gutter! > 0
+    const rowStyle = {
+      ...(gutter[0]! > 0
         ? {
-            marginLeft: gutter! / -2,
-            marginRight: gutter! / -2,
-            ...style,
+            marginLeft: gutter[0]! / -2,
+            marginRight: gutter[0]! / -2,
           }
-        : style;
+        : {}),
+      ...(gutter[1]! > 0
+        ? {
+            marginTop: gutter[1]! / -2,
+            marginBottom: gutter[1]! / 2,
+          }
+        : {}),
+      ...style,
+    };
     const otherProps = { ...others };
     delete otherProps.gutter;
+
     return (
       <RowContext.Provider value={{ gutter }}>
-        <div {...otherProps} className={classes} style={rowStyle}>
+        <div {...otherProps} className={classes} style={rowStyle} ref={ref}>
           {children}
         </div>
       </RowContext.Provider>
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderRow}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderRow}</ConfigConsumer>;
+});
+
+Row.displayName = 'Row';
+
+export default Row;

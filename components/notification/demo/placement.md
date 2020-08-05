@@ -7,45 +7,53 @@ title:
 
 ## zh-CN
 
-可以设置通知从右上角、右下角、左下角、左上角弹出。
+通知从右上角、右下角、左下角、左上角弹出。
 
 ## en-US
 
 A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
 
 ```jsx
-import { Button, Select, notification } from 'antd';
+import { Button, notification, Divider, Space } from 'antd';
+import {
+  RadiusUpleftOutlined,
+  RadiusUprightOutlined,
+  RadiusBottomleftOutlined,
+  RadiusBottomrightOutlined,
+} from '@ant-design/icons';
 
-const { Option } = Select;
-const options = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
-const openNotification = () => {
-  notification.open({
-    message: 'Notification Title',
+const openNotification = placement => {
+  notification.info({
+    message: `Notification ${placement}`,
     description:
       'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    placement,
   });
 };
 
 ReactDOM.render(
   <div>
-    <Select
-      defaultValue="topRight"
-      style={{ width: 120, marginRight: 10 }}
-      onChange={val => {
-        notification.config({
-          placement: val,
-        });
-      }}
-    >
-      {options.map(val => (
-        <Option key={val} value={val}>
-          {val}
-        </Option>
-      ))}
-    </Select>
-    <Button type="primary" onClick={openNotification}>
-      Open the notification box
-    </Button>
+    <Space>
+      <Button type="primary" onClick={() => openNotification('topLeft')}>
+        <RadiusUpleftOutlined />
+        topLeft
+      </Button>
+      <Button type="primary" onClick={() => openNotification('topRight')}>
+        <RadiusUprightOutlined />
+        topRight
+      </Button>
+    </Space>
+    <Divider />
+    <Space>
+      <Button type="primary" onClick={() => openNotification('bottomLeft')}>
+        <RadiusBottomleftOutlined />
+        bottomLeft
+      </Button>
+      <Button type="primary" onClick={() => openNotification('bottomRight')}>
+        <RadiusBottomrightOutlined />
+        bottomRight
+      </Button>
+    </Space>
   </div>,
   mountNode,
 );

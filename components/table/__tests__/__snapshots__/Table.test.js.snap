@@ -11,101 +11,45 @@ exports[`Table renders JSX correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table"
       >
         <div
-          class="ant-table-content"
+          class="ant-table-container"
         >
           <div
-            class="ant-table-body"
+            class="ant-table-content"
           >
             <table
-              class=""
+              style="table-layout: auto;"
             >
-              <colgroup>
-                <col />
-                <col />
-                <col />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-cell"
                     colspan="2"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Name
                   </th>
                   <th
-                    class=""
+                    class="ant-table-cell"
                     rowspan="2"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Age
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Age
                   </th>
                 </tr>
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          First Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    First Name
                   </th>
                   <th
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Last Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Last Name
                   </th>
                 </tr>
               </thead>
@@ -117,21 +61,17 @@ exports[`Table renders JSX correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     John
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Brown
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     32
                   </td>
@@ -141,23 +81,118 @@ exports[`Table renders JSX correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Green
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     42
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-table-wrapper ant-table-wrapper-rtl"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-empty ant-table-rtl"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  />
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-placeholder"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="ant-empty ant-empty-normal ant-empty-rtl"
+                    >
+                      <div
+                        class="ant-empty-image"
+                      >
+                        <svg
+                          class="ant-empty-img-simple"
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
+                          >
+                            <ellipse
+                              class="ant-empty-img-simple-ellipse"
+                              cx="32"
+                              cy="33"
+                              rx="32"
+                              ry="7"
+                            />
+                            <g
+                              class="ant-empty-img-simple-g"
+                              fill-rule="nonzero"
+                            >
+                              <path
+                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              />
+                              <path
+                                class="ant-empty-img-simple-path"
+                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <p
+                        class="ant-empty-description"
+                      >
+                        No Data
+                      </p>
+                    </div>
                   </td>
                 </tr>
               </tbody>

@@ -1,88 +1,128 @@
-import * as React from 'react';
-import { SpinProps } from '../spin';
-import { Store } from './createStore';
-import { RadioChangeEvent } from '../radio';
-import { CheckboxChangeEvent } from '../checkbox';
-import { PaginationConfig } from '../pagination';
-export { PaginationConfig } from '../pagination';
+import {
+  GetRowKey,
+  ColumnType as RcColumnType,
+  RenderedCell as RcRenderedCell,
+  ExpandableConfig,
+} from 'rc-table/lib/interface';
+import { CheckboxProps } from '../checkbox';
+import { PaginationProps } from '../pagination';
+import { Breakpoint } from '../_util/responsiveObserve';
+import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import { tuple } from '../_util/type';
+// import { TableAction } from './Table';
 
-export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
-export type ColumnFilterItem = {
-  text: React.ReactNode;
-  value: string;
-  children?: ColumnFilterItem[];
-};
+export { GetRowKey, ExpandableConfig };
 
-export interface FilterDropdownProps {
-  prefixCls?: string;
-  setSelectedKeys?: (selectedKeys: string[]) => void;
-  selectedKeys?: string[];
-  confirm?: () => void;
-  clearFilters?: (selectedKeys: string[]) => void;
-  filters?: ColumnFilterItem[];
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-}
+export type Key = React.Key;
 
-export interface ColumnProps<T> {
-  title?:
-    | React.ReactNode
-    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
-  key?: React.Key;
-  dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
-  render?: (text: any, record: T, index: number) => React.ReactNode;
-  align?: 'left' | 'right' | 'center';
-  filters?: ColumnFilterItem[];
-  onFilter?: (value: any, record: T) => boolean;
-  filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
-  filterDropdownVisible?: boolean;
-  onFilterDropdownVisibleChange?: (visible: boolean) => void;
-  sorter?: boolean | CompareFn<T>;
-  defaultSortOrder?: SortOrder;
-  colSpan?: number;
-  width?: string | number;
-  className?: string;
-  fixed?: boolean | ('left' | 'right');
-  filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
-  filteredValue?: any[];
-  sortOrder?: SortOrder | boolean;
-  children?: ColumnProps<T>[];
-  onCellClick?: (record: T, event: Event) => void;
-  onCell?: (record: T, rowIndex: number) => TableEventListeners;
-  onHeaderCell?: (props: ColumnProps<T>) => TableEventListeners;
-  sortDirections?: SortOrder[];
-}
+export type RowSelectionType = 'checkbox' | 'radio';
 
-export interface AdditionalCellProps {
-  onClick?: React.MouseEventHandler<HTMLElement>;
-  [name: string]: any;
-}
+export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
 
-export interface TableComponents {
-  table?: React.ReactType;
-  header?: {
-    wrapper?: React.ReactType;
-    row?: React.ReactType;
-    cell?: React.ReactType;
-  };
-  body?: {
-    wrapper?: React.ReactType;
-    row?: React.ReactType;
-    cell?: React.ReactType;
-  };
-}
+export type ExpandType = null | 'row' | 'nest';
 
 export interface TableLocale {
   filterTitle?: string;
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
+  filterEmptyText?: React.ReactNode;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
+  selectionAll?: React.ReactNode;
   sortTitle?: string;
+  expand?: string;
+  collapse?: string;
+  triggerDesc?: string;
+  triggerAsc?: string;
+  cancelSort?: string;
 }
 
-export type RowSelectionType = 'checkbox' | 'radio';
+export type SortOrder = 'descend' | 'ascend' | null;
+
+const TableActions = tuple('paginate', 'sort', 'filter');
+export type TableAction = typeof TableActions[number];
+
+export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+
+export interface ColumnFilterItem {
+  text: React.ReactNode;
+  value: string | number | boolean;
+  children?: ColumnFilterItem[];
+}
+
+export interface ColumnTitleProps<RecordType> {
+  /** @deprecated Please use `sorterColumns` instead. */
+  sortOrder?: SortOrder;
+  /** @deprecated Please use `sorterColumns` instead. */
+  sortColumn?: ColumnType<RecordType>;
+  sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
+
+  filters?: Record<string, string[]>;
+}
+
+export type ColumnTitle<RecordType> =
+  | React.ReactNode
+  | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
+
+export interface FilterDropdownProps {
+  prefixCls: string;
+  setSelectedKeys: (selectedKeys: React.Key[]) => void;
+  selectedKeys: React.Key[];
+  confirm: () => void;
+  clearFilters?: () => void;
+  filters?: ColumnFilterItem[];
+  visible: boolean;
+}
+
+export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+  title?: ColumnTitle<RecordType>;
+
+  // Sorter
+  sorter?:
+    | boolean
+    | CompareFn<RecordType>
+    | {
+        compare: CompareFn<RecordType>;
+        /** Config multiple sorter order priority */
+        multiple: number;
+      };
+  sortOrder?: SortOrder;
+  defaultSortOrder?: SortOrder;
+  sortDirections?: SortOrder[];
+  showSorterTooltip?: boolean;
+
+  // Filter
+  filtered?: boolean;
+  filters?: ColumnFilterItem[];
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
+  filterMultiple?: boolean;
+  filteredValue?: Key[] | null;
+  defaultFilteredValue?: Key[] | null;
+  filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
+  onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
+  filterDropdownVisible?: boolean;
+  onFilterDropdownVisibleChange?: (visible: boolean) => void;
+
+  // Responsive
+  responsive?: Breakpoint[];
+}
+
+export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+  children: ColumnsType<RecordType>;
+}
+
+export type ColumnsType<RecordType = unknown> = (
+  | ColumnGroupType<RecordType>
+  | ColumnType<RecordType>
+)[];
+
+export interface SelectionItem {
+  key: string;
+  text: React.ReactNode;
+  onSelect?: SelectionItemSelectFn;
+}
+
 export type SelectionSelectFn<T> = (
   record: T,
   selected: boolean,
@@ -90,191 +130,59 @@ export type SelectionSelectFn<T> = (
   nativeEvent: Event,
 ) => void;
 
-export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
-
 export interface TableRowSelection<T> {
+  /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
+  preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
-  selectedRowKeys?: string[] | number[];
-  onChange?: (selectedRowKeys: string[] | number[], selectedRows: T[]) => void;
-  getCheckboxProps?: (record: T) => Object;
+  selectedRowKeys?: Key[];
+  onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
+  getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  onSelectInvert?: (selectedRowKeys: string[] | number[]) => void;
-  selections?: SelectionItem[] | boolean;
-  hideDefaultSelections?: boolean;
+  /** @deprecated This function is meaningless and should use `onChange` instead */
+  onSelectInvert?: (selectedRowKeys: Key[]) => void;
+  selections?: INTERNAL_SELECTION_ITEM[] | boolean;
+  hideSelectAll?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
-  selectWay?: TableSelectWay;
   columnTitle?: string | React.ReactNode;
-}
-export type SortOrder = 'descend' | 'ascend';
-export interface SorterResult<T> {
-  column: ColumnProps<T>;
-  order: SortOrder;
-  field: string;
-  columnKey: string;
-}
-export type TableSize = 'default' | 'middle' | 'small';
-export interface ExpandIconProps<T> {
-  prefixCls: string;
-  expanded: boolean;
-  record: T;
-  needIndentSpaced: boolean;
-  expandable: boolean;
-  onExpand: (record: T, event: MouseEvent) => void;
-}
-
-export interface TableCurrentDataSource<T> {
-  currentDataSource: T[];
-}
-
-export interface TableEventListeners {
-  onClick?: (arg: React.SyntheticEvent) => void;
-  onDoubleClick?: (arg: React.SyntheticEvent) => void;
-  onContextMenu?: (arg: React.SyntheticEvent) => void;
-  onMouseEnter?: (arg: React.SyntheticEvent) => void;
-  onMouseLeave?: (arg: React.SyntheticEvent) => void;
-  [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
-}
-
-export interface TableProps<T> {
-  prefixCls?: string;
-  dropdownPrefixCls?: string;
-  rowSelection?: TableRowSelection<T>;
-  pagination?: PaginationConfig | false;
-  size?: TableSize;
-  dataSource?: T[];
-  components?: TableComponents;
-  columns?: ColumnProps<T>[];
-  rowKey?: string | ((record: T, index: number) => string);
-  rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: (
+  checkStrictly?: boolean;
+  renderCell?: (
+    value: boolean,
     record: T,
     index: number,
-    indent: number,
-    expanded: boolean,
-  ) => React.ReactNode;
-  defaultExpandAllRows?: boolean;
-  defaultExpandedRowKeys?: string[] | number[];
-  expandedRowKeys?: string[] | number[];
-  expandIcon?: (props: ExpandIconProps<T>) => React.ReactNode;
-  expandIconAsCell?: boolean;
-  expandIconColumnIndex?: number;
-  expandRowByClick?: boolean;
-  onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
-  onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (
-    pagination: PaginationConfig,
-    filters: Record<keyof T, string[]>,
-    sorter: SorterResult<T>,
-    extra: TableCurrentDataSource<T>,
-  ) => void;
-  loading?: boolean | SpinProps;
-  locale?: TableLocale;
-  indentSize?: number;
-  onRowClick?: (record: T, index: number, event: Event) => void;
-  onRow?: (record: T, index: number) => TableEventListeners;
-  onHeaderRow?: (columns: ColumnProps<T>[]) => TableEventListeners;
-  useFixedHeader?: boolean;
-  bordered?: boolean;
-  showHeader?: boolean;
-  footer?: (currentPageData: Object[]) => React.ReactNode;
-  title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
-  childrenColumnName?: string;
-  bodyStyle?: React.CSSProperties;
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-  sortDirections?: SortOrder[];
+    originNode: React.ReactNode,
+  ) => React.ReactNode | RcRenderedCell<T>;
 }
 
-export interface TableStateFilters {
-  [key: string]: string[];
+export type TransformColumns<RecordType> = (
+  columns: ColumnsType<RecordType>,
+) => ColumnsType<RecordType>;
+
+export interface TableCurrentDataSource<RecordType> {
+  currentDataSource: RecordType[];
+  action: TableAction;
 }
 
-export interface TableState<T> {
-  pagination: PaginationConfig;
-  filters: TableStateFilters;
-  sortColumn: ColumnProps<T> | null;
-  sortOrder?: SortOrder;
-  pivot?: number;
+export interface SorterResult<RecordType> {
+  column?: ColumnType<RecordType>;
+  order?: SortOrder;
+  field?: Key | Key[];
+  columnKey?: Key;
 }
 
-export type SelectionItemSelectFn = (key: string[]) => void;
-type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
+export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
-export interface SelectionItem {
-  key: string;
-  text: React.ReactNode;
-  onSelect: SelectionItemSelectFn;
+type TablePaginationPosition =
+  | 'topLeft'
+  | 'topCenter'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomCenter'
+  | 'bottomRight';
+
+export interface TablePaginationConfig extends PaginationProps {
+  position?: TablePaginationPosition[];
 }
-
-export interface SelectionCheckboxAllProps<T> {
-  store: Store;
-  locale: TableLocale;
-  disabled: boolean;
-  getCheckboxPropsByItem: (item: T, index: number) => { defaultChecked: boolean };
-  getRecordKey: (record: T, index?: number) => string;
-  data: T[];
-  prefixCls: string | undefined;
-  onSelect: (key: string, index: number, selectFunc: any) => void;
-  hideDefaultSelections?: boolean;
-  selections?: SelectionItem[] | boolean;
-  getPopupContainer?: GetPopupContainer;
-}
-
-export interface SelectionCheckboxAllState {
-  checked?: boolean;
-  indeterminate?: boolean;
-}
-
-export interface SelectionBoxProps {
-  store: Store;
-  type?: RowSelectionType;
-  defaultSelection: string[];
-  rowIndex: string;
-  name?: string;
-  disabled?: boolean;
-  onChange: (e: RadioChangeEvent | CheckboxChangeEvent) => void;
-}
-
-export interface SelectionBoxState {
-  checked?: boolean;
-}
-
-export interface SelectionInfo<T> {
-  selectWay: TableSelectWay;
-  record?: T;
-  checked?: boolean;
-  changeRowKeys?: React.Key[];
-  nativeEvent?: Event;
-}
-
-export interface FilterMenuProps<T> {
-  locale: TableLocale;
-  selectedKeys: string[];
-  column: ColumnProps<T>;
-  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
-  prefixCls: string;
-  dropdownPrefixCls: string;
-  getPopupContainer?: GetPopupContainer;
-}
-
-export interface FilterMenuState<T> {
-  selectedKeys: string[];
-  valueKeys: { [name: string]: string };
-  keyPathOfSelectedItem: { [key: string]: string };
-  visible?: boolean;
-  prevProps: FilterMenuProps<T>;
-}
-
-export type PrepareParamsArgumentsReturn<T> = [
-  any,
-  string[],
-  Object,
-  {
-    currentDataSource: T[];
-  },
-];

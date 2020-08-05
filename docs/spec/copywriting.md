@@ -1,8 +1,11 @@
 ---
 category:
-  zh-CN: 模式
-  en-US: Patterns
-order: 6
+  zh-CN: 设计模式
+  en-US: Design Patterns
+type:
+  zh-CN: 全局规则
+  en-US: Global Rules
+order: 5
 title:
   zh-CN: 文案
   en-US: Copywriting
@@ -25,13 +28,13 @@ title:
 ### 明确表述立足点
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uBzzoUAMupDWPXFUeRIn.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EOVTgwoOsYptbkUqpMKn.png" alt="错误示范" description="侧重在『我们』为用户提供了什么，而不是以用户视角的关注点为中心。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EOVTgwoOsYptbkUqpMKn.png" alt="错误示范" description="侧重在「我们」为用户提供了什么，而不是以用户视角的关注点为中心。">
 
 在表述内容时，关注点应该是用户和他们能用你的产品做什么，而不是你和你的产品在为他们做什么，所以内容表述的立足点很重要。
 
 既然以用户为中心，文案就应该尽量以用户为主体来写作。
 
-> 注：当用户向后台反馈问题、提出建议或申诉时，使用『我们』是合理的语境，例如『我们将会审核你的申诉』。
+> 注：当用户向后台反馈问题、提出建议或申诉时，使用「我们」是合理的语境，例如「我们将会审核你的申诉」。
 
 ### 精简语句
 
@@ -49,12 +52,12 @@ title:
 
 使用简单、直接、易于理解的词汇，让内容和指示更容易被用户接受和理解。
 
-间接、暧昧模糊的说法，生僻和过于『文雅』的用词，会增加用户的认知负荷，所以应当尽量避免使用这类用户无法识别的词汇。
+间接、暧昧模糊的说法，生僻和过于「文雅」的用词，会增加用户的认知负荷，所以应当尽量避免使用这类用户无法识别的词汇。
 
 ### 表述一致
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ToMaEybHQCrcAfcYRbxF.png" alt="正确示范" description="备注描述使用相同的介词。">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/BUFFQwfvLqTLrOzaEccX.png" alt="错误示范" description="同一区块描述中出现了『受』和『被』两个不同的介词。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/BUFFQwfvLqTLrOzaEccX.png" alt="错误示范" description="同一区块描述中出现了「受」和「被」两个不同的介词。">
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AAaXSGqNUBlZChkrMbYl.png" alt="正确示范" description="在同一页面、同一区域在语序上一致。">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DYCoXTphnpdkMMCtyMdN.png" alt="错误示范" description="语序上不一致，会影响用户理解成本。">
@@ -72,7 +75,7 @@ title:
 
 让用户第一眼看到最重要的内容，不用到段落中寻找。
 
-> 注：如考虑安全性问题时，隐私信息也可调整为『点击后可见』的方式。
+> 注：如考虑安全性问题时，隐私信息也可调整为「点击后可见」的方式。
 
 ### 完整、直接得阐述信息
 
@@ -83,8 +86,8 @@ title:
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dlAkFzezQEwtNnZDWpQh.png" alt="正确示范" description="相对于『失败』，『无法完成』是更加客观的结果，更容易让用户在心理上接受。用户需要知道在出现问题的情况下如何进行下一步操作。">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qqrgyclPnhBFgPEYsBXd.png" alt="错误示范" description="对于异常情况不是冷冰冰告诉你『失败』。">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dlAkFzezQEwtNnZDWpQh.png" alt="正确示范" description="相对于「失败」，「无法完成」是更加客观的结果，更容易让用户在心理上接受。用户需要知道在出现问题的情况下如何进行下一步操作。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qqrgyclPnhBFgPEYsBXd.png" alt="错误示范" description="对于异常情况不是冷冰冰告诉你「失败」。">
 
 报错是 UI 中常见的功能，它同样是用户体验中不可小视的组成部分。当用户填写的内容出错的时候，你的报错信息应当符合用户的认知，用易于理解的方式表述出来。
 
@@ -97,7 +100,7 @@ title:
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/TFhFTbqHlEXTMOyCxIvN.png" alt="错误示范" description="专业的行业用词有别字。">
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qIwLlXOyJQlAqFwWSUuo.png" alt="正确示范" description="时间信息的表述精准完整。">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="错误示范" description="时间信息的描述词不是具体的『日』、『月』，容易让用户产生困扰。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="错误示范" description="时间信息的描述词不是具体的「日」、「月」，容易让用户产生困扰。">
 
 <table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;clear:both;">
   <tr>
@@ -108,12 +111,12 @@ title:
   <tr>
     <th>其他</th>
     <td>其它</td>
-    <td>『其他』的应用范围更广</td>
+    <td>「其他」的应用范围更广</td>
   </tr>
   <tr>
     <th>抱歉</th>
     <td>对不起</td>
-    <td>如果是我们系统造成的结果，可以使用『抱歉』，如果是用户自己造成的结果，不能使用。</td>
+    <td>如果是我们系统造成的结果，可以使用「抱歉」，如果是用户自己造成的结果，不能使用。</td>
   </tr>
   <tr>
     <th>验证码</th>
@@ -133,7 +136,7 @@ title:
   <tr>
     <th>此</th>
     <td>该</td>
-    <td>当要表达当前事物时，『此』更加明确。</td>
+    <td>当要表达当前事物时，「此」更加明确。</td>
   </tr>
 </table>
 
@@ -150,16 +153,16 @@ title:
 ### 拉近彼此的距离
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LXVkAEabvRXwOTYkewzV.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KxSWWhUiCPYaadFucIEr.png" alt="错误示范" description="建议不要使用『您』，太过客气，让用户感觉有些疏远。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KxSWWhUiCPYaadFucIEr.png" alt="错误示范" description="建议不要使用「您」，太过客气，让用户感觉有些疏远。">
 
-直接使用『你』、『我』来和用户对话，与用户建立亲密感。避免使用『您』，让用户感觉太过疏远。
+直接使用「你」、「我」来和用户对话，与用户建立亲密感。避免使用「您」，让用户感觉太过疏远。
 
 <br />
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkFlHfRJxVaFpCVnhJxz.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SwzkNWboQRPncuORBPmL.png" alt="错误示范" description="同时出现了称谓『我』和『你』，用户会感到迷惑，不清楚到底指代对象是谁。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SwzkNWboQRPncuORBPmL.png" alt="错误示范" description="同时出现了称谓「我」和「你」，用户会感到迷惑，不清楚到底指代对象是谁。">
 
-> 注：不要在同一个句式中混用『你』和『我』，交互中指代混乱会让用户相当纠结。
+> 注：不要在同一个句式中混用「你」和「我」，交互中指代混乱会让用户相当纠结。
 
 ### 友好、尊重用户
 
@@ -173,7 +176,7 @@ title:
 ### 表述不应过于极端
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zXLrYMCesvdZXdSoJEcP.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MTIsErHJIswPHVfUFQnI.png" alt="错误示范" description="『绝不』过于绝对，让用户感到不适。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MTIsErHJIswPHVfUFQnI.png" alt="错误示范" description="「绝不」过于绝对，让用户感到不适。">
 
 不要使用过于绝对的表述，这样会让用户觉得不适。
 
@@ -239,7 +242,7 @@ title:
 
 感叹号会让文案显得过于激动，容易让气氛变得过于紧张。
 
-> 注：当向用户表达问候或祝贺时，使用『！』是合理的语境，例如『欢迎回到社区！』。
+> 注：当向用户表达问候或祝贺时，使用「！」是合理的语境，例如「欢迎回到社区！」。
 
 ### 基本标点规范
 
@@ -273,7 +276,7 @@ title:
   <tr>
     <th>省略号</th>
     <td>…</td>
-    <td>使用半角的『…』为省略号。</td>
+    <td>使用半角的「…」为省略号。</td>
   </tr>
   <tr>
     <th>隐藏符号</th>

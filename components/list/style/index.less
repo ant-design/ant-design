@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './customize.less';
 
 @list-prefix-cls: ~'@{ant-prefix}-list';
 
@@ -13,12 +14,17 @@
   }
 
   &-pagination {
-    margin-top: 24px;
+    margin-top: @margin-lg;
     text-align: right;
+
+    // https://github.com/ant-design/ant-design/issues/20037
+    .@{ant-prefix}-pagination-options {
+      text-align: left;
+    }
   }
 
   &-more {
-    margin-top: 12px;
+    margin-top: @margin-sm;
     text-align: center;
     button {
       padding-right: 32px;
@@ -47,28 +53,29 @@
   &-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: @list-item-padding;
-
-    &-content {
-      color: @text-color;
-    }
+    color: @text-color;
 
     &-meta {
       display: flex;
       flex: 1;
       align-items: flex-start;
-      font-size: 0;
+      max-width: 100%;
+
       &-avatar {
         margin-right: @list-item-meta-avatar-margin-right;
       }
       &-content {
         flex: 1 0;
+        width: 0;
+        color: @text-color;
       }
       &-title {
         margin-bottom: 4px;
         color: @text-color;
         font-size: @font-size-base;
-        line-height: 22px;
+        line-height: @line-height-base;
         > a {
           color: @text-color;
           transition: all 0.3s;
@@ -79,8 +86,8 @@
       }
       &-description {
         color: @text-color-secondary;
-        font-size: @font-size-base;
-        line-height: 22px;
+        font-size: @list-item-meta-description-font-size;
+        line-height: @line-height-base;
       }
     }
     &-action {
@@ -89,19 +96,21 @@
       padding: 0;
       font-size: 0;
       list-style: none;
+
       & > li {
         position: relative;
         display: inline-block;
-        padding: 0 8px;
+        padding: 0 @padding-xs;
         color: @text-color-secondary;
         font-size: @font-size-base;
-        line-height: 22px;
+        line-height: @line-height-base;
         text-align: center;
-        cursor: pointer;
+
+        &:first-child {
+          padding-left: 0;
+        }
       }
-      & > li:first-child {
-        padding-left: 0;
-      }
+
       &-split {
         position: absolute;
         top: 50%;
@@ -124,12 +133,12 @@
 
   &-header,
   &-footer {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: @padding-sm;
+    padding-bottom: @padding-sm;
   }
 
   &-empty {
-    padding: 16px 0;
+    padding: @padding-md 0;
     color: @text-color-secondary;
     font-size: 12px;
     text-align: center;
@@ -146,22 +155,24 @@
     border-bottom: 1px solid @border-color-split;
   }
 
+  &-split&-empty &-footer {
+    border-top: 1px solid @border-color-split;
+  }
+
   &-loading &-spin-nested-loading {
     min-height: 32px;
   }
 
-  &-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
+  &-split&-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
     border-bottom: 1px solid @border-color-split;
   }
 
   &-lg &-item {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: @list-item-padding-lg;
   }
 
   &-sm &-item {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: @list-item-padding-sm;
   }
 
   &-vertical &-item {
@@ -192,7 +203,7 @@
       margin-left: auto;
 
       > li {
-        padding: 0 16px;
+        padding: 0 @padding-md;
         &:first-child {
           padding-left: 0;
         }
@@ -200,10 +211,10 @@
     }
   }
 
-  &-grid &-item {
+  &-grid .@{ant-prefix}-col > &-item {
     display: block;
     max-width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: @margin-md;
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
@@ -226,3 +237,4 @@
 
 @import './bordered';
 @import './responsive';
+@import './rtl';

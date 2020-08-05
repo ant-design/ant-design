@@ -10,11 +10,12 @@ export interface DividerProps {
   children?: React.ReactNode;
   dashed?: boolean;
   style?: React.CSSProperties;
+  plain?: boolean;
 }
 
-const Divider: React.SFC<DividerProps> = props => (
+const Divider: React.FC<DividerProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         type = 'horizontal',
@@ -22,16 +23,21 @@ const Divider: React.SFC<DividerProps> = props => (
         className,
         children,
         dashed,
+        plain,
         ...restProps
       } = props;
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
-      const orientationPrefix = orientation.length > 0 ? '-' + orientation : orientation;
+      const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
+      const hasChildren = !!children;
       const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
-        [`${prefixCls}-with-text${orientationPrefix}`]: children,
+        [`${prefixCls}-with-text`]: hasChildren,
+        [`${prefixCls}-with-text${orientationPrefix}`]: hasChildren,
         [`${prefixCls}-dashed`]: !!dashed,
+        [`${prefixCls}-plain`]: !!plain,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       });
       return (
-        <div className={classString} {...restProps}>
+        <div className={classString} {...restProps} role="separator">
           {children && <span className={`${prefixCls}-inner-text`}>{children}</span>}
         </div>
       );

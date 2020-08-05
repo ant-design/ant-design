@@ -17,7 +17,7 @@ A package of `linear-gradient`. It is recommended to only pass two colors.
 import { Progress } from 'antd';
 
 const Demo = () => (
-  <div>
+  <>
     <Progress
       strokeColor={{
         '0%': '#108ee9',
@@ -33,7 +33,23 @@ const Demo = () => (
       percent={99.9}
       status="active"
     />
-  </div>
+    <Progress
+      type="circle"
+      strokeColor={{
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      }}
+      percent={90}
+    />
+    <Progress
+      type="circle"
+      strokeColor={{
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      }}
+      percent={100}
+    />
+  </>
 );
 
 ReactDOM.render(<Demo />, mountNode);

@@ -15,10 +15,11 @@ title:
 Basic Usage.
 
 ```jsx
-import { Select, Icon } from 'antd';
+import { Select } from 'antd';
+import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
-const smileIcon = <Icon type="smile" />;
-const mehIcon = <Icon type="meh" />;
+const smileIcon = <SmileOutlined />;
+const mehIcon = <MehOutlined />;
 const { Option } = Select;
 
 function handleChange(value) {
@@ -26,7 +27,7 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <>
     <Select
       suffixIcon={smileIcon}
       defaultValue="lucy"
@@ -43,7 +44,7 @@ ReactDOM.render(
     <Select suffixIcon={mehIcon} defaultValue="lucy" style={{ width: 120 }} disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </div>,
+  </>,
   mountNode,
 );
 ```

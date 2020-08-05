@@ -1,0 +1,681 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@picker-cell-inner-cls: ~'@{picker-prefix-cls}-cell-inner';
+
+.@{picker-prefix-cls} {
+  @picker-arrow-size: 7px;
+  @picker-year-month-cell-width: 60px;
+  @picker-panel-width: @picker-panel-cell-width * 7 + @padding-sm * 2 + 4;
+
+  &-panel {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    background: @calendar-bg;
+    border: @border-width-base @border-style-base @picker-border-color;
+    border-radius: @border-radius-base;
+    outline: none;
+
+    &-focused {
+      border-color: @primary-color;
+    }
+  }
+
+  // ========================================================
+  // =                     Shared Panel                     =
+  // ========================================================
+  &-decade-panel,
+  &-year-panel,
+  &-quarter-panel,
+  &-month-panel,
+  &-week-panel,
+  &-date-panel,
+  &-time-panel {
+    display: flex;
+    flex-direction: column;
+    width: @picker-panel-width;
+  }
+
+  // ======================= Header =======================
+  &-header {
+    display: flex;
+    padding: 0 @padding-xs;
+    color: @heading-color;
+    border-bottom: @border-width-base @border-style-base @picker-border-color;
+
+    > * {
+      flex: none;
+    }
+
+    button {
+      padding: 0;
+      color: @disabled-color;
+      line-height: @picker-text-height;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      transition: color @animation-duration-slow;
+    }
+
+    > button {
+      min-width: 1.6em;
+      font-size: @font-size-base;
+
+      &:hover {
+        color: @text-color;
+      }
+    }
+
+    &-view {
+      flex: auto;
+      font-weight: 500;
+      line-height: @picker-text-height;
+
+      button {
+        color: inherit;
+        font-weight: inherit;
+
+        &:not(:first-child) {
+          margin-left: @padding-xs;
+        }
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+
+  // Arrow button
+  &-prev-icon,
+  &-next-icon,
+  &-super-prev-icon,
+  &-super-next-icon {
+    position: relative;
+    display: inline-block;
+    width: @picker-arrow-size;
+    height: @picker-arrow-size;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: @picker-arrow-size;
+      height: @picker-arrow-size;
+      border: 0 solid currentColor;
+      border-width: 1.5px 0 0 1.5px;
+      content: '';
+    }
+  }
+
+  &-super-prev-icon,
+  &-super-next-icon {
+    &::after {
+      position: absolute;
+      top: ceil(@picker-arrow-size / 2);
+      left: ceil(@picker-arrow-size / 2);
+      display: inline-block;
+      width: @picker-arrow-size;
+      height: @picker-arrow-size;
+      border: 0 solid currentColor;
+      border-width: 1.5px 0 0 1.5px;
+      content: '';
+    }
+  }
+
+  &-prev-icon,
+  &-super-prev-icon {
+    transform: rotate(-45deg);
+  }
+
+  &-next-icon,
+  &-super-next-icon {
+    transform: rotate(135deg);
+  }
+
+  // ======================== Body ========================
+  &-content {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    th,
+    td {
+      position: relative;
+      min-width: 24px;
+      font-weight: 400;
+    }
+
+    th {
+      height: 30px;
+      color: @text-color;
+      line-height: 30px;
+    }
+  }
+
+  .picker-cell-inner(@cellClassName) {
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      height: @picker-panel-cell-height;
+      transform: translateY(-50%);
+      content: '';
+    }
+
+    // >>> Default
+    .@{cellClassName} {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      min-width: @picker-panel-cell-height;
+      height: @picker-panel-cell-height;
+      line-height: @picker-panel-cell-height;
+      border-radius: @border-radius-base;
+      transition: background @animation-duration-slow, border @animation-duration-slow;
+    }
+
+    // >>> Hover
+    &:hover:not(&-in-view),
+    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
+      .@{cellClassName} {
+        background: @picker-basic-cell-hover-color;
+      }
+    }
+
+    // >>> Today
+    &-in-view&-today .@{cellClassName} {
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        border: @border-width-base @border-style-base @primary-color;
+        border-radius: @border-radius-base;
+        content: '';
+      }
+    }
+
+    // >>> In Range
+    &-in-view&-in-range {
+      position: relative;
+
+      &::before {
+        background: @picker-basic-cell-active-with-range-color;
+      }
+    }
+
+    // >>> Selected
+    &-in-view&-selected .@{cellClassName},
+    &-in-view&-range-start .@{cellClassName},
+    &-in-view&-range-end .@{cellClassName} {
+      color: @text-color-inverse;
+      background: @primary-color;
+    }
+
+    &-in-view&-range-start:not(&-range-start-single),
+    &-in-view&-range-end:not(&-range-end-single) {
+      &::before {
+        background: @picker-basic-cell-active-with-range-color;
+      }
+    }
+
+    &-in-view&-range-start::before {
+      left: 50%;
+    }
+
+    &-in-view&-range-end::before {
+      right: 50%;
+    }
+
+    // >>> Range Hover
+    &-in-view&-range-hover-start:not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view&-range-hover-start&-range-start-single,
+    &-in-view&-range-hover-end&-range-end-single,
+    &-in-view&-range-hover:not(&-in-range) {
+      &::after {
+        position: absolute;
+        top: 50%;
+        z-index: 0;
+        height: 24px;
+        border-top: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-bottom: @border-width-base dashed @picker-date-hover-range-border-color;
+        transform: translateY(-50%);
+        content: '';
+      }
+    }
+
+    // Add space for stash
+    &-range-hover-start::after,
+    &-range-hover-end::after,
+    &-range-hover::after {
+      right: 0;
+      left: 2px;
+    }
+
+    // Hover with in range
+    &-in-view&-in-range&-range-hover::before,
+    &-in-view&-range-start&-range-hover::before,
+    &-in-view&-range-end&-range-hover::before,
+    &-in-view&-range-start:not(&-range-start-single)&-range-hover-start::before,
+    &-in-view&-range-end:not(&-range-end-single)&-range-hover-end::before,
+    .@{picker-prefix-cls}-panel
+      > :not(.@{picker-prefix-cls}-date-panel)
+      &-in-view&-in-range&-range-hover-start::before,
+    .@{picker-prefix-cls}-panel
+      > :not(.@{picker-prefix-cls}-date-panel)
+      &-in-view&-in-range&-range-hover-end::before {
+      background: @picker-date-hover-range-color;
+    }
+
+    // range start border-radius
+    &-in-view&-range-start:not(&-range-start-single):not(&-range-end) .@{cellClassName} {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
+    // range end border-radius
+    &-in-view&-range-end:not(&-range-end-single):not(&-range-start) .@{cellClassName} {
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+
+    // DatePanel only
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-start .@{cellClassName},
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName} {
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        background: @picker-date-hover-range-color;
+        content: '';
+      }
+    }
+    .@{picker-prefix-cls}-date-panel
+      &-in-view&-in-range&-range-hover-start
+      .@{cellClassName}::after {
+      right: -6px - @border-width-base;
+      left: 0;
+    }
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
+      right: 0;
+      left: -6px - @border-width-base;
+    }
+
+    // Hover with range start & end
+    &-range-hover&-range-start::after {
+      right: 50%;
+    }
+    &-range-hover&-range-end::after {
+      left: 50%;
+    }
+
+    // Edge start
+    tr > &-in-view&-range-hover:first-child::after,
+    tr > &-in-view&-range-hover-end:first-child::after,
+    &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
+    &-in-view&-range-hover-start::after {
+      left: 6px;
+      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+    }
+
+    // Edge end
+    tr > &-in-view&-range-hover:last-child::after,
+    tr > &-in-view&-range-hover-start:last-child::after,
+    &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
+    &-in-view&-range-hover-end::after {
+      right: 6px;
+      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+    }
+
+    // >>> Disabled
+    &-disabled {
+      pointer-events: none;
+
+      .@{cellClassName} {
+        color: @disabled-color;
+        background: transparent;
+      }
+
+      &::before {
+        background: @picker-basic-cell-disabled-bg;
+      }
+    }
+    &-disabled&-today .@{cellClassName}::before {
+      border-color: @disabled-color;
+    }
+  }
+
+  &-cell {
+    padding: 3px 0;
+    color: @disabled-color;
+    cursor: pointer;
+
+    // In view
+    &-in-view {
+      color: @text-color;
+    }
+
+    // Disabled
+    &-disabled {
+      cursor: not-allowed;
+    }
+
+    .picker-cell-inner(~'@{picker-cell-inner-cls}');
+  }
+
+  &-decade-panel,
+  &-year-panel,
+  &-quarter-panel,
+  &-month-panel {
+    .@{picker-prefix-cls}-content {
+      height: @picker-panel-without-time-cell-height * 4;
+    }
+
+    .@{picker-cell-inner-cls} {
+      padding: 0 @padding-xs;
+    }
+
+    .@{picker-prefix-cls}-cell {
+      &-disabled .@{picker-cell-inner-cls} {
+        background: @picker-basic-cell-disabled-bg;
+      }
+    }
+  }
+
+  &-quarter-panel {
+    .@{picker-prefix-cls}-content {
+      height: 56px;
+    }
+  }
+
+  // ======================== Footer ========================
+  &-footer {
+    width: min-content;
+    min-width: 100%;
+    line-height: @picker-text-height - 2 * @border-width-base;
+    text-align: center;
+    border-bottom: @border-width-base @border-style-base transparent;
+
+    .@{picker-prefix-cls}-panel & {
+      border-top: @border-width-base @border-style-base @picker-border-color;
+    }
+
+    &-extra {
+      padding: 0 @padding-sm;
+      line-height: @picker-text-height - 2 * @border-width-base;
+      text-align: left;
+
+      &:not(:last-child) {
+        border-bottom: @border-width-base @border-style-base @picker-border-color;
+      }
+    }
+  }
+
+  &-now {
+    text-align: left;
+  }
+
+  &-today-btn {
+    color: @link-color;
+
+    &:hover {
+      color: @link-hover-color;
+    }
+
+    &:active {
+      color: @link-active-color;
+    }
+
+    &&-disabled {
+      color: @disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  // ========================================================
+  // =                       Special                        =
+  // ========================================================
+
+  // ===================== Decade Panel =====================
+  &-decade-panel {
+    .@{picker-cell-inner-cls} {
+      padding: 0 (@padding-xs / 2);
+    }
+
+    .@{picker-prefix-cls}-cell::before {
+      display: none;
+    }
+  }
+
+  // ============= Year & Quarter & Month Panel =============
+  &-year-panel,
+  &-quarter-panel,
+  &-month-panel {
+    @hover-cell-fixed-distance: (
+        (@picker-panel-width - @padding-xs * 2) / 3 - @picker-year-month-cell-width
+      ) / 2;
+
+    .@{picker-prefix-cls}-body {
+      padding: 0 @padding-xs;
+    }
+
+    .@{picker-cell-inner-cls} {
+      width: @picker-year-month-cell-width;
+    }
+
+    .@{picker-prefix-cls}-cell-range-hover-start::after {
+      left: @hover-cell-fixed-distance;
+      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: @hover-cell-fixed-distance;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
+    }
+    .@{picker-prefix-cls}-cell-range-hover-end::after {
+      right: @hover-cell-fixed-distance;
+      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        left: @hover-cell-fixed-distance;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-radius: @border-radius-base 0 0 @border-radius-base;
+      }
+    }
+  }
+
+  // ====================== Week Panel ======================
+  &-week-panel {
+    .@{picker-prefix-cls}-body {
+      padding: @padding-xs @padding-sm;
+    }
+
+    // Clear cell style
+    .@{picker-prefix-cls}-cell {
+      &:hover .@{picker-cell-inner-cls},
+      &-selected .@{picker-cell-inner-cls},
+      .@{picker-cell-inner-cls} {
+        background: transparent !important;
+      }
+    }
+
+    &-row {
+      td {
+        transition: background @animation-duration-slow;
+      }
+
+      &:hover td {
+        background: @picker-basic-cell-hover-color;
+      }
+
+      &-selected td,
+      &-selected:hover td {
+        background: @primary-color;
+
+        &.@{picker-prefix-cls}-cell-week {
+          color: fade(@text-color-inverse, 50%);
+        }
+
+        &.@{picker-prefix-cls}-cell-today .@{picker-cell-inner-cls}::before {
+          border-color: @text-color-inverse;
+        }
+
+        .@{picker-cell-inner-cls} {
+          color: @text-color-inverse;
+        }
+      }
+    }
+  }
+
+  // ====================== Date Panel ======================
+  &-date-panel {
+    .@{picker-prefix-cls}-body {
+      padding: @padding-xs @padding-sm;
+    }
+
+    .@{picker-prefix-cls}-content {
+      width: @picker-panel-cell-width * 7;
+
+      th {
+        width: @picker-panel-cell-width;
+      }
+    }
+  }
+
+  // ==================== Datetime Panel ====================
+  &-datetime-panel {
+    display: flex;
+
+    .@{picker-prefix-cls}-time-panel {
+      border-left: @border-width-base @border-style-base @picker-border-color;
+    }
+
+    .@{picker-prefix-cls}-date-panel,
+    .@{picker-prefix-cls}-time-panel {
+      transition: opacity @animation-duration-slow;
+    }
+
+    // Keyboard
+    &-active {
+      .@{picker-prefix-cls}-date-panel,
+      .@{picker-prefix-cls}-time-panel {
+        opacity: 0.3;
+
+        &-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // ====================== Time Panel ======================
+  &-time-panel {
+    width: auto;
+    min-width: auto;
+
+    .@{picker-prefix-cls}-content {
+      display: flex;
+      flex: auto;
+      height: 224px;
+    }
+
+    &-column {
+      flex: 1 0 auto;
+      width: 56px;
+      margin: 0;
+      padding: 0;
+      overflow-y: hidden;
+      text-align: left;
+      list-style: none;
+      transition: background @animation-duration-slow;
+
+      &::after {
+        display: block;
+        height: 224px - @picker-time-panel-cell-height;
+        content: '';
+        .@{picker-prefix-cls}-datetime-panel & {
+          height: 224px - @picker-time-panel-cell-height + 2 * @border-width-base;
+        }
+      }
+
+      &:not(:first-child) {
+        border-left: @border-width-base @border-style-base @picker-border-color;
+      }
+
+      &-active {
+        background: fade(@calendar-item-active-bg, 20%);
+      }
+
+      &:hover {
+        overflow-y: auto;
+      }
+
+      > li {
+        margin: 0;
+        padding: 0;
+
+        &.@{picker-prefix-cls}-time-panel-cell {
+          .@{picker-prefix-cls}-time-panel-cell-inner {
+            display: block;
+            width: 100%;
+            height: @picker-time-panel-cell-height;
+            margin: 0;
+            padding: 0;
+            color: @text-color;
+            line-height: @picker-time-panel-cell-height;
+            text-align: center;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background @animation-duration-slow;
+
+            &:hover {
+              background: @item-hover-bg;
+            }
+          }
+
+          &-selected {
+            .@{picker-prefix-cls}-time-panel-cell-inner {
+              background: @calendar-item-active-bg;
+            }
+          }
+
+          &-disabled {
+            .@{picker-prefix-cls}-time-panel-cell-inner {
+              color: @disabled-color;
+              background: transparent;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Fix IE11 render bug by css hacks
+// https://github.com/ant-design/ant-design/issues/21559
+// https://codepen.io/afc163-1472555193/pen/mdJRaNj?editors=0110
+/* stylelint-disable-next-line */
+_:-ms-fullscreen,
+:root {
+  .@{picker-prefix-cls}-range-wrapper {
+    .@{picker-prefix-cls}-month-panel .@{picker-prefix-cls}-cell,
+    .@{picker-prefix-cls}-year-panel .@{picker-prefix-cls}-cell {
+      padding: 21px 0;
+    }
+  }
+}

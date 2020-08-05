@@ -14,7 +14,7 @@ title:
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ```jsx
-import { Transfer, Switch } from 'antd';
+import { Space, Transfer, Switch } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -62,7 +62,7 @@ class App extends React.Component {
   render() {
     const { targetKeys, selectedKeys, disabled } = this.state;
     return (
-      <div>
+      <>
         <Transfer
           dataSource={mockData}
           titles={['Source', 'Target']}
@@ -74,14 +74,15 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
         />
-        <Switch
-          unCheckedChildren="disabled"
-          checkedChildren="disabled"
-          checked={disabled}
-          onChange={this.handleDisable}
-          style={{ marginTop: 16 }}
-        />
-      </div>
+        <Space style={{ marginTop: 16 }}>
+          <Switch
+            unCheckedChildren="disabled"
+            checkedChildren="disabled"
+            checked={disabled}
+            onChange={this.handleDisable}
+          />
+        </Space>
+      </>
     );
   }
 }

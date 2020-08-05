@@ -1,8 +1,9 @@
 ---
-order: 6
+order: 99
 title:
   zh-CN: 自定义日期范围选择
   en-US: Customized Range Picker
+debug: true
 ---
 
 ## zh-CN
@@ -20,7 +21,7 @@ When `RangePicker` does not satisfied your requirements, try to implement simila
 > - Improve user experience with `open` and `onOpenChange`.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 class DateRange extends React.Component {
   state = {
@@ -72,7 +73,7 @@ class DateRange extends React.Component {
   render() {
     const { startValue, endValue, endOpen } = this.state;
     return (
-      <div>
+      <Space>
         <DatePicker
           disabledDate={this.disabledStartDate}
           showTime
@@ -92,7 +93,7 @@ class DateRange extends React.Component {
           open={endOpen}
           onOpenChange={this.handleEndOpenChange}
         />
-      </div>
+      </Space>
     );
   }
 }

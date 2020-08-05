@@ -2,91 +2,95 @@
 
 exports[`Modal render correctly 1`] = `
 <div>
-  <div />
   <div>
-    <div
-      class="ant-modal-mask fade-appear"
-    />
-    <div
-      class="ant-modal-wrap "
-      role="dialog"
-      tabindex="-1"
-    >
+    <div>
       <div
-        class="ant-modal zoom-appear"
-        role="document"
-        style="width: 520px;"
+        class="ant-modal-root"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden;"
-          tabindex="0"
+          class="ant-modal-mask fade-appear"
         />
         <div
-          class="ant-modal-content"
+          class="ant-modal-wrap "
+          role="dialog"
+          tabindex="-1"
         >
-          <button
-            aria-label="Close"
-            class="ant-modal-close"
-            type="button"
+          <div
+            class="ant-modal zoom-appear"
+            role="document"
+            style="width: 520px;"
           >
-            <span
-              class="ant-modal-close-x"
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
+            <div
+              class="ant-modal-content"
             >
-              <i
-                aria-label="icon: close"
-                class="anticon anticon-close ant-modal-close-icon"
+              <button
+                aria-label="Close"
+                class="ant-modal-close"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  class="ant-modal-close-x"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </i>
-            </span>
-          </button>
-          <div
-            class="ant-modal-body"
-          >
-            Here is content of Modal
-          </div>
-          <div
-            class="ant-modal-footer"
-          >
-            <div>
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
+                  <span
+                    aria-label="close"
+                    class="anticon anticon-close ant-modal-close-icon"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
+              <div
+                class="ant-modal-body"
               >
-                <span>
-                  OK
-                </span>
-              </button>
+                Here is content of Modal
+              </div>
+              <div
+                class="ant-modal-footer"
+              >
+                <button
+                  class="ant-btn"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -95,70 +99,150 @@ exports[`Modal render correctly 1`] = `
 
 exports[`Modal render without footer 1`] = `
 <div>
-  <div />
   <div>
-    <div
-      class="ant-modal-mask fade-appear"
-    />
-    <div
-      class="ant-modal-wrap "
-      role="dialog"
-      tabindex="-1"
-    >
+    <div>
       <div
-        class="ant-modal zoom-appear"
-        role="document"
-        style="width: 520px;"
+        class="ant-modal-root"
       >
         <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden;"
-          tabindex="0"
+          class="ant-modal-mask fade-appear"
         />
         <div
-          class="ant-modal-content"
+          class="ant-modal-wrap "
+          role="dialog"
+          tabindex="-1"
         >
-          <button
-            aria-label="Close"
-            class="ant-modal-close"
-            type="button"
-          >
-            <span
-              class="ant-modal-close-x"
-            >
-              <i
-                aria-label="icon: close"
-                class="anticon anticon-close ant-modal-close-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </i>
-            </span>
-          </button>
           <div
-            class="ant-modal-body"
+            class="ant-modal zoom-appear"
+            role="document"
+            style="width: 520px;"
           >
-            Here is content of Modal
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
+            <div
+              class="ant-modal-content"
+            >
+              <button
+                aria-label="Close"
+                class="ant-modal-close"
+                type="button"
+              >
+                <span
+                  class="ant-modal-close-x"
+                >
+                  <span
+                    aria-label="close"
+                    class="anticon anticon-close ant-modal-close-icon"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="close"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+              <div
+                class="ant-modal-body"
+              >
+                Here is content of Modal
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+              tabindex="0"
+            />
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          style="width: 0px; height: 0px; overflow: hidden;"
-          tabindex="0"
-        />
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`Modal support closeIcon 1`] = `
+<div
+  class="ant-modal-root"
+>
+  <div
+    class="ant-modal-mask fade-appear"
+  />
+  <div
+    class="ant-modal-wrap "
+    role="dialog"
+    tabindex="-1"
+  >
+    <div
+      class="ant-modal zoom-appear"
+      role="document"
+      style="width: 520px;"
+    >
+      <div
+        aria-hidden="true"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+        tabindex="0"
+      />
+      <div
+        class="ant-modal-content"
+      >
+        <button
+          aria-label="Close"
+          class="ant-modal-close"
+          type="button"
+        >
+          <span
+            class="ant-modal-close-x"
+          >
+            <a>
+              closeIcon
+            </a>
+          </span>
+        </button>
+        <div
+          class="ant-modal-body"
+        />
+        <div
+          class="ant-modal-footer"
+        >
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              Cancel
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              OK
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+        tabindex="0"
+      />
     </div>
   </div>
 </div>

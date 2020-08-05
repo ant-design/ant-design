@@ -1,136 +1,19 @@
+/* eslint-disable react/no-array-index-key */
 import * as React from 'react';
 import classNames from 'classnames';
-import warning from '../_util/warning';
+import toArray from 'rc-util/lib/Children/toArray';
 import ResponsiveObserve, {
   Breakpoint,
-  BreakpointMap,
+  ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import devWarning from '../_util/devWarning';
+import { ConfigContext } from '../config-provider';
+import Row from './Row';
+import DescriptionsItem from './Item';
+import { cloneElement } from '../_util/reactNode';
 
-export interface DescriptionsItemProps {
-  prefixCls?: string;
-  label?: React.ReactNode;
-  children: React.ReactNode;
-  span?: number;
-}
-
-const DescriptionsItem: React.SFC<DescriptionsItemProps> = ({ children }) =>
-  children as JSX.Element;
-
-export interface DescriptionsProps {
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  bordered?: boolean;
-  size?: 'middle' | 'small' | 'default';
-  children?: React.ReactNode;
-  title?: string;
-  column?: number | Partial<Record<Breakpoint, number>>;
-}
-
-/**
- * Convert children into `column` groups.
- * @param cloneChildren: DescriptionsItem
- * @param column: number
- */
-const generateChildrenRows = (
-  cloneChildren: React.ReactNode,
-  column: number,
-): React.ReactElement<DescriptionsItemProps>[][] => {
-  const childrenArray: React.ReactElement<DescriptionsItemProps>[][] = [];
-  let columnArray: React.ReactElement<DescriptionsItemProps>[] = [];
-  let totalRowSpan = 0;
-  React.Children.forEach(cloneChildren, (node: React.ReactElement<DescriptionsItemProps>) => {
-    columnArray.push(node);
-    if (node.props.span) {
-      totalRowSpan += node.props.span;
-    } else {
-      totalRowSpan += 1;
-    }
-    if (totalRowSpan >= column) {
-      warning(
-        totalRowSpan <= column,
-        'Descriptions',
-        'Sum of column `span` in a line exceeds `column` of Descriptions.',
-      );
-
-      childrenArray.push(columnArray);
-      columnArray = [];
-      totalRowSpan = 0;
-    }
-  });
-  if (columnArray.length > 0) {
-    childrenArray.push(columnArray);
-    columnArray = [];
-  }
-  return childrenArray;
-};
-
-/**
- * This code is for handling react15 does not support returning an array,
- * It can convert a children into two td
- * @param child DescriptionsItem
- * @returns
- * <>
- *   <td>{DescriptionsItem.label}</td>
- *   <td>{DescriptionsItem.children}</td>
- * </>
- */
-const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
-  const { prefixCls, label, children, span = 1 } = child.props;
-  if (bordered) {
-    return [
-      <td className={`${prefixCls}-item-label`} key="label">
-        {label}
-      </td>,
-      <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
-        {children}
-      </td>,
-    ];
-  }
-  return (
-    <td colSpan={span} className={`${prefixCls}-item`}>
-      <span className={`${prefixCls}-item-label`} key="label">
-        {label}
-      </span>
-      <span className={`${prefixCls}-item-content`} key="content">
-        {children}
-      </span>
-    </td>
-  );
-};
-
-const renderRow = (
-  children: React.ReactElement<DescriptionsItemProps>[],
-  index: number,
-  { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
-  bordered: boolean,
-) => {
-  // copy children,prevent changes to incoming parameters
-  const childrenArray = [...children];
-  let lastChildren = childrenArray.pop() as React.ReactElement<DescriptionsItemProps>;
-  const span = column - childrenArray.length;
-  if (isLast) {
-    lastChildren = React.cloneElement(lastChildren as React.ReactElement<DescriptionsItemProps>, {
-      span,
-    });
-  }
-  const cloneChildren = React.Children.map(
-    childrenArray,
-    (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-      return renderCol(childrenItem, bordered);
-    },
-  );
-  return (
-    <tr className={`${prefixCls}-row`} key={index}>
-      {cloneChildren}
-      {renderCol(lastChildren, bordered)}
-    </tr>
-  );
-};
-
-const defaultColumnMap = {
+const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
   xl: 3,
   lg: 3,
@@ -139,120 +22,162 @@ const defaultColumnMap = {
   xs: 1,
 };
 
-class Descriptions extends React.Component<
-  DescriptionsProps,
-  {
-    screens: BreakpointMap;
+function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): number {
+  if (typeof column === 'number') {
+    return column;
   }
-> {
-  static defaultProps: DescriptionsProps = {
-    size: 'default',
-    column: defaultColumnMap,
-  };
-  static Item: typeof DescriptionsItem = DescriptionsItem;
-  state: {
-    screens: BreakpointMap;
-  } = {
-    screens: {},
-  };
-  token: string;
-  componentDidMount() {
-    const { column } = this.props;
-    this.token = ResponsiveObserve.subscribe(screens => {
+
+  if (typeof column === 'object') {
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint] && column[breakpoint] !== undefined) {
+        return column[breakpoint] || DEFAULT_COLUMN_MAP[breakpoint];
+      }
+    }
+  }
+
+  return 3;
+}
+
+function getFilledItem(
+  node: React.ReactElement,
+  span: number | undefined,
+  rowRestCol: number,
+): React.ReactElement {
+  let clone = node;
+
+  if (span === undefined || span > rowRestCol) {
+    clone = cloneElement(node, {
+      span: rowRestCol,
+    });
+    devWarning(
+      span === undefined,
+      'Descriptions',
+      'Sum of column `span` in a line not match `column` of Descriptions.',
+    );
+  }
+
+  return clone;
+}
+
+function getRows(children: React.ReactNode, column: number) {
+  const childNodes = toArray(children).filter(n => n);
+  const rows: React.ReactElement[][] = [];
+
+  let tmpRow: React.ReactElement[] = [];
+  let rowRestCol = column;
+
+  childNodes.forEach((node, index) => {
+    const span: number | undefined = node.props?.span;
+    const mergedSpan = span || 1;
+
+    // Additional handle last one
+    if (index === childNodes.length - 1) {
+      tmpRow.push(getFilledItem(node, span, rowRestCol));
+      rows.push(tmpRow);
+      return;
+    }
+
+    if (mergedSpan < rowRestCol) {
+      rowRestCol -= mergedSpan;
+      tmpRow.push(node);
+    } else {
+      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      rows.push(tmpRow);
+      rowRestCol = column;
+      tmpRow = [];
+    }
+  });
+
+  return rows;
+}
+
+export interface DescriptionsProps {
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  bordered?: boolean;
+  size?: 'middle' | 'small' | 'default';
+  children?: React.ReactNode;
+  title?: React.ReactNode;
+  extra?: React.ReactNode;
+  column?: number | Partial<Record<Breakpoint, number>>;
+  layout?: 'horizontal' | 'vertical';
+  colon?: boolean;
+}
+
+function Descriptions({
+  prefixCls: customizePrefixCls,
+  title,
+  extra,
+  column = DEFAULT_COLUMN_MAP,
+  colon = true,
+  bordered,
+  layout,
+  children,
+  className,
+  style,
+  size,
+}: DescriptionsProps) {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
+  const [screens, setScreens] = React.useState<ScreenMap>({});
+  const mergedColumn = getColumn(column, screens);
+
+  // Responsive
+  React.useEffect(() => {
+    const token = ResponsiveObserve.subscribe(newScreens => {
       if (typeof column !== 'object') {
         return;
       }
-      this.setState({
-        screens,
-      });
+      setScreens(newScreens);
     });
-  }
 
-  componentWillUnmount() {
-    ResponsiveObserve.unsubscribe(this.token);
-  }
+    return () => {
+      ResponsiveObserve.unsubscribe(token);
+    };
+  }, []);
 
-  getColumn(): number {
-    const { column } = this.props;
-    if (typeof column === 'object') {
-      for (let i = 0; i < responsiveArray.length; i++) {
-        const breakpoint: Breakpoint = responsiveArray[i];
-        if (this.state.screens[breakpoint] && column[breakpoint] !== undefined) {
-          return column[breakpoint] || defaultColumnMap[breakpoint];
-        }
-      }
-    }
-    //If the configuration is not an object, it is a number, return number
-    if (typeof column === 'number') {
-      return column as number;
-    }
-    // If it is an object, but no response is found, this happens only in the test.
-    // Maybe there are some strange environments
-    return 3;
-  }
+  // Children
+  const rows = getRows(children, mergedColumn);
 
-  render() {
-    return (
-      <ConfigConsumer>
-        {({ getPrefixCls }: ConfigConsumerProps) => {
-          const {
-            className,
-            prefixCls: customizePrefixCls,
-            title,
-            size,
-            children,
-            bordered = false,
-          } = this.props;
-          const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
+  return (
+    <div
+      className={classNames(prefixCls, className, {
+        [`${prefixCls}-${size}`]: size && size !== 'default',
+        [`${prefixCls}-bordered`]: !!bordered,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      })}
+      style={style}
+    >
+      {(title || extra) && (
+        <div className={`${prefixCls}-header`}>
+          {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        </div>
+      )}
 
-          const column = this.getColumn();
-          const cloneChildren = React.Children.map(
-            children,
-            (child: React.ReactElement<DescriptionsItemProps>) => {
-              if (React.isValidElement(child)) {
-                return React.cloneElement(child, {
-                  prefixCls,
-                });
-              }
-              return child;
-            },
-          );
-
-          const childrenArray: Array<
-            React.ReactElement<DescriptionsItemProps>[]
-          > = generateChildrenRows(cloneChildren, column);
-          return (
-            <div
-              className={classNames(prefixCls, className, {
-                [size as string]: size !== 'default',
-                bordered,
-              })}
-            >
-              {title && <div className={`${prefixCls}-title`}>{title}</div>}
-              <div className={`${prefixCls}-view`}>
-                <table>
-                  <tbody>
-                    {childrenArray.map((child, index) =>
-                      renderRow(
-                        child,
-                        index,
-                        {
-                          prefixCls,
-                          column,
-                          isLast: index + 1 === childrenArray.length,
-                        },
-                        bordered,
-                      ),
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          );
-        }}
-      </ConfigConsumer>
-    );
-  }
+      <div className={`${prefixCls}-view`}>
+        <table>
+          <tbody>
+            {rows.map((row, index) => (
+              <Row
+                key={index}
+                index={index}
+                colon={colon}
+                prefixCls={prefixCls}
+                vertical={layout === 'vertical'}
+                bordered={bordered}
+                row={row}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
+
+Descriptions.Item = DescriptionsItem;
 
 export default Descriptions;

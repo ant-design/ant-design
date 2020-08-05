@@ -125,7 +125,7 @@ class App extends React.Component {
   render() {
     const { targetKeys, disabled, showSearch } = this.state;
     return (
-      <div>
+      <>
         <TableTransfer
           dataSource={mockData}
           targetKeys={targetKeys}
@@ -152,10 +152,16 @@ class App extends React.Component {
           onChange={this.triggerShowSearch}
           style={{ marginTop: 16 }}
         />
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
+```
+
+```css
+#components-transfer-demo-table-transfer .ant-table td {
+  background: transparent;
+}
 ```

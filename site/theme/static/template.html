@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html {{ htmlAttributes | safe }}>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="An enterprise-class UI design language and React implementation with a set of high-quality React components, one of best React UI library for enterprises"
-    />
-    <title>Ant Design - A UI Design Language</title>
+    <title>{% if title %}{{ title | safe }}{% else %}{% endif %}</title>
+    {% if meta %}{{ meta | safe }}{% endif %}
     <link
       rel="icon"
       href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
@@ -23,9 +20,9 @@
       }
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
-    <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,matchMedia"></script>
+    <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,Intl"></script>
     <script>
-      (function() {
+      (function () {
         function isLocalStorageNameSupported() {
           var testKey = 'test';
           var storage = window.localStorage;
@@ -85,7 +82,8 @@
     <div id="react-content">
       {{ content | safe }}
     </div>
-    {% for jsFile in manifest["js"] %}<script src="{{ root }}{{ jsFile }}"></script>
+    {% for jsFile in manifest["js"] %}
+    <script src="{{ root }}{{ jsFile }}"></script>
     {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
@@ -102,10 +100,14 @@
     </script>
     <!-- Hotjar Tracking Code for ant.design -->
     <script>
-      (function(h, o, t, j, a, r) {
+      (function (h, o, t, j, a, r) {
+        if (location.hostname === 'localhost') {
+          return;
+        }
+
         h.hj =
           h.hj ||
-          function() {
+          function () {
             (h.hj.q = h.hj.q || []).push(arguments);
           };
         h._hjSettings = { hjid: 473408, hjsv: 5 };

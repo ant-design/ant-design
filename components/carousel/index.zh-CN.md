@@ -3,6 +3,7 @@ category: Components
 type: 数据展示
 title: Carousel
 subtitle: 走马灯
+cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
 ---
 
 旋转木马，一组轮播的区域。
@@ -17,13 +18,13 @@ subtitle: 走马灯
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| afterChange | 切换面板的回调 | function(current) | 无 |  |
-| autoplay | 是否自动切换 | boolean | false |  |
-| beforeChange | 切换面板的回调 | function(from, to) | 无 |  |
-| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom | 3.17.0 |
-| dots | 是否显示面板指示点 | boolean | true |  |
-| easing | 动画效果 | string | linear |  |
-| effect | 动画效果函数，可取 scrollx, fade | string | scrollx |  |
+| afterChange | 切换面板的回调 | function(current) | - |  |  |
+| autoplay | 是否自动切换 | boolean | false |  |  |
+| beforeChange | 切换面板的回调 | function(from, to) | - |  |  |
+| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |
+| dots | 是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者 | boolean \| { className?: string } | true |  |  |
+| easing | 动画效果 | string | `linear` |  |  |
+| effect | 动画效果函数 | `scrollx` \| `fade` | `scrollx` |  |  |
 
 ## 方法
 
@@ -33,4 +34,4 @@ subtitle: 走马灯
 | next()                         | 切换到下一面板                                    |
 | prev()                         | 切换到上一面板                                    |
 
-更多参数可参考：<https://github.com/akiran/react-slick>
+更多 API 可参考：<https://react-slick.neostack.com/docs/api>

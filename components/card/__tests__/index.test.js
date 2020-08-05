@@ -2,8 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Card from '../index';
 import Button from '../../button/index';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Card', () => {
+  mountTest(Card);
+  rtlTest(Card);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -30,19 +35,6 @@ describe('Card', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('warning', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Card noHovering>xxx</Card>);
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Card] `noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
-    );
-    mount(<Card noHovering={false}>xxx</Card>);
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Card] `noHovering={false}` is deprecated, use `hoverable` instead.',
-    );
-    warnSpy.mockRestore();
-  });
-
   it('onTabChange should work', () => {
     const tabList = [
       {
@@ -67,11 +59,6 @@ describe('Card', () => {
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
-  it('getCompatibleHoverable should work', () => {
-    const wrapper = mount(<Card noHovering={false}>xxx</Card>);
-    expect(wrapper.find('.ant-card-hoverable').length).toBe(1);
-  });
-
   it('should not render when actions is number', () => {
     const wrapper = mount(
       <Card title="Card title" actions={11}>
@@ -79,5 +66,23 @@ describe('Card', () => {
       </Card>,
     );
     expect(wrapper.find('.ant-card-actions').length).toBe(0);
+  });
+
+  it('with tab props', () => {
+    const wrapper = mount(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        tabProps={{ size: 'small' }}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('Tabs').get(0).props.size).toBe('small');
   });
 });

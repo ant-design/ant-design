@@ -18,7 +18,7 @@ import { Comment, Avatar } from 'antd';
 
 const ExampleComment = ({ children }) => (
   <Comment
-    actions={[<span>Reply to</span>]}
+    actions={[<span key="comment-nested-reply-to">Reply to</span>]}
     author={<a>Han Solo</a>}
     avatar={
       <Avatar

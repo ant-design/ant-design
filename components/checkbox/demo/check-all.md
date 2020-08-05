@@ -46,8 +46,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div style={{ borderBottom: '1px solid #E9E9E9' }}>
+      <>
+        <div className="site-checkbox-all-wrapper">
           <Checkbox
             indeterminate={this.state.indeterminate}
             onChange={this.onCheckAllChange}
@@ -62,10 +62,22 @@ class App extends React.Component {
           value={this.state.checkedList}
           onChange={this.onChange}
         />
-      </div>
+      </>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
 ```
+
+```css
+.site-checkbox-all-wrapper {
+  border-bottom: 1px solid #e9e9e9;
+}
+```
+
+<style>
+[data-theme="dark"] .site-checkbox-all-wrapper {
+  border-bottom: 1px solid #303030;
+}
+</style>

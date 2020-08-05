@@ -1,218 +1,472 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Descriptions column is number 1`] = `
-<Descriptions
-  column="3"
-  size="default"
+exports[`Descriptions Descriptions support colon 1`] = `
+<div
+  class="ant-descriptions"
 >
   <div
-    className="ant-descriptions"
+    class="ant-descriptions-view"
   >
-    <div
-      className="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            className="ant-descriptions-row"
-            key="0"
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
-              key=".$.0"
+            <span
+              class="ant-descriptions-item-label ant-descriptions-item-no-colon"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                Product
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Cloud Database
-              </span>
-            </td>
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
-              key=".$.1"
+              Product
+            </span>
+            <span
+              class="ant-descriptions-item-content"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                Billing
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Prepaid
-              </span>
-            </td>
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
-            >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                time
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                18:00:00
-              </span>
-            </td>
-          </tr>
-          <tr
-            className="ant-descriptions-row"
-            key="1"
-          >
-            <td
-              className="ant-descriptions-item"
-              colSpan={3}
-            >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                Amount
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                $80.00
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</Descriptions>
+</div>
+`;
+
+exports[`Descriptions Descriptions support style 1`] = `
+<div
+  class="ant-descriptions"
+  style="background-color: rgb(232, 232, 232);"
+>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Descriptions Descriptions.Item support className 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item my-class"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Product
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Descriptions column is number 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Product
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Cloud Database
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Billing
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Prepaid
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              time
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              18:00:00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="3"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Amount
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              $80.00
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Descriptions should work with React Fragment 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              bamboo
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              bamboo
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              bamboo
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              bamboo
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              bamboo
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              bamboo
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Descriptions vertical layout 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Product
+            </span>
+          </th>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Billing
+            </span>
+          </th>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Prepaid
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              time
+            </span>
+          </th>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              18:00:00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label"
+            >
+              Amount
+            </span>
+          </th>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              $80.00
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 `;
 
 exports[`Descriptions when item is rendered conditionally 1`] = `
-<Descriptions
-  column={
-    Object {
-      "lg": 3,
-      "md": 3,
-      "sm": 2,
-      "xl": 3,
-      "xs": 1,
-      "xxl": 3,
-    }
-  }
-  size="default"
+<div
+  class="ant-descriptions"
 >
   <div
-    className="ant-descriptions"
+    class="ant-descriptions-view"
   >
-    <div
-      className="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            className="ant-descriptions-row"
-            key="0"
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <span
+              class="ant-descriptions-item-label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                Product
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Cloud Database
-              </span>
-            </td>
-          </tr>
-          <tr
-            className="ant-descriptions-row"
-            key="1"
+              Product
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Cloud Database
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <span
+              class="ant-descriptions-item-label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                Billing
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Prepaid
-              </span>
-            </td>
-          </tr>
-          <tr
-            className="ant-descriptions-row"
-            key="2"
+              Billing
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              Prepaid
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <span
+              class="ant-descriptions-item-label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                time
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                18:00:00
-              </span>
-            </td>
-          </tr>
-          <tr
-            className="ant-descriptions-row"
-            key="3"
+              time
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              18:00:00
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <span
+              class="ant-descriptions-item-label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
-              >
-                Amount
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                $80.00
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              Amount
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              $80.00
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</Descriptions>
+</div>
 `;

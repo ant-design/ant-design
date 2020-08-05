@@ -1,0 +1,195 @@
+@import './index';
+
+.@{tab-prefix-cls} {
+  // ========================== Top & Bottom ==========================
+  &-top,
+  &-bottom {
+    flex-direction: column;
+
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      margin: @tabs-bar-margin;
+
+      &::before {
+        position: absolute;
+        right: 0;
+        left: 0;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+        content: '';
+      }
+
+      .@{tab-prefix-cls}-ink-bar {
+        height: 2px;
+
+        &-animated {
+          transition: width @animation-duration-slow, left @animation-duration-slow,
+            right @animation-duration-slow;
+        }
+      }
+
+      .@{tab-prefix-cls}-nav-wrap {
+        &::before,
+        &::after {
+          top: 0;
+          bottom: 0;
+          width: 30px;
+        }
+
+        &::before {
+          left: 0;
+          box-shadow: inset 10px 0 8px -8px fade(@shadow-color, 8%);
+        }
+        &::after {
+          right: 0;
+          box-shadow: inset -10px 0 8px -8px fade(@shadow-color, 8%);
+        }
+
+        &.@{tab-prefix-cls}-nav-wrap-ping-left::before {
+          opacity: 1;
+        }
+        &.@{tab-prefix-cls}-nav-wrap-ping-right::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &-top {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      &::before {
+        bottom: 0;
+      }
+
+      .@{tab-prefix-cls}-ink-bar {
+        bottom: 0;
+      }
+    }
+  }
+
+  &-bottom {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      order: 1;
+      margin-top: @margin-md;
+      margin-bottom: 0;
+
+      &::before {
+        top: 0;
+      }
+
+      .@{tab-prefix-cls}-ink-bar {
+        top: 0;
+      }
+    }
+
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
+      order: 0;
+    }
+  }
+
+  // ========================== Left & Right ==========================
+  &-left,
+  &-right {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      flex-direction: column;
+      min-width: 50px;
+
+      // >>>>>>>>>>> Tab
+      .@{tab-prefix-cls}-tab {
+        margin: @tabs-vertical-margin;
+        padding: @tabs-vertical-padding;
+        text-align: center;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      // >>>>>>>>>>> Nav
+      .@{tab-prefix-cls}-nav-wrap {
+        flex-direction: column;
+
+        &::before,
+        &::after {
+          right: 0;
+          left: 0;
+          height: 30px;
+        }
+
+        &::before {
+          top: 0;
+          box-shadow: inset 0 10px 8px -8px fade(@shadow-color, 8%);
+        }
+        &::after {
+          bottom: 0;
+          box-shadow: inset 0 -10px 8px -8px fade(@shadow-color, 8%);
+        }
+
+        &.@{tab-prefix-cls}-nav-wrap-ping-top::before {
+          opacity: 1;
+        }
+        &.@{tab-prefix-cls}-nav-wrap-ping-bottom::after {
+          opacity: 1;
+        }
+      }
+
+      // >>>>>>>>>>> Ink Bar
+      .@{tab-prefix-cls}-ink-bar {
+        width: 2px;
+
+        &-animated {
+          transition: height @animation-duration-slow, top @animation-duration-slow;
+        }
+      }
+
+      .@{tab-prefix-cls}-nav-list,
+      .@{tab-prefix-cls}-nav-operations {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &-left {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-ink-bar {
+        right: 0;
+      }
+    }
+
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
+      margin-left: -@border-width-base;
+      border-left: @border-width-base @border-style-base @border-color-split;
+
+      > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
+        padding-left: @padding-lg;
+      }
+    }
+  }
+
+  &-right {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      order: 1;
+
+      .@{tab-prefix-cls}-ink-bar {
+        left: 0;
+      }
+    }
+
+    > .@{tab-prefix-cls}-content-holder,
+    > div > .@{tab-prefix-cls}-content-holder {
+      order: 0;
+      margin-right: -@border-width-base;
+      border-right: @border-width-base @border-style-base @border-color-split;
+
+      > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
+        padding-right: @padding-lg;
+      }
+    }
+  }
+}

@@ -3,10 +3,26 @@ import { mount, render } from 'enzyme';
 import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Sider, Content } = Layout;
 
 describe('Layout', () => {
+  mountTest(Layout);
+  mountTest(Content);
+  mountTest(Sider);
+  mountTest(() => (
+    <Layout>
+      <Sider />
+      <Content />
+    </Layout>
+  ));
+
+  rtlTest(Layout);
+  rtlTest(Content);
+  rtlTest(Sider);
+
   it('detect the sider as children', async () => {
     const wrapper = mount(
       <Layout>
@@ -50,18 +66,8 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(
-      wrapper
-        .find('.ant-layout-sider')
-        .at(0)
-        .prop('style').width,
-    ).toBe('50%');
-    expect(
-      wrapper
-        .find('.ant-layout-sider')
-        .at(0)
-        .prop('style').flex,
-    ).toBe('0 0 50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').width).toBe('50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
 
   it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
@@ -149,16 +155,6 @@ describe('Sider', () => {
     errorSpy.mockRestore();
   });
 
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: true,
-        addListener: () => {},
-        removeListener: () => {},
-      })),
-    });
-  });
-
   it('should trigger onBreakpoint', async () => {
     const onBreakpoint = jest.fn();
 
@@ -179,5 +175,35 @@ describe('Sider', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Menu] `inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
+  });
+
+  it('zeroWidthTriggerStyle should work', () => {
+    const wrapper = mount(
+      <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>nav 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').props().style).toEqual({
+      background: '#F96',
+    });
+  });
+
+  it('should be able to customize zero width trigger by trigger prop', () => {
+    const wrapper = mount(
+      <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>nav 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
 });

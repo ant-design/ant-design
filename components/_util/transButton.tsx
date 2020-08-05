@@ -7,6 +7,9 @@ import KeyCode from 'rc-util/lib/KeyCode';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  noStyle?: boolean;
+  autoFocus?: boolean;
+  disabled?: boolean;
 }
 
 const inlineStyle: React.CSSProperties = {
@@ -19,7 +22,15 @@ const inlineStyle: React.CSSProperties = {
 
 class TransButton extends React.Component<TransButtonProps> {
   div?: HTMLDivElement;
+
   lastKeyCode?: number;
+
+  componentDidMount() {
+    const { autoFocus } = this.props;
+    if (autoFocus) {
+      this.focus();
+    }
+  }
 
   onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
@@ -53,16 +64,34 @@ class TransButton extends React.Component<TransButtonProps> {
   }
 
   render() {
-    const { style } = this.props;
+    const { style, noStyle, disabled, ...restProps } = this.props;
+
+    let mergedStyle: React.CSSProperties = {};
+
+    if (!noStyle) {
+      mergedStyle = {
+        ...inlineStyle,
+      };
+    }
+
+    if (disabled) {
+      mergedStyle.pointerEvents = 'none';
+    }
+
+    mergedStyle = {
+      ...mergedStyle,
+      ...style,
+    };
+
     return (
       <div
         role="button"
         tabIndex={0}
         ref={this.setRef}
-        {...this.props}
+        {...restProps}
         onKeyDown={this.onKeyDown}
         onKeyUp={this.onKeyUp}
-        style={{ ...inlineStyle, ...style }}
+        style={mergedStyle}
       />
     );
   }

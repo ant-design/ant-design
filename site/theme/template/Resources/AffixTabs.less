@@ -1,0 +1,37 @@
+@import '../../../../components/style/themes/default.less';
+@import './index.less';
+
+.resource-affix-tabs {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 11;
+  padding: 0 @resource-padding;
+  background: #fff;
+  box-shadow: @shadow-2;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+
+  &-fixed {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .ant-tabs {
+    max-width: 1208px;
+    margin: 0 auto;
+
+    .ant-tabs-nav {
+      margin: 0;
+      &::before {
+        border-bottom-color: transparent;
+      }
+
+      .ant-tabs-tab {
+        padding: 21px 0;
+      }
+    }
+  }
+}

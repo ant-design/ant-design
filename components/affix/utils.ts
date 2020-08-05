@@ -1,5 +1,5 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import Affix from './';
+import Affix from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
 export type Rect = ClientRect | DOMRect;
@@ -74,9 +74,9 @@ export function addObserveTarget(target: HTMLElement | Window | null, affix: Aff
 
     // Add listener
     TRIGGER_EVENTS.forEach(eventName => {
-      entity!.eventHandlers[eventName] = addEventListener(target, eventName, (event: Event) => {
-        entity!.affixList.forEach(affix => {
-          affix.lazyUpdatePosition(event);
+      entity!.eventHandlers[eventName] = addEventListener(target, eventName, () => {
+        entity!.affixList.forEach(targetAffix => {
+          targetAffix.lazyUpdatePosition();
         });
       });
     });

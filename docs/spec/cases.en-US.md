@@ -4,13 +4,21 @@ order: 2
 title: Cases
 ---
 
-Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 80 applications. Designed for enterprise-class complex UIs, used by both professional and non-professional designers, Ant Design has a low learning curve that helps you getting started fast and achieve rapid results.
+Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 80 applications. Designed for enterprise-class complex UIs, used by both professional and non-professional designers, Ant Design has a low learning curve that helps you get started fast and achieve rapid results.
 
 Currently, there are many products and sites using Ant Design. If your solutions are using Ant Design, please [leave us a message](https://github.com/ant-design/ant-design/issues/477).
 
 ## Best Practices
 
 ---
+
+### Umi UI
+
+The local R&D workbench for Umi projects, code based, visualization function as an aid, further improve project development efficiency.
+
+[More](https://umijs.org/guide/umi-ui.html#%E2%9C%A8-%E7%89%B9%E6%80%A7)
+
+![Umi UI](https://gw.alipayobjects.com/zos/antfincdn/Xyns37N5nY/6591859e-7c16-48f5-852f-7817803425e9.png)
 
 ### Ant Financial Technology
 

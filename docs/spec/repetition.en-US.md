@@ -1,5 +1,6 @@
 ---
-category: Principles
+category: Design Patterns
+type: Principles
 order: 4
 title: Repetition
 ---

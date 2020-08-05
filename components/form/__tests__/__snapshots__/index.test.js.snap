@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="light"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form Form item hidden should work 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="light"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    aria-hidden="true"
+    cccc="bbbb"
+    class="ant-row ant-form-item"
+    data-text="123"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          text
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form rtl render component should be rendered correctly in RTL direction 1`] = `
+<form
+  class="ant-form ant-form-horizontal ant-form-rtl"
+/>
+`;
+
+exports[`Form rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-row ant-row-rtl ant-form-item"
+>
+  <div
+    class="ant-col ant-form-item-control ant-col-rtl"
+  >
+    <div
+      class="ant-form-item-control-input"
+    >
+      <div
+        class="ant-form-item-control-input-content"
+      />
+    </div>
+  </div>
+</div>
+`;

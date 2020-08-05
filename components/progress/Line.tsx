@@ -1,6 +1,8 @@
 import * as React from 'react';
+
+import { ProgressGradient, ProgressProps, StringGradients } from './progress';
+
 import { validProgress } from './utils';
-import { ProgressProps, ProgressGradient, StringGradients } from './progress';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -16,18 +18,17 @@ interface LineProps extends ProgressProps {
  *   '100%': '#ffffff'
  * }
  */
-export const sortGradient = (gradients: ProgressGradient) => {
-  let tempArr = [];
-  for (const [key, value] of Object.entries(gradients)) {
-    const formatKey = parseFloat(key.replace(/%/g, ''));
-    if (isNaN(formatKey)) {
-      return {};
+export const sortGradient = (gradients: StringGradients) => {
+  let tempArr: any[] = [];
+  Object.keys(gradients).forEach(key => {
+    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    if (!isNaN(formattedKey)) {
+      tempArr.push({
+        key: formattedKey,
+        value: gradients[key],
+      });
     }
-    tempArr.push({
-      key: formatKey,
-      value,
-    });
-  }
+  });
   tempArr = tempArr.sort((a, b) => a.key - b.key);
   return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
 };
@@ -56,17 +57,19 @@ export const handleGradient = (strokeColor: ProgressGradient) => {
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
-const Line: React.SFC<LineProps> = props => {
+const Line: React.FC<LineProps> = props => {
   const {
     prefixCls,
     percent,
-    successPercent,
     strokeWidth,
     size,
     strokeColor,
     strokeLinecap,
     children,
+    trailColor,
+    success,
   } = props;
+
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
     backgroundProps = handleGradient(strokeColor);
@@ -75,31 +78,64 @@ const Line: React.SFC<LineProps> = props => {
       background: strokeColor,
     };
   }
+
+  let trailStyle;
+  if (trailColor && typeof trailColor === 'string') {
+    trailStyle = {
+      backgroundColor: trailColor,
+    };
+  }
+
+  let successColor;
+  if (success && 'strokeColor' in success) {
+    successColor = success.strokeColor;
+  }
+
+  let successStyle;
+  if (successColor && typeof successColor === 'string') {
+    successStyle = {
+      backgroundColor: successColor,
+    };
+  }
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
   };
-  const successPercentStyle = {
+
+  let { successPercent } = props;
+  /** @deprecated Use `percent` instead */
+  if (success && 'progress' in success) {
+    successPercent = success.progress;
+  }
+
+  if (success && 'percent' in success) {
+    successPercent = success.percent;
+  }
+
+  let successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
   };
+  if (successStyle) {
+    successPercentStyle = { ...successPercentStyle, ...successStyle };
+  }
   const successSegment =
     successPercent !== undefined ? (
       <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
     ) : null;
   return (
-    <div>
+    <>
       <div className={`${prefixCls}-outer`}>
-        <div className={`${prefixCls}-inner`}>
+        <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successSegment}
         </div>
       </div>
       {children}
-    </div>
+    </>
   );
 };
 

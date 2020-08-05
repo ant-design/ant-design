@@ -1,0 +1,14 @@
+@tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
+
+// Base class
+.@{tooltip-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+  // Wrapper for the tooltip content
+  &-inner {
+    .@{tooltip-prefix-cls}-rtl & {
+      text-align: right;
+    }
+  }
+}

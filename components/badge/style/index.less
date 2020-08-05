@@ -159,7 +159,7 @@
     display: inline-block;
     height: @badge-height;
     transition: all 0.3s @ease-in-out;
-    > p {
+    > p.@{number-prefix-cls}-only-unit {
       height: @badge-height;
       margin: 0;
     }
@@ -189,3 +189,6 @@
     opacity: 0;
   }
 }
+
+@import './ribbon';
+@import './rtl';

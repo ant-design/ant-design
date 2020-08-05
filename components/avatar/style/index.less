@@ -37,6 +37,7 @@
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -54,5 +55,12 @@
 
   &.@{avatar-prefix-cls}-icon {
     font-size: @font-size;
+
+    > .@{iconfont-css-prefix} {
+      margin: 0;
+    }
   }
 }
+
+@import './group';
+@import './rtl';
