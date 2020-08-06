@@ -186,7 +186,7 @@
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
-      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
+      margin: calc(-@input-padding-vertical-base - 1px) (-@input-padding-horizontal-base);
 
       &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
         .@{ant-prefix}-select-selector {
