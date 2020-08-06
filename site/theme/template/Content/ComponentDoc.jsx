@@ -193,11 +193,7 @@ class ComponentDoc extends React.Component {
                   />
                 }
               >
-                {visibleAll ? (
-                  <BugFilled className={expandTriggerClass} onClick={this.handleVisibleToggle} />
-                ) : (
-                  <BugOutlined className={expandTriggerClass} onClick={this.handleVisibleToggle} />
-                )}
+                {/* Varnish Removed Bug */}
               </Tooltip>
             </span>
           </h2>
