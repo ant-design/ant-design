@@ -1,7 +1,7 @@
 {
   "name": "antd",
   "name-comment": "the name MUST remain 'antd'",
-  "version": "0.9.7",
+  "version": "0.9.8",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Varnish",
   "keywords": [
