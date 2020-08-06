@@ -21,6 +21,7 @@ export interface SpacingMap {
 
 export const spacing: SpacingMap = {
   xxs: Spacing.fromPixels(4),
+  xs2: Spacing.fromPixels(4),
   xs: Spacing.fromPixels(8),
   sm: Spacing.fromPixels(12),
   md: Spacing.fromPixels(16),
