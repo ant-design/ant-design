@@ -46,61 +46,48 @@ ReactDOM.render(
 .card-container p {
   margin: 0;
 }
-.card-container > .ant-tabs-card > .ant-tabs-content {
+.card-container > .ant-tabs-card .ant-tabs-content {
   height: 120px;
   margin-top: -16px;
 }
-[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content {
-  height: 120px;
-  margin-top: -8px;
-}
-
-[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane,
-.card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+.card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
   background: #fff;
   padding: 16px;
 }
-
-[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-bar,
-.card-container > .ant-tabs-card > .ant-tabs-bar {
-  border-color: #fff;
+.card-container > .ant-tabs-card > .ant-tabs-nav::before {
+  display: none;
 }
-
-[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab,
-.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+.card-container > .ant-tabs-card .ant-tabs-tab,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab {
   border-color: transparent;
   background: transparent;
 }
-
-[data-theme='compact'] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active,
-.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+.card-container > .ant-tabs-card .ant-tabs-tab-active,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
   border-color: #fff;
   background: #fff;
 }
-```
-
-<style>
 #components-tabs-demo-card-top .code-box-demo {
-  background: #F5F5F5;
+  background: #f5f5f5;
   overflow: hidden;
   padding: 24px;
 }
-
-[data-theme="dark"] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-content {
+  height: 120px;
+  margin-top: -8px;
+}
+[data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-tab {
   border-color: transparent;
   background: transparent;
 }
-[data-theme="dark"] #components-tabs-demo-card-top .code-box-demo {
+[data-theme='dark'] #components-tabs-demo-card-top .code-box-demo {
   background: #000;
 }
-[data-theme="dark"] .card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+[data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
   background: #141414;
 }
-[data-theme="dark"] .card-container > .ant-tabs-card > .ant-tabs-bar {
-  border-color: #141414;
-}
-[data-theme="dark"] .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+[data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
   border-color: #141414;
   background: #141414;
 }
-</style>
+```

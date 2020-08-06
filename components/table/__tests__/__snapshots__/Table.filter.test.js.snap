@@ -233,7 +233,11 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                               >
                                 <div
                                   class="ant-tooltip-arrow"
-                                />
+                                >
+                                  <span
+                                    class="ant-tooltip-arrow-content"
+                                  />
+                                </div>
                                 <div
                                   class="ant-tooltip-inner"
                                   role="tooltip"

@@ -4,6 +4,7 @@ type: 布局
 subtitle: 间距
 title: Space
 cols: 1
+cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 ---
 
 设置组件之间的间距。
@@ -11,6 +12,9 @@ cols: 1
 ## 何时使用
 
 避免组件紧贴在一起，拉开统一的空间。
+
+- 适合行内元素的水平间距。
+- 可以设置各种水平对齐方式。
 
 ## API
 

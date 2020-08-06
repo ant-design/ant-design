@@ -4,6 +4,7 @@ subtitle: 布局
 type: 布局
 cols: 1
 title: Layout
+cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 ---
 
 协助进行页面级整体布局。
@@ -88,7 +89,7 @@ title: Layout
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| breakpoint | 触发响应式布局的[断点](/components/grid-cn/#Col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
+| breakpoint | 触发响应式布局的[断点](/components/grid/#Col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
 | className | 容器 className | string | - |
 | collapsed | 当前收起状态 | boolean | - |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |
@@ -97,10 +98,10 @@ title: Layout
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |
 | style | 指定样式 | CSSProperties | - |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |
-| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
-| width | 宽度 | number\|string | 200 |
+| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string \| ReactNode | - |
+| width | 宽度 | number \| string | 200 |
 | onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |
-| onBreakpoint | 触发响应式布局[断点](/components/grid#API)时的回调 | (broken) => {} | - |
+| onBreakpoint | 触发响应式布局[断点](/components/grid/#API)时的回调 | (broken) => {} | - |
 | zeroWidthTriggerStyle | 指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式 | object | - |
 
 #### breakpoint width

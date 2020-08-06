@@ -8,14 +8,18 @@ export interface CheckableTagProps {
   style?: React.CSSProperties;
   checked: boolean;
   onChange?: (checked: boolean) => void;
+  onClick?: (e: React.MouseEventHandler<HTMLElement>) => void;
 }
 
 const CheckableTag: React.FC<CheckableTagProps> = props => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const handleClick = () => {
-    const { checked, onChange } = props;
+  const handleClick = (e: React.MouseEventHandler) => {
+    const { checked, onChange, onClick } = props;
     if (onChange) {
       onChange(!checked);
+    }
+    if (onClick) {
+      onClick(e);
     }
   };
 

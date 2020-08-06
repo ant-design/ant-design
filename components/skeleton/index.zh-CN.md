@@ -4,6 +4,7 @@ subtitle: 骨架屏
 type: 反馈
 title: Skeleton
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 ---
 
 在需要等待加载内容的位置提供一个占位图形组合。
@@ -23,9 +24,10 @@ cols: 1
 | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false |
 | avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
-| loading | 为 `true` 时，显示占位图。反之则直接展示子组件 | boolean | - |
+| loading | 为 true 时，显示占位图。反之则直接展示子组件 | boolean | - |
 | paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
 | title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| round | 为 true 时，段落和标题显示圆角 | boolean | false |
 
 ### SkeletonAvatarProps
 
@@ -61,4 +63,4 @@ cols: 1
 | 属性   | 说明             | 类型                            | 默认值 |
 | ------ | ---------------- | ------------------------------- | ------ |
 | active | 是否展示动画效果 | boolean                         | false  |
-| size   | 设置按钮的大小   | `large` \| `small` \| `default` | -      |
+| size   | 设置输入框的大小 | `large` \| `small` \| `default` | -      |

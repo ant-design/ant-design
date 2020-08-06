@@ -468,6 +468,158 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
+>
+  <div
+    class="ant-tabs-bar ant-tabs-top-bar"
+    role="tablist"
+    tabindex="-1"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <span
+        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-tabs-tab-prev-icon"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <span
+        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-tabs-tab-next-icon"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div>
+              <div
+                aria-controls="tabpane-1"
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                id="tab-1"
+                role="tab"
+                tabindex="0"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-controls="tabpane-2"
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                id="tab-2"
+                role="tab"
+                tabindex="-1"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-controls="tabpane-3"
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                id="tab-3"
+                role="tab"
+                tabindex="-1"
+              >
+                Tab 3
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+      style="visibility:visible"
+      tabindex="0"
+    >
+      Content of Tab Pane 1
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+      style="visibility:hidden"
+      tabindex="-1"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+      style="visibility:hidden"
+      tabindex="-1"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 <div>
   <div
@@ -3494,9 +3646,9 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                 </div>
                 <div
                   aria-controls="tabpane-28"
-                  aria-disabled="false"
+                  aria-disabled="true"
                   aria-selected="false"
-                  class=" ant-tabs-tab"
+                  class=" ant-tabs-tab ant-tabs-tab-disabled"
                   id="tab-28"
                   role="tab"
                   tabindex="-1"

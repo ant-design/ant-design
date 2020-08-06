@@ -14,6 +14,7 @@ export default function getIcons({
   removeIcon,
   loading,
   multiple,
+  prefixCls,
 }: {
   suffixIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
@@ -21,6 +22,7 @@ export default function getIcons({
   removeIcon?: React.ReactNode;
   loading?: boolean;
   multiple?: boolean;
+  prefixCls: string;
 }) {
   // Clear Icon
   let mergedClearIcon = clearIcon;
@@ -35,11 +37,12 @@ export default function getIcons({
   } else if (loading) {
     mergedSuffixIcon = <LoadingOutlined spin />;
   } else {
+    const iconCls = `${prefixCls}-suffix`;
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
       if (open && showSearch) {
-        return <SearchOutlined />;
+        return <SearchOutlined className={iconCls} />;
       }
-      return <Icons.FormDropdownIcon />; // Changed by Varnish
+      return <Icons.FormDropdownIcon className={iconCls} />; // Changed by Varnish
     };
   }
 

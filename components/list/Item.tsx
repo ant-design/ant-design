@@ -58,12 +58,19 @@ export interface ListItemTypeProps extends React.FC<ListItemProps> {
   Meta: typeof Meta;
 }
 
-const Item: ListItemTypeProps = props => {
+const Item: ListItemTypeProps = ({
+  prefixCls: customizePrefixCls,
+  children,
+  actions,
+  extra,
+  className,
+  colStyle,
+  ...others
+}) => {
   const { grid, itemLayout } = React.useContext(ListContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    const { children } = props;
     let result;
     React.Children.forEach(children, (element: React.ReactElement<any>) => {
       if (typeof element === 'string') {
@@ -74,22 +81,12 @@ const Item: ListItemTypeProps = props => {
   };
 
   const isFlexMode = () => {
-    const { extra } = props;
     if (itemLayout === 'vertical') {
       return !!extra;
     }
     return !isItemContainsTextNodeAndNotSingular();
   };
 
-  const {
-    prefixCls: customizePrefixCls,
-    children,
-    actions,
-    extra,
-    className,
-    colStyle,
-    ...others
-  } = props;
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul className={`${prefixCls}-item-action`} key="actions">

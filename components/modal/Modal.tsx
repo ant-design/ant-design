@@ -23,7 +23,9 @@ const getClickPosition = (e: MouseEvent) => {
   // 100ms 内发生过点击事件，则从点击位置动画展示
   // 否则直接 zoom 展示
   // 这样可以兼容非点击方式展开
-  setTimeout(() => (mousePosition = null), 100);
+  setTimeout(() => {
+    mousePosition = null;
+  }, 100);
 };
 
 // 只有点击事件支持从鼠标位置动画展开
@@ -111,6 +113,7 @@ export interface ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
+  direction?: string;
 }
 
 export interface ModalLocale {

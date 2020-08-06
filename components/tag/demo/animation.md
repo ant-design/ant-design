@@ -53,7 +53,9 @@ class EditableTagGroup extends React.Component {
     });
   };
 
-  saveInputRef = input => (this.input = input);
+  saveInputRef = input => {
+    this.input = input;
+  };
 
   forMap = tag => {
     const tagElem = (
@@ -78,7 +80,7 @@ class EditableTagGroup extends React.Component {
     const { tags, inputVisible, inputValue } = this.state;
     const tagChild = tags.map(this.forMap);
     return (
-      <div>
+      <>
         <div style={{ marginBottom: 16 }}>
           <TweenOneGroup
             enter={{
@@ -113,7 +115,7 @@ class EditableTagGroup extends React.Component {
             <PlusOutlined /> New Tag
           </Tag>
         )}
-      </div>
+      </>
     );
   }
 }

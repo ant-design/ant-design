@@ -20,7 +20,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -609,7 +609,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img

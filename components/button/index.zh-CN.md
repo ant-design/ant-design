@@ -3,6 +3,7 @@ category: Components
 type: 通用
 title: Button
 subtitle: 按钮
+cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 ---
 
 按钮用于开始一个即时操作。
@@ -11,12 +12,13 @@ subtitle: 按钮
 
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
-在 Ant Design 中我们提供了四种按钮。
+在 Ant Design 中我们提供了五种按钮。
 
 - 主按钮：用于主行动点，一个操作区域只能有一个主按钮。
 - 默认按钮：用于没有主次之分的一组行动点。
 - 虚线按钮：常用于添加操作。
-- 链接按钮：用于次要或外链的行动点。
+- 文本按钮：用于最次级的行动点。
+- 链接按钮：用于作为外链的行动点。
 
 以及四种状态属性与上面配合使用。
 
@@ -33,19 +35,19 @@ subtitle: 按钮
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| disabled | 按钮失效状态 | boolean | `false` |  |
+| disabled | 按钮失效状态 | boolean | false |  |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | false |  |
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
 | htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |  |
 | icon | 设置按钮的图标组件 | ReactNode | - |  |
-| loading | 设置按钮载入状态 | boolean \| { delay: number } | `false` |  |
+| loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
 | shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设 | string | - |  |
-| size | 设置按钮大小 | `large` \| `middle` \| `small` | 无 |  |
+| size | 设置按钮大小 | `large` \| `middle` \| `small` | - |  |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
-| type | 设置按钮类型，可选值为 `primary` `dashed` `link` 或者不设 | string | - |  |
+| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `danger` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
-| block | 将按钮宽度调整为其父宽度的选项 | boolean | `false` |  |
-| danger | 设置危险按钮 | boolean | `false` |  |
+| block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
+| danger | 设置危险按钮 | boolean | false |  |
 
 支持原生 button 的其他所有属性。
 

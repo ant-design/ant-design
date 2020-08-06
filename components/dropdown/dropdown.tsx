@@ -35,6 +35,7 @@ type Align = {
 };
 
 export interface DropDownProps {
+  arrow?: boolean;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
@@ -130,6 +131,7 @@ const Dropdown: DropdownInterface = props => {
   };
 
   const {
+    arrow,
     prefixCls: customizePrefixCls,
     children,
     trigger,
@@ -160,6 +162,7 @@ const Dropdown: DropdownInterface = props => {
 
   return (
     <RcDropdown
+      arrow={arrow}
       alignPoint={alignPoint}
       {...props}
       overlayClassName={overlayClassNameCustomized}

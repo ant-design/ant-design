@@ -1,35 +1,29 @@
 ---
 order: 4
-debug: true
 title:
-  zh-CN: 大数据性能测试
-  en-US: Performance Test
+  zh-CN: 分页
+  en-US: Pagination
 ---
 
 ## zh-CN
 
-2000 条数据。
+大数据下使用分页。
 
 ## en-US
 
-2000 items.
+large count of items with pagination.
 
 ```jsx
-import { Transfer } from '@allenai/varnish';
+import { Transfer, Switch } from '@allenai/varnish';
 
-class App extends React.Component {
-  state = {
-    mockData: [],
-    targetKeys: [],
-  };
+const App = () => {
+  const [oneWay, setOneWay] = React.useState(false);
+  const [mockData, setMockData] = React.useState([]);
+  const [targetKeys, setTargetKeys] = React.useState([]);
 
-  componentDidMount() {
-    this.getMock();
-  }
-
-  getMock = () => {
-    const targetKeys = [];
-    const mockData = [];
+  React.useEffect(() => {
+    const newTargetKeys = [];
+    const newMockData = [];
     for (let i = 0; i < 2000; i++) {
       const data = {
         key: i.toString(),
@@ -38,29 +32,40 @@ class App extends React.Component {
         chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
-        targetKeys.push(data.key);
+        newTargetKeys.push(data.key);
       }
-      mockData.push(data);
+      newMockData.push(data);
     }
-    this.setState({ mockData, targetKeys });
+
+    setTargetKeys(newTargetKeys);
+    setMockData(newMockData);
+  }, []);
+
+  const onChange = (newTargetKeys, direction, moveKeys) => {
+    console.log(newTargetKeys, direction, moveKeys);
+    setTargetKeys(newTargetKeys);
   };
 
-  handleChange = (targetKeys, direction, moveKeys) => {
-    console.log(targetKeys, direction, moveKeys);
-    this.setState({ targetKeys });
-  };
-
-  render() {
-    return (
+  return (
+    <>
       <Transfer
-        dataSource={this.state.mockData}
-        targetKeys={this.state.targetKeys}
-        onChange={this.handleChange}
+        dataSource={mockData}
+        targetKeys={targetKeys}
+        onChange={onChange}
         render={item => item.title}
+        oneWay={oneWay}
+        pagination
       />
-    );
-  }
-}
+      <br />
+      <Switch
+        unCheckedChildren="one way"
+        checkedChildren="one way"
+        checked={oneWay}
+        onChange={setOneWay}
+      />
+    </>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```

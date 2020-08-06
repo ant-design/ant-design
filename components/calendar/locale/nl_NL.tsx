@@ -1,3 +1,3 @@
-import nl_NL from '../../date-picker/locale/nl_NL';
+import nlNL from '../../date-picker/locale/nl_NL';
 
-export default nl_NL;
+export default nlNL;

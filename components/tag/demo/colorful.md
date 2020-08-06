@@ -31,6 +31,8 @@ ReactDOM.render(
       <Tag color="blue">blue</Tag>
       <Tag color="geekblue">geekblue</Tag>
       <Tag color="purple">purple</Tag>
+      <Tag color="pink">pink</Tag>
+      <Tag color="yellow">yellow</Tag>
     </div>
     <Divider orientation="left">Custom</Divider>
     <div>

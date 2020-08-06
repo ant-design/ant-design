@@ -500,6 +500,35 @@ exports[`Progress render strokeColor 3`] = `
 </Progress>
 `;
 
+exports[`Progress render successColor progress 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div
+    class="ant-progress-outer"
+  >
+    <div
+      class="ant-progress-inner"
+    >
+      <div
+        class="ant-progress-bg"
+        style="width: 60%; height: 8px;"
+      />
+      <div
+        class="ant-progress-success-bg"
+        style="width: 30%; height: 8px; background-color: rgb(255, 255, 255);"
+      />
+    </div>
+  </div>
+  <span
+    class="ant-progress-text"
+    title="60%"
+  >
+    60%
+  </span>
+</div>
+`;
+
 exports[`Progress render trailColor progress 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -560,15 +589,15 @@ exports[`Progress should support steps 1`] = `
   >
     <div
       class="ant-progress-steps-item"
-      style="background-color:undefined;width:14px;height:8px"
+      style="width:14px;height:8px"
     />
     <div
       class="ant-progress-steps-item"
-      style="background-color:undefined;width:14px;height:8px"
+      style="width:14px;height:8px"
     />
     <div
       class="ant-progress-steps-item"
-      style="background-color:undefined;width:14px;height:8px"
+      style="width:14px;height:8px"
     />
     <span
       class="ant-progress-text"

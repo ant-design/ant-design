@@ -27,6 +27,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - DatePicker interactive redo, range selection can now select start and end time separately.
 - Table change default background color from transparent to white.
 - Smaller Tabs bar width.
+- New Tabs interaction and dom structure is changed in `4.3.0`.
 
 ### Compatibility
 
@@ -54,6 +55,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - Removed the `body` attribute of Transfer. Please use `children` instead.
 - Removed the `lazy` attribute of Transfer, which did not really optimize the effect.
 - Removed `combobox` mode, please use `AutoComplete` instead.
+- Removed the `rowSelection.hideDefaultSelections` property of Table, please use `SELECTION_ALL` and `SELECTION_INVERT` in `rowSelection.selections` instead, [Custom Selection](/components/table/#components-table-demo-row-selection-custom).
 
 #### Icon upgrade
 
@@ -132,6 +134,9 @@ const Demo = () => (
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
 - Pagination will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
+- Tabs rewrite. ([4.3.0](https://github.com/ant-design/ant-design/pull/24552))
+  - Dom structrue is changed, please check style if you override tabs css.
+  - `onPrevClick` 和 `onNextClick` would be not working anymore since we improve tabs scroll behavior.
 
 ```diff
 <Table

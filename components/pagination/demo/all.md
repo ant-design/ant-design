@@ -17,14 +17,14 @@ Show all configured prop.
 import { Pagination } from '@allenai/varnish';
 
 ReactDOM.render(
-  <div>
+  <>
     <Pagination
       total={85}
       showSizeChanger
       showQuickJumper
       showTotal={total => `Total ${total} items`}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

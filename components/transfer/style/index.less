@@ -13,6 +13,8 @@
   .reset-component;
 
   position: relative;
+  display: flex;
+  align-items: stretch;
 
   &-disabled {
     .@{transfer-prefix-cls}-list {
@@ -21,17 +23,16 @@
   }
 
   &-list {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: 180px;
     height: @transfer-list-height;
-    padding-top: @transfer-header-height;
-    vertical-align: middle;
     border: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base;
 
-    &-with-footer {
-      padding-bottom: 34px;
+    &-with-pagination {
+      width: 250px;
+      height: auto;
     }
 
     &-search {
@@ -61,72 +62,124 @@
     }
 
     &-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      display: flex;
+      flex: none;
+      align-items: center;
+      height: @transfer-header-height;
       // border-top is on the transfer dom. We should minus 1px for this
       padding: (@transfer-header-vertical-padding - 1px) @control-padding-horizontal
         @transfer-header-vertical-padding;
-      overflow: hidden;
       color: @text-color;
       background: @component-background;
       border-bottom: @border-width-base @border-style-base @border-color-split;
       border-radius: @border-radius-base @border-radius-base 0 0;
 
-      &-title {
-        position: absolute;
-        right: 12px;
+      > *:not(:last-child) {
+        margin-right: 4px;
       }
 
-      .@{ant-prefix}-checkbox-wrapper + span {
-        padding-left: 8px;
+      > * {
+        flex: none;
+      }
+
+      &-title {
+        flex: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: right;
+        text-overflow: ellipsis;
+      }
+
+      &-dropdown {
+        transform: translateY(10%);
+        cursor: pointer;
+        .iconfont-size-under-12px(10px);
+
+        &[disabled] {
+          cursor: not-allowed;
+        }
       }
     }
 
     &-body {
-      position: relative;
-      height: 100%;
+      display: flex;
+      flex: auto;
+      flex-direction: column;
+      overflow: hidden;
       font-size: @font-size-base;
 
       &-search-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+        position: relative;
+        flex: none;
         padding: @padding-sm;
       }
     }
 
-    &-body-with-search {
-      padding-top: @input-height-base + @padding-sm * 2;
-    }
-
     &-content {
-      height: 100%;
+      flex: auto;
       margin: 0;
       padding: 0;
       overflow: auto;
       list-style: none;
       &-item {
+        display: flex;
+        align-items: center;
         min-height: @transfer-item-height;
         padding: @transfer-item-padding-vertical @control-padding-horizontal;
         overflow: hidden;
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
-        white-space: nowrap;
-        text-overflow: ellipsis;
         transition: all 0.3s;
-        > span {
-          padding-right: 0;
+
+        > *:not(:last-child) {
+          margin-right: 8px;
         }
+
+        > * {
+          flex: none;
+        }
+
         &-text {
-          padding-left: 8px;
+          flex: auto;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        &-remove {
+          .operation-unit();
+          position: relative;
+          color: @border-color-base;
+
+          &::after {
+            position: absolute;
+            top: -@transfer-item-padding-vertical;
+            right: -50%;
+            bottom: -@transfer-item-padding-vertical;
+            left: -50%;
+            content: '';
+          }
+
+          &:hover {
+            color: @link-hover-color;
+          }
         }
       }
 
-      &-item:not(&-item-disabled):hover {
-        background-color: @transfer-item-hover-bg;
-        cursor: pointer;
+      &-item:not(&-item-disabled) {
+        &:hover {
+          background-color: @transfer-item-hover-bg;
+          cursor: pointer;
+        }
+
+        &.@{transfer-prefix-cls}-list-content-item-checked:hover {
+          background-color: darken(@item-active-bg, 2%);
+        }
+      }
+
+      // Do not change hover style when `oneWay` mode
+      &-show-remove &-item:not(&-item-disabled):hover {
+        background: transparent;
+        cursor: default;
       }
 
       &-item-checked {
@@ -139,33 +192,30 @@
       }
     }
 
+    &-pagination {
+      flex: none;
+      align-self: flex-end;
+      padding: @padding-xs 0;
+    }
+
     &-body-not-found {
-      position: absolute;
-      top: 50%;
+      flex: none;
       width: 100%;
-      padding-top: 0;
+      margin: auto 0;
       color: @disabled-color;
       text-align: center;
-      transform: translateY(-50%);
-
-      // with filter should offset the search box height
-      .@{transfer-prefix-cls}-list-body-with-search & {
-        margin-top: @input-height-base / 2;
-      }
     }
 
     &-footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
       border-top: @border-width-base @border-style-base @border-color-split;
-      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
   &-operation {
-    display: inline-block;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-self: center;
     margin: 0 8px;
     overflow: hidden;
     vertical-align: middle;

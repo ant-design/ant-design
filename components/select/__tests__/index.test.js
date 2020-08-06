@@ -83,6 +83,19 @@ describe('Select', () => {
     expect(dropdownWrapper.props().visible).toBe(false);
   });
 
+  it('should show search icon when showSearch and open', () => {
+    const wrapper = mount(
+      <Select showSearch>
+        <Option value="1">1</Option>
+      </Select>,
+    );
+    // expect(wrapper.find('.anticon-down').length).toBe(1);// Removed by Varnish
+    expect(wrapper.find('.anticon-search').length).toBe(0);
+    wrapper.setProps({ open: true });
+    // expect(wrapper.find('.anticon-down').length).toBe(0);// Removed by Varnish
+    expect(wrapper.find('.anticon-search').length).toBe(1);
+  });
+
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const wrapper = mount(
@@ -96,6 +109,17 @@ describe('Select', () => {
       );
       wrapper.setProps({ count: 10 });
       jest.runAllTimers();
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('Deprecated', () => {
+    it('should ignore mode="combobox"', () => {
+      const wrapper = mount(
+        <Select mode="combobox">
+          <Option value="1">1</Option>
+        </Select>,
+      );
       expect(wrapper.render()).toMatchSnapshot();
     });
   });

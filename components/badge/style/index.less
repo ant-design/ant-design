@@ -107,6 +107,51 @@
     }
     .make-color-classes();
 
+    // Added by Varnish (overriding colors)
+    // even if we redo all the colors, the badge will still need to point at specific colors
+    &-gray {
+      background: @v-color-n8;
+    }
+    &-magenta {
+      background: @v-color-m8;
+    }
+    &-red {
+      background: @v-color-r8;
+    }
+    &-volcano {
+      background: @v-color-r8;
+    }
+    &-orange {
+      background: @v-color-o9;
+    }
+    &-gold {
+      background: @v-color-o8;
+    }
+    &-lime {
+      background: @v-color-g7;
+    }
+    &-green {
+      background: @v-color-g8;
+    }
+    &-cyan {
+      background: @v-color-t8;
+    }
+    &-blue {
+      background: @v-color-b7;
+    }
+    &-geekblue {
+      background: @v-color-b8;
+    }
+    &-purple {
+      background: @v-color-p8;
+    }
+    &-pink {
+      background: @v-color-m8;
+    }
+    &-yellow {
+      background: @v-color-o6;
+    }
+
     &-text {
       margin-left: 8px;
       color: @text-color;
@@ -190,4 +235,5 @@
   }
 }
 
+@import './ribbon';
 @import './rtl';

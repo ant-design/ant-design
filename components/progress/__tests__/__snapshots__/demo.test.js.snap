@@ -1280,6 +1280,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    success="[object Object]"
   >
     <div
       class="ant-progress-outer"
@@ -1290,10 +1291,6 @@ Array [
         <div
           class="ant-progress-bg"
           style="width:60%;height:8px;border-radius:"
-        />
-        <div
-          class="ant-progress-success-bg"
-          style="width:30%;height:8px;border-radius:"
         />
       </div>
     </div>
@@ -1306,6 +1303,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    success="[object Object]"
   >
     <div
       class="ant-progress-inner"
@@ -1335,19 +1333,7 @@ Array [
           stroke=""
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-88.59291283123217px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+          style="stroke-dasharray:177.18582566246434px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -1360,6 +1346,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    success="[object Object]"
   >
     <div
       class="ant-progress-inner"
@@ -1389,19 +1376,7 @@ Array [
           stroke=""
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-103.59291283123217px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+          style="stroke-dasharray:132.18582566246434px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -1425,7 +1400,7 @@ Array [
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
@@ -1452,7 +1427,7 @@ Array [
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
@@ -1487,23 +1462,23 @@ Array [
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <span
         class="ant-progress-text"

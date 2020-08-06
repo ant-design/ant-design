@@ -19,17 +19,17 @@ import { Menu, Dropdown, Button } from '@allenai/varnish';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         1st menu item
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         2nd menu item
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         3rd menu item
       </a>
     </Menu.Item>
@@ -37,7 +37,7 @@ const menu = (
 );
 
 ReactDOM.render(
-  <div>
+  <>
     <Dropdown overlay={menu} placement="bottomLeft">
       <Button>bottomLeft</Button>
     </Dropdown>
@@ -57,7 +57,7 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight">
       <Button>topRight</Button>
     </Dropdown>
-  </div>,
+  </>,
   mountNode,
 );
 ```

@@ -2,22 +2,25 @@
 
 exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
+  class="ant-tabs ant-tabs-top"
 >
   <div>
     custom-tab-bar
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
+      class="ant-tabs-content ant-tabs-content-top"
     >
-      foo
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        foo
+      </div>
     </div>
   </div>
 </div>
@@ -25,216 +28,157 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 
 exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation ant-tabs-rtl"
+  class="ant-tabs ant-tabs-top ant-tabs-rtl"
 >
   <div
-    class="ant-tabs-bar ant-tabs-top-bar"
+    class="ant-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="ant-tabs-nav-container"
+      class="ant-tabs-nav-wrap"
     >
-      <span
-        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="right"
-            class="anticon anticon-right ant-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="left"
-            class="anticon anticon-left ant-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="ant-tabs-nav-wrap"
+        class="ant-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
         <div
-          class="ant-tabs-nav-scroll"
+          class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
-            class="ant-tabs-nav ant-tabs-nav-animated"
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div>
-              <div
-                aria-controls="tabpane-xx"
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                id="tab-xx"
-                role="tab"
-                tabindex="0"
-              >
-                xx
-              </div>
-            </div>
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
-            />
+            xx
           </div>
         </div>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
-    />
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tabs tabPosition remove card 1`] = `
 <div
-  class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line ant-tabs-no-animation"
+  class="ant-tabs ant-tabs-left"
 >
   <div
-    class="ant-tabs-bar ant-tabs-left-bar"
+    class="ant-tabs-nav"
     role="tablist"
-    tabindex="-1"
   >
     <div
-      class="ant-tabs-nav-container"
+      class="ant-tabs-nav-wrap"
     >
-      <span
-        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-prev-icon"
-        >
-          <span
-            aria-label="up"
-            class="anticon anticon-up ant-tabs-tab-prev-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="up"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
-      <span
-        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-tabs-tab-next-icon"
-        >
-          <span
-            aria-label="down"
-            class="anticon anticon-down ant-tabs-tab-next-icon-target"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <div
-        class="ant-tabs-nav-wrap"
+        class="ant-tabs-nav-list"
+        style="transform:translate(0px, 0px)"
       >
         <div
-          class="ant-tabs-nav-scroll"
+          class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
-            class="ant-tabs-nav ant-tabs-nav-animated"
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div>
-              <div
-                aria-controls="tabpane-1"
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                id="tab-1"
-                role="tab"
-                tabindex="0"
-              >
-                foo
-              </div>
-            </div>
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
-            />
+            foo
           </div>
         </div>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
       </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="visibility:hidden;order:1"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
     <div
       class="ant-tabs-extra-content"
@@ -243,16 +187,19 @@ exports[`Tabs tabPosition remove card 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-left-content"
+    class="ant-tabs-content-holder"
   >
     <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
-      style="visibility:visible"
-      tabindex="0"
+      class="ant-tabs-content ant-tabs-content-left"
     >
-      foo
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        foo
+      </div>
     </div>
   </div>
 </div>

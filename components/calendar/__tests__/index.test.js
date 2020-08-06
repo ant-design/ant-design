@@ -98,6 +98,28 @@ describe('Calendar', () => {
     expect(disabledDate(Moment('2018-04-02'))).toBe(false);
   });
 
+  it('validRange should work with disabledDate function', () => {
+    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const wrapper = mount(
+      <Calendar validRange={validRange} disabledDate={data => data.isSame(Moment('2018-02-03'))} />,
+    );
+
+    const { disabledDate } = wrapper.find('PickerPanel').props();
+    expect(disabledDate(Moment('2018-02-01'))).toBe(true);
+    expect(disabledDate(Moment('2018-02-02'))).toBe(false);
+    expect(disabledDate(Moment('2018-02-03'))).toBe(true);
+    expect(disabledDate(Moment('2018-02-04'))).toBe(false);
+    expect(disabledDate(Moment('2018-06-01'))).toBe(true);
+  });
+
+  it('Calendar MonthSelect should display correct label', () => {
+    const validRange = [Moment('2018-02-02'), Moment('2019-06-1')];
+    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2019-01-01')} />);
+    const { options } = wrapper.find('MonthSelect > Select').props();
+    expect(options.length).toBe(6);
+    expect(options[5]).toEqual({ label: 'Jun', value: 5 });
+  });
+
   it('Calendar should change mode by prop', () => {
     const monthMode = 'month';
     const yearMode = 'year';
@@ -127,15 +149,27 @@ describe('Calendar', () => {
     MockDate.reset();
   });
 
-  it('should trigger onPanelChange when click last month of date', () => {
-    const onPanelChange = jest.fn();
-    const date = new Moment('1990-09-03');
-    const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+  describe('onPanelChange', () => {
+    it('trigger when click last month of date', () => {
+      const onPanelChange = jest.fn();
+      const date = new Moment('1990-09-03');
+      const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-    wrapper.find('.ant-picker-cell').at(0).simulate('click');
+      wrapper.find('.ant-picker-cell').at(0).simulate('click');
 
-    expect(onPanelChange).toHaveBeenCalled();
-    expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+      expect(onPanelChange).toHaveBeenCalled();
+      expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+    });
+
+    it('not trigger when in same month', () => {
+      const onPanelChange = jest.fn();
+      const date = new Moment('1990-09-03');
+      const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+
+      wrapper.find('.ant-picker-cell').at(10).simulate('click');
+
+      expect(onPanelChange).not.toHaveBeenCalled();
+    });
   });
 
   it('switch should work correctly without prop mode', async () => {

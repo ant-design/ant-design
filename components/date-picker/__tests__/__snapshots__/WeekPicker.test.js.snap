@@ -20,7 +20,7 @@ exports[`WeekPicker should support style prop 1`] = `
       class="ant-picker-suffix"
     >
       <span
-        class="anticon no-pointer-events"
+        class="anticon no-pointer-events .icons-form-calendar undefined"
         role="img"
       >
         <img

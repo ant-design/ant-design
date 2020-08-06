@@ -60,7 +60,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -98,7 +98,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
     unselectable="on"
   >
     <span
-      class="anticon no-pointer-events"
+      class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
       role="img"
     >
       <img
@@ -231,7 +231,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
     unselectable="on"
   >
     <span
-      class="anticon no-pointer-events"
+      class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
       role="img"
     >
       <img

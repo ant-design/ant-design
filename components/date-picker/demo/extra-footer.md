@@ -14,22 +14,18 @@ title:
 Render extra footer in panel for customized requirements.
 
 ```jsx
-import { DatePicker } from '@allenai/varnish';
+import { DatePicker, Space } from '@allenai/varnish';
 
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
-    <br />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
-    <br />
     <RangePicker renderExtraFooter={() => 'extra footer'} />
-    <br />
     <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
-    <br />
     <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

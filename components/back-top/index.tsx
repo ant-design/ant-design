@@ -3,6 +3,7 @@ import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
@@ -16,6 +17,7 @@ export interface BackTopProps {
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  duration?: number;
   visible?: boolean; // Only for test. Don't use it.
 }
 
@@ -67,9 +69,10 @@ const BackTop: React.FC<BackTopProps> = props => {
   };
 
   const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { onClick, target } = props;
+    const { onClick, target, duration = 450 } = props;
     scrollTo(0, {
       getContainer: target || getDefaultTarget,
+      duration,
     });
     if (typeof onClick === 'function') {
       onClick(e);
@@ -80,7 +83,9 @@ const BackTop: React.FC<BackTopProps> = props => {
     const { children } = props;
     const defaultElement = (
       <div className={`${prefixCls}-content`}>
-        <div className={`${prefixCls}-icon`} />
+        <div className={`${prefixCls}-icon`}>
+          <VerticalAlignTopOutlined />
+        </div>
       </div>
     );
     return (

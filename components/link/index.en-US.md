@@ -3,6 +3,7 @@ category: Components
 type: General
 title: Link
 cols: 2
+cover: https://allenai.org/favicon.ico
 ---
 
 Varnish has default styles for `a[href]` links and provides a base style `contrastLinkColorStyles`

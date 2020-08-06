@@ -417,7 +417,6 @@ Array [
       Disabled
     </span>
   </label>,
-  <br />,
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
@@ -438,9 +437,10 @@ Array [
       Disabled
     </span>
   </label>,
+  <br />,
   <button
     class="ant-btn ant-btn-primary"
-    style="margin-top:20px"
+    style="margin-top:16px"
     type="button"
   >
     <span>
@@ -1110,6 +1110,72 @@ Array [
       </span>
     </label>
   </div>,
+  <br />,
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="Pear"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    >
+      <span
+        class="ant-radio ant-radio-disabled"
+      >
+        <input
+          class="ant-radio-input"
+          disabled=""
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -1172,8 +1238,10 @@ Array [
       </span>
     </label>
   </div>,
+  <br />,
+  <br />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-solid"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -1215,13 +1283,14 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-radio-disabled"
       >
         <input
           class="ant-radio-input"
+          disabled=""
           type="radio"
           value="Orange"
         />

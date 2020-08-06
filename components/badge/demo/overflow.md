@@ -14,7 +14,8 @@ title:
 `${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
 
 ```jsx
-import { Badge } from '@allenai/varnish';
+import Badge from '..';
+// TODO: put back after deploy // import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

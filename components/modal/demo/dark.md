@@ -392,7 +392,7 @@ class App extends React.Component {
       },
     ];
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showModal}>
           Open Modal
         </Button>
@@ -588,7 +588,7 @@ class App extends React.Component {
             <a href="#" className="head-example" />
           </Badge>
         </Modal>
-      </div>
+      </>
     );
   }
 }

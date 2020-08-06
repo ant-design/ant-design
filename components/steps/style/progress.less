@@ -1,0 +1,21 @@
+@progress-prefix-cls: ~'@{ant-prefix}-progress';
+
+.@{steps-prefix-cls}:not(.@{steps-prefix-cls}-dot):not(.@{steps-prefix-cls}-navigation) {
+  &:not(.@{steps-prefix-cls}-vertical) {
+    .@{steps-prefix-cls}-item {
+      padding-top: 4px;
+    }
+  }
+  .@{steps-prefix-cls}-item {
+    .@{steps-prefix-cls}-item-icon {
+      position: relative;
+      .@{progress-prefix-cls} {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        bottom: -4px;
+        left: -4px;
+      }
+    }
+  }
+}

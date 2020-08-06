@@ -19,7 +19,7 @@ import { Typography } from '@allenai/varnish';
 const { Paragraph } = Typography;
 
 ReactDOM.render(
-  <div>
+  <>
     <Paragraph ellipsis>
       Varnish, a design language for background applications, is refined by AI2. Varnish, a design
       language for background applications, is refined by AI2. Varnish, a design language for
@@ -29,7 +29,7 @@ ReactDOM.render(
       Varnish, a design language for background applications, is refined by AI2.
     </Paragraph>
 
-    <Paragraph ellipsis={{ rows: 3, expandable: true }}>
+    <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}>
       Varnish, a design language for background applications, is refined by AI2. Varnish, a design
       language for background applications, is refined by AI2. Varnish, a design language for
       background applications, is refined by AI2. Varnish, a design language for background
@@ -37,7 +37,7 @@ ReactDOM.render(
       refined by AI2. Varnish, a design language for background applications, is refined by AI2.
       Varnish, a design language for background applications, is refined by AI2.
     </Paragraph>
-  </div>,
+  </>,
   mountNode,
 );
 ```

@@ -7,11 +7,11 @@ describe('List Item Layout', () => {
   const data = [
     {
       key: 1,
-      href: 'https://ant.design',
-      title: `ant design`,
+      href: 'https://varnish.allenai.org',
+      title: `Varnish`,
       avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+        'Varnish, a design language for background applications, is refined by Ant UED Team.',
       content:
         'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
       extra: 'extra',
@@ -127,5 +127,55 @@ describe('List Item Layout', () => {
       </ConfigProvider>,
     );
     expect(render(wrapper)).toMatchSnapshot();
+  });
+
+  it('rowKey could be string', () => {
+    const dataWithId = [
+      {
+        id: 1,
+        title: `Varnish`,
+      },
+      {
+        id: 2,
+        title: `Varnish`,
+      },
+      {
+        id: 3,
+        title: `Varnish`,
+      },
+    ];
+    const wrapper = mount(
+      <List
+        dataSource={dataWithId}
+        rowKey="id"
+        renderItem={item => <List.Item>{item.title}</List.Item>}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('rowKey could be function', () => {
+    const dataWithId = [
+      {
+        id: 1,
+        title: `Varnish`,
+      },
+      {
+        id: 2,
+        title: `Varnish`,
+      },
+      {
+        id: 3,
+        title: `Varnish`,
+      },
+    ];
+    const wrapper = mount(
+      <List
+        dataSource={dataWithId}
+        rowKey={item => item.id}
+        renderItem={item => <List.Item>{item.title}</List.Item>}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -17,11 +17,11 @@ Mark a pending state of switch.
 import { Switch } from '@allenai/varnish';
 
 ReactDOM.render(
-  <div>
+  <>
     <Switch loading defaultChecked />
     <br />
     <Switch size="small" loading />
-  </div>,
+  </>,
   mountNode,
 );
 ```

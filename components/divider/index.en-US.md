@@ -2,6 +2,7 @@
 category: Components
 type: Layout
 title: Divider
+cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
 ---
 
 A divider line separates different content.
@@ -17,9 +18,9 @@ A divider line separates different content.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| className | className of container | string | - |  |
-| dashed | whether line is dashed | boolean | false |  |
-| orientation | position of title inside divider | `left` \| `right` \| `center` | `center` |  |
-| style | style object of container | CSSProperties | - |  |
-| type | direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
-| plain | divider text show as plain style | boolean | true | 4.2.0 |
+| className | The className of container | string | - |  |
+| dashed | Whether line is dashed | boolean | false |  |
+| orientation | The position of title inside divider | `left` \| `right` \| `center` | `center` |  |
+| style | The style object of container | CSSProperties | - |  |
+| type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+| plain | Divider text show as plain style | boolean | true | 4.2.0 |

@@ -102,14 +102,17 @@
 
   &-footer {
     margin-top: @margin-md;
-    .@{ant-prefix}-tabs-bar {
-      margin-bottom: 1px;
-      border-bottom: 0;
-      .@{ant-prefix}-tabs-nav {
-        .@{ant-prefix}-tabs-tab {
-          padding: @tabs-horizontal-padding-sm;
-          font-size: @page-header-tabs-tab-font-size;
+    .@{ant-prefix}-tabs {
+      > .@{ant-prefix}-tabs-nav {
+        margin: 0;
+        &::before {
+          border: none;
         }
+      }
+
+      .@{ant-prefix}-tabs-tab {
+        padding: @tabs-horizontal-padding-sm;
+        font-size: @page-header-tabs-tab-font-size;
       }
     }
   }

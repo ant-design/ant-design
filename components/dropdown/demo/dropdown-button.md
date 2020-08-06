@@ -36,7 +36,7 @@ const menu = (
       2nd menu item
     </Menu.Item>
     <Menu.Item key="3" icon={<UserOutlined />}>
-      3rd item
+      3rd menu item
     </Menu.Item>
   </Menu>
 );

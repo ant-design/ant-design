@@ -528,4 +528,22 @@ describe('Upload', () => {
     const wrapper = mount(<Upload listType="picture-card" fileList={[file]} />);
     expect(wrapper.find('img').length).toBe(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/25077
+  it('should support events', () => {
+    const onClick = jest.fn();
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
+    const wrapper = mount(
+      <Upload onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('.ant-upload').at(1).simulate('click');
+    expect(onClick).toHaveBeenCalled();
+    wrapper.find('.ant-upload').at(1).simulate('mouseEnter');
+    expect(onMouseEnter).toHaveBeenCalled();
+    wrapper.find('.ant-upload').at(1).simulate('mouseLeave');
+    expect(onMouseLeave).toHaveBeenCalled();
+  });
 });

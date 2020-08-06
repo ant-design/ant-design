@@ -123,9 +123,14 @@ export type RangePickerProps<DateType> =
 
 function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
-  const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker } = generateSinglePicker(
-    generateConfig,
-  );
+  const {
+    DatePicker,
+    WeekPicker,
+    MonthPicker,
+    YearPicker,
+    TimePicker,
+    QuarterPicker,
+  } = generateSinglePicker(generateConfig);
 
   // ======================== Range Picker ========================
   const RangePicker = generateRangePicker(generateConfig);
@@ -137,6 +142,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     YearPicker: typeof YearPicker;
     RangePicker: React.ComponentClass<RangePickerProps<DateType>>;
     TimePicker: typeof TimePicker;
+    QuarterPicker: typeof QuarterPicker;
   };
 
   const MergedDatePicker = DatePicker as MergedDatePicker;
@@ -145,6 +151,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   MergedDatePicker.YearPicker = YearPicker;
   MergedDatePicker.RangePicker = RangePicker;
   MergedDatePicker.TimePicker = TimePicker;
+  MergedDatePicker.QuarterPicker = QuarterPicker;
 
   return MergedDatePicker;
 }

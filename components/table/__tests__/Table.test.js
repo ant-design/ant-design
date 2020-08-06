@@ -174,4 +174,78 @@ describe('Table', () => {
     );
     wrapper.simulate('touchmove');
   });
+
+  it('renders ellipsis by showTitle option', () => {
+    const data = [
+      {
+        id: '1',
+        age: 32,
+      },
+      {
+        id: '2',
+        age: 42,
+      },
+    ];
+    const columns = [
+      { title: 'id', dataKey: 'id', ellipsis: { showTitle: false } },
+      { title: 'age', dataKey: 'age', ellipsis: { showTitle: false } },
+    ];
+    const wrapper = mount(<Table columns={columns} dataSource={data} />);
+    wrapper.find('td').forEach(td => {
+      expect(td.hasClass('ant-table-cell-ellipsis')).toBeTruthy();
+    });
+  });
+
+  it('not renders ellipsis origin html title', () => {
+    const data = [
+      {
+        id: '1',
+        age: 32,
+      },
+      {
+        id: '2',
+        age: 42,
+      },
+    ];
+    const columns = [
+      { title: 'id', dataKey: 'id', ellipsis: { showTitle: true } },
+      { title: 'age', dataKey: 'age', ellipsis: { showTitle: true } },
+    ];
+    const wrapper = mount(<Table columns={columns} dataSource={data} />);
+
+    wrapper.find('.ant-table-thead th').forEach(td => {
+      expect(td.getDOMNode().attributes.getNamedItem('title')).toBeTruthy();
+    });
+
+    wrapper.find('.ant-table-tbody td').forEach(td => {
+      expect(td.getDOMNode().attributes.getNamedItem('title')).toBeFalsy();
+    });
+  });
+
+  it('warn about rowKey when using index parameter', () => {
+    warnSpy.mockReset();
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+      },
+    ];
+    mount(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
+    );
+  });
+  it('not warn about rowKey', () => {
+    warnSpy.mockReset();
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+      },
+    ];
+    mount(<Table columns={columns} rowKey={record => record.key} />);
+    expect(warnSpy).not.toBeCalled();
+  });
 });

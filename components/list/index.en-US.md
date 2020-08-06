@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: List
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 ---
 
 Simple List.
@@ -18,27 +19,27 @@ A list can be used to display content related to a single subject. The content c
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bordered | Toggles rendering of the border around the list | boolean | false |  |
-| footer | List footer renderer | string\|ReactNode | - |  |
+| footer | List footer renderer | string \| ReactNode | - |  |
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#List-grid-props) | - |  |
-| header | List header renderer | string\|ReactNode | - |  |
+| header | List header renderer | string \| ReactNode | - |  |
 | itemLayout | The layout of list, default is `horizontal`, If a vertical list is desired, set the itemLayout property to `vertical` | string | - |  |
-| rowKey | Item's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |  |
-| loading | Shows a loading indicator while the contents of the list are being fetched | boolean\|[SpinProps](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
-| loadMore | Shows a load more content | string\|ReactNode | - |  |
-| locale | i18n text including empty text | object | emptyText: 'No Data' <br> |  |
+| rowKey | Item's unique key, could be a string or function that returns a string | string \| Function(record): string | `key` |  |
+| loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
+| loadMore | Shows a load more content | string \| ReactNode | - |  |
+| locale | The i18n text including empty text | object | {emptyText: `No Data`} |  |
 | pagination | Pagination [config](/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
 | size | Size of list | `default` \| `large` \| `small` | `default` |  |
 | split | Toggles rendering of the split under the list item | boolean | true |  |
-| dataSource | dataSource array for list | any[] | - |  |
-| renderItem | customize list item when using `dataSource` | `item => ReactNode` | - |  |
+| dataSource | DataSource array for list | any[] | - |  |
+| renderItem | Customize list item when using `dataSource` | (item) => ReactNode | - |  |
 
 ### pagination
 
 Properties for pagination.
 
-| Property | Description                          | Type                        | Default  |
-| -------- | ------------------------------------ | --------------------------- | -------- |
-| position | specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
+| Property | Description                              | Type                        | Default  |
+| -------- | ---------------------------------------- | --------------------------- | -------- |
+| position | The specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -46,8 +47,8 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 | Property | Description              | Type   | Default | Version |
 | -------- | ------------------------ | ------ | ------- | ------- |
-| column   | column of grid           | number | -       |         |
-| gutter   | spacing between grid     | number | 0       |         |
+| column   | The column of grid       | number | -       |         |
+| gutter   | The spacing between grid | number | 0       |         |
 | xs       | `<576px` column of grid  | number | -       |         |
 | sm       | `≥576px` column of grid  | number | -       |         |
 | md       | `≥768px` column of grid  | number | -       |         |
@@ -59,13 +60,13 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right. | Array<ReactNode> | - |  |
-| extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right. | string\|ReactNode | - |  |
+| actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right | Array&lt;ReactNode> | - |  |
+| extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | string \| ReactNode | - |  |
 
 ### List.Item.Meta
 
-| Property    | Description                  | Type              | Default | Version |
-| ----------- | ---------------------------- | ----------------- | ------- | ------- |
-| avatar      | The avatar of list item      | ReactNode         | -       |         |
-| description | The description of list item | string\|ReactNode | -       |         |
-| title       | The title of list item       | string\|ReactNode | -       |         |
+| Property    | Description                  | Type                | Default | Version |
+| ----------- | ---------------------------- | ------------------- | ------- | ------- |
+| avatar      | The avatar of list item      | ReactNode           | -       |         |
+| description | The description of list item | string \| ReactNode | -       |         |
+| title       | The title of list item       | string \| ReactNode | -       |         |

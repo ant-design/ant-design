@@ -5,11 +5,13 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 
 .@{table-prefix-cls}-wrapper {
+  max-width: 100%;
   .clearfix;
 }
 
@@ -18,6 +20,7 @@
   position: relative;
   z-index: 0;
   clear: both;
+  font-size: @table-font-size;
   background: @table-bg;
   border-radius: @border-radius-base;
 
@@ -127,10 +130,6 @@
         .@{table-prefix-cls} {
           margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
             ceil(@font-size-sm * 1.4));
-
-          td {
-            background: transparent;
-          }
 
           &-tbody > tr:last-child > td {
             border-bottom: 0;
@@ -316,7 +315,7 @@
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: calc(100vh - 130px);
+      max-height: 264px;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
@@ -472,6 +471,7 @@
       }
       background: transparent;
       border: 0;
+      visibility: hidden;
     }
 
     .@{table-prefix-cls}-row-indent + & {
@@ -488,6 +488,11 @@
       > td {
         background: @table-expanded-row-bg;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/25573
+    .@{descriptions-prefix-cls}-view table {
+      width: auto;
     }
   }
 

@@ -17,21 +17,21 @@ You can show the total number of data by setting `showTotal`.
 import { Pagination } from '@allenai/varnish';
 
 ReactDOM.render(
-  <div>
+  <>
     <Pagination
       total={85}
       showTotal={total => `Total ${total} items`}
-      pageSize={20}
+      defaultPageSize={20}
       defaultCurrent={1}
     />
     <br />
     <Pagination
       total={85}
       showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
-      pageSize={20}
+      defaultPageSize={20}
       defaultCurrent={1}
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

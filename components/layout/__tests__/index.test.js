@@ -208,4 +208,18 @@ describe('Sider', () => {
       background: '#F96',
     });
   });
+
+  it('should be able to customize zero width trigger by trigger prop', () => {
+    const wrapper = mount(
+      <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>nav 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
+  });
 });

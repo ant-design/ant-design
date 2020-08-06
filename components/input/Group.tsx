@@ -15,7 +15,7 @@ export interface GroupProps {
   compact?: boolean;
 }
 
-const Group: React.StatelessComponent<GroupProps> = props => (
+const Group: React.FC<GroupProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, className = '' } = props;

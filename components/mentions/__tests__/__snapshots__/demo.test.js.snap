@@ -11,6 +11,17 @@ exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/mentions/demo/autoSize.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    rows="1"
+  />
+</div>
+`;
+
 exports[`renders ./components/mentions/demo/basic.md correctly 1`] = `
 <div
   class="ant-mentions"
@@ -159,7 +170,7 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
-<div>
+Array [
   <div
     style="margin-bottom:10px"
   >
@@ -173,7 +184,7 @@ exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
         rows="1"
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-mentions"
     style="width:100%"
@@ -183,6 +194,6 @@ exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
       readonly=""
       rows="1"
     />
-  </div>
-</div>
+  </div>,
+]
 `;

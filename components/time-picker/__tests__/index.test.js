@@ -72,4 +72,15 @@ describe('TimePicker', () => {
     );
     expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
   });
+
+  it('should support bordered', () => {
+    const wrapper = mount(
+      <TimePicker
+        className="custom-class"
+        defaultValue={moment('2000-01-01 00:00:00')}
+        bordered={false}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

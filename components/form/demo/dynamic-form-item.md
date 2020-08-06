@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-动态增加、减少表单项。如果需要动态支持多项字段时，可以参考[此处](https://codesandbox.io/s/wonderful-lichterman-br63z)。
+动态增加、减少表单项。`add` 方法参数可用于设置初始值。
 
 ## en-US
 
-Add or remove form items dynamically. You can ref [this example](https://codesandbox.io/s/wonderful-lichterman-br63z) if you want to support mutiple fields.
+Add or remove form items dynamically. `add` function support config initial value.
 
 ```jsx
 import { Form, Input, Button } from '@allenai/varnish';

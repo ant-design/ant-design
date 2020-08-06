@@ -17,11 +17,11 @@ Disabled checkbox.
 import { Checkbox } from '@allenai/varnish';
 
 ReactDOM.render(
-  <div>
+  <>
     <Checkbox defaultChecked={false} disabled />
     <br />
     <Checkbox defaultChecked disabled />
-  </div>,
+  </>,
   mountNode,
 );
 ```

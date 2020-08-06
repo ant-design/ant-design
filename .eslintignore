@@ -12,6 +12,7 @@ lib/**/*
 node_modules
 _site
 dist
+coverage
 **/*.d.ts
 
 # Shellac
@@ -20,3 +21,4 @@ dist_varnish
 
 # Scripts
 scripts/previewEditor/**/*
+jest-stare

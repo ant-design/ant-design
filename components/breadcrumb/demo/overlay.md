@@ -19,17 +19,17 @@ import { Breadcrumb, Menu } from '@allenai/varnish';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         General
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         Layout
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+      <a target="_blank" rel="noopener noreferrer" href="https://allenai.org/">
         Navigation
       </a>
     </Menu.Item>

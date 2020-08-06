@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/message/demo/custom-style.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Customized style
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/duration.md correctly 1`] = `
 <button
   class="ant-btn"
@@ -7,6 +18,17 @@ exports[`renders ./components/message/demo/duration.md correctly 1`] = `
 >
   <span>
     Customized display duration
+  </span>
+</button>
+`;
+
+exports[`renders ./components/message/demo/hooks.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Display normal message
   </span>
 </button>
 `;

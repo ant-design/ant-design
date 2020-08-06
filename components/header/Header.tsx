@@ -81,7 +81,7 @@ export default class Header extends React.PureComponent<Props, State> {
           const offset = this.getTopOffset();
           setHeaderHeight(this.state.currentHeaderHeight + offset);
           return (
-            <Sticky ref={instance => (this.container = instance)} style={{ top: `${offset}px` }}>
+            <Sticky ref={instance => {this.container = instance}} style={{ top: `${offset}px` }}>
               <AI2Banner ref={this.banner} />
               <HeaderContent>{this.props.children}</HeaderContent>
             </Sticky>

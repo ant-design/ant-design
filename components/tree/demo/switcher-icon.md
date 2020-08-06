@@ -17,8 +17,6 @@ customize collapse/expand icon of tree node
 import { Tree } from '@allenai/varnish';
 import { DownOutlined } from '@ant-design/icons';
 
-const { TreeNode } = Tree;
-
 class Demo extends React.Component {
   onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
@@ -31,22 +29,57 @@ class Demo extends React.Component {
         switcherIcon={<DownOutlined />}
         defaultExpandedKeys={['0-0-0']}
         onSelect={this.onSelect}
-      >
-        <TreeNode title="parent 1" key="0-0">
-          <TreeNode title="parent 1-0" key="0-0-0">
-            <TreeNode title="leaf" key="0-0-0-0" />
-            <TreeNode title="leaf" key="0-0-0-1" />
-            <TreeNode title="leaf" key="0-0-0-2" />
-          </TreeNode>
-          <TreeNode title="parent 1-1" key="0-0-1">
-            <TreeNode title="leaf" key="0-0-1-0" />
-          </TreeNode>
-          <TreeNode title="parent 1-2" key="0-0-2">
-            <TreeNode title="leaf" key="0-0-2-0" />
-            <TreeNode title="leaf" key="0-0-2-1" />
-          </TreeNode>
-        </TreeNode>
-      </Tree>
+        treeData={[
+          {
+            title: 'parent 1',
+            key: '0-0',
+            children: [
+              {
+                title: 'parent 1-0',
+                key: '0-0-0',
+                children: [
+                  {
+                    title: 'leaf',
+                    key: '0-0-0-0',
+                  },
+                  {
+                    title: 'leaf',
+                    key: '0-0-0-1',
+                  },
+                  {
+                    title: 'leaf',
+                    key: '0-0-0-2',
+                  },
+                ],
+              },
+              {
+                title: 'parent 1-1',
+                key: '0-0-1',
+                children: [
+                  {
+                    title: 'leaf',
+                    key: '0-0-1-0',
+                  },
+                ],
+              },
+              {
+                title: 'parent 1-2',
+                key: '0-0-2',
+                children: [
+                  {
+                    title: 'leaf',
+                    key: '0-0-2-0',
+                  },
+                  {
+                    title: 'leaf',
+                    key: '0-0-2-1',
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+      />
     );
   }
 }

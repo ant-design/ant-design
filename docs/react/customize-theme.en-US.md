@@ -24,9 +24,10 @@ There are some major variables below, all less variables could be found in [Defa
 @text-color: rgba(0, 0, 0, 0.65); // major text color
 @text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
 @disabled-color: rgba(0, 0, 0, 0.25); // disable state color
-@border-radius-base: 4px; // major border radius
+@border-radius-base: 2px; // major border radius
 @border-color-base: #d9d9d9; // major border color
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05); // major shadow for layers
 ```
 
 Please report an issue if the existing list of variables is not enough for you.
@@ -74,7 +75,7 @@ Note:
 
 ### Customize in Umi
 
-You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be a object or a javascript file path.
+You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
 
 ```js
 "theme": {
@@ -219,4 +220,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
-
+- [Zero config custom theme generator](https://www.npmjs.com/package/@emeks/antd-custom-theme-generator)

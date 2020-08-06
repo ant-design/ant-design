@@ -14,7 +14,17 @@ title:
 Input type of password.
 
 ```jsx
-import { Input } from '@allenai/varnish';
+import { Input, Space } from '@allenai/varnish';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
-ReactDOM.render(<Input.Password placeholder="input password" />, mountNode);
+ReactDOM.render(
+  <Space direction="vertical">
+    <Input.Password placeholder="input password" />
+    <Input.Password
+      placeholder="input password"
+      iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+    />
+  </Space>,
+  mountNode,
+);
 ```

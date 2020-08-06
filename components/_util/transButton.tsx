@@ -9,6 +9,7 @@ interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
   noStyle?: boolean;
   autoFocus?: boolean;
+  disabled?: boolean;
 }
 
 const inlineStyle: React.CSSProperties = {
@@ -63,7 +64,24 @@ class TransButton extends React.Component<TransButtonProps> {
   }
 
   render() {
-    const { style, noStyle, ...restProps } = this.props;
+    const { style, noStyle, disabled, ...restProps } = this.props;
+
+    let mergedStyle: React.CSSProperties = {};
+
+    if (!noStyle) {
+      mergedStyle = {
+        ...inlineStyle,
+      };
+    }
+
+    if (disabled) {
+      mergedStyle.pointerEvents = 'none';
+    }
+
+    mergedStyle = {
+      ...mergedStyle,
+      ...style,
+    };
 
     return (
       <div
@@ -73,7 +91,7 @@ class TransButton extends React.Component<TransButtonProps> {
         {...restProps}
         onKeyDown={this.onKeyDown}
         onKeyUp={this.onKeyUp}
-        style={{ ...(!noStyle ? inlineStyle : null), ...style }}
+        style={mergedStyle}
       />
     );
   }

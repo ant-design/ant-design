@@ -4,6 +4,7 @@ import omit from 'omit.js';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
+import { useState } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Input, { InputProps } from './Input';
 
@@ -11,10 +12,7 @@ export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
   visibilityToggle?: boolean;
-}
-
-export interface PasswordState {
-  visible: boolean;
+  iconRender?: (visible: boolean) => React.ReactNode;
 }
 
 const ActionMap: Record<string, string> = {
@@ -22,33 +20,24 @@ const ActionMap: Record<string, string> = {
   hover: 'onMouseOver',
 };
 
-export default class Password extends React.Component<PasswordProps, PasswordState> {
-  input: HTMLInputElement;
+const Password = React.forwardRef<unknown, PasswordProps>((props, ref) => {
+  const [visible, setVisible] = useState(false);
 
-  static defaultProps = {
-    action: 'click',
-    visibilityToggle: true,
-  };
-
-  state: PasswordState = {
-    visible: false,
-  };
-
-  onVisibleChange = () => {
-    const { disabled } = this.props;
+  const onVisibleChange = () => {
+    const { disabled } = props;
     if (disabled) {
       return;
     }
 
-    this.setState(({ visible }) => ({ visible: !visible }));
+    setVisible(!visible);
   };
 
-  getIcon = (prefixCls: string) => {
-    const { action } = this.props;
+  const getIcon = (prefixCls: string) => {
+    const { action, iconRender = () => null } = props;
     const iconTrigger = ActionMap[action!] || '';
-    const icon = this.state.visible ? EyeOutlined : EyeInvisibleOutlined;
+    const icon = iconRender(visible);
     const iconProps = {
-      [iconTrigger]: this.onVisibleChange,
+      [iconTrigger]: onVisibleChange,
       className: `${prefixCls}-icon`,
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
@@ -62,28 +51,10 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         e.preventDefault();
       },
     };
-    return React.createElement(icon as React.ComponentType, iconProps);
+    return React.cloneElement(React.isValidElement(icon) ? icon : <span>{icon}</span>, iconProps);
   };
 
-  saveInput = (instance: Input) => {
-    if (instance && instance.input) {
-      this.input = instance.input;
-    }
-  };
-
-  focus() {
-    this.input.focus();
-  }
-
-  blur() {
-    this.input.blur();
-  }
-
-  select() {
-    this.input.select();
-  }
-
-  renderPassword = ({ getPrefixCls }: ConfigConsumerProps) => {
+  const renderPassword = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       className,
       prefixCls: customizePrefixCls,
@@ -91,33 +62,40 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
       size,
       visibilityToggle,
       ...restProps
-    } = this.props;
+    } = props;
 
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
     const prefixCls = getPrefixCls('input-password', customizePrefixCls);
 
-    const suffixIcon = visibilityToggle && this.getIcon(prefixCls);
+    const suffixIcon = visibilityToggle && getIcon(prefixCls);
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
 
-    const props = {
-      ...omit(restProps, ['suffix']),
-      type: this.state.visible ? 'text' : 'password',
+    const omittedProps = {
+      ...omit(restProps, ['suffix', 'iconRender']),
+      type: visible ? 'text' : 'password',
       className: inputClassName,
       prefixCls: inputPrefixCls,
       suffix: suffixIcon,
-      ref: this.saveInput,
     };
 
     if (size) {
-      props.size = size;
+      omittedProps.size = size;
     }
 
-    return <Input {...props} />;
+    return <Input ref={ref} {...omittedProps} />;
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderPassword}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderPassword}</ConfigConsumer>;
+});
+
+Password.defaultProps = {
+  action: 'click',
+  visibilityToggle: true,
+  iconRender: (visible: boolean) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />),
+};
+
+Password.displayName = 'Password';
+
+export default Password;

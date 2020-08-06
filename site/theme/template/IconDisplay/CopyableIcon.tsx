@@ -1,6 +1,6 @@
 import * as React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Badge } from '@allenai/varnish';
+import { Badge, message } from '@allenai/varnish';
 import classNames from 'classnames';
 import * as AntdIcons from '@ant-design/icons';
 import { ThemeType } from './index';
@@ -28,8 +28,15 @@ const CopyableIcon: React.FC<CopyableIconProps> = ({
     copied: justCopied === name,
     [theme]: !!theme,
   });
+  const onCopy = (text: string, result: boolean) => {
+    if (result) {
+      onCopied(name, text);
+    } else {
+      message.error('Copy icon name failed, please try again.');
+    }
+  };
   return (
-    <CopyToClipboard text={`<${name} />`} onCopy={(text: string) => onCopied(name, text)}>
+    <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
       <li className={className}>
         {React.createElement(allIcons[name])}
         <span className="anticon-class">

@@ -26,15 +26,15 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design"
+                  href="https://varnish.allenai.org"
                 >
-                  ant design
+                  Varnish
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
+                Varnish, a design language for background applications, is refined by Ant UED Team.
               </div>
             </div>
           </div>
@@ -55,6 +55,142 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
     </div>
   </div>
 </div>
+`;
+
+exports[`List Item Layout rowKey could be function 1`] = `
+<List
+  dataSource={
+    Array [
+      Object {
+        "id": 1,
+        "title": "Varnish",
+      },
+      Object {
+        "id": 2,
+        "title": "Varnish",
+      },
+      Object {
+        "id": 3,
+        "title": "Varnish",
+      },
+    ]
+  }
+  renderItem={[Function]}
+  rowKey={[Function]}
+>
+  <div
+    className="ant-list ant-list-split"
+  >
+    <Spin
+      size="default"
+      spinning={false}
+      wrapperClassName=""
+    >
+      <div
+        className="ant-spin-nested-loading"
+      >
+        <div
+          className="ant-spin-container"
+          key="container"
+        >
+          <ul
+            className="ant-list-items"
+          >
+            <Item>
+              <li
+                className="ant-list-item"
+              >
+                Varnish
+              </li>
+            </Item>
+            <Item>
+              <li
+                className="ant-list-item"
+              >
+                Varnish
+              </li>
+            </Item>
+            <Item>
+              <li
+                className="ant-list-item"
+              >
+                Varnish
+              </li>
+            </Item>
+          </ul>
+        </div>
+      </div>
+    </Spin>
+  </div>
+</List>
+`;
+
+exports[`List Item Layout rowKey could be string 1`] = `
+<List
+  dataSource={
+    Array [
+      Object {
+        "id": 1,
+        "title": "Varnish",
+      },
+      Object {
+        "id": 2,
+        "title": "Varnish",
+      },
+      Object {
+        "id": 3,
+        "title": "Varnish",
+      },
+    ]
+  }
+  renderItem={[Function]}
+  rowKey="id"
+>
+  <div
+    className="ant-list ant-list-split"
+  >
+    <Spin
+      size="default"
+      spinning={false}
+      wrapperClassName=""
+    >
+      <div
+        className="ant-spin-nested-loading"
+      >
+        <div
+          className="ant-spin-container"
+          key="container"
+        >
+          <ul
+            className="ant-list-items"
+          >
+            <Item>
+              <li
+                className="ant-list-item"
+              >
+                Varnish
+              </li>
+            </Item>
+            <Item>
+              <li
+                className="ant-list-item"
+              >
+                Varnish
+              </li>
+            </Item>
+            <Item>
+              <li
+                className="ant-list-item"
+              >
+                Varnish
+              </li>
+            </Item>
+          </ul>
+        </div>
+      </div>
+    </Spin>
+  </div>
+</List>
 `;
 
 exports[`List Item Layout should render in RTL direction 1`] = `
@@ -83,15 +219,15 @@ exports[`List Item Layout should render in RTL direction 1`] = `
                 class="ant-list-item-meta-title"
               >
                 <a
-                  href="https://ant.design"
+                  href="https://varnish.allenai.org"
                 >
-                  ant design
+                  Varnish
                 </a>
               </h4>
               <div
                 class="ant-list-item-meta-description"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
+                Varnish, a design language for background applications, is refined by Ant UED Team.
               </div>
             </div>
           </div>

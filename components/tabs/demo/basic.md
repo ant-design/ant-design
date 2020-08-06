@@ -22,7 +22,7 @@ function callback(key) {
   console.log(key);
 }
 
-ReactDOM.render(
+const Demo = () => (
   <Tabs defaultActiveKey="1" onChange={callback}>
     <TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1
@@ -33,7 +33,8 @@ ReactDOM.render(
     <TabPane tab="Tab 3" key="3">
       Content of Tab Pane 3
     </TabPane>
-  </Tabs>,
-  mountNode,
+  </Tabs>
 );
+
+ReactDOM.render(<Demo />, mountNode);
 ```

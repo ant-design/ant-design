@@ -32,7 +32,7 @@ class App extends React.Component {
     const { loading } = this.state;
 
     return (
-      <div>
+      <>
         <Switch checked={!loading} onChange={this.onChange} />
 
         <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
@@ -63,7 +63,7 @@ class App extends React.Component {
             />
           </Skeleton>
         </Card>
-      </div>
+      </>
     );
   }
 }

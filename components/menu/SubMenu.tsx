@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -15,6 +14,7 @@ export interface SubMenuProps {
   rootPrefixCls?: string;
   className?: string;
   disabled?: boolean;
+  level?: number;
   title?: React.ReactNode;
   icon?: React.ReactNode;
   style?: React.CSSProperties;
@@ -26,9 +26,7 @@ export interface SubMenuProps {
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {
-  static contextTypes = {
-    antdMenuTheme: PropTypes.string,
-  };
+  static contextType = MenuContext;
 
   // fix issue:https://github.com/ant-design/ant-design/issues/8666
   static isSubMenu = 1;
@@ -43,10 +41,14 @@ class SubMenu extends React.Component<SubMenuProps, any> {
     this.subMenu = subMenu;
   };
 
-  renderTitle() {
-    const { icon, title } = this.props;
+  renderTitle(inlineCollapsed: boolean) {
+    const { icon, title, level, rootPrefixCls } = this.props;
     if (!icon) {
-      return title;
+      return inlineCollapsed && level === 1 && title && typeof title === 'string' ? (
+        <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
+      ) : (
+        title
+      );
     }
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
@@ -63,10 +65,10 @@ class SubMenu extends React.Component<SubMenuProps, any> {
     const { rootPrefixCls, popupClassName } = this.props;
     return (
       <MenuContext.Consumer>
-        {({ antdMenuTheme }: MenuContextProps) => (
+        {({ inlineCollapsed, antdMenuTheme }: MenuContextProps) => (
           <RcSubMenu
             {...omit(this.props, ['icon'])}
-            title={this.renderTitle()}
+            title={this.renderTitle(inlineCollapsed)}
             ref={this.saveSubMenu}
             popupClassName={classNames(
               rootPrefixCls,

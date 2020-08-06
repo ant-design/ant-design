@@ -184,7 +184,12 @@ const DirectoryTree: React.FC<DirectoryTreeProps> = ({
       newSelectedKeys = Array.from(
         new Set([
           ...(cachedSelectedKeys.current || []),
-          ...calcRangeKeys(treeData, expandedKeys, key, lastSelectedKey.current),
+          ...calcRangeKeys({
+            treeData,
+            expandedKeys,
+            startKey: key,
+            endKey: lastSelectedKey.current,
+          }),
         ]),
       );
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);

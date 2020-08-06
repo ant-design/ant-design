@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuarterPicker should support style prop 1`] = `
+<div
+  class="ant-picker"
+  style="width: 400px;"
+>
+  <div
+    class="ant-picker-input"
+  >
+    <input
+      autocomplete="off"
+      placeholder="Select quarter"
+      readonly=""
+      size="12"
+      title=""
+      value=""
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        class="anticon no-pointer-events .icons-form-calendar undefined"
+        role="img"
+      >
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+        />
+      </span>
+    </span>
+  </div>
+</div>
+`;
