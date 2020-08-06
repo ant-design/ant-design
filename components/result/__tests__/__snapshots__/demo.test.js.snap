@@ -1109,6 +1109,26 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
     Please check and modify the following information before resubmitting.
   </div>
   <div
+    class="ant-result-extra"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Go Console
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Buy Again
+      </span>
+    </button>
+  </div>
+  <div
     class="ant-result-content"
   >
     <div
@@ -1189,26 +1209,6 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
         </a>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-result-extra"
-  >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span>
-        Go Console
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Buy Again
-      </span>
-    </button>
   </div>
 </div>
 `;

@@ -683,6 +683,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="left"
       >
         left
       </span>
@@ -694,7 +695,7 @@ Array [
       unselectable="on"
     >
       <span
-        class="anticon no-pointer-events"
+        class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
         role="img"
       >
         <img
@@ -709,7 +710,7 @@ Array [
 
 exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-left ant-collapse-ghost"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"

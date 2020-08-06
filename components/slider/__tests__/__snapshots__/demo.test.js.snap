@@ -276,7 +276,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             aria-label="Increase Value"
             class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="up"
@@ -304,7 +304,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             aria-label="Decrease Value"
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="down"
@@ -395,7 +395,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             aria-label="Increase Value"
             class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="up"
@@ -423,7 +423,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             aria-label="Decrease Value"
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="down"
@@ -964,7 +964,11 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"

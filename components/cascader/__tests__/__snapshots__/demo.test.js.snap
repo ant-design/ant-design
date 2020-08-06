@@ -665,7 +665,6 @@ Array [
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input "
-      expandicon="[object Object]"
       placeholder="Please select"
       readonly=""
       tabindex="-1"
@@ -705,7 +704,6 @@ Array [
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input "
-      expandicon="ab"
       placeholder="Please select"
       readonly=""
       tabindex="-1"

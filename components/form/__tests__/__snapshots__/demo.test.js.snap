@@ -571,7 +571,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -727,7 +727,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -846,6 +846,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                 </span>
                 <span
                   class="ant-select-selection-item"
+                  title="RMB"
                 >
                   RMB
                 </span>
@@ -857,7 +858,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                 unselectable="on"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                   role="img"
                 >
                   <img
@@ -904,6 +905,7 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
   id="debug"
 >
+  0
   <div
     class="ant-row ant-form-item"
   >
@@ -1042,7 +1044,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1082,7 +1086,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1153,7 +1159,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1193,7 +1201,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1290,7 +1300,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1343,7 +1355,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1432,7 +1446,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1481,7 +1497,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -2407,7 +2425,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -2434,7 +2452,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -2462,10 +2480,12 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 id="nest-messages_user_age"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
@@ -3204,6 +3224,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
+                      title="+86"
                     >
                       +86
                     </span>
@@ -3215,7 +3236,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     unselectable="on"
                   >
                     <span
-                      class="anticon no-pointer-events"
+                      class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                       role="img"
                     >
                       <img
@@ -3604,7 +3625,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -3675,7 +3696,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -3792,7 +3813,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-calendar undefined"
                   role="img"
                 >
                   <img
@@ -3839,7 +3860,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -3866,7 +3887,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -3894,9 +3915,11 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
@@ -4031,7 +4054,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 class="ant-picker-suffix"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-calendar undefined"
                   role="img"
                 >
                   <img
@@ -4088,7 +4111,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 class="ant-picker-suffix"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-calendar undefined"
                   role="img"
                 >
                   <img
@@ -4145,7 +4168,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 class="ant-picker-suffix"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-calendar undefined"
                   role="img"
                 >
                   <img
@@ -4246,7 +4269,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-suffix"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-calendar undefined"
                 role="img"
               >
                 <img
@@ -4346,7 +4369,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-suffix"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-calendar undefined"
                 role="img"
               >
                 <img
@@ -4555,7 +4578,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -4667,7 +4690,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -4694,7 +4717,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -5829,7 +5852,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Should be combination of numbers & alphabets
         </div>
       </div>
@@ -5954,7 +5979,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           The information is being validated...
         </div>
       </div>
@@ -6132,7 +6159,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Should be combination of numbers & alphabets
         </div>
       </div>
@@ -6179,7 +6208,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-calendar undefined"
                   role="img"
                 >
                   <img
@@ -6369,7 +6398,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -6495,7 +6524,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           The information is being validated...
         </div>
       </div>
@@ -6555,7 +6586,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         class="ant-picker-suffix"
                       >
                         <span
-                          class="anticon no-pointer-events"
+                          class="anticon no-pointer-events .icons-form-calendar undefined"
                           role="img"
                         >
                           <img
@@ -6571,7 +6602,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               <div
                 class="ant-form-item-explain"
               >
-                <div>
+                <div
+                  role="alert"
+                >
                   Please select the correct date
                 </div>
               </div>
@@ -6613,7 +6646,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         class="ant-picker-suffix"
                       >
                         <span
-                          class="anticon no-pointer-events"
+                          class="anticon no-pointer-events .icons-form-calendar undefined"
                           role="img"
                         >
                           <img
@@ -6665,7 +6698,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -6692,7 +6725,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -6720,9 +6753,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-number-input-wrap"
             >
               <input
+                aria-valuemax="9007199254740991"
                 aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
+                max="9007199254740991"
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
@@ -7081,7 +7116,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -7108,7 +7143,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -7154,7 +7189,9 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
         </div>
       </div>

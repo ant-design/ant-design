@@ -26,7 +26,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -74,6 +74,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             </span>
             <span
               class="ant-select-selection-item"
+              title="Time"
             >
               Time
             </span>
@@ -85,7 +86,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             unselectable="on"
           >
             <span
-              class="anticon no-pointer-events"
+              class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
               role="img"
             >
               <img
@@ -174,7 +175,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -208,7 +209,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -242,7 +243,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -276,7 +277,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -354,7 +355,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -431,7 +432,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -508,7 +509,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -584,7 +585,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -624,7 +625,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -701,7 +702,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -742,7 +743,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -777,7 +778,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -857,7 +858,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -934,7 +935,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -998,7 +999,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1032,7 +1033,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1110,7 +1111,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1186,7 +1187,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1226,7 +1227,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1260,7 +1261,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1338,7 +1339,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1415,7 +1416,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1447,7 +1448,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1488,7 +1489,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1546,7 +1547,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1604,7 +1605,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1705,7 +1706,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1769,7 +1770,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1846,7 +1847,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1930,7 +1931,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2006,7 +2007,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2090,7 +2091,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2167,7 +2168,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2244,7 +2245,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2321,7 +2322,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2397,7 +2398,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2474,7 +2475,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
     class="ant-picker-suffix"
   >
     <span
-      class="anticon no-pointer-events"
+      class="anticon no-pointer-events .icons-form-calendar undefined"
       role="img"
     >
       <img
@@ -2579,7 +2580,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -2613,7 +2614,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -2691,7 +2692,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -2723,7 +2724,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -2764,7 +2765,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -2797,7 +2798,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -3214,7 +3215,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -3291,7 +3292,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img

@@ -39,7 +39,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="anticon no-pointer-events"
+      class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
       role="img"
     >
       <img
@@ -90,7 +90,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="anticon no-pointer-events"
+      class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
       role="img"
     >
       <img
@@ -319,7 +319,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
     unselectable="on"
   >
     <span
-      class="anticon no-pointer-events"
+      class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
       role="img"
     >
       <img
