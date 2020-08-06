@@ -1,5 +1,5 @@
 {
-  "name": "antd",
+  "name": "@allenai/varnish",
   "version": "0.9.6",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Varnish",
@@ -75,7 +75,7 @@
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
     "pub": "npm run version && antd-tools run pub",
-    "prepublishOnly": "antd-tools run guard",
+    "prepublishOnly": "",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build -c ./site/bisheng.config.js\" \"npm run color-less\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
