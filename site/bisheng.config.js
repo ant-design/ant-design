@@ -70,7 +70,7 @@ module.exports = {
       '@allenai/varnish/lib': path.join(process.cwd(), 'components'), // Added by Varnish
       '@allenai/varnish/es': path.join(process.cwd(), 'components'), // Added by Varnish
       '@allenai/varnish': path.join(process.cwd(), 'index'), // Added by Varnish
-      '@allenai/varnish/dist/varnish.css': path.join(process.cwd(), 'dist/antd.css'), // Added by Varnish
+      '@allenai/varnish/dist/varnish.css': path.join(process.cwd(), 'dist/varnish.css'), // Added by Varnish
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
@@ -110,7 +110,7 @@ module.exports = {
 
     config.plugins.push(
       new webpack.DefinePlugin({
-        antdReproduceVersion: JSON.stringify(version),
+        varnishReproduceVersion: JSON.stringify(version),
       }),
     );
 
