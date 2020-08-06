@@ -28,8 +28,8 @@ import {
   Transfer,
   Radio,
 } from '@allenai/varnish';
-import enUS from 'antd/es/locale/en_US';
-import zhCN from 'antd/es/locale/zh_CN';
+import enUS from '@allenai/varnish/es/locale/en_US';
+import zhCN from '@allenai/varnish/es/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 

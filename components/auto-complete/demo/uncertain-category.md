@@ -16,7 +16,7 @@ Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/s
 ```tsx
 import React, { useState } from 'react';
 import { Input, AutoComplete } from '@allenai/varnish';
-import { SelectProps } from 'antd/es/select';
+import { SelectProps } from '@allenai/varnish/es/select';
 
 function getRandomInt(max: number, min: number = 0) {
   return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators

@@ -14,9 +14,7 @@ title:
 Skeleton Button, Avatar, Input and Image.
 
 ```jsx
-import { Space, Divider, Switch, Form, Radio } from '@allenai/varnish';
-import Skeleton from '..';
-// TODO: put back after deploy // import { Skeleton, Space, Divider, Switch, Form, Radio } from '@allenai/varnish';
+import { Skeleton, Space, Divider, Switch, Form, Radio } from '@allenai/varnish';
 
 class Demo extends React.Component {
   state = {

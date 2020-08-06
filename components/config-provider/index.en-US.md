@@ -46,7 +46,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
-| locale | Language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | - |
+| locale | Language package setting, you can find the packages in [@allenai/varnish/es/locale](http://unpkg.com/@allenai/varnish/es/locale/) | object | - |
 | prefixCls | Set prefix class. Note: This will discard default styles from `antd` | string | `ant` |  |
 | pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |

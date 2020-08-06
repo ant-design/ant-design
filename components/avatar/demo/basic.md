@@ -14,9 +14,8 @@ title:
 Three sizes and two shapes are available.
 
 ```tsx
+import { Avatar } from '@allenai/varnish';
 import { UserOutlined } from '@ant-design/icons';
-import Avatar from '..';
-// TODO: put back after deploy // import { Avatar } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

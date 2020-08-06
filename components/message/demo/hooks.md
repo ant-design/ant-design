@@ -14,9 +14,7 @@ title:
 Use `message.useMessage` to get `contextHolder` with context accessible issue.
 
 ```jsx
-import { Button } from '@allenai/varnish';
-import message from '..';
-// TODO: put back after deploy // import { message, Button } from '@allenai/varnish';
+import { message, Button } from '@allenai/varnish';
 
 const Context = React.createContext({ name: 'Default' });
 

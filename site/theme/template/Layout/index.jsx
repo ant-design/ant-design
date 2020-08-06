@@ -11,7 +11,7 @@ import { ConfigProvider } from '@allenai/varnish';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
 // eslint-disable-next-line import/no-unresolved
-import zhCN from 'antd/es/locale/zh_CN';
+import zhCN from '@allenai/varnish/es/locale/zh_CN';
 import DemoHeader from './Header/DemoHeader';
 import SiteContext from './SiteContext';
 import enLocale from '../../en-US';

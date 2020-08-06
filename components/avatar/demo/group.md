@@ -14,10 +14,8 @@ title:
 Avatar group display.
 
 ```tsx
+import { Avatar, Divider, Tooltip } from '@allenai/varnish';
 import { UserOutlined, AntDesignOutlined } from '@ant-design/icons';
-import { Divider, Tooltip } from '@allenai/varnish';
-import Avatar from '..';
-// TODO: put back after deploy // import { Avatar, Divider, Tooltip } from '@allenai/varnish';
 
 class Demo extends React.Component {
   render() {

@@ -221,7 +221,7 @@ Properties for row selection.
 
 ```tsx
 import { Table } from '@allenai/varnish';
-import { ColumnProps } from '@allenai/varnish/en/table';
+import { ColumnProps } from '@allenai/varnish/es/table';
 
 interface User {
   key: number;

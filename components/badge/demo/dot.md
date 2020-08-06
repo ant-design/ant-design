@@ -14,9 +14,8 @@ title:
 This will simply display a red badge, without a specific count. If count equals 0, it won't display the dot.
 
 ```jsx
+import { Badge } from '@allenai/varnish';
 import { NotificationOutlined } from '@ant-design/icons';
-import Badge from '..';
-// TODO: put back after deploy // import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

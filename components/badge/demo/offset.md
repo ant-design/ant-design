@@ -14,8 +14,7 @@ title:
 Set offset of the badge dot, the format is `[left, top]`, which represents the offset of the status dot from the left and top of the default position.
 
 ```jsx
-import Badge from '..';
-// TODO: put back after deploy // import { Badge } from '@allenai/varnish';
+import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <>

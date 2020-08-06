@@ -15,9 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Card, Space } from '@allenai/varnish';
-import Badge from '..';
-// TODO: put back after deploy // import { Badge, Card, Space } from '@allenai/varnish';
+import { Badge, Card, Space } from '@allenai/varnish';
 
 ReactDOM.render(
   <Space direction="vertical" style={{ width: '100%' }}>

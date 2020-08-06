@@ -228,7 +228,7 @@ const columns = [
 
 ```tsx
 import { Table } from '@allenai/varnish';
-import { ColumnsType } from '@allenai/varnish/en/table';
+import { ColumnsType } from '@allenai/varnish/es/table';
 
 interface User {
   key: number;
