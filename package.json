@@ -1,6 +1,6 @@
 {
   "name": "@allenai/varnish",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Varnish",
   "keywords": [
