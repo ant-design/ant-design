@@ -60,6 +60,7 @@ Select component to select value from options.
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
+| onClear | Called when clear | function | - | 4.6.0 |
 | onDeselect | Called when a option is deselected, param is the selected option's value. Only called for multiple or tags, effective in multiple or tags mode only | function(string \| number \| LabeledValue) | - |  |
 | onFocus | Called when focus | function | - |  |
 | onInputKeyDown | Called when key pressed | function | - |  |

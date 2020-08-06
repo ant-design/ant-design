@@ -50,7 +50,7 @@
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 65%);
+@text-color: fade(@black, 85%);
 @text-color-secondary: fade(@black, 45%);
 @text-color-inverse: @white;
 @icon-color: inherit;
@@ -69,6 +69,7 @@
 @heading-2-size: ceil(@font-size-base * 2.14);
 @heading-3-size: ceil(@font-size-base * 1.71);
 @heading-4-size: ceil(@font-size-base * 1.42);
+@heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
 @border-radius-base: 2px;
@@ -651,8 +652,10 @@
 // Badge
 // ---
 @badge-height: 20px;
+@badge-height-sm: 14px;
 @badge-dot-size: 6px;
 @badge-font-size: @font-size-sm;
+@badge-font-size-sm: @font-size-sm;
 @badge-font-weight: normal;
 @badge-status-size: 6px;
 @badge-text-color: @component-background;
