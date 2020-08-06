@@ -15,8 +15,7 @@ debug: true
 The badge will display `title` when hovered over, instead of `count`.
 
 ```jsx
-import Badge from '..';
-// TODO: put back after deploy // import { Badge } from '@allenai/varnish';
+import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>

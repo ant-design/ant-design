@@ -47,7 +47,7 @@ export default () => (
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
-| locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
+| locale | 语言包配置，语言包可到 [@allenai/varnish/es/locale](http://unpkg.com/@allenai/varnish/es/locale/) 目录下寻找 | object | - |  |
 | prefixCls | 设置统一样式前缀。`注意：这将不会应用由 antd 提供的默认样式` | string | `ant` |  |
 | pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |

@@ -5,9 +5,13 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
   class="ant-descriptions"
 >
   <div
-    class="ant-descriptions-title"
+    class="ant-descriptions-header"
   >
-    User Info
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
   </div>
   <div
     class="ant-descriptions-view"
@@ -22,7 +26,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               UserName
             </span>
@@ -37,7 +41,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Telephone
             </span>
@@ -52,7 +56,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Live
             </span>
@@ -71,7 +75,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Remark
             </span>
@@ -86,7 +90,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
             colspan="2"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Address
             </span>
@@ -108,9 +112,13 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
   class="ant-descriptions ant-descriptions-bordered"
 >
   <div
-    class="ant-descriptions-title"
+    class="ant-descriptions-header"
   >
-    User Info
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
   </div>
   <div
     class="ant-descriptions-view"
@@ -291,9 +299,13 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
     class="ant-descriptions ant-descriptions-bordered"
   >
     <div
-      class="ant-descriptions-title"
+      class="ant-descriptions-header"
     >
-      Responsive Descriptions
+      <div
+        class="ant-descriptions-title"
+      >
+        Responsive Descriptions
+      </div>
     </div>
     <div
       class="ant-descriptions-view"
@@ -483,9 +495,25 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
     class="ant-descriptions ant-descriptions-bordered"
   >
     <div
-      class="ant-descriptions-title"
+      class="ant-descriptions-header"
     >
-      Custom Size
+      <div
+        class="ant-descriptions-title"
+      >
+        Custom Size
+      </div>
+      <div
+        class="ant-descriptions-extra"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Edit
+          </span>
+        </button>
+      </div>
     </div>
     <div
       class="ant-descriptions-view"
@@ -609,9 +637,25 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
     class="ant-descriptions"
   >
     <div
-      class="ant-descriptions-title"
+      class="ant-descriptions-header"
     >
-      Custom Size
+      <div
+        class="ant-descriptions-title"
+      >
+        Custom Size
+      </div>
+      <div
+        class="ant-descriptions-extra"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Edit
+          </span>
+        </button>
+      </div>
     </div>
     <div
       class="ant-descriptions-view"
@@ -626,7 +670,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Product
               </span>
@@ -641,7 +685,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Billing
               </span>
@@ -656,7 +700,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 time
               </span>
@@ -675,7 +719,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Amount
               </span>
@@ -690,7 +734,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Discount
               </span>
@@ -705,7 +749,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               colspan="1"
             >
               <span
-                class="ant-descriptions-item-label ant-descriptions-item-colon"
+                class="ant-descriptions-item-label"
               >
                 Official
               </span>
@@ -728,9 +772,13 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
   class="ant-descriptions"
 >
   <div
-    class="ant-descriptions-title"
+    class="ant-descriptions-header"
   >
-    User Info
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
   </div>
   <div
     class="ant-descriptions-view"
@@ -745,7 +793,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               UserName
             </span>
@@ -755,7 +803,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Telephone
             </span>
@@ -765,7 +813,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Live
             </span>
@@ -813,7 +861,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="2"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Address
             </span>
@@ -823,7 +871,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+              class="ant-descriptions-item-label"
             >
               Remark
             </span>
@@ -864,9 +912,13 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
   class="ant-descriptions ant-descriptions-bordered"
 >
   <div
-    class="ant-descriptions-title"
+    class="ant-descriptions-header"
   >
-    User Info
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
   </div>
   <div
     class="ant-descriptions-view"

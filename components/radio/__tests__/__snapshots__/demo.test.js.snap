@@ -1180,19 +1180,19 @@ Array [
     class="ant-radio-group ant-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio-button ant-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -1200,18 +1200,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio-button"
       >
         <input
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -1219,18 +1219,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio-button"
       >
         <input
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -1244,19 +1244,19 @@ Array [
     class="ant-radio-group ant-radio-group-solid"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio-button ant-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -1264,18 +1264,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio-button"
       >
         <input
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>
@@ -1283,19 +1283,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-disabled"
+        class="ant-radio-button ant-radio-button-disabled"
       >
         <input
-          class="ant-radio-input"
+          class="ant-radio-button-input"
           disabled=""
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-inner"
+          class="ant-radio-button-inner"
         />
       </span>
       <span>

@@ -8,6 +8,7 @@ import LZString from 'lz-string';
 import { Tooltip, Alert } from '@allenai/varnish';
 import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
+
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
 import BrowserFrame from '../../BrowserFrame';
@@ -168,7 +169,7 @@ class Demo extends React.Component {
       'highlight-wrapper-expand': codeExpand,
     });
 
-    const prefillStyle = `@import 'antd/dist/antd.css';\n\n${style || ''}`.replace(
+    const prefillStyle = `@import '@allenai/varnish/dist/varnish.css';\n\n${style || ''}`.replace(
       new RegExp(`#${meta.id}\\s*`, 'g'),
       '',
     );
@@ -186,12 +187,13 @@ class Demo extends React.Component {
 </html>`;
 
     const sourceCode = this.getSourceCode();
+    const codepenImportHack = 'const varnish = antd; // these imports are only in this form for codepen\n';
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Varnish Demo`,
       html,
-      js: sourceCode
-        .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
+      js: codepenImportHack + sourceCode
+        .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@allenai\/varnish';/, 'const { $1 } = varnish;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
         .replace("import moment from 'moment';", '')
         .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
@@ -203,13 +205,13 @@ class Demo extends React.Component {
       css: prefillStyle,
       editors: '001',
       // eslint-disable-next-line no-undef
-      css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
+      css_external: `https://unpkg.com/@allenai/varnish@${varnishReproduceVersion}/dist/varnish.css`,
       js_external: [
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
         // eslint-disable-next-line no-undef
-        `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
+        `@allenai/varnish@${varnishReproduceVersion}/dist/varnish-with-locales.js`,
         `@ant-design/icons/dist/index.umd.js`,
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
@@ -226,7 +228,7 @@ class Demo extends React.Component {
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
-        if (matches && matches[1] && !line.includes('antd')) {
+        if (matches && matches[1] && !line.includes('varnish')) {
           const paths = matches[1].split('/');
 
           if (paths.length) {
@@ -237,10 +239,10 @@ class Demo extends React.Component {
         return acc;
       },
       // eslint-disable-next-line no-undef
-      { antd: antdReproduceVersion },
+      { '@allenai/varnish': varnishReproduceVersion },
     );
-
     dependencies['@ant-design/icons'] = 'latest';
+    dependencies['styled-components'] = 'latest';
 
     // Reorder source code
     let parsedSourceCode = sourceCode;
@@ -256,7 +258,7 @@ class Demo extends React.Component {
     const indexJsContent = `
 ${importReactContent}
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
+import '@allenai/varnish/dist/varnish.css';
 import './index.css';
 ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
 `.trim();

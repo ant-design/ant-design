@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Radio, Input } from '@allenai/varnish';
-import { RadioChangeEvent } from 'antd/es/radio/interface';
+import { RadioChangeEvent } from '@allenai/varnish/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import Category from './Category';

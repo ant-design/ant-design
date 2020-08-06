@@ -271,7 +271,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -346,7 +346,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                   role="img"
                 >
                   <img
@@ -529,7 +529,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                   role="img"
                 >
                   <img
@@ -660,7 +660,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                   role="img"
                 >
                   <img
@@ -792,7 +792,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 unselectable="on"
               >
                 <span
-                  class="anticon no-pointer-events"
+                  class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                   role="img"
                 >
                   <img

@@ -14,9 +14,7 @@ title:
 We preset a series of colorful Badge styles for use in different situations. You can also set it to a hex color string for custom color.
 
 ```jsx
-import { Divider } from '@allenai/varnish';
-import Badge from '..';
-// TODO: put back after deploy // import { Badge, Divider } from '@allenai/varnish';
+import { Badge, Divider } from '@allenai/varnish';
 
 const colors = [
   'pink',

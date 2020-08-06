@@ -67,6 +67,7 @@ Array [
               </span>
               <span
                 class="ant-select-selection-item"
+                title="http://"
               >
                 http://
               </span>
@@ -78,7 +79,7 @@ Array [
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -123,6 +124,7 @@ Array [
               </span>
               <span
                 class="ant-select-selection-item"
+                title=".com"
               >
                 .com
               </span>
@@ -134,7 +136,7 @@ Array [
               unselectable="on"
             >
               <span
-                class="anticon no-pointer-events"
+                class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
                 role="img"
               >
                 <img
@@ -230,6 +232,7 @@ Array [
     style="width:100px"
   >
     <textarea
+      class="rc-textarea"
       rows="1"
     />
   </div>,
@@ -340,7 +343,7 @@ Array [
         aria-label="Increase Value"
         class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -367,7 +370,7 @@ Array [
         aria-label="Decrease Value"
         class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"
@@ -395,9 +398,11 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-valuemax="9007199254740991"
         aria-valuemin="-9007199254740991"
         autocomplete="off"
         class="ant-input-number-input"
+        max="9007199254740991"
         min="-9007199254740991"
         role="spinbutton"
         step="1"
@@ -424,7 +429,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -506,6 +511,7 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
+        title="Jack"
       >
         Jack
       </span>
@@ -517,7 +523,7 @@ Array [
       unselectable="on"
     >
       <span
-        class="anticon no-pointer-events"
+        class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
         role="img"
       >
         <img
@@ -563,7 +569,7 @@ Array [
       unselectable="on"
     >
       <span
-        class="anticon no-pointer-events"
+        class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
         role="img"
       >
         <img
@@ -694,7 +700,7 @@ Array [
       class="ant-picker-suffix"
     >
       <span
-        class="anticon no-pointer-events"
+        class="anticon no-pointer-events .icons-form-calendar undefined"
         role="img"
       >
         <img
@@ -722,7 +728,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -982,7 +988,7 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/input/demo/borderless.md correctly 1`] = `
 <input
-  class="ant-input"
+  class="ant-input ant-input-borderless"
   placeholder="Borderless"
   type="text"
   value=""
@@ -994,26 +1000,26 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
   style="background-color:rgba(0, 0, 128, .2)"
 >
   <input
-    class="ant-input"
+    class="ant-input ant-input-borderless"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-lg"
+    class="ant-input ant-input-lg ant-input-borderless"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-borderless"
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
   >
     <textarea
-      class="ant-input"
+      class="ant-input ant-input-borderless"
       placeholder="Unbordered"
     />
     <span
@@ -1039,10 +1045,10 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-borderless"
       placeholder="Unbordered"
       type="text"
       value=""
@@ -1074,7 +1080,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
     <span
       class="ant-input-prefix"
@@ -1082,7 +1088,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
       ￥
     </span>
     <input
-      class="ant-input"
+      class="ant-input ant-input-borderless"
       type="text"
       value=""
     />
@@ -1093,7 +1099,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-affix-wrapper-borderless"
   >
     <span
       class="ant-input-prefix"
@@ -1101,7 +1107,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
       ￥
     </span>
     <input
-      class="ant-input ant-input-disabled"
+      class="ant-input ant-input-disabled ant-input-borderless"
       disabled=""
       type="text"
       value=""
@@ -1195,6 +1201,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Zhejiang"
         >
           Zhejiang
         </span>
@@ -1206,7 +1213,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1299,6 +1306,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Option1"
         >
           Option1
         </span>
@@ -1310,7 +1318,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1336,7 +1344,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           aria-label="Increase Value"
           class="ant-input-number-handler ant-input-number-handler-up"
           role="button"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <span
             aria-label="up"
@@ -1363,7 +1371,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           aria-label="Decrease Value"
           class="ant-input-number-handler ant-input-number-handler-down"
           role="button"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <span
             aria-label="down"
@@ -1391,9 +1399,11 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-valuemax="9007199254740991"
           aria-valuemin="-9007199254740991"
           autocomplete="off"
           class="ant-input-number-input"
+          max="9007199254740991"
           min="-9007199254740991"
           role="spinbutton"
           step="1"
@@ -1431,7 +1441,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-calendar undefined"
             role="img"
           >
             <img
@@ -1516,7 +1526,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-calendar undefined"
           role="img"
         >
           <img
@@ -1557,6 +1567,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Option1-1"
         >
           Option1-1
         </span>
@@ -1568,7 +1579,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1604,6 +1615,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Option2-2"
         >
           Option2-2
         </span>
@@ -1615,7 +1627,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1656,6 +1668,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Between"
         >
           Between
         </span>
@@ -1667,7 +1680,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1731,6 +1744,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Sign Up"
         >
           Sign Up
         </span>
@@ -1742,7 +1756,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1813,6 +1827,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="Home"
         >
           Home
         </span>
@@ -1824,7 +1839,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img

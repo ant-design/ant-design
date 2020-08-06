@@ -15,9 +15,11 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -39,14 +41,16 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -55,7 +59,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -64,7 +70,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -73,7 +81,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -82,7 +92,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -130,7 +142,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="9"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       9
     </a>
   </li>
@@ -140,8 +154,10 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -163,7 +179,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
@@ -194,6 +210,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -205,7 +222,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -238,9 +255,11 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -262,14 +281,16 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -278,7 +299,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -287,7 +310,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -296,7 +321,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -305,7 +332,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -315,8 +344,10 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -338,7 +369,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
 </ul>
 `;
@@ -355,8 +386,10 @@ Array [
       tabindex="0"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -378,14 +411,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -394,7 +429,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -403,7 +440,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -412,7 +451,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -421,7 +462,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -469,7 +512,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -479,8 +524,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -502,7 +549,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -533,6 +580,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -544,7 +592,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -567,8 +615,10 @@ Array [
       tabindex="0"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -590,14 +640,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -606,7 +658,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -615,7 +669,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -624,7 +680,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -633,7 +691,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -681,7 +741,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -691,8 +753,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -714,7 +778,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -747,6 +811,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -758,7 +823,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -784,8 +849,10 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -807,14 +874,16 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -823,7 +892,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -832,7 +903,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -841,7 +914,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -850,7 +925,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -860,8 +937,10 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -883,7 +962,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
 </ul>
 `;
@@ -909,7 +988,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -918,7 +999,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -927,7 +1010,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -936,7 +1021,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -945,7 +1032,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -993,7 +1082,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="50"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       50
     </a>
   </li>
@@ -1036,6 +1127,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -1047,7 +1139,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -1073,8 +1165,10 @@ Array [
       tabindex="0"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -1096,14 +1190,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1112,7 +1208,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1121,7 +1219,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1130,7 +1230,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1139,7 +1241,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1187,7 +1291,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -1197,8 +1303,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -1220,7 +1328,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -1251,6 +1359,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -1262,7 +1371,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -1294,8 +1403,10 @@ Array [
       tabindex="0"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -1317,14 +1428,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1333,7 +1446,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1342,7 +1457,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1351,7 +1468,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1360,7 +1479,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1408,7 +1529,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -1418,8 +1541,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -1441,7 +1566,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -1474,6 +1599,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -1485,7 +1611,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -1521,9 +1647,11 @@ Array [
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -1545,14 +1673,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1561,7 +1691,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1570,7 +1702,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1579,7 +1713,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1588,7 +1724,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1598,8 +1736,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -1621,7 +1761,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
   </ul>,
   <ul
@@ -1633,9 +1773,11 @@ Array [
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -1657,14 +1799,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1673,7 +1817,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1682,7 +1828,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1691,7 +1839,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1700,7 +1850,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1710,8 +1862,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -1733,7 +1887,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -1764,6 +1918,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -1775,7 +1930,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -1810,9 +1965,11 @@ Array [
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -1834,14 +1991,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1850,7 +2009,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1859,7 +2020,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1868,7 +2031,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1877,7 +2042,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1887,8 +2054,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -1910,7 +2079,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
   </ul>,
   <ul
@@ -1927,9 +2096,11 @@ Array [
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -1951,14 +2122,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1967,7 +2140,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1976,7 +2151,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1985,7 +2162,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1994,7 +2173,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -2004,8 +2185,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -2027,7 +2210,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -2060,6 +2243,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="10 / page"
           >
             10 / page
           </span>
@@ -2071,7 +2255,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -2107,8 +2291,10 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -2130,14 +2316,16 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -2185,7 +2373,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -2194,7 +2384,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -2203,7 +2395,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="6"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       6
     </a>
   </li>
@@ -2212,7 +2406,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="7"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       7
     </a>
   </li>
@@ -2221,7 +2417,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="8"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       8
     </a>
   </li>
@@ -2269,7 +2467,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="50"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       50
     </a>
   </li>
@@ -2279,8 +2479,10 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -2302,7 +2504,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
@@ -2333,6 +2535,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -2344,7 +2547,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         unselectable="on"
       >
         <span
-          class="anticon no-pointer-events"
+          class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
           role="img"
         >
           <img
@@ -2369,8 +2572,10 @@ Array [
       tabindex="0"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -2392,7 +2597,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-simple-pager"
@@ -2416,8 +2621,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -2439,12 +2646,12 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination ant-pagination-simple ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -2452,8 +2659,10 @@ Array [
       tabindex="0"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -2475,13 +2684,14 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-simple-pager"
       title="2/5"
     >
       <input
+        disabled=""
         size="3"
         type="text"
         value="2"
@@ -2499,8 +2709,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -2522,7 +2734,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
   </ul>,
 ]
@@ -2544,9 +2756,11 @@ Array [
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -2568,14 +2782,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -2584,7 +2800,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -2593,7 +2811,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -2602,7 +2822,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -2611,7 +2833,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -2621,8 +2845,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -2644,7 +2870,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -2675,6 +2901,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="20 / page"
           >
             20 / page
           </span>
@@ -2686,7 +2913,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img
@@ -2713,9 +2940,11 @@ Array [
       class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
         disabled=""
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="left"
@@ -2737,14 +2966,16 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -2753,7 +2984,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -2762,7 +2995,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -2771,7 +3006,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -2780,7 +3017,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -2790,8 +3029,10 @@ Array [
       tabindex="0"
       title="Next Page"
     >
-      <a
+      <button
         class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
         <span
           aria-label="right"
@@ -2813,7 +3054,7 @@ Array [
             />
           </svg>
         </span>
-      </a>
+      </button>
     </li>
     <li
       class="ant-pagination-options"
@@ -2844,6 +3085,7 @@ Array [
           </span>
           <span
             class="ant-select-selection-item"
+            title="20 / page"
           >
             20 / page
           </span>
@@ -2855,7 +3097,7 @@ Array [
           unselectable="on"
         >
           <span
-            class="anticon no-pointer-events"
+            class="anticon no-pointer-events .icons-form-dropdown ant-select-suffix"
             role="img"
           >
             <img

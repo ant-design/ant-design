@@ -14,9 +14,7 @@ title:
 Provides multiple types of text and link.
 
 ```jsx
-import { Space } from '@allenai/varnish';
-import Typography from '..';
-// TODO: put back after deploy // import { Typography, Space } from '@allenai/varnish';
+import { Typography, Space } from '@allenai/varnish';
 
 const { Text, Link } = Typography;
 

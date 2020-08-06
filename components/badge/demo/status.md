@@ -14,8 +14,7 @@ title:
 Standalone badge with status.
 
 ```jsx
-import Badge from '..';
-// TODO: put back after deploy // import { Badge } from '@allenai/varnish';
+import { Badge } from '@allenai/varnish';
 
 ReactDOM.render(
   <div>
