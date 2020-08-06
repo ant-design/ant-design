@@ -32,7 +32,8 @@ const LIST_CN: Recommend[] = [
   },
   {
     title: 'JCD 驱动 - 复杂系统设计应对之道',
-    description: '基于蚂蚁集团 CTO 线的业务土壤，我们探索出以 JCD 为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循，有方法可用。',
+    description:
+      '基于蚂蚁集团 CTO 线的业务土壤，我们探索出以 JCD 为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循，有方法可用。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
@@ -56,7 +57,8 @@ const LIST_EN: Recommend[] = [
   },
   {
     title: 'Driven by JCD: How to Design Complicated Systems',
-    description: '🏦 Based on the business practice of Ant Group CTO line, we have summed up a design thinking system of enterprise product, which is called JCD.',
+    description:
+      '🏦 Based on the business practice of Ant Group CTO line, we have summed up a design thinking system of enterprise product, which is called JCD.',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/103237648',
   },

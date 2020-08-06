@@ -349,7 +349,7 @@ describe('Table.pagination', () => {
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
 
-    expect(onChange).toBeCalledTimes(1)
+    expect(onChange).toBeCalledTimes(1);
   });
 
   it('dynamic warning', () => {
