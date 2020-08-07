@@ -45,7 +45,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | -   |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => React.ReactNode | - |  |
-| progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API) ( 仅支持 `type="line"` ) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
+| progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 
 ### onChange
 
