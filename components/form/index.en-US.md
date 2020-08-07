@@ -172,11 +172,11 @@ Provides array management for fields.
 
 Some operator functions in render form of Form.List.
 
-| Property | Description      | Type                                | Default         |
-| -------- | ---------------- | ----------------------------------- | --------------- |
-| add      | add form item    | (defaultValue?: any) => void        | -               |
-| remove   | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
-| move     | move form item   | (from: number, to: number) => void  | -               |
+| Property | Description      | Type                                        | Default         |
+| -------- | ---------------- | ------------------------------------------- | --------------- |
+| add      | add form item    | (defaultValue?: any, index: number) => void | index: 4.6.0    |
+| remove   | remove form item | (index: number \| number[]) => void         | number[]: 4.5.0 |
+| move     | move form item   | (from: number, to: number) => void          | -               |
 
 ## Form.Provider
 
