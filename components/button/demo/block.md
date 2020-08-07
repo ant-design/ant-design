@@ -17,7 +17,7 @@ title:
 import { Button } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Button type="primary" block>
       Primary
     </Button>
@@ -28,7 +28,7 @@ ReactDOM.render(
     <Button type="link" block>
       Link
     </Button>
-  </div>,
+  </>,
   mountNode,
 );
 ```

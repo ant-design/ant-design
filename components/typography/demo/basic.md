@@ -56,6 +56,10 @@ ReactDOM.render(
       </ul>
     </Paragraph>
 
+    <Paragraph>
+      Press <Text keyboard>Esc</Text> to exit...
+    </Paragraph>
+
     <Divider />
 
     <Title>介绍</Title>
@@ -86,6 +90,10 @@ ReactDOM.render(
           <a href="/docs/resource/download">设计资源</a>
         </li>
       </ul>
+    </Paragraph>
+
+    <Paragraph>
+      按<Text keyboard>Esc</Text>键退出阅读……
     </Paragraph>
   </Typography>,
   mountNode,

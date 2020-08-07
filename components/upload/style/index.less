@@ -119,6 +119,7 @@
       color: @text-color-secondary;
       font-size: @font-size-base;
     }
+
     .@{iconfont-css-prefix}-plus {
       color: @disabled-color;
       font-size: 30px;
@@ -176,15 +177,26 @@
     &-card-actions {
       position: absolute;
       right: 0;
-      opacity: 0;
+
+      &-btn {
+        opacity: 0;
+      }
+      &-btn.@{ant-prefix}-btn-sm {
+        height: 20px;
+        line-height: 1;
+      }
 
       &.picture {
-        top: 25px;
-        line-height: 1;
+        top: 22px;
+        line-height: 0;
+      }
+
+      &-btn:focus,
+      &.picture &-btn {
         opacity: 1;
       }
+
       .@{iconfont-css-prefix} {
-        padding-right: 6px;
         color: @upload-actions-color;
       }
     }
@@ -236,7 +248,7 @@
       opacity: 1;
     }
 
-    &:hover &-card-actions {
+    &:hover &-card-actions-btn {
       opacity: 1;
     }
 
@@ -250,7 +262,9 @@
       .@{iconfont-css-prefix} {
         color: @error-color;
       }
-      opacity: 1;
+      &-btn {
+        opacity: 1;
+      }
     }
 
     &-progress {
@@ -271,9 +285,11 @@
       padding: @padding-xs;
       border: @border-width-base @upload-picture-card-border-style @border-color-base;
       border-radius: @border-radius-base;
+
       &:hover {
         background: transparent;
       }
+
       &-error {
         border-color: @error-color;
       }
@@ -303,6 +319,21 @@
 
       .@{iconfont-css-prefix} {
         font-size: 26px;
+      }
+    }
+
+    // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
+    .@{upload-item}-error .@{upload-item}-thumbnail {
+      .@{iconfont-css-prefix} {
+        svg path {
+          &[fill='#e6f7ff'] {
+            fill: color(~`colorPalette('@{error-color}', 1) `);
+          }
+
+          &[fill='#1890ff'] {
+            fill: @error-color;
+          }
+        }
       }
     }
 
@@ -375,12 +406,14 @@
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }
+
     &-container {
       float: left;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
       margin: 0 @margin-xs @margin-xs 0;
     }
+
     .@{upload-item} {
       float: left;
       width: @upload-picture-card-size;
@@ -429,6 +462,7 @@
         font-size: 16px;
         cursor: pointer;
         transition: all 0.3s;
+
         &:hover {
           color: @text-color-inverse;
         }
@@ -470,6 +504,7 @@
 
       .@{upload-item}-info {
         height: auto;
+
         &::before,
         .@{iconfont-css-prefix}-eye,
         .@{iconfont-css-prefix}-delete {

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <section
     class="ant-layout"
   >
@@ -20,7 +20,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     >
       Footer
     </footer>
-  </section>
+  </section>,
   <section
     class="ant-layout"
   >
@@ -53,7 +53,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     >
       Footer
     </footer>
-  </section>
+  </section>,
   <section
     class="ant-layout"
   >
@@ -86,7 +86,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     >
       Footer
     </footer>
-  </section>
+  </section>,
   <section
     class="ant-layout"
   >
@@ -119,8 +119,8 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         Footer
       </footer>
     </section>
-  </section>
-</div>
+  </section>,
+]
 `;
 
 exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `

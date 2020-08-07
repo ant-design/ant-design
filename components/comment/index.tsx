@@ -2,15 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 
-function getAction(actions: React.ReactNode[]) {
-  if (!actions || !actions.length) {
-    return null;
-  }
-  // eslint-disable-next-line react/no-array-index-key
-  const actionList = actions.map((action, index) => <li key={`action-${index}`}>{action}</li>);
-  return actionList;
-}
-
 export interface CommentProps {
   /** List of action items rendered below the comment content */
   actions?: Array<React.ReactNode>;
@@ -40,7 +31,6 @@ const Comment: React.FC<CommentProps> = ({
   className,
   content,
   prefixCls: customizePrefixCls,
-  style,
   datetime,
   ...otherProps
 }) => {
@@ -52,18 +42,22 @@ const Comment: React.FC<CommentProps> = ({
 
   const prefixCls = getPrefixCls('comment', customizePrefixCls);
 
-  const avatarDom = (
+  const avatarDom = avatar ? (
     <div className={`${prefixCls}-avatar`}>
       {typeof avatar === 'string' ? <img src={avatar} alt="comment-avatar" /> : avatar}
     </div>
-  );
+  ) : null;
 
   const actionDom =
     actions && actions.length ? (
-      <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
+      <ul className={`${prefixCls}-actions`}>
+        {actions.map((action, index) => (
+          <li key={`action-${index}`}>{action}</li> // eslint-disable-line react/no-array-index-key
+        ))}
+      </ul>
     ) : null;
 
-  const authorContent = (
+  const authorContent = (author || datetime) && (
     <div className={`${prefixCls}-content-author`}>
       {author && <span className={`${prefixCls}-content-author-name`}>{author}</span>}
       {datetime && <span className={`${prefixCls}-content-author-time`}>{datetime}</span>}
@@ -78,19 +72,16 @@ const Comment: React.FC<CommentProps> = ({
     </div>
   );
 
-  const comment = (
-    <div className={`${prefixCls}-inner`}>
-      {avatarDom}
-      {contentDom}
-    </div>
-  );
-
   const cls = classNames(prefixCls, className, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
+
   return (
-    <div {...otherProps} className={cls} style={style}>
-      {comment}
+    <div {...otherProps} className={cls}>
+      <div className={`${prefixCls}-inner`}>
+        {avatarDom}
+        {contentDom}
+      </div>
       {children ? renderNested(prefixCls, children) : null}
     </div>
   );

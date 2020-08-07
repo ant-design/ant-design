@@ -785,6 +785,65 @@ describe('Upload List', () => {
     });
   });
 
+  describe('thumbUrl support for non-image', () => {
+    const nonImageFile = new File([''], 'foo.7z', { type: 'application/x-7z-compressed' });
+    it('should render <img /> when upload non-image file and configure thumbUrl in onChange', done => {
+      let wrapper;
+      const onChange = async ({ fileList: files }) => {
+        const newfileList = files.map(item => ({
+          ...item,
+          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        }));
+        wrapper.setProps({ fileList: newfileList });
+
+        await sleep();
+        const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+        expect(imgNode.length).toBe(1);
+        done();
+      };
+      wrapper = mount(
+        <Upload
+          action="http://jsonplaceholder.typicode.com/posts/"
+          listType="picture-card"
+          fileList={[]}
+          onChange={onChange}
+          customRequest={successRequest}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(imgNode.length).toBe(0);
+      wrapper.find('input').simulate('change', { target: { files: [nonImageFile] } });
+    });
+
+    it('should not render <img /> when upload non-image file without thumbUrl in onChange', done => {
+      let wrapper;
+      const onChange = async ({ fileList: files }) => {
+        wrapper.setProps({ fileList: files });
+
+        await sleep();
+        const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+        expect(imgNode.length).toBe(0);
+        done();
+      };
+      wrapper = mount(
+        <Upload
+          action="http://jsonplaceholder.typicode.com/posts/"
+          listType="picture-card"
+          fileList={[]}
+          onChange={onChange}
+          customRequest={successRequest}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(imgNode.length).toBe(0);
+      wrapper.find('input').simulate('change', { target: { files: [nonImageFile] } });
+    });
+  });
+
   it('should support transformFile', done => {
     const handleTransformFile = jest.fn();
     const onChange = ({ file }) => {

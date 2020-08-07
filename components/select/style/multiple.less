@@ -30,6 +30,11 @@
         cursor: text;
       }
 
+      .@{select-prefix-cls}-disabled& {
+        background: @select-multiple-disabled-background;
+        cursor: not-allowed;
+      }
+
       &::after {
         display: inline-block;
         width: 0;
@@ -64,6 +69,12 @@
       transition: font-size 0.3s, line-height 0.3s, height 0.3s;
       user-select: none;
 
+      .@{select-prefix-cls}-disabled& {
+        color: @select-multiple-item-disabled-color;
+        border-color: @select-multiple-item-disabled-border-color;
+        cursor: not-allowed;
+      }
+
       // It's ok not to do this, but 24px makes bottom narrow in view should adjust
       &-content {
         display: inline-block;
@@ -75,7 +86,6 @@
 
       &-remove {
         .iconfont-mixin();
-
         display: inline-block;
         color: @text-color-secondary;
         font-weight: bold;
@@ -83,6 +93,11 @@
         line-height: inherit;
         cursor: pointer;
         .iconfont-size-under-12px(10px);
+
+        > .@{iconfont-css-prefix} {
+          vertical-align: -0.2em;
+        }
+
         &:hover {
           color: @icon-color-hover;
         }

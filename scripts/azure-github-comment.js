@@ -3,11 +3,15 @@ const fetch = require('node-fetch');
 const REPO = process.env.ACCESS_REPO;
 const TOKEN = process.env.ACCESS_TOKEN;
 const PR = process.env.SYSTEM_PULLREQUEST_PULLREQUESTNUMBER;
-const REPLACE_MARK = '<!-- AZURE_UPDATE_COMMENT -->';
 
-const argv = process.argv;
+const { argv } = process;
 
 const comment = argv[argv.length - 1];
+const isUiTest = argv.includes('-ui');
+
+const REPLACE_MARK = isUiTest
+  ? '<!-- AZURE_UPDATE_UI_COMMENT -->'
+  : '<!-- AZURE_UPDATE_COMMENT -->';
 
 const wrappedComment = `
   ${REPLACE_MARK}

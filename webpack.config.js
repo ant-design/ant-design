@@ -2,7 +2,8 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
@@ -33,6 +34,24 @@ function externalMoment(config) {
   };
 }
 
+function injectWarningCondition(config) {
+  config.module.rules.forEach(rule => {
+    // Remove devWarning if needed
+    if (rule.test.test('test.tsx')) {
+      rule.use = [
+        ...rule.use,
+        {
+          loader: 'string-replace-loader',
+          options: {
+            search: 'devWarning(',
+            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
+          },
+        },
+      ];
+    }
+  });
+}
+
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -48,7 +67,12 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
     config.module.rules.forEach(rule => {
       // filter less rule
       if (rule.test instanceof RegExp && rule.test.test('.less')) {
-        rule.use[rule.use.length - 1].options.modifyVars = vars;
+        const lessRule = rule.use[rule.use.length - 1];
+        if (lessRule.options.lessOptions) {
+          lessRule.options.lessOptions.modifyVars = vars;
+        } else {
+          lessRule.options.modifyVars = vars;
+        }
       }
     });
 
@@ -61,6 +85,11 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 const webpackConfig = getWebpackConfig(false);
 const webpackDarkConfig = getWebpackConfig(false);
 const webpackCompactConfig = getWebpackConfig(false);
+
+webpackConfig.forEach(config => {
+  injectWarningCondition(config);
+});
+
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -68,16 +97,18 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
-    // skip codesandbox ci
-    if (!process.env.CSB_REPO) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-          reportFilename: '../report.html',
-        }),
-      );
+    // use esbuild
+    if (process.env.ESBUILD || process.env.CSB_REPO) {
+      config.optimization.minimizer[0] = new EsbuildPlugin();
     }
+
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: '../report.html',
+      }),
+    );
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);

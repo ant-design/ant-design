@@ -27,15 +27,33 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -226,15 +244,33 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -344,7 +380,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
 `;
 
 exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-transfer"
   >
@@ -370,16 +406,34 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
           </span>
         </label>
         <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            14 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          >
-            Source
-          </span>
+          14 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        >
+          Source
         </span>
       </div>
       <div
@@ -826,16 +880,34 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
           </span>
         </label>
         <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            6 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          >
-            Target
-          </span>
+          6 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        >
+          Target
         </span>
       </div>
       <div
@@ -997,21 +1069,32 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
         </ul>
       </div>
     </div>
-  </div>
-  <button
-    aria-checked="false"
-    class="ant-switch"
-    role="switch"
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-top:16px"
-    type="button"
   >
-    <span
-      class="ant-switch-inner"
+    <div
+      class="ant-space-item"
     >
-      disabled
-    </span>
-  </button>
-</div>
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          disabled
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
@@ -1041,15 +1124,33 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1185,15 +1286,33 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1279,15 +1398,33 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          Select All
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        Select All
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1551,15 +1688,33 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0/3
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0/3
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body"
@@ -1649,240 +1804,1019 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
 `;
 
 exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
-<div
-  class="ant-transfer"
->
+Array [
   <div
-    class="ant-transfer-list"
+    class="ant-transfer"
   >
     <div
-      class="ant-transfer-list-header"
+      class="ant-transfer-list ant-transfer-list-with-pagination"
     >
-      <label
-        class="ant-checkbox-wrapper"
+      <div
+        class="ant-transfer-list-header"
       >
         <span
-          class="ant-checkbox"
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
-          />
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
         </span>
-      </label>
-      <span
-        class="ant-transfer-list-header-selected"
-      >
-        <span>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
           0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
         />
-      </span>
-    </div>
-    <div
-      class="ant-transfer-list-body"
-    >
+      </div>
       <div
-        class="ant-transfer-list-body-not-found"
+        class="ant-transfer-list-body"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+          class="ant-transfer-list-body-not-found"
         >
           <div
-            class="ant-empty-image"
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ant-empty-image"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
                 <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
                   />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
                 </g>
-              </g>
-            </svg>
+              </svg>
+            </div>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
           </div>
-          <p
-            class="ant-empty-description"
-          >
-            No Data
-          </p>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-transfer-operation"
-  >
-    <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-      disabled=""
-      type="button"
-    >
-      <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-      disabled=""
-      type="button"
-    >
-      <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-transfer-list"
-  >
     <div
-      class="ant-transfer-list-header"
+      class="ant-transfer-operation"
     >
-      <label
-        class="ant-checkbox-wrapper"
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
       >
         <span
-          class="ant-checkbox"
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
-          />
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
         </span>
-      </label>
-      <span
-        class="ant-transfer-list-header-selected"
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
       >
-        <span>
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list ant-transfer-list-with-pagination"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
           0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
         />
-      </span>
-    </div>
-    <div
-      class="ant-transfer-list-body"
-    >
+      </div>
       <div
-        class="ant-transfer-list-body-not-found"
+        class="ant-transfer-list-body"
       >
         <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+          class="ant-transfer-list-body-not-found"
         >
           <div
-            class="ant-empty-image"
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              class="ant-empty-image"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
                 <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
                   />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
                 </g>
-              </g>
-            </svg>
+              </svg>
+            </div>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
           </div>
-          <p
-            class="ant-empty-description"
-          >
-            No Data
-          </p>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+  <br />,
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      one way
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders ./components/transfer/demo/oneWay.md correctly 1`] = `
+Array [
+  <div
+    class="ant-transfer"
+  >
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          14 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        >
+          Source
+        </span>
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content1"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content1
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content2"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content2
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content4"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content4
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content5"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content5
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content7"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content7
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content8"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content8
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content10"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content10
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content11"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content11
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content13"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content13
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content14"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content14
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content16"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content16
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content17"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content17
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+            title="content19"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            >
+              <span
+                class="ant-checkbox ant-checkbox-disabled"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  disabled=""
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content19
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content20"
+          >
+            <label
+              class="ant-checkbox-wrapper"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content20
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-transfer-operation"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          6 items
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        >
+          Target
+        </span>
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content ant-transfer-list-content-show-remove"
+        >
+          <li
+            class="ant-transfer-list-content-item"
+            title="content3"
+          >
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content3
+            </span>
+            <div
+              aria-label="Remove"
+              class="ant-transfer-list-content-item-remove"
+              role="button"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              tabindex="0"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content6"
+          >
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content6
+            </span>
+            <div
+              aria-label="Remove"
+              class="ant-transfer-list-content-item-remove"
+              role="button"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              tabindex="0"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content9"
+          >
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content9
+            </span>
+            <div
+              aria-label="Remove"
+              class="ant-transfer-list-content-item-remove"
+              role="button"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              tabindex="0"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content12"
+          >
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content12
+            </span>
+            <div
+              aria-label="Remove"
+              class="ant-transfer-list-content-item-remove"
+              role="button"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              tabindex="0"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content15"
+          >
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content15
+            </span>
+            <div
+              aria-label="Remove"
+              class="ant-transfer-list-content-item-remove"
+              role="button"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              tabindex="0"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content18"
+          >
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content18
+            </span>
+            <div
+              aria-label="Remove"
+              class="ant-transfer-list-content-item-remove"
+              role="button"
+              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              tabindex="0"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="margin-top:16px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          disabled
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
@@ -1911,15 +2845,33 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -2090,15 +3042,33 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </span>
       </label>
       <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
         class="ant-transfer-list-header-selected"
       >
-        <span>
-          0 item
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        />
+        0 item
       </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
       class="ant-transfer-list-body ant-transfer-list-body-with-search"
@@ -2195,7 +3165,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
 `;
 
 exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-transfer ant-transfer-customize-list"
   >
@@ -2206,15 +3176,33 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
         class="ant-transfer-list-header"
       >
         <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            14 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
+          14 items
         </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
       </div>
       <div
         class="ant-transfer-list-body"
@@ -2245,7 +3233,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-column"
+                            class="ant-table-selection-col"
                           />
                         </colgroup>
                         <thead
@@ -2742,9 +3730,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                     class="ant-pagination-prev ant-pagination-disabled"
                     title="Previous Page"
                   >
-                    <a
+                    <button
                       class="ant-pagination-item-link"
                       disabled=""
+                      tabindex="-1"
+                      type="button"
                     >
                       <span
                         aria-label="left"
@@ -2766,14 +3756,16 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           />
                         </svg>
                       </span>
-                    </a>
+                    </button>
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
                     tabindex="0"
                     title="1"
                   >
-                    <a>
+                    <a
+                      rel="nofollow"
+                    >
                       1
                     </a>
                   </li>
@@ -2782,7 +3774,9 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                     tabindex="0"
                     title="2"
                   >
-                    <a>
+                    <a
+                      rel="nofollow"
+                    >
                       2
                     </a>
                   </li>
@@ -2792,8 +3786,10 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                     tabindex="0"
                     title="Next Page"
                   >
-                    <a
+                    <button
                       class="ant-pagination-item-link"
+                      tabindex="-1"
+                      type="button"
                     >
                       <span
                         aria-label="right"
@@ -2815,7 +3811,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           />
                         </svg>
                       </span>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -2887,15 +3883,33 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
         class="ant-transfer-list-header"
       >
         <span
+          aria-label="down"
+          class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+        <span
           class="ant-transfer-list-header-selected"
         >
-          <span>
-            6 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
+          6 items
         </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
       </div>
       <div
         class="ant-transfer-list-body"
@@ -2926,7 +3940,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-column"
+                            class="ant-table-selection-col"
                           />
                         </colgroup>
                         <thead
@@ -3155,9 +4169,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                     class="ant-pagination-prev ant-pagination-disabled"
                     title="Previous Page"
                   >
-                    <a
+                    <button
                       class="ant-pagination-item-link"
                       disabled=""
+                      tabindex="-1"
+                      type="button"
                     >
                       <span
                         aria-label="left"
@@ -3179,14 +4195,16 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           />
                         </svg>
                       </span>
-                    </a>
+                    </button>
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
                     tabindex="0"
                     title="1"
                   >
-                    <a>
+                    <a
+                      rel="nofollow"
+                    >
                       1
                     </a>
                   </li>
@@ -3195,9 +4213,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                     class="ant-pagination-next ant-pagination-disabled"
                     title="Next Page"
                   >
-                    <a
+                    <button
                       class="ant-pagination-item-link"
                       disabled=""
+                      tabindex="-1"
+                      type="button"
                     >
                       <span
                         aria-label="right"
@@ -3219,7 +4239,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           />
                         </svg>
                       </span>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -3228,7 +4248,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <button
     aria-checked="false"
     class="ant-switch"
@@ -3236,12 +4256,15 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
     style="margin-top:16px"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
       disabled
     </span>
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
@@ -3249,220 +4272,239 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
     style="margin-top:16px"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
       showSearch
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
-<div>
+<div
+  class="tree-transfer ant-transfer ant-transfer-customize-list"
+>
   <div
-    class="tree-transfer ant-transfer ant-transfer-customize-list"
+    class="ant-transfer-list"
   >
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-list-header"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-selected"
+      >
+        5 items
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
+    </div>
+    <div
+      class="ant-transfer-list-body"
     >
       <div
-        class="ant-transfer-list-header"
-      >
-        <span
-          class="ant-transfer-list-header-selected"
-        >
-          <span>
-            5 items
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
-        </span>
-      </div>
-      <div
-        class="ant-transfer-list-body"
+        class="ant-transfer-list-body-customize-wrapper"
       >
         <div
-          class="ant-transfer-list-body-customize-wrapper"
+          class="ant-tree ant-tree-icon-hide ant-tree-block-node"
         >
           <div
-            class="ant-tree ant-tree-icon-hide ant-tree-block-node"
+            role="tree"
           >
-            <div
-              role="tree"
-            >
-              <input
-                style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-                tabindex="0"
-                value=""
-              />
-            </div>
-            <div
-              class="ant-tree-list"
-            >
-              <div>
+            <input
+              style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+              tabindex="0"
+              value=""
+            />
+          </div>
+          <div
+            class="ant-tree-list"
+          >
+            <div>
+              <div
+                class="ant-tree-list-holder-inner"
+                style="display:flex;flex-direction:column"
+              >
                 <div
-                  class="ant-tree-list-holder-inner"
-                  style="display:flex;flex-direction:column"
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
                 >
-                  <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher-noop"
+                  />
+                  <span
+                    class="ant-tree-checkbox"
                   >
                     <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
+                      class="ant-tree-checkbox-inner"
                     />
-                    <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-0"
-                    >
-                      <span
-                        class="ant-tree-title"
-                      >
-                        0-0
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                    title="0-0"
                   >
                     <span
-                      class="ant-tree-switcher ant-tree-switcher_open"
+                      class="ant-tree-title"
                     >
-                      <span
-                        aria-label="caret-down"
-                        class="anticon anticon-caret-down ant-tree-switcher-icon"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="caret-down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="0 0 1024 1024"
-                          width="1em"
-                        >
-                          <path
-                            d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                          />
-                        </svg>
-                      </span>
+                      0-0
                     </span>
-                    <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
-                      title="0-1"
-                    >
-                      <span
-                        class="ant-tree-title"
-                      >
-                        0-1
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                  </span>
+                </div>
+                <div
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                >
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher_open"
                   >
                     <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
+                      aria-label="caret-down"
+                      class="anticon anticon-caret-down ant-tree-switcher-icon"
+                      role="img"
                     >
-                      <span
-                        class="ant-tree-indent-unit ant-tree-indent-unit-start"
-                      />
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="caret-down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                        />
+                      </svg>
                     </span>
+                  </span>
+                  <span
+                    class="ant-tree-checkbox"
+                  >
                     <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
+                      class="ant-tree-checkbox-inner"
                     />
-                    <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-1-0"
-                    >
-                      <span
-                        class="ant-tree-title"
-                      >
-                        0-1-0
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                    title="0-1"
                   >
                     <span
-                      aria-hidden="true"
-                      class="ant-tree-indent"
+                      class="ant-tree-title"
                     >
-                      <span
-                        class="ant-tree-indent-unit ant-tree-indent-unit-end"
-                      />
+                      0-1
                     </span>
-                    <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
-                    <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-1-1"
-                    >
-                      <span
-                        class="ant-tree-title"
-                      >
-                        0-1-1
-                      </span>
-                    </span>
-                  </div>
-                  <div
-                    class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                  </span>
+                </div>
+                <div
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="ant-tree-indent"
                   >
                     <span
-                      class="ant-tree-switcher ant-tree-switcher-noop"
+                      class="ant-tree-indent-unit ant-tree-indent-unit-start"
                     />
+                  </span>
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher-noop"
+                  />
+                  <span
+                    class="ant-tree-checkbox"
+                  >
                     <span
-                      class="ant-tree-checkbox"
-                    >
-                      <span
-                        class="ant-tree-checkbox-inner"
-                      />
-                    </span>
+                      class="ant-tree-checkbox-inner"
+                    />
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                    title="0-1-0"
+                  >
                     <span
-                      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-                      title="0-3"
+                      class="ant-tree-title"
                     >
-                      <span
-                        class="ant-tree-title"
-                      >
-                        0-3
-                      </span>
+                      0-1-0
                     </span>
-                  </div>
+                  </span>
+                </div>
+                <div
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="ant-tree-indent"
+                  >
+                    <span
+                      class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                    />
+                  </span>
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher-noop"
+                  />
+                  <span
+                    class="ant-tree-checkbox"
+                  >
+                    <span
+                      class="ant-tree-checkbox-inner"
+                    />
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                    title="0-1-1"
+                  >
+                    <span
+                      class="ant-tree-title"
+                    >
+                      0-1-1
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                >
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher-noop"
+                  />
+                  <span
+                    class="ant-tree-checkbox"
+                  >
+                    <span
+                      class="ant-tree-checkbox-inner"
+                    />
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                    title="0-3"
+                  >
+                    <span
+                      class="ant-tree-title"
+                    >
+                      0-3
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -3470,131 +4512,149 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
         </div>
       </div>
     </div>
-    <div
-      class="ant-transfer-operation"
+  </div>
+  <div
+    class="ant-transfer-operation"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-        disabled=""
-        type="button"
+      <span
+        aria-label="right"
+        class="anticon anticon-right"
+        role="img"
       >
-        <span
-          aria-label="right"
-          class="anticon anticon-right"
-          role="img"
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-        disabled=""
-        type="button"
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <span
+        aria-label="left"
+        class="anticon anticon-left"
+        role="img"
       >
-        <span
-          aria-label="left"
-          class="anticon anticon-left"
-          role="img"
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="left"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-            />
-          </svg>
-        </span>
-      </button>
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list"
+  >
+    <div
+      class="ant-transfer-list-header"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+      <span
+        class="ant-transfer-list-header-selected"
+      >
+        0 item
+      </span>
+      <span
+        class="ant-transfer-list-header-title"
+      />
     </div>
     <div
-      class="ant-transfer-list"
+      class="ant-transfer-list-body"
     >
       <div
-        class="ant-transfer-list-header"
-      >
-        <span
-          class="ant-transfer-list-header-selected"
-        >
-          <span>
-            0 item
-          </span>
-          <span
-            class="ant-transfer-list-header-title"
-          />
-        </span>
-      </div>
-      <div
-        class="ant-transfer-list-body"
+        class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-transfer-list-body-not-found"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+            class="ant-empty-image"
           >
-            <div
-              class="ant-empty-image"
+            <svg
+              class="ant-empty-img-simple"
+              height="41"
+              viewBox="0 0 64 41"
+              width="64"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="ant-empty-img-simple"
-                height="41"
-                viewBox="0 0 64 41"
-                width="64"
-                xmlns="http://www.w3.org/2000/svg"
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                transform="translate(0 1)"
               >
+                <ellipse
+                  class="ant-empty-img-simple-ellipse"
+                  cx="32"
+                  cy="33"
+                  rx="32"
+                  ry="7"
+                />
                 <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  transform="translate(0 1)"
+                  class="ant-empty-img-simple-g"
+                  fill-rule="nonzero"
                 >
-                  <ellipse
-                    class="ant-empty-img-simple-ellipse"
-                    cx="32"
-                    cy="33"
-                    rx="32"
-                    ry="7"
+                  <path
+                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
-                  <g
-                    class="ant-empty-img-simple-g"
-                    fill-rule="nonzero"
-                  >
-                    <path
-                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                    />
-                    <path
-                      class="ant-empty-img-simple-path"
-                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                    />
-                  </g>
+                  <path
+                    class="ant-empty-img-simple-path"
+                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                  />
                 </g>
-              </svg>
-            </div>
-            <p
-              class="ant-empty-description"
-            >
-              No Data
-            </p>
+              </g>
+            </svg>
           </div>
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
         </div>
       </div>
     </div>

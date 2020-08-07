@@ -1,0 +1,97 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './index';
+
+.@{tab-prefix-cls}-card {
+  > .@{tab-prefix-cls}-nav,
+  > div > .@{tab-prefix-cls}-nav {
+    .@{tab-prefix-cls}-tab {
+      margin: 0;
+      padding: @tabs-card-horizontal-padding;
+      background: @tabs-card-head-background;
+      border: @border-width-base @border-style-base @border-color-split;
+      transition: all @animation-duration-slow @ease-in-out;
+
+      &-active {
+        color: @tabs-card-active-color;
+        background: @component-background;
+      }
+    }
+
+    .@{tab-prefix-cls}-ink-bar {
+      visibility: hidden;
+    }
+  }
+
+  // ========================== Top & Bottom ==========================
+  &.@{tab-prefix-cls}-top,
+  &.@{tab-prefix-cls}-bottom {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab:not(:last-of-type) {
+        margin-right: @tabs-card-gutter;
+      }
+    }
+  }
+
+  &.@{tab-prefix-cls}-top {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        border-radius: @border-radius-base @border-radius-base 0 0;
+
+        &-active {
+          border-bottom-color: @component-background;
+        }
+      }
+    }
+  }
+  &.@{tab-prefix-cls}-bottom {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+
+        &-active {
+          border-top-color: @component-background;
+        }
+      }
+    }
+  }
+
+  // ========================== Left & Right ==========================
+  &.@{tab-prefix-cls}-left,
+  &.@{tab-prefix-cls}-right {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab:not(:last-of-type) {
+        margin-bottom: @tabs-card-gutter;
+      }
+    }
+  }
+
+  &.@{tab-prefix-cls}-left {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        border-radius: @border-radius-base 0 0 @border-radius-base;
+
+        &-active {
+          border-right-color: @component-background;
+        }
+      }
+    }
+  }
+  &.@{tab-prefix-cls}-right {
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      .@{tab-prefix-cls}-tab {
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+
+        &-active {
+          border-left-color: @component-background;
+        }
+      }
+    }
+  }
+}

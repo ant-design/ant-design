@@ -27,6 +27,7 @@ title: 从 v3 到 v4
 - DatePicker 交互重做，面板和输入框分离，范围选择现可单独选择开始和结束时间。
 - Table 默认背景颜色从透明修改为白色。
 - Tabs 火柴棍样式缩短为和文字等长。
+- Tabs 交互重做，DOM 结构改变。`4.3.0`
 
 ### 兼容性调整
 
@@ -54,6 +55,7 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
 - 移除了 Transfer 的 `lazy` 属性，它并没有起到真正的优化效果。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
+- 移除了 Table 的 `rowSelection.hideDefaultSelections` 属性，请在 `rowSelection.selections` 中使用 `SELECTION_ALL` 和 `SELECTION_INVERT` 替代，[自定义选择项](/components/table/#components-table-demo-row-selection-custom)。
 
 #### 图标升级
 
@@ -132,6 +134,9 @@ const Demo = () => (
   - 在没有 `columns` 时仍然会保留一列。
   - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
 - Pagination 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+- Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
+  - Dom 结构变化，如有覆盖样式需要仔细检查。
+  - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
 
 ```diff
 <Table

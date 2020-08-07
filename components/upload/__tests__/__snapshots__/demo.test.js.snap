@@ -106,6 +106,181 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
+<span
+  class="ant-upload-picture-card-wrapper"
+>
+  <div
+    class="ant-upload-list ant-upload-list-picture-card"
+  >
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="image.png"
+                  class="ant-upload-list-item-image"
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                />
+              </a>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image.png"
+              >
+                image.png
+              </a>
+            </span>
+          </div>
+          <span
+            class="ant-upload-list-item-actions"
+          >
+            <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Preview file"
+            >
+              <span
+                aria-label="eye"
+                class="anticon anticon-eye"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  />
+                </svg>
+              </span>
+            </a>
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+              title="Remove file"
+              type="button"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </span>
+        </div>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture-card"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept="image/*"
+        style="display:none"
+        type="file"
+      />
+      + Upload
+    </span>
+  </div>
+</span>
+`;
+
+exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span
+          aria-label="upload"
+          class="anticon anticon-upload"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="upload"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+        <span>
+           Click to Upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
+`;
+
 exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 <span
   class=""
@@ -203,15 +378,16 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -228,7 +404,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
@@ -282,15 +458,16 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -307,7 +484,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
@@ -360,15 +537,16 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             <span
               class="ant-upload-list-item-card-actions "
             >
-              <a
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
                 <span
                   aria-label="delete"
                   class="anticon anticon-delete"
                   role="img"
                   tabindex="-1"
-                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -385,7 +563,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </a>
+              </button>
             </span>
           </span>
         </div>
@@ -618,28 +796,33 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                   </svg>
                 </span>
               </a>
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
           </div>
         </span>
@@ -732,28 +915,33 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                   </svg>
                 </span>
               </a>
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
           </div>
         </span>
@@ -847,28 +1035,33 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 </svg>
               </span>
             </a>
-            <span
-              aria-label="delete"
-              class="anticon anticon-delete"
-              role="img"
-              tabindex="-1"
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
               title="Remove file"
+              type="button"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="delete"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
               >
-                <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </div>
       </div>
@@ -961,28 +1154,33 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 </svg>
               </span>
             </a>
-            <span
-              aria-label="delete"
-              class="anticon anticon-delete"
-              role="img"
-              tabindex="-1"
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
               title="Remove file"
+              type="button"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="delete"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
               >
-                <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </div>
       </div>
@@ -1067,28 +1265,33 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                 </svg>
               </span>
             </a>
-            <span
-              aria-label="delete"
-              class="anticon anticon-delete"
-              role="img"
-              tabindex="-1"
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
               title="Remove file"
+              type="button"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="delete"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
               >
-                <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </div>
       </div>
@@ -1241,15 +1444,16 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -1266,7 +1470,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
@@ -1351,28 +1555,33 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                   </svg>
                 </span>
               </a>
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
           </div>
         </span>
@@ -1441,28 +1650,33 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                   </svg>
                 </span>
               </a>
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
           </div>
         </span>
@@ -1531,28 +1745,33 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                   </svg>
                 </span>
               </a>
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
           </div>
         </span>
@@ -1621,28 +1840,33 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                   </svg>
                 </span>
               </a>
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="delete"
+                  class="anticon anticon-delete"
+                  role="img"
+                  tabindex="-1"
                 >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
             </span>
           </div>
         </span>
@@ -1736,28 +1960,33 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 </svg>
               </span>
             </a>
-            <span
-              aria-label="delete"
-              class="anticon anticon-delete"
-              role="img"
-              tabindex="-1"
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
               title="Remove file"
+              type="button"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="delete"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
               >
-                <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                />
-              </svg>
-            </span>
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </span>
         </div>
       </div>
@@ -1813,7 +2042,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
-<div>
+Array [
   <span
     class=""
   >
@@ -1898,15 +2127,16 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 <span
                   class="ant-upload-list-item-card-actions picture"
                 >
-                  <a
+                  <button
+                    class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                     title="Remove file"
+                    type="button"
                   >
                     <span
                       aria-label="delete"
                       class="anticon anticon-delete"
                       role="img"
                       tabindex="-1"
-                      title="Remove file"
                     >
                       <svg
                         aria-hidden="true"
@@ -1923,7 +2153,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                         />
                       </svg>
                     </span>
-                  </a>
+                  </button>
                 </span>
               </span>
             </div>
@@ -1990,15 +2220,16 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -2015,16 +2246,16 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
         </div>
       </div>
     </div>
-  </span>
-  <br />
-  <br />
+  </span>,
+  <br />,
+  <br />,
   <span
     class="upload-list-inline"
   >
@@ -2109,15 +2340,16 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 <span
                   class="ant-upload-list-item-card-actions picture"
                 >
-                  <a
+                  <button
+                    class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                     title="Remove file"
+                    type="button"
                   >
                     <span
                       aria-label="delete"
                       class="anticon anticon-delete"
                       role="img"
                       tabindex="-1"
-                      title="Remove file"
                     >
                       <svg
                         aria-hidden="true"
@@ -2134,7 +2366,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                         />
                       </svg>
                     </span>
-                  </a>
+                  </button>
                 </span>
               </span>
             </div>
@@ -2201,15 +2433,16 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="delete"
                     class="anticon anticon-delete"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -2226,125 +2459,121 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
         </div>
       </div>
     </div>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
-<div>
-  <span
-    class=""
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
   >
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-picture"
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
     >
-      <span
-        class="ant-upload"
-        role="button"
-        tabindex="0"
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <button
+        class="ant-btn"
+        type="button"
       >
-        <input
-          accept=""
-          style="display:none"
-          type="file"
-        />
-        <button
-          class="ant-btn"
-          type="button"
+        <span
+          aria-label="upload"
+          class="anticon anticon-upload"
+          role="img"
         >
-          <span
-            aria-label="upload"
-            class="anticon anticon-upload"
-            role="img"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="upload"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="upload"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-             Upload
-          </span>
-        </button>
-      </span>
-    </div>
-    <div
-      class="ant-upload-list ant-upload-list-picture"
-    />
-  </span>
-</div>
+            <path
+              d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+        <span>
+           Upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  />
+</span>
 `;
 
 exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
-<div>
-  <span
-    class=""
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text"
   >
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-text"
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
     >
-      <span
-        class="ant-upload"
-        role="button"
-        tabindex="0"
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <button
+        class="ant-btn"
+        type="button"
       >
-        <input
-          accept=""
-          style="display:none"
-          type="file"
-        />
-        <button
-          class="ant-btn"
-          type="button"
+        <span
+          aria-label="upload"
+          class="anticon anticon-upload"
+          role="img"
         >
-          <span
-            aria-label="upload"
-            class="anticon anticon-upload"
-            role="img"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="upload"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="upload"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-          <span>
-             Upload
-          </span>
-        </button>
-      </span>
-    </div>
-    <div
-      class="ant-upload-list ant-upload-list-text"
-    />
-  </span>
-</div>
+            <path
+              d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+        <span>
+           Upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
 `;
 
 exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly 1`] = `
@@ -2444,24 +2673,25 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm"
                   title="Download file"
+                  type="button"
                 >
-                  <span
-                    title="Download file"
-                  >
+                  <span>
                     download 
                   </span>
-                </a>
-                <a
+                </button>
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="star"
                     class="anticon anticon-star"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -2478,7 +2708,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
@@ -2532,24 +2762,25 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm"
                   title="Download file"
+                  type="button"
                 >
-                  <span
-                    title="Download file"
-                  >
+                  <span>
                     download 
                   </span>
-                </a>
-                <a
+                </button>
+                <button
+                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                   title="Remove file"
+                  type="button"
                 >
                   <span
                     aria-label="star"
                     class="anticon anticon-star"
                     role="img"
                     tabindex="-1"
-                    title="Remove file"
                   >
                     <svg
                       aria-hidden="true"
@@ -2566,7 +2797,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                       />
                     </svg>
                   </span>
-                </a>
+                </button>
               </span>
             </span>
           </div>
@@ -2619,15 +2850,16 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
             <span
               class="ant-upload-list-item-card-actions "
             >
-              <a
+              <button
+                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
                 title="Remove file"
+                type="button"
               >
                 <span
                   aria-label="star"
                   class="anticon anticon-star"
                   role="img"
                   tabindex="-1"
-                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -2644,7 +2876,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                     />
                   </svg>
                 </span>
-              </a>
+              </button>
             </span>
           </span>
         </div>
@@ -2655,7 +2887,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
 `;
 
 exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
-<div>
+Array [
   <span
     class=""
   >
@@ -2705,7 +2937,7 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
     <div
       class="ant-upload-list ant-upload-list-text"
     />
-  </span>
+  </span>,
   <button
     class="ant-btn ant-btn-primary"
     disabled=""
@@ -2715,8 +2947,8 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
     <span>
       Start Upload
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`] = `

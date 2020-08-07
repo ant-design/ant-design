@@ -16,51 +16,49 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: 'Kitchen「设计资产」重磅更新！',
+    title: 'Ant Design 1.0 背后的故事：把艺术变成技术',
     description:
-      '作为 Ant Design 的好伙伴，Kitchen 已第一时间上架 Ant Design 4.0 最新 Sketch 组件包。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bBKkQILVF2AAAAAAAAAAAABkARQnAQ',
-    href: 'https://kitchen.alipay.com/',
+      'Ant Design 是一个设计体系，而 Ant Designers 是一群人。本文将讲讲 Ant Design 1.0 背后的故事，还原那些人、那些事。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h21tT45dgD8AAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/104027273',
     popularize: true,
   },
   {
-    title: '图表库 G2Plot 1.0 发布了！',
+    title: 'Ant Design Pro V5 已经支持预览',
     description:
-      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/113888415',
+      '经过长时间的准备，Pro V5 已经基本完成。在新版本中我们进行了很多预设，对于数据流和布局更是进行了大刀阔斧的改进。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oY1sTrR5FswAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/141740103',
   },
   {
-    title: 'Ant Design 暗黑模式设计解析',
-    description: '让我们一起来看下，Ant Design 这一针对企业级的设计体系是如何设计暗黑模式的？',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/112470365',
+    title: 'JCD 驱动 - 复杂系统设计应对之道',
+    description: '基于蚂蚁集团 CTO 线的业务土壤，我们探索出以 JCD 为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循，有方法可用。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'Ant Design 4.0 is out!',
+    title: 'The Story behind Ant Design 1.0: Turn Art into Technology',
     description:
-      '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
-    href: 'https://github.com/ant-design/ant-design/issues/21656',
+      '🌺 While Ant Design is a design system, Ant Designers are a group of people. This article will tell you the story behind Ant Design 1.0.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h21tT45dgD8AAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/104027273',
     popularize: true,
   },
   {
-    title: 'Introduce AntV',
-    description: '✨ New player of front-end data visualization',
-    img:
-      'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
-    href:
-      'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
+    title: 'Ant Design Pro V5 has Supported Preview!',
+    description:
+      '📈 After a long time of preparation, Pro V5 has been basically completed. In this new version, we have done a lot of presets, and have made radical improvements to the data flow and layouts.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oY1sTrR5FswAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/141740103',
   },
   {
-    title: 'G2Plot: a charting library',
-    description: '📊 A charting library based on the grammar of graphics',
-    img:
-      'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
-    href: 'https://github.com/antvis/G2Plot',
+    title: 'Driven by JCD: How to Design Complicated Systems',
+    description: '🏦 Based on the business practice of Ant Group CTO line, we have summed up a design thinking system of enterprise product, which is called JCD.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/103237648',
   },
 ];
 
@@ -101,7 +99,7 @@ const RecommendBlock = ({
       )}
       <div className="recommend-content">
         <Title level={4}>{title}</Title>
-        <Paragraph>{description}</Paragraph>
+        <Paragraph style={{ fontSize: 13 }}>{description}</Paragraph>
       </div>
     </a>
   );

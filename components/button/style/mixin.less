@@ -12,14 +12,11 @@
 }
 
 .button-disabled(@color: @btn-disable-color; @background: @btn-disable-bg; @border: @btn-disable-border) {
-  &-disabled,
-  &.disabled,
   &[disabled] {
     &,
     &:hover,
     &:focus,
-    &:active,
-    &.active {
+    &:active {
       .button-color(@color; @background; @border);
 
       text-shadow: none;
@@ -48,8 +45,7 @@
     }
   }
 
-  &:active,
-  &.active {
+  &:active {
     & when (@theme = dark) {
       .button-color(
         @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
@@ -80,8 +76,7 @@
       );
     }
   }
-  &:active,
-  &.active {
+  &:active {
     & when (@theme = dark) {
       .button-color(@primary-7; @background; @primary-7);
     }
@@ -120,8 +115,7 @@
       }
     }
   }
-  &:active,
-  &.active {
+  &:active {
     & when (@border = transparent) {
       & when (@theme = dark) {
         .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
@@ -147,7 +141,7 @@
 }
 .button-color(@color; @background; @border) {
   color: @color;
-  background-color: @background;
+  background: @background;
   border-color: @border; // a inside Button which only work in Chrome
   // http://stackoverflow.com/a/17253457
   > a:only-child {
@@ -171,11 +165,10 @@
     position: relative;
     &:hover,
     &:focus,
-    &:active,
-    &.active {
+    &:active {
       z-index: 2;
     }
-    &:disabled {
+    &[disabled] {
       z-index: 0;
     }
   }
@@ -238,7 +231,6 @@
     outline: 0;
     box-shadow: none;
   }
-  &.disabled,
   &[disabled] {
     cursor: not-allowed;
     > * {
@@ -254,7 +246,6 @@
     .button-size(
       @btn-height-sm; @btn-padding-horizontal-sm; @btn-font-size-sm; @btn-border-radius-sm
     );
-    line-height: @btn-height-sm - 2px;
   }
 }
 // primary button style
@@ -266,8 +257,7 @@
   .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
   &:hover,
   &:focus,
-  &:active,
-  &.active {
+  &:active {
     text-decoration: none;
     background: @btn-default-bg;
   }
@@ -303,8 +293,7 @@
       );
     }
   }
-  &:active,
-  &.active {
+  &:active {
     & when (@theme = dark) {
       .button-color(
         ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
@@ -347,10 +336,55 @@
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);
   box-shadow: none;
+  &:hover {
+    background: @btn-link-hover-bg;
+  }
   &:hover,
   &:focus,
   &:active {
     border-color: transparent;
+  }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
+// text button style
+.btn-text() {
+  .button-variant-other(@text-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    color: @text-color;
+    background: @btn-text-hover-bg;
+    border-color: transparent;
+  }
+
+  &:active {
+    color: @text-color;
+    background: fadein(@btn-text-hover-bg, 1%);
+    border-color: transparent;
+  }
+
+  .button-disabled(@disabled-color; transparent; transparent);
+}
+.btn-danger-text() {
+  .button-variant-other(@error-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    & when (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
+    }
+    & when not (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
+    }
+  }
+
+  &:active {
+    & when (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 5) `; fadein(@btn-text-hover-bg, 1%); transparent);
+    }
+    & when not (@theme = dark) {
+      .button-color(~`colorPalette('@{error-color}', 7) `; fadein(@btn-text-hover-bg, 1%); transparent);
+    }
   }
   .button-disabled(@disabled-color; transparent; transparent);
 }

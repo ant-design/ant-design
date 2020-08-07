@@ -1,73 +1,50 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './index';
 
 @switch-prefix-cls: ~'@{ant-prefix}-switch';
 
-.@{switch-prefix-cls} {
-  &-rtl {
-    direction: rtl;
+.@{switch-prefix-cls}-rtl {
+  direction: rtl;
+
+  .@{switch-prefix-cls}-inner {
+    margin: 0 @switch-inner-margin-max 0 @switch-inner-margin-min;
   }
 
-  &-inner {
-    .@{switch-prefix-cls}-rtl & {
-      margin-right: @switch-inner-margin-max;
-      margin-left: @switch-inner-margin-min;
+  .@{switch-prefix-cls}-handle {
+    right: @switch-padding;
+    left: auto;
+  }
+
+  &:not(&-disabled):active {
+    .@{switch-prefix-cls}-handle::before {
+      right: 0;
+      left: -30%;
+    }
+
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-handle::before {
+        right: -30%;
+        left: 0;
+      }
     }
   }
 
-  &-loading-icon,
-  &::after {
-    .@{switch-prefix-cls}-rtl& {
-      left: 100%;
-      margin-left: -1px;
-      transform: translateX(-100%);
-    }
-  }
-
-  &-small {
+  &.@{switch-prefix-cls}-checked {
     .@{switch-prefix-cls}-inner {
-      .@{switch-prefix-cls}-rtl& {
-        margin-right: 18px;
-        margin-left: 3px;
-      }
+      margin: 0 @switch-inner-margin-min 0 @switch-inner-margin-max;
+    }
+
+    .@{switch-prefix-cls}-handle {
+      right: calc(100% - @switch-pin-size - @switch-padding);
     }
   }
 
-  &-small &-loading-icon {
-    .@{switch-prefix-cls}-rtl& {
-      margin-left: 12px;
-    }
-  }
-
-  &-small&-checked {
-    .@{switch-prefix-cls}-inner {
-      .@{switch-prefix-cls}-rtl& {
-        margin-right: 3px;
-        margin-left: 18px;
+  &.@{switch-prefix-cls}-small {
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-handle {
+        right: calc(100% - @switch-sm-pin-size - @switch-padding);
       }
-    }
-  }
-
-  &-checked {
-    .@{switch-prefix-cls}-inner {
-      .@{switch-prefix-cls}-rtl& {
-        margin-right: @switch-inner-margin-min;
-        margin-left: @switch-inner-margin-max;
-      }
-    }
-
-    &::after {
-      .@{switch-prefix-cls}-rtl& {
-        left: 1px;
-        margin-left: 0;
-        transform: translateX(0);
-      }
-    }
-  }
-
-  &-checked &-loading-icon {
-    .@{switch-prefix-cls}-rtl& {
-      margin-left: -41px;
     }
   }
 }

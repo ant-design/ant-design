@@ -43,8 +43,8 @@
   &-tbody {
     > tr {
       // ========================= Nest Table ===========================
-      .@{table-prefix-cls} {
-        &.@{table-prefix-cls}-rtl {
+      .@{table-prefix-cls}-wrapper:only-child {
+        .@{table-prefix-cls}.@{table-prefix-cls}-rtl {
           margin: -@table-padding-vertical (@table-padding-horizontal + ceil(@font-size-sm * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
         }
       }
@@ -96,6 +96,14 @@
     }
   }
 
+  &-thead tr th.@{table-prefix-cls}-column-has-sorters {
+    .@{table-prefix-cls}-filter-column-title {
+      .@{table-prefix-cls}-rtl & {
+        padding: 0 0 0 2.3em;
+      }
+    }
+  }
+
   &-filter-trigger-container {
     .@{table-wrapepr-rtl-cls} & {
       right: auto;
@@ -109,7 +117,8 @@
     &,
     &-submenu {
       .@{ant-prefix}-checkbox-wrapper + span {
-        .@{ant-prefix}-dropdown-rtl & {
+        .@{ant-prefix}-dropdown-rtl &,
+        .@{ant-prefix}-dropdown-menu-submenu-rtl& {
           padding-right: 8px;
           padding-left: 0;
         }
@@ -126,7 +135,7 @@
     &-extra {
       .@{table-wrapepr-rtl-cls} & {
         right: auto;
-        left: -10px;
+        left: @table-selection-extra-right;
       }
     }
   }

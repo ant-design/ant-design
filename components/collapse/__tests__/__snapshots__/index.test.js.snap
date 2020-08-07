@@ -49,12 +49,6 @@ exports[`Collapse could override default openAnimation 1`] = `
 </div>
 `;
 
-exports[`Collapse rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-collapse ant-collapse-icon-position-right ant-collapse-rtl"
-/>
-`;
-
 exports[`Collapse should render extra node of panel 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-left"

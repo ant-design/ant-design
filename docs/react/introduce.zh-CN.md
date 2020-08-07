@@ -34,17 +34,27 @@ title: Ant Design of React
 - 🌍 数十个国际化语言支持。
 - 🎨 深入每个细节的主题定制能力。
 
-## 支持环境
+## 兼容环境
 
-- 现代浏览器和 IE11（需要 [polyfills](/docs/react/getting-started-cn#兼容性)）。
+- 现代浏览器和 IE11（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
 - 支持服务端渲染。
-- [Electron](https://electronjs.org/)
+- [Electron](https://www.electronjs.org/)
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| --- | --- | --- | --- | --- | --- |
+| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+
+对于 IE 系列浏览器，需要提供相应的 Polyfill 支持，建议使用 [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 来解决浏览器兼容问题。如果你在使用 [umi](http://umijs.org/)，可以直接使用 [targets](https://umijs.org/zh/config/#targets) 配置。
+
+`antd@3.x` 对 React 15/16 两个版本提供支持，但是我们强烈建议你升级到 React 16，以便获得更好的性能和遇到更少的问题。
+
+> `antd@2.0` 之后不再支持 IE8，`antd@4.0` 之后不再支持 IE9/10。
 
 ## 版本
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
-你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得稳定版发布的通知。
+你可以订阅：https://github.com/ant-design/ant-design/releases.atom 或 https://app.releasly.co/sites/ant-design/ant-design 来获得版本发布的通知。
 
 ## 安装
 
@@ -70,7 +80,7 @@ $ yarn add antd
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
-> 注意：antd.js 依赖 react/react-dom/moment，请确保提前引入这些文件。
+> 注意：`antd.js` 和 `antd.min.js` 依赖 `react/react-dom/moment`，请确保提前引入这些文件。
 
 ## 示例
 
@@ -88,45 +98,18 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### 按需加载
 
-> 注意：antd 默认支持基于 ES module 的 tree shaking，不使用以下插件也会有按需加载的效果。
+`antd` 的 JS 代码默认支持基于 ES modules 的 tree shaking。
 
-下面两种方式都可以只加载用到的组件。
+### TypeScript
 
-- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
-
-  ```js
-  // .babelrc or babel-loader option
-  {
-    "plugins": [
-      ["import", {
-        "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": "css" // `style: true` 会加载 less 文件
-      }]
-    ]
-  }
-  ```
-
-  然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
-
-  ```jsx
-  // babel-plugin-import 会帮助你加载 JS 和 CSS
-  import { DatePicker } from 'antd';
-  ```
-
-- 手动引入
-
-  ```jsx
-  import DatePicker from 'antd/es/date-picker'; // 加载 JS
-  import 'antd/es/date-picker/style/css'; // 加载 CSS
-  // import 'antd/es/date-picker/style';         // 加载 LESS
-  ```
+`antd` 使用 TypeScript 进行书写并提供了完整的定义文件。（不要引用 `@types/antd`）。
 
 ## 链接
 
 - [首页](/)
-- [组件库](/components/button-cn/)
+- [组件库](/components/overview)
 - [Ant Design Pro](https://pro.ant.design/)
+- [Ant Design Charts](https://charts.ant.design)
 - [更新日志](/changelog)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)

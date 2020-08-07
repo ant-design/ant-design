@@ -20,3 +20,10 @@ exports[`Typography rtl render component should be rendered correctly in RTL dir
   direction="rtl"
 />
 `;
+
+exports[`Typography rtl render component should be rendered correctly in RTL direction 4`] = `
+<a
+  class="ant-typography ant-typography-rtl"
+  direction="rtl"
+/>
+`;

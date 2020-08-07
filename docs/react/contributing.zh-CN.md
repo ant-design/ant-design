@@ -16,7 +16,7 @@ toc: false
 
 ## 分支管理
 
-基于我们的 [发布周期](/changelog)，我们长期维护两个分支 `master` 和 `feature`。如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](/changelog)，我们长期维护两个分支 `master` 和 `feature`。如果你要修一个 bug，那么请发 pull request 到 `master`，我们会每周从 master 发布一个 patch 版本；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做，每月末我们会合并 feature 到 master，并发布一个包含新特性的 minor 版本。
 
 ## Bugs
 
@@ -53,7 +53,8 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
 5. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
-6. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
+6. 确认所有的 UI 改动通过 `npm run test-image`，可以运行 `npm run test-image -- -u` 更新 UI 快照并且把这些更新也提交上来（如果有的话），**UI 测试基于 [Docker](https://docs.docker.com/get-docker/)，根据平台下载对应的安装程序。**
+7. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行（通过[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)）。
 
 给 [react-component](https://github.com/react-component/) 发送 pull request：
 
@@ -65,10 +66,15 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 1. `npm start` 在本地运行 Ant Design 的网站。
 2. `npm run lint` 检查代码风格。
-3. `npm test` 运行测试。
+3. `npm test` 运行测试。(在运行测试前请确保 `NODE_ENV` 环境变量没有被设定，否则可能会引发一些问题)
 4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
 5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
 
 ## 加入社区
 
 如果你贡献度足够活跃，希望和 Ant Design 团队一起参与维护工作，你可以[申请成为社区协作者](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)。
+
+你还可以参考下面两篇社区成员写的贡献指南，一步一步成为 antd 的贡献者吧：
+
+- [记录向：如何快速的成为 Ant Design 的 contributor](https://zhuanlan.zhihu.com/p/123367842) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- [从 0 开始，成为 Ant-Design Contributor](https://zhuanlan.zhihu.com/p/143895612) [@fireairforce](https://github.com/fireairforce)

@@ -11,6 +11,10 @@
 
   &-list {
     &-search {
+      .@{transfer-prefix-cls}-rtl & {
+        padding-right: @control-padding-horizontal-sm;
+        padding-left: 24px;
+      }
       &-action {
         .@{transfer-prefix-cls}-rtl & {
           right: auto;
@@ -20,45 +24,30 @@
     }
 
     &-header {
+      > *:not(:last-child) {
+        .@{transfer-prefix-cls}-rtl & {
+          margin-right: 0;
+          margin-left: 4px;
+        }
+      }
+
       .@{transfer-prefix-cls}-rtl & {
         right: 0;
         left: auto;
       }
       &-title {
         .@{transfer-prefix-cls}-rtl & {
-          right: auto;
-          left: 12px;
-        }
-      }
-
-      .@{ant-prefix}-checkbox-wrapper + span {
-        .@{transfer-prefix-cls}-rtl & {
-          padding-right: 8px;
-          padding-left: 0;
-        }
-      }
-    }
-
-    &-body {
-      &-search-wrapper {
-        .@{transfer-prefix-cls}-rtl & {
-          right: 0;
-          left: auto;
+          text-align: left;
         }
       }
     }
 
     &-content {
       &-item {
-        > span {
+        > *:not(:last-child) {
           .@{transfer-prefix-cls}-rtl & {
-            padding-left: 0;
-          }
-        }
-        &-text {
-          .@{transfer-prefix-cls}-rtl & {
-            padding-right: 8px;
-            padding-left: 0;
+            margin-right: 0;
+            margin-left: 8px;
           }
         }
       }

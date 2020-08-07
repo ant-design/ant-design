@@ -17,7 +17,7 @@ A relevant icon will make information clearer and more friendly.
 import { Alert } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <>
     <Alert message="Success Tips" type="success" showIcon />
     <Alert message="Informational Notes" type="info" showIcon />
     <Alert message="Warning" type="warning" showIcon closable />
@@ -47,7 +47,7 @@ ReactDOM.render(
       type="error"
       showIcon
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

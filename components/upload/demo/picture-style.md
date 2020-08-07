@@ -46,7 +46,7 @@ const props2 = {
 };
 
 ReactDOM.render(
-  <div>
+  <>
     <Upload {...props}>
       <Button>
         <UploadOutlined /> Upload
@@ -59,7 +59,7 @@ ReactDOM.render(
         <UploadOutlined /> Upload
       </Button>
     </Upload>
-  </div>,
+  </>,
   mountNode,
 );
 ```

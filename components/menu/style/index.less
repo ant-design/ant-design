@@ -1,5 +1,6 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './status';
 
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 
@@ -10,12 +11,14 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   color: @menu-item-color;
+  font-size: @menu-item-font-size;
   line-height: 0; // Fix display inline-block gap
+  text-align: left;
   list-style: none;
   background: @menu-bg;
   outline: none;
   box-shadow: @box-shadow-base;
-  transition: background 0.3s, width 0.2s;
+  transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   .clearfix;
 
   ul,
@@ -33,11 +36,14 @@
     height: @menu-item-group-height;
     padding: 8px 16px;
     color: @menu-item-group-title-color;
-    font-size: @font-size-base;
+    font-size: @menu-item-group-title-font-size;
     line-height: @menu-item-group-height;
     transition: all 0.3s;
   }
 
+  &-horizontal &-submenu {
+    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out;
+  }
   &-submenu,
   &-submenu-inline {
     transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out,
@@ -164,6 +170,11 @@
     min-width: 114px; // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
   }
 
+  &-horizontal &-item,
+  &-horizontal &-submenu-title {
+    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
+      background 0.3s @ease-in-out;
+  }
   &-item,
   &-submenu-title {
     position: relative;
@@ -176,7 +187,7 @@
       background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
-      margin-right: @menu-item-icon-margin-right;
+      margin-right: @menu-icon-margin-right;
       font-size: @menu-icon-size;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
@@ -215,6 +226,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+        z-index: -1;
         width: 100%;
         height: 100%;
         opacity: 0.0001;
@@ -320,9 +332,6 @@
   &-vertical-left &-submenu-selected,
   &-vertical-right &-submenu-selected {
     color: @menu-highlight-color;
-    a {
-      color: @menu-highlight-color;
-    }
   }
 
   &-horizontal {
@@ -331,6 +340,18 @@
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
+
+    &:not(.@{menu-prefix-cls}-dark) {
+      > .@{menu-prefix-cls}-item,
+      > .@{menu-prefix-cls}-submenu {
+        margin: @menu-item-padding;
+        margin-top: -1px;
+        margin-bottom: 0;
+        padding: @menu-item-padding;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
@@ -347,6 +368,10 @@
         color: @menu-highlight-color;
         border-bottom: 2px solid @menu-highlight-color;
       }
+    }
+
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      padding: 0;
     }
 
     > .@{menu-prefix-cls}-item {
@@ -398,7 +423,6 @@
       margin-bottom: @menu-item-vertical-margin;
       padding: 0 16px;
       overflow: hidden;
-      font-size: @menu-item-font-size;
       line-height: @menu-item-height;
       text-overflow: ellipsis;
     }
@@ -512,6 +536,16 @@
   &-root&-vertical-right,
   &-root&-inline {
     box-shadow: none;
+  }
+
+  &-root&-inline-collapsed {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-title {
+      > .@{menu-prefix-cls}-inline-collapsed-noicon {
+        font-size: @menu-icon-size-lg;
+        text-align: center;
+      }
+    }
   }
 
   &-sub&-inline {

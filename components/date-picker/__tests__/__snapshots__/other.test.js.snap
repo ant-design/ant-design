@@ -24,7 +24,9 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               tabindex="-1"
               type="button"
             >
-              «
+              <span
+                class="ant-picker-super-prev-icon"
+              />
             </button>
             <div
               class="ant-picker-header-view"
@@ -41,7 +43,9 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               tabindex="-1"
               type="button"
             >
-              »
+              <span
+                class="ant-picker-super-next-icon"
+              />
             </button>
           </div>
           <div
@@ -271,7 +275,9 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
             >
               <thead>
                 <tr>
-                  <th />
+                  <th
+                    aria-label="empty cell"
+                  />
                   <th>
                     Su
                   </th>
@@ -788,6 +794,7 @@ exports[`Picker format by locale date 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
       size="12"
@@ -854,6 +861,7 @@ exports[`Picker format by locale dateTime 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择日期"
       readonly=""
       size="21"
@@ -920,6 +928,7 @@ exports[`Picker format by locale month 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择月份"
       readonly=""
       size="12"
@@ -986,6 +995,7 @@ exports[`Picker format by locale week 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="请选择周"
       readonly=""
       size="12"

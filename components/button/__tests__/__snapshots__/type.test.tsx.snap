@@ -268,18 +268,6 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
 />
 `;
 
-exports[`Button should has click wave effect 1`] = `
-<button
-  ant-click-animating-without-extra-node="true"
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    button
-  </span>
-</button>
-`;
-
 exports[`Button should merge text if children using variable 1`] = `
 <button
   class="ant-btn"
@@ -287,17 +275,6 @@ exports[`Button should merge text if children using variable 1`] = `
 >
   <span>
     This is a test 1
-  </span>
-</button>
-`;
-
-exports[`Button should not insert space to link button 1`] = `
-<button
-  class="ant-btn ant-btn-link"
-  type="button"
->
-  <span>
-    按钮
   </span>
 </button>
 `;
@@ -367,7 +344,7 @@ exports[`Button should render empty button without errors 1`] = `
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"
-  href="http://ant.design"
+  href="https://ant.design"
   target="_blank"
 >
   <span>

@@ -3,7 +3,7 @@ import React from 'react';
 import AntdIcon, { createFromIconfontCN } from '@ant-design/icons';
 
 import { withThemeSuffix, removeTypeTheme, getThemeFromTypeName } from './utils';
-import warning from '../../../../components/_util/warning';
+import warning from '../../../../components/_util/devWarning';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1329669_t1u72b9zk8s.js',

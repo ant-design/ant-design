@@ -23,6 +23,8 @@ lib/**/*
 node_modules
 _site
 dist
+coverage
 **/*.d.ts
 # Scripts
 scripts/previewEditor/**/*
+jest-stare

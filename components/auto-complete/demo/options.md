@@ -30,14 +30,13 @@ const Complete: React.FC = () => {
     }
     setResult(res);
   };
-  const children = result.map((email: string) => (
-    <Option key={email} value={email}>
-      {email}
-    </Option>
-  ));
   return (
     <AutoComplete style={{ width: 200 }} onSearch={handleSearch} placeholder="input here">
-      {children}
+      {result.map((email: string) => (
+        <Option key={email} value={email}>
+          {email}
+        </Option>
+      ))}
     </AutoComplete>
   );
 };

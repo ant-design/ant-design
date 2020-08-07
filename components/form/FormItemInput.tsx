@@ -5,12 +5,12 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import CSSMotion from 'rc-animate/lib/CSSMotion';
+import CSSMotion from 'rc-motion';
 
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext } from './context';
-import { useCacheErrors } from './util';
+import useCacheErrors from './hooks/useCacheErrors';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
@@ -108,6 +108,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {icon}
         </div>
         <CSSMotion
+          motionDeadline={500}
           visible={visible}
           motionName="show-help"
           onLeaveEnd={() => {
@@ -121,7 +122,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
               <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
                 {memoErrors.map((error, index) => (
                   // eslint-disable-next-line react/no-array-index-key
-                  <div key={index}>{error}</div>
+                  <div key={index} role="alert">
+                    {error}
+                  </div>
                 ))}
               </div>
             );

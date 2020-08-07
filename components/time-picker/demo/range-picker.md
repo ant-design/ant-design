@@ -18,10 +18,5 @@ import { TimePicker } from 'antd';
 
 const { RangePicker } = TimePicker;
 
-ReactDOM.render(
-  <div>
-    <RangePicker />
-  </div>,
-  mountNode,
-);
+ReactDOM.render(<RangePicker />, mountNode);
 ```

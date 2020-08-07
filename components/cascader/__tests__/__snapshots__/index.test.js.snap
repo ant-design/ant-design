@@ -608,7 +608,7 @@ exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
         class="ant-cascader-menu"
       >
         <li
-          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          class="ant-cascader-menu-item"
           role="menuitem"
           title=""
         >
@@ -1074,23 +1074,31 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
 >
   <div>
     <ForwardRef
+      leavedClassName="ant-cascader-menus-hidden"
       motionAppear={false}
       motionEnter={false}
       motionLeave={false}
       motionName="slide-up"
+      onAppearStart={[Function]}
       onEnterEnd={[Function]}
+      onEnterStart={[Function]}
       onLeaveEnd={[Function]}
+      onLeaveStart={[Function]}
       removeOnLeave={false}
       visible={true}
     >
       <CSSMotion
         internalRef={null}
+        leavedClassName="ant-cascader-menus-hidden"
         motionAppear={false}
         motionEnter={false}
         motionLeave={false}
         motionName="slide-up"
+        onAppearStart={[Function]}
         onEnterEnd={[Function]}
+        onEnterStart={[Function]}
         onLeaveEnd={[Function]}
+        onLeaveStart={[Function]}
         removeOnLeave={false}
         visible={true}
       >
@@ -1119,7 +1127,6 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
         >
           <PopupInner
             className="ant-cascader-menus"
-            hiddenClassName="ant-cascader-menus-hidden"
             onMouseDown={[Function]}
             onTouchStart={[Function]}
             prefixCls="ant-cascader-menus"
@@ -1129,7 +1136,6 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                 "zIndex": undefined,
               }
             }
-            visible={true}
           >
             <div
               className="ant-cascader-menus"
@@ -1493,7 +1499,7 @@ exports[`Cascader should render not found content 1`] = `
       ],
     }
   }
-  className=""
+  className="ant-cascader-menu-empty"
   destroyPopupOnHide={false}
   getClassNameFromAlign={[Function]}
   getRootDomNode={[Function]}
@@ -1508,23 +1514,31 @@ exports[`Cascader should render not found content 1`] = `
 >
   <div>
     <ForwardRef
+      leavedClassName="ant-cascader-menus-hidden"
       motionAppear={false}
       motionEnter={false}
       motionLeave={false}
       motionName="slide-up"
+      onAppearStart={[Function]}
       onEnterEnd={[Function]}
+      onEnterStart={[Function]}
       onLeaveEnd={[Function]}
+      onLeaveStart={[Function]}
       removeOnLeave={false}
       visible={true}
     >
       <CSSMotion
         internalRef={null}
+        leavedClassName="ant-cascader-menus-hidden"
         motionAppear={false}
         motionEnter={false}
         motionLeave={false}
         motionName="slide-up"
+        onAppearStart={[Function]}
         onEnterEnd={[Function]}
+        onEnterStart={[Function]}
         onLeaveEnd={[Function]}
+        onLeaveStart={[Function]}
         removeOnLeave={false}
         visible={true}
       >
@@ -1552,8 +1566,7 @@ exports[`Cascader should render not found content 1`] = `
           target={[Function]}
         >
           <PopupInner
-            className="ant-cascader-menus"
-            hiddenClassName="ant-cascader-menus-hidden"
+            className="ant-cascader-menus ant-cascader-menu-empty"
             onMouseDown={[Function]}
             onTouchStart={[Function]}
             prefixCls="ant-cascader-menus"
@@ -1563,10 +1576,9 @@ exports[`Cascader should render not found content 1`] = `
                 "zIndex": undefined,
               }
             }
-            visible={true}
           >
             <div
-              className="ant-cascader-menus"
+              className="ant-cascader-menus ant-cascader-menu-empty"
               onMouseDown={[Function]}
               onTouchStart={[Function]}
               style={
@@ -1687,7 +1699,7 @@ exports[`Cascader should render not found content 1`] = `
                     },
                   ]
                 }
-                popupClassName=""
+                popupClassName="ant-cascader-menu-empty"
                 popupPlacement="bottomLeft"
                 popupVisible={true}
                 prefixCls="ant-cascader"
@@ -1808,7 +1820,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
       ],
     }
   }
-  className=""
+  className="ant-cascader-menu-empty"
   destroyPopupOnHide={false}
   getClassNameFromAlign={[Function]}
   getRootDomNode={[Function]}
@@ -1823,23 +1835,31 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
 >
   <div>
     <ForwardRef
+      leavedClassName="ant-cascader-menus-hidden"
       motionAppear={false}
       motionEnter={false}
       motionLeave={false}
       motionName="slide-up"
+      onAppearStart={[Function]}
       onEnterEnd={[Function]}
+      onEnterStart={[Function]}
       onLeaveEnd={[Function]}
+      onLeaveStart={[Function]}
       removeOnLeave={false}
       visible={true}
     >
       <CSSMotion
         internalRef={null}
+        leavedClassName="ant-cascader-menus-hidden"
         motionAppear={false}
         motionEnter={false}
         motionLeave={false}
         motionName="slide-up"
+        onAppearStart={[Function]}
         onEnterEnd={[Function]}
+        onEnterStart={[Function]}
         onLeaveEnd={[Function]}
+        onLeaveStart={[Function]}
         removeOnLeave={false}
         visible={true}
       >
@@ -1867,8 +1887,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
           target={[Function]}
         >
           <PopupInner
-            className="ant-cascader-menus"
-            hiddenClassName="ant-cascader-menus-hidden"
+            className="ant-cascader-menus ant-cascader-menu-empty"
             onMouseDown={[Function]}
             onTouchStart={[Function]}
             prefixCls="ant-cascader-menus"
@@ -1878,10 +1897,9 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                 "zIndex": undefined,
               }
             }
-            visible={true}
           >
             <div
-              className="ant-cascader-menus"
+              className="ant-cascader-menus ant-cascader-menu-empty"
               onMouseDown={[Function]}
               onTouchStart={[Function]}
               style={
@@ -1988,7 +2006,6 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                 options={
                   Array [
                     Object {
-                      "disabled": true,
                       "label": <Context.Consumer>
                         [Function]
                       </Context.Consumer>,
@@ -1996,7 +2013,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                     },
                   ]
                 }
-                popupClassName=""
+                popupClassName="ant-cascader-menu-empty"
                 popupPlacement="bottomLeft"
                 popupVisible={true}
                 prefixCls="ant-cascader"
@@ -2011,7 +2028,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                     style={Object {}}
                   >
                     <li
-                      className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+                      className="ant-cascader-menu-item"
                       key="ANT_CASCADER_NOT_FOUND"
                       onClick={[Function]}
                       onDoubleClick={[Function]}

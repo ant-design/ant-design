@@ -11,12 +11,12 @@
   &-horizontal&-with-text-left {
     &::before {
       .@{divider-prefix-cls}-rtl& {
-        width: 95%;
+        width: 100% - @divider-orientation-margin;
       }
     }
     &::after {
       .@{divider-prefix-cls}-rtl& {
-        width: 5%;
+        width: @divider-orientation-margin;
       }
     }
   }
@@ -24,12 +24,12 @@
   &-horizontal&-with-text-right {
     &::before {
       .@{divider-prefix-cls}-rtl& {
-        width: 5%;
+        width: @divider-orientation-margin;
       }
     }
     &::after {
       .@{divider-prefix-cls}-rtl& {
-        width: 95%;
+        width: 100% - @divider-orientation-margin;
       }
     }
   }

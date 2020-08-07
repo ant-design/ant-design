@@ -7,14 +7,19 @@ import Group from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
+import { cloneElement } from '../_util/reactNode';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str: any) {
   return typeof str === 'string';
+}
+
+function isUnborderedButtonType(type: ButtonType | undefined) {
+  return type === 'text' || type === 'link';
 }
 
 // Insert one space between two chinese characters automatically.
@@ -31,7 +36,9 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
     isString(child.type) &&
     isTwoCNChar(child.props.children)
   ) {
-    return React.cloneElement(child, {}, child.props.children.split('').join(SPACE));
+    return cloneElement(child, {
+      children: child.props.children.split('').join(SPACE),
+    });
   }
   if (typeof child === 'string') {
     if (isTwoCNChar(child)) {
@@ -65,7 +72,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link');
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
@@ -118,17 +125,33 @@ interface CompoundedComponent
   __ANT_BUTTON: boolean;
 }
 
+type Loading = number | boolean;
+
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+  const {
+    loading,
+    prefixCls: customizePrefixCls,
+    type,
+    danger,
+    shape,
+    size: customizeSize,
+    className,
+    children,
+    icon,
+    ghost,
+    block,
+    ...rest
+  } = props;
+
   const size = React.useContext(SizeContext);
-  const [loading, setLoading] = React.useState(props.loading);
+  const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
-  let delayTimeout: number;
+  const delayTimeoutRef = React.useRef<number>();
 
   const isNeedInserted = () => {
-    const { icon, children, type } = props;
-    return React.Children.count(children) === 1 && !icon && type !== 'link';
+    return React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
   };
 
   const fixTwoCNChar = () => {
@@ -146,18 +169,24 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     }
   };
 
+  // =============== Update Loading ===============
+  let loadingOrDelay: Loading;
+  if (typeof loading === 'object' && loading.delay) {
+    loadingOrDelay = loading.delay || true;
+  } else {
+    loadingOrDelay = !!loading;
+  }
+
   React.useEffect(() => {
-    if (props.loading && typeof props.loading !== 'boolean') {
-      clearTimeout(delayTimeout);
+    clearTimeout(delayTimeoutRef.current);
+    if (typeof loadingOrDelay === 'number') {
+      delayTimeoutRef.current = window.setTimeout(() => {
+        setLoading(loadingOrDelay);
+      }, loadingOrDelay);
+    } else {
+      setLoading(loadingOrDelay);
     }
-    if (props.loading && typeof props.loading !== 'boolean' && props.loading.delay) {
-      delayTimeout = window.setTimeout(() => {
-        setLoading(props.loading);
-      }, props.loading.delay);
-    } else if (props.loading !== loading) {
-      setLoading(props.loading);
-    }
-  }, [props.loading]);
+  }, [loadingOrDelay]);
 
   React.useEffect(() => {
     fixTwoCNChar();
@@ -165,31 +194,24 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;
-    if (loading) {
+    if (innerLoading) {
       return;
     }
     if (onClick) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }
   };
-  const {
-    prefixCls: customizePrefixCls,
-    type,
-    danger,
-    shape,
-    size: customizeSize,
-    className,
-    children,
-    icon,
-    ghost,
-    block,
-    ...rest
-  } = props;
 
-  warning(
+  devWarning(
     !(typeof icon === 'string' && icon.length > 2),
     'Button',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+  );
+
+  devWarning(
+    !(ghost && isUnborderedButtonType(type)),
+    'Button',
+    "`link` or `text` button can't be a `ghost` button.",
   );
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
@@ -209,15 +231,15 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       break;
   }
 
-  const iconType = loading ? 'loading' : icon;
+  const iconType = innerLoading ? 'loading' : icon;
 
   const classes = classNames(prefixCls, className, {
     [`${prefixCls}-${type}`]: type,
     [`${prefixCls}-${shape}`]: shape,
     [`${prefixCls}-${sizeCls}`]: sizeCls,
     [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-    [`${prefixCls}-background-ghost`]: ghost,
-    [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
+    [`${prefixCls}-loading`]: innerLoading,
     [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
     [`${prefixCls}-block`]: block,
     [`${prefixCls}-dangerous`]: !!danger,
@@ -225,10 +247,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   });
 
   const iconNode =
-    icon && !loading ? (
+    icon && !innerLoading ? (
       icon
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={loading} />
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
 
   const kids =
@@ -262,7 +284,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 
-  if (type === 'link') {
+  if (isUnborderedButtonType(type)) {
     return buttonNode;
   }
 

@@ -35,16 +35,10 @@ describe('Radio Group', () => {
       </RadioGroup>,
     );
 
-    wrapper
-      .find('div')
-      .at(0)
-      .simulate('mouseenter');
+    wrapper.find('div').at(0).simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper
-      .find('div')
-      .at(0)
-      .simulate('mouseleave');
+    wrapper.find('div').at(0).simulate('mouseleave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 
@@ -58,15 +52,10 @@ describe('Radio Group', () => {
     );
     const radios = wrapper.find('input');
 
-    // uncontrolled component
-    wrapper.setState({ value: 'B' });
-    radios.at(0).simulate('change');
-    expect(onChange.mock.calls.length).toBe(1);
-
     // controlled component
     wrapper.setProps({ value: 'A' });
     radios.at(1).simulate('change');
-    expect(onChange.mock.calls.length).toBe(2);
+    expect(onChange.mock.calls.length).toBe(1);
   });
 
   it('both of radio and radioGroup will trigger onchange event when they exists', () => {
@@ -88,16 +77,10 @@ describe('Radio Group', () => {
     );
     const radios = wrapper.find('input');
 
-    // uncontrolled component
-    wrapper.setState({ value: 'B' });
-    radios.at(0).simulate('change');
-    expect(onChange.mock.calls.length).toBe(1);
-    expect(onChangeRadioGroup.mock.calls.length).toBe(1);
-
     // controlled component
     wrapper.setProps({ value: 'A' });
     radios.at(1).simulate('change');
-    expect(onChange.mock.calls.length).toBe(2);
+    expect(onChange.mock.calls.length).toBe(1);
   });
 
   it('Trigger onChange when both of radioButton and radioGroup exists', () => {
@@ -112,15 +95,10 @@ describe('Radio Group', () => {
     );
     const radios = wrapper.find('input');
 
-    // uncontrolled component
-    wrapper.setState({ value: 'B' });
-    radios.at(0).simulate('change');
-    expect(onChange.mock.calls.length).toBe(1);
-
     // controlled component
     wrapper.setProps({ value: 'A' });
     radios.at(1).simulate('change');
-    expect(onChange.mock.calls.length).toBe(2);
+    expect(onChange.mock.calls.length).toBe(1);
   });
 
   it('should only trigger once when in group with options', () => {
@@ -141,11 +119,6 @@ describe('Radio Group', () => {
       }),
     );
     const radios = wrapper.find('input');
-
-    // uncontrolled component
-    wrapper.setState({ value: 'B' });
-    radios.at(1).simulate('change');
-    expect(onChange.mock.calls.length).toBe(0);
 
     // controlled component
     wrapper.setProps({ value: 'A' });
@@ -186,18 +159,23 @@ describe('Radio Group', () => {
       const wrapper = mount(
         <RadioGroup defaultValue="bamboo" value={undefined} options={options} />,
       );
-
-      expect(wrapper.state().value).toEqual('bamboo');
+      expect(wrapper.find('.ant-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+        true,
+      );
     });
 
     [undefined, null].forEach(newValue => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const options = [{ label: 'Bamboo', value: 'bamboo' }];
         const wrapper = mount(<RadioGroup value="bamboo" options={options} />);
-        expect(wrapper.state().value).toEqual('bamboo');
-
+        expect(wrapper.find('.ant-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+          true,
+        );
         wrapper.setProps({ value: newValue });
-        expect(wrapper.state().value).toEqual(newValue);
+        wrapper.update();
+        expect(wrapper.find('.ant-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+          false,
+        );
       });
     });
   });

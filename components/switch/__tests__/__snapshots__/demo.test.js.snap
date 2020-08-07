@@ -7,6 +7,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
   role="switch"
   type="button"
 >
+  <div
+    class="ant-switch-handle"
+  />
   <span
     class="ant-switch-inner"
   />
@@ -14,7 +17,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked ant-switch-disabled"
@@ -22,11 +25,14 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -34,138 +40,161 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
     <span>
       Toggle disabled
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
-    class="ant-switch-loading ant-switch ant-switch-checked ant-switch-disabled"
+    class="ant-switch ant-switch-loading ant-switch-checked ant-switch-disabled"
     disabled=""
     role="switch"
     type="button"
   >
-    <span
-      aria-label="loading"
-      class="anticon anticon-loading ant-switch-loading-icon"
-      role="img"
+    <div
+      class="ant-switch-handle"
     >
-      <svg
-        aria-hidden="true"
-        class="anticon-spin"
-        data-icon="loading"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading ant-switch-loading-icon"
+        role="img"
       >
-        <path
-          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-        />
-      </svg>
-    </span>
+        <svg
+          aria-hidden="true"
+          class="anticon-spin"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </div>
     <span
       class="ant-switch-inner"
     />
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="false"
-    class="ant-switch-small ant-switch-loading ant-switch ant-switch-disabled"
+    class="ant-switch ant-switch-small ant-switch-loading ant-switch-disabled"
     disabled=""
     role="switch"
     type="button"
   >
-    <span
-      aria-label="loading"
-      class="anticon anticon-loading ant-switch-loading-icon"
-      role="img"
+    <div
+      class="ant-switch-handle"
     >
-      <svg
-        aria-hidden="true"
-        class="anticon-spin"
-        data-icon="loading"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading ant-switch-loading-icon"
+        role="img"
       >
-        <path
-          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-        />
-      </svg>
-    </span>
+        <svg
+          aria-hidden="true"
+          class="anticon-spin"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </div>
     <span
       class="ant-switch-inner"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/switch/demo/size.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="true"
-    class="ant-switch-small ant-switch ant-switch-checked"
+    class="ant-switch ant-switch-small ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/switch/demo/text.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
-      开
+      开启
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="false"
     class="ant-switch"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
       0
     </span>
-  </button>
-  <br />
+  </button>,
+  <br />,
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
@@ -190,6 +219,6 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;

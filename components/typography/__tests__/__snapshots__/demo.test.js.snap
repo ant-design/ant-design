@@ -81,6 +81,19 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
     </ul>
   </div>
   <div
+    class="ant-typography"
+  >
+    Press 
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+     to exit...
+  </div>
+  <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
   />
@@ -168,69 +181,93 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
     </ul>
   </div>
+  <div
+    class="ant-typography"
+  >
+    按
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+    键退出阅读……
+  </div>
 </article>
 `;
 
 exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </div>
+  </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = `
-<div>
+Array [
   <button
     aria-checked="true"
-    checked=""
     class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     >
       Long Text
     </span>
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <button
     aria-checked="false"
     class="ant-switch"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
+  </button>,
   <div
     class="ant-slider"
   >
@@ -257,7 +294,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
   >
@@ -274,7 +311,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       </code>
     </span>
      case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
-  </div>
+  </div>,
   <p>
     2333
     <span
@@ -283,12 +320,12 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       2333
     </span>
     2333
-  </p>
-</div>
+  </p>,
+]
 `;
 
 exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-typography"
   >
@@ -321,7 +358,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -354,7 +391,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -387,22 +424,88 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
         </svg>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+  <div
+    class="ant-typography"
+  >
+    Custom icon.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <span
+        aria-label="smile"
+        class="anticon anticon-smile"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="smile"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-typography"
+  >
+    Replace tooltips text.
+    <div
+      aria-label="click here"
+      class="ant-typography-copy"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] = `
-<div>
+Array [
   <h1
     class="ant-typography"
   >
     Introduction
-  </h1>
+  </h1>,
   <div
     class="ant-typography"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -415,12 +518,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </strong>
     </span>
     .
-  </div>
+  </div>,
   <h2
     class="ant-typography"
   >
     Guidelines and Resources
-  </h2>
+  </h2>,
   <div
     class="ant-typography"
   >
@@ -441,7 +544,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </code>
     </span>
     ), to help people create their product prototypes beautifully and efficiently.
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -468,18 +571,18 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </a>
       </li>
     </ul>
-  </div>
+  </div>,
   <h1
     class="ant-typography"
     id="intro"
   >
     介绍
-  </h1>
+  </h1>,
   <div
     class="ant-typography"
   >
     蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -500,12 +603,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </strong>
     </span>
     。
-  </div>
+  </div>,
   <h2
     class="ant-typography"
   >
     设计资源
-  </h2>
+  </h2>,
   <div
     class="ant-typography"
   >
@@ -526,7 +629,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </code>
     </span>
     ），来帮助业务快速设计出高质量的产品原型。
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -553,7 +656,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </a>
       </li>
     </ul>
-  </div>
+  </div>,
   <div
     class="ant-typography"
   >
@@ -588,12 +691,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         </ul>
       </li>
     </ol>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-slider"
   >
@@ -620,110 +723,178 @@ exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-typography ant-typography-ellipsis"
+    title="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
     To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/typography/demo/text.md correctly 1`] = `
-<div>
-  <span
-    class="ant-typography"
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-secondary"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-warning"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-danger"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography ant-typography-disabled"
-  >
-    Ant Design
-  </span>
-  <br />
-  <span
-    class="ant-typography"
-  >
-    <mark>
+    <span
+      class="ant-typography"
+    >
       Ant Design
-    </mark>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <code>
+    <span
+      class="ant-typography ant-typography-secondary"
+    >
       Ant Design
-    </code>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <u>
+    <span
+      class="ant-typography ant-typography-warning"
+    >
       Ant Design
-    </u>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <del>
+    <span
+      class="ant-typography ant-typography-danger"
+    >
       Ant Design
-    </del>
-  </span>
-  <br />
-  <span
-    class="ant-typography"
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <strong>
+    <span
+      class="ant-typography ant-typography-disabled"
+    >
       Ant Design
-    </strong>
-  </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <mark>
+        Ant Design
+      </mark>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Ant Design
+      </code>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Ant Design
+      </kbd>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <u>
+        Ant Design
+      </u>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <del>
+        Ant Design
+      </del>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        Ant Design
+      </strong>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography"
+      href="https://ant.design"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Ant Design
+    </a>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/typography/demo/title.md correctly 1`] = `
-<div>
+Array [
   <h1
     class="ant-typography"
   >
     h1. Ant Design
-  </h1>
+  </h1>,
   <h2
     class="ant-typography"
   >
     h2. Ant Design
-  </h2>
+  </h2>,
   <h3
     class="ant-typography"
   >
     h3. Ant Design
-  </h3>
+  </h3>,
   <h4
     class="ant-typography"
   >
     h4. Ant Design
-  </h4>
-</div>
+  </h4>,
+]
 `;

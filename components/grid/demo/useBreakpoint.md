@@ -9,7 +9,7 @@ title: useBreakpoint Hook
 
 ## en-US
 
-Use `useBreakpoint` Hook povide personalized layout.
+Use `useBreakpoint` Hook provide personalized layout.
 
 ```jsx
 import { Grid, Tag } from 'antd';

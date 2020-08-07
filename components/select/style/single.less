@@ -24,7 +24,6 @@
       padding: 0;
       line-height: @select-height-without-border;
       transition: all 0.3s;
-      pointer-events: none;
 
       // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
       @supports (-moz-appearance: meterbar) {
@@ -32,6 +31,15 @@
           line-height: @select-height-without-border;
         }
       }
+    }
+
+    .@{select-prefix-cls}-selection-item {
+      position: relative;
+      user-select: none;
+    }
+
+    .@{select-prefix-cls}-selection-placeholder {
+      pointer-events: none;
     }
 
     // For common baseline align
@@ -78,6 +86,10 @@
       .@{select-prefix-cls}-selection-search-input {
         height: @select-height-without-border;
       }
+
+      &::after {
+        line-height: @select-height-without-border;
+      }
     }
   }
 
@@ -115,6 +127,7 @@
       .@{select-prefix-cls}-selector {
         height: @input-height;
 
+        &::after,
         .@{select-prefix-cls}-selection-item,
         .@{select-prefix-cls}-selection-placeholder {
           line-height: @input-height - 2 * @border-width-base;

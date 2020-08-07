@@ -6,6 +6,19 @@ exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/autoSize.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    class="rc-textarea"
     rows="1"
   />
 </div>
@@ -17,6 +30,7 @@ exports[`renders ./components/mentions/demo/basic.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
     rows="1"
   >
     @afc163
@@ -55,6 +69,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
             class="ant-mentions"
           >
             <textarea
+              class="rc-textarea"
               id="coders"
               rows="1"
             />
@@ -90,6 +105,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
             class="ant-mentions"
           >
             <textarea
+              class="rc-textarea"
               id="bio"
               placeholder="You can use @ to ref user here"
               rows="3"
@@ -141,6 +157,7 @@ exports[`renders ./components/mentions/demo/placement.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
     rows="1"
   />
 </div>
@@ -152,6 +169,7 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
   style="width:100%"
 >
   <textarea
+    class="rc-textarea"
     placeholder="input @ to mention people, # to mention tag"
     rows="1"
   />
@@ -159,7 +177,7 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
-<div>
+Array [
   <div
     style="margin-bottom:10px"
   >
@@ -168,21 +186,23 @@ exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
       style="width:100%"
     >
       <textarea
+        class="rc-textarea rc-textarea-disabled"
         disabled=""
         placeholder="this is disabled Mentions"
         rows="1"
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-mentions"
     style="width:100%"
   >
     <textarea
+      class="rc-textarea"
       placeholder="this is readOnly Mentions"
       readonly=""
       rows="1"
     />
-  </div>
-</div>
+  </div>,
+]
 `;

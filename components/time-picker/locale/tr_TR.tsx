@@ -1,7 +1,8 @@
 import { TimePickerLocale } from '../index';
 
 const locale: TimePickerLocale = {
-  placeholder: 'Zaman Seç',
+  placeholder: 'Zaman seç',
+  rangePlaceholder: ['Başlangıç zamanı', 'Bitiş zamanı'],
 };
 
 export default locale;

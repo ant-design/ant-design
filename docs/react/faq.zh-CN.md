@@ -13,7 +13,7 @@ title: FAQ
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
+该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -21,7 +21,7 @@ https://ant.design/components/select/#Select-props
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentNode}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
+使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/select-cn/#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](https://ant.design/components/config-provider-cn/#API)）
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
@@ -37,21 +37,6 @@ https://ant.design/components/select/#Select-props
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
-### 我只想使用 `Menu`/`Button` 等，但似乎我必须 import 整个 antd 和它的样式文件。
-
-试试 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或者用下面这种方式来按需加载：
-
-```jsx
-import Menu from 'antd/es/menu';
-import 'antd/es/menu/style/css';
-```
-
-或者（ES6 支持的 tree shaking 方式）：
-
-```jsx
-import { Menu, Breadcrumb, Icon } from 'antd';
-```
-
 ### 如何使用 Day.js 替换 Moment.js 来减小打包大小？
 
 可以参考[替换 Moment.js](/docs/react/replace-moment)。
@@ -60,9 +45,17 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 `Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
 
+### 为什么修改组件传入的对象或数组属性组件不会更新？
+
+antd 内部会对 props 进行浅比较实现性能优化。当状态变更，你总是应该传递一个新的对象。具体请参考[React 的文档](https://reactjs.org/docs/thinking-in-react.html)
+
 ### 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
 尝试使用 `defaultValue` 或 `onChange` 来改变 `value`，请参考 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
+
+### 多个组件放一排时没有垂直对齐怎么办？
+
+尝试使用 [Space](https://ant.design/components/space-cn/) 组件来使他们对齐。
 
 ### antd 覆盖了我的全局样式！
 
@@ -84,9 +77,19 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 请浏览 [And Design Mobile](http://mobile.ant.design) 以了解详情，`antd` 并非针对移动端设计。你可以试试 [react-component](https://github.com/react-component/)，其中带有 'm-' 'rn-' 前缀的库是为移动端设计的。
 
+### `antd` 是否有国内镜像？
+
+有的，你可以点击 https://ant-design.gitee.io/index-cn 访问。
+
+历史版本:
+
+- 3.x: https://ant-design-3x.gitee.io/
+- 2.x: https://ant-design-2x.gitee.io/
+- 1.x: https://ant-design-1x.gitee.io/
+
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ### 在我的网络环境下没法获取到 `icon` 文件。
 
@@ -122,6 +125,26 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 ##### 解决办法
 
 你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。我们计划（已经支持）在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求。届时不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
+
+### ConfigProvider 设置 `prefixCls` 后，message/notification/Modal.confirm 生成的节点样式丢失了？
+
+message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
+
+1. 使用官方提供的 [message.useMessage](<[message.useMessage](https://ant.design/components/message-cn/#components-message-demo-hooks)>)、[notification.useNotification](https://ant.design/components/notification-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F) 和 [Modal.useModal](https://ant.design/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F) 来调用这些方法。
+
+2. 使用 `message.config`、`notification.config` 和 `Modal.config` 方法全局设置 `prefixCls`。
+
+```js
+message.config({
+  prefixCls: 'ant-message',
+});
+notification.config({
+  prefixCls: 'ant-notification',
+});
+Modal.config({
+  rootPrefixCls: 'ant', // 因为 Modal.confirm 里有 button，所以 `prefixCls: 'ant-modal'` 不够用。
+});
+```
 
 ### 如何正确的拼写 Ant Design？
 

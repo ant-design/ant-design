@@ -215,7 +215,7 @@ export default function DesignPage() {
               >
                 <img
                   alt="design guide"
-                  style={{ maxHeight: 292, maxWidth: '100%' }}
+                  style={{ maxHeight: 278, maxWidth: '100%' }}
                   src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5PRzTL4pwuYAAAAAAAAAAABkARQnAQ"
                 />
               </Col>

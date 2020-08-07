@@ -11,7 +11,7 @@ exports[`Table renders empty table 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -148,7 +148,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"
@@ -240,14 +240,14 @@ exports[`Table renders empty table with fixed columns 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-empty ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll;overflow-y:hidden"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
               style="width:1px;min-width:100%;table-layout:fixed"
@@ -480,7 +480,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-empty"
       >
         <div
           class="ant-table-container"

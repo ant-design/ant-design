@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Add prefix or suffix icons inside input.
+Add a prefix or suffix icons inside input.
 
 ```jsx
 import { Input, Tooltip } from 'antd';

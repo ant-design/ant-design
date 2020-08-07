@@ -9,6 +9,8 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
+import message from '../message';
+import notification from '../notification';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
@@ -47,12 +49,25 @@ export interface ConfigProviderProps {
   space?: {
     size?: SizeType | number;
   };
+  virtual?: boolean;
+  dropdownMatchSelectWidth?: boolean;
 }
 
-class ConfigProvider extends React.Component<ConfigProviderProps> {
-  getPrefixClsWrapper = (context: ConfigConsumerProps) => {
+const ConfigProvider: React.FC<ConfigProviderProps> = props => {
+  React.useEffect(() => {
+    if (props.direction) {
+      message.config({
+        rtl: props.direction === 'rtl',
+      });
+      notification.config({
+        rtl: props.direction === 'rtl',
+      });
+    }
+  }, [props.direction]);
+
+  const getPrefixClsWrapper = (context: ConfigConsumerProps) => {
     return (suffixCls: string, customizePrefixCls?: string) => {
-      const { prefixCls } = this.props;
+      const { prefixCls } = props;
 
       if (customizePrefixCls) return customizePrefixCls;
 
@@ -62,7 +77,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     };
   };
 
-  renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
+  const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
       getTargetContainer,
@@ -77,16 +92,20 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       componentSize,
       direction,
       space,
-    } = this.props;
+      virtual,
+      dropdownMatchSelectWidth,
+    } = props;
 
     const config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: this.getPrefixClsWrapper(context),
+      getPrefixCls: getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
       direction,
       space,
+      virtual,
+      dropdownMatchSelectWidth,
     };
 
     if (getTargetContainer) {
@@ -136,17 +155,15 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     );
   };
 
-  render() {
-    return (
-      <LocaleReceiver>
-        {(_, __, legacyLocale) => (
-          <ConfigConsumer>
-            {context => this.renderProvider(context, legacyLocale as Locale)}
-          </ConfigConsumer>
-        )}
-      </LocaleReceiver>
-    );
-  }
-}
+  return (
+    <LocaleReceiver>
+      {(_, __, legacyLocale) => (
+        <ConfigConsumer>
+          {context => renderProvider(context, legacyLocale as Locale)}
+        </ConfigConsumer>
+      )}
+    </LocaleReceiver>
+  );
+};
 
 export default ConfigProvider;

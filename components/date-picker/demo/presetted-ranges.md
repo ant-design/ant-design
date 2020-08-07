@@ -14,7 +14,7 @@ title:
 We can set preset ranges to RangePicker to improve user experience.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;
@@ -25,7 +25,7 @@ function onChange(dates, dateStrings) {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
         Today: [moment(), moment()],
@@ -33,7 +33,6 @@ ReactDOM.render(
       }}
       onChange={onChange}
     />
-    <br />
     <RangePicker
       ranges={{
         Today: [moment(), moment()],
@@ -43,7 +42,7 @@ ReactDOM.render(
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onChange}
     />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

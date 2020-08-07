@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form } from 'antd';
+import { Table, Switch, Radio, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const columns = [
@@ -46,15 +46,13 @@ const columns = [
     title: 'Action',
     key: 'action',
     sorter: true,
-    filters: [],
-    onFilter: () => {},
     render: () => (
-      <span>
-        <a style={{ marginRight: 16 }}>Delete</a>
+      <Space size="middle">
+        <a>Delete</a>
         <a className="ant-dropdown-link">
           More actions <DownOutlined />
         </a>
-      </span>
+      </Space>
     ),
   },
 ];
@@ -160,7 +158,7 @@ class Demo extends React.Component {
     }
 
     return (
-      <div>
+      <>
         <Form
           layout="inline"
           className="components-table-demo-control-bar"
@@ -250,7 +248,7 @@ class Demo extends React.Component {
           dataSource={state.hasData ? data : null}
           scroll={scroll}
         />
-      </div>
+      </>
     );
   }
 }

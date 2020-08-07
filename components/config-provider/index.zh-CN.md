@@ -4,6 +4,7 @@ subtitle: 全局化配置
 cols: 1
 type: 其他
 title: ConfigProvider
+cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
 ---
 
 为组件提供统一的全局化配置。
@@ -17,8 +18,8 @@ import { ConfigProvider } from 'antd';
 
 // ...
 
-return (
-  <ConfigProvider {...yourConfig}>
+export default () => (
+  <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );
@@ -43,16 +44,22 @@ return (
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
 | form | 设置 Form 组件的通用属性 | { validateMessages?: [ValidateMessages](/components/form/#validateMessages) } | - |  |
 | input | 设置 Input 组件的通用属性 | { autoComplete?: string } | - | 4.2.0 |
-| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | Function(componentName: string): ReactNode | - |  |
-| getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | Function(triggerNode) | () => document.body |  |
+| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | function(componentName: string): ReactNode | - |  |
+| getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
-| prefixCls | 设置统一样式前缀。`注意：这将不会应用由 antd 提供的默认样式` | string | ant |  |
-| pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | 'true' |  |
+| prefixCls | 设置统一样式前缀。`注意：这将不会应用由 antd 提供的默认样式` | string | `ant` |  |
+| pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | - | 4.3.0 |
 
 ## FAQ
+
+#### 如何增加一个新的语言包？
+
+参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
 
 #### 为什么我使用了 ConfigProvider `locale`，时间类组件的国际化还有问题？
 

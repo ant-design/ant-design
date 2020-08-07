@@ -8,7 +8,7 @@ Dark mode is a theme where all UI elements are darkened.
 
 ## When to use
 
-- Dark mode is reccomended when you are in a dark environment as it prevents eye strain.
+- Dark mode is recommended when you are in a dark environment as it prevents eye strain.
 - Dark mode is great for highlighting important content
   > It works similarly to turning off the lights in a movie theater.
 

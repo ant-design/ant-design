@@ -42,6 +42,30 @@ describe('Tag', () => {
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
+  it('should trigger onClick', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(<Tag onClick={onClick} />);
+    wrapper.find('.ant-tag').simulate('click');
+    expect(onClick).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: 'click',
+        preventDefault: expect.any(Function),
+      }),
+    );
+  });
+
+  it('should trigger onClick on CheckableTag', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(<Tag.CheckableTag onClick={onClick} />);
+    wrapper.find('.ant-tag').simulate('click');
+    expect(onClick).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: 'click',
+        preventDefault: expect.any(Function),
+      }),
+    );
+  });
+
   // https://github.com/ant-design/ant-design/issues/20344
   it('should not trigger onClick when click close icon', () => {
     const onClose = jest.fn();
@@ -74,19 +98,6 @@ describe('Tag', () => {
       jest.runAllTimers();
       expect(wrapper.render()).toMatchSnapshot();
     });
-  });
-
-  it('props#afterClose do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const afterClose = jest.fn();
-    const wrapper = mount(<Tag closable afterClose={afterClose} />);
-
-    expect(errorSpy.mock.calls.length).toBe(1);
-    expect(errorSpy.mock.calls[0][0].includes('React does not recognize')).toBeTruthy();
-
-    wrapper.find('.anticon-close').simulate('click');
-    expect(afterClose).not.toHaveBeenCalled();
   });
 
   describe('CheckableTag', () => {

@@ -7,10 +7,11 @@ import ResponsiveObserve, {
   ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
+import { cloneElement } from '../_util/reactNode';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
@@ -46,10 +47,10 @@ function getFilledItem(
   let clone = node;
 
   if (span === undefined || span > rowRestCol) {
-    clone = React.cloneElement(node, {
+    clone = cloneElement(node, {
       span: rowRestCol,
     });
-    warning(
+    devWarning(
       span === undefined,
       'Descriptions',
       'Sum of column `span` in a line not match `column` of Descriptions.',
@@ -99,6 +100,7 @@ export interface DescriptionsProps {
   size?: 'middle' | 'small' | 'default';
   children?: React.ReactNode;
   title?: React.ReactNode;
+  extra?: React.ReactNode;
   column?: number | Partial<Record<Breakpoint, number>>;
   layout?: 'horizontal' | 'vertical';
   colon?: boolean;
@@ -107,6 +109,7 @@ export interface DescriptionsProps {
 function Descriptions({
   prefixCls: customizePrefixCls,
   title,
+  extra,
   column = DEFAULT_COLUMN_MAP,
   colon = true,
   bordered,
@@ -147,7 +150,12 @@ function Descriptions({
       })}
       style={style}
     >
-      {title && <div className={`${prefixCls}-title`}>{title}</div>}
+      {(title || extra) && (
+        <div className={`${prefixCls}-header`}>
+          {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        </div>
+      )}
 
       <div className={`${prefixCls}-view`}>
         <table>

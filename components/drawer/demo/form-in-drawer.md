@@ -36,7 +36,7 @@ class DrawerForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Button type="primary" onClick={this.showDrawer}>
           <PlusOutlined /> New account
         </Button>
@@ -52,10 +52,7 @@ class DrawerForm extends React.Component {
                 textAlign: 'right',
               }}
             >
-              <Button
-                onClick={this.onClose}
-                style={{ marginRight: 8 }}
-              >
+              <Button onClick={this.onClose} style={{ marginRight: 8 }}>
                 Cancel
               </Button>
               <Button onClick={this.onClose} type="primary">
@@ -137,7 +134,7 @@ class DrawerForm extends React.Component {
                 >
                   <DatePicker.RangePicker
                     style={{ width: '100%' }}
-                    getPopupContainer={trigger => trigger.parentNode}
+                    getPopupContainer={trigger => trigger.parentElement}
                   />
                 </Form.Item>
               </Col>
@@ -160,7 +157,7 @@ class DrawerForm extends React.Component {
             </Row>
           </Form>
         </Drawer>
-      </div>
+      </>
     );
   }
 }

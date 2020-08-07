@@ -3,6 +3,7 @@ category: Components
 type: Feedback
 noinstant: true
 title: Notification
+cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 ---
 
 Display a notification message globally.
@@ -30,25 +31,29 @@ The properties of config are as follows:
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |
 | btn | Customized close button | ReactNode | - |
 | className | Customized CSS class | string | - |
-| description | The content of notification box (required) | string\|ReactNode | - |
+| description | The content of notification box (required) | string \| ReactNode | - |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | icon | Customized icon | ReactNode | - |
-| closeIcon | custom close icon | ReactNode | - |
+| closeIcon | Custom close icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
-| message | The title of notification box (required) | string\|ReactNode | - |
-| onClose | Trigger when notification closed | Function | - |
-| onClick | Specify a function that will be called when the notification is clicked | Function | - |
+| message | The title of notification box (required) | string \| ReactNode | - |
+| onClose | Trigger when notification closed | function | - |
+| onClick | Specify a function that will be called when the notification is clicked | function | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
-| style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
+| style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
 - `notification.config(options)`
+
+  > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+  >
+  > When you want to use it alone, you can start the RTL mode through the following settings.
 
 ```js
 notification.config({
@@ -61,13 +66,13 @@ notification.config({
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |
-| closeIcon | custom close icon | ReactNode | - |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |
+| closeIcon | Custom close icon | ReactNode | - |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
-| rtl | whether to enable RTL mode | boolean | `false` |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
+| rtl | Whether to enable RTL mode | boolean | false |
 
 ## FAQ
 

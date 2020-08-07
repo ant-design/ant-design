@@ -3,6 +3,7 @@ category: Components
 subtitle: 进度条
 type: 反馈
 title: Progress
+cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 ---
 
 展示操作的当前进度。
@@ -21,14 +22,14 @@ title: Progress
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` |
-| format | 内容的模板函数 | function(percent, successPercent) | `percent => percent + '%'` |
+| format | 内容的模板函数 | function(percent, successPercent) | (percent) => percent + `%` |
 | percent | 百分比 | number | 0 |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - |
-| strokeLinecap | - | `round` \| `square` | `round` |
+| strokeLinecap | 进度条的样式 | `round` \| `square` | `round` |
 | strokeColor | 进度条的色彩 | string | - |
-| successPercent | 已完成的分段百分比 | number | 0 |
 | trailColor | 未完成的分段的颜色 | string | - |
+| success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - |
 
 ### `type="line"`
 

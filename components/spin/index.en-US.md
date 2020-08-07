@@ -2,6 +2,7 @@
 category: Components
 type: Feedback
 title: Spin
+cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg
 ---
 
 A spinner for displaying loading state of a page or a section.
@@ -14,12 +15,12 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| delay | specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | - |
+| delay | Specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | - |
 | indicator | React node of the spinning indicator | ReactNode | - |
-| size | size of Spin, options: `small`, `default` and `large` | string | `default` |
-| spinning | whether Spin is spinning | boolean | true |
-| tip | customize description content when Spin has children | string | - |
-| wrapperClassName | className of wrapper when Spin has children | string | - |
+| size | The size of Spin, options: `small`, `default` and `large` | string | `default` |
+| spinning | Whether Spin is spinning | boolean | true |
+| tip | Customize description content when Spin has children | string | - |
+| wrapperClassName | The className of wrapper when Spin has children | string | - |
 
 ### Static Method
 

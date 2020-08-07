@@ -3,12 +3,14 @@ import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
+import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Base from '../Base'; // eslint-disable-line import/no-named-as-default
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
 import { sleep } from '../../../tests/utils';
+import TextArea from '../../input/TextArea';
 
 jest.mock('copy-to-clipboard');
 
@@ -16,10 +18,12 @@ describe('Typography', () => {
   mountTest(Paragraph);
   mountTest(Base);
   mountTest(Title);
+  mountTest(Link);
 
   rtlTest(Paragraph);
   rtlTest(Base);
   rtlTest(Title);
+  rtlTest(Link);
 
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -61,7 +65,7 @@ describe('Typography', () => {
       mount(<Title level={false} />);
 
       expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: Title only accept `1 | 2 | 3 | 4` as `level` value.',
+        'Warning: [antd: Typography.Title] Title only accept `1 | 2 | 3 | 4` as `level` value.',
       );
     });
   });
@@ -179,6 +183,20 @@ describe('Typography', () => {
         expect(wrapper.find('p').text()).toEqual(fullStr);
       });
 
+      it('should have custom expand style', async () => {
+        const symbol = 'more';
+        const wrapper = mount(
+          <Base ellipsis={{ expandable: true, symbol }} component="p">
+            {fullStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+
+        expect(wrapper.find('.ant-typography-expand').text()).toEqual('more');
+      });
+
       it('can use css ellipsis', () => {
         const wrapper = mount(<Base ellipsis component="p" />);
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
@@ -241,7 +259,7 @@ describe('Typography', () => {
           expect(props.style).toEqual(style);
           expect(props.className.includes(className)).toBeTruthy();
 
-          wrapper.find('TextArea').simulate('change', {
+          wrapper.find(TextArea).simulate('change', {
             target: { value: 'Bamboo' },
           });
 
@@ -258,21 +276,21 @@ describe('Typography', () => {
 
       testStep('by key up', wrapper => {
         // Not trigger when inComposition
-        wrapper.find('TextArea').simulate('compositionStart');
-        wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find('TextArea').simulate('compositionEnd');
-        wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        wrapper.find(TextArea).simulate('compositionStart');
+        wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find(TextArea).simulate('compositionEnd');
+        wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ENTER });
 
         // Now trigger
-        wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ENTER });
       });
 
       testStep(
         'by esc key',
         wrapper => {
-          wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ESC });
-          wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ESC });
+          wrapper.find(TextArea).simulate('keyDown', { keyCode: KeyCode.ESC });
+          wrapper.find(TextArea).simulate('keyUp', { keyCode: KeyCode.ESC });
         },
         onChange => {
           // eslint-disable-next-line jest/no-standalone-expect
@@ -281,7 +299,7 @@ describe('Typography', () => {
       );
 
       testStep('by blur', wrapper => {
-        wrapper.find('TextArea').simulate('blur');
+        wrapper.find(TextArea).simulate('blur');
       });
     });
 

@@ -1,28 +1,16 @@
 import * as React from 'react';
-import { Item } from 'rc-menu';
+import { Item, MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
+import { isValidElement } from '../_util/reactNode';
 
-export interface MenuItemProps
-  extends Omit<
-    React.HTMLAttributes<HTMLLIElement>,
-    'title' | 'onClick' | 'onMouseEnter' | 'onMouseLeave'
-  > {
-  rootPrefixCls?: string;
-  disabled?: boolean;
-  level?: number;
+export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
+  danger?: boolean;
   title?: React.ReactNode;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: (param: ClickParam) => void;
-  onMouseEnter?: (e: { key: string; domEvent: MouseEvent }) => void;
-  onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
 export default class MenuItem extends React.Component<MenuItemProps> {
@@ -38,11 +26,16 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     this.menuItem = menuItem;
   };
 
-  renderItemChildren() {
-    const { icon, children } = this.props;
+  renderItemChildren(inlineCollapsed: boolean) {
+    const { icon, children, level, rootPrefixCls } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
-    if (!icon || (React.isValidElement(children) && children.type === 'span')) {
+    if (!icon || (isValidElement(children) && children.type === 'span')) {
+      if (children && inlineCollapsed && level === 1 && typeof children === 'string') {
+        return (
+          <div className={`${rootPrefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>
+        );
+      }
       return children;
     }
     return <span>{children}</span>;
@@ -50,7 +43,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
     const { level, className, children, rootPrefixCls } = this.props;
-    const { title, icon, ...rest } = this.props;
+    const { title, icon, danger, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
@@ -81,6 +74,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
               <Item
                 {...rest}
                 className={classNames(className, {
+                  [`${rootPrefixCls}-item-danger`]: danger,
                   [`${rootPrefixCls}-item-only-child`]:
                     (icon ? childrenLength + 1 : childrenLength) === 1,
                 })}
@@ -88,7 +82,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
                 ref={this.saveMenuItem}
               >
                 {icon}
-                {this.renderItemChildren()}
+                {this.renderItemChildren(inlineCollapsed)}
               </Item>
             </Tooltip>
           );

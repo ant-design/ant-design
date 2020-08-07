@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -10,7 +10,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -43,7 +43,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
@@ -52,7 +52,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -103,7 +103,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -112,7 +112,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -163,12 +163,12 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -177,7 +177,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -210,7 +210,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
         0%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-btn-group"
   >
@@ -268,12 +268,12 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -282,7 +282,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -315,7 +315,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         30%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
@@ -324,7 +324,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -375,7 +375,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -384,7 +384,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -435,12 +435,12 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -449,7 +449,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -482,7 +482,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -491,7 +491,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -524,12 +524,12 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -551,7 +551,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
     >
       0%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-btn-group"
   >
@@ -609,12 +609,12 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/format.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -623,7 +623,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -656,7 +656,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         75 Days
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -665,7 +665,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -698,12 +698,12 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         Done
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -725,7 +725,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     >
       99.9%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
   >
@@ -747,7 +747,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     >
       99.9%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -756,67 +756,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
-        viewBox="0 0 100 100"
-      >
-        <defs>
-          <linearGradient
-            id="ant-progress-gradient-11"
-            x1="100%"
-            x2="0%"
-            y1="0%"
-            y2="0%"
-          >
-            <stop
-              offset="0%"
-              stop-color="#108ee9"
-            />
-            <stop
-              offset="100%"
-              stop-color="#87d068"
-            />
-          </linearGradient>
-        </defs>
-        <path
-          class="ant-progress-circle-trail"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          opacity="1"
-          stroke="url(#ant-progress-gradient-11)"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke:[object Object];stroke-dasharray:265.77873849369655px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
-        />
-      </svg>
-      <span
-        class="ant-progress-text"
-        title="90%"
-      >
-        90%
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-inner ant-progress-circle-gradient"
-      style="width:120px;height:120px;font-size:24px"
-    >
-      <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <defs>
@@ -857,6 +797,66 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
           stroke="url(#ant-progress-gradient-12)"
           stroke-linecap="round"
           stroke-width="6"
+          style="stroke:[object Object];stroke-dasharray:265.77873849369655px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+        />
+      </svg>
+      <span
+        class="ant-progress-text"
+        title="90%"
+      >
+        90%
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+  >
+    <div
+      class="ant-progress-inner ant-progress-circle-gradient"
+      style="width:120px;height:120px;font-size:24px"
+    >
+      <svg
+        class="ant-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <defs>
+          <linearGradient
+            id="ant-progress-gradient-13"
+            x1="100%"
+            x2="0%"
+            y1="0%"
+            y2="0%"
+          >
+            <stop
+              offset="0%"
+              stop-color="#108ee9"
+            />
+            <stop
+              offset="100%"
+              stop-color="#87d068"
+            />
+          </linearGradient>
+        </defs>
+        <path
+          class="ant-progress-circle-trail"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
+        />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke="url(#ant-progress-gradient-13)"
+          stroke-linecap="round"
+          stroke-width="6"
           style="stroke:[object Object];stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
@@ -885,12 +885,12 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/line.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -912,7 +912,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     >
       30%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
   >
@@ -934,7 +934,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     >
       50%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
@@ -974,7 +974,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
@@ -1014,7 +1014,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
   >
@@ -1030,8 +1030,8 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         />
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
@@ -1166,7 +1166,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 `;
 
 exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1188,7 +1188,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
     >
       75%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1197,7 +1197,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -1230,7 +1230,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1239,7 +1239,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -1272,12 +1272,12 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
         75%
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1303,7 +1303,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
     >
       60%
     </span>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1312,7 +1312,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -1357,7 +1357,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
         60%
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1366,7 +1366,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle "
+        class="ant-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
@@ -1411,12 +1411,12 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
         60%
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1424,16 +1424,16 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       class="ant-progress-steps-outer"
     >
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1442,8 +1442,8 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
         50%
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1451,24 +1451,24 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       class="ant-progress-steps-outer"
     >
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:undefined;width:14px;height:8px"
+        style="width:14px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1477,8 +1477,8 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
         30%
       </span>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
   >
@@ -1486,24 +1486,24 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       class="ant-progress-steps-outer"
     >
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:2px;height:8px"
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1530,6 +1530,6 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

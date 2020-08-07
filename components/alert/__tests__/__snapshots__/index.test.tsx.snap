@@ -4,6 +4,7 @@ exports[`Alert ErrorBoundary 1`] = `
 <div
   class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"
@@ -22,10 +23,33 @@ exports[`Alert ErrorBoundary 1`] = `
 </div>
 `;
 
+exports[`Alert could accept none react element icon 1`] = `
+<div
+  class="ant-alert ant-alert-success"
+  data-show="true"
+  role="alert"
+>
+  <span
+    class="ant-alert-icon"
+  >
+    icon
+  </span>
+  <span
+    class="ant-alert-message"
+  >
+    Success Tips
+  </span>
+  <span
+    class="ant-alert-description"
+  />
+</div>
+`;
+
 exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
   data-show="true"
+  role="alert"
 >
   <span
     class="ant-alert-message"

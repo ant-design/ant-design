@@ -8,6 +8,13 @@ import rtlTest from '../../../tests/shared/rtlTest';
 describe('Badge', () => {
   mountTest(Badge);
   rtlTest(Badge);
+  rtlTest(() => (
+    <Badge count={5} offset={[10, 10]}>
+      <a href="#" className="head-example">
+        head
+      </a>
+    </Badge>
+  ));
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -38,23 +45,21 @@ describe('Badge', () => {
   it('should have an overriden title attribute', () => {
     const badge = mount(<Badge count={10} title="Custom title" />);
     expect(
-      badge
-        .find('.ant-scroll-number')
-        .getDOMNode()
-        .attributes.getNamedItem('title').value,
+      badge.find('.ant-scroll-number').getDOMNode().attributes.getNamedItem('title').value,
     ).toEqual('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626
   it('should be composable with Tooltip', () => {
+    const ref = React.createRef();
     const wrapper = mount(
-      <Tooltip title="Fix the error">
+      <Tooltip title="Fix the error" ref={ref}>
         <Badge status="error" />
       </Tooltip>,
     );
     wrapper.find('Badge').simulate('mouseenter');
     jest.runAllTimers();
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
   });
 
   it('should render when count is changed', () => {
@@ -66,6 +71,9 @@ describe('Badge', () => {
     jest.runAllTimers();
     expect(wrapper).toMatchSnapshot();
     wrapper.setProps({ count: 11 });
+    jest.runAllTimers();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ count: 111 });
     jest.runAllTimers();
     expect(wrapper).toMatchSnapshot();
     wrapper.setProps({ count: 10 });
@@ -131,5 +139,74 @@ describe('Badge', () => {
       </>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+});
+
+describe('Ribbon', () => {
+  mountTest(Badge.Ribbon);
+  rtlTest(Badge.Ribbon);
+
+  describe('placement', () => {
+    it('works with `start` & `end` placement', () => {
+      const wrapperStart = mount(
+        <Badge.Ribbon placement="start">
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapperStart.find('.ant-ribbon-placement-start').length).toEqual(1);
+
+      const wrapperEnd = mount(
+        <Badge.Ribbon placement="end">
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapperEnd.find('.ant-ribbon-placement-end').length).toEqual(1);
+    });
+  });
+
+  describe('color', () => {
+    it('works with preset color', () => {
+      const wrapper = mount(
+        <Badge.Ribbon color="green">
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapper.find('.ant-ribbon-color-green').length).toEqual(1);
+    });
+    it('works with custom color', () => {
+      const wrapperLeft = mount(
+        <Badge.Ribbon color="#888" placement="start">
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapperLeft.find('.ant-ribbon').prop('style').background).toEqual('#888');
+      expect(wrapperLeft.find('.ant-ribbon-corner').prop('style').color).toEqual('#888');
+      const wrapperRight = mount(
+        <Badge.Ribbon color="#888" placement="end">
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapperRight.find('.ant-ribbon').prop('style').background).toEqual('#888');
+      expect(wrapperRight.find('.ant-ribbon-corner').prop('style').color).toEqual('#888');
+    });
+  });
+
+  describe('text', () => {
+    it('works with string', () => {
+      const wrapper = mount(
+        <Badge.Ribbon text="cool">
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapper.find('.ant-ribbon').text()).toEqual('cool');
+    });
+    it('works with element', () => {
+      const wrapper = mount(
+        <Badge.Ribbon text={<span className="cool" />}>
+          <div />
+        </Badge.Ribbon>,
+      );
+      expect(wrapper.find('.cool').length).toEqual(1);
+    });
   });
 });

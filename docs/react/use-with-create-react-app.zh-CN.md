@@ -76,30 +76,22 @@ export default App;
 
 ```css
 @import '~antd/dist/antd.css';
-
-.App {
-  text-align: center;
-}
-
-...
 ```
 
-好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)。
+好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://create-react-app.dev/docs/getting-started)。
 
 我们现在已经把 antd 组件成功运行起来了，开始开发你的应用吧！
 
 ## 高级配置
 
-这个例子在实际开发中还有一些优化的空间，比如无法进行主题配置，而且上面的例子加载了全部的 antd 组件的样式（gzipped 后一共大约 60kb）。
+这个例子在实际开发中还有一些优化的空间，比如无法进行主题配置。
 
-此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。
+此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [craco](https://github.com/gsoft-inc/craco) （一个对 create-react-app 进行自定义配置的社区解决方案）。
 
-引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) 版本的关系，你还需要安装 [customize-cra](https://github.com/arackaf/customize-cra)。
+现在我们安装 craco 并修改 `package.json` 里的 `scripts` 属性。
 
 ```bash
-$ yarn add react-app-rewired customize-cra
-# 使用less-loader@6.0.0
-$ yarn add react-app-rewired customize-cra@next
+$ yarn add @craco/craco
 ```
 
 ```diff
@@ -108,130 +100,79 @@ $ yarn add react-app-rewired customize-cra@next
 -   "start": "react-scripts start",
 -   "build": "react-scripts build",
 -   "test": "react-scripts test",
-+   "start": "react-app-rewired start",
-+   "build": "react-app-rewired build",
-+   "test": "react-app-rewired test",
++   "start": "craco start",
++   "build": "craco build",
++   "test": "craco test",
 }
 ```
 
-然后在项目根目录创建一个 `config-overrides.js` 用于修改默认配置。
+然后在项目根目录创建一个 `craco.config.js` 用于修改默认配置。
 
 ```js
-module.exports = function override(config, env) {
-  // do stuff with the webpack config...
-  return config;
+/* craco.config.js */
+module.exports = {
+  // ...
 };
 ```
 
-### 使用 babel-plugin-import
-
-> 注意：antd 默认支持基于 ES module 的 tree shaking，js 代码部分不使用这个插件也会有按需加载的效果。
-
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config-overrides.js` 文件。
-
-```bash
-$ yarn add babel-plugin-import
-```
-
-```diff
-+ const { override, fixBabelImports } = require('customize-cra');
-
-- module.exports = function override(config, env) {
--   // do stuff with the webpack config...
--   return config;
-- };
-+ module.exports = override(
-+   fixBabelImports('antd', {
-+     libraryDirectory: 'es',
-+     style: 'css',
-+   }),
-+ );
-```
-
-然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，并且按下面的格式引入模块。
-
-```diff
-  // src/App.js
-  import React, { Component } from 'react';
-- import Button from 'antd/es/button';
-+ import { Button } from 'antd';
-  import './App.css';
-
-  const App = () => (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
-
-  export default App;
-```
-
-最后重启 `yarn start` 访问页面，antd 组件的 js 和 css 代码都会按需加载，你在控制台也不会看到这样的[警告信息](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)。关于按需加载的原理和其他方式可以阅读[这里](/docs/react/getting-started#按需加载)。
-
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra/blob/master/api.md#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-less](https://github.com/DocSpring/craco-less) 来帮助加载 less 样式和修改变量。
 
-```bash
-$ yarn add less less-loader
+首先把 `src/App.css` 文件修改为 `src/App.less`，然后修改样式引用为 less 文件。
+
+```diff
+/* src/App.js */
+- import './App.css';
++ import './App.less';
 ```
 
 ```diff
-- const { override, fixBabelImports } = require('customize-cra');
-+ const { override, fixBabelImports, addLessLoader } = require('customize-cra');
+/* src/App.less */
+- @import '~antd/dist/antd.css';
++ @import '~antd/dist/antd.less';
+```
 
-module.exports = override(
-  fixBabelImports('antd', {
-    libraryDirectory: 'es',
--   style: 'css',
-+   style: true,
-  }),
-+ addLessLoader({
-+   lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
-+     javascriptEnabled: true,
-+     modifyVars: { '@primary-color': '#1DA57A' },
-+   },
-+ }),
-);
+然后安装 `craco-less` 并修改 `craco.config.js` 文件如下。
+
+```bash
+$ yarn add craco-less
+```
+
+```js
+const CracoLessPlugin = require('craco-less');
+
+module.exports = {
+  plugins: [
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#1DA57A' },
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
+  ],
+};
 ```
 
 这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
 antd 内建了深色主题和紧凑主题，你可以参照 [使用暗色主题和紧凑主题](/docs/react/customize-theme#使用暗色主题和紧凑主题) 进行接入。
 
-> 同样，你可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来自定义 create-react-app 的 webpack 配置，类似于 customize-cra。
-
-> 注意：建议使用最新版本的 `less`，或不低于 `3.0.1`。
-
-## 使用 Day.js 替换 momentjs 优化打包大小
-
-你可以使用 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) 插件用 Day.js 替换 momentjs 来大幅减小打包大小。
-
-```bash
-$ yarn add antd-dayjs-webpack-plugin
-```
-
-```js
-const { override, addWebpackPlugin } = require('customize-cra');
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
-
-module.exports = override(addWebpackPlugin(new AntdDayjsWebpackPlugin()));
-```
+> 同样，你可以使用 [react-scripts-rewired](https://github.com/timarney/react-app-rewired) 和 [customize-cra](https://github.com/arackaf/customize-cra) 来自定义 create-react-app 的 webpack 配置。
 
 ## eject
 
-你也可以使用 create-react-app 提供的 [yarn run eject](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
+你也可以使用 create-react-app 提供的 [yarn run eject](https://create-react-app.dev/docs/available-scripts/#npm-run-eject) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
 
-## 源码和其他脚手架
+## 小结
 
-以上是在 create-react-app 中使用 antd 的相关实践，你也可以借鉴此文的做法在自己的 webpack 工作流中使用 antd，更多 webpack 配置可参考 [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。（例如加入 [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) 避免加载所有语言文件）
+以上是在 create-react-app 中使用 antd 的相关实践，你也可以借鉴此文的做法在自己的 webpack 工作流中使用 antd。
 
-React 生态圈中还有很多优秀的脚手架，使用它们并引入 antd 时，你可能会遇到一些问题，下面是一些著名脚手架使用 antd 的范例，包括本文的 create-react-app。
+上述教程的脚手架源码我们放在 [create-react-app-antd](https://github.com/ant-design/create-react-app-antd) 中，你可以直接下载使用。
 
-- [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
-- [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
-- [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
-- [cra-ts-antd](https://github.com/comerc/cra-ts-antd)
-- [next.js](https://github.com/zeit/next.js/tree/master/examples/with-ant-design)
-- [nwb](https://github.com/insin/nwb-examples/tree/master/react-app-antd)
-- [antd-react-scripts](https://github.com/minesaner/create-react-app/tree/antd/packages/react-scripts)
+接下来我们会介绍如何在 [TypeScript](/docs/react/use-in-typescript) 和 [Umi](/docs/react/practical-projects) 中使用 antd，欢迎继续阅读。

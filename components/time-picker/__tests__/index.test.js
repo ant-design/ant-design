@@ -4,7 +4,7 @@ import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TimePicker', () => {
@@ -71,5 +71,16 @@ describe('TimePicker', () => {
       />,
     );
     expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+  });
+
+  it('should support bordered', () => {
+    const wrapper = mount(
+      <TimePicker
+        className="custom-class"
+        defaultValue={moment('2000-01-01 00:00:00')}
+        bordered={false}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

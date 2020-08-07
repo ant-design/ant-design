@@ -36,7 +36,7 @@ const menu = (
       2nd menu item
     </Menu.Item>
     <Menu.Item key="3" icon={<UserOutlined />}>
-      3rd item
+      3rd menu item
     </Menu.Item>
   </Menu>
 );
@@ -46,7 +46,7 @@ ReactDOM.render(
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button overlay={menu} icon={<UserOutlined />}>
+    <Dropdown.Button overlay={menu} placement="bottomCenter" icon={<UserOutlined />}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
@@ -58,7 +58,7 @@ ReactDOM.render(
         <Tooltip title="tooltip" key="leftButton">
           {leftButton}
         </Tooltip>,
-        rightButton,
+        React.cloneElement(rightButton, { loading: true }),
       ]}
     >
       With Tooltip

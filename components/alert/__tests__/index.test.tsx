@@ -60,8 +60,7 @@ describe('Alert', () => {
 
   const testIt = process.env.REACT === '15' ? it.skip : it;
   testIt('ErrorBoundary', () => {
-    // TODO: Change to @ts-expect-error once typescript is at 3.9
-    // @ts-ignore
+    // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     const wrapper = mount(
@@ -74,9 +73,10 @@ describe('Alert', () => {
   });
 
   it('could be used with Tooltip', async () => {
+    const ref = React.createRef<any>();
     jest.useRealTimers();
     const wrapper = mount(
-      <Tooltip title="xxx" mouseEnterDelay={0}>
+      <Tooltip title="xxx" mouseEnterDelay={0} ref={ref}>
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
@@ -85,7 +85,7 @@ describe('Alert', () => {
     );
     wrapper.find('.ant-alert').simulate('mouseenter');
     await sleep(0);
-    expect(wrapper.find<Tooltip>(Tooltip).instance().getPopupDomNode()).toBeTruthy();
+    expect(ref.current.getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
   });
 
@@ -104,5 +104,10 @@ describe('Alert', () => {
     await sleep(0);
     expect(ref.current.getPopupDomNode()).toBeTruthy();
     jest.useFakeTimers();
+  });
+
+  it('could accept none react element icon', () => {
+    const wrapper = mount(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

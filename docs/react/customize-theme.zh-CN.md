@@ -24,9 +24,9 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
 @text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
 @disabled-color: rgba(0, 0, 0, 0.25); // 失效色
-@border-radius-base: 4px; // 组件/浮层圆角
+@border-radius-base: 2px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
+@box-shadow-base: 0 3px 6px -4px rgba(0,0,0,.12),0 6px 16px 0 rgba(0,0,0,.08),0 9px 28px 8px rgba(0,0,0,.05); // 浮层阴影
 ```
 
 如果以上变量不能满足你的定制需求，可以给我们提 issue。
@@ -197,3 +197,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
+- [Zero config custom theme generator](https://www.npmjs.com/package/@emeks/antd-custom-theme-generator)

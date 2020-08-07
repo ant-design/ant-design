@@ -1,7 +1,8 @@
 .@{menu-prefix-cls} {
   // dark theme
   &&-dark,
-  &-dark &-sub {
+  &-dark &-sub,
+  &&-dark &-sub {
     color: @menu-dark-color;
     background: @menu-dark-bg;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
@@ -30,6 +31,7 @@
   &-dark&-horizontal > &-submenu {
     top: 0;
     margin-top: 0;
+    padding: @menu-item-padding;
     border-color: @menu-dark-bg;
     border-bottom: 0;
   }
@@ -40,7 +42,8 @@
 
   &-dark &-item,
   &-dark &-item-group-title,
-  &-dark &-item > a {
+  &-dark &-item > a,
+  &-dark &-item > span > a {
     color: @menu-dark-color;
   }
 
@@ -76,7 +79,8 @@
   &-dark &-submenu-title:hover {
     color: @menu-dark-highlight-color;
     background-color: transparent;
-    > a {
+    > a,
+    > span > a {
       color: @menu-dark-highlight-color;
     }
     > .@{menu-prefix-cls}-submenu-title,
@@ -105,7 +109,9 @@
       border-right: 0;
     }
     > a,
-    > a:hover {
+    > span > a,
+    > a:hover,
+    > span > a:hover {
       color: @menu-dark-highlight-color;
     }
     .@{iconfont-css-prefix} {
@@ -125,7 +131,8 @@
   &-dark &-item-disabled,
   &-dark &-submenu-disabled {
     &,
-    > a {
+    > a,
+    > span > a {
       color: @disabled-color-dark !important;
       opacity: 0.8;
     }

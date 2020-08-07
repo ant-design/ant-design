@@ -17,9 +17,16 @@ describe('Tooltip', () => {
 
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
+    const ref = React.createRef();
 
     const wrapper = mount(
-      <Tooltip title="" mouseEnterDelay={0} mouseLeaveDelay={0} onVisibleChange={onVisibleChange}>
+      <Tooltip
+        title=""
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+      >
         <div id="hello">Hello world!</div>
       </Tooltip>,
     );
@@ -28,43 +35,46 @@ describe('Tooltip', () => {
     const div = wrapper.find('#hello').at(0);
     div.simulate('mouseenter');
     expect(onVisibleChange).not.toHaveBeenCalled();
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
 
     div.simulate('mouseleave');
     expect(onVisibleChange).not.toHaveBeenCalled();
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
 
     // update `title` value.
     wrapper.setProps({ title: 'Have a nice day!' });
     wrapper.find('#hello').simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
 
     wrapper.find('#hello').simulate('mouseleave');
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
 
     // add `visible` props.
     wrapper.setProps({ visible: false });
     wrapper.find('#hello').simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onVisibleChange.mock.calls.length;
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
 
     // always trigger onVisibleChange
     wrapper.simulate('mouseleave');
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
   });
 
   it('should hide when mouse leave native disabled button', () => {
     const onVisibleChange = jest.fn();
+    const ref = React.createRef();
+
     const wrapper = mount(
       <Tooltip
         title="xxxxx"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onVisibleChange={onVisibleChange}
+        ref={ref}
       >
         <button type="button" disabled>
           Hello world!
@@ -76,23 +86,25 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenCalledWith(true);
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
 
     button.simulate('mouseleave');
     expect(onVisibleChange).toHaveBeenCalledWith(false);
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
   });
 
   describe('should hide when mouse leave antd disabled component', () => {
     function testComponent(name, Component) {
       it(name, () => {
         const onVisibleChange = jest.fn();
+        const ref = React.createRef();
         const wrapper = mount(
           <Tooltip
             title="xxxxx"
             mouseEnterDelay={0}
             mouseLeaveDelay={0}
             onVisibleChange={onVisibleChange}
+            ref={ref}
           >
             <Component disabled />
           </Tooltip>,
@@ -102,11 +114,11 @@ describe('Tooltip', () => {
         const button = wrapper.find('span').at(0);
         button.simulate('mouseenter');
         expect(onVisibleChange).toHaveBeenCalledWith(true);
-        expect(wrapper.instance().tooltip.props.visible).toBe(true);
+        expect(ref.current.props.visible).toBe(true);
 
         button.simulate('mouseleave');
         expect(onVisibleChange).toHaveBeenCalledWith(false);
-        expect(wrapper.instance().tooltip.props.visible).toBe(false);
+        expect(ref.current.props.visible).toBe(false);
       });
     }
 
@@ -183,9 +195,10 @@ describe('Tooltip', () => {
 
   it('should works for date picker', async () => {
     const onVisibleChange = jest.fn();
+    const ref = React.createRef();
 
     const wrapper = mount(
-      <Tooltip title="date picker" onVisibleChange={onVisibleChange}>
+      <Tooltip title="date picker" onVisibleChange={onVisibleChange} ref={ref}>
         <DatePicker />
       </Tooltip>,
     );
@@ -195,19 +208,19 @@ describe('Tooltip', () => {
     picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
   });
 
   it('should works for input group', async () => {
     const onVisibleChange = jest.fn();
-
+    const ref = React.createRef();
     const wrapper = mount(
-      <Tooltip title="hello" onVisibleChange={onVisibleChange}>
+      <Tooltip title="hello" onVisibleChange={onVisibleChange} ref={ref}>
         <Group>
           <Input style={{ width: '50%' }} />
           <Input style={{ width: '50%' }} />
@@ -220,12 +233,12 @@ describe('Tooltip', () => {
     picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
-    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
-    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
@@ -279,6 +292,7 @@ describe('Tooltip', () => {
   });
 
   it('other placement when mouse enter', async () => {
+    const ref = React.createRef();
     const wrapper = mount(
       <Tooltip
         title="xxxxx"
@@ -286,6 +300,7 @@ describe('Tooltip', () => {
         transitionName=""
         popupTransitionName=""
         mouseEnterDelay={0}
+        ref={ref}
       >
         <span>Hello world!</span>
       </Tooltip>,
@@ -295,10 +310,11 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     await sleep(500);
-    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
+    expect(ref.current.getPopupDomNode().className).toContain('placement-topRight');
   });
 
   it('should works for mismatch placement', async () => {
+    const ref = React.createRef();
     const wrapper = mount(
       <Tooltip
         title="xxxxx"
@@ -306,6 +322,7 @@ describe('Tooltip', () => {
           points: ['bc', 'tl'],
         }}
         mouseEnterDelay={0}
+        ref={ref}
       >
         <span>Hello world!</span>
       </Tooltip>,
@@ -313,6 +330,6 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     await sleep(600);
-    expect(wrapper.instance().getPopupDomNode().className).toContain('ant-tooltip');
+    expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
   });
 });

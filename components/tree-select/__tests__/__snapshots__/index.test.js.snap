@@ -23,6 +23,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        unselectable="on"
         value=""
       />
     </span>
@@ -59,7 +60,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                   >
                     <span
                       class="ant-select-tree-switcher ant-select-tree-switcher-noop"
@@ -98,7 +99,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg
@@ -181,6 +182,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        unselectable="on"
         value=""
       />
       <span
@@ -225,6 +227,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
         readonly=""
         role="combobox"
         style="opacity:0"
+        unselectable="on"
         value=""
       />
     </span>
@@ -240,7 +243,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
   >
     <span
       aria-label="down"
-      class="anticon anticon-down"
+      class="anticon anticon-down ant-select-suffix"
       role="img"
     >
       <svg

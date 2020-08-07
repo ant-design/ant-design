@@ -55,22 +55,21 @@
     align-items: center;
     justify-content: space-between;
     padding: @list-item-padding;
-
-    &-content {
-      color: @text-color;
-    }
+    color: @text-color;
 
     &-meta {
       display: flex;
       flex: 1;
       align-items: flex-start;
-      font-size: 0;
+      max-width: 100%;
 
       &-avatar {
         margin-right: @list-item-meta-avatar-margin-right;
       }
       &-content {
         flex: 1 0;
+        width: 0;
+        color: @text-color;
       }
       &-title {
         margin-bottom: 4px;
@@ -106,11 +105,12 @@
         font-size: @font-size-base;
         line-height: @line-height-base;
         text-align: center;
-        cursor: pointer;
+
+        &:first-child {
+          padding-left: 0;
+        }
       }
-      & > li:first-child {
-        padding-left: 0;
-      }
+
       &-split {
         position: absolute;
         top: 50%;

@@ -59,6 +59,11 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
+          title: 'Ant Design Charts',
+          url: 'https://charts.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Mobile',
           url: 'https://mobile.ant.design',
           openExternal: true,
@@ -98,9 +103,9 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          title: 'Dva',
-          description: <FormattedMessage id="app.footer.dva" />,
-          url: 'https://dvajs.com',
+          title: 'Dumi',
+          description: <FormattedMessage id="app.footer.dumi" />,
+          url: 'https://d.umijs.org',
           openExternal: true,
         },
         {
@@ -110,9 +115,9 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          title: 'Umi Hooks',
+          title: 'ahooks',
           description: <FormattedMessage id="app.footer.hooks" />,
-          url: 'https://github.com/umijs/hooks',
+          url: 'https://github.com/alibaba/hooks',
           openExternal: true,
         },
         {
@@ -170,7 +175,12 @@ class Footer extends React.Component<WrappedComponentProps> {
           openExternal: true,
         },
         {
-          icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
+          icon: (
+            <img
+              src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png"
+              alt="seeconf"
+            />
+          ),
           title: 'SEE Conf',
           description: <FormattedMessage id="app.footer.seeconf" />,
           url: 'https://seeconf.antfin.com/',

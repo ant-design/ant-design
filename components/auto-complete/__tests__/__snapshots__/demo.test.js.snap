@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width:200px"
@@ -30,9 +30,9 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
         input here
       </span>
     </div>
-  </div>
-  <br />
-  <br />
+  </div>,
+  <br />,
+  <br />,
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width:200px"
@@ -61,8 +61,8 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
         control mode
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1`] = `
@@ -256,6 +256,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  unselectable="on"
                   value=""
                 />
               </span>
@@ -271,7 +272,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down"
+                class="anticon anticon-down ant-select-suffix"
                 role="img"
               >
                 <svg
@@ -341,6 +342,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -356,7 +358,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -534,6 +536,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -549,7 +552,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -675,6 +678,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -690,7 +694,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg
@@ -817,6 +821,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    unselectable="on"
                     value=""
                   />
                 </span>
@@ -832,7 +837,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down"
+                  class="anticon anticon-down ant-select-suffix"
                   role="img"
                 >
                   <svg

@@ -52,15 +52,15 @@ describe('Modal', () => {
 
   it('onCancel should be called', () => {
     const onCancel = jest.fn();
-    const wrapper = mount(<Modal onCancel={onCancel} />).instance();
-    wrapper.handleCancel();
+    const wrapper = mount(<Modal visible onCancel={onCancel} />);
+    wrapper.find('.ant-btn').first().simulate('click');
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
     const onOk = jest.fn();
-    const wrapper = mount(<Modal onOk={onOk} />).instance();
-    wrapper.handleOk();
+    const wrapper = mount(<Modal visible onOk={onOk} />);
+    wrapper.find('.ant-btn').last().simulate('click');
     expect(onOk).toHaveBeenCalled();
   });
 

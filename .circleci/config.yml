@@ -3,7 +3,7 @@ version: 2
 references:
   container_config: &container_config
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:14
     working_directory: ~/ant-design
 
   attach_workspace: &attach_workspace
@@ -22,10 +22,10 @@ references:
               ignore: gh-pages
       - dist:
           requires:
-          - setup
+            - setup
       - compile:
           requires:
-          - setup
+            - setup
       - lint:
           requires:
             - setup
@@ -166,7 +166,7 @@ workflows:
     <<: *workflow
     triggers:
       - schedule:
-          cron: "0 0 * * *"
+          cron: '0 0 * * *'
           filters:
             branches:
               only:

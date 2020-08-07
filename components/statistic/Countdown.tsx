@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Statistic, { StatisticProps } from './Statistic';
 import { formatCountdown, countdownValueType, FormatConfig } from './utils';
+import { cloneElement } from '../_util/reactNode';
 
 const REFRESH_INTERVAL = 1000 / 30;
 
@@ -72,7 +73,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
 
   // Countdown do not need display the timestamp
   valueRender = (node: React.ReactElement<HTMLDivElement>) =>
-    React.cloneElement(node, {
+    cloneElement(node, {
       title: undefined,
     });
 

@@ -7,10 +7,10 @@ import Element from './Element';
 import SkeletonAvatar, { AvatarProps } from './Avatar';
 import SkeletonButton from './Button';
 import SkeletonInput from './Input';
+import SkeletonImage from './Image';
 
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {
-}
+interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
 
 export interface SkeletonProps {
   active?: boolean;
@@ -21,6 +21,7 @@ export interface SkeletonProps {
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
+  round?: boolean;
 }
 
 function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
@@ -80,6 +81,7 @@ const Skeleton = (props: SkeletonProps) => {
       title,
       paragraph,
       active,
+      round,
     } = props;
 
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
@@ -143,6 +145,7 @@ const Skeleton = (props: SkeletonProps) => {
         [`${prefixCls}-with-avatar`]: hasAvatar,
         [`${prefixCls}-active`]: active,
         [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-round`]: round,
       });
 
       return (
@@ -167,5 +170,6 @@ Skeleton.defaultProps = {
 Skeleton.Button = SkeletonButton;
 Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
+Skeleton.Image = SkeletonImage;
 
 export default Skeleton;

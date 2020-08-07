@@ -1,0 +1,13 @@
+name: 🔄 Sync packages
+on:
+  release:
+    types: [published]
+jobs:
+  sync_packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync packages
+        uses: LexSwed/npm-package-sync@master
+        with:
+          registry-to: 'https://npm.pkg.github.com'
+          token-to: ${{ secrets.GITHUB_TOKEN }}

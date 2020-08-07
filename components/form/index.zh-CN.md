@@ -4,6 +4,7 @@ subtitle: 表单
 type: 数据录入
 cols: 1
 title: Form
+cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 ---
 
 高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。
@@ -17,26 +18,28 @@ title: Form
 
 ### Form
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |
-| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true |
-| fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
-| form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
-| hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
-| initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
-| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |
-| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |
-| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |
-| name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
-| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | false | - |
-| size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |
-| validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid/#Col) | - |
-| onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
-| onFinishFailed | 提交表单且数据验证失败后回调事件 | Function({ values, errorFields, outOfDate }) | - |
-| onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
-| onValuesChange | 字段值更新时触发回调事件 | Function(changedValues, allValues) | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
+| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true |  |
+| fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
+| form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |  |
+| hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |  |
+| initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  |
+| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
+| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
+| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean | false |  |
+| size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
+| validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
+| validateTrigger | 统一设置字段校验规则 | string \| string[] | `onChange` | 4.3.0 |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid/#Col) | - |  |
+| onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |
+| onFinishFailed | 提交表单且数据验证失败后回调事件 | function({ values, errorFields, outOfDate }) | - |  |
+| onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
+| onValuesChange | 字段值更新时触发回调事件 | function(changedValues, allValues) | - |  |
 
 ### validateMessages
 
@@ -72,28 +75,30 @@ const validateMessages = {
 | --- | --- | --- | --- | --- |
 | colon | 配合 `label` 属性使用，表示是否显示 `label` 后面的冒号 | boolean | true |  |
 | dependencies | 设置依赖字段，说明[见下](#dependencies) | [NamePath](#NamePath)[] | - |  |
-| extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string\|ReactNode | - |  |
+| extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string \| ReactNode | - |  |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any[]) => any | - |  |
 | getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |  |
-| help | 提示信息，如不设置，则会根据校验规则自动生成 | string\|ReactNode | - |  |
+| help | 提示信息，如不设置，则会根据校验规则自动生成 | string \| ReactNode | - |  |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
-| label | `label` 标签的文本 | string\|ReactNode | - |  |
+| label | `label` 标签的文本 | string \| ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
+| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
-| trigger | 设置收集字段值变更的时机 | string | onChange |  |
-| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |  |
+| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
-| validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |  |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | 'value' |  |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) | - |  |
+| validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
+| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
+| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false |  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -104,6 +109,10 @@ const validateMessages = {
 ### dependencies
 
 当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-register)。
+
+`dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
+
+从 `4.5.0` 版本开始，`dependencies` 支持使用 render props 类型 children 的 `Form.Item`。
 
 ### shouldUpdate
 
@@ -157,8 +166,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
       ))}
     </div>
   )}
+  1
 </Form.List>
 ```
+
+## operation
+
+Form.List 渲染表单相关操作函数。
+
+| 参数   | 说明       | 类型                                | 默认值          |
+| ------ | ---------- | ----------------------------------- | --------------- |
+| add    | 新增表单项 | (defaultValue?: any) => void        | -               |
+| remove | 删除表单项 | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move   | 移动表单项 | (from: number, to: number) => void  | -               |
 
 ## Form.Provider
 
@@ -166,8 +186,8 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| onFormChange | 子表单字段更新时触发 | Function(formName: string, info: { changedFields, forms }) | - |
-| onFormFinish | 子表单提交时触发 | Function(formName: string, info: { values, forms }) | - |
+| onFormChange | 子表单字段更新时触发 | function(formName: string, info: { changedFields, forms }) | - |
+| onFormFinish | 子表单提交时触发 | function(formName: string, info: { values, forms }) | - |
 
 ```jsx
 <Form.Provider
@@ -184,21 +204,22 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ### FormInstance
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
-| getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |
-| getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
-| isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |
-| isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
-| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |
-| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
-| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/blob/ece40bd9143f48caf4b99503425ecb16b0ad8249/src/types.ts#L10)]) => void |
-| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |
-| setFieldsValue | 设置表单的值 | (values) => void |
-| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
+| 名称 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| getFieldInstance | 获取对应字段实例 | (name: [NamePath](#NamePath)) => any | 4.4.0 |
+| getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |  |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |  |
+| getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |  |
+| isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
+| isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |  |
+| isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |  |
+| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)[]) => void |  |
+| setFieldsValue | 设置表单的值 | (values) => void |  |
+| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
+| validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |  |
 
 #### validateFields 返回示例
 
@@ -248,7 +269,7 @@ validateFields()
 
 #### Rule
 
-Rule 支持接收 object 进行配置，也支持 function 来动态获取 from 的数据：
+Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 的数据：
 
 ```tsx
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
@@ -258,9 +279,9 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | --- | --- | --- |
 | enum | 是否匹配枚举中的值 | any[] |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
-| max | string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
+| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
 | message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
-| min | string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
+| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
 | pattern | 正则表达式匹配 | RegExp |
 | required | 是否为必选字段 | boolean |
 | transform | 将字段值转换成目标值后进行校验 | (value) => any |
@@ -304,6 +325,10 @@ validator(rule, value, callback) => {
   }
 }
 ```
+
+### name 为数组时的转换规则？
+
+当 `name` 为数组时，会按照顺序填充路径。当存在数字且 form store 中没有该字段时会自动转变成数组。因而如果需要数组为 key 时请使用 string 如：`['1', 'name']`。
 
 ### 为何在 Modal 中调用 form 控制台会报错？
 

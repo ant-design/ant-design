@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     const { current } = this.state;
     return (
-      <div>
+      <>
         <Steps current={current}>
           {steps.map(item => (
             <Step key={item.title} title={item.title} />
@@ -78,7 +78,7 @@ class App extends React.Component {
             </Button>
           )}
         </div>
-      </div>
+      </>
     );
   }
 }

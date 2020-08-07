@@ -18,8 +18,8 @@ import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div>
-    <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
+  <>
+    <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
     <br />
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <br />
@@ -28,7 +28,7 @@ ReactDOM.render(
       unCheckedChildren={<CloseOutlined />}
       defaultChecked
     />
-  </div>,
+  </>,
   mountNode,
 );
 ```

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://ant.design">
+  <a href="https://ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
@@ -24,9 +24,9 @@ An enterprise-class UI design language and React UI library.
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3Atest
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
-[david-image]: https://david-dm.org/ant-design/ant-design/status.svg?style=flat-square
+[david-image]: https://img.shields.io/david/ant-design/ant-design?style=flat-square
 [david-dev-url]: https://david-dm.org/ant-design/ant-design?type=dev
-[david-dev-image]: https://david-dm.org/ant-design/ant-design/dev-status.svg?style=flat-square
+[david-dev-image]: https://img.shields.io/david/dev/ant-design/ant-design?style=flat-square
 [david-url]: https://david-dm.org/ant-design/ant-design
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/antd
@@ -42,12 +42,12 @@ An enterprise-class UI design language and React UI library.
 [gitter-english-url]: https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
 [gitter-chinese-image]: https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square&logoWidth=18&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjkwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAzMCAyMCI%2BDQo8ZGVmcz4NCjxwYXRoIGlkPSJzIiBkPSJNMCwtMSAwLjU4Nzc4NSwwLjgwOTAxNyAtMC45NTEwNTcsLTAuMzA5MDE3SDAuOTUxMDU3TC0wLjU4Nzc4NSwwLjgwOTAxN3oiIGZpbGw9IiNmZmRlMDAiLz4NCjwvZGVmcz4NCjxyZWN0IHdpZHRoPSIzMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2RlMjkxMCIvPg0KPHVzZSB4bGluazpocmVmPSIjcyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNSw1KSBzY2FsZSgzKSIvPg0KPHVzZSB4bGluazpocmVmPSIjcyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAsMikgcm90YXRlKDIzLjAzNjI0MykiLz4NCjx1c2UgeGxpbms6aHJlZj0iI3MiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLDQpIHJvdGF0ZSg0NS44Njk4OTgpIi8%2BDQo8dXNlIHhsaW5rOmhyZWY9IiNzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMiw3KSByb3RhdGUoNjkuOTQ1Mzk2KSIvPg0KPHVzZSB4bGluazpocmVmPSIjcyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAsOSkgcm90YXRlKDIwLjY1OTgwOCkiLz4NCjwvc3ZnPg%3D%3D
 [gitter-chinese-url]: https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-[semver-stability-url]: https://dependabot.com/compatibility-score.html/?dependency-name=antd&package-manager=npm_and_yarn&new-version=latest
-[semver-stability-image]: https://api.dependabot.com/badges/compatibility_score?dependency-name=antd&package-manager=npm_and_yarn&target-version=latest&version-scheme=semver
+[semver-stability-url]: https://dependabot.com/compatibility-score.html/?dependency-name=antd&package-manager=npm_and_yarn
+[semver-stability-image]: https://api.dependabot.com/badges/compatibility_score?dependency-name=antd&package-manager=npm_and_yarn&version-scheme=semver
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](http://ant.design)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
 English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
@@ -62,7 +62,7 @@ English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
 ## 🖥 Environment Support
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
@@ -88,7 +88,7 @@ import { Button, DatePicker } from 'antd';
 const App = () => (
   <>
     <Button type="primary">PRESS ME</Button>
-    <DatePicker />
+    <DatePicker placeholder="select date" />
   </>
 );
 ```
@@ -99,21 +99,20 @@ And import style manually:
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
-Or use [babel-plugin-import](https://ant.design/docs/react/getting-started#Import-on-Demand).
-
 ### TypeScript
 
-See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript).
+`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to getting started.
 
 ## 🌍 Internationalization
 
-See [i18n](http://ant.design/docs/react/i18n).
+Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
 
 ## 🔗 Links
 
-- [Home page](http://ant.design/)
-- [Components](https://ant.design/components/button/)
+- [Home page](https://ant.design/)
+- [Components](https://ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
+- [Ant Design Charts](https://charts.ant.design)
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
@@ -130,7 +129,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [FAQ](https://ant.design/docs/react/faq)
 - [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [Customize Theme](http://ant.design/docs/react/customize-theme)
+- [Customize Theme](https://ant.design/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ Development

@@ -38,9 +38,11 @@ exports[`List.pagination renders pagination correctly 1`] = `
         class="ant-pagination-prev ant-pagination-disabled"
         title="Previous Page"
       >
-        <a
+        <button
           class="ant-pagination-item-link"
           disabled=""
+          tabindex="-1"
+          type="button"
         >
           <span
             aria-label="left"
@@ -62,14 +64,16 @@ exports[`List.pagination renders pagination correctly 1`] = `
               />
             </svg>
           </span>
-        </a>
+        </button>
       </li>
       <li
         class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
         tabindex="0"
         title="1"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           1
         </a>
       </li>
@@ -78,7 +82,9 @@ exports[`List.pagination renders pagination correctly 1`] = `
         tabindex="0"
         title="2"
       >
-        <a>
+        <a
+          rel="nofollow"
+        >
           2
         </a>
       </li>
@@ -88,8 +94,10 @@ exports[`List.pagination renders pagination correctly 1`] = `
         tabindex="0"
         title="Next Page"
       >
-        <a
+        <button
           class="ant-pagination-item-link"
+          tabindex="-1"
+          type="button"
         >
           <span
             aria-label="right"
@@ -111,7 +119,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
               />
             </svg>
           </span>
-        </a>
+        </button>
       </li>
     </ul>
   </div>
@@ -128,9 +136,11 @@ exports[`List.pagination should change page size work 1`] = `
     class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -152,14 +162,16 @@ exports[`List.pagination should change page size work 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -168,9 +180,11 @@ exports[`List.pagination should change page size work 1`] = `
     class="ant-pagination-next ant-pagination-disabled"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -192,7 +206,7 @@ exports[`List.pagination should change page size work 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
@@ -218,11 +232,13 @@ exports[`List.pagination should change page size work 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="10 / page"
         >
           10 / page
         </span>
@@ -235,7 +251,7 @@ exports[`List.pagination should change page size work 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -269,9 +285,11 @@ exports[`List.pagination should change page size work 2`] = `
     class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -293,14 +311,16 @@ exports[`List.pagination should change page size work 2`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -309,9 +329,11 @@ exports[`List.pagination should change page size work 2`] = `
     class="ant-pagination-next ant-pagination-disabled"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -333,7 +355,7 @@ exports[`List.pagination should change page size work 2`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
@@ -360,11 +382,13 @@ exports[`List.pagination should change page size work 2`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="50 / page"
         >
           50 / page
         </span>
@@ -381,6 +405,7 @@ exports[`List.pagination should change page size work 2`] = `
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
+                aria-label="10 / page"
                 aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_0"
                 role="option"
@@ -388,6 +413,7 @@ exports[`List.pagination should change page size work 2`] = `
                 10
               </div>
               <div
+                aria-label="20 / page"
                 aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_1"
                 role="option"
@@ -482,7 +508,7 @@ exports[`List.pagination should change page size work 2`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -532,8 +558,10 @@ exports[`List.pagination should default work 1`] = `
     tabindex="0"
     title="Previous Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="left"
@@ -555,14 +583,16 @@ exports[`List.pagination should default work 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -571,7 +601,9 @@ exports[`List.pagination should default work 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -580,9 +612,11 @@ exports[`List.pagination should default work 1`] = `
     class="ant-pagination-next ant-pagination-disabled"
     title="Next Page"
   >
-    <a
+    <button
       class="ant-pagination-item-link"
       disabled=""
+      tabindex="-1"
+      type="button"
     >
       <span
         aria-label="right"
@@ -604,7 +638,7 @@ exports[`List.pagination should default work 1`] = `
           />
         </svg>
       </span>
-    </a>
+    </button>
   </li>
   <li
     class="ant-pagination-options"
@@ -630,11 +664,13 @@ exports[`List.pagination should default work 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="3 / page"
         >
           3 / page
         </span>
@@ -647,7 +683,7 @@ exports[`List.pagination should default work 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg

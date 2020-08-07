@@ -9,6 +9,7 @@ exports[`WeekPicker should support style prop 1`] = `
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="Select week"
       readonly=""
       size="12"

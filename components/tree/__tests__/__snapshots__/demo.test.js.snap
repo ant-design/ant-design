@@ -22,7 +22,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
         style="display:flex;flex-direction:column"
       >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -155,7 +155,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -190,7 +190,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -243,7 +243,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -477,7 +477,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -635,7 +635,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -670,7 +670,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -747,7 +747,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher-noop"
@@ -798,7 +798,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
         style="display:flex;flex-direction:column"
       >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -909,7 +909,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -1096,7 +1096,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode"
+          class="ant-tree-treenode ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -1145,7 +1145,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -1256,7 +1256,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode"
+          class="ant-tree-treenode ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -1480,7 +1480,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -1558,7 +1558,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -1625,7 +1625,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1747,7 +1747,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode"
+          class="ant-tree-treenode ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1777,11 +1777,13 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
     showLine: 
     <button
       aria-checked="true"
-      checked=""
       class="ant-switch ant-switch-checked"
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
@@ -1795,6 +1797,25 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+    <br />
+    <br />
+    showLeafIcon: 
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
@@ -1821,7 +1842,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
@@ -2009,7 +2030,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -2107,7 +2128,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -2307,7 +2328,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -2357,7 +2378,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
         style="display:flex;flex-direction:column"
       >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher_open"
@@ -2539,7 +2560,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"
@@ -2634,7 +2655,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
         >
           <span
             aria-hidden="true"

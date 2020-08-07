@@ -6,6 +6,7 @@
 // =============== Basic ===============
 .@{typography-prefix-cls} {
   color: @text-color;
+  overflow-wrap: break-word;
 
   &&-secondary {
     color: @text-color-secondary;
@@ -73,10 +74,12 @@
     }
   }
 
+  a&-ellipsis,
   span&-ellipsis {
     display: inline-block;
   }
 
+  a&,
   a {
     .operation-unit();
 
@@ -96,8 +99,18 @@
     margin: 0 0.2em;
     padding: 0.2em 0.4em 0.1em;
     font-size: 85%;
-    background: rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(150, 150, 150, 0.1);
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-radius: 3px;
+  }
+
+  kbd {
+    margin: 0 0.2em;
+    padding: 0.15em 0.4em 0.1em;
+    font-size: 90%;
+    background: rgba(150, 150, 150, 0.06);
+    border: 1px solid rgba(100, 100, 100, 0.2);
+    border-bottom-width: 2px;
     border-radius: 3px;
   }
 
@@ -127,7 +140,7 @@
   &-copy {
     .operation-unit();
 
-    margin-left: 8px;
+    margin-left: 4px;
   }
 
   &-copy-success {
@@ -146,7 +159,7 @@
       left: -@input-padding-horizontal - 1px;
       margin-top: -@input-padding-vertical-base - 1px;
       // stylelint-disable-next-line function-calc-no-invalid
-      margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
+      margin-bottom: calc(1em - @input-padding-vertical-base - 1px);
     }
 
     &-confirm {
@@ -194,6 +207,7 @@
     text-overflow: ellipsis;
 
     // https://blog.csdn.net/iefreer/article/details/50421025
+    a&,
     span& {
       vertical-align: bottom;
     }

@@ -56,7 +56,6 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               aria-label="like"
               class="anticon anticon-like"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
@@ -86,7 +85,6 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               aria-label="dislike"
               class="anticon anticon-dislike"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
@@ -122,77 +120,70 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
-<div>
+<div
+  class="ant-comment"
+>
   <div
-    class="ant-comment"
+    class="ant-comment-inner"
   >
     <div
-      class="ant-comment-inner"
+      class="ant-comment-avatar"
+    >
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image"
+      >
+        <img
+          alt="Han Solo"
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-comment-content"
     >
       <div
-        class="ant-comment-avatar"
-      >
-        <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
-        >
-          <img
-            alt="Han Solo"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          />
-        </span>
-      </div>
-      <div
-        class="ant-comment-content"
+        class="ant-comment-content-detail"
       >
         <div
-          class="ant-comment-content-author"
-        />
-        <div
-          class="ant-comment-content-detail"
+          class="ant-row ant-form-item"
         >
-          <div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
             <div
-              class="ant-row ant-form-item"
+              class="ant-form-item-control-input"
             >
               <div
-                class="ant-col ant-form-item-control"
+                class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <textarea
-                      class="ant-input"
-                      rows="4"
-                    />
-                  </div>
-                </div>
+                <textarea
+                  class="ant-input"
+                  rows="4"
+                />
               </div>
             </div>
+          </div>
+        </div>
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-control"
+          >
             <div
-              class="ant-row ant-form-item"
+              class="ant-form-item-control-input"
             >
               <div
-                class="ant-col ant-form-item-control"
+                class="ant-form-item-control-input-content"
               >
-                <div
-                  class="ant-form-item-control-input"
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="submit"
                 >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="submit"
-                    >
-                      <span>
-                        Add Comment
-                      </span>
-                    </button>
-                  </div>
-                </div>
+                  <span>
+                    Add Comment
+                  </span>
+                </button>
               </div>
             </div>
           </div>

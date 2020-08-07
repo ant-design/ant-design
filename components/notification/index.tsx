@@ -19,28 +19,35 @@ const notificationInstance: {
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
+let defaultPrefixCls = 'ant-notification';
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;
+let rtl = false;
 
 export interface ConfigProps {
   top?: number;
   bottom?: number;
   duration?: number;
+  prefixCls?: string;
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
   rtl?: boolean;
 }
 
-let rtl = false;
 function setNotificationConfig(options: ConfigProps) {
-  const { duration, placement, bottom, top, getContainer, closeIcon } = options;
+  const { duration, placement, bottom, top, getContainer, closeIcon, prefixCls } = options;
+  if (prefixCls !== undefined) {
+    defaultPrefixCls = prefixCls;
+  }
   if (duration !== undefined) {
     defaultDuration = duration;
   }
   if (placement !== undefined) {
     defaultPlacement = placement;
+  } else if (options.rtl) {
+    defaultPlacement = 'topLeft';
   }
   if (bottom !== undefined) {
     defaultBottom = bottom;
@@ -109,7 +116,7 @@ function getNotificationInstance(
     getContainer = defaultGetContainer,
     closeIcon = defaultCloseIcon,
   } = args;
-  const outerPrefixCls = args.prefixCls || 'ant-notification';
+  const outerPrefixCls = args.prefixCls || defaultPrefixCls;
   const prefixCls = `${outerPrefixCls}-notice`;
 
   const cacheKey = `${outerPrefixCls}-${placement}`;
@@ -198,7 +205,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
 
   return {
     content: (
-      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+      <div className={iconNode ? `${prefixCls}-with-icon` : ''} role="alert">
         {iconNode}
         <div className={`${prefixCls}-message`}>
           {autoMarginTag}
@@ -218,12 +225,14 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
   };
 }
 
+function notice(args: ArgsProps) {
+  getNotificationInstance(args, ({ prefixCls, instance }) => {
+    instance.notice(getRCNoticeProps(args, prefixCls));
+  });
+}
+
 const api: any = {
-  open: (args: ArgsProps) => {
-    getNotificationInstance(args, ({ prefixCls, instance }) => {
-      instance.notice(getRCNoticeProps(args, prefixCls));
-    });
-  },
+  open: notice,
   close(key: string) {
     Object.keys(notificationInstance).forEach(cacheKey =>
       Promise.resolve(notificationInstance[cacheKey]).then(instance => {
