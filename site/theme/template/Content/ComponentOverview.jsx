@@ -79,7 +79,7 @@ const ComponentOverview = ({
               component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
               (component.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
-          return (
+          return components.length ? (
             <div key={group.title} className="components-overview">
               {components.length > 0 && (
                 <Title level={2} className="components-overview-group-title">
@@ -119,7 +119,7 @@ const ComponentOverview = ({
                   })}
               </Row>
             </div>
-          );
+          ) : null;
         })}
     </section>
   );
