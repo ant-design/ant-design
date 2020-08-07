@@ -116,8 +116,10 @@ module.exports = {
     'app.publish.title': 'antd@3.0.0 has been released! 🎉 🎉 🎉',
     'app.publish.greeting': 'Hello, ',
     'app.publish.intro': ' has been released, so please upgrade. ',
-    'app.publish.old-version-guide': 'If you need documentation for an older version, please visit ',
-    'app.publish.old-version-tips': ', or switch the version via the dropdown in the header nav bar.',
+    'app.publish.old-version-guide':
+      'If you need documentation for an older version, please visit ',
+    'app.publish.old-version-tips':
+      ', or switch the version via the dropdown in the header nav bar.',
     'app.docs.color.pick-primary': 'Pick your primary color',
     'app.docs.color.pick-background': 'Pick your background color',
     'app.docs.components.icon.search.placeholder': 'Search icons here, click icon to copy code',
