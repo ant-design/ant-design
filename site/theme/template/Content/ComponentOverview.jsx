@@ -81,14 +81,12 @@ const ComponentOverview = ({
           );
           return components.length ? (
             <div key={group.title} className="components-overview">
-              {components.length > 0 && (
-                <Title level={2} className="components-overview-group-title">
-                  <Space align="center">
-                    {group.title}
-                    <Tag style={{ display: 'block' }}>{components.length}</Tag>
-                  </Space>
-                </Title>
-              )}
+              <Title level={2} className="components-overview-group-title">
+                <Space align="center">
+                  {group.title}
+                  <Tag style={{ display: 'block' }}>{components.length}</Tag>
+                </Space>
+              </Title>
               <Row gutter={[24, 24]}>
                 {components
                   .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
