@@ -66,7 +66,7 @@ When uploading state change, it returns:
    {
       uid: 'uid',      // unique identifier, negative is recommend, to prevent interference with internal generated id
       name: 'xx.png',   // file name
-      status: 'done', // options：uploading, done, error, removed
+      status: 'done', // options：uploading, done, error, removed. Intercepted file by beforeUpload don't have status field.
       response: '{"status": "success"}', // response from server
       linkProps: '{"download": "image"}', // additional html props of file link
       xhr: 'XMLHttpRequest{ ... }', // XMLHttpRequest Header
