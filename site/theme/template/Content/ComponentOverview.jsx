@@ -48,8 +48,16 @@ const ComponentOverview = ({
   );
   const [search, setSearch] = useState('');
 
+  // keydown.enter goto first component
+  const sectionRef = React.createRef();
+  const onKeyDown = event => {
+    if (event.keyCode === 13 && search.trim().length) {
+      sectionRef.current?.querySelector('.components-overview-card')?.click();
+    }
+  };
+
   return (
-    <section className="markdown">
+    <section className="markdown" ref={sectionRef}>
       <Helmet encodeSpecialCharacters={false}>
         <title>{documentTitle}</title>
         <meta property="og:title" content={documentTitle} />
@@ -66,6 +74,7 @@ const ComponentOverview = ({
           setSearch(e.target.value);
           reportSearch(e.target.value);
         }}
+        onKeyDown={onKeyDown}
         autoFocus // eslint-disable-line jsx-a11y/no-autofocus
         suffix={<SearchOutlined />}
       />
