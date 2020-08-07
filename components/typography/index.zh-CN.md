@@ -21,7 +21,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义，说明[见下](#copyable) | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | maxLength, autoSize, icon and tooltip: 4.6.0 |
@@ -37,7 +37,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义，说明[见下](#copyable) | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | maxLength, autoSize, icon and tooltip: 4.6.0 |
@@ -53,7 +53,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义，说明[见下](#copyable) | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | maxLength, autoSize, icon and tooltip: 4.6.0 |
@@ -63,6 +63,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
+
+### copyable
+
+从 `4.4.0` 版本开始，`copyable` 支持使用 `{ icon: <SmileOutlined /> }` 设置 copy 图标。
+
+从 `4.4.0` 版本开始，`copyable` 支持使用 `{ tooltips: ['click here', 'you clicked!!'] }` 设置 tooltips 文本。
+
+从 `4.6.0` 版本开始，`copyable` 支持使用 `{ icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />] }` 设置 copy 和 copied 图标。
+
+从 `4.6.0` 版本开始，`copyable` 支持使用 `{ tooltips: false }` 设置隐藏 tooltips。
 
 ## FAQ
 

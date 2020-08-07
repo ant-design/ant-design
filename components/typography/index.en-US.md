@@ -20,7 +20,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
+| copyable | Whether to be copyable, customize it via setting an object. See [below](#copyable) | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | maxLength, autoSize, icon and tooltip: 4.6.0 |
@@ -37,7 +37,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
+| copyable | Whether to be copyable, customize it via setting an object. See [below](#copyable) | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | maxLength, autoSize, icon and tooltip: 4.6.0 |
@@ -53,7 +53,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | code | Code style | boolean | false |  |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
+| copyable | Whether to be copyable, customize it via setting an object. See [below](#copyable) | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | icon and tooltips: 4.4.0 |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | maxLength, autoSize, icon and tooltip: 4.6.0 |
@@ -63,6 +63,16 @@ Basic text writing, including headings, body text, lists, and more.
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
 | type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+
+### copyable
+
+`copyable` supports `{ icon: <SmileOutlined /> }` to customize copy icon since `4.4.0`.
+
+`copyable` supports `{ tooltips: ['click here', 'you clicked!!'] }` to replace tooltips text since `4.4.0`.
+
+`copyable` supports `{ icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />] }` to customize copy and copied icon since `4.6.0`.
+
+`copyable` supports `{ tooltips: false }` to hide tooltips since `4.6.0`.
 
 ## FAQ
 
