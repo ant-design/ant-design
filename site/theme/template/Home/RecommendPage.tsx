@@ -16,49 +16,49 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: 'Ant Design 1.0 背后的故事：把艺术变成技术',
+    title: '「人机自然交互」Ant Design 设计价值观解析',
     description:
-      'Ant Design 是一个设计体系，而 Ant Designers 是一群人。本文将讲讲 Ant Design 1.0 背后的故事，还原那些人、那些事。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h21tT45dgD8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/104027273',
+      '这一次，我们将清晰阐述「自然」这一价值观，希望能启发或帮助大家完成自己的产品 / 体系构建；同时，你们的反馈和互动也会成为我们进步的源泉和动力。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/44809866',
     popularize: true,
   },
   {
-    title: 'Ant Design Pro V5 已经支持预览',
+    title: '言之有序 | Ant Design 4.0 系列分享',
     description:
-      '经过长时间的准备，Pro V5 已经基本完成。在新版本中我们进行了很多预设，对于数据流和布局更是进行了大刀阔斧的改进。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oY1sTrR5FswAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/141740103',
+      '信息组织是我们在日常生活中经常会遇到的问题，各式各样的信息是如何被组织编排到一起，又是以何种方式把信息呈现给用户呢？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
   {
-    title: 'JCD 驱动 - 复杂系统设计应对之道',
-    description: '基于蚂蚁集团 CTO 线的业务土壤，我们探索出以 JCD 为核心的企业级产品设计思维，助力设计师在深耕业务上有章可循，有方法可用。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/103237648',
+    title: '整齐划一？不如错落有致。| Ant Design 4.0 系列分享',
+    description: '表单是在各类业务产品中出现最高频的元素之一。今天我们来讨论一个被大家忽视但实则举重若轻的问题：怎样去考虑表单的宽度？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'The Story behind Ant Design 1.0: Turn Art into Technology',
+    title: '「Natural Human Computer Interaction」Ant Design's Design Values',
     description:
-      '🌺 While Ant Design is a design system, Ant Designers are a group of people. This article will tell you the story behind Ant Design 1.0.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h21tT45dgD8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/104027273',
+      '🌺 This time, we will clearly explain one of our design values--「nature」, hoping to inspire you to complete your own products or systems.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/44809866',
     popularize: true,
   },
   {
-    title: 'Ant Design Pro V5 has Supported Preview!',
+    title: 'Information Layouts | Ant Design 4.0',
     description:
-      '📈 After a long time of preparation, Pro V5 has been basically completed. In this new version, we have done a lot of presets, and have made radical improvements to the data flow and layouts.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oY1sTrR5FswAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/141740103',
+      '🌃 Information organization is a problem we often encounter in our daily life. How to arrange all kinds of information together? And how to present them to users?',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
   {
-    title: 'Driven by JCD: How to Design Complicated Systems',
-    description: '🏦 Based on the business practice of Ant Group CTO line, we have summed up a design thinking system of enterprise product, which is called JCD.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dGDxQZQ7ymoAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/103237648',
+    title: 'Form Widths | Ant Design 4.0',
+    description: '💡 Form is one of the most frequently-used elements in business products. Now let's discuss a neglected question: how to decide the width of a form?',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
 ];
 
