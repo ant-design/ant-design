@@ -9,9 +9,8 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import Animate from 'rc-animate';
-import classNames from 'classnames';
 
-import { ConfigContext } from '../config-provider';
+import useCx from '../_util/useCx';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
@@ -84,8 +83,7 @@ const Alert: AlertInterface = ({
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('alert', customizePrefixCls);
+  const { direction, cxRoot, cx } = useCx({ name: 'alert', customizePrefixCls });
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosing(true);
@@ -116,28 +114,19 @@ const Alert: AlertInterface = ({
     // use outline icon in alert with description
     const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
     if (icon) {
-      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-        className: classNames(`${prefixCls}-icon`, {
+      return replaceElement(icon, <span className={cx('icon')}>{icon}</span>, () => ({
+        className: cx('icon', {
           [(icon as any).props.className]: (icon as any).props.className,
         }),
       }));
     }
-    return React.createElement(iconType, { className: `${prefixCls}-icon` });
+    return React.createElement(iconType, { className: cx('icon') });
   };
 
   const renderCloseIcon = () => {
     return isClosable ? (
-      <button
-        type="button"
-        onClick={handleClose}
-        className={`${prefixCls}-close-icon`}
-        tabIndex={0}
-      >
-        {closeText ? (
-          <span className={`${prefixCls}-close-text`}>{closeText}</span>
-        ) : (
-          <CloseOutlined />
-        )}
+      <button type="button" onClick={handleClose} className={cx('close-icon')} tabIndex={0}>
+        {closeText ? <span className={cx('close-text')}>{closeText}</span> : <CloseOutlined />}
       </button>
     ) : null;
   };
@@ -145,16 +134,15 @@ const Alert: AlertInterface = ({
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
-  const alertCls = classNames(
-    prefixCls,
-    `${prefixCls}-${type}`,
+  const alertCls = cxRoot(
+    type,
     {
-      [`${prefixCls}-closing`]: closing,
-      [`${prefixCls}-with-description`]: !!description,
-      [`${prefixCls}-no-icon`]: !isShowIcon,
-      [`${prefixCls}-banner`]: !!banner,
-      [`${prefixCls}-closable`]: isClosable,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      closing,
+      'with-description': !!description,
+      'no-icon': !isShowIcon,
+      banner: !!banner,
+      closable: isClosable,
+      rtl: direction === 'rtl',
     },
     className,
   );
@@ -162,12 +150,7 @@ const Alert: AlertInterface = ({
   const dataOrAriaProps = getDataOrAriaProps(props);
 
   return closed ? null : (
-    <Animate
-      component=""
-      showProp="data-show"
-      transitionName={`${prefixCls}-slide-up`}
-      onEnd={animationEnd}
-    >
+    <Animate component="" showProp="data-show" transitionName={cx('slide-up')} onEnd={animationEnd}>
       <div
         ref={ref}
         data-show={!closing}
@@ -180,8 +163,8 @@ const Alert: AlertInterface = ({
         {...dataOrAriaProps}
       >
         {isShowIcon ? renderIconNode() : null}
-        <span className={`${prefixCls}-message`}>{message}</span>
-        <span className={`${prefixCls}-description`}>{description}</span>
+        <span className={cx('message')}>{message}</span>
+        <span className={cx('description')}>{description}</span>
         {renderCloseIcon()}
       </div>
     </Animate>
