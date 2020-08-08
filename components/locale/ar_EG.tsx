@@ -5,7 +5,7 @@ import TimePicker from '../time-picker/locale/ar_EG';
 import Calendar from '../calendar/locale/ar_EG';
 import { Locale } from '../locale-provider';
 
-const typeTemplate = 'صالحًا ${type} من نوع ${label} ليس';
+const typeTemplate = 'ليس ${label} من نوع ${type} صالحًا';
 
 const localeValues: Locale = {
   locale: 'ar',
@@ -68,14 +68,14 @@ const localeValues: Locale = {
   },
   Form: {
     defaultValidateMessages: {
-      default: '${label} خطأ في حقل الإدخال',
-      required: '${label} يرجى إدخال',
-      enum: '[${enum}] يجب أن يكون واحدا من ${label}',
-      whitespace: 'لا يمكن أن يكون حرفًا فارغًا ${label}',
+      "default": 'خطأ في حقل الإدخال ${label}',
+      required: 'يرجى إدخال ${label}',
+      "enum": '${label} يجب أن يكون واحدا من [${enum}]',
+      whitespace: '${label} لا يمكن أن يكون حرفًا فارغًا',
       date: {
-        format: 'تنسيق التاريخ غير صحيح ${label}',
-        parse: 'لا يمكن تحويلها إلى تاريخ ${label}',
-        invalid: 'غير صحيح ${label} تاريخ',
+        format: '${label} تنسيق التاريخ غير صحيح',
+        parse: '${label} لا يمكن تحويلها إلى تاريخ',
+        invalid: 'تاريخ ${label} غير صحيح',
       },
       types: {
         string: typeTemplate,
@@ -93,10 +93,10 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: 'أحرف ${len} ان يكون ${label} يجب',
-        min: 'أحرف ${min} على الأقل ${label}',
-        max: 'أحرف ${max} يصل إلى ${label}',
-        range: 'أحرف ${max}-${min} ان يكون مابين ${label} يجب',
+        len: 'يجب ${label} ان يكون ${len} أحرف',
+        min: '${label} على الأقل ${min} أحرف',
+        max: '${label} يصل إلى ${max} أحرف',
+        range: 'يجب ${label} ان يكون مابين ${min}-${max} أحرف',
       },
       number: {
         len: '${len} ان يساوي ${label} يجب',
@@ -105,13 +105,13 @@ const localeValues: Locale = {
         range: '${max}-${min} ان يكون مابين ${label} يجب',
       },
       array: {
-        len: '${len} طوله ${label} يجب أن يكون',
-        min: '${min} طوله الأدنى ${label} يجب أن يكون',
-        max: '${max} طوله الأقصى ${label} يجب أن يكون',
-        range: '${max}-${min} طوله مابين ${label} يجب أن يكون',
+        len: 'يجب أن يكون ${label} طوله ${len}',
+        min: 'يجب أن يكون ${label} طوله الأدنى ${min}',
+        max: 'يجب أن يكون ${label} طوله الأقصى ${max}',
+        range: 'يجب أن يكون ${label} طوله مابين ${min}-${max}',
       },
       pattern: {
-        mismatch: '${pattern} مع ${label} لا يتطابق',
+        mismatch: 'لا يتطابق ${label} مع ${pattern}',
       },
     },
   },
