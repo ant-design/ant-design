@@ -28,9 +28,14 @@ export default (prefixCls: string) => {
     return mixUnprefix(first)(...rest);
   };
 
+  const cxRoot = (...params: any) => {
+    return `${prefixCls}${s}${cx(...params)}`;
+  };
+
   return {
     classNames,
     cx,
+    cxRoot,
     // alias
     cxsf: skipFirst,
   };
