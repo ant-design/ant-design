@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import Avatar from './avatar';
 import Popover from '../popover';
@@ -28,13 +29,19 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   const { children, maxPopoverPlacement = 'top' } = props;
-  const childrenWithProps = toArray(children);
+  const childrenWithProps = toArray(children).map((child, index) => {
+    return cloneElement(child, {
+      key: `avatar-key-${index}`,
+    });
+  });
+
   const numOfChildren = childrenWithProps.length;
   if (maxCount && maxCount < numOfChildren) {
     const childrenShow = childrenWithProps.slice(0, maxCount);
     const childrenHidden = childrenWithProps.slice(maxCount, numOfChildren);
     childrenShow.push(
       <Popover
+        key="avatar-popover-key"
         content={childrenHidden}
         trigger="hover"
         placement={maxPopoverPlacement}
@@ -51,7 +58,7 @@ const Group: React.FC<GroupProps> = props => {
   }
   return (
     <div className={cls} style={props.style}>
-      {children}
+      {childrenWithProps}
     </div>
   );
 };
