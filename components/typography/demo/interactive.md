@@ -34,7 +34,7 @@ const Demo: React.FC = () => {
       <Paragraph
         editable={{
           icon: <HighlightOutlined />,
-          tooltip: ['click to edit text'],
+          tooltip: 'click to edit text',
           onChange: setCustomIconStr,
         }}
       >
