@@ -38,14 +38,14 @@ timeline: true
 - Select
   - 💄 Optimize the `disabled` style of Select multiple mode. [#25980](https://github.com/ant-design/ant-design/pull/25980)
   - 🐞 Fix the mouse style of custom icon when Select is `disabled`. [#26002](https://github.com/ant-design/ant-design/pull/26002)
-- Breadcrumb
-  - 🐞 Fix Breadcrumb.Item lost separator after wrapping in component. [#25984](https://github.com/ant-design/ant-design/pull/25984) [@flyerH](https://github.com/flyerH)
-  - 🐞 Fix breadcrumb separator problem. [#e6dd15f](https://github.com/ant-design/ant-design/commit/e6dd15f) [@flyerH](https://github.com/flyerH)
+- 🐞 Fix Breadcrumb.Item lost separator after wrapping in component. [#25984](https://github.com/ant-design/ant-design/pull/25984) [@flyerH](https://github.com/flyerH)
 - 🐞 Fix InputNumber dark theme handler background color. [#26072](https://github.com/ant-design/ant-design/pull/26072)
+- 🐞 Fix the missing `key` of Avatar.Group. [#26098](https://github.com/ant-design/ant-design/pull/26098)
+- 💄 Adjusts Mentions `readOnly` mouse style to native style. [#25977](https://github.com/ant-design/ant-design/pull/25977)
 - 💄 Add `@btn-line-height`. [#26014](https://github.com/ant-design/ant-design/pull/26014)
 - 💄 Optimize Pagination style when `simple` type and `disabled`. [#26008](https://github.com/ant-design/ant-design/pull/26008)
-- 💄 Optimize pagination simple disabled. [#81e21c1](https://github.com/ant-design/ant-design/commit/81e21c1)
 - 🐞 Fix Modal `useModal` missing style issue. [#25967](https://github.com/ant-design/ant-design/pull/25967)
+- 🐞 Fix Steps RTL style when use `progress`. [#26075](https://github.com/ant-design/ant-design/pull/26075)
 - 🌐 Improve Arabic locale. [#26094](https://github.com/ant-design/ant-design/pull/26094) [@Mohelm97](https://github.com/Mohelm97)
 - 🌐 Improve fr_FR localization. [#26034](https://github.com/ant-design/ant-design/pull/26034) [@Thanaen](https://github.com/Thanaen)
 
