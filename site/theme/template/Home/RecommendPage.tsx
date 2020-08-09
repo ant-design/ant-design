@@ -32,7 +32,8 @@ const LIST_CN: Recommend[] = [
   },
   {
     title: '整齐划一？不如错落有致。| Ant Design 4.0 系列分享',
-    description: '表单是在各类业务产品中出现最高频的元素之一。今天我们来讨论一个被大家忽视但实则举重若轻的问题：怎样去考虑表单的宽度？',
+    description:
+      '表单是在各类业务产品中出现最高频的元素之一。今天我们来讨论一个被大家忽视但实则举重若轻的问题：怎样去考虑表单的宽度？',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
@@ -40,7 +41,7 @@ const LIST_CN: Recommend[] = [
 
 const LIST_EN: Recommend[] = [
   {
-    title: '「Natural Human Computer Interaction」Ant Design's Design Values',
+    title: "「Natural Human Computer Interaction」Ant Design's Design Values",
     description:
       '🌺 This time, we will clearly explain one of our design values--「nature」, hoping to inspire you to complete your own products or systems.',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
@@ -56,7 +57,8 @@ const LIST_EN: Recommend[] = [
   },
   {
     title: 'Form Widths | Ant Design 4.0',
-    description: '💡 Form is one of the most frequently-used elements in business products. Now let\'s discuss a neglected question: how to decide the width of a form?',
+    description:
+      "💡 Form is one of the most frequently-used elements in business products. Now let's discuss a neglected question: how to decide the width of a form?",
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
     href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
