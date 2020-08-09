@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 4.5.3
+
+`2020-08-08`
+
+- Menu
+  - 🐞 修复水平 Menu 黑暗 `theme` 在暗黑主题下的样式。[#26062](https://github.com/ant-design/ant-design/pull/26062)
+  - 🐞 修复水平方向 Menu 在暗黑主题 RTL 模式下的位置。[#26032](https://github.com/ant-design/ant-design/pull/26032)
+- Table
+  - 🐞 修复 Table `dataSource` 中含有非法数值时会报错的问题。[#26042](https://github.com/ant-design/ant-design/pull/26042)
+  - 🐞 修复 Table 空筛选项在控制台抛出 warning 的问题。[#26001](https://github.com/ant-design/ant-design/pull/26001)
+- Form
+  - 🐞 修复 Form.Item `hidden` 不能和 `noStyle` 一同使用的问题。[#26020](https://github.com/ant-design/ant-design/pull/26020)
+  - 💄 修复 Form 紧凑模式下表单项 margin 计算错误。[#26069](https://github.com/ant-design/ant-design/pull/26069)
+- Transfer
+  - 🐞 修复 Transfer 禁用时分页未禁用的问题。[#26009](https://github.com/ant-design/ant-design/pull/26009)
+  - 🐞 修复 Transfer 禁用时头部下拉按钮的鼠标样式。[#26005](https://github.com/ant-design/ant-design/pull/26005)
+- Cascader
+  - 🐞 修复 Cascader 在 Firefox 下文本和箭头重叠的问题。[#26011](https://github.com/ant-design/ant-design/pull/26011)
+  - 💄 Cascader 的选择器箭头不再旋转。[#26078](https://github.com/ant-design/ant-design/pull/26078) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 Cascader 禁用时鼠标悬浮边框颜色异常的问题。[#25970](https://github.com/ant-design/ant-design/pull/25970)
+- Select
+  - 💄 优化 Select 多选模式 `disabled` 样式。[#25980](https://github.com/ant-design/ant-design/pull/25980)
+  - 🐞 修复 Select 禁用时自定义图标的鼠标样式。[#26002](https://github.com/ant-design/ant-design/pull/26002)
+- 🐞 修复 Breadcrumb.Item 封装后丢失分隔符的问题。[#25984](https://github.com/ant-design/ant-design/pull/25984) [@flyerH](https://github.com/flyerH)
+- 🐞 修复 Avatar.Group key 缺失的问题。[#26098](https://github.com/ant-design/ant-design/pull/26098)
+- 💄 调整 Mentions `readOnly` 鼠标样式为原生样式。[#25977](https://github.com/ant-design/ant-design/pull/25977)
+- 💄 新增 `@btn-line-height` 变量。[#26014](https://github.com/ant-design/ant-design/pull/26014)
+- 💄 优化 Pagination 简洁分页禁用样式。[#26008](https://github.com/ant-design/ant-design/pull/26008)
+- 🐞 修复 Modal `useModal` 丢失样式的问题。[#25967](https://github.com/ant-design/ant-design/pull/25967)
+- 🐞 修复 InputNumber 暗黑主题下操作栏背景色。[#26072](https://github.com/ant-design/ant-design/pull/26072)
+- 🐞 修复 Steps 使用 `progress` 时的 RTL 样式问题。[#26075](https://github.com/ant-design/ant-design/pull/26075)
+- 🌐 改进阿拉伯语 Arabic 的国际化。[#26094](https://github.com/ant-design/ant-design/pull/26094) [@Mohelm97](https://github.com/Mohelm97)
+- 🌐 改进法语 fr_FR 国际化。[#26034](https://github.com/ant-design/ant-design/pull/26034) [@Thanaen](https://github.com/Thanaen)
+
 ## 4.5.2
 
 `2020-08-02`
