@@ -20,7 +20,7 @@ timeline: true
 `2020-08-08`
 
 - Menu
-  - 🐞 Fix horizontal Menu dark`theme` style under dark theme. [#26062](https://github.com/ant-design/ant-design/pull/26062)
+  - 🐞 Fix horizontal Menu dark `theme` style under dark theme. [#26062](https://github.com/ant-design/ant-design/pull/26062)
   - 🐞 Fix the position of the horizontal Menu in dark theme and RTL mode. [#26032](https://github.com/ant-design/ant-design/pull/26032)
 - Table
   - 🐞 Fix Table crash when `dataSource` contains number. [#26042](https://github.com/ant-design/ant-design/pull/26042)
