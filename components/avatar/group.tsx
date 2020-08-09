@@ -58,7 +58,7 @@ const Group: React.FC<GroupProps> = props => {
   }
   return (
     <div className={cls} style={props.style}>
-      {childrenWithProps}
+      {children}
     </div>
   );
 };
