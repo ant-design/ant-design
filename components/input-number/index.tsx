@@ -22,6 +22,7 @@ export interface InputNumberProps
   tabIndex?: number;
   onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
+  readOnly?: boolean;
   size?: SizeType;
   formatter?: (value: number | string | undefined) => string;
   parser?: (displayValue: string | undefined) => number | string;
@@ -37,7 +38,13 @@ export interface InputNumberProps
 
 const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
   const renderInputNumber = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { className, size: customizeSize, prefixCls: customizePrefixCls, ...others } = props;
+    const {
+      className,
+      size: customizeSize,
+      prefixCls: customizePrefixCls,
+      readOnly,
+      ...others
+    } = props;
     const prefixCls = getPrefixCls('input-number', customizePrefixCls);
     const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
     const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
@@ -51,6 +58,7 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
               [`${prefixCls}-lg`]: mergeSize === 'large',
               [`${prefixCls}-sm`]: mergeSize === 'small',
               [`${prefixCls}-rtl`]: direction === 'rtl',
+              [`${prefixCls}-readonly`]: readOnly,
             },
             className,
           );
@@ -62,6 +70,7 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
               upHandler={upIcon}
               downHandler={downIcon}
               prefixCls={prefixCls}
+              readOnly={readOnly}
               {...others}
             />
           );

@@ -8,6 +8,7 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
+import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
@@ -28,13 +29,17 @@ interface CopyConfig {
   text?: string;
   onCopy?: () => void;
   icon?: React.ReactNode;
-  tooltips?: [React.ReactNode, React.ReactNode];
+  tooltips?: boolean | React.ReactNode;
 }
 
 interface EditConfig {
   editing?: boolean;
+  icon?: React.ReactNode;
+  tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
+  maxLength?: number;
+  autoSize?: boolean | AutoSizeType;
 }
 
 interface EllipsisConfig {
@@ -359,15 +364,20 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { editable } = this.props;
     if (!editable) return;
 
+    const { icon, tooltip } = editable as EditConfig;
+
+    const title = toArray(tooltip)[0] || this.editStr;
+    const ariaLabel = typeof title === 'string' ? title : '';
+
     return (
-      <Tooltip key="edit" title={this.editStr}>
+      <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={this.setEditRef}
           className={`${this.getPrefixCls()}-edit`}
           onClick={this.onEditClick}
-          aria-label={this.editStr}
+          aria-label={ariaLabel}
         >
-          <EditOutlined role="button" />
+          {icon || <EditOutlined role="button" />}
         </TransButton>
       </Tooltip>
     );
@@ -380,20 +390,21 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const title = copied
-      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
-      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
+    const { tooltips } = copyable as CopyConfig;
+    const tooltipNodes = toArray(tooltips);
+    const title = copied ? tooltipNodes[1] || this.copiedStr : tooltipNodes[0] || this.copyStr;
 
     const ariaLabel = typeof title === 'string' ? title : '';
+    const icons = toArray((copyable as CopyConfig).icon);
 
     return (
-      <Tooltip key="copy" title={title}>
+      <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
+          {copied ? icons[1] || <CheckOutlined /> : icons[0] || <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );
@@ -402,6 +413,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   renderEditInput() {
     const { children, className, style } = this.props;
     const { direction } = this.context;
+    const { maxLength, autoSize } = this.getEditable();
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
@@ -411,6 +423,8 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
         className={className}
         style={style}
         direction={direction}
+        maxLength={maxLength}
+        autoSize={autoSize}
       />
     );
   }

@@ -65,32 +65,33 @@ const columns = [
 
 ### Table
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |
-| bordered | 是否展示外边框和列边框 | boolean | false |
-| columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[] | - |
-| components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |
-| dataSource | 数据数组 | object\[] | - |
-| expandable | 配置展开属性 | [expandable](#expandable) | - |
-| footer | 表格尾部 | function(currentPageData) | - |
-| loading | 页面是否加载中 | boolean \| [object](/components/spin/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
-| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: `确定` <br> filterReset: `重置` <br> emptyText: `暂无数据` <br> [默认值](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |
-| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |
-| rowClassName | 表格行的类名 | function(record, index): string | - |
-| rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |
-| rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |
-| scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | object | - |
-| showHeader | 是否显示表头 | boolean | true |
-| size | 表格大小 | `default` \| `middle` \| `small` | default |
-| summary | 总结栏 | (currentData) => ReactNode | - |
-| title | 表格标题 | function(currentPageData) | - |
-| onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
-| onHeaderRow | 设置头部行属性 | function(column, index) | - |
-| onRow | 设置行属性 | function(record, index) | - |
-| getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |
-| sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |
-| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | true |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
+| bordered | 是否展示外边框和列边框 | boolean | false |  |
+| columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[] | - |  |
+| components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
+| dataSource | 数据数组 | object\[] | - |  |
+| expandable | 配置展开属性 | [expandable](#expandable) | - |  |
+| footer | 表格尾部 | function(currentPageData) | - |  |
+| loading | 页面是否加载中 | boolean \| [object](/components/spin/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |  |
+| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: `确定` <br> filterReset: `重置` <br> emptyText: `暂无数据` <br> [默认值](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |  |
+| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |  |
+| rowClassName | 表格行的类名 | function(record, index): string | - |  |
+| rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
+| rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |  |
+| scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | object | - |  |
+| showHeader | 是否显示表头 | boolean | true |  |
+| size | 表格大小 | `default` \| `middle` \| `small` | default |  |
+| summary | 总结栏 | (currentData) => ReactNode | - |  |
+| title | 表格标题 | function(currentPageData) | - |  |
+| onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |  |
+| onHeaderRow | 设置头部行属性 | function(column, index) | - |  |
+| onRow | 设置行属性 | function(record, index) | - |  |
+| getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
+| sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
+| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | true |  |
+| sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number}` | - | 4.6.0 |
 
 #### onRow 用法
 
@@ -235,21 +236,24 @@ interface User {
   name: string;
 }
 
-const columns: ColumnsType<User> = [{
-  key: 'name',
-  title: 'Name',
-  dataIndex: 'name',
-}];
+const columns: ColumnsType<User> = [
+  {
+    key: 'name',
+    title: 'Name',
+    dataIndex: 'name',
+  },
+];
 
-const data: User[] = [{
-  key: 0,
-  name: 'Jack',
-}];
+const data: User[] = [
+  {
+    key: 0,
+    name: 'Jack',
+  },
+];
 
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-  
     /* 使用 JSX 风格的 API */
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />

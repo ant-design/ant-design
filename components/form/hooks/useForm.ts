@@ -4,7 +4,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import { ScrollOptions, NamePath, InternalNamePath } from '../interface';
 import { toArray, getFieldId } from '../util';
 
-export interface FormInstance extends RcFormInstance {
+export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
   /** This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
@@ -21,11 +21,11 @@ function toNamePathStr(name: NamePath) {
   return namePath.join('_');
 }
 
-export default function useForm(form?: FormInstance): [FormInstance] {
+export default function useForm<Values = any>(form?: FormInstance<Values>): [FormInstance<Values>] {
   const [rcForm] = useRcForm();
   const itemsRef = useRef<Record<string, React.ReactElement>>({});
 
-  const wrapForm: FormInstance = useMemo(
+  const wrapForm: FormInstance<Values> = useMemo(
     () =>
       form || {
         ...rcForm,

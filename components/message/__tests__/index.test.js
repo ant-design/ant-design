@@ -25,6 +25,20 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 
+  it('should be able to remove manually with a unique key', () => {
+    const key1 = 'key1';
+    const key2 = 'key2';
+    message.info({ content: 'Message1', key: 'key1', duration: 0 });
+    message.info({ content: 'Message2', key: 'key2', duration: 0 });
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
+    message.destroy(key1);
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    message.destroy(key2);
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
   it('should be able to destroy globally', () => {
     message.info('whatever', 0);
     message.info('whatever', 0);

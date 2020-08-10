@@ -21,10 +21,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | 说明[见下](#copyable) |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | 说明[见下](#editable) |
 | ellipsis | 设置自动溢出省略，需要设置元素宽度 | boolean | false |  |
 | mark | 添加标记样式 | boolean | false |  |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
@@ -37,12 +37,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | 说明[见下](#copyable) |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | 说明[见下](#editable) |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
-| level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4` | number: 1, 2, 3, 4 | 1 |  |
+| level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
@@ -53,16 +53,36 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: boolean \| ReactNode } | false | 说明[见下](#copyable) |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
-| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |
+| editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, maxLength: number, autoSize: true \| false \| { minRows: number, maxRows: number }, onStart: function, onChange: function(string), icon: ReactNode, tooltip: boolean \| ReactNode } | false | 说明[见下](#editable) |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| { rows: number, expandable: boolean, suffix: string, symbol: React.ReactNode, onExpand: function(event), onEllipsis: function(ellipsis) } | false | onEllipsis: 4.2.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 | strong | 是否加粗 | boolean | false |  |
 | type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
+
+### copyable
+
+从 `4.4.0` 版本开始，`copyable` 支持使用 `{ icon: <SmileOutlined /> }` 设置 copy 图标。
+
+从 `4.4.0` 版本开始，`copyable` 支持使用 `{ tooltips: ['click here', 'you clicked!!'] }` 设置 tooltips 文本。
+
+从 `4.6.0` 版本开始，`copyable` 支持使用 `{ icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />] }` 设置 copy 和 copied 图标。
+
+从 `4.6.0` 版本开始，`copyable` 支持使用 `{ tooltips: false }` 设置隐藏 tooltips。
+
+### editable
+
+从 `4.4.0` 版本开始，`editable` 支持使用 `{ maxLength: 50 }` 设置 TextArea 的 `maxLength` 属性。
+
+从 `4.4.0` 版本开始，`editable` 支持使用 `{ autoSize: { maxRows: 5, minRows: 3 } }` 设置 TextArea 的 `autoSize` 属性。
+
+从 `4.6.0` 版本开始，`editable` 支持使用 `{ icon: <HighlightOutlined /> }` 设置 edit 图标。
+
+从 `4.6.0` 版本开始，`editable` 支持使用 `{ tooltips: 'click to edit text' }` 设置 tooltip 文本。
 
 ## FAQ
 

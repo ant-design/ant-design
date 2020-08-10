@@ -26,7 +26,8 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 @disabled-color: rgba(0, 0, 0, 0.25); // 失效色
 @border-radius-base: 2px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
-@box-shadow-base: 0 3px 6px -4px rgba(0,0,0,.12),0 6px 16px 0 rgba(0,0,0,.08),0 9px 28px 8px rgba(0,0,0,.05); // 浮层阴影
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05); // 浮层阴影
 ```
 
 如果以上变量不能满足你的定制需求，可以给我们提 issue。
