@@ -27,12 +27,6 @@
       color: @site-text-color;
     }
   }
-  a.edit-button .anticon {
-    color: @icon-color;
-    &:hover {
-      color: @icon-color-hover;
-    }
-  }
   &,
   .code-box-demo {
     background-color: @component-background;
@@ -107,6 +101,13 @@
     text-decoration: none;
     background: inherit;
     transform: scale(0.9);
+
+    .anticon {
+      color: @icon-color;
+      &:hover {
+        color: @icon-color-hover;
+      }
+    }
 
     .ant-row.ant-row-rtl & {
       right: auto;
