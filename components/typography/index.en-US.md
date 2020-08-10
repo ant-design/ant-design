@@ -87,7 +87,7 @@ Basic text writing, including headings, body text, lists, and more.
 ```
 {
   icon: React.ReactNode,
-  tooltip: boolean \| React.ReactNode,
+  tooltip: boolean | React.ReactNode,
   editing: boolean,
   maxLength: number,
   autoSize: boolean | { minRows: number, maxRows: number },
