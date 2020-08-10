@@ -23,7 +23,7 @@ Basic text writing, including headings, body text, lists, and more.
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | [copyable](#copyable) |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) } | false | [editable](#editable) |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | mark | Marked style | boolean | false |  |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
@@ -40,7 +40,7 @@ Basic text writing, including headings, body text, lists, and more.
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | [copyable](#copyable) |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) } | false | [editable](#editable) |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
@@ -56,7 +56,7 @@ Basic text writing, including headings, body text, lists, and more.
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | [copyable](#copyable) |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) } | false | [editable](#editable) |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
 | mark | Marked style | boolean | false |  |
 | underline | Underlined style | boolean | false |  |
@@ -70,8 +70,8 @@ Basic text writing, including headings, body text, lists, and more.
 {
   text: string,
   onCopy: function,
-  icon: React.ReactNode,
-  tooltips: false | [React.ReactNode, React.ReactNode],
+  icon: ReactNode,
+  tooltips: false | [ReactNode, ReactNode],
 }
 ```
 
@@ -79,15 +79,15 @@ Basic text writing, including headings, body text, lists, and more.
 | --- | --- | --- | --- | --- |
 | text | The text to copy | string | - |  |
 | onCopy | Called when copied text | function | - |  |
-| icon | Custom copy icon: `[copyIcon, copiedIcon]` | \[ReactNode, ReactNode\] | - | 4.6.0 |
-| tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode\] | `['Copy', 'Copied']` | 4.4.0 |
+| icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode\] | - | 4.6.0 |
+| tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode\] | \[`Copy`, `Copied`] | 4.4.0 |
 
 ### editable
 
 ```
 {
-  icon: React.ReactNode,
-  tooltip: boolean | React.ReactNode,
+  icon: ReactNode,
+  tooltip: boolean | ReactNode,
   editing: boolean,
   maxLength: number,
   autoSize: boolean | { minRows: number, maxRows: number },
@@ -99,7 +99,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
-| tooltip | Custom tooltip text, hide when it is `false` | boolean \| React.ReactNode | `Edit` | 4.6.0 |
+| tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
 | editing | Whether to be editable | boolean | false |  |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | autoSize | `autoSize` attribute of textarea | boolean \| { minRows: number, maxRows: number } | - | 4.4.0 |
@@ -113,7 +113,7 @@ Basic text writing, including headings, body text, lists, and more.
   rows: number,
   expandable: boolean,
   suffix: string,
-  symbol: React.ReactNode,
+  symbol: ReactNode,
   onExpand: function(event),
   onEllipsis: function(ellipsis),
 }

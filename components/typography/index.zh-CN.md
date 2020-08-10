@@ -70,8 +70,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 {
   text: string,
   onCopy: function,
-  icon: React.ReactNode,
-  tooltips: false | [React.ReactNode, React.ReactNode],
+  icon: ReactNode,
+  tooltips: false | [ReactNode, ReactNode],
 }
 ```
 
@@ -79,15 +79,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | --- | --- | --- | --- | --- |
 | text | 拷贝到剪切板里的文本 | string | - |  |
 | onCopy | 拷贝成功的回调函数 | function | - |  |
-| icon | 自定义拷贝图标：`[默认图标, 拷贝后的图标]` | \[ReactNode, ReactNode\] | - | 4.6.0 |
-| tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode\] | `['复制', '复制成功']` | 4.4.0 |
+| icon | 自定义拷贝图标：\[默认图标, 拷贝后的图标] | \[ReactNode, ReactNode\] | - | 4.6.0 |
+| tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode\] | \[`复制`, `复制成功`] | 4.4.0 |
 
 ### editable
 
 ```
 {
-  icon: React.ReactNode,
-  tooltip: boolean | React.ReactNode,
+  icon: ReactNode,
+  tooltip: boolean | ReactNode,
   editing: boolean,
   maxLength: number,
   autoSize: boolean | { minRows: number, maxRows: number },
@@ -99,7 +99,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
-| tooltip | 自定义提示文本，为 false 时关闭 | boolean \| React.ReactNode | `编辑` | 4.6.0 |
+| tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
 | editing | 控制是否是编辑中状态 | boolean | false |  |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
 | autoSize | 自动 resize 文本域 | boolean \| { minRows: number, maxRows: number } | - | 4.4.0 |
@@ -113,7 +113,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
   rows: number,
   expandable: boolean,
   suffix: string,
-  symbol: React.ReactNode,
+  symbol: ReactNode,
   onExpand: function(event),
   onEllipsis: function(ellipsis),
 }
