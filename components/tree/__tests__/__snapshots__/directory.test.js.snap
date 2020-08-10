@@ -91,7 +91,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -161,7 +161,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
@@ -462,7 +462,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -511,7 +511,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -1616,7 +1616,7 @@ exports[`Directory Tree expand with state control click 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
               />
             </span>
             <span
@@ -1759,7 +1759,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
               />
             </span>
             <span
@@ -1964,7 +1964,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
               />
             </span>
             <span
@@ -2013,7 +2013,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
               class="ant-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
               />
             </span>
             <span
@@ -2312,7 +2312,7 @@ exports[`Directory Tree group select 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -2361,7 +2361,7 @@ exports[`Directory Tree group select 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -2659,7 +2659,7 @@ exports[`Directory Tree group select 2`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -2708,7 +2708,7 @@ exports[`Directory Tree group select 2`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -3058,7 +3058,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -3107,7 +3107,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span

@@ -74,7 +74,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -127,7 +127,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit ant-tree-indent-unit-start"
@@ -162,7 +162,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit ant-tree-indent-unit-end"
@@ -197,7 +197,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -250,7 +250,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
@@ -867,7 +867,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -916,7 +916,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -1214,7 +1214,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -1263,7 +1263,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -1842,7 +1842,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
@@ -2176,6 +2176,47 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </span>
           </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="plus-square"
+                class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus-square"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title="parent 2"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                parent 2
+              </span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2423,7 +2464,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -2469,7 +2510,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit ant-tree-indent-unit-start"
@@ -2518,7 +2559,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit"
@@ -2567,7 +2608,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end-first-level"
             />
             <span
               class="ant-tree-indent-unit ant-tree-indent-unit-end"
@@ -2616,7 +2657,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span
@@ -2662,7 +2703,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end ant-tree-indent-unit-end-first-level"
             />
           </span>
           <span

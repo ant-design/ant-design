@@ -218,6 +218,15 @@
           position: relative;
           height: 100%;
 
+          &:first-child::after {
+            position: absolute;
+            top: calc(100% - @tree-title-height - 4px);
+            right: @tree-title-height / 2;
+            bottom: -4px;
+            border-right: 1px solid @border-color-base;
+            content: '';
+          }
+
           &::before {
             position: absolute;
             top: calc(100% - 4px);
@@ -227,10 +236,9 @@
             content: '';
           }
 
-          &-end {
-            &::before {
-              display: none;
-            }
+          &-end::before,
+          &-end-first-level::after {
+            display: none;
           }
         }
       }
@@ -238,6 +246,7 @@
       /* Motion should hide line of measure */
       .@{custom-tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
         .@{custom-tree-prefix-cls}-indent-unit {
+          &::after,
           &::before {
             display: none;
           }
