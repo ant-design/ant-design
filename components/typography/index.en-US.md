@@ -77,7 +77,7 @@ Basic text writing, including headings, body text, lists, and more.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| text | The text to copy | string |  |  |
+| text | The text to copy | string | - |  |
 | onCopy | Called when copied text | function | - | - |
 | icon | Custom copy icon: `[copyIcon, copiedIcon]` | \[ReactNode, ReactNode\] | - | 4.6.0 |
 | tooltips | Custom tooltip text, hide when it is `false` | \[ReactNode, ReactNode\] | `['Copy', 'Copied']` | 4.4.0 |
