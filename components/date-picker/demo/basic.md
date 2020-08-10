@@ -14,46 +14,19 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ```jsx
-import { DatePicker, TimePicker, Select, Space } from 'antd';
+import { DatePicker, Space } from 'antd';
 
-const { Option } = Select;
-
-function TypeSelect({ type, onChange }) {
-  return (
-    <Select value={type} onChange={onChange}>
-      <Option value="time">Time</Option>
-      <Option value="date">Date</Option>
-      <Option value="week">Week</Option>
-      <Option value="month">Month</Option>
-      <Option value="quarter">Quarter</Option>
-      <Option value="year">Year</Option>
-    </Select>
-  );
-}
-
-function PickerWithType({ type, onChange }) {
-  if (type === 'time') return <TimePicker onChange={onChange} />;
-  if (type === 'date') return <DatePicker onChange={onChange} />;
-  return <DatePicker picker={type} onChange={onChange} />;
-}
-
-function SwitchablePicker() {
-  const [type, setType] = React.useState('time');
-  const onChange = value => {
-    console.log(value);
-  };
-  return (
-    <Space>
-      <TypeSelect type={type} onChange={setType} />
-      <PickerWithType type={type} onChange={onChange} />
-    </Space>
-  );
+function onChange(date, dateString) {
+  console.log(date, dateString);
 }
 
 ReactDOM.render(
-  <Space direction="vertical" size={12}>
-    <DatePicker />
-    <SwitchablePicker />
+  <Space direction="vertical">
+    <DatePicker onChange={onChange} />
+    <DatePicker onChange={onChange} picker="week" />
+    <DatePicker onChange={onChange} picker="month" />
+    <DatePicker onChange={onChange} picker="quarter" />
+    <DatePicker onChange={onChange} picker="year" />
   </Space>,
   mountNode,
 );

@@ -45,7 +45,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | -   |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => React.ReactNode | - |  |
-| progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API) ( 仅支持 `type="line"` ) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
+| progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 
 ### onChange
 
@@ -67,7 +67,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
    {
       uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
       name: 'xx.png'   // 文件名
-      status: 'done', // 状态有：uploading done error removed
+      status: 'done', // 状态有：uploading done error removed，被 beforeUpload 拦截的文件没有 status 属性
       response: '{"status": "success"}', // 服务端响应内容
       linkProps: '{"download": "image"}', // 下载链接额外的 HTML 属性
    }

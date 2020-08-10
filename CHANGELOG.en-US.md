@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 4.5.3
+
+`2020-08-08`
+
+- Menu
+  - 🐞 Fix horizontal Menu dark `theme` style under dark theme. [#26062](https://github.com/ant-design/ant-design/pull/26062)
+  - 🐞 Fix the position of the horizontal Menu in dark theme and RTL mode. [#26032](https://github.com/ant-design/ant-design/pull/26032)
+- Table
+  - 🐞 Fix Table crash when `dataSource` contains number. [#26042](https://github.com/ant-design/ant-design/pull/26042)
+  - 🐞 Fix Table empty filters throw warning. [#26001](https://github.com/ant-design/ant-design/pull/26001)
+- Form
+  - 🐞 Fix Form.Item `hidden` not work with `noStyle`. [#26020](https://github.com/ant-design/ant-design/pull/26020)
+  - 💄 Fix Form.Item margin is uncorrect in compact mode. [#26069](https://github.com/ant-design/ant-design/pull/26069)
+- Transfer
+  - 🐞 Fix the mouse style of the head dropDown when Transfer is `disabled`. [#26005](https://github.com/ant-design/ant-design/pull/26005)
+  - 🐞 Fix the problem that Pagination is not `disabled` when Transfer is `disabled`. [#26009](https://github.com/ant-design/ant-design/pull/26009)
+- Cascader
+  - 💄 Cascader selector down arrow doesn't rotate. [#26078](https://github.com/ant-design/ant-design/pull/26078) [@07akioni](https://github.com/07akioni)
+  - 🐞 Fix Cascader text overflow bug in Firefox. [#26011](https://github.com/ant-design/ant-design/pull/26011)
+  - 🐞 Fix the problem that the color of mouse hover border is abnormal when Cascader is `disabled`. [#25970](https://github.com/ant-design/ant-design/pull/25970)
+- Select
+  - 💄 Optimize the `disabled` style of Select multiple mode. [#25980](https://github.com/ant-design/ant-design/pull/25980)
+  - 🐞 Fix the mouse style of custom icon when Select is `disabled`. [#26002](https://github.com/ant-design/ant-design/pull/26002)
+- 🐞 Fix Breadcrumb.Item lost separator after wrapping in component. [#25984](https://github.com/ant-design/ant-design/pull/25984) [@flyerH](https://github.com/flyerH)
+- 🐞 Fix InputNumber dark theme handler background color. [#26072](https://github.com/ant-design/ant-design/pull/26072)
+- 🐞 Fix the missing `key` of Avatar.Group. [#26098](https://github.com/ant-design/ant-design/pull/26098)
+- 💄 Adjusts Mentions `readOnly` mouse style to native style. [#25977](https://github.com/ant-design/ant-design/pull/25977)
+- 💄 Add `@btn-line-height`. [#26014](https://github.com/ant-design/ant-design/pull/26014)
+- 💄 Optimize Pagination style when `simple` type and `disabled`. [#26008](https://github.com/ant-design/ant-design/pull/26008)
+- 🐞 Fix Modal `useModal` missing style issue. [#25967](https://github.com/ant-design/ant-design/pull/25967)
+- 🐞 Fix Steps RTL style when use `progress`. [#26075](https://github.com/ant-design/ant-design/pull/26075)
+- 🌐 Improve Arabic locale. [#26094](https://github.com/ant-design/ant-design/pull/26094) [@Mohelm97](https://github.com/Mohelm97)
+- 🌐 Improve fr_FR localization. [#26034](https://github.com/ant-design/ant-design/pull/26034) [@Thanaen](https://github.com/Thanaen)
+
 ## 4.5.2
 
 `2020-08-02`

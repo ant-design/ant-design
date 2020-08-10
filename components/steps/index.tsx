@@ -67,7 +67,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     }) => {
       if (status === 'process' && percent !== undefined) {
         // currently it's hard-coded, since we can't easily read the actually width of icon
-        const progressWidth = size === 'small' ? 30 : 38;
+        const progressWidth = size === 'small' ? 32 : 40;
         const iconWithProgress = (
           <div className={`${prefixCls}-progress-icon`}>
             <Progress

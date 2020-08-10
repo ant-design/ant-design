@@ -229,21 +229,24 @@ interface User {
   name: string;
 }
 
-const columns: ColumnsType<User> = [{
-  key: 'name',
-  title: 'Name',
-  dataIndex: 'name',
-}];
+const columns: ColumnsType<User> = [
+  {
+    key: 'name',
+    title: 'Name',
+    dataIndex: 'name',
+  },
+];
 
-const data: User[] = [{
-  key: 0,
-  name: 'Jack',
-}];
+const data: User[] = [
+  {
+    key: 0,
+    name: 'Jack',
+  },
+];
 
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-  
     /* JSX style usage */
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />

@@ -350,6 +350,14 @@
         padding: @menu-item-padding;
         padding-right: 0;
         padding-left: 0;
+
+        &:hover,
+        &-active,
+        &-open,
+        &-selected {
+          color: @menu-highlight-color;
+          border-bottom: 2px solid @menu-highlight-color;
+        }
       }
     }
 
@@ -360,14 +368,6 @@
       display: inline-block;
       vertical-align: bottom;
       border-bottom: 2px solid transparent;
-
-      &:hover,
-      &-active,
-      &-open,
-      &-selected {
-        color: @menu-highlight-color;
-        border-bottom: 2px solid @menu-highlight-color;
-      }
     }
 
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
