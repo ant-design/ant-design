@@ -75,6 +75,7 @@ const Alert: AlertInterface = ({
   onMouseEnter,
   onMouseLeave,
   onClick,
+  afterClose,
   showIcon,
   closable,
   closeText,
@@ -162,6 +163,7 @@ const Alert: AlertInterface = ({
       onLeaveStart={node => ({
         maxHeight: node.offsetHeight,
       })}
+      onLeaveEnd={afterClose}
     >
       {({ className: motionClassName, style: motionStyle }) => (
         <div
