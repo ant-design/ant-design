@@ -8,7 +8,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import Animate from 'rc-animate';
+import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
@@ -80,7 +80,6 @@ const Alert: AlertInterface = ({
   closeText,
   ...props
 }) => {
-  const [closing, setClosing] = React.useState(false);
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();
@@ -88,14 +87,8 @@ const Alert: AlertInterface = ({
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setClosing(true);
-    props.onClose?.(e);
-  };
-
-  const animationEnd = () => {
-    setClosing(false);
     setClosed(true);
-    props.afterClose?.();
+    props.onClose?.(e);
   };
 
   const getType = () => {
@@ -149,7 +142,6 @@ const Alert: AlertInterface = ({
     prefixCls,
     `${prefixCls}-${type}`,
     {
-      [`${prefixCls}-closing`]: closing,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
@@ -161,30 +153,35 @@ const Alert: AlertInterface = ({
 
   const dataOrAriaProps = getDataOrAriaProps(props);
 
-  return closed ? null : (
-    <Animate
-      component=""
-      showProp="data-show"
-      transitionName={`${prefixCls}-slide-up`}
-      onEnd={animationEnd}
+  return (
+    <CSSMotion
+      visible={!closed}
+      motionName={`${prefixCls}-motion`}
+      motionAppear={false}
+      motionEnter={false}
+      onLeaveStart={node => ({
+        maxHeight: node.offsetHeight,
+      })}
     >
-      <div
-        ref={ref}
-        data-show={!closing}
-        className={alertCls}
-        style={style}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-        role="alert"
-        {...dataOrAriaProps}
-      >
-        {isShowIcon ? renderIconNode() : null}
-        <span className={`${prefixCls}-message`}>{message}</span>
-        <span className={`${prefixCls}-description`}>{description}</span>
-        {renderCloseIcon()}
-      </div>
-    </Animate>
+      {({ className: motionClassName, style: motionStyle }) => (
+        <div
+          ref={ref}
+          data-show={!closed}
+          className={classNames(alertCls, motionClassName)}
+          style={{ ...style, ...motionStyle }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={onClick}
+          role="alert"
+          {...dataOrAriaProps}
+        >
+          {isShowIcon ? renderIconNode() : null}
+          <span className={`${prefixCls}-message`}>{message}</span>
+          <span className={`${prefixCls}-description`}>{description}</span>
+          {renderCloseIcon()}
+        </div>
+      )}
+    </CSSMotion>
   );
 };
 
