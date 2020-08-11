@@ -20,7 +20,7 @@ import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import measure from './util';
 
-export type BaseType = 'secondary' | 'danger' | 'warning';
+export type BaseType = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 
 const isLineClampSupport = isStyleSupport('webkitLineClamp');
 const isTextOverflowSupport = isStyleSupport('textOverflow');
