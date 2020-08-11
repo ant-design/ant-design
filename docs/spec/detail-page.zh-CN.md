@@ -97,15 +97,15 @@ title: 详情页
 
 适用于开发协作流程。
 
-### 设计建议
+## 设计建议
 
-#### 选择模板
+### 选择模板
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kC5tQbp8A60AAAAAAAAAAABkARQnAQ">
 
 根据信息的复杂度和相关性模型，选用相应的信息呈现方式，选用合理的布局方案来承载详情页的内容。
 
-#### 区隔方式
+### 区隔方式
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3jPZSa8n2g4AAAAAAAAAAABkARQnAQ">
 
@@ -116,7 +116,7 @@ title: 详情页
 - 卡片：放置一个主题；
 - 页签：对象描述信息最顶层组织方式，如按版本组织、按意图组织、按阶段组织；
 
-#### 内容组件
+### 内容组件
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZRvkTYUMKLQAAAAAAAAAAABkARQnAQ">
 
@@ -138,7 +138,7 @@ title: 详情页
 ### 外部参考文章
 
 - [Fiori – How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
-- [SAP Fiori 2.0: The Object Page —— Part 1： Its History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)
+- [SAP Fiori 2.0: The Object Page —— Part 1: It's History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)
 - [Fiori 详情页汇总](https://experience.sap.com/fiori-design-web/?s=Details+page)
 - [Object Page Floorplan](https://experience.sap.com/fiori-design-web/object-page/)
 - [超市商品陈列原则](https://wiki.mbalib.com/wiki/%E8%B6%85%E5%B8%82%E5%95%86%E5%93%81%E9%99%88%E5%88%97%E5%8E%9F%E5%88%99)
