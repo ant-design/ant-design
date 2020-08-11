@@ -7,7 +7,7 @@ title: Detail Page
 
 Detail Pages display the complete data to users. Users can edit the information or do other operations.
 
-## Design Aims
+## Design Goals
 
 To increase the information viewing and searching efficiency. To raise the convenience of operation.
 

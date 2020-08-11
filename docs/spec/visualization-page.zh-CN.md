@@ -175,4 +175,4 @@ title: 数据可视化页
 
 ### 会用到哪些模块或组件
 
-- [AntV 图表示例](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html)
+- [AntV 图表示例](https://g2plot.antv.vision/zh/examples/gallery)
