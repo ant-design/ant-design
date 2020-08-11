@@ -36,7 +36,7 @@ The numerical value is used to indicate the measurement size, it can be used alo
 
 ### Amount
 
-**Amount Format: **The standard format is "currency symbol + number". For example, "CNY1,123.00". **Currency Symbol**: There are two types: abbreviations letters and characters. You can check symbols for different currencies from [CURRENCY SYMBOLS](https://www.iban.com/currency-codes).
+**Amount Format**: The standard format is "currency symbol + number". For example, "CNY1,123.00". **Currency Symbol**: There are two types: abbreviations letters and characters. You can check symbols for different currencies from [CURRENCY SYMBOLS](https://www.iban.com/currency-codes).
 
 | Currency Symbol | How and When to Use | Example |
 | --- | --- | --- |
