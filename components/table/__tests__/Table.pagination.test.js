@@ -349,7 +349,7 @@ describe('Table.pagination', () => {
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
 
-    expect(onChange).toBeCalledTimes(1)
+    expect(onChange).toBeCalledTimes(1);
   });
 
   it('dynamic warning', () => {
@@ -376,5 +376,41 @@ describe('Table.pagination', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
     );
+  });
+
+  it('should render pagination after last item on last page being removed with async mode', () => {
+    const lastPageNum = data.length;
+    const wrapper = mount(
+      createTable({ pagination: { pageSize: 1, total: data.length, current: lastPageNum } }),
+    );
+
+    const newCol = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+      },
+      {
+        title: 'Action',
+        dataIndex: 'name',
+        render(_, record) {
+          const deleteRow = () => {
+            const newData = data.filter(d => d.key !== record.key);
+            wrapper.setProps({
+              dataSource: newData,
+              pagination: { pageSize: 1, total: newData.length, current: lastPageNum },
+            });
+          };
+          return (
+            <span className="btn-delete" onClick={deleteRow}>
+              Delete
+            </span>
+          );
+        },
+      },
+    ];
+
+    wrapper.setProps({ columns: newCol });
+    wrapper.find('.btn-delete').simulate('click');
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 });
