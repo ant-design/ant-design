@@ -15,13 +15,13 @@ exports[`Layout renders string width correctly 1`] = `
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 1`] = `
 <section
-  class="ant-layout ant-layout-rtl sc-bdVaJa bDsueh"
+  class="ant-layout ant-layout-rtl sc-AxjAm bEBxLd"
 />
 `;
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 2`] = `
 <main
-  class="ant-layout-content sc-bwzfXH jcXvYR"
+  class="ant-layout-content sc-AxirZ kZEQos"
   layout="hcenter"
 />
 `;

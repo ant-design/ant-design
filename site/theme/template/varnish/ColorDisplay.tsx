@@ -259,27 +259,23 @@ const PrimaryColorBox = styled.div`
   grid-column: 1 / span 3;
 `;
 
-const MicroCol = styled(BodyMicro as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const MicroCol = styled(BodyMicro)`
   background: ${({ theme }) => theme.palette.background.light};
   padding: ${({ theme }) => theme.spacing.md};
 `;
 
-const PrimaryColorName = styled(MicroCol as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const PrimaryColorName = styled(MicroCol)`
   grid-column: 1;
   padding-right: 0;
 `;
 
-const PrimaryColorHex = styled(MicroCol as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const PrimaryColorHex = styled(MicroCol)`
   grid-column: 2;
   text-align: center;
   padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xs}`};
 `;
 
-const PrimaryColorRgb = styled(MicroCol as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const PrimaryColorRgb = styled(MicroCol)`
   grid-column: 3;
   padding-left: 0;
 `;
@@ -308,13 +304,11 @@ const ExtendedHeadRow = styled.div`
   padding: ${({ theme }) => `${theme.spacing.lg} 0`};
 `;
 
-const Label = styled(BodyJumbo as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const Label = styled(BodyJumbo)`
   text-transform: capitalize;
 `;
 
-const Col = styled(Body as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const Col = styled(Body)`
   padding: ${({ theme }) => `${theme.spacing.md} 0`};
   display: inline-block;
   border-top: 1px solid ${({ theme }) => theme.palette.border.default};
@@ -336,24 +330,20 @@ const ColorText = styled.div`
   color: ${props => props.color};
 `;
 
-const ColorBoxWrapper = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorBoxWrapper = styled(Col)`
   padding: 7px;
   grid-column: 1;
 `;
 
-const ColorName = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorName = styled(Col)`
   padding-left: ${({ theme }) => theme.spacing.xs};
   grid-column: 2;
 `;
 
-const ColorHex = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorHex = styled(Col)`
   grid-column: 3;
 `;
 
-const ColorRgb = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorRgb = styled(Col)`
   grid-column: 4;
 `;

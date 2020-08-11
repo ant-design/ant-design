@@ -14978,7 +14978,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 
 exports[`ConfigProvider components Layout configProvider 1`] = `
 <section
-  class="config-layout sc-bdVaJa bDsueh"
+  class="config-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="config-layout-sider config-layout-sider-dark"
@@ -14989,13 +14989,13 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     />
   </aside>
   <section
-    class="config-layout sc-bdVaJa bDsueh"
+    class="config-layout sc-AxjAm bEBxLd"
   >
     <header
       class="config-layout-header"
     />
     <main
-      class="config-layout-content sc-bwzfXH jcXvYR"
+      class="config-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
     />
     <footer
@@ -15007,7 +15007,7 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
 
 exports[`ConfigProvider components Layout configProvider componentSize large 1`] = `
 <section
-  class="config-layout sc-bdVaJa bDsueh"
+  class="config-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="config-layout-sider config-layout-sider-dark"
@@ -15018,13 +15018,13 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
     />
   </aside>
   <section
-    class="config-layout sc-bdVaJa bDsueh"
+    class="config-layout sc-AxjAm bEBxLd"
   >
     <header
       class="config-layout-header"
     />
     <main
-      class="config-layout-content sc-bwzfXH jcXvYR"
+      class="config-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
     />
     <footer
@@ -15036,7 +15036,7 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
 
 exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
 <section
-  class="config-layout sc-bdVaJa bDsueh"
+  class="config-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="config-layout-sider config-layout-sider-dark"
@@ -15047,13 +15047,13 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
     />
   </aside>
   <section
-    class="config-layout sc-bdVaJa bDsueh"
+    class="config-layout sc-AxjAm bEBxLd"
   >
     <header
       class="config-layout-header"
     />
     <main
-      class="config-layout-content sc-bwzfXH jcXvYR"
+      class="config-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
     />
     <footer
@@ -15065,7 +15065,7 @@ exports[`ConfigProvider components Layout configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Layout configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -15076,13 +15076,13 @@ exports[`ConfigProvider components Layout configProvider virtual and dropdownMat
     />
   </aside>
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <header
       class="ant-layout-header"
     />
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR"
+      class="ant-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
     />
     <footer
@@ -15094,7 +15094,7 @@ exports[`ConfigProvider components Layout configProvider virtual and dropdownMat
 
 exports[`ConfigProvider components Layout normal 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -15105,13 +15105,13 @@ exports[`ConfigProvider components Layout normal 1`] = `
     />
   </aside>
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <header
       class="ant-layout-header"
     />
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR"
+      class="ant-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
     />
     <footer
@@ -15123,7 +15123,7 @@ exports[`ConfigProvider components Layout normal 1`] = `
 
 exports[`ConfigProvider components Layout prefixCls 1`] = `
 <section
-  class="prefix-Layout sc-bdVaJa bDsueh"
+  class="prefix-Layout sc-AxjAm bEBxLd"
 >
   <aside
     class="prefix-sider prefix-sider-dark"
@@ -15134,13 +15134,13 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     />
   </aside>
   <section
-    class="prefix-Layout sc-bdVaJa bDsueh"
+    class="prefix-Layout sc-AxjAm bEBxLd"
   >
     <header
       class="prefix-header"
     />
     <main
-      class="prefix-content sc-bwzfXH jcXvYR"
+      class="prefix-content sc-AxirZ kZEQos"
       layout="hcenter"
     />
     <footer

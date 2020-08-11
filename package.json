@@ -155,7 +155,7 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
-    "@allenai/varnish": "^0.9.7",
+    "@allenai/varnish": "^0.9.8",
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
@@ -174,7 +174,7 @@
     "@types/react-color": "^3.0.1",
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@types/react-dom": "^16.9.5",
-    "@types/styled-components": "^4.1.19",
+    "@types/styled-components": "^5.1.2",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
@@ -277,7 +277,7 @@
     "scrollama": "^2.0.0",
     "simple-git": "^2.0.0",
     "string-replace-loader": "^2.3.0",
-    "styled-components": "^4.3.2",
+    "styled-components": "^5.1.1",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-rational-order": "^0.1.2",
@@ -294,7 +294,7 @@
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^5.1.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
