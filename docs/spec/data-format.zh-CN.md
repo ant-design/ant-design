@@ -22,6 +22,8 @@ title: 数据格式
 | 百分比   | 比例问题等。                 | 12.32%    |
 | 正斜杠   | 用分数的形式表示事项进展。   | 12/30     |
 
+<br />
+
 <img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vjAcTqS6VKoAAAAAAAAAAABkARQnAQ">
 
 <img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3CXaSK6NcrwAAAAAAAAAAABkARQnAQ">
@@ -43,6 +45,8 @@ title: 数据格式
 | -------- | -------------------------------------------------------- | --------- |
 | 字符     | 以人民币为例，金额前带货币单位标志「¥」                  | ¥123.00   |
 | 字母     | 以人民币为例，推荐使用 CNY，CNY 为国际上通用的货币代码。 | CNY123.00 |
+
+<br />
 
 <img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FGtoQIKHySkAAAAAAAAAAABkARQnAQ">
 <img class="preview-img bad" align="right" alt="不推荐示例" description="金额数字到「元」为止的，在「元」之后，应写「整」字，在「角」之后可以不写「整」字。金额数字有「分」的，「分」后面不写「整」字。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*adz2QIF8umQAAAAAAAAAAABkARQnAQ">

@@ -47,15 +47,11 @@ Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, a
 <img class="preview-img good no-padding" align="right" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/OP88j1SDf6/ef562312-9a51-456b-8e53-a127c9f25e80.png" description="The word order is the same on the same page and in the same area.">
 <img class="preview-img bad no-padding" align="right" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/9DiXkPap0V/6e03b9cc-f594-4bf3-9c15-913980c6175a.png" description="Inconsistent word orders will take users' more effort to comprehend.">
 
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/3zhhAZYGSc/ba1c9133-abb3-4f67-b116-544e9ad0cbad.png" alt="The operation name and the target page title should be the same.">
+
 - Use consistent words that describe the same thing;
 - Use consistent grammar, language and word orders of the context;
 - Use consistent operation names and page titles.
-
-<br />
-
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/3zhhAZYGSc/ba1c9133-abb3-4f67-b116-544e9ad0cbad.png">
-
-The operation name and the target page title should be the same.
 
 ### Place important information in a prominent position
 
