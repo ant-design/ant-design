@@ -3,7 +3,7 @@
 exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
 Array [
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <header
       class="ant-layout-header"
@@ -11,7 +11,7 @@ Array [
       Header
     </header>
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR"
+      class="ant-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
     >
       Content
@@ -23,7 +23,7 @@ Array [
     </footer>
   </section>,
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <header
       class="ant-layout-header"
@@ -31,7 +31,7 @@ Array [
       Header
     </header>
     <section
-      class="ant-layout sc-bdVaJa bDsueh"
+      class="ant-layout sc-AxjAm bEBxLd"
     >
       <aside
         class="ant-layout-sider ant-layout-sider-dark"
@@ -44,7 +44,7 @@ Array [
         </div>
       </aside>
       <main
-        class="ant-layout-content sc-bwzfXH jcXvYR"
+        class="ant-layout-content sc-AxirZ kZEQos"
         layout="hcenter"
       >
         Content
@@ -57,7 +57,7 @@ Array [
     </footer>
   </section>,
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <header
       class="ant-layout-header"
@@ -65,10 +65,10 @@ Array [
       Header
     </header>
     <section
-      class="ant-layout sc-bdVaJa bDsueh"
+      class="ant-layout sc-AxjAm bEBxLd"
     >
       <main
-        class="ant-layout-content sc-bwzfXH jcXvYR"
+        class="ant-layout-content sc-AxirZ kZEQos"
         layout="hcenter"
       >
         Content
@@ -91,7 +91,7 @@ Array [
     </footer>
   </section>,
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark"
@@ -104,7 +104,7 @@ Array [
       </div>
     </aside>
     <section
-      class="ant-layout sc-bdVaJa bDsueh"
+      class="ant-layout sc-AxjAm bEBxLd"
     >
       <header
         class="ant-layout-header"
@@ -112,7 +112,7 @@ Array [
         Header
       </header>
       <main
-        class="ant-layout-content sc-bwzfXH jcXvYR"
+        class="ant-layout-content sc-AxirZ kZEQos"
         layout="hcenter"
       >
         Content
@@ -129,7 +129,7 @@ Array [
 
 exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -236,7 +236,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout sc-bdVaJa bDsueh site-layout"
+    class="ant-layout sc-AxjAm bEBxLd site-layout"
   >
     <header
       class="ant-layout-header site-layout-background"
@@ -265,7 +265,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       </span>
     </header>
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR site-layout-background"
+      class="ant-layout-content sc-AxirZ kZEQos site-layout-background"
       layout="hcenter"
       style="margin:24px 16px;padding:24px;min-height:280px"
     >
@@ -277,7 +277,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <header
     class="ant-layout-header"
@@ -387,7 +387,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content sc-bwzfXH jcXvYR site-layout"
+    class="ant-layout-content sc-AxirZ kZEQos site-layout"
     layout="hcenter"
     style="padding:0 50px;margin-top:64px"
   >
@@ -450,7 +450,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -702,7 +702,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout sc-bdVaJa bDsueh site-layout"
+    class="ant-layout sc-AxjAm bEBxLd site-layout"
     style="margin-left:200px"
   >
     <header
@@ -710,7 +710,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       style="padding:0"
     />
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR"
+      class="ant-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
       style="margin:24px 16px 0;overflow:initial"
     >
@@ -828,12 +828,12 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 exports[`renders ./components/layout/demo/layout-color.md correctly 1`] = `
 <section
   bgcolor="B6"
-  class="ant-layout sc-bdVaJa gvjlWw"
+  class="ant-layout sc-AxjAm faXKcs"
 >
   Hello Blue World
   <section
     bgcolor="G6"
-    class="ant-layout sc-bdVaJa iaDiNG"
+    class="ant-layout sc-AxjAm hYOreg"
   >
     Hello Green World
   </section>
@@ -842,7 +842,7 @@ exports[`renders ./components/layout/demo/layout-color.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -978,14 +978,14 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <header
       class="ant-layout-header site-layout-sub-header-background"
       style="padding:0"
     />
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR"
+      class="ant-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
       style="margin:24px 16px 0"
     >
@@ -1008,7 +1008,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
   style="min-height:100vh"
 >
   <aside
@@ -1219,14 +1219,14 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout sc-bdVaJa bDsueh site-layout"
+    class="ant-layout sc-AxjAm bEBxLd site-layout"
   >
     <header
       class="ant-layout-header site-layout-background"
       style="padding:0"
     />
     <main
-      class="ant-layout-content sc-bwzfXH jcXvYR"
+      class="ant-layout-content sc-AxirZ kZEQos"
       layout="hcenter"
       style="margin:0 16px"
     >
@@ -1278,7 +1278,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/top.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh layout"
+  class="ant-layout sc-AxjAm bEBxLd layout"
 >
   <header
     class="ant-layout-header"
@@ -1387,7 +1387,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content sc-bwzfXH jcXvYR"
+    class="ant-layout-content sc-AxirZ kZEQos"
     layout="hcenter"
     style="padding:0 50px"
   >
@@ -1449,7 +1449,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <header
     class="ant-layout-header header"
@@ -1558,7 +1558,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content sc-bwzfXH jcXvYR"
+    class="ant-layout-content sc-AxirZ kZEQos"
     layout="hcenter"
     style="padding:0 50px"
   >
@@ -1604,7 +1604,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </span>
     </div>
     <section
-      class="ant-layout sc-bdVaJa bDsueh site-layout-background"
+      class="ant-layout sc-AxjAm bEBxLd site-layout-background"
       style="padding:24px 0"
     >
       <aside
@@ -1777,7 +1777,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </aside>
       <main
-        class="ant-layout-content sc-bwzfXH jcXvYR"
+        class="ant-layout-content sc-AxirZ kZEQos"
         layout="hcenter"
         style="padding:0 24px;min-height:280px"
       >
@@ -1796,7 +1796,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
 <section
-  class="ant-layout sc-bdVaJa bDsueh"
+  class="ant-layout sc-AxjAm bEBxLd"
 >
   <header
     class="ant-layout-header header"
@@ -1905,7 +1905,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     </ul>
   </header>
   <section
-    class="ant-layout sc-bdVaJa bDsueh"
+    class="ant-layout sc-AxjAm bEBxLd"
   >
     <aside
       class="site-layout-background ant-layout-sider ant-layout-sider-dark"
@@ -2077,7 +2077,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       </div>
     </aside>
     <section
-      class="ant-layout sc-bdVaJa bDsueh"
+      class="ant-layout sc-AxjAm bEBxLd"
       style="padding:0 24px 24px"
     >
       <div
@@ -2122,7 +2122,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </span>
       </div>
       <main
-        class="ant-layout-content sc-bwzfXH jcXvYR site-layout-background"
+        class="ant-layout-content sc-AxirZ kZEQos site-layout-background"
         layout="hcenter"
         style="padding:24px;margin:0;min-height:280px"
       >

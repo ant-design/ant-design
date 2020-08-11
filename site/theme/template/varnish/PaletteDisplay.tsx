@@ -122,15 +122,13 @@ class ColorRow extends React.PureComponent<ColorRowProps> {
   }
 }
 
-const Col = styled(Body as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const Col = styled(Body)`
   padding: ${({ theme }) => `${theme.spacing.md} 0`};
   display: inline-block;
   border-top: 1px solid ${({ theme }) => theme.palette.border.default};
 `;
 
-const PaletteName = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const PaletteName = styled(Col)`
   grid-column: 1;
   padding-left: ${({ theme }) => theme.spacing.md};
 `;
@@ -145,30 +143,25 @@ const ColorBox = styled.div<{ color: string; useContrastText?: boolean }>`
       useContrastText ? theme.palette.text.contrast : theme.palette.text.primary};
 `;
 
-const ColorBoxWrapper = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorBoxWrapper = styled(Col)`
   padding: 7px;
   grid-column: 2;
 `;
 
-const ColorName = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorName = styled(Col)`
   padding-left: ${({ theme }) => theme.spacing.xs};
   grid-column: 3;
 `;
 
-const ColorHex = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorHex = styled(Col)`
   grid-column: 4;
 `;
 
-const ColorRgb = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const ColorRgb = styled(Col)`
   grid-column: 5;
 `;
 
-const Label = styled(Col as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const Label = styled(Col)`
   grid-column: 1 / span 5;
   padding: ${({ theme }) => `${theme.spacing.xl} 0 ${theme.spacing.sm} 0`};
 `;

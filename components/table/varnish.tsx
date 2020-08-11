@@ -40,8 +40,7 @@ export const BasicFilterDropdown = ({
   </DropWrap>
 );
 
-const SearchIcon = styled(SearchOutlined as any)<{ filtered: boolean }>`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const SearchIcon = styled(SearchOutlined)<{ filtered: boolean }>`
   &&& {
     color: ${({ theme, filtered }) => (filtered ? theme.palette.primary.main : null)};
   }
@@ -51,8 +50,7 @@ const DropWrap = styled.div`
   width: 224px;
 `;
 
-const DropDown = styled(Columns as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const DropDown = styled(Columns)`
   padding: ${({ theme }) => theme.spacing.sm};
   grid-gap: ${({ theme }) => theme.spacing.sm};
 `;

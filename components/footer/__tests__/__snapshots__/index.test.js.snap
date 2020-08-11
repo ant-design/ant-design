@@ -2,7 +2,7 @@
 
 exports[`Footer rtl render component should be rendered correctly in RTL direction 1`] = `
 <footer
-  class="ant-layout-footer sc-ifAKCX fMjuJu"
+  class="ant-layout-footer sc-AxhUy gudtdT"
   layout="hcenter"
 >
   <span>

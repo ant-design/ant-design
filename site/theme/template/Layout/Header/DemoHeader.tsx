@@ -158,8 +158,7 @@ const CleanLink = styled(Link)`
   }
 `;
 
-const HomeTitle = styled(HeaderTitle as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+const HomeTitle = styled(HeaderTitle)`
   vertical-align: middle;
   margin-left: 10px;
 `;

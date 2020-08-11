@@ -127,8 +127,7 @@ export const HeaderTitle = styled.h5`
   }
 `;
 
-export const HeaderColumns = styled(Columns as any)`
-  /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+export const HeaderColumns = styled(Columns)`
   width: 100%;
   align-items: center;
   padding: 11.5px 0;
@@ -139,13 +138,11 @@ export const HeaderColumns = styled(Columns as any)`
       margin-right: ${({ theme }) => theme.spacing.xs};
     }
 
-    ${HeaderTitle as any} {
-      /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+    ${HeaderTitle} {
       vertical-align: middle;
     }
 
-    &:hover ${HeaderTitle as any} {
-      /* The 'any' type here fixes a bug, https://github.com/microsoft/TypeScript/issues/37597 */
+    &:hover ${HeaderTitle} {
       text-decoration: none;
       display: inline-block;
     }
