@@ -3,47 +3,67 @@
   margin-bottom: 1em;
 }
 
-.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginBottom;) {
+.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginBottom; @letterSpacing; @fontFamily; @textDecoration; @textShadow;) {
   margin-bottom: @headingMarginBottom;
   color: @headingColor;
   font-weight: @fontWeight;
   font-size: @fontSize;
   line-height: @lineHeight;
+  letter-spacing: @letterSpacing;
+  font-family: @fontFamily;
+  text-decoration: @textDecoration;
+  text-shadow: @textShadow;
 }
 
 .typography-title-1() {
   .typography-title(
-    @heading-1-size,
-    @typography-title-font-weight,
-    1.23,
-    var(--heading-color),
-    @typography-title-margin-bottom
+    var(--h1-font-size),
+    var(--h1-font-weight),
+    var(--h1-line-height),
+    var(--h1-color),
+    @typography-title-margin-bottom,
+    var(--h1-letter-spacing),
+    var(--h1-font-family),
+    var(--h1-text-decoration),
+    var(--h1-text-shadow)
   );
 }
 .typography-title-2() {
   .typography-title(
-    @heading-2-size,
-    @typography-title-font-weight,
-    1.35,
-    var(--heading-color),
-    @typography-title-margin-bottom
+    var(--h2-font-size),
+    var(--h2-font-weight),
+    var(--h2-line-height),
+    var(--h2-color),
+    @typography-title-margin-bottom,
+    var(--h2-letter-spacing),
+    var(--h2-font-family),
+    var(--h2-text-decoration),
+    var(--h2-text-shadow)
   );
 }
 .typography-title-3() {
   .typography-title(
-    @heading-3-size,
-    @typography-title-font-weight,
-    1.35,
-    var(--heading-color),
-    @typography-title-margin-bottom
+    var(--h3-font-size),
+    var(--h3-font-weight),
+    var(--h3-line-height),
+    var(--h3-color),
+    @typography-title-margin-bottom,
+    var(--h3-letter-spacing),
+    var(--h3-font-family),
+    var(--h3-text-decoration),
+    var(--h3-text-shadow)
   );
 }
 .typography-title-4() {
   .typography-title(
-    @heading-4-size,
-    @typography-title-font-weight,
-    1.4,
-    var(--heading-color),
-    @typography-title-margin-bottom
+    var(--h4-font-size),
+    var(--h4-font-weight),
+    var(--h4-line-height),
+    var(--h4-color),
+    @typography-title-margin-bottom,
+    var(--h4-letter-spacing),
+    var(--h4-font-family),
+    var(--h4-text-decoration),
+    var(--h4-text-shadow)
   );
 }
