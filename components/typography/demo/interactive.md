@@ -39,6 +39,8 @@ class Demo extends React.Component {
         <Text copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Text>
         <br />
         <Text copyable={{ icon: <SmileOutlined /> }}>Custom icon.</Text>
+        <br />
+        <Text copyable={{ tooltips: false }}>close tooltips text.</Text>
         <Paragraph copyable={{ tooltips: ['click here', 'you clicked!!'] }}>
           Replace tooltips text.
         </Paragraph>

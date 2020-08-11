@@ -384,17 +384,25 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
       : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
 
+    const isTooltipClosed = (copyable as CopyConfig).tooltips;
+
     const ariaLabel = typeof title === 'string' ? title : '';
 
-    return (
+    const dom = (
+      <TransButton
+        className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
+        onClick={this.onCopyClick}
+        aria-label={ariaLabel}
+      >
+        {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
+      </TransButton>
+    );
+
+    return typeof isTooltipClosed === 'boolean' && !isTooltipClosed ? (
+      dom
+    ) : (
       <Tooltip key="copy" title={title}>
-        <TransButton
-          className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
-          onClick={this.onCopyClick}
-          aria-label={ariaLabel}
-        >
-          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
-        </TransButton>
+        {dom}
       </Tooltip>
     );
   }
