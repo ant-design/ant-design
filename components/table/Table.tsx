@@ -420,7 +420,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
-  if (pagination !== false) {
+  if (pagination !== false && mergedData?.length) {
     let paginationSize: TablePaginationConfig['size'];
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
@@ -495,7 +495,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           internalRefs={internalRefs as any}
           transformColumns={transformColumns}
         />
-        {mergedData && mergedData.length > 0 && bottomPaginationNode}
+        {bottomPaginationNode}
       </Spin>
     </div>
   );
