@@ -87,7 +87,7 @@ const Dropdown: DropdownInterface = props => {
       overlayNode = overlay;
     }
     overlayNode = React.Children.only(
-      typeof overlayNode === 'string' ? <span>overlayNode</span> : overlayNode,
+      typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
     );
 
     const overlayProps = overlayNode.props;
