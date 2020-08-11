@@ -1,14 +1,8 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 模板文档
-  en-US: Template Document
+category: 设计模式
+type: 模板文档
 order: 3
-title:
-  zh-CN: 详情页
-  en-US: Detail Page
+title: 详情页
 ---
 
 详情页向用户展示一个对象的完整信息，主要用与信息浏览，允许对该对象发起编辑等操作。

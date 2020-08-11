@@ -1,14 +1,8 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 模板文档
-  en-US: Template Document
+category: 设计模式
+type: 模板文档
 order: 2
-title:
-  zh-CN: 数据可视化页
-  en-US: Visualization Page
+title: 数据可视化页
 ---
 
 数据可视化类的页面通过一系列图表展现及辅助解读，用户通过浏览和操作数据图表，来实现特定分析目的，制定数据驱动型决策。

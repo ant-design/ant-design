@@ -1,14 +1,8 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 全局规则
-  en-US: Global Rules
+category: 设计模式
+type: 全局规则
 order: 5
-title:
-  zh-CN: 数据格式
-  en-US: Data format
+title: 数据格式
 ---
 
 ## 设计目标

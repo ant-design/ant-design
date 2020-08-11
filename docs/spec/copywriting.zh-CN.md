@@ -1,14 +1,8 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 全局规则
-  en-US: Global Rules
+category: 设计模式
+type: 全局规则
 order: 5
-title:
-  zh-CN: 文案
-  en-US: Copywriting
+title: 文案
 ---
 
 在界面中，我们需要通过对话的方式与用户产生共鸣。精准、清晰的语言会更容易让用户理解，合适的语气更容易让用户建立信任感。因此在界面设计时，文案也应当被重视。 在使用和书写文案时有以下几点需要注意：
