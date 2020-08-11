@@ -30,7 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 | strong | 是否加粗 | boolean | false |  |
-| type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
+| type | 文本类型 | `primary` \| `secondary` \| `success` \| `warning` \| `danger` | - | primary and success: 4.6.0 |
 
 ### Typography.Title
 
@@ -46,7 +46,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
-| type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
+| type | 文本类型 | `primary` \| `secondary` \| `success` \| `warning` \| `danger` | - | primary and success: 4.6.0 |
 
 ### Typography.Paragraph
 
@@ -62,7 +62,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | function(string) | - |  |
 | strong | 是否加粗 | boolean | false |  |
-| type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
+| type | 文本类型 | `primary` \| `secondary` \| `success` \| `warning` \| `danger` | - | primary and success: 4.6.0 |
 
 ### copyable
 
