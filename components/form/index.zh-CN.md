@@ -174,11 +174,11 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 Form.List 渲染表单相关操作函数。
 
-| 参数   | 说明       | 类型                                | 默认值          |
-| ------ | ---------- | ----------------------------------- | --------------- |
-| add    | 新增表单项 | (defaultValue?: any) => void        | -               |
-| remove | 删除表单项 | (index: number \| number[]) => void | number[]: 4.5.0 |
-| move   | 移动表单项 | (from: number, to: number) => void  | -               |
+| 参数   | 说明       | 类型                                               | 默认值             |
+| ------ | ---------- | -------------------------------------------------- | ------------------ |
+| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
+| remove | 删除表单项 | (index: number \| number[]) => void                | number[]: 4.5.0    |
+| move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
 
 ## Form.Provider
 
