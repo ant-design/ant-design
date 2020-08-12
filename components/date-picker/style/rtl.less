@@ -102,6 +102,7 @@
     .picker-cell-inner(~'@{picker-cell-inner-cls}');
   }
 
+  // ======================== Body ==========================
   .picker-cell-inner(@cellClassName) {
     .@{cellClassName} {
       position: relative;
@@ -234,6 +235,17 @@
     }
   }
 
+  // ======================== Footer ========================
+  &-footer {
+    &-extra {
+      .@{picker-prefix-cls}-dropdown-rtl & {
+        direction: rtl;
+        text-align: right;
+      }
+    }
+  }
+
+  // ====================== Time Panel ======================
   &-time-panel {
     .@{picker-prefix-cls}-panel-rtl & {
       direction: ltr;
