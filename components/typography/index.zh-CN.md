@@ -21,7 +21,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] \| false } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持。tooltips 在 4.5.4 支持 false |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |
@@ -37,7 +37,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] \| false } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持。tooltips 在 4.5.4 支持 false |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |
@@ -53,7 +53,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | code | 添加代码样式 | boolean | false |  |
-| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持 |
+| copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| { text: string, onCopy: function, icon: ReactNode, tooltips: \[ReactNode, ReactNode\] \| false } | false | `icon` 和 `tooltips` 在 `4.4.0` 支持。tooltips 在 4.5.4 支持 false |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: function, onChange: function(string) } | false |  |

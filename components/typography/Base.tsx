@@ -28,7 +28,7 @@ interface CopyConfig {
   text?: string;
   onCopy?: () => void;
   icon?: React.ReactNode;
-  tooltips?: [React.ReactNode, React.ReactNode];
+  tooltips?: [React.ReactNode, React.ReactNode] | boolean;
 }
 
 interface EditConfig {
