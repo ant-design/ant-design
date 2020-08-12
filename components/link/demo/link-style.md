@@ -5,8 +5,6 @@ title:
 ---
 
 To use link style on non `a[href]`, make a styled component using `linkColorStyles`.
-Common use would be to style a `ReactRouter.Link` for use on internal SPA links.
-This example styles a span.
 
 ```jsx
 import styled from 'styled-components';

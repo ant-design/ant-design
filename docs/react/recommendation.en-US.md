@@ -3,7 +3,7 @@ order: 9
 title: Third-Party Libraries
 ---
 
-`antd` is built to implement [a set of high-quality React UI components](/components/overview) which follow Ant Design specification. It is impossible to include all useful components in one package, so we also recommend that using other great third-party libraries in React community.
+`Varnish` is built to implement [a set of high-quality React UI components](/components/overview) which follow AI2 specification. It is impossible to include all useful components in one package, so we also recommend that using other great third-party libraries in React community.
 
 | Category | Recommended Components |
 | --- | --- |

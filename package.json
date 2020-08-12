@@ -155,7 +155,7 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
-    "@allenai/varnish": "^0.9.8",
+    "@allenai/varnish": "^1.0.0",
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
