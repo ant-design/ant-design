@@ -40,7 +40,7 @@ Omit useless words and do not repeat facts known to users. In the most situation
 <img class="preview-img good no-padding" align="right" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/OdDMiTnRII/fb2c6dcc-881b-42ac-b83e-4d3a90ff88bc.png">
 <img class="preview-img bad no-padding" align="right" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/qnPRlCpzZz/388f7772-d962-49ee-a103-582e3ff6c0ca.png" description="Stand from the user's point of view and say what the user is familiar with.">
 
-Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, and overly "refined" copywirte will increase user's cognitive load.
+Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, and overly "refined" copywrite will increase user's cognitive load.
 
 ### Express consistently
 
