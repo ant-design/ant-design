@@ -30,10 +30,6 @@ The numerical value is used to indicate the measurement size, it can be used alo
 
 **Position**: To let users read the data intuitively and accurately, it is necessary to make it clear and concise. In a table with numerical values, "right-aligned" method is usually adopted, which not only facilitates the user to quickly read, but also allows the user to compare the longitudinal data.
 
-<br />
-
-**The measuring unit**: In a table, it's better to place the units of measurement on the head of the table.
-
 ### Amount
 
 **Amount Format**: The standard format is "currency symbol + number". For example, "CNY1,123.00". **Currency Symbol**: There are two types: abbreviations letters and characters. You can check symbols for different currencies from [CURRENCY SYMBOLS](https://www.iban.com/currency-codes).

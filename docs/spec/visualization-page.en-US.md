@@ -9,7 +9,7 @@ Data visualization templates depict information and assist users to understand t
 
 ## Design Goals
 
-让使用者快速、清晰地理解数据意义，快速进行分析趋势，驱动决策。
+To help users quickly and clearly understand the meanings of data, analyze trends, and make decisions.
 
 ---
 
