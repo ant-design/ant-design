@@ -128,6 +128,13 @@
       }
     }
 
+    &-in-view&-range-start&-range-end::before {
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 50%;
+      }
+    }
+
     .@{picker-prefix-cls}-date-panel
       &-in-view&-in-range&-range-hover-start
       .@{cellClassName}::after {
