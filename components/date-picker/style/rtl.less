@@ -206,6 +206,20 @@
         border-bottom-left-radius: @border-radius-base;
       }
     }
+
+    // range start border-radius
+    &-in-view&-range-start:not(&-range-start-single):not(&-range-end) .@{cellClassName} {
+      .@{picker-prefix-cls}-panel-rtl & {
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
+    }
+
+    // range end border-radius
+    &-in-view&-range-end:not(&-range-end-single):not(&-range-start) .@{cellClassName} {
+      .@{picker-prefix-cls}-panel-rtl & {
+        border-radius: @border-radius-base 0 0 @border-radius-base;
+      }
+    }
   }
 
   &-time-panel {
