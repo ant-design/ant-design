@@ -120,12 +120,14 @@
         left: 0;
       }
     }
+
     &-in-view&-range-end::before {
       .@{picker-prefix-cls}-panel-rtl & {
         right: 0;
         left: 50%;
       }
     }
+
     .@{picker-prefix-cls}-date-panel
       &-in-view&-in-range&-range-hover-start
       .@{cellClassName}::after {
@@ -134,12 +136,14 @@
         left: -6px - @border-width-base;
       }
     }
+
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       .@{picker-prefix-cls}-panel-rtl & {
         right: -6px - @border-width-base;
         left: 0;
       }
     }
+
     // Hover with range start & end
     &-range-hover&-range-start::after {
       .@{picker-prefix-cls}-panel-rtl & {
@@ -147,10 +151,25 @@
         left: 50%;
       }
     }
+
     &-range-hover&-range-end::after {
       .@{picker-prefix-cls}-panel-rtl & {
         right: 50%;
         left: 0;
+      }
+    }
+
+    // range start border-radius
+    &-in-view&-range-start:not(&-range-start-single):not(&-range-end) .@{cellClassName} {
+      .@{picker-prefix-cls}-panel-rtl & {
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
+    }
+
+    // range end border-radius
+    &-in-view&-range-end:not(&-range-end-single):not(&-range-start) .@{cellClassName} {
+      .@{picker-prefix-cls}-panel-rtl & {
+        border-radius: @border-radius-base 0 0 @border-radius-base;
       }
     }
 
