@@ -128,7 +128,7 @@ title: 数据格式
 <img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
 <img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
 
-无数据用「--」表述。
+无数据用 `--` 表述。
 
 #### 数据加载
 
