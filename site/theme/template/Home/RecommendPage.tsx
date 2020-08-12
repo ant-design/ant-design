@@ -16,49 +16,51 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: '蚂蚁金服体验技术部招聘啦！',
+    title: '「人机自然交互」Ant Design 设计价值观解析',
     description:
-      '欢迎志同道合的你加入我们，一同在「引领全球体验科技，创造一流用户体验」的愿景指引下前行。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BPVATKTgfXwAAAAAAAAAAABkARQnAQ',
-    href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
+      '这一次，我们将清晰阐述「自然」这一价值观，希望能启发或帮助大家完成自己的产品 / 体系构建；同时，你们的反馈和互动也会成为我们进步的源泉和动力。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/44809866',
     popularize: true,
   },
   {
-    title: '图表库 G2Plot 1.0 发布了！',
+    title: '言之有序 | Ant Design 4.0 系列分享',
     description:
-      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/113888415',
+      '信息组织是我们在日常生活中经常会遇到的问题，各式各样的信息是如何被组织编排到一起，又是以何种方式把信息呈现给用户呢？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
   {
-    title: 'Ant Design 暗黑模式设计解析',
-    description: '让我们一起来看下，Ant Design 这一针对企业级的设计体系是如何设计暗黑模式的？',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/112470365',
+    title: '整齐划一？不如错落有致。| Ant Design 4.0 系列分享',
+    description:
+      '表单是在各类业务产品中出现最高频的元素之一。今天我们来讨论一个被大家忽视但实则举重若轻的问题：怎样去考虑表单的宽度？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'Ant Experience Technology Department Wants You!',
+    title: "「Natural Human Computer Interaction」Ant Design's Design Values",
     description:
-      '⚡️ Our vision is ’To Lead Global Experience Technology, to Create First-Class User Experience.‘. Welcome to join us.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Jd4sQJ9mmaQAAAAAAAAAAABkARQnAQ',
-    href: 'https://www.yuque.com/uf44r1/wqrwsg/alwufg',
+      '🌺 This time, we will clearly explain one of our design values--「nature」, hoping to inspire you to complete your own products or systems.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/44809866',
     popularize: true,
   },
   {
-    title: 'Chart Library G2Plot 1.0 has Come!',
+    title: 'Information Layouts | Ant Design 4.0',
     description:
-      '📈 G2Plot 1.0 supports 40+ types of charts, including built-in statistic & analysis components and complicated interactions. Now it is ready for use out of the box.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UsnLRpUZChQAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/113888415',
+      '🌃 Information organization is a problem we often encounter in our daily life. How to arrange all kinds of information together? And how to present them to users?',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
   {
-    title: 'Dark Theme of Ant Design',
-    description: '🌃 Let us take a look at how to design the dark theme of Ant Design.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pxK_TboMzL8AAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/112470365',
+    title: 'Form Widths | Ant Design 4.0',
+    description:
+      "💡 Form is one of the most frequently-used elements in business products. Now let's discuss a neglected question: how to decide the width of a form?",
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
 ];
 

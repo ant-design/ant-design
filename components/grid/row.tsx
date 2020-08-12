@@ -20,48 +20,37 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
 }
 
-export interface RowState {
-  screens: ScreenMap;
-}
+const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
+  const [screens, setScreens] = React.useState<ScreenMap>({
+    xs: true,
+    sm: true,
+    md: true,
+    lg: true,
+    xl: true,
+    xxl: true,
+  });
+  const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>();
+  gutterRef.current = props.gutter;
 
-export default class Row extends React.Component<RowProps, RowState> {
-  static defaultProps = {
-    gutter: 0,
-  };
-
-  state: RowState = {
-    screens: {
-      xs: true,
-      sm: true,
-      md: true,
-      lg: true,
-      xl: true,
-      xxl: true,
-    },
-  };
-
-  token: number;
-
-  componentDidMount() {
-    this.token = ResponsiveObserve.subscribe(screens => {
-      const { gutter } = this.props;
+  React.useEffect(() => {
+    const token = ResponsiveObserve.subscribe(screen => {
+      const currentGutter = gutterRef.current || 0;
       if (
-        (!Array.isArray(gutter) && typeof gutter === 'object') ||
-        (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
+        (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
+        (Array.isArray(currentGutter) &&
+          (typeof currentGutter[0] === 'object' || typeof currentGutter[1] === 'object'))
       ) {
-        this.setState({ screens });
+        setScreens(screen);
       }
     });
-  }
+    return () => {
+      ResponsiveObserve.unsubscribe(token);
+    };
+  }, []);
 
-  componentWillUnmount() {
-    ResponsiveObserve.unsubscribe(this.token);
-  }
-
-  getGutter(): [number, number] {
+  const getGutter = (): [number, number] => {
     const results: [number, number] = [0, 0];
-    const { gutter } = this.props;
-    const { screens } = this.state;
+    const { gutter = 0 } = props;
     const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
     normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
@@ -77,9 +66,9 @@ export default class Row extends React.Component<RowProps, RowState> {
       }
     });
     return results;
-  }
+  };
 
-  renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  const renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       justify,
@@ -88,9 +77,9 @@ export default class Row extends React.Component<RowProps, RowState> {
       style,
       children,
       ...others
-    } = this.props;
+    } = props;
     const prefixCls = getPrefixCls('row', customizePrefixCls);
-    const gutter = this.getGutter();
+    const gutter = getGutter();
     const classes = classNames(
       prefixCls,
       {
@@ -120,14 +109,16 @@ export default class Row extends React.Component<RowProps, RowState> {
 
     return (
       <RowContext.Provider value={{ gutter }}>
-        <div {...otherProps} className={classes} style={rowStyle}>
+        <div {...otherProps} className={classes} style={rowStyle} ref={ref}>
           {children}
         </div>
       </RowContext.Provider>
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderRow}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderRow}</ConfigConsumer>;
+});
+
+Row.displayName = 'Row';
+
+export default Row;

@@ -153,9 +153,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         .replace(/\/$/, '');
       return;
     }
-    window.location.href = currentUrl
-      .replace(window.location.origin, url)
-      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
+    window.location.href = currentUrl.replace(window.location.origin, url);
   };
 
   onLangChange = () => {

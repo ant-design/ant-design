@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
@@ -121,8 +122,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, placement, children, ...restProps } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    placement,
+    children,
+    overlayClassName,
+    ...restProps
+  } = props;
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
+  const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
+  const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
 
   const overlay = (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
@@ -138,6 +147,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       onVisibleChange={onVisibleChange}
       visible={visible}
       overlay={overlay}
+      overlayClassName={overlayClassNames}
       ref={ref as any}
     >
       {cloneElement(children, {

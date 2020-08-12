@@ -68,6 +68,9 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
           );
         }
 
+        // CopyrightCircle is same as Copyright, don't show it
+        iconList = iconList.filter(icon => icon !== 'CopyrightCircle');
+
         return {
           category: key,
           icons: iconList.map(iconName => iconName + theme).filter(iconName => allIcons[iconName]),

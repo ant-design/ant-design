@@ -75,7 +75,7 @@ const columns = [
 | expandable | 配置展开属性 | [expandable](#expandable) | - |
 | footer | 表格尾部 | function(currentPageData) | - |
 | loading | 页面是否加载中 | boolean \| [object](/components/spin/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
-| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: `确定` <br> filterReset: `重置` <br> emptyText: `暂无数据` <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
+| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: `确定` <br> filterReset: `重置` <br> emptyText: `暂无数据` <br> [默认值](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |
 | rowClassName | 表格行的类名 | function(record, index): string | - |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |
@@ -235,7 +235,7 @@ interface User {
   name: string;
 }
 
-const columns: ColumnsType<User>[] = [{
+const columns: ColumnsType<User> = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',
@@ -246,23 +246,19 @@ const data: User[] = [{
   name: 'Jack',
 }];
 
-class UserTable extends Table<User> {}
-<UserTable columns={columns} dataSource={data} />
-
-// 使用 JSX 风格的 API
-class NameColumn extends Table.Column<User> {}
-
-<UserTable dataSource={data}>
-  <NameColumn key="name" title="Name" dataIndex="name" />
-</UserTable>
-
-// TypeScript 2.9 之后也可以这样写
-// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
-<Table<User> columns={columns} dataSource={data} />
-<Table<User> dataSource={data}>
-  <Table.Column<User> key="name" title="Name" dataIndex="name" />
-</Table>
+export default () => (
+  <>
+    <Table<User> columns={columns} dataSource={data} />
+  
+    /* 使用 JSX 风格的 API */
+    <Table<User> dataSource={data}>
+      <Table.Column<User> key="name" title="Name" dataIndex="name" />
+    </Table>
+  </>
+);
 ```
+
+TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。
 
 ## 注意
 

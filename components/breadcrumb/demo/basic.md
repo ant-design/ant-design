@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-The simplest use
+The simplest use.
 
 ```jsx
 import { Breadcrumb } from 'antd';

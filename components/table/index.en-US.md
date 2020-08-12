@@ -68,7 +68,7 @@ const columns = [
 | expandable | Config expandable content | [expandable](#expandable) | - |
 | footer | Table footer renderer | function(currentPageData) | - |
 | loading | Loading status of table | boolean \| [object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
-| locale | The i18n text including filter, sort, empty text, etc | object | filterConfirm: `Ok` <br> filterReset: `Reset` <br> emptyText: `No Data` <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
+| locale | The i18n text including filter, sort, empty text, etc | object | filterConfirm: `Ok` <br> filterReset: `Reset` <br> emptyText: `No Data` <br> [Default](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |
 | rowClassName | Row's className | function(record, index): string | - |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |
@@ -224,7 +224,7 @@ import { Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
 interface User {
-  key: number,
+  key: number;
   name: string;
 }
 
@@ -239,24 +239,19 @@ const data: User[] = [{
   name: 'Jack',
 }];
 
-class UserTable extends Table<User> {}
-
-<UserTable columns={columns} dataSource={data} />
-
-// Use JSX style API
-class NameColumn extends Table.Column<User> {}
-
-<UserTable dataSource={data}>
-  <NameColumn key="name" title="Name" dataIndex="name" />
-</UserTable>
-
-// after TypeScript 2.9 can write like this
-// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
-<Table<User> columns={columns} dataSource={data} />
-<Table<User> dataSource={data}>
-  <Table.Column<User> key="name" title="Name" dataIndex="name" />
-</Table>
+export default () => (
+  <>
+    <Table<User> columns={columns} dataSource={data} />
+  
+    /* JSX style usage */
+    <Table<User> dataSource={data}>
+      <Table.Column<User> key="name" title="Name" dataIndex="name" />
+    </Table>
+  </>
+);
 ```
+
+Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).
 
 ## Note
 
@@ -295,7 +290,7 @@ Also you can use the action from extra param to determine when return to first p
 
 ### Why Table pagination show size changer?
 
-In order to improve user experience, Pagination show size changer by default when `total >= 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
+In order to improve user experience, Pagination show size changer by default when `total > 50` since `4.1.0`. You can set `showSizeChanger=false` to disable this feature.
 
 ### Why Table fully render when state change?
 

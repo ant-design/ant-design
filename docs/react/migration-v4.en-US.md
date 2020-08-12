@@ -27,6 +27,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - DatePicker interactive redo, range selection can now select start and end time separately.
 - Table change default background color from transparent to white.
 - Smaller Tabs bar width.
+- New Tabs interaction and dom structure is changed in `4.3.0`.
 
 ### Compatibility
 

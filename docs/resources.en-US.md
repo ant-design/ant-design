@@ -25,7 +25,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Ant Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - Common Templates and Pages
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.3.0.sketch
+  - https://gw.alipayobjects.com/os/antfincdn/wg3CvIX6Q9/Ant_Design_Pro_4.0.sketch
 - Ant Design Library
   - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
   - A powerful Axure library
@@ -50,6 +50,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Library of components for Desktop
   - https://www.antforfigma.com
+- UI Kit for Adobe XD
+  - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
+  - Library of components for Desktop
+  - https://gumroad.com/l/antdesign-xd
 - Figma Open Source Library
   - https://i.imgur.com/kopdWeX.png
   - Free open source Figma library with complete accrate to code components

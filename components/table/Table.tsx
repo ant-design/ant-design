@@ -162,7 +162,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)[childrenColumnName])) {
+    if (rawData.some(item => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -183,7 +183,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       return rowKey;
     }
 
-    return (record: RecordType) => (record as any)[rowKey as string];
+    return (record: RecordType) => (record as any)?.[rowKey as string];
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
@@ -222,18 +222,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (onChange) {
-      onChange(
-        changeInfo.pagination!,
-        changeInfo.filters!,
-        changeInfo.sorter!,
-        {
-          currentDataSource: getFilterData(
-            getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
-            changeInfo.filterStates!,
-          ),
-          action,
-        },
-      );
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+        currentDataSource: getFilterData(
+          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
+          changeInfo.filterStates!,
+        ),
+        action,
+      });
     }
   };
 
@@ -409,7 +404,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }
 
   // Indent size
-  mergedExpandable.indentSize = mergedExpandable.indentSize || indentSize || 15;
+  if (typeof mergedExpandable.indentSize !== 'number') {
+    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
+  }
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
@@ -498,7 +495,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           internalRefs={internalRefs as any}
           transformColumns={transformColumns}
         />
-        {pageData && pageData.length > 0 && bottomPaginationNode}
+        {mergedData && mergedData.length > 0 && bottomPaginationNode}
       </Spin>
     </div>
   );

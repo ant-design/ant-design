@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-集成 [react-resizable](https://github.com/STRML/react-resizable) 来实现可伸缩列。
+集成 [react-resizable](https://github.com/STRML/react-resizable) 来实现可伸缩列。如果有排序需要，可以通过[额外标记](https://codesandbox.io/s/zrj8xvyzxx)阻止触发排序。
 
 ## en-US
 
-Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable).
+Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable). When sort needed, you can use [additional mark](https://codesandbox.io/s/zrj8xvyzxx) to prevent resize trigger sort.
 
 ```jsx
 import { Table } from 'antd';

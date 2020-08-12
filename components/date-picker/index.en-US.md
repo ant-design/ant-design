@@ -16,11 +16,11 @@ By clicking the input box, you can select a date from a popup calendar.
 There are five kinds of picker:
 
 - DatePicker
-- MonthPicker
+- DatePicker\[picker="month"]
+- DatePicker\[picker="week"]
+- DatePicker\[picker="year"]
+- DatePicker\[picker="quarter"] (Added in 4.1.0)
 - RangePicker
-- WeekPicker
-- YearPicker
-- QuarterPicker (Added in 4.1.0)
 
 ### Localization
 
@@ -29,6 +29,7 @@ The default locale is en-US, if you need to use other languages, recommend to us
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
+import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
@@ -37,13 +38,17 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
 import moment from 'moment';
+import 'moment/locale/zh-cn';
+import locale from 'antd/es/locale/zh_CN';
 
-<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
+<ConfigProvider locale={locale}>
+  <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+</ConfigProvider>;
 ```
 
 ### Common API
 
-The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicker, WeekPicker.
+The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -58,6 +63,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | The open state of picker | boolean | - |  |
+| panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
@@ -94,7 +100,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 | showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 
-### YearPicker
+### DatePicker\[picker=year]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -105,7 +111,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
-### QuarterPicker
+### DatePicker\[picker=quarter]
 
 Added in `4.1.0`.
 
@@ -118,7 +124,7 @@ Added in `4.1.0`.
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
-### MonthPicker
+### DatePicker\[picker=month]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -130,7 +136,7 @@ Added in `4.1.0`.
 | value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
-### WeekPicker
+### DatePicker\[picker=week]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -158,32 +164,31 @@ Added in `4.1.0`.
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | To set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
-
-<style>
-.code-box-demo .ant-picker {
-  margin: 0 8px 12px 0;
-}
-.ant-row-rtl .code-box-demo .ant-picker {
-  margin: 0 0 12px 8px;
-}
-</style>
 
 ## FAQ
 
-- [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
+### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
 
-- [How to use DatePicker with customize date library like dayjs?](/docs/react/replace-moment#DatePicker)
+Please refer [FAQ](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
 
-- How to modify start day of week?
+### How to use DatePicker with customize date library like dayjs?
 
-  Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: https://codesandbox.io/s/moment-day-of-week-b24k5
+Please refer [replace moment](/docs/react/replace-moment#DatePicker)
 
-  ```js
-  moment.locale('en', {
-    week: {
-      dow: 1,
-    },
-  });
-  ```
+### Why config moment.locale globally not work?
+
+DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
+
+### How to modify start day of week?
+
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: https://codesandbox.io/s/moment-day-of-week-6dby5
+
+```js
+moment.locale('en', {
+  week: {
+    dow: 1,
+  },
+});
+```

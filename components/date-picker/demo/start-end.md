@@ -21,7 +21,7 @@ When `RangePicker` does not satisfied your requirements, try to implement simila
 > - Improve user experience with `open` and `onOpenChange`.
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 class DateRange extends React.Component {
   state = {
@@ -73,7 +73,7 @@ class DateRange extends React.Component {
   render() {
     const { startValue, endValue, endOpen } = this.state;
     return (
-      <>
+      <Space>
         <DatePicker
           disabledDate={this.disabledStartDate}
           showTime
@@ -93,7 +93,7 @@ class DateRange extends React.Component {
           open={endOpen}
           onOpenChange={this.handleEndOpenChange}
         />
-      </>
+      </Space>
     );
   }
 }

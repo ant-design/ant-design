@@ -933,6 +933,81 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
 </form>
 `;
 
+exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="debug"
+>
+  0
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="debug_debug1"
+        title="debug1"
+      >
+        debug1
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="debug_debug1"
+            type="text"
+            value="debug1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="debug_debug2"
+        title="debug2"
+      >
+        debug2
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="debug_debug2"
+            type="text"
+            value="debug2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -1002,7 +1077,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1042,7 +1119,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1113,7 +1192,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1153,7 +1234,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1250,7 +1333,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1303,7 +1388,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1392,7 +1479,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1441,7 +1530,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -2367,7 +2458,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -2394,7 +2485,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -3846,7 +3937,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -3873,7 +3964,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -4742,7 +4833,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -4769,7 +4860,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -5904,7 +5995,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Should be combination of numbers & alphabets
         </div>
       </div>
@@ -6029,7 +6122,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           The information is being validated...
         </div>
       </div>
@@ -6207,7 +6302,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Should be combination of numbers & alphabets
         </div>
       </div>
@@ -6421,7 +6518,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6592,7 +6689,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           The information is being validated...
         </div>
       </div>
@@ -6679,7 +6778,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               <div
                 class="ant-form-item-explain"
               >
-                <div>
+                <div
+                  role="alert"
+                >
                   Please select the correct date
                 </div>
               </div>
@@ -6784,7 +6885,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -6811,7 +6912,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -7202,7 +7303,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -7229,7 +7330,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -7275,7 +7376,9 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
         </div>
       </div>

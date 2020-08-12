@@ -4199,10 +4199,11 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
 `;
 
 exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"
     data-show="true"
+    role="alert"
   >
     <span
       class="ant-alert-message"
@@ -4212,7 +4213,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-  </div>
+  </div>,
   <div
     class="ant-picker-calendar ant-picker-calendar-full"
   >
@@ -5151,6 +5152,6 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

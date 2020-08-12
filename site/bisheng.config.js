@@ -65,7 +65,6 @@ module.exports = {
       antd: path.join(process.cwd(), 'index'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
-      'react-intl': 'react-intl/dist',
     };
 
     config.externals = {

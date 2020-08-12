@@ -100,7 +100,7 @@ describe('Table.pagination', () => {
 
     wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper.find('.ant-select-item').last().simulate('click');
-    expect(scrollTo).toHaveBeenCalledTimes(3);
+    expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
   it('fires change event', () => {
@@ -334,6 +334,24 @@ describe('Table.pagination', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should call onChange when change pagination size', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+        },
+        onChange,
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
+
+    expect(onChange).toBeCalledTimes(1);
+  });
+
   it('dynamic warning', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -358,5 +376,41 @@ describe('Table.pagination', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
     );
+  });
+
+  it('should render pagination after last item on last page being removed with async mode', () => {
+    const lastPageNum = data.length;
+    const wrapper = mount(
+      createTable({ pagination: { pageSize: 1, total: data.length, current: lastPageNum } }),
+    );
+
+    const newCol = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+      },
+      {
+        title: 'Action',
+        dataIndex: 'name',
+        render(_, record) {
+          const deleteRow = () => {
+            const newData = data.filter(d => d.key !== record.key);
+            wrapper.setProps({
+              dataSource: newData,
+              pagination: { pageSize: 1, total: newData.length, current: lastPageNum },
+            });
+          };
+          return (
+            <span className="btn-delete" onClick={deleteRow}>
+              Delete
+            </span>
+          );
+        },
+      },
+    ];
+
+    wrapper.setProps({ columns: newCol });
+    wrapper.find('.btn-delete').simulate('click');
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 });

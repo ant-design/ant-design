@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import RcTree from 'rc-tree';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
@@ -35,18 +36,18 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
   return treeData || convertTreeToData(children);
 }
 
-const DirectoryTree: React.FC<DirectoryTreeProps> = ({
-  defaultExpandAll,
-  defaultExpandParent,
-  defaultExpandedKeys,
-  ...props
-}) => {
+const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> = (
+  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
+  ref,
+) => {
   // Shift click usage
   const lastSelectedKey = React.useRef<Key>();
 
   const cachedSelectedKeys = React.useRef<Key[]>();
 
-  const ref = React.createRef<any>();
+  const treeRef = React.createRef<RcTree>();
+
+  React.useImperativeHandle(ref, () => treeRef.current!);
 
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props));
@@ -93,7 +94,7 @@ const DirectoryTree: React.FC<DirectoryTreeProps> = ({
 
     // Call internal rc-tree expand function
     // https://github.com/ant-design/ant-design/issues/12567
-    ref.current.onNodeExpand(event, node);
+    treeRef.current!.onNodeExpand(event as any, node);
   };
 
   const onDebounceExpand = debounce(expandFolderNode, 200, {
@@ -220,7 +221,7 @@ const DirectoryTree: React.FC<DirectoryTreeProps> = ({
   return (
     <Tree
       icon={getIcon}
-      ref={ref}
+      ref={treeRef}
       blockNode
       {...otherProps}
       prefixCls={prefixCls}
@@ -235,9 +236,12 @@ const DirectoryTree: React.FC<DirectoryTreeProps> = ({
   );
 };
 
-DirectoryTree.defaultProps = {
+const ForwardDirectoryTree = React.forwardRef(DirectoryTree);
+ForwardDirectoryTree.displayName = 'DirectoryTree';
+
+ForwardDirectoryTree.defaultProps = {
   showIcon: true,
   expandAction: 'click' as DirectoryTreeProps['expandAction'],
 };
 
-export default DirectoryTree;
+export default ForwardDirectoryTree;

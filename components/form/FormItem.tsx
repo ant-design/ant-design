@@ -122,12 +122,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const updateChildItemErrors = noStyle
     ? updateItemErrors
     : (subName: string, subErrors: string[]) => {
-        if (!isEqual(inlineErrors[subName], subErrors)) {
-          setInlineErrors(prevInlineErrors => ({
-            ...prevInlineErrors,
-            [subName]: subErrors,
-          }));
-        }
+        setInlineErrors((prevInlineErrors = {}) => {
+          if (!isEqual(prevInlineErrors[subName], subErrors)) {
+            return {
+              ...prevInlineErrors,
+              [subName]: subErrors,
+            };
+          }
+          return prevInlineErrors;
+        });
       };
 
   // ===================== Children Ref =====================
@@ -139,33 +142,35 @@ function FormItem(props: FormItemProps): React.ReactElement {
     meta?: Meta,
     isRequired?: boolean,
   ): React.ReactNode {
-    if (noStyle) {
+    if (noStyle && !hidden) {
       return baseChildren;
     }
 
     // ======================== Errors ========================
+    // >>> collect sub errors
+    let subErrorList: string[] = [];
+    Object.keys(inlineErrors).forEach(subName => {
+      subErrorList = [...subErrorList, ...(inlineErrors[subName] || [])];
+    });
+
+    // >>> merged errors
     let mergedErrors: React.ReactNode[];
     if (help !== undefined && help !== null) {
       mergedErrors = toArray(help);
     } else {
       mergedErrors = meta ? meta.errors : [];
-      Object.keys(inlineErrors).forEach(subName => {
-        const subErrors = inlineErrors[subName] || [];
-        if (subErrors.length) {
-          mergedErrors = [...mergedErrors, ...subErrors];
-        }
-      });
+      mergedErrors = [...mergedErrors, ...subErrorList];
     }
 
     // ======================== Status ========================
     let mergedValidateStatus: ValidateStatus = '';
     if (validateStatus !== undefined) {
       mergedValidateStatus = validateStatus;
-    } else if (meta && meta.validating) {
+    } else if (meta?.validating) {
       mergedValidateStatus = 'validating';
-    } else if (!help && mergedErrors.length) {
+    } else if (meta?.errors?.length || subErrorList.length) {
       mergedValidateStatus = 'error';
-    } else if (meta && meta.touched) {
+    } else if (meta?.touched) {
       mergedValidateStatus = 'success';
     }
 
@@ -300,14 +305,20 @@ function FormItem(props: FormItemProps): React.ReactElement {
         };
 
         let childNode: React.ReactNode = null;
+
+        devWarning(
+          !(shouldUpdate && dependencies),
+          'Form.Item',
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+        );
         if (Array.isArray(children) && hasName) {
           devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
-        } else if (isRenderProps && (!shouldUpdate || hasName)) {
+        } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           devWarning(
-            !!shouldUpdate,
+            !!(shouldUpdate || dependencies),
             'Form.Item',
-            '`children` of render props only work with `shouldUpdate`.',
+            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
           );
           devWarning(
             !hasName,
@@ -357,7 +368,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
               {cloneElement(children, childProps)}
             </MemoInput>
           );
-        } else if (isRenderProps && shouldUpdate && !hasName) {
+        } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
           devWarning(

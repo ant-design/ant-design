@@ -48,7 +48,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -57,7 +59,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -66,7 +70,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -75,7 +81,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -84,7 +92,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -132,7 +142,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     tabindex="0"
     title="9"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       9
     </a>
   </li>
@@ -287,7 +299,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -296,7 +310,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -305,7 +321,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -314,7 +332,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -323,7 +343,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -407,7 +429,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -416,7 +440,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -425,7 +451,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -434,7 +462,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -443,7 +473,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -491,7 +523,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -635,7 +669,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -644,7 +680,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -653,7 +691,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -662,7 +702,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -671,7 +713,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -719,7 +763,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -868,7 +914,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -877,7 +925,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -886,7 +936,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -895,7 +947,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -904,7 +958,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -965,7 +1021,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -974,7 +1032,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="2"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       2
     </a>
   </li>
@@ -983,7 +1043,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="3"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       3
     </a>
   </li>
@@ -992,7 +1054,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -1001,7 +1065,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -1049,7 +1115,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     tabindex="0"
     title="50"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       50
     </a>
   </li>
@@ -1173,7 +1241,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1182,7 +1252,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1191,7 +1263,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1200,7 +1274,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1209,7 +1285,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1257,7 +1335,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -1410,7 +1490,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1419,7 +1501,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1428,7 +1512,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1437,7 +1523,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1446,7 +1534,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1494,7 +1584,9 @@ Array [
       tabindex="0"
       title="50"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         50
       </a>
     </li>
@@ -1654,7 +1746,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1663,7 +1757,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1672,7 +1768,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1681,7 +1779,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1690,7 +1790,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1770,7 +1872,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1779,7 +1883,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1788,7 +1894,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1797,7 +1905,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1806,7 +1916,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -1963,7 +2075,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -1972,7 +2086,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -1981,7 +2097,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -1990,7 +2108,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -1999,7 +2119,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -2035,6 +2157,212 @@ Array [
           </svg>
         </span>
       </button>
+    </li>
+  </ul>,
+  <ul
+    class="ant-pagination mini ant-pagination-disabled"
+    unselectable="unselectable"
+  >
+    <li
+      class="ant-pagination-total-text"
+    >
+      Total 50 items
+    </li>
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev ant-pagination-disabled"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-options"
+    >
+      <div
+        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow ant-select-disabled"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              disabled=""
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-pagination-options-quick-jumper"
+      >
+        Go to
+        <input
+          disabled=""
+          type="text"
+          value=""
+        />
+      </div>
     </li>
   </ul>,
 ]
@@ -2083,7 +2411,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="1"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       1
     </a>
   </li>
@@ -2131,7 +2461,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="4"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       4
     </a>
   </li>
@@ -2140,7 +2472,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="5"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       5
     </a>
   </li>
@@ -2149,7 +2483,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="6"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       6
     </a>
   </li>
@@ -2158,7 +2494,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="7"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       7
     </a>
   </li>
@@ -2167,7 +2505,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="8"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       8
     </a>
   </li>
@@ -2215,7 +2555,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="50"
   >
-    <a>
+    <a
+      rel="nofollow"
+    >
       50
     </a>
   </li>
@@ -2319,92 +2661,182 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
 `;
 
 exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
-<ul
-  class="ant-pagination ant-pagination-simple"
->
-  <li
-    aria-disabled="false"
-    class="ant-pagination-prev"
-    tabindex="0"
-    title="Previous Page"
+Array [
+  <ul
+    class="ant-pagination ant-pagination-simple"
   >
-    <button
-      class="ant-pagination-item-link"
-      tabindex="-1"
-      type="button"
+    <li
+      aria-disabled="false"
+      class="ant-pagination-prev"
+      tabindex="0"
+      title="Previous Page"
     >
-      <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
-      </span>
-    </button>
-  </li>
-  <li
-    class="ant-pagination-simple-pager"
-    title="2/5"
-  >
-    <input
-      size="3"
-      type="text"
-      value="2"
-    />
-    <span
-      class="ant-pagination-slash"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-simple-pager"
+      title="2/5"
     >
-      /
-    </span>
-    5
-  </li>
-  <li
-    aria-disabled="false"
-    class="ant-pagination-next"
-    tabindex="0"
-    title="Next Page"
-  >
-    <button
-      class="ant-pagination-item-link"
-      tabindex="-1"
-      type="button"
-    >
+      <input
+        size="3"
+        type="text"
+        value="2"
+      />
       <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
+        class="ant-pagination-slash"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
+        /
       </span>
-    </button>
-  </li>
-</ul>
+      5
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>,
+  <br />,
+  <ul
+    class="ant-pagination ant-pagination-simple ant-pagination-disabled"
+  >
+    <li
+      aria-disabled="false"
+      class="ant-pagination-prev"
+      tabindex="0"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-simple-pager"
+      title="2/5"
+    >
+      <input
+        disabled=""
+        size="3"
+        type="text"
+        value="2"
+      />
+      <span
+        class="ant-pagination-slash"
+      >
+        /
+      </span>
+      5
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>,
+]
 `;
 
 exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
@@ -2456,7 +2888,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -2465,7 +2899,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -2474,7 +2910,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -2483,7 +2921,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -2492,7 +2932,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
@@ -2641,7 +3083,9 @@ Array [
       tabindex="0"
       title="1"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         1
       </a>
     </li>
@@ -2650,7 +3094,9 @@ Array [
       tabindex="0"
       title="2"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         2
       </a>
     </li>
@@ -2659,7 +3105,9 @@ Array [
       tabindex="0"
       title="3"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         3
       </a>
     </li>
@@ -2668,7 +3116,9 @@ Array [
       tabindex="0"
       title="4"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         4
       </a>
     </li>
@@ -2677,7 +3127,9 @@ Array [
       tabindex="0"
       title="5"
     >
-      <a>
+      <a
+        rel="nofollow"
+      >
         5
       </a>
     </li>
