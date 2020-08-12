@@ -85,7 +85,7 @@ class App extends React.Component {
       record[dataIndex] ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()) : '',
     onFilterDropdownVisibleChange: visible => {
       if (visible) {
-        setTimeout(() => this.searchInput.select());
+        setTimeout(() => this.searchInput.select(), 100);
       }
     },
     render: text =>
