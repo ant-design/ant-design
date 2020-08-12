@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-动态增加、减少表单项。`add` 方法参数可用于设置初始值。
+动态增加、减少表单项。`add` 方法参数可用于设置初始值, 。
 
 ## en-US
 
@@ -86,6 +86,15 @@ const DynamicFieldSet = () => {
                   style={{ width: '60%' }}
                 >
                   <PlusOutlined /> Add field
+                </Button>
+                <Button
+                  type="dashed"
+                  onClick={() => {
+                    add('The head item', 0);
+                  }}
+                  style={{ width: '60%', marginTop: '20px' }}
+                >
+                  <PlusOutlined /> Add field at head
                 </Button>
               </Form.Item>
             </div>

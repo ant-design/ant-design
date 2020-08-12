@@ -1592,6 +1592,39 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                  Add field
               </span>
             </button>
+            <button
+              class="ant-btn ant-btn-dashed"
+              style="width:60%;margin-top:20px"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs />
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                 Add field at head
+              </span>
+            </button>
           </div>
         </div>
       </div>
