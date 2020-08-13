@@ -861,6 +861,16 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
+      class="ant-typography ant-typography-success"
+    >
+      Ant Design
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
       class="ant-typography ant-typography-warning"
     >
       Ant Design

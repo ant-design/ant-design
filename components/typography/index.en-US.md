@@ -30,7 +30,7 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
-| type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 
 ### Typography.Title
 
@@ -46,7 +46,7 @@ Basic text writing, including headings, body text, lists, and more.
 | mark | Marked style | boolean | false |  |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
-| type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 
 ### Typography.Paragraph
 
@@ -62,7 +62,7 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | function(string) | - |  |
 | strong | Bold style | boolean | false |  |
-| type | Content type | `secondary` \| `warning` \| `danger` | - |  |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 
 ### copyable
 
