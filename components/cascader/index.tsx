@@ -109,7 +109,7 @@ export interface CascaderProps {
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
-  dropdownRender?: (menus: React.ReactNode) => React.ReactNode
+  dropdownRender?: (menus: React.ReactNode) => React.ReactNode;
 }
 
 export interface CascaderState {
@@ -354,8 +354,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     e.preventDefault();
     e.stopPropagation();
     if (!inputValue) {
-      this.setValue([]);
       this.handlePopupVisibleChange(false);
+      setTimeout(() => {
+        this.setValue([]);
+      }, 200);
     } else {
       this.setState({ inputValue: '' });
     }
