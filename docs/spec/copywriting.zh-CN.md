@@ -1,14 +1,8 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 全局规则
-  en-US: Global Rules
+category: 设计模式
+type: 全局规则
 order: 5
-title:
-  zh-CN: 文案
-  en-US: Copywriting
+title: 文案
 ---
 
 在界面中，我们需要通过对话的方式与用户产生共鸣。精准、清晰的语言会更容易让用户理解，合适的语气更容易让用户建立信任感。因此在界面设计时，文案也应当被重视。 在使用和书写文案时有以下几点需要注意：
@@ -62,7 +56,7 @@ title:
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AAaXSGqNUBlZChkrMbYl.png" alt="正确示范" description="在同一页面、同一区域在语序上一致。">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DYCoXTphnpdkMMCtyMdN.png" alt="错误示范" description="语序上不一致，会影响用户理解成本。">
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/sNqQYWEJCAzCxcYCBGYD.png" description="操作名称和目标页面的标题一致。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/sNqQYWEJCAzCxcYCBGYD.png" alt="操作名称和目标页面的标题一致。">
 
 - 描述同一个事物的词汇要保持统一;
 - 上下文的语法、语种、语序要保持统一;

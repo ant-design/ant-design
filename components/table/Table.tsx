@@ -495,7 +495,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           internalRefs={internalRefs as any}
           transformColumns={transformColumns}
         />
-        {pageData && pageData.length > 0 && bottomPaginationNode}
+        {mergedData && mergedData.length > 0 && bottomPaginationNode}
       </Spin>
     </div>
   );

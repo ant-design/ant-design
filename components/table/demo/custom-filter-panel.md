@@ -87,7 +87,7 @@ class App extends React.Component {
         : '',
     onFilterDropdownVisibleChange: visible => {
       if (visible) {
-        setTimeout(() => this.searchInput.select());
+        setTimeout(() => this.searchInput.select(), 100);
       }
     },
     render: text =>

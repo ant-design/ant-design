@@ -18,7 +18,7 @@ title: 表单页
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4IjJTbMSsmEAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>高效</h4>
-      <p>通过合理地信息组织形式和表单组价应用，使用户可以快速完成表单页任务。</p>
+      <p>通过合理的信息组织形式和表单组件的使用，使用户可以快速完成表单页任务。</p>
     </div>
   </div>
   <div>

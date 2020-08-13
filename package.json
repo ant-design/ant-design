@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.5.3",
+  "version": "4.5.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -60,7 +60,7 @@
     "compile": "antd-tools run compile",
     "compile:less": "antd-tools run compile:less",
     "changelog": "node ./scripts/print-changelog",
-    "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r .circleci/ .github/ _site && npm run site:test",
+    "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && cp -r .circleci _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only --dotfiles",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
@@ -187,6 +187,7 @@
     "cheerio": "^1.0.0-rc.3",
     "concurrently": "^5.0.2",
     "cross-env": "^7.0.0",
+    "css-minimizer-webpack-plugin": "^1.1.1",
     "css-split-webpack-plugin": "^0.2.6",
     "dekko": "^0.2.1",
     "docsearch.js": "^2.6.3",
@@ -258,7 +259,7 @@
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^16.8.6",
     "react-text-loop": "^2.3.0",
-    "react-virtualized": "~9.21.1",
+    "react-virtualized": "^9.22.0",
     "react-window": "^1.8.5",
     "remark": "^12.0.0",
     "remark-cli": "^8.0.0",

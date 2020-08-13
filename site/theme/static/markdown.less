@@ -226,17 +226,15 @@
     transform: rotateY(180deg);
   }
 
-  i {
-    color: @site-text-color-secondary;
-
-    &:hover {
-      color: @primary-color;
-    }
-  }
-
   .anticon {
     display: block;
+    color: @site-text-color-secondary;
     font-size: 16px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: @site-text-color;
+    }
   }
 }
 

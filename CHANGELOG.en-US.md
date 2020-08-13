@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 4.5.4
+
+`2020-08-12`
+
+- 🐞 Fix Form.Item `hidden` not working in less. [#26152](https://github.com/ant-design/ant-design/pull/26152)
+- 🐞 Fix Dropdown render issue when `overlay` is string. [#26135](https://github.com/ant-design/ant-design/pull/26135)
+- 🐞 Fix Table pagination disappear when last record in last page is deleted. [#26133](https://github.com/ant-design/ant-design/pull/26133) [@QoVoQ](https://github.com/QoVoQ)
+- Tree
+  - 🐞 Fix Tree.DirectoryTree can not use `scrollTo` with ref. [#26129](https://github.com/ant-design/ant-design/pull/26129)
+  - 🐞 Fix Tree lost line between top level nodes when enable `showLine`. [#25991](https://github.com/ant-design/ant-design/pull/25991) [@zhangchen915](https://github.com/zhangchen915)
+- 💄 Add `@badge-color` less variable. [#26159](https://github.com/ant-design/ant-design/pull/26159)
+- RTL
+  - 🐞 Fixed Input.Search border style in RTL mode. [#26156](https://github.com/ant-design/ant-design/pull/26156)
+  - 🐞 Fix the style of Input when `addonBefore` in RTL mode. [#26153](https://github.com/ant-design/ant-design/pull/26153)
+  - 🐞 Fix multiple style issues for DatePicker in RTL mode. [#26149](https://github.com/ant-design/ant-design/pull/26149) [#26157](https://github.com/ant-design/ant-design/pull/26157) [#26158](https://github.com/ant-design/ant-design/pull/26158)
+- TypeScript
+  - 🐞 Fix Slider `handleStyle` and `trackStyle` TypeScript definitions. [#26160](https://github.com/ant-design/ant-design/pull/26160)
+
 ## 4.5.3
 
 `2020-08-08`
