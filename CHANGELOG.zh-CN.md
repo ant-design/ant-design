@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 4.5.4
+
+`2020-08-12`
+
+- 🐞 修复 Form.Item 在 `hidden` 时引用 less 样式时失效的问题。[#26152](https://github.com/ant-design/ant-design/pull/26152)
+- 🐞 修复 Dropdown `overlay` 为 string 时渲染错误的问题。[#26135](https://github.com/ant-design/ant-design/pull/26135)
+- 🐞 修复 Table 删除最后一页的最后一条记录时分页消失的问题。[#26133](https://github.com/ant-design/ant-design/pull/26133) [@QoVoQ](https://github.com/QoVoQ)
+- Tree
+  - 🐞 修复 Tree.DirectoryTree 不能通过 `ref` 调用 `scrollTo` 的问题。[#26129](https://github.com/ant-design/ant-design/pull/26129)
+  - 🐞 修复 Tree 开启 `showLine` 时顶级节点间缺少连接线的问题。[#25991](https://github.com/ant-design/ant-design/pull/25991) [@zhangchen915](https://github.com/zhangchen915)
+- 💄 新增 `@badge-color` less 变量。[#26159](https://github.com/ant-design/ant-design/pull/26159)
+- RTL
+  - 🐞 修复 Input.Search 在 RTL 模式下的边框样式。[#26156](https://github.com/ant-design/ant-design/pull/26156)
+  - 🐞 修复 Input 在 RTL 模式下 `addonBefore` 的样式问题。[#26153](https://github.com/ant-design/ant-design/pull/26153)
+  - 🐞 修复 DatePicker 在 RTL 模式下的多个样式问题。[#26149](https://github.com/ant-design/ant-design/pull/26149) [#26157](https://github.com/ant-design/ant-design/pull/26157) [#26158](https://github.com/ant-design/ant-design/pull/26158)
+- TypeScript
+  - 🐞 修复 Slider `handleStyle` 和 `trackStyle` 属性的类型定义。[#26160](https://github.com/ant-design/ant-design/pull/26160)
+
 ## 4.5.3
 
 `2020-08-08`

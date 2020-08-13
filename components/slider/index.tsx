@@ -45,6 +45,8 @@ export interface SliderBaseProps {
   className?: string;
   id?: string;
   style?: React.CSSProperties;
+  handleStyle?: React.CSSProperties;
+  trackStyle?: React.CSSProperties;
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
