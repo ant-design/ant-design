@@ -28,7 +28,7 @@ interface CopyConfig {
   text?: string;
   onCopy?: () => void;
   icon?: React.ReactNode;
-  tooltips?: [React.ReactNode, React.ReactNode] | boolean;
+  tooltips?: [React.ReactNode, React.ReactNode] | false;
 }
 
 interface EditConfig {
@@ -380,12 +380,11 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const title = copied
-      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
-      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
-
-    const isTooltipClosed = (copyable as CopyConfig).tooltips;
-
+    let title;
+    const hasTooltip = (copyable as CopyConfig).tooltips;
+    if (typeof hasTooltip !== 'boolean' && hasTooltip) {
+      title = copied ? hasTooltip?.[1] || this.copiedStr : hasTooltip?.[0] || this.copyStr;
+    }
     const ariaLabel = typeof title === 'string' ? title : '';
 
     const dom = (
@@ -398,7 +397,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
       </TransButton>
     );
 
-    return typeof isTooltipClosed === 'boolean' && !isTooltipClosed ? (
+    return typeof hasTooltip === 'boolean' && !hasTooltip ? (
       dom
     ) : (
       <Tooltip key="copy" title={title}>
