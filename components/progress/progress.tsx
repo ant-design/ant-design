@@ -69,10 +69,16 @@ export default class Progress extends React.Component<ProgressProps> {
     let { successPercent } = this.props;
     /** @deprecated Use `percent` instead */
     if (success && 'progress' in success) {
-      successPercent = success.progress;
+      return parseInt(
+        success.progress !== undefined ? success.progress.toString() : success.progress.toString(),
+        10,
+      );
     }
     if (success && 'percent' in success) {
-      successPercent = success.percent;
+      return parseInt(
+        success.percent !== undefined ? success.percent.toString() : success.percent.toString(),
+        10,
+      );
     }
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
@@ -90,13 +96,16 @@ export default class Progress extends React.Component<ProgressProps> {
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent, success } = this.props;
-    let { successPercent } = this.props;
+    let successPercent: number | undefined;
     if (success && 'progress' in success) {
       devWarning(false, 'Progress', '`success.progress` is deprecated. Please use `success.percent` instead.');
       successPercent = success.progress;
     }
     if (success && 'percent' in success) {
       successPercent = success.percent;
+    }
+    if (successPercent === undefined && 'successPercent' in this.props) {
+      successPercent = this.props.successPercent;
     }
     if (!showInfo) return null;
 
