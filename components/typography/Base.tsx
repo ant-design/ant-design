@@ -382,7 +382,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     let title;
     const hasTooltip = (copyable as CopyConfig).tooltips;
-    if (typeof hasTooltip !== 'boolean' && hasTooltip) {
+    if (typeof hasTooltip !== 'boolean') {
       title = copied ? hasTooltip?.[1] || this.copiedStr : hasTooltip?.[0] || this.copyStr;
     }
     const ariaLabel = typeof title === 'string' ? title : '';
