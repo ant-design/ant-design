@@ -97,15 +97,15 @@ export default class Progress extends React.Component<ProgressProps> {
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent, success } = this.props;
     let successPercent: number | undefined;
+    if ('successPercent' in this.props) {
+      successPercent = this.props.successPercent;
+    }
     if (success && 'progress' in success) {
       devWarning(false, 'Progress', '`success.progress` is deprecated. Please use `success.percent` instead.');
       successPercent = success.progress;
     }
     if (success && 'percent' in success) {
       successPercent = success.percent;
-    }
-    if (successPercent === undefined && 'successPercent' in this.props) {
-      successPercent = this.props.successPercent;
     }
     if (!showInfo) return null;
 
