@@ -304,6 +304,13 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
  });
 ```
 
+#### Tree, TreeSelect will display `label` when `title` and `label` are both set
+
+The adjustment is for aligning behavior with `labelInValue`.
+
+- [New behavior](https://codesandbox.io/s/keen-curran-d3qnp) (show 'label' on first node)
+- [Old behavior](https://codesandbox.io/s/muddy-darkness-57lb3) (show 'title' on first node)
+
 ## Encounter problems
 
 v4 made a lot of detailed improvements and refactoring. We collected all known incompatible changes and related impacts as much as possible, but there may be some scenarios we have not considered. If you encounter problems during the upgrade, please go to [GitHub issues](http://new-issue.ant.design/) and [codemod Issues](https://github.com/ant-design/codemod-v4/issues) for feedback. We will respond and improve this document as soon as possible.

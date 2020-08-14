@@ -304,6 +304,13 @@ antd4-codemod src
  });
 ```
 
+#### Tree, TreeSelect 同时指定 `title` 和 `label` 的时候，会选择显示 `label`
+
+为了 `labelInValue` 行为一致进行了该调整。
+
+- [新行为](https://codesandbox.io/s/keen-curran-d3qnp)（在第一个节点展示 'label'）
+- [旧行为](https://codesandbox.io/s/muddy-darkness-57lb3)（在第一个节点展示 'title'）
+
 ## 遇到问题
 
 v4 做了非常多的细节改进和重构，我们尽可能收集了已知的所有不兼容变化和相关影响，但是有可能还是有一些场景我们没有考虑到。如果你在升级过程中遇到了问题，请到 [GitHub issues](http://new-issue.ant.design/) 和 [codemod Issues](https://github.com/ant-design/codemod-v4/issues) 进行反馈。我们会尽快响应和相应改进这篇文档。
