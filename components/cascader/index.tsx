@@ -255,6 +255,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
   cachedOptions: CascaderOptionType[] = [];
 
+  clearSelectionTimeout: any;
+
   private input: Input;
 
   constructor(props: CascaderProps) {
@@ -267,6 +269,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
       prevProps: props,
     };
+  }
+
+  componentWillUnmount() {
+    if (this.clearSelectionTimeout) {
+      clearTimeout(this.clearSelectionTimeout);
+    }
   }
 
   setValue = (value: CascaderValueType, selectedOptions: CascaderOptionType[] = []) => {
@@ -355,7 +363,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     e.stopPropagation();
     if (!inputValue) {
       this.handlePopupVisibleChange(false);
-      setTimeout(() => {
+      this.clearSelectionTimeout = setTimeout(() => {
         this.setValue([]);
       }, 200);
     } else {
