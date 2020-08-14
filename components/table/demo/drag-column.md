@@ -14,7 +14,7 @@ title:
 we can integrate table with react-dnd to implement drag sorting columns.
 
 ```jsx
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Table } from 'antd';
 import { createDndContext, DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -167,7 +167,14 @@ const DragColumnTable = () => {
   };
 
   const manager = useRef(RNDContext);
-  window._cacheDND = manager;
+
+  if (typeof window === 'undefined') {
+    useEffect(() => {
+      window._cacheDND = manager;
+    }, []);
+  } else {
+    window._cacheDND = manager;
+  }
   // Error: Cannot have two HTML5 backends at the same time
   // 这里要做缓存是为了个下一个列子用而不报错
   return (
