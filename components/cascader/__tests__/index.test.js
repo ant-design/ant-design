@@ -189,10 +189,13 @@ describe('Cascader', () => {
 
   it('should support to clear selection', async () => {
     const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
+    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('Zhejiang / Hangzhou');
     wrapper.find('.ant-cascader-picker-clear').at(0).simulate('click');
     await sleep(300);
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('');
+    wrapper.unmount();
+    expect(willUnmount).toHaveBeenCalled();
   });
 
   it('should close popup when clear selection', () => {
