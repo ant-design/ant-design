@@ -127,6 +127,7 @@ const Demo = () => (
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
   - `filterOption` return origin data with second params instead. No need to use `option.props.children` for matching.
+  - Tree, TreeSelect will display `label` when `title` and `label` are both set. The adjustment is for aligning behavior with `labelInValue`. [New behavior](https://codesandbox.io/s/keen-curran-d3qnp) (show 'label' on first node). [Old behavior](https://codesandbox.io/s/muddy-darkness-57lb3) (show 'title' on first node).
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
@@ -303,13 +304,6 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
    },
  });
 ```
-
-#### Tree, TreeSelect will display `label` when `title` and `label` are both set
-
-The adjustment is for aligning behavior with `labelInValue`.
-
-- [New behavior](https://codesandbox.io/s/keen-curran-d3qnp) (show 'label' on first node)
-- [Old behavior](https://codesandbox.io/s/muddy-darkness-57lb3) (show 'title' on first node)
 
 ## Encounter problems
 
