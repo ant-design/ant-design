@@ -95,11 +95,27 @@ describe('Statistic', () => {
     it('responses hover events for Countdown', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
-      const wrapper = mount(<Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+      const wrapper = mount(
+        <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+      );
       wrapper.simulate('mouseenter');
       expect(onMouseEnter).toHaveBeenCalled();
       wrapper.simulate('mouseleave');
       expect(onMouseLeave).toHaveBeenCalled();
+    });
+
+    it('start and pause', () => {
+      const now = Date.now() + 1e4;
+      const ref = React.createRef();
+      const wrapper = mount(<Statistic.Countdown autoStart={false} ref={ref} value={now} />);
+      const instance = wrapper.instance();
+      expect(instance.countdownId).toBe(undefined);
+
+      ref.current.start();
+      expect(instance.countdownId).not.toBe(undefined);
+
+      ref.current.pause();
+      expect(instance.countdownId).toBe(undefined);
     });
 
     describe('time finished', () => {

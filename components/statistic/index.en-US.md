@@ -39,3 +39,11 @@ Display statistic number.
 | title | Display title | string \| ReactNode | - |  |
 | value | Set target countdown time | number \| moment | - |  |
 | valueStyle | Set value css style | CSSProperties | - |  |
+| autoStart | Auto start countdown | boolean | true |  |
+
+#### Statistic.Countdown Methods
+
+| Name    | Description     | Version |
+| ------- | --------------- | ------- |
+| start() | Start countdown |         |
+| pause() | Pause countdown |         |

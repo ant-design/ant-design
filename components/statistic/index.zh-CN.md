@@ -40,3 +40,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
 | title | 数值的标题 | string \| ReactNode | - |  |
 | value | 数值内容 | number \| moment | - |  |
 | valueStyle | 设置数值的样式 | CSSProperties | - |  |
+| autoStart | 自动开始倒计时 | boolean | true |  |
+
+#### Statistic.Countdown 方法
+
+| 名称    | 说明       | 版本 |
+| ------- | ---------- | ---- |
+| start() | 开始倒计时 |      |
+| pause() | 暂停倒计时 |      |
