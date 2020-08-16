@@ -59,12 +59,3 @@ export function formatTimeStr(duration: number, format: string) {
     return match;
   });
 }
-
-export function formatCountdown(value: countdownValueType, config: CountdownFormatConfig) {
-  const { format = '' } = config;
-  const target = new Date(value).getTime();
-  const current = Date.now();
-  const diff = Math.max(target - current, 0);
-
-  return formatTimeStr(diff, format);
-}

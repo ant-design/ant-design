@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Statistic, { StatisticProps } from './Statistic';
-import { formatCountdown, countdownValueType, FormatConfig } from './utils';
+import { countdownValueType, formatTimeStr } from './utils';
 import { cloneElement } from '../_util/reactNode';
 
 const REFRESH_INTERVAL = 1000 / 30;
@@ -9,6 +9,7 @@ interface CountdownProps extends StatisticProps {
   value?: countdownValueType;
   format?: string;
   onFinish?: () => void;
+  autoStart?: boolean;
 }
 
 function getTime(value?: countdownValueType) {
@@ -18,12 +19,21 @@ function getTime(value?: countdownValueType) {
 class Countdown extends React.Component<CountdownProps, {}> {
   static defaultProps: Partial<CountdownProps> = {
     format: 'HH:mm:ss',
+    autoStart: true,
   };
 
-  countdownId?: number;
+  private countdownId?: number;
+
+  private pauseTime: number;
+
+  private totalPauseTime: number = 0;
 
   componentDidMount() {
-    this.syncTimer();
+    if (this.props.autoStart) {
+      this.syncTimer();
+    } else {
+      this.pauseTime = Date.now();
+    }
   }
 
   componentDidUpdate() {
@@ -47,7 +57,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
 
   startTimer = () => {
     if (this.countdownId) return;
-
+    if (this.pauseTime) this.totalPauseTime += Date.now() - this.pauseTime;
     this.countdownId = window.setInterval(() => {
       this.forceUpdate();
     }, REFRESH_INTERVAL);
@@ -66,9 +76,22 @@ class Countdown extends React.Component<CountdownProps, {}> {
     }
   };
 
-  formatCountdown = (value: countdownValueType, config: FormatConfig) => {
-    const { format } = this.props;
-    return formatCountdown(value, { ...config, format });
+  public start = () => this.startTimer();
+
+  public pause = () => {
+    if (!this.countdownId) return;
+    this.pauseTime = Date.now();
+    clearInterval(this.countdownId);
+    this.countdownId = undefined;
+  };
+
+  formatter = (value: countdownValueType) => {
+    const { format = '' } = this.props;
+    const target = new Date(value).getTime();
+    const current = Date.now();
+    const diff = Math.max(target - current + this.totalPauseTime, 0);
+
+    return formatTimeStr(diff, format);
   };
 
   // Countdown do not need display the timestamp
@@ -78,9 +101,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
     });
 
   render() {
-    return (
-      <Statistic valueRender={this.valueRender} {...this.props} formatter={this.formatCountdown} />
-    );
+    return <Statistic valueRender={this.valueRender} {...this.props} formatter={this.formatter} />;
   }
 }
 
