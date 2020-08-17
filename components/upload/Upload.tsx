@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import Dragger from './Dragger';
+import Dragger, { DraggerProps } from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
@@ -338,7 +338,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<UploadProps & React.RefAttributes<any>> {
-  Dragger: typeof Dragger;
+  Dragger: React.FunctionComponent<DraggerProps>;
 }
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
