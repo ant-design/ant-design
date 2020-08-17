@@ -19,8 +19,8 @@ timeline: true
 
 `2020-08-17`
 
-- 🐞 fix Space `children` remount issue. [#26219](https://github.com/ant-design/ant-design/pull/26219)
-- 🐞 fix Select with multiple type has no room for icons. [#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 Fix Space `children` remount issue. [#26219](https://github.com/ant-design/ant-design/pull/26219)
+- 🐞 Fix Select with multiple type has no room for icons. [#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
 - 💄 Optimize Cascader clear animation. [#26186](https://github.com/ant-design/ant-design/pull/26186)
 - RTL
   - 💄 Optimize the connection line style in Tree RTL mode. [#26205](https://github.com/ant-design/ant-design/pull/26205)
