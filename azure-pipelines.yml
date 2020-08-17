@@ -23,7 +23,7 @@ stages:
           - task: NodeTool@0
             displayName: 'Install Node.js'
             inputs:
-              versionSpec: '12.13.1'
+              versionSpec: '14.7.0'
           - script: npm install
             displayName: 'Install modules'
           - script: |
@@ -53,7 +53,7 @@ stages:
           - task: NodeTool@0
             displayName: 'Install Node.js'
             inputs:
-              versionSpec: '12.13.1'
+              versionSpec: '14.7.0'
           - script: npm install
             displayName: 'Install modules'
           - script: |
@@ -71,7 +71,7 @@ stages:
           - task: NodeTool@0
             displayName: 'Install Node.js'
             inputs:
-              versionSpec: '12.16.3'
+              versionSpec: '14.7.0'
           - script: npm install
             displayName: 'Install modules'
           - script: |
@@ -98,7 +98,7 @@ stages:
           - task: NodeTool@0
             displayName: 'Install Node.js'
             inputs:
-              versionSpec: '12.13.1'
+              versionSpec: '14.7.0'
           - script: npm install
             displayName: 'Install modules'
           - task: DownloadPipelineArtifact@2
