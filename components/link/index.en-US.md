@@ -11,7 +11,7 @@ for use on dark backgrounds.
 
 ## react-router
 
-`Varnish` does not depend on `react-router`.  If you wish to use `react-router` in your app, you can include `@allenai/varnish-react-router` for access to styled router links and other `react-router` dependent components.
+`Varnish` does not depend on `react-router`.  If you wish to use `react-router` in your app, you can include [`@allenai/varnish-react-router`](https://www.npmjs.com/package/@allenai/varnish-react-router) for access to styled router links and other `react-router` dependent components.
 
 ```jsx
 import { HashRouter as Router, withRouter } from 'react-router-dom';
