@@ -16,6 +16,7 @@ import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigContext } from '../config-provider';
 import Button, { ButtonProps } from '../button';
+import useForceUpdate from './hooks/useForceUpdate';
 
 const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
   {
@@ -38,7 +39,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   },
   ref,
 ) => {
-  const [, forceUpdate] = React.useReducer(x => x + 1, 0);
+  const forceUpdate = useForceUpdate();
 
   React.useEffect(() => {
     if (listType !== 'picture' && listType !== 'picture-card') {

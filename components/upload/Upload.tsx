@@ -17,6 +17,8 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import useSyncState from './hooks/useSyncState';
+import useForceUpdate from './hooks/useForceUpdate';
 
 export { UploadProps };
 
@@ -42,16 +44,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     style,
   } = props;
 
-  const [fileList, _setFileList] = React.useState<Array<UploadFile>>(
+  const [getFileList, setFileList] = useSyncState<Array<UploadFile>>(
     fileListProp || defaultFileList || [],
   );
-  const fileListRef = React.useRef<Array<UploadFile>>(fileList);
   const [dragState, setDragState] = React.useState<string>('drop');
-
-  const setFileList = (list: Array<UploadFile>) => {
-    _setFileList(list);
-    fileListRef.current = list;
-  };
 
   const upload = React.useRef<any>();
 
@@ -69,12 +65,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       setFileList(fileListProp || []);
     }
   }, [fileListProp]);
-
-  React.useEffect(() => {
-    if (fileList !== fileListRef.current) {
-      setFileList(fileListRef.current);
-    }
-  }, [fileListRef.current]);
 
   const onChange = (info: UploadChangeParam) => {
     if (!('fileList' in props)) {
@@ -94,7 +84,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     const targetItem = fileToObject(file);
     targetItem.status = 'uploading';
 
-    const nextFileList = fileList.concat();
+    const nextFileList = getFileList().concat();
 
     const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === targetItem.uid);
     if (fileIndex === -1) {
@@ -117,8 +107,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     } catch (e) {
       /* do nothing */
     }
-    const { current: currentFileList } = fileListRef;
-    const targetItem = getFileItem(file, currentFileList);
+    const targetItem = getFileItem(file, getFileList());
     // removed
     if (!targetItem) {
       return;
@@ -128,13 +117,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.xhr = xhr;
     onChange({
       file: { ...targetItem },
-      fileList: currentFileList.concat(),
+      fileList: getFileList().concat(),
     });
   };
 
   const onProgress = (e: { percent: number }, file: UploadFile) => {
-    const { current: currentFileList } = fileListRef;
-    const targetItem = getFileItem(file, currentFileList);
+    const targetItem = getFileItem(file, getFileList());
     // removed
     if (!targetItem) {
       return;
@@ -143,13 +131,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onChange({
       event: e,
       file: { ...targetItem },
-      fileList: currentFileList.concat(),
+      fileList: getFileList().concat(),
     });
   };
 
   const onError = (error: Error, response: any, file: UploadFile) => {
-    const { current: currentFileList } = fileListRef;
-    const targetItem = getFileItem(file, currentFileList);
+    const targetItem = getFileItem(file, getFileList());
     // removed
     if (!targetItem) {
       return;
@@ -159,7 +146,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     targetItem.status = 'error';
     onChange({
       file: { ...targetItem },
-      fileList: currentFileList.concat(),
+      fileList: getFileList().concat(),
     });
   };
 
@@ -170,7 +157,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         return;
       }
 
-      const removedFileList = removeFileItem(file, fileList);
+      const removedFileList = removeFileItem(file, getFileList());
 
       if (removedFileList) {
         file.status = 'removed';
@@ -199,12 +186,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     if (result === false) {
       // Get unique file list
       const uniqueList: UploadFile<any>[] = [];
-      const { current: currentFileList } = fileListRef;
-      currentFileList.concat(fileListArgs.map(fileToObject)).forEach(f => {
-        if (uniqueList.every(uf => uf.uid !== f.uid)) {
-          uniqueList.push(f);
-        }
-      });
+      getFileList()
+        .concat(fileListArgs.map(fileToObject))
+        .forEach(f => {
+          if (uniqueList.every(uf => uf.uid !== f.uid)) {
+            uniqueList.push(f);
+          }
+        });
 
       onChange({
         file,
@@ -218,12 +206,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     return true;
   };
   // Test needs
-  const [, forceUpdate] = React.useReducer(x => x + 1, 0);
+  const forceUpdate = useForceUpdate();
   React.useImperativeHandle(ref, () => ({
     onSuccess,
     onProgress,
     onError,
-    fileList: fileListRef.current,
+    fileList: getFileList(),
     upload: upload.current,
     forceUpdate,
   }));
@@ -239,7 +227,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     return (
       <UploadList
         listType={listType}
-        items={fileList}
+        items={getFileList()}
         previewFile={previewFile}
         onPreview={onPreview}
         onDownload={onDownload}
@@ -293,7 +281,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       prefixCls,
       {
         [`${prefixCls}-drag`]: true,
-        [`${prefixCls}-drag-uploading`]: fileList.some(file => file.status === 'uploading'),
+        [`${prefixCls}-drag-uploading`]: getFileList().some(file => file.status === 'uploading'),
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
         [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
