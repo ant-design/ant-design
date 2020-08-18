@@ -184,8 +184,10 @@ describe('Upload List', () => {
 
   it('does concat filelist when beforeUpload returns false', () => {
     const handleChange = jest.fn();
+    const ref = React.createRef();
     const wrapper = mount(
       <Upload
+        ref={ref}
         listType="picture"
         defaultFileList={fileList}
         onChange={handleChange}
@@ -194,14 +196,13 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-
     wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
 
-    expect(wrapper.state().fileList.length).toBe(fileList.length + 1);
+    expect(ref.current.fileList.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
 
@@ -334,15 +335,21 @@ describe('Upload List', () => {
         };
         delete newFile.thumbUrl;
         newFileList.push(newFile);
-        const wrapper = mount(
-          <Upload listType="picture-card" defaultFileList={newFileList} onPreview={handlePreview}>
+        const ref = React.createRef();
+        mount(
+          <Upload
+            ref={ref}
+            listType="picture-card"
+            defaultFileList={newFileList}
+            onPreview={handlePreview}
+          >
             <button type="button">upload</button>
           </Upload>,
         );
-        wrapper.setState({});
+        ref.current.forceUpdate();
         await sleep();
 
-        expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
+        expect(ref.current.fileList[2].thumbUrl).not.toBe(undefined);
         expect(onDrawImage).toHaveBeenCalled();
 
         // Offset check
@@ -580,21 +587,24 @@ describe('Upload List', () => {
   });
 
   it('return when prop onPreview not exists', () => {
-    const wrapper = mount(<UploadList />).instance();
-    expect(wrapper.handlePreview()).toBe(undefined);
+    const ref = React.createRef();
+    mount(<UploadList ref={ref} />);
+    expect(ref.current.handlePreview()).toBe(undefined);
   });
 
   it('return when prop onDownload not exists', () => {
     const file = new File([''], 'test.txt', { type: 'text/plain' });
     const items = [{ uid: 'upload-list-item', url: '' }];
-    const wrapper = mount(
+    const ref = React.createRef();
+    mount(
       <UploadList
+        ref={ref}
         items={items}
         locale={{ downloadFile: '' }}
         showUploadList={{ showDownloadIcon: true }}
       />,
-    ).instance();
-    expect(wrapper.handleDownload(file)).toBe(undefined);
+    );
+    expect(ref.current.handleDownload(file)).toBe(undefined);
   });
 
   it('previewFile should work correctly', async () => {
@@ -602,8 +612,8 @@ describe('Upload List', () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
-    ).instance();
-    return wrapper.props.previewFile(file);
+    );
+    return wrapper.props().previewFile(file);
   });
 
   it('downloadFile should work correctly', async () => {
@@ -617,8 +627,8 @@ describe('Upload List', () => {
         locale={{ downloadFile: '' }}
         showUploadList={{ showDownloadIcon: true }}
       />,
-    ).instance();
-    return wrapper.props.onDownload(file);
+    );
+    return wrapper.props().onDownload(file);
   });
 
   it('extname should work correctly when url not exists', () => {
@@ -683,10 +693,12 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
-    const instance = wrapper.instance();
-    return instance.props.previewFile(mockFile).then(dataUrl => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
-    });
+    return wrapper
+      .props()
+      .previewFile(mockFile)
+      .then(dataUrl => {
+        expect(dataUrl).toEqual('data:image/png;base64,');
+      });
   });
 
   it("upload non image file shouldn't be converted to the base64", async () => {
@@ -697,10 +709,12 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
-    const instance = wrapper.instance();
-    return instance.props.previewFile(mockFile).then(dataUrl => {
-      expect(dataUrl).toBe('');
-    });
+    return wrapper
+      .props()
+      .previewFile(mockFile)
+      .then(dataUrl => {
+        expect(dataUrl).toBe('');
+      });
   });
 
   describe('customize previewFile support', () => {
@@ -715,22 +729,20 @@ describe('Upload List', () => {
           originFileObj: renderInstance(),
         };
         delete file.thumbUrl;
-
+        const ref = React.createRef();
         const wrapper = mount(
-          <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
+          <Upload ref={ref} listType="picture" defaultFileList={[file]} previewFile={previewFile}>
             <button type="button">button</button>
           </Upload>,
         );
-        wrapper.setState({});
-        await sleep();
-
+        ref.current.forceUpdate();
         expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
+        await sleep(100);
         wrapper.update();
 
         expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
       });
     }
-
     test('File', () => new File([], 'xxx.png'));
     test('Blob', () => new Blob());
   });
