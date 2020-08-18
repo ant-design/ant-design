@@ -208,6 +208,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   // Test needs
   const forceUpdate = useForceUpdate();
   React.useImperativeHandle(ref, () => ({
+    onStart,
     onSuccess,
     onProgress,
     onError,

@@ -496,6 +496,25 @@ describe('Upload', () => {
     expect(ref.current.onError('', '', { uid: 'fileItem' })).toBe(undefined);
   });
 
+  it('should replace file when targetItem already exists', () => {
+    const fileList = [{ uid: 'file', name: 'file' }];
+    const ref = React.createRef();
+    mount(
+      <Upload ref={ref} defaultFileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    ref.current.onStart({
+      uid: 'file',
+      name: 'file1',
+    });
+    expect(ref.current.fileList.length).toBe(1);
+    expect(ref.current.fileList[0].originFileObj).toEqual({
+      name: 'file1',
+      uid: 'file',
+    });
+  });
+
   it('warning if set `value`', () => {
     resetWarned();
 
