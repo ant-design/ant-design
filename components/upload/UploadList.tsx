@@ -16,7 +16,7 @@ import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigContext } from '../config-provider';
 import Button, { ButtonProps } from '../button';
-import useForceUpdate from './hooks/useForceUpdate';
+import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
   {
