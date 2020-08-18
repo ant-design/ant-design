@@ -16,58 +16,26 @@ function getTime(value?: countdownValueType) {
   return new Date(value as any).getTime();
 }
 
-class Countdown extends React.Component<CountdownProps, {}> {
-  static defaultProps: Partial<CountdownProps> = {
-    format: 'HH:mm:ss',
-    autoStart: true,
+const InternalCountdown: React.ForwardRefRenderFunction<unknown, CountdownProps> = (props, ref) => {
+  const { format = '', autoStart } = props;
+  const [countdownId, setCountdownId] = React.useState<number>();
+  const [pauseTime, setPauseTime] = React.useState<number>();
+  const [totalPauseTime, setTotalPauseTime] = React.useState<number>(0);
+  const [, forceUpdate] = React.useState({});
+
+  const startTimer = () => {
+    if (countdownId) return;
+    if (pauseTime) setTotalPauseTime(totalPauseTime + Date.now() - pauseTime);
+    setCountdownId(window.setInterval(() => {
+      forceUpdate({});
+    }, REFRESH_INTERVAL));
   };
 
-  private countdownId?: number;
-
-  private pauseTime: number;
-
-  private totalPauseTime: number = 0;
-
-  componentDidMount() {
-    if (this.props.autoStart) {
-      this.syncTimer();
-    } else {
-      this.pauseTime = Date.now();
-    }
-  }
-
-  componentDidUpdate() {
-    this.syncTimer();
-  }
-
-  componentWillUnmount() {
-    this.stopTimer();
-  }
-
-  syncTimer = () => {
-    const { value } = this.props;
-
-    const timestamp = getTime(value);
-    if (timestamp >= Date.now()) {
-      this.startTimer();
-    } else {
-      this.stopTimer();
-    }
-  };
-
-  startTimer = () => {
-    if (this.countdownId) return;
-    if (this.pauseTime) this.totalPauseTime += Date.now() - this.pauseTime;
-    this.countdownId = window.setInterval(() => {
-      this.forceUpdate();
-    }, REFRESH_INTERVAL);
-  };
-
-  stopTimer = () => {
-    const { onFinish, value } = this.props;
-    if (this.countdownId) {
-      clearInterval(this.countdownId);
-      this.countdownId = undefined;
+  const stopTimer = () => {
+    const { onFinish, value } = props;
+    if (countdownId) {
+      clearInterval(countdownId);
+      setCountdownId(undefined);
 
       const timestamp = getTime(value);
       if (onFinish && timestamp < Date.now()) {
@@ -76,33 +44,58 @@ class Countdown extends React.Component<CountdownProps, {}> {
     }
   };
 
-  public start = () => this.startTimer();
+  const syncTimer = () => {
+    const { value } = props;
 
-  public pause = () => {
-    if (!this.countdownId) return;
-    this.pauseTime = Date.now();
-    clearInterval(this.countdownId);
-    this.countdownId = undefined;
+    const timestamp = getTime(value);
+    if (timestamp >= Date.now()) {
+      startTimer();
+    } else {
+      stopTimer();
+    }
   };
 
-  formatter = (value: countdownValueType) => {
-    const { format = '' } = this.props;
+  React.useEffect(() => {
+    if (autoStart) {
+      syncTimer();
+    } else {
+      setPauseTime(Date.now());
+    }
+
+    return stopTimer;
+  }, []);
+
+  React.useImperativeHandle(ref, () => ({
+    start: startTimer,
+    pause: () => {
+      if (!countdownId) return;
+      setPauseTime(Date.now());
+      clearInterval(countdownId);
+      setCountdownId(undefined);
+    },
+  }));
+
+  const formatter = (value: countdownValueType) => {
     const target = new Date(value).getTime();
     const current = Date.now();
-    const diff = Math.max(target - current + this.totalPauseTime, 0);
+    const diff = Math.max(target - current + totalPauseTime, 0);
 
     return formatTimeStr(diff, format);
   };
 
-  // Countdown do not need display the timestamp
-  valueRender = (node: React.ReactElement<HTMLDivElement>) =>
+  const valueRender = (node: React.ReactElement<HTMLDivElement>) =>
     cloneElement(node, {
       title: undefined,
     });
 
-  render() {
-    return <Statistic valueRender={this.valueRender} {...this.props} formatter={this.formatter} />;
-  }
-}
+  return <Statistic valueRender={valueRender} {...props} formatter={formatter}/>;
+};
+
+const Countdown = React.forwardRef<unknown, CountdownProps>(InternalCountdown);
+Countdown.displayName = 'Countdown';
+Countdown.defaultProps = {
+  format: 'HH:mm:ss',
+  autoStart: true,
+};
 
 export default Countdown;
