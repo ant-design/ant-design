@@ -112,9 +112,10 @@ describe('PageHeader', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
-  it('change container width', () => {
+  it('change container width', async () => {
     const wrapper = mount(<PageHeader title="Page Title" extra="extra" />);
     wrapper.triggerResize();
+    await Promise.resolve();
     wrapper.update();
     expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBe(true);
   });

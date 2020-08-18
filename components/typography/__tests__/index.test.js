@@ -206,7 +206,7 @@ describe('Typography', () => {
 
     describe('copyable', () => {
       function copyTest(name, text, target, icon, tooltips) {
-        it(name, () => {
+        it(name, async () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
           const wrapper = mount(
@@ -229,13 +229,25 @@ describe('Typography', () => {
             expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copy');
           } else if (tooltips === false) {
             expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else if (tooltips[0] === '' && tooltips[1] === '') {
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else if (tooltips[0] === '' && tooltips[1]) {
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else if (tooltips[1] === '' && tooltips[0]) {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
           } else {
             expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
           }
 
           wrapper.find('.ant-typography-copy').first().simulate('click');
-          expect(copy.lastStr).toEqual(target);
+          jest.useRealTimers();
+          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mousenEnterDelay 的时长
+          if (tooltips && tooltips[0] === '' && tooltips[1]) {
+            await sleep(150);
+          }
 
+          expect(copy.lastStr).toEqual(target);
           wrapper.update();
           expect(onCopy).toHaveBeenCalled();
 
@@ -247,20 +259,29 @@ describe('Typography', () => {
           }
 
           expect(wrapper.find(copiedIcon).length).toBeTruthy();
+          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
 
           if (tooltips === undefined || tooltips === true) {
             expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copied');
           } else if (tooltips === false) {
             expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else if (tooltips[0] === '' && tooltips[1] === '') {
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else if (tooltips[0] === '' && tooltips[1]) {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
+          } else if (tooltips[1] === '' && tooltips[0]) {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('');
           } else {
             expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
           }
 
+          jest.useFakeTimers();
           jest.runAllTimers();
           wrapper.update();
 
           // Will set back when 3 seconds pass
           expect(wrapper.find(copiedIcon).length).toBeFalsy();
+          wrapper.unmount();
           jest.useRealTimers();
         });
       }
@@ -280,6 +301,15 @@ describe('Typography', () => {
       copyTest('customize copy tooltips text', 'bamboo', 'bamboo', undefined, [
         'click here',
         'you clicked!!',
+      ]);
+      copyTest('tooltips contains two empty text', 'bamboo', 'bamboo', undefined, ['', '']);
+      copyTest('tooltips contains one empty text', 'bamboo', 'bamboo', undefined, [
+        '',
+        'you clicked!!',
+      ]);
+      copyTest('tooltips contains one empty text 2', 'bamboo', 'bamboo', undefined, [
+        'click here',
+        '',
       ]);
     });
 

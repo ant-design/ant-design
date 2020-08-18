@@ -724,7 +724,6 @@ exports[`Directory Tree expand click 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div
@@ -978,7 +977,6 @@ exports[`Directory Tree expand click 2`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div
@@ -1130,7 +1128,6 @@ exports[`Directory Tree expand double click 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div
@@ -1384,7 +1381,6 @@ exports[`Directory Tree expand double click 2`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div
@@ -1536,7 +1532,6 @@ exports[`Directory Tree expand with state control click 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div
@@ -1679,7 +1674,6 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div
@@ -1822,7 +1816,6 @@ exports[`Directory Tree expandedKeys update 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    disabled=""
   >
     <div>
       <div

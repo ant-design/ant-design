@@ -6,6 +6,7 @@ import ConfigProvider from '../../config-provider';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 const options = [
   {
@@ -186,11 +187,18 @@ describe('Cascader', () => {
     expect(popupWrapper).toMatchSnapshot();
   });
 
-  it('should support to clear selection', () => {
+  it('should support to clear selection', async () => {
     const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
+    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
+    const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('Zhejiang / Hangzhou');
     wrapper.find('.ant-cascader-picker-clear').at(0).simulate('click');
+    await sleep(300);
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('');
+    wrapper.unmount();
+    expect(willUnmount).toHaveBeenCalled();
+    expect(clearTimeoutSpy).toHaveBeenCalled();
+    clearTimeoutSpy.mockRestore();
   });
 
   it('should close popup when clear selection', () => {
