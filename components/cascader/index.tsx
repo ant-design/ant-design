@@ -354,6 +354,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
+    this.handlePopupVisibleChange(true);
     this.setState({ inputValue });
   };
 
