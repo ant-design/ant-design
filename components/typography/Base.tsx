@@ -392,7 +392,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const { tooltips } = copyable as CopyConfig;
     let tooltipNodes = toArray(tooltips) as React.ReactNode[];
-    if (tooltips !== false && tooltipNodes.length === 0) {
+    if (tooltipNodes.length === 0) {
       tooltipNodes = [this.copyStr, this.copiedStr];
     }
     const title = copied ? tooltipNodes[1] : tooltipNodes[0];
@@ -400,7 +400,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const icons = toArray((copyable as CopyConfig).icon);
 
     return (
-      <Tooltip key="copy" title={title}>
+      <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
