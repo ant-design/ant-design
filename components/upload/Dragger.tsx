@@ -11,7 +11,7 @@ const InternalDragger: React.ForwardRefRenderFunction<unknown, DraggerProps> = (
   return <Upload ref={ref} {...restProps} type="drag" style={{ ...style, height }} />;
 };
 
-const Dragger = React.forwardRef<unknown, DraggerProps>(InternalDragger);
+const Dragger = React.forwardRef(InternalDragger) as React.FC<DraggerProps>;
 
 Dragger.displayName = 'Dragger';
 
