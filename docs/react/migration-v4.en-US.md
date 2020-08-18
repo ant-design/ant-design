@@ -56,7 +56,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - Removed the `lazy` attribute of Transfer, which did not really optimize the effect.
 - Removed `combobox` mode, please use `AutoComplete` instead.
 - Removed the `rowSelection.hideDefaultSelections` property of Table, please use `SELECTION_ALL` and `SELECTION_INVERT` in `rowSelection.selections` instead, [Custom Selection](/components/table/#components-table-demo-row-selection-custom).
-- Removed Button.Group, please use `Space` instead.
+- Deprecated Button.Group, please use `Space` instead.
 
 #### Icon upgrade
 
