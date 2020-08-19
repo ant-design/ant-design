@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/image/demo/basic.md correctly 1`] = `
+<div
+  class="ant-image"
+  style="width:200px"
+>
+  <img
+    class="ant-image-img"
+    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+  />
+</div>
+`;
+
+exports[`renders ./components/image/demo/fallback.md correctly 1`] = `
+<div
+  class="ant-image"
+  style="width:200px"
+>
+  <img
+    class="ant-image-img"
+    src="error"
+  />
+</div>
+`;
+
+exports[`renders ./components/image/demo/placeholder.md correctly 1`] = `
+Array [
+  <div
+    class="ant-image"
+    style="width:200px"
+  >
+    <img
+      class="ant-image-img"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?undefined"
+    />
+    <div
+      class="ant-image-placeholder"
+    >
+      <div
+        style="margin-top:90px;margin-left:100px"
+      >
+        <div
+          class="ant-spin ant-spin-spinning"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-primary"
+    style="margin-left:10px"
+    type="button"
+  >
+    <span>
+      Random
+    </span>
+  </button>,
+]
+`;

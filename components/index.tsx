@@ -70,6 +70,8 @@ export { default as Grid } from './grid';
 
 export { default as Input } from './input';
 
+export { default as Image } from './image';
+
 export { default as InputNumber } from './input-number';
 
 export { default as Layout } from './layout';
