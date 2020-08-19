@@ -516,4 +516,12 @@ describe('Cascader', () => {
       .simulate('click');
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
+
+  it('options should open after press esc and then search', () => {
+    const wrapper = mount(<Cascader options={options} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
+    wrapper.find('input').simulate('keydown', { keyCode: KeyCode.ESC });
+    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
+    expect(wrapper.state('popupVisible')).toBe(true);
+  });
 });
