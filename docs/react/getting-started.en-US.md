@@ -109,20 +109,6 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 
 > ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
-## Replace momentjs to Day.js
-
-You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically. You need to update your webpack config file like this:
-
-```js
-// webpack-config.js
-import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
-
-module.exports = {
-  // ...
-  plugins: [new AntdDayjsWebpackPlugin()],
-};
-```
-
 ## Customize your Workflow
 
 If you want to customize your workflow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
