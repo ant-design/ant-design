@@ -11,6 +11,7 @@ import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext } from './context';
 import useCacheErrors from './hooks/useCacheErrors';
+import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
@@ -45,7 +46,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   validateStatus,
   extra,
 }) => {
-  const [, forceUpdate] = React.useState({});
+  const forceUpdate = useForceUpdate();
 
   const baseClassName = `${prefixCls}-item`;
 
@@ -68,7 +69,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           onDomErrorVisibleChange(true);
         });
       }
-      forceUpdate({});
+      forceUpdate();
     },
     !!help,
   );
