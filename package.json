@@ -241,7 +241,7 @@
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
     "rc-tween-one": "^2.4.1",
-    "rc-virtual-list": "^2.1.6",
+    "rc-virtual-list": "^2.1.7",
     "react": "^16.9.0",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",

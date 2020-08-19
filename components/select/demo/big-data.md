@@ -3,6 +3,7 @@ order: 23
 title:
   zh-CN: 大数据
   en-US: Big Data
+only: true
 ---
 
 ## zh-CN
@@ -44,14 +45,14 @@ ReactDOM.render(
       options={options}
     />
 
-    <Divider />
+    {/*<Divider />
 
     <Title level={3}>Ant Design 3.0</Title>
     <iframe
       title="Ant Design 3.0 Select demo"
       src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
       style={{ width: '100%', height: 300 }}
-    />
+    />*/}
   </>,
   mountNode,
 );
