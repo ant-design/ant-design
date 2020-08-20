@@ -6,7 +6,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
-
   mountTest(Progress);
   rtlTest(Progress);
 
@@ -108,7 +107,7 @@ describe('Progress', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890ff, #1890ff)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
@@ -170,21 +169,17 @@ describe('Progress', () => {
 
   it('should warnning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Progress percent={60} success={{ progress: 30 }} />,
-    );
+    mount(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
-  })
+  });
 
-  it ('should warnning if use `progress` in success in type Circle', () => {
+  it('should warnning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Progress percent={60} success={{ progress: 30 }} type="circle"/>,
-    );
+    mount(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
-  })
+  });
 });
