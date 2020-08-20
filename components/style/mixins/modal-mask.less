@@ -1,0 +1,23 @@
+@import 'box';
+
+.modal-mask(@className, @zIndex, @bg) {
+  .@{className}.zoom-enter,
+  .@{className}.zoom-appear {
+    transform: none; // reset scale avoid mousePosition bug
+    opacity: 0;
+    animation-duration: @animation-duration-slow;
+    user-select: none; // https://github.com/ant-design/ant-design/issues/11777
+  }
+
+  .@{className}-mask {
+    .box(fixed);
+    z-index: @zIndex;
+    height: 100%;
+    background-color: @bg;
+    filter: ~'alpha(opacity=50)';
+
+    &-hidden {
+      display: none;
+    }
+  }
+}
