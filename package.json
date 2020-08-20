@@ -105,6 +105,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@ant-design/colors": "^4.0.5",
     "@ant-design/css-animation": "^1.7.2",
     "@ant-design/icons": "^4.2.1",
     "@ant-design/react-slick": "~0.27.0",
@@ -152,7 +153,6 @@
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
-    "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^10.0.1",
     "@qixian.cs/github-contributors-list": "^1.0.3",

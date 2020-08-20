@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { presetPrimaryColors } from '@ant-design/colors';
 import { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { validProgress, getSuccessPercent } from './utils';
 
@@ -47,7 +48,12 @@ export const sortGradient = (gradients: StringGradients) => {
  * Besides women, there is the code.
  */
 export const handleGradient = (strokeColor: ProgressGradient) => {
-  const { from = '#1890ff', to = '#1890ff', direction = 'to right', ...rest } = strokeColor;
+  const {
+    from = presetPrimaryColors.blue,
+    to = presetPrimaryColors.blue,
+    direction = 'to right',
+    ...rest
+  } = strokeColor;
   if (Object.keys(rest).length !== 0) {
     const sortedGradients = sortGradient(rest as StringGradients);
     return { backgroundImage: `linear-gradient(${direction}, ${sortedGradients})` };
