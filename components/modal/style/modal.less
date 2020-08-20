@@ -1,6 +1,8 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
 
+.modal-mask(@dialog-prefix-cls, @zindex-modal-mask, @modal-mask-bg);
+
 .@{dialog-prefix-cls} {
   .reset-component;
 
@@ -81,7 +83,8 @@
     padding: @modal-header-padding;
     color: @text-color;
     background: @modal-header-bg;
-    border-bottom: @modal-header-border-width @modal-header-border-style @modal-header-border-color-split;
+    border-bottom: @modal-header-border-width @modal-header-border-style
+      @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -96,36 +99,13 @@
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
     background: @modal-footer-bg;
-    border-top: @modal-footer-border-width @modal-footer-border-style @modal-footer-border-color-split;
+    border-top: @modal-footer-border-width @modal-footer-border-style
+      @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
 
     button + button {
       margin-bottom: 0;
       margin-left: 8px;
-    }
-  }
-
-  &.zoom-enter,
-  &.zoom-appear {
-    transform: none; // reset scale avoid mousePosition bug
-    opacity: 0;
-    animation-duration: @animation-duration-slow;
-    user-select: none; // https://github.com/ant-design/ant-design/issues/11777
-  }
-
-  &-mask {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: @zindex-modal-mask;
-    height: 100%;
-    background-color: @modal-mask-bg;
-    filter: ~'alpha(opacity=50)';
-
-    &-hidden {
-      display: none;
     }
   }
 

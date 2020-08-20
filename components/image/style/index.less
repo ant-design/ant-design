@@ -2,14 +2,9 @@
 @import '../../style/mixins/index';
 
 @image-prefix-cls: ~'@{ant-prefix}-image';
+@image-preview-prefix-cls: ~'@{image-prefix-cls}-preview';
 
-.ant-image-box(@position: absolute) {
-  position: @position;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
+.modal-mask(@image-preview-prefix-cls, @zindex-image, @image-preview-mask-bg);
 
 .@{image-prefix-cls} {
   position: relative;
@@ -24,7 +19,7 @@
   }
 
   &-placeholder {
-    .ant-image-box;
+    .box;
   }
 
   &-preview {
@@ -33,27 +28,8 @@
     pointer-events: none;
 
     &-body {
-      .ant-image-box;
+      .box;
       overflow: hidden;
-    }
-
-    &.zoom-enter,
-    &.zoom-appear {
-      transform: none;
-      opacity: 0;
-      animation-duration: @animation-duration-slow;
-    }
-
-    &-mask {
-      .ant-image-box(fixed);
-      z-index: @zindex-image;
-      height: 100%;
-      background-color: @image-preview-mask-bg;
-      filter: ~'alpha(opacity=50)';
-
-      &-hidden {
-        display: none;
-      }
     }
 
     &-img {
@@ -66,7 +42,7 @@
       user-select: none;
       pointer-events: auto;
       &-wrapper {
-        .ant-image-box;
+        .box;
         transition: transform 0.3s @ease-out 0s;
         &::before {
           display: inline-block;
@@ -88,7 +64,7 @@
     }
 
     &-wrap {
-      .ant-image-box(fixed);
+      .box(fixed);
       z-index: @zindex-image;
       overflow: auto;
       outline: 0;
