@@ -16,7 +16,7 @@ Previewable image.
 
 | Property       | Description                     | Type        | Default | Version |
 | -------------- | ------------------------------- | ----------- | ------- | ------- |
-| placeholder    | Load placeholder                | ReactNode   | -       | 4.6.0   |
 | fallback       | Load failure fault-tolerant src | string      | -       | 4.6.0   |
-| preview        | Whether to enable the preview   | boolean     | true    | 4.6.0   |
 | onPreviewClose | Preview close callback          | function(e) | -       | 4.6.0   |
+| placeholder    | Load placeholder                | ReactNode   | -       | 4.6.0   |
+| preview        | Whether to enable the preview   | boolean     | true    | 4.6.0   |
