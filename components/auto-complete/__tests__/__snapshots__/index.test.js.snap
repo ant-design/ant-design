@@ -49,7 +49,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div

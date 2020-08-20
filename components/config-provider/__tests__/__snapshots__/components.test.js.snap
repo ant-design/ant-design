@@ -21903,7 +21903,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div
@@ -22024,7 +22024,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div
@@ -22145,7 +22145,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div
@@ -22266,7 +22266,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div
@@ -22387,7 +22387,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div
@@ -22508,7 +22508,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         </div>
         <div
           class=""
-          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          style="height:256px"
         >
           <div>
             <div
@@ -37077,7 +37077,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
             </div>
             <div
               class="config-select-tree-list"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="height:256px"
             >
               <div>
                 <div
@@ -37190,7 +37190,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
             </div>
             <div
               class="config-select-tree-list"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="height:256px"
             >
               <div>
                 <div
@@ -37303,7 +37303,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
             </div>
             <div
               class="config-select-tree-list"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="height:256px"
             >
               <div>
                 <div
@@ -37416,7 +37416,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
             </div>
             <div
               class="ant-select-tree-list"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="height:256px"
             >
               <div>
                 <div
@@ -37529,7 +37529,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
             </div>
             <div
               class="ant-select-tree-list"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="height:256px"
             >
               <div>
                 <div
@@ -37642,7 +37642,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
             </div>
             <div
               class="prefix-TreeSelect-tree-list"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="height:256px"
             >
               <div>
                 <div

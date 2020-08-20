@@ -52,7 +52,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
             </div>
             <div
               class="ant-select-tree-list"
-              style="max-height: 256px; overflow-y: auto;"
+              style="height: 256px;"
             >
               <div>
                 <div
