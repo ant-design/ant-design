@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-默认背景，支持预览。
+单击图像可以放大显示。
 
 ## en-US
 
-Default placeholder background image, and preview.
+Click the image to zoom in.
 
 ```jsx
 import { Image } from 'antd';

@@ -9,8 +9,8 @@ Previewable image.
 
 ## When To Use
 
-- Need preview.
-- Large image need display loading or load failure fault tolerance.
+- When you need to display pictures.
+- Display when loading a large image or fault tolerant handling when loading fail.
 
 ## API
 

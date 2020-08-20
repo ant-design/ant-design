@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-显示加载失败信息。
+加载失败显示图像占位符。
 
 ## en-US
 
-Display loading failure info.
+Load failed to display image placeholder.
 
 ```jsx
 import { Image } from 'antd';
