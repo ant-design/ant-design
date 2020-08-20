@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Circle as RCCircle } from 'rc-progress';
 import classNames from 'classnames';
-import { validProgress } from './utils';
+import { validProgress, getSuccessPercent } from './utils';
 import { ProgressProps } from './progress';
 
 interface CircleProps extends ProgressProps {
@@ -12,31 +12,20 @@ interface CircleProps extends ProgressProps {
 
 function getPercentage({ percent, success, successPercent }: CircleProps) {
   const ptg = validProgress(percent);
-  /** @deprecated Use `percent` instead */
-  if (success && 'progress' in success) {
-    successPercent = success.progress;
-  }
-  if (success && 'percent' in success) {
-    successPercent = success.percent;
-  }
-  if (!successPercent) {
+  const realSuccessPercent = getSuccessPercent({ success, successPercent });
+  if (!realSuccessPercent) {
     return ptg;
   }
-
-  const successPtg = validProgress(successPercent);
-  return [successPercent, validProgress(ptg - successPtg)];
+  return [
+    validProgress(realSuccessPercent),
+    validProgress(ptg - validProgress(realSuccessPercent)),
+  ];
 }
 
 function getStrokeColor({ success, strokeColor, successPercent }: CircleProps) {
   const color = strokeColor || null;
-  /** @deprecated Use `percent` instead */
-  if (success && 'progress' in success) {
-    successPercent = success.progress;
-  }
-  if (success && 'percent' in success) {
-    successPercent = success.percent;
-  }
-  if (!successPercent) {
+  const realSuccessPercent = getSuccessPercent({ success, successPercent });
+  if (!realSuccessPercent) {
     return color;
   }
   return [null, color];

@@ -1,8 +1,6 @@
 import * as React from 'react';
-
 import { ProgressGradient, ProgressProps, StringGradients } from './progress';
-
-import { validProgress } from './utils';
+import { validProgress, getSuccessPercent } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -70,62 +68,40 @@ const Line: React.FC<LineProps> = props => {
     success,
   } = props;
 
-  let backgroundProps;
-  if (strokeColor && typeof strokeColor !== 'string') {
-    backgroundProps = handleGradient(strokeColor);
-  } else {
-    backgroundProps = {
-      background: strokeColor,
-    };
-  }
+  const backgroundProps =
+    strokeColor && typeof strokeColor !== 'string'
+      ? handleGradient(strokeColor)
+      : {
+          background: strokeColor,
+        };
 
-  let trailStyle;
-  if (trailColor && typeof trailColor === 'string') {
-    trailStyle = {
-      backgroundColor: trailColor,
-    };
-  }
+  const trailStyle = trailColor
+    ? {
+        backgroundColor: trailColor,
+      }
+    : undefined;
 
-  let successColor;
-  if (success && 'strokeColor' in success) {
-    successColor = success.strokeColor;
-  }
-
-  let successStyle;
-  if (successColor && typeof successColor === 'string') {
-    successStyle = {
-      backgroundColor: successColor,
-    };
-  }
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
-  };
+  } as React.CSSProperties;
 
-  let { successPercent } = props;
-  /** @deprecated Use `percent` instead */
-  if (success && 'progress' in success) {
-    successPercent = success.progress;
-  }
+  const successPercent = getSuccessPercent(props);
 
-  if (success && 'percent' in success) {
-    successPercent = success.percent;
-  }
-
-  let successPercentStyle = {
+  const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius: strokeLinecap === 'square' ? 0 : '',
-  };
-  if (successStyle) {
-    successPercentStyle = { ...successPercentStyle, ...successStyle };
-  }
+    backgroundColor: success?.strokeColor,
+  } as React.CSSProperties;
+
   const successSegment =
     successPercent !== undefined ? (
       <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
     ) : null;
+
   return (
     <>
       <div className={`${prefixCls}-outer`}>
