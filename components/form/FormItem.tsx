@@ -87,7 +87,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName, requiredMarkType } = React.useContext(FormContext);
+  const { name: formName, requiredMark } = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
@@ -228,7 +228,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
         <FormItemLabel
           htmlFor={fieldId}
           required={isRequired}
-          requiredMarkType={requiredMarkType}
+          requiredMark={requiredMark}
           {...props}
           prefixCls={prefixCls}
         />

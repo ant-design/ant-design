@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
-import { RequiredMarkType } from './Form';
+import { RequiredMark } from './Form';
 import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 
@@ -13,7 +13,7 @@ export interface FormItemLabelProps {
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
-  requiredMarkType?: RequiredMarkType;
+  requiredMark?: RequiredMark;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
@@ -24,7 +24,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   labelAlign,
   colon,
   required,
-  requiredMarkType,
+  requiredMark,
 }) => {
   const [formLocale] = useLocaleReceiver('Form');
 
@@ -59,7 +59,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         }
 
         // Add required mark if optional
-        if (requiredMarkType === 'optional' && !required) {
+        if (requiredMark === 'optional' && !required) {
           labelChildren = (
             <>
               {labelChildren}
@@ -72,7 +72,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
         const labelClassName = classNames({
           [`${prefixCls}-item-required`]: required,
-          [`${prefixCls}-item-required-type-${requiredMarkType}`]: requiredMarkType,
+          [`${prefixCls}-item-required-type-required`]: requiredMark === true,
+          [`${prefixCls}-item-required-type-optional`]: requiredMark === 'optional',
           [`${prefixCls}-item-no-colon`]: !computedColon,
         });
 

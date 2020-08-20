@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过 `requiredMarkType` 切换必选与可选样式。
+通过 `requiredMark` 切换必选与可选样式。
 
 ## en-US
 
-Switch required or optional style with `requiredMarkType`.
+Switch required or optional style with `requiredMark`.
 
 ```tsx
 import React, { useState } from 'react';
@@ -19,24 +19,25 @@ import { Form, Input, Button, Radio } from 'antd';
 
 const FormLayoutDemo = () => {
   const [form] = Form.useForm();
-  const [requiredMarkType, setRequiredMarkType] = useState('required');
+  const [requiredMark, setRequiredMarkType] = useState('required');
 
-  const onRequiredTypeChange = ({ requiredMarkType }) => {
-    setRequiredMarkType(requiredMarkType);
+  const onRequiredTypeChange = ({ requiredMark }) => {
+    setRequiredMarkType(requiredMark);
   };
 
   return (
     <Form
       form={form}
       layout="vertical"
-      initialValues={{ requiredMarkType }}
+      initialValues={{ requiredMark }}
       onValuesChange={onRequiredTypeChange}
-      requiredMarkType={requiredMarkType}
+      requiredMark={requiredMark}
     >
-      <Form.Item label="Required Mark Type" name="requiredMarkType">
+      <Form.Item label="Required Mark" name="requiredMark">
         <Radio.Group>
-          <Radio.Button value="required">Required</Radio.Button>
+          <Radio.Button value={true}>Required</Radio.Button>
           <Radio.Button value="optional">Optional</Radio.Button>
+          <Radio.Button value={false}>Hidden</Radio.Button>
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Field A" required>
