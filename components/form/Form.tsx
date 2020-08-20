@@ -10,6 +10,7 @@ import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
 
+export type RequiredMarkType = 'required' | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
@@ -24,6 +25,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   form?: FormInstance<Values>;
   size?: SizeType;
   scrollToFirstError?: boolean;
+  requiredMarkType?: RequiredMarkType;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props, ref) => {
@@ -44,6 +46,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     hideRequiredMark,
     layout = 'horizontal',
     scrollToFirstError,
+    requiredMarkType = 'required',
     onFinishFailed,
     ...restFormProps
   } = props;
@@ -73,9 +76,10 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
       wrapperCol,
       vertical: layout === 'vertical',
       colon,
+      requiredMarkType,
       itemRef: __INTERNAL__.itemRef,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, colon],
+    [name, labelAlign, labelCol, wrapperCol, layout, colon, requiredMarkType],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);

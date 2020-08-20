@@ -3,6 +3,9 @@ import classNames from 'classnames';
 import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
+import { RequiredMarkType } from './Form';
+import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
 
 export interface FormItemLabelProps {
   colon?: boolean;
@@ -10,6 +13,7 @@ export interface FormItemLabelProps {
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
+  requiredMarkType?: RequiredMarkType;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
@@ -20,7 +24,10 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   labelAlign,
   colon,
   required,
+  requiredMarkType,
 }) => {
+  const [formLocale] = useLocaleReceiver('Form');
+
   if (!label) return null;
 
   return (
@@ -51,8 +58,21 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelChildren = (label as string).replace(/[:|：]\s*$/, '');
         }
 
+        // Add required mark if optional
+        if (requiredMarkType === 'optional' && !required) {
+          labelChildren = (
+            <>
+              {labelChildren}
+              <span className={`${prefixCls}-item-optional`}>
+                {formLocale?.optional || defaultLocale.Form?.optional}
+              </span>
+            </>
+          );
+        }
+
         const labelClassName = classNames({
           [`${prefixCls}-item-required`]: required,
+          [`${prefixCls}-item-required-type-${requiredMarkType}`]: requiredMarkType,
           [`${prefixCls}-item-no-colon`]: !computedColon,
         });
 
