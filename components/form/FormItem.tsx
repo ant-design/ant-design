@@ -50,6 +50,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;
+  initialValue?: any;
 
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];

@@ -52,36 +52,41 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
             </div>
             <div
               class="ant-select-tree-list"
-              style="max-height: 256px; overflow-y: auto;"
+              style="position: relative;"
             >
-              <div>
-                <div
-                  class="ant-select-tree-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
-                >
+              <div
+                class="ant-select-tree-list-holder"
+                style="max-height: 256px; overflow-y: auto;"
+              >
+                <div>
                   <div
-                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    class="ant-select-tree-list-holder-inner"
+                    style="display: flex; flex-direction: column;"
                   >
-                    <span
-                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                    />
-                    <span
-                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                      title="parent 1"
+                    <div
+                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     >
                       <span
-                        class="ant-select-tree-iconEle ant-select-tree-icon__customize"
+                        class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                      />
+                      <span
+                        class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                        title="parent 1"
                       >
-                        <span>
-                          Bamboo
+                        <span
+                          class="ant-select-tree-iconEle ant-select-tree-icon__customize"
+                        >
+                          <span>
+                            Bamboo
+                          </span>
+                        </span>
+                        <span
+                          class="ant-select-tree-title"
+                        >
+                          parent 1
                         </span>
                       </span>
-                      <span
-                        class="ant-select-tree-title"
-                      >
-                        parent 1
-                      </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
