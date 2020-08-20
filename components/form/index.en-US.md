@@ -30,6 +30,7 @@ High performance Form component with data scope management. Including data colle
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
+| requiredMarkType | Required mark style. Can use required mark or optional mark | `required` \| `optional` | `required` | 4.6.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
