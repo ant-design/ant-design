@@ -25,9 +25,9 @@ title: 表单页
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lEtuTZi2GvIAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>明确</h4>
-      <p>1. 快速定位重要信息和目标选项；</p>
-      <p>2. 标题、选项、提示等内容准确传达含义；</p>
-      <p>3. 让用户感知不同大小操作的前因后果，并及时响应相关反馈。</p>
+      <div>1. 快速定位重要信息和目标选项；</div>
+      <div>2. 标题、选项、提示等内容准确传达含义；</div>
+      <div>3. 让用户感知不同大小操作的前因后果，并及时响应相关反馈。</div>
     </div>
   </div>
   <div>
