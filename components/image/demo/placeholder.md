@@ -15,7 +15,7 @@ Large image loading.
 
 ```jsx
 import React from 'react';
-import { Image, Spin, Button } from 'antd';
+import { Image, Button } from 'antd';
 
 function ImageDemo() {
   const [random, setRandom] = React.useState();
@@ -25,14 +25,10 @@ function ImageDemo() {
         width={200}
         src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
         placeholder={
-          <div
-            style={{
-              marginTop: 90,
-              marginLeft: 100,
-            }}
-          >
-            <Spin spining />
-          </div>
+          <Image
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50"
+            width={200}
+          />
         }
       />
       <Button
