@@ -72,7 +72,7 @@ const App = () => (
 export default App;
 ```
 
-Add `antd/dist/antd.css` at the top of `src/App.css`.
+Add `antd/dist/antd.css` at the top of `src/App.js`.
 
 ```css
 @import '~antd/dist/antd.css';
