@@ -242,4 +242,10 @@ describe('TextArea allowClear', () => {
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();
   });
+
+  // https://github.com/ant-design/ant-design/issues/26308
+  it('should display defaultValue when value is undefined', () => {
+    const wrapper = mount(<Input.TextArea defaultValue="Light" value={undefined} />);
+    expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('Light');
+  });
 });
