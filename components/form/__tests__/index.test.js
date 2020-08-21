@@ -722,4 +722,16 @@ describe('Form', () => {
       expect(wrapper).toMatchRenderedSnapshot();
     });
   });
+
+  it('legacy hideRequiredMark', () => {
+    const wrapper = mount(
+      <Form hideRequiredMark>
+        <Form.Item name="light" required>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+  });
 });

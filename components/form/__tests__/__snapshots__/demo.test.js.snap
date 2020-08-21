@@ -3531,11 +3531,16 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
       class="ant-col ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-required-mark-optional"
         for="requiredMark"
         title="Required Mark"
       >
         Required Mark
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
       </label>
     </div>
     <div
@@ -3561,14 +3566,14 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
                   checked=""
                   class="ant-radio-button-input"
                   type="radio"
-                  value="true"
+                  value="optional"
                 />
                 <span
                   class="ant-radio-button-inner"
                 />
               </span>
               <span>
-                Required
+                Optional
               </span>
             </label>
             <label
@@ -3580,14 +3585,14 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
                 <input
                   class="ant-radio-button-input"
                   type="radio"
-                  value="optional"
+                  value="true"
                 />
                 <span
                   class="ant-radio-button-inner"
                 />
               </span>
               <span>
-                Optional
+                Required
               </span>
             </label>
             <label
@@ -3621,7 +3626,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
       class="ant-col ant-form-item-label"
     >
       <label
-        class="ant-form-item-required"
+        class="ant-form-item-required ant-form-item-required-mark-optional"
         title="Field A"
       >
         Field A
@@ -3653,10 +3658,15 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
       class="ant-col ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-required-mark-optional"
         title="Field B"
       >
         Field B
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
       </label>
     </div>
     <div
