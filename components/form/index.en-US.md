@@ -23,13 +23,13 @@ High performance Form component with data scope management. Including data colle
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
-| hideRequiredMark | Hide required mark for all form items | boolean | false |  |
 | initialValues | Set value by Form initialization or reset | object | - |  |
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
+| requiredMark | Required mark style. Can use required mark or optional mark | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |

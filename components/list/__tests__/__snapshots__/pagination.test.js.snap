@@ -423,7 +423,7 @@ exports[`List.pagination should change page size work 2`] = `
             </div>
             <div
               class=""
-              style="height: 256px;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div

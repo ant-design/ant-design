@@ -17,8 +17,8 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import useSyncState from './hooks/useSyncState';
-import useForceUpdate from './hooks/useForceUpdate';
+import useSyncState from '../_util/hooks/useSyncState';
+import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 export { UploadProps };
 
