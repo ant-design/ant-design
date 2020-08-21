@@ -4,6 +4,7 @@ subtitle: 图片
 type: 数据展示
 title: Image
 cols: 2
+cover: https://gw.alipayobjects.com/zos/bmw-prod/a77ae075-27de-49c9-9f44-a505f2be07fa.svg
 ---
 
 可预览的图片。
