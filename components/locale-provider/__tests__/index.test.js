@@ -46,6 +46,7 @@ import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kmrIQ from '../kmr_IQ';
 import lvLV from '../lv_LV';
+import ltLT from '../lt_LT';
 import mkMK from '../mk_MK';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
@@ -126,6 +127,7 @@ const locales = [
   zhCN,
   zhHK,
   zhTW,
+  ltLT,
 ];
 
 const { Option } = Select;
