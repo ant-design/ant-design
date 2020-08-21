@@ -167,6 +167,13 @@ describe('Progress', () => {
     );
   });
 
+  it('steps should support trailColor', () => {
+    const wrapper = mount(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 238)',
+    );
+  });
+
   it('should warnning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Progress percent={60} success={{ progress: 30 }} />);
