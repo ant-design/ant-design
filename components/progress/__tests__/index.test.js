@@ -174,6 +174,11 @@ describe('Progress', () => {
     );
   });
 
+  it('steps should have default percent 0', () => {
+    const wrapper = mount(<Progress steps />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('should warnning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Progress percent={60} success={{ progress: 30 }} />);
