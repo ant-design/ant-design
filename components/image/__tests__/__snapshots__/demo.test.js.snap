@@ -38,15 +38,11 @@ Array [
       aria-hidden="true"
       class="ant-image-placeholder"
     >
-      <div
-        class="ant-image"
-        style="width:200px"
-      >
-        <img
-          class="ant-image-img"
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50"
-        />
-      </div>
+      <img
+        alt="placeholder"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
+        width="200"
+      />
     </div>
   </div>,
   <button
