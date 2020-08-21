@@ -67,6 +67,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message.config(options)`
 - `message.destroy()`
 
+> 也可通过 `message.destroy(key)` 来关闭一条消息。
+
 #### message.config
 
 > 当你使用 `ConfigProvider` 进行全局化配置时，系统会默认自动开启 RTL 模式。(4.3.0+)

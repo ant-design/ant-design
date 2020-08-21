@@ -193,10 +193,16 @@ function isArgsProps(content: JointContent): content is ArgsProps {
 const api: any = {
   open: notice,
   config: setMessageConfig,
-  destroy() {
+  destroy(messageKey?: number | string) {
     if (messageInstance) {
-      messageInstance.destroy();
-      messageInstance = null;
+      if (messageKey) {
+        const { removeNotice } = messageInstance;
+        removeNotice(messageKey);
+      } else {
+        const { destroy } = messageInstance;
+        destroy();
+        messageInstance = null;
+      }
     }
   },
 };

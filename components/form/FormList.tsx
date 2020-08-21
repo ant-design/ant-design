@@ -10,7 +10,7 @@ export interface FormListFieldData {
 }
 
 export interface FormListOperation {
-  add: (defaultValue?: StoreValue) => void;
+  add: (defaultValue?: StoreValue, insertIndex?: number) => void;
   remove: (index: number | number[]) => void;
   move: (from: number, to: number) => void;
 }

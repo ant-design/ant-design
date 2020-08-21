@@ -76,6 +76,7 @@ const localeValues: Locale = {
     back: 'Back',
   },
   Form: {
+    optional: '(optional)',
     defaultValidateMessages: {
       default: 'Field validation error ${label}',
       required: 'Please enter ${label}',
