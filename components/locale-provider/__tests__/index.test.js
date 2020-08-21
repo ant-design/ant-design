@@ -101,6 +101,7 @@ const locales = [
   knIN,
   koKR,
   kmrIQ,
+  ltLT,
   mkMK,
   msMY,
   mnMN,
@@ -127,7 +128,6 @@ const locales = [
   zhCN,
   zhHK,
   zhTW,
-  ltLT,
 ];
 
 const { Option } = Select;
