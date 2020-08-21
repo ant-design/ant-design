@@ -40,7 +40,7 @@ function ImageDemo() {
           setRandom(Date.now());
         }}
       >
-        Random
+        Reload
       </Button>
     </>
   );
