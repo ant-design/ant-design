@@ -102,7 +102,7 @@
       }
 
       // Required mark
-      &.@{form-item-prefix-cls}-required-type-required.@{form-item-prefix-cls}-required::before {
+      &.@{form-item-prefix-cls}-required:not(.@{form-item-prefix-cls}-required-mark-optional)::before {
         display: inline-block;
         margin-right: 4px;
         color: @label-required-color;

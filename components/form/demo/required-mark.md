@@ -19,7 +19,7 @@ import { Form, Input, Button, Radio } from 'antd';
 
 const FormLayoutDemo = () => {
   const [form] = Form.useForm();
-  const [requiredMark, setRequiredMarkType] = useState('required');
+  const [requiredMark, setRequiredMarkType] = useState<boolean | 'optional'>(true);
 
   const onRequiredTypeChange = ({ requiredMark }) => {
     setRequiredMarkType(requiredMark);

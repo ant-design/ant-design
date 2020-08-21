@@ -26,9 +26,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   size?: SizeType;
   scrollToFirstError?: boolean;
   requiredMark?: RequiredMark;
-}
-
-interface InternalFormProps<Values = any> extends FormProps<Values> {
+  /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
 }
 
