@@ -51,7 +51,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
     requiredMark,
     onFinishFailed,
     ...restFormProps
-  } = props as InternalFormProps;
+  } = props;
 
   const mergedRequiredMark = useMemo(() => {
     if (requiredMark !== undefined) {
