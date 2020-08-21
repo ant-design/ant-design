@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
+import ProgressSteps from '../Steps';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -175,7 +176,7 @@ describe('Progress', () => {
   });
 
   it('steps should have default percent 0', () => {
-    const wrapper = mount(<Progress steps />);
+    const wrapper = mount(<ProgressSteps />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
