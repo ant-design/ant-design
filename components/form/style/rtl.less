@@ -39,8 +39,10 @@
       }
 
       .@{form-item-prefix-cls}-optional {
-        margin-left: 0;
-        margin-right: @margin-xss;
+        .@{form-prefix-cls}-rtl & {
+          margin-right: @margin-xss;
+          margin-left: 0;
+        }
       }
     }
   }
