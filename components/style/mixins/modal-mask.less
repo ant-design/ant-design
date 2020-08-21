@@ -1,23 +1,44 @@
 @import 'box';
 
-.modal-mask(@className, @zIndex, @bg) {
-  .@{className}.zoom-enter,
-  .@{className}.zoom-appear {
+@modal-prefix-cls: ~'@{ant-prefix}-modal';
+@image-prefix-cls: ~'@{ant-prefix}-image-preview';
+
+.modal-mask() {
+  .@{modal-prefix-cls},
+  .@{image-prefix-cls} {
+    pointer-events: none;
+  }
+
+  .@{modal-prefix-cls}.zoom-enter,
+  .@{modal-prefix-cls}.zoom-appear,
+  .@{image-prefix-cls}.zoom-enter,
+  .@{image-prefix-cls}.zoom-appear {
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
     animation-duration: @animation-duration-slow;
     user-select: none; // https://github.com/ant-design/ant-design/issues/11777
   }
 
-  .@{className}-mask {
+  .@{modal-prefix-cls}-mask,
+  .@{image-prefix-cls}-mask {
     .box(fixed);
-    z-index: @zIndex;
+    z-index: @zindex-modal-mask;
     height: 100%;
-    background-color: @bg;
+    background-color: @modal-mask-bg;
     filter: ~'alpha(opacity=50)';
 
     &-hidden {
       display: none;
     }
   }
+
+  .@{modal-prefix-cls}-wrap,
+  .@{image-prefix-cls}-wrap {
+    .box(fixed);
+    overflow: auto;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+  }
 }
+
+.modal-mask();

@@ -1,8 +1,6 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
 
-.modal-mask(@dialog-prefix-cls, @zindex-modal-mask, @modal-mask-bg);
-
 .@{dialog-prefix-cls} {
   .reset-component;
 
@@ -11,18 +9,9 @@
   width: auto;
   margin: 0 auto;
   padding-bottom: 24px;
-  pointer-events: none;
 
   &-wrap {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: @zindex-modal;
-    overflow: auto;
-    outline: 0;
-    -webkit-overflow-scrolling: touch;
   }
 
   &-title {

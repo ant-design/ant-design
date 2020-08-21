@@ -4,8 +4,6 @@
 @image-prefix-cls: ~'@{ant-prefix}-image';
 @image-preview-prefix-cls: ~'@{image-prefix-cls}-preview';
 
-.modal-mask(@image-preview-prefix-cls, @zindex-image, @modal-mask-bg);
-
 .@{image-prefix-cls} {
   position: relative;
   display: inline-block;
@@ -26,7 +24,6 @@
   &-preview {
     height: 100%;
     text-align: center;
-    pointer-events: none;
 
     &-body {
       .box;
@@ -65,11 +62,7 @@
     }
 
     &-wrap {
-      .box(fixed);
       z-index: @zindex-image;
-      overflow: auto;
-      outline: 0;
-      -webkit-overflow-scrolling: touch;
     }
 
     &-operations {
