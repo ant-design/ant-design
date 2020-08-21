@@ -15,7 +15,7 @@ exports[`renders ./components/image/demo/basic.md correctly 1`] = `
 exports[`renders ./components/image/demo/fallback.md correctly 1`] = `
 <div
   class="ant-image"
-  style="width:200px"
+  style="width:200px;height:200px"
 >
   <img
     class="ant-image-img"
@@ -38,28 +38,13 @@ Array [
       class="ant-image-placeholder"
     >
       <div
-        style="margin-top:90px;margin-left:100px"
+        class="ant-image"
+        style="width:200px"
       >
-        <div
-          class="ant-spin ant-spin-spinning"
-        >
-          <span
-            class="ant-spin-dot ant-spin-dot-spin"
-          >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-          </span>
-        </div>
+        <img
+          class="ant-image-img"
+          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50"
+        />
       </div>
     </div>
   </div>,
