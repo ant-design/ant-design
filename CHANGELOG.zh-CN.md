@@ -15,6 +15,56 @@ timeline: true
 
 ---
 
+## 4.6.0
+
+`2020-08-23`
+
+- 🔥 新增图片组件 Image。[#26296](https://github.com/ant-design/ant-design/pull/26296)
+- 🔥 Table 新增 `sticky` 属性以支持固定表头和滚动条。[#25939](https://github.com/ant-design/ant-design/pull/25939)
+- Form
+  - 🆕 Form 添加 `requiredMark` 属性以支持设置必选样式，废弃原 `hideRequiredMark`。[#26309](https://github.com/ant-design/ant-design/pull/26309)
+  - 🆕 Form.List 中的 `add` 方法支持第二个 `index` 参数。[#26081](https://github.com/ant-design/ant-design/pull/26081)
+- 🆕 虚拟滚动支持无闪动滚动。[#26306](https://github.com/ant-design/ant-design/pull/26306)
+- Typography
+  - 🆕 新增 Typography.Text success 类型。[#26145](https://github.com/ant-design/ant-design/pull/26145) [@llwslc](https://github.com/llwslc)
+  - 🆕 Typography `copyable` 支持隐藏提示，`editable` 支持设置图标与提示。[#25953](https://github.com/ant-design/ant-design/pull/25953) [@llwslc](https://github.com/llwslc)
+  - 🆕 新增 Typography.Title 5 级标题。[#25861](https://github.com/ant-design/ant-design/pull/25861)
+  - 🆕 Typography 的 `editable` 配置中增加了 `maxLength` & `autoSize` 支持。[#25373](https://github.com/ant-design/ant-design/pull/25373) [@CornerSkyless](https://github.com/CornerSkyless)
+- 🐞 修复 Transfer 搜索空格时 `filterOption` 没有触发的问题。[#26335](https://github.com/ant-design/ant-design/pull/26335)
+- Progress
+  - 🐞 修复 Progress `steps` 属性对于 `trailColor` 不生效的问题。[#26323](https://github.com/ant-design/ant-design/pull/26323)
+  - 🐞 修复 Progress 当 `type="circle"` 时 `success.percent` 不生效的问题。[#26307](https://github.com/ant-design/ant-design/pull/26307)
+- 🐞 修复 Textarea 当 `value` 为 `undefined` 时未显示 `defaultValue` 问题。[#26327](https://github.com/ant-design/ant-design/pull/26327)
+- Cascader
+  - 🐞 修复 Cascader 在按下 ESC 键，然后通过输入进行搜索时 options 不展开的问题。[#26271](https://github.com/ant-design/ant-design/pull/26271) [@flyerH](https://github.com/flyerH)
+  - 💄 优化 Cascader 清除动画效果。[#26186](https://github.com/ant-design/ant-design/pull/26186)
+- 🗑 移除遗留的 Button.Group 支持，请使用 Space 代替。[#26260](https://github.com/ant-design/ant-design/pull/26260)
+- Select
+  - 🆕 Select 支持 onClear 属性。[#25907](https://github.com/ant-design/ant-design/pull/25907)
+  - 🐞 修复 Select 聚焦时被禁用的样式异常问题。[#26255](https://github.com/ant-design/ant-design/pull/26255)
+  - 🐞 修复多选模式的 Select 在 `showArrow` 时图标重叠问题。[#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 修复 Pagination 字体相关样式问题。[#26230](https://github.com/ant-design/ant-design/pull/26230) [@albertms10](https://github.com/albertms10)
+- 🐞 修复 Space `children` 有时会重新渲染的问题。[#26219](https://github.com/ant-design/ant-design/pull/26219)
+- Badge
+  - 💄 新增 `@badge-color` less 变量。[#26159](https://github.com/ant-design/ant-design/pull/26159)
+  - 🆕 Badge 新增 `size` 属性用于设置大小。[#25851](https://github.com/ant-design/ant-design/pull/25851) [@moonrailgun](https://github.com/moonrailgun)
+- 🆕 Tabs 可自定义`tabBarExtraContent` 的渲染位置。[#25138](https://github.com/ant-design/ant-design/pull/25138) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 💄 优化 Descriptions 在内容比较多时的显示效果。[#25903](https://github.com/ant-design/ant-design/pull/25903)
+- 🆕 message 支持通过 `message.desctroy(key)` 销毁。[#26052](https://github.com/ant-design/ant-design/pull/26052) [@lihqi](https://github.com/lihqi)
+- 💄 调整 InputNumber 操作栏在 `readOnly` 时为隐藏。[#25998](https://github.com/ant-design/ant-design/pull/25998)
+- 💄 加深暗色主题下 `@text-color` 颜色。[#25923](https://github.com/ant-design/ant-design/pull/25923)
+- 💄 加深默认主题下 `@text-color` 颜色。[#25630](https://github.com/ant-design/ant-design/pull/25630)
+- 国际化
+  - 🏴󠁥󠁳󠁧󠁡󠁿 添加加利西亚语支持。[#26015](https://github.com/ant-design/ant-design/pull/26015) [@barreeeiroo](https://github.com/barreeeiroo)
+  - 🇱🇹 添加立陶宛语支持。[#26312](https://github.com/ant-design/ant-design/pull/26312) [@mslotvinskij](https://github.com/mslotvinskij)
+  - 🌐 用 `kmr_IQ` 替换 `ku_IQ` 缩写。[#26030](https://github.com/ant-design/ant-design/pull/26030)
+- RTL
+  - 💄 优化 Tree RTL 模式下连接线的样式。[#26205](https://github.com/ant-design/ant-design/pull/26205)
+  - 💄 优化 Dropdown RTL 写法避免暗黑模式样式覆盖。[#26206](https://github.com/ant-design/ant-design/pull/26206)
+- TypeScript
+  - 🤖 修复 Form.Item `initialValue` 定义丢失问题。[#26292](https://github.com/ant-design/ant-design/pull/26292) [@miaoyuxinbaby](https://github.com/miaoyuxinbaby)
+  - 🤖 Form 支持泛型。[#25937](https://github.com/ant-design/ant-design/pull/25937)
+
 ## 4.5.4
 
 `2020-08-12`
