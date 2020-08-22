@@ -44,6 +44,9 @@ timeline: true
   - 🐞 修复 Select mode="tags" 搜索显示两条重复条目的问题。[#25907](https://github.com/ant-design/ant-design/pull/25907)
   - 🐞 修复 Select 聚焦时被禁用的样式异常问题。[#26255](https://github.com/ant-design/ant-design/pull/26255)
   - 🐞 修复多选模式的 Select 在 `showArrow` 时图标重叠问题。[#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
+- DatePicker
+  - 🐞 修复 `picker` 属性改变时渲染面板不会改变的问题。[#26093](https://github.com/ant-design/ant-design/issues/26093)
+  - 🐞 修复 RangePicker 点击清除按钮面板不会关闭的问题。[#26188](https://github.com/ant-design/ant-design/issues/26188)
 - 🐞 修复 Pagination 字体相关样式问题。[#26230](https://github.com/ant-design/ant-design/pull/26230) [@albertms10](https://github.com/albertms10)
 - 🐞 修复 Space `children` 有时会重新渲染的问题。[#26219](https://github.com/ant-design/ant-design/pull/26219)
 - Badge
