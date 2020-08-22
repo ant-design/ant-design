@@ -24,7 +24,7 @@ timeline: true
 - Form
   - 🆕 Form support style of required mark with `requiredMark` and deprecate `hideRequiredMark` prop. [#26309](https://github.com/ant-design/ant-design/pull/26309)
   - 🆕 Form.List support the second `index` param in `add`. [#26081](https://github.com/ant-design/ant-design/pull/26081)
-- 🆕 VirtualList support no blink jump. [#26306](https://github.com/ant-design/ant-design/pull/26306)
+- 🆕 VirtualList support no blink jump and fix Select blank dropdown issue. [#26306](https://github.com/ant-design/ant-design/pull/26306)
 - Typography
   - 🆕 Support Typography.Text `success` type. [#26145](https://github.com/ant-design/ant-design/pull/26145) [@llwslc](https://github.com/llwslc)
   - 🆕 Typography `copyable` support hide tooltip and `editable` support config icon and tooltip. [#25953](https://github.com/ant-design/ant-design/pull/25953) [@llwslc](https://github.com/llwslc)
@@ -41,6 +41,7 @@ timeline: true
 - 🗑 Remove deprecated `Button.Group` and please use Space component instead. [#26260](https://github.com/ant-design/ant-design/pull/26260)
 - Select
   - 🆕 Select support `onClear` prop. [#25907](https://github.com/ant-design/ant-design/pull/25907)
+  - 🐞 Fix Select `mode="tags"` showing duplicated items when search. [#25907](https://github.com/ant-design/ant-design/pull/25907)
   - 🐞 Fixed the style exception that was disabled when Select focused. [#26255](https://github.com/ant-design/ant-design/pull/26255)
   - 🐞 Fix Select icon overlap with selections when `showArrow` enabled. [#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 Fix Pagination font family style. [#26230](https://github.com/ant-design/ant-design/pull/26230) [@albertms10](https://github.com/albertms10)

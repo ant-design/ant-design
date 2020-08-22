@@ -41,6 +41,7 @@ timeline: true
 - 🗑 移除遗留的 Button.Group 支持，请使用 Space 代替。[#26260](https://github.com/ant-design/ant-design/pull/26260)
 - Select
   - 🆕 Select 支持 onClear 属性。[#25907](https://github.com/ant-design/ant-design/pull/25907)
+  - 🐞 修复 Select mode="tags" 搜索显示两条重复条目的问题。[#25907](https://github.com/ant-design/ant-design/pull/25907)
   - 🐞 修复 Select 聚焦时被禁用的样式异常问题。[#26255](https://github.com/ant-design/ant-design/pull/26255)
   - 🐞 修复多选模式的 Select 在 `showArrow` 时图标重叠问题。[#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
 - 🐞 修复 Pagination 字体相关样式问题。[#26230](https://github.com/ant-design/ant-design/pull/26230) [@albertms10](https://github.com/albertms10)
