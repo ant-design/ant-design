@@ -15,14 +15,14 @@ Previewable image.
 
 ## API
 
-| Property    | Description                     | Type             | Default | Version |
-| ----------- | ------------------------------- | ---------------- | ------- | ------- |
-| alt         | Image description               | string           | -       | 4.6.0   |
-| fallback    | Load failure fault-tolerant src | string           | -       | 4.6.0   |
-| height      | Image height                    | string \| number | -       | 4.6.0   |
-| placeholder | Load placeholder                | ReactNode        | -       | 4.6.0   |
-| preview     | Whether to enable the preview   | boolean          | true    | 4.6.0   |
-| src         | Image path                      | string           | -       | 4.6.0   |
-| width       | Image width                     | string \| number | -       | 4.6.0   |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| alt | Image description | string | - | 4.6.0 |
+| fallback | Load failure fault-tolerant src | string | - | 4.6.0 |
+| height | Image height | string \| number | - | 4.6.0 |
+| placeholder | Load placeholder, use default placeholder when set `true` | ReactNode | - | 4.6.0 |
+| preview | Whether to enable the preview | boolean | true | 4.6.0 |
+| src | Image path | string | - | 4.6.0 |
+| width | Image width | string \| number | - | 4.6.0 |
 
 Other attributes [<img\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)

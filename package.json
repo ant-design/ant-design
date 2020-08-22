@@ -125,7 +125,7 @@
     "rc-drawer": "~4.1.0",
     "rc-dropdown": "~3.1.2",
     "rc-field-form": "~1.10.0",
-    "rc-image": "~3.0.1",
+    "rc-image": "~3.0.2",
     "rc-input-number": "~6.0.0",
     "rc-mentions": "~1.4.0",
     "rc-menu": "~8.5.2",
@@ -302,7 +302,7 @@
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",

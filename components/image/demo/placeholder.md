@@ -1,17 +1,17 @@
 ---
 order: 3
 title:
-  zh-CN: 加载 Loading
-  en-US: Loading
+  zh-CN: 渐进加载
+  en-US: Progressive Loading
 ---
 
 ## zh-CN
 
-大图加载 loading。
+大图使用 placeholder 渐进加载。
 
 ## en-US
 
-Large image loading.
+Progressive when large image loading.
 
 ```jsx
 import React from 'react';
@@ -25,10 +25,9 @@ function ImageDemo() {
         width={200}
         src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
         placeholder={
-          <img
+          <Image
             src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
             width={200}
-            alt="placeholder"
           />
         }
       />
