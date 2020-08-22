@@ -73,15 +73,14 @@ class App extends React.Component {
           onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
+          style={{ marginBottom: 16 }}
         />
-        <Space style={{ marginTop: 16 }}>
-          <Switch
-            unCheckedChildren="disabled"
-            checkedChildren="disabled"
-            checked={disabled}
-            onChange={this.handleDisable}
-          />
-        </Space>
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={this.handleDisable}
+        />
       </>
     );
   }

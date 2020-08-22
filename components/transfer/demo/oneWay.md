@@ -74,15 +74,14 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
           oneWay
+          style={{ marginBottom: 16 }}
         />
-        <Space style={{ marginTop: 16 }}>
-          <Switch
-            unCheckedChildren="disabled"
-            checkedChildren="disabled"
-            checked={disabled}
-            onChange={this.handleDisable}
-          />
-        </Space>
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={this.handleDisable}
+        />
       </>
     );
   }
