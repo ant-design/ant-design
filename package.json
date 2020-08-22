@@ -105,6 +105,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@ant-design/colors": "^4.0.5",
     "@ant-design/css-animation": "^1.7.2",
     "@ant-design/icons": "^4.2.1",
     "@ant-design/react-slick": "~0.27.0",
@@ -129,8 +130,8 @@
     "rc-menu": "~8.5.2",
     "rc-motion": "^1.0.0",
     "rc-notification": "~4.4.0",
-    "rc-pagination": "~3.0.0",
-    "rc-picker": "~2.0.1",
+    "rc-pagination": "~3.0.3",
+    "rc-picker": "~2.0.6",
     "rc-progress": "~3.0.0",
     "rc-rate": "~2.8.2",
     "rc-resize-observer": "^0.2.3",
@@ -152,7 +153,6 @@
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
-    "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^10.0.1",
     "@qixian.cs/github-contributors-list": "^1.0.3",
@@ -241,7 +241,7 @@
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
     "rc-tween-one": "^2.4.1",
-    "rc-virtual-list": "^1.1.0",
+    "rc-virtual-list": "^3.0.3",
     "react": "^16.9.0",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",

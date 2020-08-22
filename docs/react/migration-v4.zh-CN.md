@@ -56,6 +56,7 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `lazy` 属性，它并没有起到真正的优化效果。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
 - 移除了 Table 的 `rowSelection.hideDefaultSelections` 属性，请在 `rowSelection.selections` 中使用 `SELECTION_ALL` 和 `SELECTION_INVERT` 替代，[自定义选择项](/components/table/#components-table-demo-row-selection-custom)。
+- 废弃 Button.Group，请使用 `Space` 代替。
 
 #### 图标升级
 

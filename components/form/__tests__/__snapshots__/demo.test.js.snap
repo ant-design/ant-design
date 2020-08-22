@@ -3520,6 +3520,201 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required-mark-optional"
+        for="requiredMark"
+        title="Required Mark"
+      >
+        Required Mark
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline"
+            id="requiredMark"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="optional"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Optional
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="true"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Required
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="false"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Hidden
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-required-mark-optional"
+        title="Field A"
+      >
+        Field A
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required-mark-optional"
+        title="Field B"
+      >
+        Field B
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/size.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"

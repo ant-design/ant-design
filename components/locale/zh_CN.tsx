@@ -75,6 +75,7 @@ const localeValues: Locale = {
     back: '返回',
   },
   Form: {
+    optional: '（可选）',
     defaultValidateMessages: {
       default: '字段验证错误${label}',
       required: '请输入${label}',

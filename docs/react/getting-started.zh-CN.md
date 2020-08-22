@@ -111,20 +111,6 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 
 ![控制台警告](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
-## 使用 Day.js 替换 Moment.js 优化打包大小
-
-你可以使用 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) 插件用 [Day.js](https://day.js.org/) 替换 Moment.js 来大幅减小打包大小。这需要更新 webpack 的配置文件如下：
-
-```js
-// webpack-config.js
-import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
-
-module.exports = {
-  // ...
-  plugins: [new AntdDayjsWebpackPlugin()],
-};
-```
-
 ## 自行构建
 
 如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.github.io/) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
