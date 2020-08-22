@@ -2,6 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
 import { sleep } from '../../../tests/utils';
@@ -18,6 +19,7 @@ describe('Statistic', () => {
   });
 
   afterAll(() => {
+    jest.clearAllTimers();
     MockDate.reset();
   });
 
@@ -68,17 +70,16 @@ describe('Statistic', () => {
     it('time going', async () => {
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
-      const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
+      const ref = React.createRef();
+      const wrapper = mount(<Statistic.Countdown value={now} ref={ref} onFinish={onFinish} />);
       wrapper.update();
 
       // setInterval should work
-      const instance = wrapper.instance();
-      expect(instance.countdownId).not.toBe(undefined);
+      expect(ref.current.isPause).toBe(false);
 
       await sleep(10);
 
       wrapper.unmount();
-      expect(instance.countdownId).toBe(undefined);
       expect(onFinish).not.toHaveBeenCalled();
     });
 
@@ -105,17 +106,23 @@ describe('Statistic', () => {
     });
 
     it('start and pause', () => {
-      const now = Date.now() + 1e4;
+      jest.useFakeTimers();
+      const now = Date.now();
       const ref = React.createRef();
-      const wrapper = mount(<Statistic.Countdown autoStart={false} ref={ref} value={now} />);
-      const instance = wrapper.instance();
-      expect(instance.countdownId).toBe(undefined);
+      const wrapper = mount(<Statistic.Countdown autoStart={false} ref={ref} value={now + 1e4} />);
+      expect(ref.current.isPause).toBe(true);
 
-      ref.current.start();
-      expect(instance.countdownId).not.toBe(undefined);
+      act(async () => {
+        ref.current.start();
+        MockDate.set(now + 2e3);
+        jest.runAllTimers();
+        expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('00:00:08');
 
-      ref.current.pause();
-      expect(instance.countdownId).toBe(undefined);
+        ref.current.pause();
+        MockDate.set(now + 4e3);
+        jest.runAllTimers();
+        expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('00:00:08');
+      });
     });
 
     describe('time finished', () => {
@@ -123,26 +130,26 @@ describe('Statistic', () => {
         const now = Date.now() - 1000;
 
         const onFinish = jest.fn();
-        const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
+        const ref = React.createRef();
+        const wrapper = mount(<Statistic.Countdown value={now} ref={ref} onFinish={onFinish} />);
         wrapper.update();
 
-        const instance = wrapper.instance();
-        expect(instance.countdownId).toBe(undefined);
+        expect(ref.current.isPause).toBe(true);
         expect(onFinish).not.toHaveBeenCalled();
       });
 
-      it('called if finished', async () => {
+      it('called if finished', () => {
         jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
+        act(async () => {
+          MockDate.set(moment('2019-11-28 00:01:00').valueOf());
+          jest.runAllTimers();
 
-        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
-        jest.runAllTimers();
-
-        expect(onFinish).toHaveBeenCalled();
-        jest.useFakeTimers();
+          expect(onFinish).toHaveBeenCalled();
+        });
       });
     });
   });
