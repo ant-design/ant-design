@@ -37,7 +37,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
     const { placeholder, value, prefixCls, disabled } = this.props;
     const icon =
       value && value.length > 0 ? (
-        <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
+        <a className={`${prefixCls}-action`} onClick={this.handleClear}>
           <CloseCircleFilled />
         </a>
       ) : (
@@ -47,7 +47,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
       );
 
     return (
-      <div>
+      <>
         <Input
           placeholder={placeholder}
           className={prefixCls}
@@ -56,7 +56,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
           disabled={disabled}
         />
         {icon}
-      </div>
+      </>
     );
   }
 }

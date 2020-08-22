@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
+import ProgressSteps from '../Steps';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -165,6 +166,18 @@ describe('Progress', () => {
     expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
       'rgb(24, 144, 255)',
     );
+  });
+
+  it('steps should support trailColor', () => {
+    const wrapper = mount(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+      'rgb(24, 144, 238)',
+    );
+  });
+
+  it('steps should have default percent 0', () => {
+    const wrapper = mount(<ProgressSteps />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should warnning if use `progress` in success', () => {
