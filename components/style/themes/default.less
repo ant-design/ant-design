@@ -50,7 +50,7 @@
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 65%);
+@text-color: fade(@black, 85%);
 @text-color-secondary: fade(@black, 45%);
 @text-color-inverse: @white;
 @icon-color: inherit;
@@ -68,6 +68,7 @@
 @heading-2-size: ceil(@font-size-base * 2.14);
 @heading-3-size: ceil(@font-size-base * 1.71);
 @heading-4-size: ceil(@font-size-base * 1.42);
+@heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
 @border-radius-base: 2px;
@@ -327,7 +328,7 @@
 
 // z-index list, order by `z-index`
 @zindex-badge: auto;
-@zindex-table-fixed: auto;
+@zindex-table-fixed: 2;
 @zindex-affix: 10;
 @zindex-back-top: 10;
 @zindex-picker-panel: 10;
@@ -341,6 +342,7 @@
 @zindex-picker: 1050;
 @zindex-popoconfirm: 1060;
 @zindex-tooltip: 1070;
+@zindex-image: 1080;
 
 // Animation
 @animation-duration-slow: 0.3s; // Modal
@@ -608,6 +610,9 @@
 @table-expand-icon-bg: @component-background;
 @table-selection-column-width: 60px;
 @table-selection-extra-right: 0;
+// Sticky
+@table-sticky-scroll-bar-bg: fade(#000, 35%);
+@table-sticky-scroll-bar-radius: 4px;
 
 // Tag
 // --
@@ -650,8 +655,10 @@
 // Badge
 // ---
 @badge-height: 20px;
+@badge-height-sm: 14px;
 @badge-dot-size: 6px;
 @badge-font-size: @font-size-sm;
+@badge-font-size-sm: @font-size-sm;
 @badge-font-weight: normal;
 @badge-status-size: 6px;
 @badge-text-color: @component-background;
@@ -991,5 +998,8 @@
 // ---
 @image-size-base: 48px;
 @image-font-size-base: 24px;
-@image-bg: #ccc;
+@image-bg: #f5f5f5;
 @image-color: #fff;
+@image-preview-operation-size: 18px;
+@image-preview-operation-color: @text-color-dark;
+@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 45%);

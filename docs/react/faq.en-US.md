@@ -31,7 +31,7 @@ See: https://ant.design/docs/react/customize-theme .
 
 ### Will you provide other themes?
 
-No, we follow Ant Design's design specification. 
+No, we follow Ant Design's design specification.
 
 Related issue: https://github.com/ant-design/ant-design/issues/1241
 

@@ -46,7 +46,8 @@ const MORE_LIST: MoreProps[] = [
   },
   {
     title: '设计法则「映射」: 让你的设计更符合直觉',
-    description: '影响一个东西好不好用的因素有很多，本文将从125条通用设计法则中的「映射Mapping」出发，探讨一下这个法则对事物可用性的影响。',
+    description:
+      '影响一个东西好不好用的因素有很多，本文将从125条通用设计法则中的「映射Mapping」出发，探讨一下这个法则对事物可用性的影响。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*AVELR486CNcAAAAAAAAAAABkARQnAQ',
     date: '2019-08-24',
     source: 'zhihu',
