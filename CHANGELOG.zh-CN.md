@@ -24,7 +24,7 @@ timeline: true
 - Form
   - 🆕 Form 添加 `requiredMark` 属性以支持设置必选样式，废弃原 `hideRequiredMark`。[#26309](https://github.com/ant-design/ant-design/pull/26309)
   - 🆕 Form.List 中的 `add` 方法支持第二个 `index` 参数。[#26081](https://github.com/ant-design/ant-design/pull/26081)
-- 🆕 虚拟滚动支持无闪动滚动。[#26306](https://github.com/ant-design/ant-design/pull/26306)
+- 🆕 虚拟滚动支持无闪动滚动，修复 Select/TreeSelect 滚动时列表空白的问题。[#26306](https://github.com/ant-design/ant-design/pull/26306)
 - Typography
   - 🆕 新增 Typography.Text success 类型。[#26145](https://github.com/ant-design/ant-design/pull/26145) [@llwslc](https://github.com/llwslc)
   - 🆕 Typography `copyable` 支持隐藏提示，`editable` 支持设置图标与提示。[#25953](https://github.com/ant-design/ant-design/pull/25953) [@llwslc](https://github.com/llwslc)
