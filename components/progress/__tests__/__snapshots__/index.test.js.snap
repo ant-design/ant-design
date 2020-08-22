@@ -608,3 +608,9 @@ exports[`Progress should support steps 1`] = `
   </div>
 </div>
 `;
+
+exports[`Progress steps should have default percent 0 1`] = `
+<div
+  class="undefined-steps-outer"
+/>
+`;

@@ -212,10 +212,9 @@ timeline: true
 - Table
   - 🆕 Table 添加 `rowSelection.dirty` 以支持异步数据下保留 `key`。[#24718](https://github.com/ant-design/ant-design/pull/24718)
   - 🆕 Table `onChange` 添加 `action` 参数用于标示操作类型。[#24697](https://github.com/ant-design/ant-design/pull/24697)
-  - 🐞 Table 支持 `rowSelection.checkStrictly` 来完全受控节点。[#24931](https://github.com/ant-design/ant-design/pull/24931)
+  - 🐞 Table 支持 `rowSelection.checkStrictly`，现在父子节点选择状态可以关联了。[#24931](https://github.com/ant-design/ant-design/pull/24931)
   - 🐞 修复 Table `onSelectAll` 的 `changeRows` 参数不正确的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931)
   - 🐞 修复 Table 树形数据叶节点行的展开按钮仍能被点击的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931)
-  - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
   - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
 - TimePicker
   - 🐞 修复 TimePicker 面板 12 AM 显示为 0 AM 的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174)
