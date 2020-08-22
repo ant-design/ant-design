@@ -99,9 +99,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
   <div
     class="config-provider"
   >
-    <h3>
+    <h4>
       Select
-    </h3>
+    </h4>
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
       style="width:200px"
@@ -159,9 +159,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         </span>
       </span>
     </div>
-    <h3>
+    <h4>
       TreeSelect
-    </h3>
+    </h4>
     <div
       class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
       style="width:200px"
@@ -219,9 +219,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         </span>
       </span>
     </div>
-    <h3>
+    <h4>
       Cascader
-    </h3>
+    </h4>
     <span
       class="ant-cascader-picker ant-cascader-picker-show-search"
       style="width:200px"
@@ -259,9 +259,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         </svg>
       </span>
     </span>
-    <h3>
+    <h4>
       Transfer
-    </h3>
+    </h4>
     <div
       class="ant-transfer"
     >
@@ -532,9 +532,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         </div>
       </div>
     </div>
-    <h3>
+    <h4>
       Table
-    </h3>
+    </h4>
     <div
       class="ant-table-wrapper"
       style="margin-top:8px"
@@ -640,9 +640,9 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         </div>
       </div>
     </div>
-    <h3>
+    <h4>
       List
-    </h3>
+    </h4>
     <div
       class="ant-list ant-list-split"
     >
