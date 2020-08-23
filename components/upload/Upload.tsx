@@ -339,7 +339,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<
-    React.PropsWithChildren<UploadProps> & React.RefAttributes<HTMLElement>
+    React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
 }
