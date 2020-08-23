@@ -78,14 +78,9 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
         }));
       },
       removeSider: (id: string) => {
-        console.log(id, '111', this.state);
-        this.setState(state => {
-          console.log('xxxxx');
-          return {
-            siders: state.siders.filter(currentId => currentId !== id),
-          };
-        });
-        console.log(id, '222');
+        this.setState(state => ({
+          siders: state.siders.filter(currentId => currentId !== id),
+        }));
       },
     };
   }
