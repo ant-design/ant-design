@@ -94,7 +94,7 @@ module.exports = {
         new EsbuildPlugin({
           target: 'chrome49',
         }),
-        new CssMinimizerPlugin()
+        new CssMinimizerPlugin(),
       ];
     }
 
