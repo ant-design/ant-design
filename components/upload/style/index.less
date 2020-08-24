@@ -34,8 +34,6 @@
   }
 
   &&-select-picture-card {
-    display: table;
-    float: left;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
     margin-right: 8px;
@@ -46,15 +44,14 @@
     border: @border-width-base dashed @border-color-base;
     border-radius: @border-radius-base;
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s;
 
     > .@{upload-prefix-cls} {
-      display: table-cell;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 100%;
-      padding: @padding-xs;
       text-align: center;
-      vertical-align: middle;
     }
 
     &:hover {

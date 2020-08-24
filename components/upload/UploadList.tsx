@@ -36,6 +36,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     removeIcon: customRemoveIcon,
     downloadIcon: customDownloadIcon,
     progress: progressProps,
+    appendAction,
   },
   ref,
 ) => {
@@ -341,6 +342,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       className={listClassNames}
     >
       {list}
+      {React.isValidElement(appendAction)
+        ? React.cloneElement(appendAction, { key: 'appendAction' })
+        : appendAction}
     </Animate>
   );
 };

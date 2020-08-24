@@ -75,10 +75,4 @@ ReactDOM.render(
 .upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
   float: right;
 }
-.upload-list-inline .ant-upload-animate-enter {
-  animation-name: uploadAnimateInlineIn;
-}
-.upload-list-inline .ant-upload-animate-leave {
-  animation-name: uploadAnimateInlineOut;
-}
 ```
