@@ -57,6 +57,13 @@ class PicturesWall extends React.Component {
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       },
       {
+        uid: '-xxx',
+        percent: 50,
+        name: 'image.png',
+        status: 'uploading',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
         uid: '-5',
         name: 'image.png',
         status: 'error',
@@ -85,11 +92,11 @@ class PicturesWall extends React.Component {
     const uploadButton = (
       <div>
         <PlusOutlined />
-        <div className="ant-upload-text">Upload</div>
+        <div style={{ marginTop: 8 }}>Upload</div>
       </div>
     );
     return (
-      <div className="clearfix">
+      <>
         <Upload
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
           listType="picture-card"
@@ -107,7 +114,7 @@ class PicturesWall extends React.Component {
         >
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
-      </div>
+      </>
     );
   }
 }

@@ -36,9 +36,7 @@ const Uploader = () => {
   };
   return (
     <Upload {...props}>
-      <Button>
-        <UploadOutlined /> Upload png only
-      </Button>
+      <Button icon={<UploadOutlined />}>Upload png only</Button>
     </Upload>
   );
 };

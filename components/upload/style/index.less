@@ -405,17 +405,16 @@
     }
 
     &-container {
-      float: left;
+      display: inline-block;
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
       margin: 0 @margin-xs @margin-xs 0;
+      vertical-align: top;
     }
 
     .@{upload-item} {
-      float: left;
-      width: @upload-picture-card-size;
-      height: @upload-picture-card-size;
-      margin: 0 @margin-xs @margin-xs 0;
+      height: 100%;
+      margin: 0;
     }
 
     .@{upload-item}-info {
@@ -512,6 +511,7 @@
 
     .@{upload-item}-progress {
       bottom: 32px;
+      width: calc(100% - 14px);
       padding-left: 0;
     }
   }
