@@ -208,22 +208,22 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
         </div>
       </span>
     </div>
-  </div>
-  <div
-    class="ant-upload ant-upload-select ant-upload-select-picture-card"
-  >
-    <span
-      class="ant-upload"
-      role="button"
-      tabindex="0"
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture-card"
     >
-      <input
-        accept="image/*"
-        style="display:none"
-        type="file"
-      />
-      + Upload
-    </span>
+      <span
+        class="ant-upload"
+        role="button"
+        tabindex="0"
+      >
+        <input
+          accept="image/*"
+          style="display:none"
+          type="file"
+        />
+        + Upload
+      </span>
+    </div>
   </div>
 </span>
 `;
@@ -1295,52 +1295,52 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-picture-card"
-    >
-      <span
-        class="ant-upload"
-        role="button"
-        tabindex="0"
+      <div
+        class="ant-upload ant-upload-select ant-upload-select-picture-card"
       >
-        <input
-          accept=""
-          style="display:none"
-          type="file"
-        />
-        <div>
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+        <span
+          class="ant-upload"
+          role="button"
+          tabindex="0"
+        >
+          <input
+            accept=""
+            style="display:none"
+            type="file"
+          />
+          <div>
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
             >
-              <defs />
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-          <div
-            class="ant-upload-text"
-          >
-            Upload
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <defs />
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+            <div
+              class="ant-upload-text"
+            >
+              Upload
+            </div>
           </div>
-        </div>
-      </span>
+        </span>
+      </div>
     </div>
   </span>
 </div>
@@ -1990,52 +1990,52 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-upload ant-upload-select ant-upload-select-picture-card"
-    >
-      <span
-        class="ant-upload"
-        role="button"
-        tabindex="0"
+      <div
+        class="ant-upload ant-upload-select ant-upload-select-picture-card"
       >
-        <input
-          accept=""
-          style="display:none"
-          type="file"
-        />
-        <div>
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+        <span
+          class="ant-upload"
+          role="button"
+          tabindex="0"
+        >
+          <input
+            accept=""
+            style="display:none"
+            type="file"
+          />
+          <div>
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
             >
-              <defs />
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-          <div
-            class="ant-upload-text"
-          >
-            Upload
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <defs />
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+            <div
+              class="ant-upload-text"
+            >
+              Upload
+            </div>
           </div>
-        </div>
-      </span>
+        </span>
+      </div>
     </div>
   </span>
 </div>
