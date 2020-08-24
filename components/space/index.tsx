@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 
@@ -35,8 +34,7 @@ const Space: React.FC<SpaceProps> = props => {
     ...otherProps
   } = props;
 
-  const items = toArray(children);
-  const len = items.length;
+  const len = React.Children.count(children);
 
   if (len === 0) {
     return null;
@@ -60,13 +58,13 @@ const Space: React.FC<SpaceProps> = props => {
 
   return (
     <div className={cn} {...otherProps}>
-      {items.map((child, i) => (
+      {React.Children.map(children, (child, i) => (
         <div
           className={itemClassName}
           // eslint-disable-next-line react/no-array-index-key
           key={`${itemClassName}-${i}`}
           style={
-            i === len - 1
+            i === len - 1 || child === null || child === undefined
               ? {}
               : {
                   [direction === 'vertical' ? 'marginBottom' : marginDirection]:

@@ -56,6 +56,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - Removed the `lazy` attribute of Transfer, which did not really optimize the effect.
 - Removed `combobox` mode, please use `AutoComplete` instead.
 - Removed the `rowSelection.hideDefaultSelections` property of Table, please use `SELECTION_ALL` and `SELECTION_INVERT` in `rowSelection.selections` instead, [Custom Selection](/components/table/#components-table-demo-row-selection-custom).
+- Deprecated Button.Group, please use `Space` instead.
 
 #### Icon upgrade
 
@@ -127,6 +128,7 @@ const Demo = () => (
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
   - `filterOption` return origin data with second params instead. No need to use `option.props.children` for matching.
+  - Tree, TreeSelect will display `label` when `title` and `label` are both set. The adjustment is for aligning behavior with `labelInValue`. [New behavior](https://codesandbox.io/s/keen-curran-d3qnp) (show 'label' on first node). [Old behavior](https://codesandbox.io/s/muddy-darkness-57lb3) (show 'title' on first node).
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.

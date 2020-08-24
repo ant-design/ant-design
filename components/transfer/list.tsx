@@ -125,7 +125,7 @@ export default class TransferList extends React.PureComponent<
       const { renderedText } = renderedItem;
 
       // Filter skip
-      if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
+      if (filterValue && !this.matchFilter(renderedText, item)) {
         return null;
       }
 

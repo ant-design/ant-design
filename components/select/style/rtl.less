@@ -55,12 +55,14 @@
 );
 
 .@{select-prefix-cls}-multiple {
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selector,
   &.@{select-prefix-cls}-allow-clear .@{select-prefix-cls}-selector {
     .@{select-prefix-cls}-rtl& {
       padding-right: @input-padding-vertical-base;
       padding-left: @font-size-sm + @control-padding-horizontal;
     }
   }
+
   // ======================== Selections ========================
   .@{select-prefix-cls}-selection-item {
     .@{select-prefix-cls}-rtl& {

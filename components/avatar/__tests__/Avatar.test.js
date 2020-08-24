@@ -163,10 +163,7 @@ describe('Avatar Render', () => {
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
     const wrapper = mount(
-      <Avatar
-        shape="circle"
-        src="http://error.url"
-      >
+      <Avatar shape="circle" src="http://error.url">
         A
       </Avatar>,
       { attachTo: div },

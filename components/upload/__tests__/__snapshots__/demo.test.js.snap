@@ -43,7 +43,7 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
           </svg>
         </span>
         <div
-          class="ant-upload-text"
+          style="margin-top:8px"
         >
           Upload
         </div>
@@ -95,7 +95,7 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Click to Upload
+          Click to Upload
         </span>
       </button>
     </span>
@@ -208,22 +208,22 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
         </div>
       </span>
     </div>
-  </div>
-  <div
-    class="ant-upload ant-upload-select ant-upload-select-picture-card"
-  >
-    <span
-      class="ant-upload"
-      role="button"
-      tabindex="0"
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture-card"
     >
-      <input
-        accept="image/*"
-        style="display:none"
-        type="file"
-      />
-      + Upload
-    </span>
+      <span
+        class="ant-upload"
+        role="button"
+        tabindex="0"
+      >
+        <input
+          accept="image/*"
+          style="display:none"
+          type="file"
+        />
+        + Upload
+      </span>
+    </div>
   </div>
 </span>
 `;
@@ -270,7 +270,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`
           </svg>
         </span>
         <span>
-           Click to Upload
+          Click to Upload
         </span>
       </button>
     </span>
@@ -323,7 +323,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </span>
@@ -617,7 +617,7 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Upload Directory
+          Upload Directory
         </span>
       </button>
     </span>
@@ -691,392 +691,28 @@ exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
-<div
-  class="clearfix"
+<span
+  class="ant-upload-picture-card-wrapper"
 >
-  <span
-    class="ant-upload-picture-card-wrapper"
+  <div
+    class="ant-upload-list ant-upload-list-picture-card"
   >
     <div
-      class="ant-upload-list ant-upload-list-picture-card"
+      class="ant-upload-list-picture-card-container"
     >
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <span>
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
+        >
           <div
-            class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
+            class="ant-upload-list-item-info"
           >
-            <div
-              class="ant-upload-list-item-info"
-            >
-              <span>
-                <a
-                  class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-                  href="http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <span
-                    aria-label="file-pdf"
-                    class="anticon anticon-file-pdf"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="file-pdf"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M509.2 490.8c-.7-1.3-1.4-1.9-2.2-2-2.9 3.3-2.2 31.5 2.7 51.4 4-13.6 4.7-40.5-.5-49.4zm-1.6 120.5c-7.7 20-18.8 47.3-32.1 71.4 4-1.6 8.1-3.3 12.3-5 17.6-7.2 37.3-15.3 58.9-20.2-14.9-11.8-28.4-27.7-39.1-46.2z"
-                        fill="#e6f7ff"
-                      />
-                      <path
-                        d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42zm55 287.6c16.1-1.9 30.6-2.8 44.3-2.3 12.8.4 23.6 2 32 5.1.2.1.3.1.5.2.4.2.8.3 1.2.5.5.2 1.1.4 1.6.7.1.1.3.1.4.2 4.1 1.8 7.5 4 10.1 6.6 9.1 9.1 11.8 26.1 6.2 39.6-3.2 7.7-11.7 20.5-33.3 20.5-21.8 0-53.9-9.7-82.1-24.8-25.5 4.3-53.7 13.9-80.9 23.1-5.8 2-11.8 4-17.6 5.9-38 65.2-66.5 79.4-84.1 79.4-4.2 0-7.8-.9-10.8-2-6.9-2.6-12.8-8-16.5-15-.9-1.7-1.6-3.4-2.2-5.2-1.6-4.8-2.1-9.6-1.3-13.6l.6-2.7c.1-.2.1-.4.2-.6.2-.7.4-1.4.7-2.1 0-.1.1-.2.1-.3 4.1-11.9 13.6-23.4 27.7-34.6 12.3-9.8 27.1-18.7 45.9-28.4 15.9-28 37.6-75.1 51.2-107.4-10.8-41.8-16.7-74.6-10.1-98.6.9-3.3 2.5-6.4 4.6-9.1.2-.2.3-.4.5-.6.1-.1.1-.2.2-.2 6.3-7.5 16.9-11.9 28.1-11.5 16.6.7 29.7 11.5 33 30.1 1.7 8 2.2 16.5 1.9 25.7v.7c0 .5 0 1-.1 1.5-.7 13.3-3 26.6-7.3 44.7-.4 1.6-.8 3.2-1.2 5.2l-1 4.1-.1.3c.1.2.1.3.2.5l1.8 4.5c.1.3.3.7.4 1 .7 1.6 1.4 3.3 2.1 4.8v.1c8.7 18.8 19.7 33.4 33.9 45.1 4.3 3.5 8.9 6.7 13.9 9.8 1.8-.5 3.5-.7 5.3-.9z"
-                        fill="#e6f7ff"
-                      />
-                      <path
-                        d="M391.5 761c5.7-4.4 16.2-14.5 30.1-34.7-10.3 9.4-23.4 22.4-30.1 34.7zm270.9-83l.2-.3h.2c.6-.4.5-.7.4-.9-.1-.1-4.5-9.3-45.1-7.4 35.3 13.9 43.5 9.1 44.3 8.6z"
-                        fill="#e6f7ff"
-                      />
-                      <path
-                        d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
-                        fill="#1890ff"
-                      />
-                      <path
-                        d="M535.9 585.3c-.8-1.7-1.5-3.3-2.2-4.9-.1-.3-.3-.7-.4-1l-1.8-4.5c-.1-.2-.1-.3-.2-.5l.1-.3.2-1.1c4-16.3 8.6-35.3 9.4-54.4v-.7c.3-8.6-.2-17.2-2-25.6-3.8-21.3-19.5-29.6-32.9-30.2-11.3-.5-21.8 4-28.1 11.4-.1.1-.1.2-.2.2-.2.2-.4.4-.5.6-2.1 2.7-3.7 5.8-4.6 9.1-6.6 24-.7 56.8 10.1 98.6-13.6 32.4-35.3 79.4-51.2 107.4v.1c-27.7 14.3-64.1 35.8-73.6 62.9 0 .1-.1.2-.1.3-.2.7-.5 1.4-.7 2.1-.1.2-.1.4-.2.6-.2.9-.5 1.8-.6 2.7-.9 4-.4 8.8 1.3 13.6.6 1.8 1.3 3.5 2.2 5.2 3.7 7 9.6 12.4 16.5 15 3 1.1 6.6 2 10.8 2 17.6 0 46.1-14.2 84.1-79.4 5.8-1.9 11.8-3.9 17.6-5.9 27.2-9.2 55.4-18.8 80.9-23.1 28.2 15.1 60.3 24.8 82.1 24.8 21.6 0 30.1-12.8 33.3-20.5 5.6-13.5 2.9-30.5-6.2-39.6-2.6-2.6-6-4.8-10.1-6.6-.1-.1-.3-.1-.4-.2-.5-.2-1.1-.4-1.6-.7-.4-.2-.8-.3-1.2-.5-.2-.1-.3-.1-.5-.2-16.2-5.8-41.7-6.7-76.3-2.8l-5.3.6c-5-3-9.6-6.3-13.9-9.8-14.2-11.3-25.1-25.8-33.8-44.7zM391.5 761c6.7-12.3 19.8-25.3 30.1-34.7-13.9 20.2-24.4 30.3-30.1 34.7zM507 488.8c.8.1 1.5.7 2.2 2 5.2 8.9 4.5 35.8.5 49.4-4.9-19.9-5.6-48.1-2.7-51.4zm-19.2 188.9c-4.2 1.7-8.3 3.4-12.3 5 13.3-24.1 24.4-51.4 32.1-71.4 10.7 18.5 24.2 34.4 39.1 46.2-21.6 4.9-41.3 13-58.9 20.2zm175.4-.9c.1.2.2.5-.4.9h-.2l-.2.3c-.8.5-9 5.3-44.3-8.6 40.6-1.9 45 7.3 45.1 7.4z"
-                        fill="#1890ff"
-                      />
-                    </svg>
-                  </span>
-                </a>
-                <a
-                  class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                  href="http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="pdf.pdf"
-                >
-                  pdf.pdf
-                </a>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-actions"
-            >
+            <span>
               <a
+                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
                 href="http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf"
                 rel="noopener noreferrer"
                 target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <button
-                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-          </div>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <span>
-          <div
-            class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
-          >
-            <div
-              class="ant-upload-list-item-info"
-            >
-              <span>
-                <a
-                  class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <span
-                    aria-label="file-word"
-                    class="anticon anticon-file-word"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="file-word"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42zm101.3 129.3c1.3-5.4 6.1-9.3 11.7-9.3h35.6a12.04 12.04 0 0111.6 15.1l-74.4 276c-1.4 5.3-6.2 8.9-11.6 8.9h-31.8c-5.4 0-10.2-3.7-11.6-8.9l-52.8-197-52.8 197c-1.4 5.3-6.2 8.9-11.6 8.9h-32c-5.4 0-10.2-3.7-11.6-8.9l-74.2-276a12.02 12.02 0 0111.6-15.1h35.4c5.6 0 10.4 3.9 11.7 9.3L434.6 680l49.7-198.9c1.3-5.4 6.1-9.1 11.6-9.1h32.2c5.5 0 10.3 3.7 11.6 9.1l49.8 199.3 45.8-199.1z"
-                        fill="#e6f7ff"
-                      />
-                      <path
-                        d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
-                        fill="#1890ff"
-                      />
-                      <path
-                        d="M528.1 472h-32.2c-5.5 0-10.3 3.7-11.6 9.1L434.6 680l-46.1-198.7c-1.3-5.4-6.1-9.3-11.7-9.3h-35.4a12.02 12.02 0 00-11.6 15.1l74.2 276c1.4 5.2 6.2 8.9 11.6 8.9h32c5.4 0 10.2-3.6 11.6-8.9l52.8-197 52.8 197c1.4 5.2 6.2 8.9 11.6 8.9h31.8c5.4 0 10.2-3.6 11.6-8.9l74.4-276a12.04 12.04 0 00-11.6-15.1H647c-5.6 0-10.4 3.9-11.7 9.3l-45.8 199.1-49.8-199.3c-1.3-5.4-6.1-9.1-11.6-9.1z"
-                        fill="#1890ff"
-                      />
-                    </svg>
-                  </span>
-                </a>
-                <a
-                  class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="doc.doc"
-                >
-                  doc.doc
-                </a>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-actions"
-            >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <button
-                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-          </div>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
-        >
-          <div
-            class="ant-upload-list-item-info"
-          >
-            <span>
-              <div
-                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-              >
-                <span
-                  aria-label="picture"
-                  class="anticon anticon-picture"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="picture"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
-                      fill="#1890ff"
-                    />
-                    <path
-                      d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
-                      fill="#1890ff"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <span
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                title="image.png"
-              >
-                image.png
-              </span>
-            </span>
-          </div>
-          <span
-            class="ant-upload-list-item-actions"
-          >
-            <a
-              rel="noopener noreferrer"
-              style="pointer-events:none;opacity:0.5"
-              target="_blank"
-              title="Preview file"
-            >
-              <span
-                aria-label="eye"
-                class="anticon anticon-eye"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="eye"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                  />
-                </svg>
-              </span>
-            </a>
-            <button
-              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                aria-label="delete"
-                class="anticon anticon-delete"
-                role="img"
-                tabindex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="delete"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
-        >
-          <div
-            class="ant-upload-list-item-info"
-          >
-            <span>
-              <div
-                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
               >
                 <span
                   aria-label="file-pdf"
@@ -1115,21 +751,24 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </div>
-              <span
+              </a>
+              <a
                 class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
                 title="pdf.pdf"
               >
                 pdf.pdf
-              </span>
+              </a>
             </span>
           </div>
           <span
             class="ant-upload-list-item-actions"
           >
             <a
+              href="http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf"
               rel="noopener noreferrer"
-              style="pointer-events:none;opacity:0.5"
               target="_blank"
               title="Preview file"
             >
@@ -1183,19 +822,24 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             </button>
           </span>
         </div>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <span>
         <div
-          class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
         >
           <div
             class="ant-upload-list-item-info"
           >
             <span>
-              <div
+              <a
                 class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <span
                   aria-label="file-word"
@@ -1226,21 +870,24 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </div>
-              <span
+              </a>
+              <a
                 class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
+                rel="noopener noreferrer"
+                target="_blank"
                 title="doc.doc"
               >
                 doc.doc
-              </span>
+              </a>
             </span>
           </div>
           <span
             class="ant-upload-list-item-actions"
           >
             <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc"
               rel="noopener noreferrer"
-              style="pointer-events:none;opacity:0.5"
               target="_blank"
               title="Preview file"
             >
@@ -1294,6 +941,355 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             </button>
           </span>
         </div>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <div
+        class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <div
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+            >
+              <span
+                aria-label="picture"
+                class="anticon anticon-picture"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="picture"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
+                    fill="#1890ff"
+                  />
+                  <path
+                    d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
+                    fill="#1890ff"
+                  />
+                </svg>
+              </span>
+            </div>
+            <span
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+              title="image.png"
+            >
+              image.png
+            </span>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            rel="noopener noreferrer"
+            style="pointer-events:none;opacity:0.5"
+            target="_blank"
+            title="Preview file"
+          >
+            <span
+              aria-label="eye"
+              class="anticon anticon-eye"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </span>
+          </a>
+          <button
+            class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <div
+        class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <div
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+            >
+              <span
+                aria-label="file-pdf"
+                class="anticon anticon-file-pdf"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="file-pdf"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M509.2 490.8c-.7-1.3-1.4-1.9-2.2-2-2.9 3.3-2.2 31.5 2.7 51.4 4-13.6 4.7-40.5-.5-49.4zm-1.6 120.5c-7.7 20-18.8 47.3-32.1 71.4 4-1.6 8.1-3.3 12.3-5 17.6-7.2 37.3-15.3 58.9-20.2-14.9-11.8-28.4-27.7-39.1-46.2z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42zm55 287.6c16.1-1.9 30.6-2.8 44.3-2.3 12.8.4 23.6 2 32 5.1.2.1.3.1.5.2.4.2.8.3 1.2.5.5.2 1.1.4 1.6.7.1.1.3.1.4.2 4.1 1.8 7.5 4 10.1 6.6 9.1 9.1 11.8 26.1 6.2 39.6-3.2 7.7-11.7 20.5-33.3 20.5-21.8 0-53.9-9.7-82.1-24.8-25.5 4.3-53.7 13.9-80.9 23.1-5.8 2-11.8 4-17.6 5.9-38 65.2-66.5 79.4-84.1 79.4-4.2 0-7.8-.9-10.8-2-6.9-2.6-12.8-8-16.5-15-.9-1.7-1.6-3.4-2.2-5.2-1.6-4.8-2.1-9.6-1.3-13.6l.6-2.7c.1-.2.1-.4.2-.6.2-.7.4-1.4.7-2.1 0-.1.1-.2.1-.3 4.1-11.9 13.6-23.4 27.7-34.6 12.3-9.8 27.1-18.7 45.9-28.4 15.9-28 37.6-75.1 51.2-107.4-10.8-41.8-16.7-74.6-10.1-98.6.9-3.3 2.5-6.4 4.6-9.1.2-.2.3-.4.5-.6.1-.1.1-.2.2-.2 6.3-7.5 16.9-11.9 28.1-11.5 16.6.7 29.7 11.5 33 30.1 1.7 8 2.2 16.5 1.9 25.7v.7c0 .5 0 1-.1 1.5-.7 13.3-3 26.6-7.3 44.7-.4 1.6-.8 3.2-1.2 5.2l-1 4.1-.1.3c.1.2.1.3.2.5l1.8 4.5c.1.3.3.7.4 1 .7 1.6 1.4 3.3 2.1 4.8v.1c8.7 18.8 19.7 33.4 33.9 45.1 4.3 3.5 8.9 6.7 13.9 9.8 1.8-.5 3.5-.7 5.3-.9z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M391.5 761c5.7-4.4 16.2-14.5 30.1-34.7-10.3 9.4-23.4 22.4-30.1 34.7zm270.9-83l.2-.3h.2c.6-.4.5-.7.4-.9-.1-.1-4.5-9.3-45.1-7.4 35.3 13.9 43.5 9.1 44.3 8.6z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
+                    fill="#1890ff"
+                  />
+                  <path
+                    d="M535.9 585.3c-.8-1.7-1.5-3.3-2.2-4.9-.1-.3-.3-.7-.4-1l-1.8-4.5c-.1-.2-.1-.3-.2-.5l.1-.3.2-1.1c4-16.3 8.6-35.3 9.4-54.4v-.7c.3-8.6-.2-17.2-2-25.6-3.8-21.3-19.5-29.6-32.9-30.2-11.3-.5-21.8 4-28.1 11.4-.1.1-.1.2-.2.2-.2.2-.4.4-.5.6-2.1 2.7-3.7 5.8-4.6 9.1-6.6 24-.7 56.8 10.1 98.6-13.6 32.4-35.3 79.4-51.2 107.4v.1c-27.7 14.3-64.1 35.8-73.6 62.9 0 .1-.1.2-.1.3-.2.7-.5 1.4-.7 2.1-.1.2-.1.4-.2.6-.2.9-.5 1.8-.6 2.7-.9 4-.4 8.8 1.3 13.6.6 1.8 1.3 3.5 2.2 5.2 3.7 7 9.6 12.4 16.5 15 3 1.1 6.6 2 10.8 2 17.6 0 46.1-14.2 84.1-79.4 5.8-1.9 11.8-3.9 17.6-5.9 27.2-9.2 55.4-18.8 80.9-23.1 28.2 15.1 60.3 24.8 82.1 24.8 21.6 0 30.1-12.8 33.3-20.5 5.6-13.5 2.9-30.5-6.2-39.6-2.6-2.6-6-4.8-10.1-6.6-.1-.1-.3-.1-.4-.2-.5-.2-1.1-.4-1.6-.7-.4-.2-.8-.3-1.2-.5-.2-.1-.3-.1-.5-.2-16.2-5.8-41.7-6.7-76.3-2.8l-5.3.6c-5-3-9.6-6.3-13.9-9.8-14.2-11.3-25.1-25.8-33.8-44.7zM391.5 761c6.7-12.3 19.8-25.3 30.1-34.7-13.9 20.2-24.4 30.3-30.1 34.7zM507 488.8c.8.1 1.5.7 2.2 2 5.2 8.9 4.5 35.8.5 49.4-4.9-19.9-5.6-48.1-2.7-51.4zm-19.2 188.9c-4.2 1.7-8.3 3.4-12.3 5 13.3-24.1 24.4-51.4 32.1-71.4 10.7 18.5 24.2 34.4 39.1 46.2-21.6 4.9-41.3 13-58.9 20.2zm175.4-.9c.1.2.2.5-.4.9h-.2l-.2.3c-.8.5-9 5.3-44.3-8.6 40.6-1.9 45 7.3 45.1 7.4z"
+                    fill="#1890ff"
+                  />
+                </svg>
+              </span>
+            </div>
+            <span
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+              title="pdf.pdf"
+            >
+              pdf.pdf
+            </span>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            rel="noopener noreferrer"
+            style="pointer-events:none;opacity:0.5"
+            target="_blank"
+            title="Preview file"
+          >
+            <span
+              aria-label="eye"
+              class="anticon anticon-eye"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </span>
+          </a>
+          <button
+            class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <div
+        class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <div
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+            >
+              <span
+                aria-label="file-word"
+                class="anticon anticon-file-word"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="file-word"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M534 352V136H232v752h560V394H576a42 42 0 01-42-42zm101.3 129.3c1.3-5.4 6.1-9.3 11.7-9.3h35.6a12.04 12.04 0 0111.6 15.1l-74.4 276c-1.4 5.3-6.2 8.9-11.6 8.9h-31.8c-5.4 0-10.2-3.7-11.6-8.9l-52.8-197-52.8 197c-1.4 5.3-6.2 8.9-11.6 8.9h-32c-5.4 0-10.2-3.7-11.6-8.9l-74.2-276a12.02 12.02 0 0111.6-15.1h35.4c5.6 0 10.4 3.9 11.7 9.3L434.6 680l49.7-198.9c1.3-5.4 6.1-9.1 11.6-9.1h32.2c5.5 0 10.3 3.7 11.6 9.1l49.8 199.3 45.8-199.1z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z"
+                    fill="#1890ff"
+                  />
+                  <path
+                    d="M528.1 472h-32.2c-5.5 0-10.3 3.7-11.6 9.1L434.6 680l-46.1-198.7c-1.3-5.4-6.1-9.3-11.7-9.3h-35.4a12.02 12.02 0 00-11.6 15.1l74.2 276c1.4 5.2 6.2 8.9 11.6 8.9h32c5.4 0 10.2-3.6 11.6-8.9l52.8-197 52.8 197c1.4 5.2 6.2 8.9 11.6 8.9h31.8c5.4 0 10.2-3.6 11.6-8.9l74.4-276a12.04 12.04 0 00-11.6-15.1H647c-5.6 0-10.4 3.9-11.7 9.3l-45.8 199.1-49.8-199.3c-1.3-5.4-6.1-9.1-11.6-9.1z"
+                    fill="#1890ff"
+                  />
+                </svg>
+              </span>
+            </div>
+            <span
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+              title="doc.doc"
+            >
+              doc.doc
+            </span>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            rel="noopener noreferrer"
+            style="pointer-events:none;opacity:0.5"
+            target="_blank"
+            title="Preview file"
+          >
+            <span
+              aria-label="eye"
+              class="anticon anticon-eye"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </span>
+          </a>
+          <button
+            class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -1335,15 +1331,15 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             </svg>
           </span>
           <div
-            class="ant-upload-text"
+            style="margin-top:8px"
           >
             Upload
           </div>
         </div>
       </span>
     </div>
-  </span>
-</div>
+  </div>
+</span>
 `;
 
 exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
@@ -1389,7 +1385,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </span>
@@ -1482,460 +1478,52 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
-<div
-  class="clearfix"
+<span
+  class="ant-upload-picture-card-wrapper"
 >
-  <span
-    class="ant-upload-picture-card-wrapper"
+  <div
+    class="ant-upload-list ant-upload-list-picture-card"
   >
     <div
-      class="ant-upload-list ant-upload-list-picture-card"
+      class="ant-upload-list-picture-card-container"
     >
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <span>
-          <div
-            class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
-          >
-            <div
-              class="ant-upload-list-item-info"
-            >
-              <span>
-                <a
-                  class="ant-upload-list-item-thumbnail"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    alt="image.png"
-                    class="ant-upload-list-item-image"
-                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  />
-                </a>
-                <a
-                  class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="image.png"
-                >
-                  image.png
-                </a>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-actions"
-            >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <button
-                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-          </div>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <span>
-          <div
-            class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
-          >
-            <div
-              class="ant-upload-list-item-info"
-            >
-              <span>
-                <a
-                  class="ant-upload-list-item-thumbnail"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    alt="image.png"
-                    class="ant-upload-list-item-image"
-                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  />
-                </a>
-                <a
-                  class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="image.png"
-                >
-                  image.png
-                </a>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-actions"
-            >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <button
-                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-          </div>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <span>
-          <div
-            class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
-          >
-            <div
-              class="ant-upload-list-item-info"
-            >
-              <span>
-                <a
-                  class="ant-upload-list-item-thumbnail"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    alt="image.png"
-                    class="ant-upload-list-item-image"
-                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  />
-                </a>
-                <a
-                  class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="image.png"
-                >
-                  image.png
-                </a>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-actions"
-            >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <button
-                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-          </div>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
-        <span>
-          <div
-            class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
-          >
-            <div
-              class="ant-upload-list-item-info"
-            >
-              <span>
-                <a
-                  class="ant-upload-list-item-thumbnail"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    alt="image.png"
-                    class="ant-upload-list-item-image"
-                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  />
-                </a>
-                <a
-                  class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
-                  href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="image.png"
-                >
-                  image.png
-                </a>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-actions"
-            >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-              <button
-                class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-          </div>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-picture-card-container"
-      >
+      <span>
         <div
-          class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
         >
           <div
             class="ant-upload-list-item-info"
           >
             <span>
-              <div
-                class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                <span
-                  aria-label="picture"
-                  class="anticon anticon-picture"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="picture"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
-                      fill="#1890ff"
-                    />
-                    <path
-                      d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
-                      fill="#1890ff"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <span
+                <img
+                  alt="image.png"
+                  class="ant-upload-list-item-image"
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                />
+              </a>
+              <a
                 class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
                 title="image.png"
               >
                 image.png
-              </span>
+              </a>
             </span>
           </div>
           <span
             class="ant-upload-list-item-actions"
           >
             <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
-              style="pointer-events:none;opacity:0.5"
               target="_blank"
               title="Preview file"
             >
@@ -1989,6 +1577,460 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             </button>
           </span>
         </div>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="image.png"
+                  class="ant-upload-list-item-image"
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                />
+              </a>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image.png"
+              >
+                image.png
+              </a>
+            </span>
+          </div>
+          <span
+            class="ant-upload-list-item-actions"
+          >
+            <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Preview file"
+            >
+              <span
+                aria-label="eye"
+                class="anticon anticon-eye"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  />
+                </svg>
+              </span>
+            </a>
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+              title="Remove file"
+              type="button"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </span>
+        </div>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="image.png"
+                  class="ant-upload-list-item-image"
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                />
+              </a>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image.png"
+              >
+                image.png
+              </a>
+            </span>
+          </div>
+          <span
+            class="ant-upload-list-item-actions"
+          >
+            <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Preview file"
+            >
+              <span
+                aria-label="eye"
+                class="anticon anticon-eye"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  />
+                </svg>
+              </span>
+            </a>
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+              title="Remove file"
+              type="button"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </span>
+        </div>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="image.png"
+                  class="ant-upload-list-item-image"
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                />
+              </a>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image.png"
+              >
+                image.png
+              </a>
+            </span>
+          </div>
+          <span
+            class="ant-upload-list-item-actions"
+          >
+            <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Preview file"
+            >
+              <span
+                aria-label="eye"
+                class="anticon anticon-eye"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                  />
+                </svg>
+              </span>
+            </a>
+            <button
+              class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+              title="Remove file"
+              type="button"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </span>
+        </div>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture-card"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <div
+                class="ant-upload-list-item-thumbnail"
+              >
+                Uploading...
+              </div>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image.png"
+              >
+                image.png
+              </a>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list-item-progress"
+          >
+            <div
+              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+            >
+              <div
+                class="ant-progress-outer"
+              >
+                <div
+                  class="ant-progress-inner"
+                >
+                  <div
+                    class="ant-progress-bg"
+                    style="width:50%;height:2px;border-radius:"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="ant-upload-list-picture-card-container"
+    >
+      <div
+        class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <div
+              class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+            >
+              <span
+                aria-label="picture"
+                class="anticon anticon-picture"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="picture"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
+                    fill="#1890ff"
+                  />
+                  <path
+                    d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
+                    fill="#e6f7ff"
+                  />
+                  <path
+                    d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
+                    fill="#1890ff"
+                  />
+                </svg>
+              </span>
+            </div>
+            <span
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+              title="image.png"
+            >
+              image.png
+            </span>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            rel="noopener noreferrer"
+            style="pointer-events:none;opacity:0.5"
+            target="_blank"
+            title="Preview file"
+          >
+            <span
+              aria-label="eye"
+              class="anticon anticon-eye"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </span>
+          </a>
+          <button
+            class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -2030,15 +2072,15 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             </svg>
           </span>
           <div
-            class="ant-upload-text"
+            style="margin-top:8px"
           >
             Upload
           </div>
         </div>
       </span>
     </div>
-  </span>
-</div>
+  </div>
+</span>
 `;
 
 exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
@@ -2084,7 +2126,7 @@ Array [
             </svg>
           </span>
           <span>
-             Upload
+            Upload
           </span>
         </button>
       </span>
@@ -2297,7 +2339,7 @@ Array [
             </svg>
           </span>
           <span>
-             Upload
+            Upload
           </span>
         </button>
       </span>
@@ -2512,7 +2554,7 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </span>
@@ -2565,7 +2607,7 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </span>
@@ -2618,7 +2660,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
           </svg>
         </span>
         <span>
-           Upload
+          Upload
         </span>
       </button>
     </span>
@@ -2929,7 +2971,7 @@ Array [
             </svg>
           </span>
           <span>
-             Select File
+            Select File
           </span>
         </button>
       </span>
@@ -2993,7 +3035,7 @@ exports[`renders ./components/upload/demo/upload-png-only.md correctly 1`] = `
           </svg>
         </span>
         <span>
-           Upload png only
+          Upload png only
         </span>
       </button>
     </span>
@@ -3072,7 +3114,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
                     </svg>
                   </span>
                   <span>
-                     Click to Upload
+                    Click to Upload
                   </span>
                 </button>
               </span>

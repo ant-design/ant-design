@@ -114,9 +114,7 @@ class AliyunOSSUpload extends React.Component {
     };
     return (
       <Upload {...props}>
-        <Button>
-          <UploadOutlined /> Click to Upload
-        </Button>
+        <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
     );
   }

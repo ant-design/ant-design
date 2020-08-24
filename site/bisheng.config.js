@@ -1,6 +1,7 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
@@ -89,7 +90,12 @@ module.exports = {
       config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
     } else if (process.env.ESBUILD) {
       // use esbuild
-      config.optimization.minimizer = [new EsbuildPlugin()];
+      config.optimization.minimizer = [
+        new EsbuildPlugin({
+          target: 'chrome49',
+        }),
+        new CssMinimizerPlugin(),
+      ];
     }
 
     alertBabelConfig(config.module.rules);

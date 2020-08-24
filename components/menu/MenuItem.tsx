@@ -16,16 +16,6 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
 
-  private menuItem: this;
-
-  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
-    this.menuItem.onKeyDown(e);
-  };
-
-  saveMenuItem = (menuItem: this) => {
-    this.menuItem = menuItem;
-  };
-
   renderItemChildren(inlineCollapsed: boolean) {
     const { icon, children, level, rootPrefixCls } = this.props;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
@@ -79,7 +69,6 @@ export default class MenuItem extends React.Component<MenuItemProps> {
                     (icon ? childrenLength + 1 : childrenLength) === 1,
                 })}
                 title={title}
-                ref={this.saveMenuItem}
               >
                 {icon}
                 {this.renderItemChildren(inlineCollapsed)}

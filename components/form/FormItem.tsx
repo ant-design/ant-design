@@ -50,6 +50,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;
+  initialValue?: any;
 
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
@@ -86,7 +87,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   } = props;
   const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
+  const { name: formName, requiredMark } = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
   const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
@@ -224,7 +225,13 @@ function FormItem(props: FormItemProps): React.ReactElement {
         ])}
       >
         {/* Label */}
-        <FormItemLabel htmlFor={fieldId} required={isRequired} {...props} prefixCls={prefixCls} />
+        <FormItemLabel
+          htmlFor={fieldId}
+          required={isRequired}
+          requiredMark={requiredMark}
+          {...props}
+          prefixCls={prefixCls}
+        />
         {/* Input Group */}
         <FormItemInput
           {...props}

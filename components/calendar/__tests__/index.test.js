@@ -29,11 +29,13 @@ describe('Calendar', () => {
 
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
-    const wrapper = mount(<Calendar onSelect={onSelect} />);
+    const onChange = jest.fn();
+    const wrapper = mount(<Calendar onSelect={onSelect} onChange={onChange} />);
     wrapper.find('.ant-picker-cell').at(0).simulate('click');
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
     const value = onSelect.mock.calls[0][0];
     expect(Moment.isMoment(value)).toBe(true);
+    expect(onChange).toHaveBeenCalled();
   });
 
   it('only Valid range should be selectable', () => {

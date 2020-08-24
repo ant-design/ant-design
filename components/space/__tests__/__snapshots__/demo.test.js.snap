@@ -397,6 +397,12 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
     style="margin-right:8px"
   >
     1

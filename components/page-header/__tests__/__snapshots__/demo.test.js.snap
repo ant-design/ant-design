@@ -103,48 +103,60 @@ Array [
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Created
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Lili Qu
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Created
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Lili Qu
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Association
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <a>
-                      421421
-                    </a>
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Association
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      <a>
+                        421421
+                      </a>
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Creation Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-01-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Creation Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-01-10
+                    </span>
+                  </div>
                 </td>
               </tr>
               <tr
@@ -154,31 +166,39 @@ Array [
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Effective Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-10-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Effective Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-10-10
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="2"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Remarks
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Remarks
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -827,48 +847,60 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Created
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Lili Qu
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Created
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Lili Qu
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Association
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <a>
-                      421421
-                    </a>
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Association
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      <a>
+                        421421
+                      </a>
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Creation Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-01-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Creation Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-01-10
+                    </span>
+                  </div>
                 </td>
               </tr>
               <tr
@@ -878,31 +910,39 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Effective Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-10-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Effective Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-10-10
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="2"
                 >
-                  <span
-                    class="ant-descriptions-item-label"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Remarks
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Remarks
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -1022,33 +1062,41 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                     class="ant-descriptions-item"
                     colspan="1"
                   >
-                    <span
-                      class="ant-descriptions-item-label"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
-                      Created
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      Lili Qu
-                    </span>
+                      <span
+                        class="ant-descriptions-item-label"
+                      >
+                        Created
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        Lili Qu
+                      </span>
+                    </div>
                   </td>
                   <td
                     class="ant-descriptions-item"
                     colspan="1"
                   >
-                    <span
-                      class="ant-descriptions-item-label"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
-                      Association
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      <a>
-                        421421
-                      </a>
-                    </span>
+                      <span
+                        class="ant-descriptions-item-label"
+                      >
+                        Association
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        <a>
+                          421421
+                        </a>
+                      </span>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -1058,31 +1106,39 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                     class="ant-descriptions-item"
                     colspan="1"
                   >
-                    <span
-                      class="ant-descriptions-item-label"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
-                      Creation Time
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      2017-01-10
-                    </span>
+                      <span
+                        class="ant-descriptions-item-label"
+                      >
+                        Creation Time
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        2017-01-10
+                      </span>
+                    </div>
                   </td>
                   <td
                     class="ant-descriptions-item"
                     colspan="1"
                   >
-                    <span
-                      class="ant-descriptions-item-label"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
-                      Effective Time
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      2017-10-10
-                    </span>
+                      <span
+                        class="ant-descriptions-item-label"
+                      >
+                        Effective Time
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        2017-10-10
+                      </span>
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -1092,16 +1148,20 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                     class="ant-descriptions-item"
                     colspan="2"
                   >
-                    <span
-                      class="ant-descriptions-item-label"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
-                      Remarks
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                    </span>
+                      <span
+                        class="ant-descriptions-item-label"
+                      >
+                        Remarks
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                      </span>
+                    </div>
                   </td>
                 </tr>
               </tbody>
