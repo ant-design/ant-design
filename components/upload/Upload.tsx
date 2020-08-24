@@ -270,7 +270,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           );
         }}
       </LocaleReceiver>
-    ) : null;
+    ) : button;
 
   if (type === 'drag') {
     const dragCls = classNames(
@@ -318,7 +318,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (listType === 'picture-card') {
     return (
       <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
-        {showUploadList ? renderUploadList(uploadButton) : uploadButton}
+        {renderUploadList(uploadButton)}
       </span>
     );
   }
