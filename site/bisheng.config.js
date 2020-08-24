@@ -90,7 +90,12 @@ module.exports = {
       config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
     } else if (process.env.ESBUILD) {
       // use esbuild
-      config.optimization.minimizer = [new EsbuildPlugin(), new CssMinimizerPlugin()];
+      config.optimization.minimizer = [
+        new EsbuildPlugin({
+          target: 'chrome49',
+        }),
+        new CssMinimizerPlugin()
+      ];
     }
 
     alertBabelConfig(config.module.rules);
