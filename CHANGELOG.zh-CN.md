@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.6.1
+
+`2020-08-24`
+
+- TypeScript
+  - 🐞 修复 Upload 类型声明丢失 `children` 的问题。[#26347](https://github.com/ant-design/ant-design/pull/26347)
+
 ## 4.6.0
 
 `2020-08-23`
