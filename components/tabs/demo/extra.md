@@ -61,7 +61,7 @@ const Demo = () => {
       <Divider />
       <CheckboxGroup
         options={options}
-        value={positon}
+        value={position}
         onChange={value => {
           setPosition(value);
         }}
