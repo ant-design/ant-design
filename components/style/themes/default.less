@@ -10,7 +10,7 @@
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: @blue-6;
+@primary-color: #007ed4; //@blue-6;
 @info-color: @primary-color;
 @success-color: @green-6;
 @processing-color: @blue-6;
@@ -23,18 +23,31 @@
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
-@primary-2: color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
-@primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
-@primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
-@primary-5: color(
-  ~`colorPalette('@{primary-color}', 5) `
-); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
-@primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
-@primary-8: color(~`colorPalette('@{primary-color}', 8) `); // unused
-@primary-9: color(~`colorPalette('@{primary-color}', 9) `); // unused
-@primary-10: color(~`colorPalette('@{primary-color}', 10) `); // unused
+@primary-1: #eaf5fb; // color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
+@primary-2: #eaf5fb; // color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
+@primary-3: #bfe7ff; // color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
+@primary-4: #bfe7ff; // color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
+@primary-5: @primary-color; // unused
+@primary-6: @primary-color; // unused
+@primary-7: #14568e; // unused
+@primary-8: #14568e; // unused
+@primary-9: #001c3a;
+@primary-10: #001c3a;
+
+// // Color used by default to control hover and active backgrounds and for
+// // alert info backgrounds.
+// @primary-1: #EAF5FB; // color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
+// @primary-2: #BFE7FF; // color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
+// @primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
+// @primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
+// @primary-5: @primary-color; //color(
+// //  ~`colorPalette('@{primary-color}', 5) `
+// //); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
+// @primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
+// @primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
+// @primary-8: color(~`colorPalette('@{primary-color}', 8) `); // unused
+// @primary-9: color(~`colorPalette('@{primary-color}', 9) `); // unused
+// @primary-10: color(~`colorPalette('@{primary-color}', 10) `); // unused
 
 // Base Scaffolding Variables
 // ---
@@ -177,11 +190,14 @@
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
 @btn-primary-color: #fff;
-@btn-primary-bg: @primary-color;
+@btn-primary-bg: @orange-5;
 
+// @btn-default-color: '#F8F8F8';
 @btn-default-color: @text-color;
-@btn-default-bg: @component-background;
-@btn-default-border: @border-color-base;
+@btn-default-bg: '#F8F8F8';
+@btn-default-border: '#DEDEDE';
+// @btn-default-bg: @component-background;
+// @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
 @btn-danger-bg: @error-color;
