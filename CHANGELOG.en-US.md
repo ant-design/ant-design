@@ -63,10 +63,9 @@ timeline: true
 - 💄 Optimize the display effect of Descriptions when there is more content. [#25903](https://github.com/ant-design/ant-design/pull/25903)
 - 🆕 message could be detroied by `message.desctroy(key)`. [#26052](https://github.com/ant-design/ant-design/pull/26052) [@lihqi](https://github.com/lihqi)
 - 💄 Adjust InputNumber handler bar to be hidden when `readOnly`. [#25998](https://github.com/ant-design/ant-design/pull/25998)
-- 💄 Lighten `@text-color` color in dark theme. [#25923](https://github.com/ant-design/ant-design/pull/25923)
-- 💄 Darken `@text-color` color in default theme. [#25630](https://github.com/ant-design/ant-design/pull/25630)
+- 💄 Darker `@text-color` for WCAG 2.0 on contrast ratio. [#25630](https://github.com/ant-design/ant-design/pull/25630)
 - Locale
-  - 🏴󠁥󠁳󠁧󠁡󠁿 Add Galician Locale support. [#26015](https://github.com/ant-design/ant-design/pull/26015) [@barreeeiroo](https://github.com/barreeeiroo)
+  - 🌐 Add Galician locale support. [#26015](https://github.com/ant-design/ant-design/pull/26015) [@barreeeiroo](https://github.com/barreeeiroo)
   - 🇱🇹 Add Lithuanian locale support. [#26312](https://github.com/ant-design/ant-design/pull/26312) [@mslotvinskij](https://github.com/mslotvinskij)
   - 🌐 Use `kmr_IQ` to replace `ku_IQ`. [#26030](https://github.com/ant-design/ant-design/pull/26030)
 - RTL
