@@ -175,6 +175,7 @@ Properties for expandable.
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |
+| expandedRowClassName | Expanded row's className | function(record, index): string | - |
 | indentSize | Indent size in pixels of tree data | number | 15 |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |
