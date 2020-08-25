@@ -26,6 +26,7 @@ timeline: true
 
 `2020-08-23`
 
+- 💄 加深默认文本 `@text-color` 以满足 WCAG 2.0 对比度的规范。[#25630](https://github.com/ant-design/ant-design/pull/25630)
 - 🔥 新增图片组件 Image。[#26296](https://github.com/ant-design/ant-design/pull/26296)
 - 🔥 Table 新增 `sticky` 属性以支持固定表头和滚动条。[#25939](https://github.com/ant-design/ant-design/pull/25939)
 - Form
@@ -63,9 +64,8 @@ timeline: true
 - 💄 优化 Descriptions 在内容比较多时的显示效果。[#25903](https://github.com/ant-design/ant-design/pull/25903)
 - 🆕 message 支持通过 `message.desctroy(key)` 销毁。[#26052](https://github.com/ant-design/ant-design/pull/26052) [@lihqi](https://github.com/lihqi)
 - 💄 调整 InputNumber 操作栏在 `readOnly` 时为隐藏。[#25998](https://github.com/ant-design/ant-design/pull/25998)
-- 💄 加深默认文本 `@text-color` 以满足 WCAG 2.0 对比度的规范。[#25630](https://github.com/ant-design/ant-design/pull/25630)
 - 国际化
-  - 🏴󠁥󠁳󠁧󠁡󠁿 添加加利西亚语支持。[#26015](https://github.com/ant-design/ant-design/pull/26015) [@barreeeiroo](https://github.com/barreeeiroo)
+  - 🌐 添加加利西亚语支持。[#26015](https://github.com/ant-design/ant-design/pull/26015) [@barreeeiroo](https://github.com/barreeeiroo)
   - 🇱🇹 添加立陶宛语支持。[#26312](https://github.com/ant-design/ant-design/pull/26312) [@mslotvinskij](https://github.com/mslotvinskij)
   - 🌐 新增 `kmr_IQ` 语言包用以代替 ku_IQ。[#26030](https://github.com/ant-design/ant-design/pull/26030)
 - RTL
