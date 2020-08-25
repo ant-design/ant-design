@@ -35,12 +35,10 @@
   }
 }
 
-// ========================== Tree ==========================
-.antTreeFn(@select-tree-prefix-cls);
-
-// change switcher icon rotation in rtl direction
 .@{select-tree-prefix-cls} {
-  // >>> Switcher
+  .antTreeFn(@select-tree-prefix-cls);
+
+  // change switcher icon rotation in rtl direction
   & &-switcher {
     &_close {
       .@{select-tree-prefix-cls}-switcher-icon {
