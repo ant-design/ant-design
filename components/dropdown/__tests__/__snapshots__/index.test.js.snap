@@ -35,7 +35,7 @@ Array [
       style="opacity:0"
     >
       <span>
-        overlayNode
+        string
       </span>
     </div>
   </div>,

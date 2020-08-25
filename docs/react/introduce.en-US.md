@@ -102,7 +102,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-`antd` provides a built-in ts definition, don't install @types/antd`.
+`antd` provides a built-in ts definition, don't install `@types/antd`.
 
 ## Links
 

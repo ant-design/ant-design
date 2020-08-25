@@ -1,8 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
+import Item from './Item';
+
+export const LastIndexContext = React.createContext(0);
 
 export interface SpaceProps {
   prefixCls?: string;
@@ -13,12 +15,6 @@ export interface SpaceProps {
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
 }
-
-const spaceSize = {
-  small: 8,
-  middle: 16,
-  large: 24,
-};
 
 const Space: React.FC<SpaceProps> = props => {
   const { getPrefixCls, space, direction: directionConfig }: ConfigConsumerProps = React.useContext(
@@ -35,8 +31,7 @@ const Space: React.FC<SpaceProps> = props => {
     ...otherProps
   } = props;
 
-  const items = toArray(children);
-  const len = items.length;
+  const len = React.Children.count(children);
 
   if (len === 0) {
     return null;
@@ -58,25 +53,32 @@ const Space: React.FC<SpaceProps> = props => {
 
   const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
+  // Calculate latest one
+  let latestIndex = 0;
+  const nodes = React.Children.map(children, (child, i) => {
+    if (child !== null && child !== undefined) {
+      latestIndex = i;
+    }
+
+    /* eslint-disable react/no-array-index-key */
+    return (
+      <Item
+        className={itemClassName}
+        key={`${itemClassName}-${i}`}
+        direction={direction}
+        size={size}
+        index={i}
+        marginDirection={marginDirection}
+      >
+        {child}
+      </Item>
+    );
+    /* eslint-enable */
+  });
+
   return (
     <div className={cn} {...otherProps}>
-      {items.map((child, i) => (
-        <div
-          className={itemClassName}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`${itemClassName}-${i}`}
-          style={
-            i === len - 1
-              ? {}
-              : {
-                  [direction === 'vertical' ? 'marginBottom' : marginDirection]:
-                    typeof size === 'string' ? spaceSize[size] : size,
-                }
-          }
-        >
-          {child}
-        </div>
-      ))}
+      <LastIndexContext.Provider value={latestIndex}>{nodes}</LastIndexContext.Provider>
     </div>
   );
 };

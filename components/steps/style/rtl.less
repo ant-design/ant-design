@@ -42,13 +42,13 @@
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
     .@{steps-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: 16px;
+      padding-right: 16px;
+      padding-left: 0;
     }
 
-    &:last-child {
+    &:first-child {
       .@{steps-prefix-cls}-rtl& {
-        margin-left: 0;
+        padding-right: 0;
       }
     }
     &:last-child .@{steps-prefix-cls}-item-title {
@@ -115,13 +115,13 @@
   &.@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical)
     .@{steps-prefix-cls}-item {
     .@{steps-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: 12px;
+      padding-right: 12px;
+      padding-left: 0;
     }
 
-    &:last-child {
+    &:first-child {
       .@{steps-prefix-cls}-rtl& {
-        margin-left: 0;
+        padding-right: 0;
       }
     }
   }

@@ -15,6 +15,118 @@ timeline: true
 
 ---
 
+## 4.6.1
+
+`2020-08-24`
+
+- TypeScript
+  - 🐞 修复 Upload 类型声明丢失 `children` 的问题。[#26347](https://github.com/ant-design/ant-design/pull/26347)
+
+## 4.6.0
+
+`2020-08-23`
+
+- 💄 加深默认文本 `@text-color` 以满足 WCAG 2.0 对比度的规范。[#25630](https://github.com/ant-design/ant-design/pull/25630)
+- 🔥 新增图片组件 Image。[#26296](https://github.com/ant-design/ant-design/pull/26296)
+- 🔥 Table 新增 `sticky` 属性以支持固定表头和滚动条。[#25939](https://github.com/ant-design/ant-design/pull/25939)
+- Form
+  - 🆕 Form 添加 `requiredMark` 属性以支持设置必选样式，废弃原 `hideRequiredMark`。[#26309](https://github.com/ant-design/ant-design/pull/26309)
+  - 🆕 Form.List 中的 `add` 方法支持第二个 `index` 参数。[#26081](https://github.com/ant-design/ant-design/pull/26081)
+- 🆕 虚拟滚动支持无闪动滚动，修复 Select/TreeSelect 滚动时列表空白的问题。[#26306](https://github.com/ant-design/ant-design/pull/26306)
+- Typography
+  - 🆕 新增 Typography.Text `success` 类型。[#26145](https://github.com/ant-design/ant-design/pull/26145) [@llwslc](https://github.com/llwslc)
+  - 🆕 Typography `copyable` 支持隐藏提示，`editable` 支持设置图标与提示。[#25953](https://github.com/ant-design/ant-design/pull/25953) [@llwslc](https://github.com/llwslc)
+  - 🆕 新增 Typography.Title 5 级标题。[#25861](https://github.com/ant-design/ant-design/pull/25861)
+  - 🆕 Typography 的 `editable` 配置中增加了 `maxLength` 和 `autoSize` 属性。[#25373](https://github.com/ant-design/ant-design/pull/25373) [@CornerSkyless](https://github.com/CornerSkyless)
+- 🐞 修复 Transfer 搜索空格时 `filterOption` 没有触发的问题。[#26335](https://github.com/ant-design/ant-design/pull/26335)
+- Progress
+  - 🐞 修复 Progress `steps` 属性对于 `trailColor` 不生效的问题。[#26323](https://github.com/ant-design/ant-design/pull/26323)
+  - 🐞 修复 Progress 当 `type="circle"` 时 `success.percent` 不生效的问题。[#26307](https://github.com/ant-design/ant-design/pull/26307)
+- 🐞 修复 Textarea 当 `value` 为 `undefined` 时未显示 `defaultValue` 问题。[#26327](https://github.com/ant-design/ant-design/pull/26327)
+- Cascader
+  - 🐞 修复 Cascader 在按下 ESC 键，然后通过输入进行搜索时 `options` 不展开的问题。[#26271](https://github.com/ant-design/ant-design/pull/26271) [@flyerH](https://github.com/flyerH)
+  - 💄 优化 Cascader 清除动画效果。[#26186](https://github.com/ant-design/ant-design/pull/26186)
+- 🗑 移除遗留的 Button.Group 支持，请使用 Space 代替。[#26260](https://github.com/ant-design/ant-design/pull/26260)
+- Select
+  - 🆕 Select 支持 `onClear` 属性。[#25907](https://github.com/ant-design/ant-design/pull/25907)
+  - 🐞 修复 Select `mode="tags"` 搜索显示两条重复条目的问题。[#25907](https://github.com/ant-design/ant-design/pull/25907)
+  - 🐞 修复 Select 聚焦时被禁用的样式异常问题。[#26255](https://github.com/ant-design/ant-design/pull/26255)
+  - 🐞 修复多选模式的 Select 在 `showArrow` 时图标重叠问题。[#26168](https://github.com/ant-design/ant-design/pull/26168) [@zhangchen915](https://github.com/zhangchen915)
+- DatePicker
+  - 🐞 修复 `picker` 属性改变时渲染面板不会改变的问题。[#26093](https://github.com/ant-design/ant-design/issues/26093)
+  - 🐞 修复 RangePicker 点击清除按钮面板不会关闭的问题。[#26188](https://github.com/ant-design/ant-design/issues/26188)
+- 🐞 修复 Pagination 字体相关样式问题。[#26230](https://github.com/ant-design/ant-design/pull/26230) [@albertms10](https://github.com/albertms10)
+- 🐞 修复 Space `children` 有时会重新渲染的问题。[#26219](https://github.com/ant-design/ant-design/pull/26219)
+- Badge
+  - 💄 新增 `@badge-color` less 变量。[#26159](https://github.com/ant-design/ant-design/pull/26159)
+  - 🆕 Badge 新增 `size` 属性用于设置大小。[#25851](https://github.com/ant-design/ant-design/pull/25851) [@moonrailgun](https://github.com/moonrailgun)
+- 🆕 Tabs 可自定义`tabBarExtraContent` 的渲染位置。[#25138](https://github.com/ant-design/ant-design/pull/25138) [@jesse3mh9a](https://github.com/jesse3mh9a)
+- 💄 优化 Descriptions 在内容比较多时的显示效果。[#25903](https://github.com/ant-design/ant-design/pull/25903)
+- 🆕 message 支持通过 `message.desctroy(key)` 销毁。[#26052](https://github.com/ant-design/ant-design/pull/26052) [@lihqi](https://github.com/lihqi)
+- 💄 调整 InputNumber 操作栏在 `readOnly` 时为隐藏。[#25998](https://github.com/ant-design/ant-design/pull/25998)
+- 国际化
+  - 🌐 添加加利西亚语支持。[#26015](https://github.com/ant-design/ant-design/pull/26015) [@barreeeiroo](https://github.com/barreeeiroo)
+  - 🇱🇹 添加立陶宛语支持。[#26312](https://github.com/ant-design/ant-design/pull/26312) [@mslotvinskij](https://github.com/mslotvinskij)
+  - 🌐 新增 `kmr_IQ` 语言包用以代替 ku_IQ。[#26030](https://github.com/ant-design/ant-design/pull/26030)
+- RTL
+  - 💄 优化 Tree RTL 模式下连接线的样式。[#26205](https://github.com/ant-design/ant-design/pull/26205)
+  - 💄 优化 Dropdown RTL 写法避免暗黑模式样式覆盖。[#26206](https://github.com/ant-design/ant-design/pull/26206)
+- TypeScript
+  - 🤖 修复 Form.Item `initialValue` 定义丢失问题。[#26292](https://github.com/ant-design/ant-design/pull/26292) [@miaoyuxinbaby](https://github.com/miaoyuxinbaby)
+  - 🤖 Form 支持泛型。[#25937](https://github.com/ant-design/ant-design/pull/25937)
+
+## 4.5.4
+
+`2020-08-12`
+
+- 🐞 修复 Form.Item 在 `hidden` 时引用 less 样式时失效的问题。[#26152](https://github.com/ant-design/ant-design/pull/26152)
+- 🐞 修复 Dropdown `overlay` 为 string 时渲染错误的问题。[#26135](https://github.com/ant-design/ant-design/pull/26135)
+- 🐞 修复 Table 删除最后一页的最后一条记录时分页消失的问题。[#26133](https://github.com/ant-design/ant-design/pull/26133) [@QoVoQ](https://github.com/QoVoQ)
+- Tree
+  - 🐞 修复 Tree.DirectoryTree 不能通过 `ref` 调用 `scrollTo` 的问题。[#26129](https://github.com/ant-design/ant-design/pull/26129)
+  - 🐞 修复 Tree 开启 `showLine` 时顶级节点间缺少连接线的问题。[#25991](https://github.com/ant-design/ant-design/pull/25991) [@zhangchen915](https://github.com/zhangchen915)
+- 💄 新增 `@badge-color` less 变量。[#26159](https://github.com/ant-design/ant-design/pull/26159)
+- RTL
+  - 🐞 修复 Input.Search 在 RTL 模式下的边框样式。[#26156](https://github.com/ant-design/ant-design/pull/26156)
+  - 🐞 修复 Input 在 RTL 模式下 `addonBefore` 的样式问题。[#26153](https://github.com/ant-design/ant-design/pull/26153)
+  - 🐞 修复 DatePicker 在 RTL 模式下的多个样式问题。[#26149](https://github.com/ant-design/ant-design/pull/26149) [#26157](https://github.com/ant-design/ant-design/pull/26157) [#26158](https://github.com/ant-design/ant-design/pull/26158)
+- TypeScript
+  - 🐞 修复 Slider `handleStyle` 和 `trackStyle` 属性的类型定义。[#26160](https://github.com/ant-design/ant-design/pull/26160)
+
+## 4.5.3
+
+`2020-08-08`
+
+- Menu
+  - 🐞 修复水平 Menu 黑暗 `theme` 在暗黑主题下的样式。[#26062](https://github.com/ant-design/ant-design/pull/26062)
+  - 🐞 修复水平方向 Menu 在暗黑主题 RTL 模式下的位置。[#26032](https://github.com/ant-design/ant-design/pull/26032)
+- Table
+  - 🐞 修复 Table `dataSource` 中含有非法数值时会报错的问题。[#26042](https://github.com/ant-design/ant-design/pull/26042)
+  - 🐞 修复 Table 空筛选项在控制台抛出 warning 的问题。[#26001](https://github.com/ant-design/ant-design/pull/26001)
+- Form
+  - 🐞 修复 Form.Item `hidden` 不能和 `noStyle` 一同使用的问题。[#26020](https://github.com/ant-design/ant-design/pull/26020)
+  - 💄 修复 Form 紧凑模式下表单项 margin 计算错误。[#26069](https://github.com/ant-design/ant-design/pull/26069)
+- Transfer
+  - 🐞 修复 Transfer 禁用时分页未禁用的问题。[#26009](https://github.com/ant-design/ant-design/pull/26009)
+  - 🐞 修复 Transfer 禁用时头部下拉按钮的鼠标样式。[#26005](https://github.com/ant-design/ant-design/pull/26005)
+- Cascader
+  - 🐞 修复 Cascader 在 Firefox 下文本和箭头重叠的问题。[#26011](https://github.com/ant-design/ant-design/pull/26011)
+  - 💄 Cascader 的选择器箭头不再旋转。[#26078](https://github.com/ant-design/ant-design/pull/26078) [@07akioni](https://github.com/07akioni)
+  - 🐞 修复 Cascader 禁用时鼠标悬浮边框颜色异常的问题。[#25970](https://github.com/ant-design/ant-design/pull/25970)
+- Select
+  - 💄 优化 Select 多选模式 `disabled` 样式。[#25980](https://github.com/ant-design/ant-design/pull/25980)
+  - 🐞 修复 Select 禁用时自定义图标的鼠标样式。[#26002](https://github.com/ant-design/ant-design/pull/26002)
+- 🐞 修复 Breadcrumb.Item 封装后丢失分隔符的问题。[#25984](https://github.com/ant-design/ant-design/pull/25984) [@flyerH](https://github.com/flyerH)
+- 🐞 修复 Avatar.Group key 缺失的问题。[#26098](https://github.com/ant-design/ant-design/pull/26098)
+- 💄 调整 Mentions `readOnly` 鼠标样式为原生样式。[#25977](https://github.com/ant-design/ant-design/pull/25977)
+- 💄 新增 `@btn-line-height` 变量。[#26014](https://github.com/ant-design/ant-design/pull/26014)
+- 💄 优化 Pagination 简洁分页禁用样式。[#26008](https://github.com/ant-design/ant-design/pull/26008)
+- 🐞 修复 Modal `useModal` 丢失样式的问题。[#25967](https://github.com/ant-design/ant-design/pull/25967)
+- 🐞 修复 InputNumber 暗黑主题下操作栏背景色。[#26072](https://github.com/ant-design/ant-design/pull/26072)
+- 🐞 修复 Steps 使用 `progress` 时的 RTL 样式问题。[#26075](https://github.com/ant-design/ant-design/pull/26075)
+- 🌐 改进阿拉伯语 Arabic 的国际化。[#26094](https://github.com/ant-design/ant-design/pull/26094) [@Mohelm97](https://github.com/Mohelm97)
+- 🌐 改进法语 fr_FR 国际化。[#26034](https://github.com/ant-design/ant-design/pull/26034) [@Thanaen](https://github.com/Thanaen)
+
 ## 4.5.2
 
 `2020-08-02`
@@ -160,10 +272,9 @@ timeline: true
 - Table
   - 🆕 Table 添加 `rowSelection.dirty` 以支持异步数据下保留 `key`。[#24718](https://github.com/ant-design/ant-design/pull/24718)
   - 🆕 Table `onChange` 添加 `action` 参数用于标示操作类型。[#24697](https://github.com/ant-design/ant-design/pull/24697)
-  - 🐞 Table 支持 `rowSelection.checkStrictly` 来完全受控节点。[#24931](https://github.com/ant-design/ant-design/pull/24931)
+  - 🐞 Table 支持 `rowSelection.checkStrictly`，现在父子节点选择状态可以关联了。[#24931](https://github.com/ant-design/ant-design/pull/24931)
   - 🐞 修复 Table `onSelectAll` 的 `changeRows` 参数不正确的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931)
   - 🐞 修复 Table 树形数据叶节点行的展开按钮仍能被点击的问题。[#24931](https://github.com/ant-design/ant-design/pull/24931)
-  - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
   - 🐞 修复 Table 展开图标隐藏时仍然有鼠标手型的问题。[#25170](https://github.com/ant-design/ant-design/pull/25170)
 - TimePicker
   - 🐞 修复 TimePicker 面板 12 AM 显示为 0 AM 的问题。[#25174](https://github.com/ant-design/ant-design/pull/25174)

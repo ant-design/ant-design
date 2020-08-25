@@ -3,6 +3,7 @@ order: 99
 title:
   zh-CN: Dep Debug
   en-US: Dep Debug
+debug: true
 ---
 
 ## zh-CN

@@ -22,17 +22,6 @@
       background: @component-background;
     }
   }
-  .code-box-description {
-    p {
-      color: @site-text-color;
-    }
-  }
-  a.edit-button .anticon {
-    color: @icon-color;
-    &:hover {
-      color: @icon-color-hover;
-    }
-  }
   &,
   .code-box-demo {
     background-color: @component-background;
@@ -108,6 +97,14 @@
     background: inherit;
     transform: scale(0.9);
 
+    .anticon {
+      color: @site-text-color-secondary;
+      transition: all 0.3s;
+      &:hover {
+        color: @site-text-color;
+      }
+    }
+
     .ant-row.ant-row-rtl & {
       right: auto;
       left: -22px;
@@ -138,7 +135,7 @@
     }
 
     blockquote {
-      margin: 0;
+      line-height: 1.5;
     }
 
     h4,
@@ -269,7 +266,7 @@
     }
 
     &:hover {
-      color: @icon-color-hover;
+      color: @site-text-color;
     }
   }
 

@@ -29,7 +29,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   static getDerivedStateFromProps(nextProps: TextAreaProps) {
-    if ('value' in nextProps) {
+    if (nextProps.value !== undefined) {
       return {
         value: nextProps.value,
       };
@@ -38,7 +38,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   setValue(value: string, callback?: () => void) {
-    if (!('value' in this.props)) {
+    if (this.props.value === undefined) {
       this.setState({ value }, callback);
     }
   }

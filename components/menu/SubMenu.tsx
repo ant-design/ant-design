@@ -31,16 +31,6 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   // fix issue:https://github.com/ant-design/ant-design/issues/8666
   static isSubMenu = 1;
 
-  private subMenu: any;
-
-  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
-    this.subMenu.onKeyDown(e);
-  };
-
-  saveSubMenu = (subMenu: any) => {
-    this.subMenu = subMenu;
-  };
-
   renderTitle(inlineCollapsed: boolean) {
     const { icon, title, level, rootPrefixCls } = this.props;
     if (!icon) {
@@ -69,7 +59,6 @@ class SubMenu extends React.Component<SubMenuProps, any> {
           <RcSubMenu
             {...omit(this.props, ['icon'])}
             title={this.renderTitle(inlineCollapsed)}
-            ref={this.saveSubMenu}
             popupClassName={classNames(
               rootPrefixCls,
               `${rootPrefixCls}-${antdMenuTheme}`,

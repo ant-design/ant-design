@@ -99,7 +99,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     config.optimization.usedExports = true;
     // use esbuild
     if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.optimization.minimizer[0] = new EsbuildPlugin();
+      config.optimization.minimizer[0] = new EsbuildPlugin({
+        target: 'chrome49',
+      });
     }
 
     config.plugins.push(

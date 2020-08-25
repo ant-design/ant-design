@@ -3,9 +3,7 @@ order: 7.1
 title: Replace Moment.js
 ---
 
-## How to use DatePicker with a custom date library like dayjs
-
-Considering it's bundle size, you might want to replace Moment.js with a different date library (now support dayjs and date-fns) of your choice. We provide two ways to customize which date library is used:
+You might want to replace Moment.js with another date library (now support [dayjs](https://day.js.org) and [date-fns](https://date-fns.org)) to reduce bundle size. We provide two ways to customize:
 
 ### Custom component
 
@@ -101,13 +99,23 @@ If you need JavaScript code, you can refer to [antd4-generate-picker/antd-demo](
 
 If you use [umi](https://umijs.org/), you can reference [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment).
 
-### Webpack plugin
+### antd-dayjs-webpack-plugin
 
 We also provide another implementation, which we provide with `antd-dayjs-webpack-plugin`, replacing `momentjs` with `Day.js` directly without changing a line of existing code. More info can be found at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
 
+```js
+// webpack-config.js
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdDayjsWebpackPlugin()],
+};
+```
+
 ## Use date-fns
 
-`date-fns` currently supports custom component methods similar to `dayjs`. The difference is that the parameter types used are different. Support is provided in antd 4.5.0 and above.
+[date-fns](https://date-fns.org/) currently supports custom component methods similar to `dayjs`. The difference is that the parameter types used are different. Support is provided in antd 4.5.0 and above.
 
 For Example:
 

@@ -112,28 +112,22 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       this.responsiveHandler(this.mql);
     }
 
-    if (this.props.siderHook) {
-      this.props.siderHook.addSider(this.uniqueId);
-    }
+    this.props?.siderHook.addSider(this.uniqueId);
   }
 
   componentWillUnmount() {
-    if (this.mql) {
-      this.mql.removeListener(this.responsiveHandler as any);
-    }
-
-    if (this.props.siderHook) {
-      this.props.siderHook.removeSider(this.uniqueId);
-    }
+    this?.mql?.removeListener(this.responsiveHandler as any);
+    this.props?.siderHook.removeSider(this.uniqueId);
   }
 
   responsiveHandler = (mql: MediaQueryListEvent | MediaQueryList) => {
     this.setState({ below: mql.matches });
     const { onBreakpoint } = this.props;
+    const { collapsed } = this.state;
     if (onBreakpoint) {
       onBreakpoint(mql.matches);
     }
-    if (this.state.collapsed !== mql.matches) {
+    if (collapsed !== mql.matches) {
       this.setCollapsed(mql.matches, 'responsive');
     }
   };

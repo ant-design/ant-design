@@ -177,9 +177,7 @@ const Demo = () => {
         extra="longgggggggggggggggggggggggggggggggggg"
       >
         <Upload name="logo" action="/upload.do" listType="picture">
-          <Button>
-            <UploadOutlined /> Click to upload
-          </Button>
+          <Button icon={<UploadOutlined />}>Click to upload</Button>
         </Upload>
       </Form.Item>
 

@@ -23,13 +23,13 @@ High performance Form component with data scope management. Including data colle
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
-| hideRequiredMark | Hide required mark for all form items | boolean | false |  |
 | initialValues | Set value by Form initialization or reset | object | - |  |
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
+| requiredMark | Required mark style. Can use required mark or optional mark | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
@@ -172,11 +172,11 @@ Provides array management for fields.
 
 Some operator functions in render form of Form.List.
 
-| Property | Description      | Type                                | Default         |
-| -------- | ---------------- | ----------------------------------- | --------------- |
-| add      | add form item    | (defaultValue?: any) => void        | -               |
-| remove   | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
-| move     | move form item   | (from: number, to: number) => void  | -               |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
+| remove | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move | move form item | (from: number, to: number) => void | - |
 
 ## Form.Provider
 
@@ -337,6 +337,10 @@ Before Modal opens, children elements do not exist in the view. You can set `for
 ### Why is component `defaultValue` not working when inside Form.Item?
 
 Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
+
+### Why can not call `ref` of From at first time?
+
+`ref` only receives the mounted instance. please ref React official doc: https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs
 
 ### Why `resetFields` will re-mount component?
 

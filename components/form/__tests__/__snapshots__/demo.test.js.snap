@@ -1592,6 +1592,39 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                  Add field
               </span>
             </button>
+            <button
+              class="ant-btn ant-btn-dashed"
+              style="width:60%;margin-top:20px"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs />
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                 Add field at head
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -3478,6 +3511,201 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <span>
               Register
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required-mark-optional"
+        for="requiredMark"
+        title="Required Mark"
+      >
+        Required Mark
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline"
+            id="requiredMark"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="optional"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Optional
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="true"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Required
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="false"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Hidden
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-required-mark-optional"
+        title="Field A"
+      >
+        Field A
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required-mark-optional"
+        title="Field B"
+      >
+        Field B
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Submit
             </span>
           </button>
         </div>
@@ -5827,7 +6055,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     </svg>
                   </span>
                   <span>
-                     Click to upload
+                    Click to upload
                   </span>
                 </button>
               </span>

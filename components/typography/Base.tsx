@@ -20,7 +20,7 @@ import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import measure from './util';
 
-export type BaseType = 'secondary' | 'danger' | 'warning';
+export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 const isLineClampSupport = isStyleSupport('webkitLineClamp');
 const isTextOverflowSupport = isStyleSupport('textOverflow');
@@ -29,11 +29,13 @@ interface CopyConfig {
   text?: string;
   onCopy?: () => void;
   icon?: React.ReactNode;
-  tooltips?: [React.ReactNode, React.ReactNode];
+  tooltips?: boolean | React.ReactNode;
 }
 
 interface EditConfig {
   editing?: boolean;
+  icon?: React.ReactNode;
+  tooltip?: boolean | React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
   maxLength?: number;
@@ -362,15 +364,20 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
     const { editable } = this.props;
     if (!editable) return;
 
+    const { icon, tooltip } = editable as EditConfig;
+
+    const title = toArray(tooltip)[0] || this.editStr;
+    const ariaLabel = typeof title === 'string' ? title : '';
+
     return (
-      <Tooltip key="edit" title={this.editStr}>
+      <Tooltip key="edit" title={tooltip === false ? '' : title}>
         <TransButton
           ref={this.setEditRef}
           className={`${this.getPrefixCls()}-edit`}
           onClick={this.onEditClick}
-          aria-label={this.editStr}
+          aria-label={ariaLabel}
         >
-          <EditOutlined role="button" />
+          {icon || <EditOutlined role="button" />}
         </TransButton>
       </Tooltip>
     );
@@ -383,20 +390,23 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
     const prefixCls = this.getPrefixCls();
 
-    const title = copied
-      ? (copyable as CopyConfig).tooltips?.[1] || this.copiedStr
-      : (copyable as CopyConfig).tooltips?.[0] || this.copyStr;
-
+    const { tooltips } = copyable as CopyConfig;
+    let tooltipNodes = toArray(tooltips) as React.ReactNode[];
+    if (tooltipNodes.length === 0) {
+      tooltipNodes = [this.copyStr, this.copiedStr];
+    }
+    const title = copied ? tooltipNodes[1] : tooltipNodes[0];
     const ariaLabel = typeof title === 'string' ? title : '';
+    const icons = toArray((copyable as CopyConfig).icon);
 
     return (
-      <Tooltip key="copy" title={title}>
+      <Tooltip key="copy" title={tooltips === false ? '' : title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? <CheckOutlined /> : (copyable as CopyConfig).icon || <CopyOutlined />}
+          {copied ? icons[1] || <CheckOutlined /> : icons[0] || <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );

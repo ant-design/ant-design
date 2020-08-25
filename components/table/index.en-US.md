@@ -58,32 +58,33 @@ const columns = [
 
 ### Table
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |
-| bordered | Whether to show all table borders | boolean | false |
-| columns | Columns of table | [ColumnsType](#Column)\[] | - |
-| components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
-| dataSource | Data record array to be displayed | object\[] | - |
-| expandable | Config expandable content | [expandable](#expandable) | - |
-| footer | Table footer renderer | function(currentPageData) | - |
-| loading | Loading status of table | boolean \| [object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
-| locale | The i18n text including filter, sort, empty text, etc | object | filterConfirm: `Ok` <br> filterReset: `Reset` <br> emptyText: `No Data` <br> [Default](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |
-| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |
-| rowClassName | Row's className | function(record, index): string | - |
-| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |
-| rowSelection | Row selection [config](#rowSelection) | object | - |
-| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |
-| showHeader | Whether to show table header | boolean | true |
-| size | Size of table | `default` \| `middle` \| `small` | `default` |
-| summary | Summary content | (currentData) => ReactNode | - |
-| title | Table title renderer | function(currentPageData) | - |
-| onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |
-| onHeaderRow | Set props on per header row | function(column, index) | - |
-| onRow | Set props on per row | function(record, index) | - |
-| getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |
-| sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |
-| showSorterTooltip | The header show next sorter direction tooltip | boolean | true |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |  |
+| bordered | Whether to show all table borders | boolean | false |  |
+| columns | Columns of table | [ColumnsType](#Column)\[] | - |  |
+| components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |  |
+| dataSource | Data record array to be displayed | object\[] | - |  |
+| expandable | Config expandable content | [expandable](#expandable) | - |  |
+| footer | Table footer renderer | function(currentPageData) | - |  |
+| loading | Loading status of table | boolean \| [object](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |  |
+| locale | The i18n text including filter, sort, empty text, etc | object | filterConfirm: `Ok` <br> filterReset: `Reset` <br> emptyText: `No Data` <br> [Default](https://github.com/ant-design/ant-design/blob/4ad1ccac277782d7ed14f7e5d02d6346aae0db67/components/locale/default.tsx#L19) |  |
+| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |  |
+| rowClassName | Row's className | function(record, index): string | - |  |
+| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
+| rowSelection | Row selection [config](#rowSelection) | object | - |  |
+| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
+| showHeader | Whether to show table header | boolean | true |  |
+| size | Size of table | `default` \| `middle` \| `small` | `default` |  |
+| summary | Summary content | (currentData) => ReactNode | - |  |
+| title | Table title renderer | function(currentPageData) | - |  |
+| onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: [], action: `paginate` \| `sort` \| `filter` }) | - |  |
+| onHeaderRow | Set props on per header row | function(column, index) | - |  |
+| onRow | Set props on per row | function(record, index) | - |  |
+| getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
+| sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
+| showSorterTooltip | The header show next sorter direction tooltip | boolean | true |  |
+| sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number}` | - | 4.6.0 |
 
 #### onRow usage
 
@@ -171,6 +172,7 @@ Properties for expandable.
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
 | expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |
+| expandedRowClassName | Expanded row's className | function(record, index): string | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |
@@ -228,21 +230,24 @@ interface User {
   name: string;
 }
 
-const columns: ColumnsType<User> = [{
-  key: 'name',
-  title: 'Name',
-  dataIndex: 'name',
-}];
+const columns: ColumnsType<User> = [
+  {
+    key: 'name',
+    title: 'Name',
+    dataIndex: 'name',
+  },
+];
 
-const data: User[] = [{
-  key: 0,
-  name: 'Jack',
-}];
+const data: User[] = [
+  {
+    key: 0,
+    name: 'Jack',
+  },
+];
 
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-  
     /* JSX style usage */
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />

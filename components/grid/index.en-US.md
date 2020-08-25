@@ -6,7 +6,7 @@ title: Grid
 cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 ---
 
-24 Grids System。
+24 Grids System.
 
 ## Design concept
 
@@ -69,8 +69,8 @@ In the grid system, we define the frame outside the information area based on `r
 
 Following is a brief look at how it works:
 
-- Establish a set of `column` in the horizontal space defined by `row` (abbreviated col)
-- Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`
+- Establish a set of `column` in the horizontal space defined by `row` (abbreviated col).
+- Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`.
 - The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `<Col span={8} />`.
 - If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
 
@@ -90,7 +90,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Vertical alignment | `top` \| `middle` \| `bottom` | `top` |  |
-| gutter | Spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| object \| array | 0 |  |  |
+| gutter | Spacing between grids, could be a number or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| object \| array | 0 |  |  |
 | justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |  |
 
 ### Col

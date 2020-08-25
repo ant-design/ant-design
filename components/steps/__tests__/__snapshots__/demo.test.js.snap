@@ -1273,7 +1273,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
           >
             <div
               class="ant-progress-inner"
-              style="width:38px;height:38px;font-size:11.7px"
+              style="width:40px;height:40px;font-size:12px"
             >
               <svg
                 class="ant-progress-circle"
@@ -1508,7 +1508,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:38px;height:38px;font-size:11.7px"
+                style="width:40px;height:40px;font-size:12px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -1683,7 +1683,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:30px;height:30px;font-size:10.5px"
+                style="width:32px;height:32px;font-size:10.8px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -1858,7 +1858,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:38px;height:38px;font-size:11.7px"
+                style="width:40px;height:40px;font-size:12px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -2033,7 +2033,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:30px;height:30px;font-size:10.5px"
+                style="width:32px;height:32px;font-size:10.8px"
               >
                 <svg
                   class="ant-progress-circle"

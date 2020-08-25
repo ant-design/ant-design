@@ -59,6 +59,11 @@ const LinksList = () => (
       <a href="http://vue.ant.design" target="_blank">Ant Design of Vue</a>
     </li>
     <li>
+      <a href="https://ant-design-blazor.github.io/" target="_blank">
+        Ant Design Blazor
+      </a>
+    </li>
+    <li>
       <a href="https://ecomfe.github.io/santd" target="_blank">
         San UI Toolkit for Ant Design
       </a>
@@ -66,15 +71,6 @@ const LinksList = () => (
     <li>
       <a href="https://github.com/priornix/antizer" target="_blank">
         antizer (ClojureScript)
-      </a>
-    </li>
-    <li>
-      <a href="https://ant-design-blazor.github.io/" target="_blank">
-        ant-design-blazor/ant-design-blazor
-      </a>
-      <span class="ant-divider ant-divider-vertical" />
-      <a href="https://append-it.github.io/ant-design-blazor/" target="_blank">
-        append-it/ant-design-blazor
       </a>
     </li>
   </ul>
