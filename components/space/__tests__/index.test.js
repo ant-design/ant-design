@@ -43,8 +43,8 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(wrapper.find('.ant-space-item').at(0).prop('style').marginRight).toBe(10);
-    expect(wrapper.find('.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
+    expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginRight).toBe(10);
+    expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
   });
 
   it('should render vertical space width customize size', () => {
@@ -55,8 +55,8 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(wrapper.find('.ant-space-item').at(0).prop('style').marginBottom).toBe(10);
-    expect(wrapper.find('.ant-space-item').at(1).prop('style').marginBottom).toBeUndefined();
+    expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginBottom).toBe(10);
+    expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginBottom).toBeUndefined();
   });
 
   it('should render correct with children', () => {
@@ -78,7 +78,7 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(wrapper.find('.ant-space-item').length).toBe(3);
+    expect(wrapper.find('div.ant-space-item').length).toBe(3);
   });
 
   it('should be keep store', () => {
