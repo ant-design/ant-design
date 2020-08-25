@@ -30,16 +30,16 @@ const OperationsSlot = {
 const options = ['left', 'right'];
 
 const Demo = () => {
-  const [positon, setPosition] = React.useState(['left', 'right']);
+  const [position, setPosition] = React.useState(['left', 'right']);
 
   const slot = React.useMemo(() => {
-    if (positon.length === 0) return null;
+    if (position.length === 0) return null;
 
-    return positon.reduce(
-      (acc, direaction) => ({ ...acc, [direaction]: OperationsSlot[direaction] }),
+    return position.reduce(
+      (acc, direction) => ({ ...acc, [direction]: OperationsSlot[direction] }),
       {},
     );
-  }, [positon]);
+  }, [position]);
 
   return (
     <>
