@@ -45,4 +45,9 @@ describe('TreeSelect', () => {
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
+
+  it('should support notFoundContent', () => {
+    const wrapper = mount(<TreeSelect treeIcon open notFoundContent="notFoundContent" />);
+    expect(wrapper.text()).toBe('notFoundContent');
+  });
 });
