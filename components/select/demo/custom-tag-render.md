@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-允许自定义选择标签的样式
+允许自定义选择标签的样式。
 
 ## en-US
 
-Allows for custom rendering of tags
+Allows for custom rendering of tags.
 
 ```jsx
 import { Select, Tag } from 'antd';
@@ -31,6 +31,7 @@ function tagRender(props) {
 ReactDOM.render(
   <Select
     mode="multiple"
+    showArrow
     tagRender={tagRender}
     defaultValue={['gold', 'cyan']}
     style={{ width: '100%' }}
