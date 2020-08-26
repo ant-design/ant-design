@@ -10,4 +10,21 @@ describe('Upload.typescript', () => {
     );
     expect(upload).toBeTruthy();
   });
+
+  it('showUploadList', () => {
+    const upload = (
+      <Upload
+        showUploadList={{
+          showPreviewIcon: true,
+          showRemoveIcon: true,
+          showDownloadIcon: true,
+          removeIcon: 'Remove',
+          downloadIcon: 'Download',
+        }}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload).toBeTruthy();
+  });
 });

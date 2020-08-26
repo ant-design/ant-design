@@ -340,6 +340,10 @@ validator(rule, value, callback) => {
 
 当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
 
+### 为什么第一次调用 `ref` 的 From 为空？
+
+`ref` 仅在节点被加载时才会被赋值，请参考 React 官方文档：https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs
+
 ### 为什么 `resetFields` 会重新 mount 组件？
 
 `resetFields` 会重置整个 Field，因而其子组件也会重新 mount 从而消除自定义组件可能存在的副作用（例如异步数据、状态等等）。

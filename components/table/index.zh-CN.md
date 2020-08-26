@@ -179,6 +179,7 @@ const columns = [
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
 | expandIconColumnIndex | 自定义展开按钮的列顺序，`-1` 时不展示 | number | - |
+| expandedRowClassName | 展开行的 className | function(record, index, indent): string | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |

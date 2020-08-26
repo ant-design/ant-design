@@ -32,6 +32,8 @@ ReactDOM.render(
     {false}
     {1}
     Button
+    {null}
+    {undefined}
   </Space>,
   mountNode,
 );

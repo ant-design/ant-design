@@ -36,6 +36,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     removeIcon: customRemoveIcon,
     downloadIcon: customDownloadIcon,
     progress: progressProps,
+    appendAction,
   },
   ref,
 ) => {
@@ -334,13 +335,13 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     [`${prefixCls}-list-rtl`]: direction === 'rtl',
   });
   const animationDirection = listType === 'picture-card' ? 'animate-inline' : 'animate';
+  const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
   return (
-    <Animate
-      transitionName={`${prefixCls}-${animationDirection}`}
-      component="div"
-      className={listClassNames}
-    >
+    <Animate transitionName={transitionName} component="div" className={listClassNames}>
       {list}
+      {React.isValidElement(appendAction)
+        ? React.cloneElement(appendAction, { key: 'appendAction' })
+        : appendAction}
     </Animate>
   );
 };

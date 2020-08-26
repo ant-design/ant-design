@@ -6055,7 +6055,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     </svg>
                   </span>
                   <span>
-                     Click to upload
+                    Click to upload
                   </span>
                 </button>
               </span>

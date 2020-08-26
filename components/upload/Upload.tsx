@@ -5,6 +5,7 @@ import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
+  ShowUploadListInterface,
   UploadProps,
   UploadFile,
   UploadLocale,
@@ -217,35 +218,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     forceUpdate,
   }));
 
-  const renderUploadList = (locale: UploadLocale) => {
-    const {
-      showRemoveIcon,
-      showPreviewIcon,
-      showDownloadIcon,
-      removeIcon,
-      downloadIcon,
-    } = showUploadList as any;
-    return (
-      <UploadList
-        listType={listType}
-        items={getFileList()}
-        previewFile={previewFile}
-        onPreview={onPreview}
-        onDownload={onDownload}
-        onRemove={handleRemove}
-        showRemoveIcon={!disabled && showRemoveIcon}
-        showPreviewIcon={showPreviewIcon}
-        showDownloadIcon={showDownloadIcon}
-        removeIcon={removeIcon}
-        downloadIcon={downloadIcon}
-        iconRender={iconRender}
-        locale={{ ...locale, ...propLocale }}
-        isImageUrl={isImageUrl}
-        progress={progress}
-      />
-    );
-  };
-
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
@@ -271,11 +243,37 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
-  const uploadList = showUploadList ? (
-    <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
-      {renderUploadList}
-    </LocaleReceiver>
-  ) : null;
+  const renderUploadList = (button?: React.ReactNode) =>
+    showUploadList ? (
+      <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
+        {(locale: UploadLocale) => {
+          const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
+            typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+          return (
+            <UploadList
+              listType={listType}
+              items={getFileList()}
+              previewFile={previewFile}
+              onPreview={onPreview}
+              onDownload={onDownload}
+              onRemove={handleRemove}
+              showRemoveIcon={!disabled && showRemoveIcon}
+              showPreviewIcon={showPreviewIcon}
+              showDownloadIcon={showDownloadIcon}
+              removeIcon={removeIcon}
+              downloadIcon={downloadIcon}
+              iconRender={iconRender}
+              locale={{ ...locale, ...propLocale }}
+              isImageUrl={isImageUrl}
+              progress={progress}
+              appendAction={button}
+            />
+          );
+        }}
+      </LocaleReceiver>
+    ) : (
+      button
+    );
 
   if (type === 'drag') {
     const dragCls = classNames(
@@ -302,7 +300,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
-        {uploadList}
+        {renderUploadList()}
       </span>
     );
   }
@@ -323,8 +321,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (listType === 'picture-card') {
     return (
       <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
-        {uploadList}
-        {uploadButton}
+        {renderUploadList(uploadButton)}
       </span>
     );
   }
@@ -332,7 +329,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   return (
     <span className={className}>
       {uploadButton}
-      {uploadList}
+      {renderUploadList()}
     </span>
   );
 };

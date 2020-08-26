@@ -172,6 +172,7 @@ Properties for expandable.
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |
 | expandIconColumnIndex | Customize expand icon column index. Not render when `-1` | number | - |
+| expandedRowClassName | Expanded row's className | function(record, index, indent): string | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |
