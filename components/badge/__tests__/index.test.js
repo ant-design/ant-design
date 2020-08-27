@@ -141,6 +141,17 @@ describe('Badge', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('Badge should work when status/color is empty string', () => {
+    const wrapper = mount(
+      <>
+        <Badge color="" text="text" />
+        <Badge status="" text="text" />
+      </>,
+    );
+
+    expect(wrapper.find('.ant-badge')).toHaveLength(2);
+  });
+
   it('render Badge size when contains children', () => {
     const wrapper = render(
       <>

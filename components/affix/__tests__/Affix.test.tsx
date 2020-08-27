@@ -13,6 +13,7 @@ class AffixMounter extends React.Component<{
   offsetBottom?: number;
   offsetTop?: number;
   onTestUpdatePosition?(): void;
+  onChange?: () => void;
 }> {
   private container: HTMLDivElement;
 
@@ -131,13 +132,15 @@ describe('Affix Render', () => {
 
   it('updatePosition when offsetTop changed', async () => {
     document.body.innerHTML = '<div id="mounter" />';
+    const onChange = jest.fn();
 
-    affixMounterWrapper = mount(<AffixMounter offsetTop={0} />, {
+    affixMounterWrapper = mount(<AffixMounter offsetTop={0} onChange={onChange} />, {
       attachTo: document.getElementById('mounter'),
     });
     await sleep(20);
 
     await movePlaceholder(-100);
+    expect(onChange).toHaveBeenLastCalledWith(true);
     expect(affixMounterWrapper.instance().affix.state.affixStyle?.top).toBe(0);
     affixMounterWrapper.setProps({
       offsetTop: 10,

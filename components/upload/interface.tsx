@@ -56,6 +56,8 @@ export interface ShowUploadListInterface {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   showDownloadIcon?: boolean;
+  removeIcon?: React.ReactNode;
+  downloadIcon?: React.ReactNode;
 }
 
 export interface UploadLocale {

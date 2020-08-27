@@ -5,6 +5,7 @@ import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
+  ShowUploadListInterface,
   UploadProps,
   UploadFile,
   UploadLocale,
@@ -247,7 +248,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
           const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
-            typeof showUploadList === 'boolean' ? ({} as any) : showUploadList;
+            typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
               listType={listType}
@@ -270,7 +271,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           );
         }}
       </LocaleReceiver>
-    ) : button;
+    ) : (
+      button
+    );
 
   if (type === 'drag') {
     const dragCls = classNames(
