@@ -157,7 +157,7 @@ import locale from 'antd/es/locale/zh_CN';
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
-| disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `start` \| `end`) | - |  |
+| disabledTime | 不可选择的时间 | function(date: moment, partial: `start` \| `end`) | - |  |
 | format | 展示的日期格式 | string | `YYYY-MM-DD HH:mm:ss` |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
