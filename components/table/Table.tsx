@@ -420,7 +420,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
-  if (pagination !== false && mergedData?.length) {
+  if (pagination !== false && mergedPagination?.total) {
     let paginationSize: TablePaginationConfig['size'];
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
