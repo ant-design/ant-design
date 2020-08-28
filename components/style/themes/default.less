@@ -84,7 +84,7 @@
 @heading-5-size: ceil(@font-size-base * 1.14);
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
-@border-radius-base: 2px;
+@border-radius-base: 4px;
 @border-radius-sm: @border-radius-base;
 
 // vertical paddings
@@ -180,7 +180,7 @@
   0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
 // Buttons
-@btn-font-weight: 400;
+@btn-font-weight: 500;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
 @btn-border-width: @border-width-base;
@@ -191,17 +191,48 @@
 
 @btn-primary-color: #fff;
 @btn-primary-bg: @orange-5;
+@btn-primary-border: #c9540d;
+@btn-primary-hover-bg: #c9540d;
+@btn-primary-active-bg: #802f15;
+@btn-primary-focus-bg: #fa6505;
+@btn-primary-disabled-bg: #ffd3a7;
+@btn-primary-focus-border: #802f15;
+@btn-primary-disabled-border: #f1bd89;
+
+@btn-secondary-color: #fa6505;
+@btn-secondary-bg: #ffffff;
+@btn-secondary-border: #fa6505;
+@btn-secondary-hover-bg: #fbf7f4;
+@btn-secondary-active-bg: #ffe2cc;
+@btn-secondary-focus-bg: #ffffff;
+@btn-secondary-focus-border: #802f15;
+@btn-secondary-disabled-bg: #ffffff;
+@btn-secondary-disabled-border: #ffd3a7;
+@btn-secondary-disabled-color: #ffd3a7;
 
 // @btn-default-color: '#F8F8F8';
-@btn-default-color: @text-color;
-@btn-default-bg: '#F8F8F8';
-@btn-default-border: '#DEDEDE';
-// @btn-default-bg: @component-background;
+@btn-default-color: #384248;
+@btn-default-bg: #f8f8f8;
+@btn-default-border: #dedede;
+@btn-default-hover-bg: #e8e8e8;
+@btn-default-active-bg: #a9a9a9;
+@btn-default-focus-bg: #f3f3f3;
+@btn-default-focus-border: #5b5b5b;
+@btn-default-disabled-bg: #f3f3f3;
+@btn-default-disabled-border: #dedede;
+@btn-default-disabled-color: #d0d0d0;
+//@btn-default-bg: @component-background;
 // @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
-@btn-danger-bg: @error-color;
-@btn-danger-border: @error-color;
+@btn-danger-bg: #f2300d;
+@btn-danger-border: #c24934;
+@btn-danger-hover-bg: #cd2d15;
+@btn-danger-active-bg: #6f0b0b;
+@btn-danger-focus-bg: #f2300d;
+@btn-danger-focus-border: #440000;
+@btn-danger-disabled-bg: #fbb1a3;
+@btn-danger-disabled-border: #e99a8b;
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
@@ -211,15 +242,15 @@
 @btn-default-ghost-bg: transparent;
 @btn-default-ghost-border: @component-background;
 
-@btn-font-size-lg: @font-size-lg;
+@btn-font-size-lg: @font-size-base;
 @btn-font-size-sm: @font-size-base;
-@btn-padding-horizontal-base: @padding-md - 1px;
-@btn-padding-horizontal-lg: @btn-padding-horizontal-base;
-@btn-padding-horizontal-sm: @padding-xs - 1px;
+@btn-padding-horizontal-base: @padding-md;
+@btn-padding-horizontal-lg: @padding-md;
+@btn-padding-horizontal-sm: @padding-md;
 
 @btn-height-base: @height-base;
 @btn-height-lg: @height-lg;
-@btn-height-sm: @height-sm;
+@btn-height-sm: 30px;
 
 @btn-line-height: @line-height-base;
 

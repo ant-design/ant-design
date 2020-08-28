@@ -1,10 +1,7 @@
 // mixins for button
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
-  @padding-vertical: max(
-    round((@height - @font-size * @line-height-base) / 2 * 10) / 10 - @border-width-base,
-    0
-  );
+  @padding-vertical: max(round((@height - @font-size * @line-height-base) / 2 * 10) / 10, 0);
   height: @height;
   padding: @padding-vertical @padding-horizontal;
   font-size: @font-size;
@@ -25,12 +22,11 @@
   }
 }
 
-.button-variant-primary(@color; @background) {
-  .button-color(@color; @background; @background);
+.button-variant-primary(@color; @background; @border) {
+  .button-color(@color; @background; @border);
 
   text-shadow: @btn-text-shadow;
   box-shadow: @btn-primary-shadow;
-
   &:hover,
   &:focus {
     & when (@theme = dark) {
@@ -58,7 +54,7 @@
     }
   }
 
-  .button-disabled();
+  .button-disabled(@color; @btn-primary-disabled-bg; @btn-primary-disabled-border;);
 }
 
 .button-variant-other(@color; @background; @border) {
@@ -87,7 +83,7 @@
       );
     }
   }
-  .button-disabled();
+  .button-disabled(@btn-default-disabled-color; @btn-default-disabled-bg; @btn-default-disabled-border);
 }
 .button-variant-ghost(@color; @border: @color) {
   .button-color(@color; transparent; @border);
@@ -204,6 +200,7 @@
   position: relative;
   display: inline-block;
   font-weight: @btn-font-weight;
+  letter-spacing: 0.15px;
   white-space: nowrap;
   text-align: center;
   background-image: none;
@@ -250,17 +247,59 @@
 }
 // primary button style
 .btn-primary() {
-  .button-variant-primary(@btn-primary-color; @btn-primary-bg);
+  .button-variant-primary(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  &:hover {
+    background: @btn-primary-hover-bg;
+    border-color: @btn-primary-border;
+  }
+  &:focus {
+    background: @btn-primary-focus-bg;
+    border-color: @btn-primary-focus-border;
+  }
+  &:active {
+    background: @btn-primary-active-bg;
+    border-color: @btn-primary-border;
+  }
 }
 // default button style
 .btn-default() {
   .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: none;
-    background: @btn-default-bg;
+  &:hover {
+    color: @btn-default-color;
+    background: @btn-default-hover-bg;
+    border-color: @btn-default-border;
   }
+  &:focus {
+    color: @btn-default-color;
+    background: @btn-default-focus-bg;
+    border-color: @btn-default-focus-border;
+  }
+  &:active {
+    color: @btn-default-color;
+    background: @btn-default-active-bg;
+    border-color: @btn-default-border;
+  }
+}
+// secondary button style
+.btn-secondary() {
+  .button-variant-other(@btn-secondary-color, @btn-secondary-bg, @btn-secondary-border);
+  &:hover {
+    color: @btn-secondary-color;
+    background: @btn-secondary-hover-bg;
+    border-color: @btn-secondary-border;
+  }
+  &:focus {
+    color: @btn-secondary-color;
+    background: @btn-secondary-focus-bg;
+    border-color: @btn-secondary-focus-border;
+    //border-width: 2px;
+  }
+  &:active {
+    color: @btn-secondary-color;
+    background: @btn-secondary-active-bg;
+    border-color: @btn-secondary-border;
+  }
+  .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border;);
 }
 // ghost button style
 .btn-ghost() {
@@ -273,7 +312,24 @@
 }
 // danger button style
 .btn-danger() {
-  .button-variant-primary(@btn-danger-color, @btn-danger-bg);
+  .button-color(@btn-danger-color; @btn-danger-bg; @btn-danger-bg);
+  &:hover {
+    color: @btn-danger-color;
+    background: @btn-danger-hover-bg;
+    border-color: @btn-danger-border;
+  }
+  &:focus {
+    color: @btn-danger-color;
+    background: @btn-danger-focus-bg;
+    border-color: @btn-danger-focus-border;
+    //border-width: 2px;
+  }
+  &:active {
+    color: @btn-danger-color;
+    background: @btn-danger-active-bg;
+    border-color: @btn-danger-border;
+  }
+  .button-disabled(@btn-danger-color; @btn-danger-disabled-bg; @btn-danger-disabled-border;);
 }
 // danger default button style
 .btn-danger-default() {
