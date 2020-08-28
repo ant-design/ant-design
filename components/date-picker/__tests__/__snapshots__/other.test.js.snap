@@ -4,7 +4,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 <div>
   <div
     class="ant-picker-dropdown"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div
       class="ant-picker-panel-container"
@@ -197,7 +197,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 <div>
   <div
     class="ant-picker-dropdown"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div
       class="ant-picker-panel-container"

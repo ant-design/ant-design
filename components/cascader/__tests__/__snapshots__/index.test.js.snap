@@ -4,7 +4,7 @@ exports[`Cascader can be selected 1`] = `
 <div>
   <div
     class="ant-cascader-menus"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -117,7 +117,7 @@ exports[`Cascader can be selected 2`] = `
 <div>
   <div
     class="ant-cascader-menus"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -364,7 +364,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
 <div>
   <div
     class="ant-cascader-menus ant-cascader-menu-rtl"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -477,7 +477,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 <div>
   <div
     class="ant-cascader-menus ant-cascader-menu-rtl"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -601,7 +601,7 @@ exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
 <div>
   <div
     class="ant-cascader-menus"
-    style="opacity: 0;"
+    style="opacity: 0; pointer-events: none;"
   >
     <div>
       <ul
@@ -679,7 +679,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
 <div>
   <div
     class="ant-cascader-menus"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -757,7 +757,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 <div>
   <div
     class="ant-cascader-menus"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -881,7 +881,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 <div>
   <div
     class="ant-cascader-menus ant-cascader-menu-rtl"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div>
       <ul
@@ -1133,6 +1133,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
             style={
               Object {
                 "opacity": 0,
+                "pointerEvents": "none",
                 "zIndex": undefined,
               }
             }
@@ -1144,6 +1145,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
               style={
                 Object {
                   "opacity": 0,
+                  "pointerEvents": "none",
                   "zIndex": undefined,
                 }
               }
@@ -1442,7 +1444,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 <div>
   <div
     class="ant-cascader-menus"
-    style="opacity: 0;"
+    style="opacity: 0; pointer-events: none;"
   >
     <div>
       <ul
@@ -1573,6 +1575,7 @@ exports[`Cascader should render not found content 1`] = `
             style={
               Object {
                 "opacity": 0,
+                "pointerEvents": "none",
                 "zIndex": undefined,
               }
             }
@@ -1584,6 +1587,7 @@ exports[`Cascader should render not found content 1`] = `
               style={
                 Object {
                   "opacity": 0,
+                  "pointerEvents": "none",
                   "zIndex": undefined,
                 }
               }
@@ -1894,6 +1898,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
             style={
               Object {
                 "opacity": 0,
+                "pointerEvents": "none",
                 "zIndex": undefined,
               }
             }
@@ -1905,6 +1910,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
               style={
                 Object {
                   "opacity": 0,
+                  "pointerEvents": "none",
                   "zIndex": undefined,
                 }
               }
