@@ -12,7 +12,7 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends RangePickerTimeProps<Moment> {}
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {}
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
   return <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />;
