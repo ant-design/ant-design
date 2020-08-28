@@ -135,7 +135,7 @@ class MainContent extends Component {
         return (
           <Menu.ItemGroup title={menuItem.title} key={menuItem.title}>
             {menuItem.children
-              .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+              .sort((a, b) => a.title.localeCompare(b.title))
               .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
           </Menu.ItemGroup>
         );
