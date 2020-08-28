@@ -178,6 +178,46 @@ Some operator functions in render form of Form.List.
 | remove | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
 | move | move form item | (from: number, to: number) => void | - |
 
+
+## target Form.List field
+
+Using Form.List implies some changes on other methods parameters. 
+
+If you have multiple list in your form or if you want to be more deterministic, you can set the Form.List's name parameter.
+
+Let's take this example:
+
+```
+ <Form.List name="fields">
+      {(fields) => {
+        return (
+          <div>
+            {fields.map((field, index) => (
+                <Form.Item
+                  {...field}
+                  name={[field.key, "firstName"]}
+                  label="firstName:"
+                >
+                  <Input/>
+                </Form.Item>
+            ))}
+          </div>
+        );
+      }}
+    </Form.List>
+```
+
+In order to retrieve firstName value, you have to use:
+```
+  form.getFieldValue(["fields", 0, "firstName"])
+```
+
+Synthax is slightly different, you can use:
+```
+  form.isFieldTouched("fields[0].firstName")
+```
+
+
 ## Form.Provider
 
 Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
