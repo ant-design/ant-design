@@ -105,6 +105,7 @@ export interface ModalFuncProps {
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;
+  bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
   type?: string;
