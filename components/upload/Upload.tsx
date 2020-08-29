@@ -45,8 +45,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   } = props;
 
   const [dragState, setDragState] = React.useState<string>('drop');
-  const fileListRef = React.useRef(fileListProp || defaultFileList || []);
   const forceUpdate = useForceUpdate();
+
+  // `fileListRef` used for internal state sync to avoid control mode set it back when sync update.
+  // `visibleFileList` used for display in UploadList instead.
+  // It's a workaround and not the best solution.
+  const fileListRef = React.useRef(fileListProp || defaultFileList || []);
+  const visibleFileList = fileListProp || fileListRef.current;
 
   const upload = React.useRef<any>();
 
@@ -63,7 +68,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       fileListRef.current = fileListProp;
       forceUpdate();
     }
-  });
+  }, [fileListProp]);
 
   const onChange = (info: UploadChangeParam) => {
     fileListRef.current = info.fileList;
@@ -246,7 +251,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           return (
             <UploadList
               listType={listType}
-              items={fileListRef.current}
+              items={visibleFileList}
               previewFile={previewFile}
               onPreview={onPreview}
               onDownload={onDownload}

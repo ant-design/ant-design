@@ -1,6 +1,7 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
@@ -553,5 +554,67 @@ describe('Upload', () => {
     expect(onMouseEnter).toHaveBeenCalled();
     wrapper.find('.ant-upload').at(1).simulate('mouseLeave');
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/26427
+  it.only('should sync file list with control mode', done => {
+    let callTimes = 0;
+
+    const customRequest = jest.fn(async options => {
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    const Demo = () => {
+      const [fileList, setFileList] = React.useState([]);
+
+      const onChange = e => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+        const file = newFileList[0];
+
+        callTimes += 1;
+
+        switch (callTimes) {
+          case 1:
+          case 2:
+            expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 0 }));
+            break;
+
+          case 3:
+            expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 100 }));
+            break;
+
+          case 4:
+            expect(file).toEqual(expect.objectContaining({ status: 'done', percent: 100 }));
+            break;
+
+          default:
+          // Do nothing
+        }
+
+        if (callTimes >= 4) {
+          done();
+        }
+      };
+
+      return (
+        <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+
+    act(() => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [{ file: 'foo.png' }],
+        },
+      });
+    });
   });
 });
