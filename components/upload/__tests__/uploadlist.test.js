@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
@@ -801,14 +802,23 @@ describe('Upload List', () => {
     const nonImageFile = new File([''], 'foo.7z', { type: 'application/x-7z-compressed' });
     it('should render <img /> when upload non-image file and configure thumbUrl in onChange', done => {
       let wrapper;
-      const onChange = async ({ fileList: files }) => {
-        const newfileList = files.map(item => ({
+      const onChange = async ({ file, fileList: files }) => {
+        const newFileList = files.map(item => ({
           ...item,
           thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         }));
-        wrapper.setProps({ fileList: newfileList });
 
-        await sleep();
+        wrapper.setProps({ fileList: newFileList });
+
+        if (file.status === 'uploading') {
+          return;
+        }
+
+        act(async () => {
+          await sleep();
+          wrapper.update();
+        });
+
         const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
         expect(imgNode.length).toBe(1);
         done();
