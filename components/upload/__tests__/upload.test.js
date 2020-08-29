@@ -557,7 +557,7 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/26427
-  it.only('should sync file list with control mode', done => {
+  it('should sync file list with control mode', done => {
     let callTimes = 0;
 
     const customRequest = jest.fn(async options => {
