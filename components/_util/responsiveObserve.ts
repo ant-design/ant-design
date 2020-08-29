@@ -1,6 +1,7 @@
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
 export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
+export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 
 export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
