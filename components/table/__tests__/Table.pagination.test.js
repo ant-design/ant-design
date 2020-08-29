@@ -378,39 +378,24 @@ describe('Table.pagination', () => {
     );
   });
 
-  it('should render pagination after last item on last page being removed with async mode', () => {
-    const lastPageNum = data.length;
+  it('should render pagination after last item on last page being removed', () => {
+    const total = data.length;
+    const paginationProp = {
+      pageSize: 1,
+      total,
+      current: total,
+      position: ['topLeft', 'bottomLeft'],
+    };
     const wrapper = mount(
-      createTable({ pagination: { pageSize: 1, total: data.length, current: lastPageNum } }),
+      createTable({
+        pagination: paginationProp,
+      }),
     );
 
-    const newCol = [
-      {
-        title: 'Name',
-        dataIndex: 'name',
-      },
-      {
-        title: 'Action',
-        dataIndex: 'name',
-        render(_, record) {
-          const deleteRow = () => {
-            const newData = data.filter(d => d.key !== record.key);
-            wrapper.setProps({
-              dataSource: newData,
-              pagination: { pageSize: 1, total: newData.length, current: lastPageNum },
-            });
-          };
-          return (
-            <span className="btn-delete" onClick={deleteRow}>
-              Delete
-            </span>
-          );
-        },
-      },
-    ];
-
-    wrapper.setProps({ columns: newCol });
-    wrapper.find('.btn-delete').simulate('click');
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({
+      dataSource: data.slice(total - 1),
+      pagination: { ...paginationProp, total: total - 1 },
+    });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(2);
   });
 });

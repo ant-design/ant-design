@@ -30,7 +30,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         <div

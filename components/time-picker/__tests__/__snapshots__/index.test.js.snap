@@ -118,7 +118,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity: 0;"
+      style="opacity: 0; pointer-events: none;"
     >
       <div
         class="ant-picker-panel-container"
