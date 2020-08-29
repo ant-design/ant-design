@@ -18,7 +18,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoExpandParent | 是否自动展开父节点 | boolean | true |  |
+| autoExpandParent | 是否自动展开父节点 | boolean | false |  |
 | blockNode | 是否节点占据一行 | boolean | false |  |
 | checkable | 节点前添加 Checkbox 复选框 | boolean | false |  |
 | checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置`checkable`和`checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |  |

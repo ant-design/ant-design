@@ -17,7 +17,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoExpandParent | Whether to automatically expand a parent treeNode | boolean | true |  |
+| autoExpandParent | Whether to automatically expand a parent treeNode | boolean | false |  |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false |  |
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |
 | checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |  |

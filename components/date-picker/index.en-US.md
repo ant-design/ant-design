@@ -156,7 +156,7 @@ Added in `4.1.0`.
 | defaultValue | To set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | defaultPickerValue | To set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
-| disabledTime | To specify the time that cannot be selected | function(dates: \[moment, moment], partial: `start` \| `end`) | - |  |
+| disabledTime | To specify the time that cannot be selected | function(date: moment, partial: `start` \| `end`) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD HH:mm:ss` |  |
 | ranges | The preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |

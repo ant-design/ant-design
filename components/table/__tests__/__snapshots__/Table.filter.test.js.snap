@@ -226,7 +226,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                           <div>
                             <div
                               class="ant-tooltip"
-                              style="opacity: 0;"
+                              style="opacity: 0; pointer-events: none;"
                             >
                               <div
                                 class="ant-tooltip-content"
@@ -709,7 +709,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity: 0;"
+                            style="opacity: 0; pointer-events: none;"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -942,7 +942,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity: 0;"
+                            style="opacity: 0; pointer-events: none;"
                           >
                             <div
                               class="ant-table-filter-dropdown"
