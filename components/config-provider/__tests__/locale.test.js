@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
 import LocaleProvider from '../../locale-provider';
 import zhCN from '../../locale/zh_CN';
@@ -114,11 +115,13 @@ describe('ConfigProvider.Locale', () => {
     });
   });
 
-  describe('form validateMessages', () => {
-    const wrapperComponent = ({ validateMessages }) =>
-      mount(
+  describe.only('form validateMessages', () => {
+    const wrapperComponent = ({ validateMessages }) => {
+      const formRef = React.createRef();
+
+      const wrapper = mount(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
-          <Form initialValues={{ age: 18 }}>
+          <Form ref={formRef} initialValues={{ age: 18 }}>
             <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
               <input />
             </Form.Item>
@@ -129,22 +132,53 @@ describe('ConfigProvider.Locale', () => {
         </ConfigProvider>,
       );
 
-    it('set locale zhCN', async () => {
-      const wrapper = wrapperComponent({});
+      return [wrapper, formRef];
+    };
 
-      wrapper.find('form').simulate('submit');
-      await delay(50);
-      wrapper.update();
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
+    it('set locale zhCN', async () => {
+      const [wrapper, formRef] = wrapperComponent({});
+
+      await act(async () => {
+        try {
+          await formRef.current.validateFields();
+        } catch (e) {
+          // Do nothing
+        }
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+        wrapper.update();
+        await Promise.resolve();
+      });
 
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入姓名');
     });
 
     it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
-      const wrapper = wrapperComponent({ validateMessages: { required: '必须' } });
+      const [wrapper, formRef] = wrapperComponent({ validateMessages: { required: '必须' } });
 
-      wrapper.find('form').simulate('submit');
-      await delay(200);
-      wrapper.update();
+      await act(async () => {
+        try {
+          await formRef.current.validateFields();
+        } catch (e) {
+          // Do nothing
+        }
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+        wrapper.update();
+        await Promise.resolve();
+      });
 
       expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
       expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄必须等于17');
