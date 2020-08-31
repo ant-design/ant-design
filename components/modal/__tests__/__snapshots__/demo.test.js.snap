@@ -113,6 +113,17 @@ exports[`renders ./components/modal/demo/dark.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/modal/demo/draggable.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Draggable Modal
+  </span>
+</button>
+`;
+
 exports[`renders ./components/modal/demo/footer.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
