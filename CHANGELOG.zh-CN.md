@@ -35,8 +35,7 @@ timeline: true
 - 🐞 修复 TimePicker.RangePicker typescript 定义需要 `picker` 的问题。[#26446](https://github.com/ant-design/ant-design/pull/26446)
 - 🐞 修复使用主题有时会报 `colorPalette is not defined` 的问题。[#26395](https://github.com/ant-design/ant-design/pull/26395)
 - RTL
-  - 💄 优化 Col RTL 样式。[#26482](https://github.com/ant-design/ant-design/pull/26482)
-  - 🐞 修复 Col RTL 样式。[#26479](https://github.com/ant-design/ant-design/pull/26479) [@TrueMoein](https://github.com/TrueMoein)
+  - 🐞 修复 Col RTL 样式。[#26479](https://github.com/ant-design/ant-design/pull/26479) [#26482](https://github.com/ant-design/ant-design/pull/26482) [@TrueMoein](https://github.com/TrueMoein)
 
 ## 4.6.1
 

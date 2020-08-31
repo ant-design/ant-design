@@ -35,8 +35,7 @@ timeline: true
 - 🐞 Fix TimePicker.RangePicker typescript need `picker` issue. [#26446](https://github.com/ant-design/ant-design/pull/26446)
 - 🐞 Fix `colorPalette is not defined` when customize theme in some situation. [#26395](https://github.com/ant-design/ant-design/pull/26395)
 - RTL
-  - 💄 Optimize the rtl style of Col [#26482](https://github.com/ant-design/ant-design/pull/26482)
-  - 🐞 Fix the rtl style of Col. [#26479](https://github.com/ant-design/ant-design/pull/26479) [@TrueMoein](https://github.com/TrueMoein)
+  - 🐞 Fix the rtl style of Col. [#26479](https://github.com/ant-design/ant-design/pull/26479) [#26482](https://github.com/ant-design/ant-design/pull/26482) [@TrueMoein](https://github.com/TrueMoein)
 
 ## 4.6.1
 
