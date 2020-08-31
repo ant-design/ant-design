@@ -26,6 +26,7 @@ When requiring users to interact with the application, but without jumping to a 
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | string \| ReactNode | (OK and Cancel buttons) |
 | forceRender | Force render Modal | boolean | false |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |
+| keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |
 | maskStyle | Style for modal's mask element | object | {} |
@@ -68,13 +69,16 @@ The items listed above are all functions, expecting a settings object as paramet
 | className | The className of container | string | - |  |
 | content | Content | string \| ReactNode | - |  |
 | icon | Custom icon | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
+| getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not. | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
+| maskStyle | Style for modal's mask element | object | {} |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
+| style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |
 | title | Title | string \| ReactNode | - |  |
 | width | Width of the modal dialog | string \| number | 416 |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |

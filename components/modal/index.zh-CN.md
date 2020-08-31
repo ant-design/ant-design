@@ -72,11 +72,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | className | 容器类名 | string | - |  |
 | content | 内容 | string \| ReactNode | - |  |
 | icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
+| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true |
+| mask | 是否展示遮罩 | boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
+| maskStyle | 遮罩样式 | object | {} |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
 | title | 标题 | string \| ReactNode | - |  |
 | width | 宽度 | string \| number | 416 |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
