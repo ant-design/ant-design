@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 4.6.2
+
+`2020-08-31`
+
+- Upload
+  - 🐞 Fix Upload list status issue when in control mode. [#26481](https://github.com/ant-design/ant-design/pull/26481)
+  - 💄 Fix Upload `picture-card` style unexpected margin in Form.Item. [#26367](https://github.com/ant-design/ant-design/pull/26367)
+- 💄 Fix Select focus shadow style. [#26465](https://github.com/ant-design/ant-design/pull/26465) [@Rainy](https://github.com/Rainy)
+- Table
+  - 🐞 Fix Table Pagination not hide with empty data when show on top position. [#26143](https://github.com/ant-design/ant-design/pull/26143) [@zhangchen915](https://github.com/zhangchen915)
+  - 💄 Fix Table expand icon size issue when `@font-size-base` is `12px`. [#26409](https://github.com/ant-design/ant-design/pull/26409)
+- Space
+  - 🐞 Fix Space not support React.Fragment issue. [#26444](https://github.com/ant-design/ant-design/pull/26444)
+  - 🐞 Fix Space preserve empty dom node when `children` contains empty node. [#26389](https://github.com/ant-design/ant-design/pull/26389)
+- 🐞 Fix Badge not work when `status` or `color` is empty. [#26375](https://github.com/ant-design/ant-design/pull/26375) [@zhangchen915](https://github.com/zhangchen915)
+- 💄 Fix Tree draggable transition style. [#26387](https://github.com/ant-design/ant-design/pull/26387)
+- 🐞 Fix `colorPalette is not defined` when customize theme in some situation. [#26395](https://github.com/ant-design/ant-design/pull/26395)
+- TypeScript
+  - 🐞 Fix TimePicker.RangePicker typescript need `picker` issue. [#26446](https://github.com/ant-design/ant-design/pull/26446)
+  - 🐞 Upload extended `showUploadList` of Upload with `removeIcon` and `downloadIcon` properties. [#26406](https://github.com/ant-design/ant-design/pull/26406) [@bencallaway](https://github.com/bencallaway)
+- RTL
+  - 🐞 Fix the rtl style of Col. [#26479](https://github.com/ant-design/ant-design/pull/26479) [#26482](https://github.com/ant-design/ant-design/pull/26482) [@TrueMoein](https://github.com/TrueMoein)
+
 ## 4.6.1
 
 `2020-08-24`
