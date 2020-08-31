@@ -21,19 +21,20 @@ timeline: true
 
 - Upload
   - 🐞 修复 Upload 在受控模式下同步更新导致的状态错误问题。[#26481](https://github.com/ant-design/ant-design/pull/26481)
-  - 🐞 Upload 组件 `showUploadList` 类型添加 `removeIcon` 和 `downloadIcon` 属性声明。[#26406](https://github.com/ant-design/ant-design/pull/26406) [@bencallaway](https://github.com/bencallaway)
   - 💄 修复 Upload 图片样式在 Form.Item 中有异常 margin 的问题。[#26367](https://github.com/ant-design/ant-design/pull/26367)
 - 💄 修复 Select focus 状态样式无阴影。[#26465](https://github.com/ant-design/ant-design/pull/26465) [@Rainy](https://github.com/Rainy)
 - Table
-  - 🐞 修复 Table 组件 topPaginationNode 与 bottomPaginationNode 的展示逻辑不一致的问题。[#26143](https://github.com/ant-design/ant-design/pull/26143) [@zhangchen915](https://github.com/zhangchen915)
+  - 🐞 修复 Table Pagination 展示于上侧且没有数据时不消失的问题。[#26143](https://github.com/ant-design/ant-design/pull/26143) [@zhangchen915](https://github.com/zhangchen915)
   - 💄 修复 Table 展开图标在 `@font-size-base` 为 `12px` 时样式错位的问题。[#26409](https://github.com/ant-design/ant-design/pull/26409)
 - Space
   - 🐞 修复 Space 不支持 React.Fragment 的问题。[#26444](https://github.com/ant-design/ant-design/pull/26444)
   - 🐞 修复 Space 在 `children` 中包含空节点时会出现空 dom 的问题。[#26389](https://github.com/ant-design/ant-design/pull/26389)
-- 🐞 修复 Badge 在 status 或 color 为空时不展示。[#26375](https://github.com/ant-design/ant-design/pull/26375) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 修复 Badge 在 `status` 或 `color` 为空时不展示。[#26375](https://github.com/ant-design/ant-design/pull/26375) [@zhangchen915](https://github.com/zhangchen915)
 - 💄 修复 Tree `draggable` 切换时样式 transition 变化的问题。[#26387](https://github.com/ant-design/ant-design/pull/26387)
-- 🐞 修复 TimePicker.RangePicker typescript 定义需要 `picker` 的问题。[#26446](https://github.com/ant-design/ant-design/pull/26446)
 - 🐞 修复使用主题有时会报 `colorPalette is not defined` 的问题。[#26395](https://github.com/ant-design/ant-design/pull/26395)
+- TypeScript
+  - 🐞 修复 TimePicker.RangePicker 定义需要 `picker` 的问题。[#26446](https://github.com/ant-design/ant-design/pull/26446)
+  - 🐞 Upload 组件 `showUploadList` 类型添加 `removeIcon` 和 `downloadIcon` 属性声明。[#26406](https://github.com/ant-design/ant-design/pull/26406) [@bencallaway](https://github.com/bencallaway)
 - RTL
   - 🐞 修复 Col RTL 样式。[#26479](https://github.com/ant-design/ant-design/pull/26479) [#26482](https://github.com/ant-design/ant-design/pull/26482) [@TrueMoein](https://github.com/TrueMoein)
 
