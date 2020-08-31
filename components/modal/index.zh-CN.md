@@ -20,6 +20,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |
 | bodyStyle | Modal body 样式 | object | {} |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
 | cancelText | 取消按钮文字 | string \| ReactNode | `取消` |
 | centered | 垂直居中展示 Modal | boolean | false |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
@@ -33,18 +34,17 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | mask | 是否展示遮罩 | boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
 | okText | 确认按钮文字 | string \| ReactNode | `确定` |
 | okType | 确认按钮类型 | string | `primary` |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
+| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |
+| onOk | 点击确定回调 | function(e) | - |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
 | title | 标题 | string \| ReactNode | - |
 | visible | 对话框是否可见 | boolean | - |
 | width | 宽度 | string \| number | 520 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |
-| onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |
-| onOk | 点击确定回调 | function(e) | - |
 
 #### 注意
 
@@ -67,26 +67,26 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | autoFocusButton | 指定自动获得焦点的按钮 | null \| `ok` \| `cancel` | `ok` |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
 | content | 内容 | string \| ReactNode | - |  |
+| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
-| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |
-| keyboard | 是否支持键盘 esc 关闭 | boolean | true |
-| mask | 是否展示遮罩 | boolean | true |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
+| mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
-| maskStyle | 遮罩样式 | object | {} |
+| maskStyle | 遮罩样式 | object | {} |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
-| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
+| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
+| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
+| style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | string \| ReactNode | - |  |
 | width | 宽度 | string \| number | 416 |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
-| onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 
