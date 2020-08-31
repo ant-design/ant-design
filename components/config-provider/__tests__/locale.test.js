@@ -9,11 +9,6 @@ import TimePicker from '../../time-picker';
 import Modal from '../../modal';
 import Form from '../../form';
 
-const delay = (timeout = 0) =>
-  new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-
 describe('ConfigProvider.Locale', () => {
   function $$(className) {
     return document.body.querySelectorAll(className);
@@ -115,7 +110,7 @@ describe('ConfigProvider.Locale', () => {
     });
   });
 
-  describe.only('form validateMessages', () => {
+  describe('form validateMessages', () => {
     const wrapperComponent = ({ validateMessages }) => {
       const formRef = React.createRef();
 
