@@ -45,4 +45,3 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | footer | The footer for Drawer | ReactNode | - |
 | footerStyle | Style of the drawer footer part | CSSProperties | - |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
-| modalRender | Modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |

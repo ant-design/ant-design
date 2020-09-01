@@ -31,6 +31,7 @@ When requiring users to interact with the application, but without jumping to a 
 | mask | Whether show mask or not | boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |
 | maskStyle | Style for modal's mask element | object | {} |
+| modalRender | Modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |
 | okText | Text of the OK button | string \| ReactNode | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
