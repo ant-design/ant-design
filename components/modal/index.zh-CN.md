@@ -45,7 +45,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | width | 宽度 | string \| number | 520 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |
-| modalRender | 对话框的内容渲染 | (node: ReactNode) => ReactNode | - | 4.6.3+ |
+| modalRender | 对话框的内容渲染 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 
 #### 注意
 

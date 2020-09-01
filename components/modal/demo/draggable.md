@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 13
 title:
   zh-CN: 拖拽
   en-US: Draggable
@@ -54,7 +54,7 @@ class App extends React.Component {
             <div
               style={{
                 width: '100%',
-                cursor: 'pointer',
+                cursor: 'move',
               }}
               onMouseOver={() => {
                 if (this.state.disabled) {
