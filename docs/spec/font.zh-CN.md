@@ -78,7 +78,7 @@ Ant Design 受到 5 音阶以及自然律的启发定义了 10 个不同尺寸�
 
 ## 字体颜色
 
-<img class="preview-img" align="right" alt="字体颜色" src="https://gw.alipayobjects.com/zos/rmsportal/jPbEabWakVQHosHxhQPR.png">
+<img class="preview-img" align="right" alt="字体颜色" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PdFFQr2NXyUAAAAAAAAAAAAAARQnAQ">
 
 文本颜色如果和背景颜色太接近就会难以阅读。考虑到无障碍设计的需求，我们参考了 WCAG 的标准，将正文文本、标题和背景色之间保持在了 7:1 以上的 AAA 级对比度。
 
