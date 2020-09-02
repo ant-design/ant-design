@@ -1042,402 +1042,40 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
 `;
 
 exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
-<Popup
-  align={
-    Object {
-      "offset": Array [
-        0,
-        4,
-      ],
-      "overflow": Object {
-        "adjustX": 1,
-        "adjustY": 1,
-      },
-      "points": Array [
-        "tl",
-        "bl",
-      ],
-    }
-  }
-  className=""
-  destroyPopupOnHide={false}
-  getClassNameFromAlign={[Function]}
-  getRootDomNode={[Function]}
-  mask={false}
-  onAlign={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  prefixCls="ant-cascader-menus"
-  style={Object {}}
-  transitionName="slide-up"
-  visible={true}
->
-  <div>
-    <ForwardRef
-      leavedClassName="ant-cascader-menus-hidden"
-      motionAppear={false}
-      motionEnter={false}
-      motionLeave={false}
-      motionName="slide-up"
-      onAppearStart={[Function]}
-      onEnterEnd={[Function]}
-      onEnterStart={[Function]}
-      onLeaveEnd={[Function]}
-      onLeaveStart={[Function]}
-      removeOnLeave={false}
-      visible={true}
-    >
-      <CSSMotion
-        internalRef={null}
-        leavedClassName="ant-cascader-menus-hidden"
-        motionAppear={false}
-        motionEnter={false}
-        motionLeave={false}
-        motionName="slide-up"
-        onAppearStart={[Function]}
-        onEnterEnd={[Function]}
-        onEnterStart={[Function]}
-        onLeaveEnd={[Function]}
-        onLeaveStart={[Function]}
-        removeOnLeave={false}
-        visible={true}
+<div>
+  <div
+    class="ant-cascader-menus"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="width: 0px;"
       >
-        <Align
-          align={
-            Object {
-              "offset": Array [
-                0,
-                4,
-              ],
-              "overflow": Object {
-                "adjustX": 1,
-                "adjustY": 1,
-              },
-              "points": Array [
-                "tl",
-                "bl",
-              ],
-            }
-          }
-          disabled={true}
-          key="popup"
-          monitorWindowResize={true}
-          onAlign={[Function]}
-          target={[Function]}
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
         >
-          <PopupInner
-            className="ant-cascader-menus"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            prefixCls="ant-cascader-menus"
-            style={
-              Object {
-                "opacity": 0,
-                "pointerEvents": "none",
-                "zIndex": undefined,
-              }
-            }
+          Jiangsu / Nanjing / Zhong Hua Men
+        </li>
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
+        >
+          Zhejiang / Hang
+          <span
+            class="ant-cascader-menu-item-keyword"
           >
-            <div
-              className="ant-cascader-menus"
-              onMouseDown={[Function]}
-              onTouchStart={[Function]}
-              style={
-                Object {
-                  "opacity": 0,
-                  "pointerEvents": "none",
-                  "zIndex": undefined,
-                }
-              }
-            >
-              <Menus
-                activeValue={Array []}
-                allowClear={true}
-                builtinPlacements={
-                  Object {
-                    "bottomLeft": Object {
-                      "offset": Array [
-                        0,
-                        4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "tl",
-                        "bl",
-                      ],
-                    },
-                    "bottomRight": Object {
-                      "offset": Array [
-                        0,
-                        4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "tr",
-                        "br",
-                      ],
-                    },
-                    "topLeft": Object {
-                      "offset": Array [
-                        0,
-                        -4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "bl",
-                        "tl",
-                      ],
-                    },
-                    "topRight": Object {
-                      "offset": Array [
-                        0,
-                        -4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "br",
-                        "tr",
-                      ],
-                    },
-                  }
-                }
-                defaultFieldNames={
-                  Object {
-                    "children": "children",
-                    "label": "label",
-                    "value": "value",
-                  }
-                }
-                disabled={false}
-                dropdownMenuColumnStyle={
-                  Object {
-                    "width": 0,
-                  }
-                }
-                expandIcon={<ForwardRef(RightOutlined) />}
-                expandTrigger="click"
-                fieldNames={
-                  Object {
-                    "children": "children",
-                    "label": "label",
-                    "value": "value",
-                  }
-                }
-                loadingIcon={
-                  <span
-                    className="ant-cascader-menu-item-loading-icon"
-                  >
-                    <ForwardRef(RedoOutlined)
-                      spin={true}
-                    />
-                  </span>
-                }
-                onChange={[Function]}
-                onItemDoubleClick={[Function]}
-                onPopupVisibleChange={[Function]}
-                onSelect={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "__IS_FILTERED_OPTION": true,
-                      "disabled": false,
-                      "isEmptyNode": true,
-                      "label": Array [
-                        "Jiangsu",
-                        Array [
-                          " / ",
-                          "Nanjing",
-                        ],
-                        Array [
-                          " / ",
-                          "Zhong Hua Men",
-                        ],
-                      ],
-                      "path": Array [
-                        Object {
-                          "children": Array [
-                            Object {
-                              "children": Array [
-                                Object {
-                                  "label": "Zhong Hua Men",
-                                  "value": "zhonghuamen",
-                                },
-                              ],
-                              "label": "Nanjing",
-                              "value": "nanjing",
-                            },
-                          ],
-                          "label": "Jiangsu",
-                          "value": "jiangsu",
-                        },
-                        Object {
-                          "children": Array [
-                            Object {
-                              "label": "Zhong Hua Men",
-                              "value": "zhonghuamen",
-                            },
-                          ],
-                          "label": "Nanjing",
-                          "value": "nanjing",
-                        },
-                        Object {
-                          "label": "Zhong Hua Men",
-                          "value": "zhonghuamen",
-                        },
-                      ],
-                      "value": Array [
-                        "jiangsu",
-                        "nanjing",
-                        "zhonghuamen",
-                      ],
-                    },
-                    Object {
-                      "__IS_FILTERED_OPTION": true,
-                      "disabled": false,
-                      "isEmptyNode": true,
-                      "label": Array [
-                        "Zhejiang",
-                        Array [
-                          " / ",
-                          Array [
-                            "Hang",
-                            Array [
-                              <span
-                                className="ant-cascader-menu-item-keyword"
-                              >
-                                z
-                              </span>,
-                              "hou",
-                            ],
-                          ],
-                        ],
-                        Array [
-                          " / ",
-                          "West Lake",
-                        ],
-                      ],
-                      "path": Array [
-                        Object {
-                          "children": Array [
-                            Object {
-                              "children": Array [
-                                Object {
-                                  "label": "West Lake",
-                                  "value": "xihu",
-                                },
-                              ],
-                              "label": "Hangzhou",
-                              "value": "hangzhou",
-                            },
-                          ],
-                          "label": "Zhejiang",
-                          "value": "zhejiang",
-                        },
-                        Object {
-                          "children": Array [
-                            Object {
-                              "label": "West Lake",
-                              "value": "xihu",
-                            },
-                          ],
-                          "label": "Hangzhou",
-                          "value": "hangzhou",
-                        },
-                        Object {
-                          "label": "West Lake",
-                          "value": "xihu",
-                        },
-                      ],
-                      "value": Array [
-                        "zhejiang",
-                        "hangzhou",
-                        "xihu",
-                      ],
-                    },
-                  ]
-                }
-                popupClassName=""
-                popupPlacement="bottomLeft"
-                popupVisible={true}
-                prefixCls="ant-cascader"
-                showSearch={
-                  Object {
-                    "filter": [Function],
-                  }
-                }
-                transitionName="slide-up"
-                value={Array []}
-                visible={true}
-              >
-                <div>
-                  <ul
-                    className="ant-cascader-menu"
-                    key="0"
-                    style={
-                      Object {
-                        "width": 0,
-                      }
-                    }
-                  >
-                    <li
-                      className="ant-cascader-menu-item"
-                      key="jiangsu,nanjing,zhonghuamen"
-                      onClick={[Function]}
-                      onDoubleClick={[Function]}
-                      onMouseDown={[Function]}
-                      role="menuitem"
-                      title=""
-                    >
-                      Jiangsu
-                       / 
-                      Nanjing
-                       / 
-                      Zhong Hua Men
-                    </li>
-                    <li
-                      className="ant-cascader-menu-item"
-                      key="zhejiang,hangzhou,xihu"
-                      onClick={[Function]}
-                      onDoubleClick={[Function]}
-                      onMouseDown={[Function]}
-                      role="menuitem"
-                      title=""
-                    >
-                      Zhejiang
-                       / 
-                      Hang
-                      <span
-                        className="ant-cascader-menu-item-keyword"
-                        key="seperator"
-                      >
-                        z
-                      </span>
-                      hou
-                       / 
-                      West Lake
-                    </li>
-                  </ul>
-                </div>
-              </Menus>
-            </div>
-          </PopupInner>
-        </Align>
-      </CSSMotion>
-    </ForwardRef>
+            z
+          </span>
+          hou / West Lake
+        </li>
+      </ul>
+    </div>
   </div>
-</Popup>
+</div>
 `;
 
 exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `
@@ -1484,632 +1122,140 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 `;
 
 exports[`Cascader should render not found content 1`] = `
-<Popup
-  align={
-    Object {
-      "offset": Array [
-        0,
-        4,
-      ],
-      "overflow": Object {
-        "adjustX": 1,
-        "adjustY": 1,
-      },
-      "points": Array [
-        "tl",
-        "bl",
-      ],
-    }
-  }
-  className="ant-cascader-menu-empty"
-  destroyPopupOnHide={false}
-  getClassNameFromAlign={[Function]}
-  getRootDomNode={[Function]}
-  mask={false}
-  onAlign={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  prefixCls="ant-cascader-menus"
-  style={Object {}}
-  transitionName="slide-up"
-  visible={true}
->
-  <div>
-    <ForwardRef
-      leavedClassName="ant-cascader-menus-hidden"
-      motionAppear={false}
-      motionEnter={false}
-      motionLeave={false}
-      motionName="slide-up"
-      onAppearStart={[Function]}
-      onEnterEnd={[Function]}
-      onEnterStart={[Function]}
-      onLeaveEnd={[Function]}
-      onLeaveStart={[Function]}
-      removeOnLeave={false}
-      visible={true}
-    >
-      <CSSMotion
-        internalRef={null}
-        leavedClassName="ant-cascader-menus-hidden"
-        motionAppear={false}
-        motionEnter={false}
-        motionLeave={false}
-        motionName="slide-up"
-        onAppearStart={[Function]}
-        onEnterEnd={[Function]}
-        onEnterStart={[Function]}
-        onLeaveEnd={[Function]}
-        onLeaveStart={[Function]}
-        removeOnLeave={false}
-        visible={true}
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-empty"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="height: auto; width: 0px;"
       >
-        <Align
-          align={
-            Object {
-              "offset": Array [
-                0,
-                4,
-              ],
-              "overflow": Object {
-                "adjustX": 1,
-                "adjustY": 1,
-              },
-              "points": Array [
-                "tl",
-                "bl",
-              ],
-            }
-          }
-          disabled={true}
-          key="popup"
-          monitorWindowResize={true}
-          onAlign={[Function]}
-          target={[Function]}
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          role="menuitem"
+          title=""
         >
-          <PopupInner
-            className="ant-cascader-menus ant-cascader-menu-empty"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            prefixCls="ant-cascader-menus"
-            style={
-              Object {
-                "opacity": 0,
-                "pointerEvents": "none",
-                "zIndex": undefined,
-              }
-            }
+          <div
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              className="ant-cascader-menus ant-cascader-menu-empty"
-              onMouseDown={[Function]}
-              onTouchStart={[Function]}
-              style={
-                Object {
-                  "opacity": 0,
-                  "pointerEvents": "none",
-                  "zIndex": undefined,
-                }
-              }
+              class="ant-empty-image"
             >
-              <Menus
-                activeValue={Array []}
-                allowClear={true}
-                builtinPlacements={
-                  Object {
-                    "bottomLeft": Object {
-                      "offset": Array [
-                        0,
-                        4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "tl",
-                        "bl",
-                      ],
-                    },
-                    "bottomRight": Object {
-                      "offset": Array [
-                        0,
-                        4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "tr",
-                        "br",
-                      ],
-                    },
-                    "topLeft": Object {
-                      "offset": Array [
-                        0,
-                        -4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "bl",
-                        "tl",
-                      ],
-                    },
-                    "topRight": Object {
-                      "offset": Array [
-                        0,
-                        -4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "br",
-                        "tr",
-                      ],
-                    },
-                  }
-                }
-                defaultFieldNames={
-                  Object {
-                    "children": "children",
-                    "label": "label",
-                    "value": "value",
-                  }
-                }
-                disabled={false}
-                dropdownMenuColumnStyle={
-                  Object {
-                    "height": "auto",
-                    "width": 0,
-                  }
-                }
-                expandIcon={<ForwardRef(RightOutlined) />}
-                expandTrigger="click"
-                fieldNames={
-                  Object {
-                    "children": "children",
-                    "label": "label",
-                    "value": "value",
-                  }
-                }
-                loadingIcon={
-                  <span
-                    className="ant-cascader-menu-item-loading-icon"
-                  >
-                    <ForwardRef(RedoOutlined)
-                      spin={true}
-                    />
-                  </span>
-                }
-                onChange={[Function]}
-                onItemDoubleClick={[Function]}
-                onPopupVisibleChange={[Function]}
-                onSelect={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "disabled": true,
-                      "isEmptyNode": true,
-                      "label": <Context.Consumer>
-                        [Function]
-                      </Context.Consumer>,
-                      "value": "ANT_CASCADER_NOT_FOUND",
-                    },
-                  ]
-                }
-                popupClassName="ant-cascader-menu-empty"
-                popupPlacement="bottomLeft"
-                popupVisible={true}
-                prefixCls="ant-cascader"
-                showSearch={
-                  Object {
-                    "filter": [Function],
-                  }
-                }
-                transitionName="slide-up"
-                value={Array []}
-                visible={true}
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div>
-                  <ul
-                    className="ant-cascader-menu"
-                    key="0"
-                    style={
-                      Object {
-                        "height": "auto",
-                        "width": 0,
-                      }
-                    }
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
                   >
-                    <li
-                      className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-                      key="ANT_CASCADER_NOT_FOUND"
-                      onClick={[Function]}
-                      onDoubleClick={[Function]}
-                      onMouseDown={[Function]}
-                      role="menuitem"
-                      title=""
-                    >
-                      <Empty
-                        className="ant-empty-small"
-                        image={<Simple />}
-                      >
-                        <LocaleReceiver
-                          componentName="Empty"
-                        >
-                          <div
-                            className="ant-empty ant-empty-normal ant-empty-small"
-                          >
-                            <div
-                              className="ant-empty-image"
-                            >
-                              <Simple>
-                                <svg
-                                  className="ant-empty-img-simple"
-                                  height="41"
-                                  viewBox="0 0 64 41"
-                                  width="64"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <g
-                                    fill="none"
-                                    fillRule="evenodd"
-                                    transform="translate(0 1)"
-                                  >
-                                    <ellipse
-                                      className="ant-empty-img-simple-ellipse"
-                                      cx="32"
-                                      cy="33"
-                                      rx="32"
-                                      ry="7"
-                                    />
-                                    <g
-                                      className="ant-empty-img-simple-g"
-                                      fillRule="nonzero"
-                                    >
-                                      <path
-                                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                      />
-                                      <path
-                                        className="ant-empty-img-simple-path"
-                                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                      />
-                                    </g>
-                                  </g>
-                                </svg>
-                              </Simple>
-                            </div>
-                            <p
-                              className="ant-empty-description"
-                            >
-                              No Data
-                            </p>
-                          </div>
-                        </LocaleReceiver>
-                      </Empty>
-                    </li>
-                  </ul>
-                </div>
-              </Menus>
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
-          </PopupInner>
-        </Align>
-      </CSSMotion>
-    </ForwardRef>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-</Popup>
+</div>
 `;
 
 exports[`Cascader should show not found content when options.length is 0 1`] = `
-<Popup
-  align={
-    Object {
-      "offset": Array [
-        0,
-        4,
-      ],
-      "overflow": Object {
-        "adjustX": 1,
-        "adjustY": 1,
-      },
-      "points": Array [
-        "tl",
-        "bl",
-      ],
-    }
-  }
-  className="ant-cascader-menu-empty"
-  destroyPopupOnHide={false}
-  getClassNameFromAlign={[Function]}
-  getRootDomNode={[Function]}
-  mask={false}
-  onAlign={[Function]}
-  onMouseDown={[Function]}
-  onTouchStart={[Function]}
-  prefixCls="ant-cascader-menus"
-  style={Object {}}
-  transitionName="slide-up"
-  visible={true}
->
-  <div>
-    <ForwardRef
-      leavedClassName="ant-cascader-menus-hidden"
-      motionAppear={false}
-      motionEnter={false}
-      motionLeave={false}
-      motionName="slide-up"
-      onAppearStart={[Function]}
-      onEnterEnd={[Function]}
-      onEnterStart={[Function]}
-      onLeaveEnd={[Function]}
-      onLeaveStart={[Function]}
-      removeOnLeave={false}
-      visible={true}
-    >
-      <CSSMotion
-        internalRef={null}
-        leavedClassName="ant-cascader-menus-hidden"
-        motionAppear={false}
-        motionEnter={false}
-        motionLeave={false}
-        motionName="slide-up"
-        onAppearStart={[Function]}
-        onEnterEnd={[Function]}
-        onEnterStart={[Function]}
-        onLeaveEnd={[Function]}
-        onLeaveStart={[Function]}
-        removeOnLeave={false}
-        visible={true}
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-empty"
+    style="opacity: 0; pointer-events: none;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
       >
-        <Align
-          align={
-            Object {
-              "offset": Array [
-                0,
-                4,
-              ],
-              "overflow": Object {
-                "adjustX": 1,
-                "adjustY": 1,
-              },
-              "points": Array [
-                "tl",
-                "bl",
-              ],
-            }
-          }
-          disabled={true}
-          key="popup"
-          monitorWindowResize={true}
-          onAlign={[Function]}
-          target={[Function]}
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
         >
-          <PopupInner
-            className="ant-cascader-menus ant-cascader-menu-empty"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            prefixCls="ant-cascader-menus"
-            style={
-              Object {
-                "opacity": 0,
-                "pointerEvents": "none",
-                "zIndex": undefined,
-              }
-            }
+          <div
+            class="ant-empty ant-empty-normal ant-empty-small"
           >
             <div
-              className="ant-cascader-menus ant-cascader-menu-empty"
-              onMouseDown={[Function]}
-              onTouchStart={[Function]}
-              style={
-                Object {
-                  "opacity": 0,
-                  "pointerEvents": "none",
-                  "zIndex": undefined,
-                }
-              }
+              class="ant-empty-image"
             >
-              <Menus
-                activeValue={Array []}
-                allowClear={true}
-                builtinPlacements={
-                  Object {
-                    "bottomLeft": Object {
-                      "offset": Array [
-                        0,
-                        4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "tl",
-                        "bl",
-                      ],
-                    },
-                    "bottomRight": Object {
-                      "offset": Array [
-                        0,
-                        4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "tr",
-                        "br",
-                      ],
-                    },
-                    "topLeft": Object {
-                      "offset": Array [
-                        0,
-                        -4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "bl",
-                        "tl",
-                      ],
-                    },
-                    "topRight": Object {
-                      "offset": Array [
-                        0,
-                        -4,
-                      ],
-                      "overflow": Object {
-                        "adjustX": 1,
-                        "adjustY": 1,
-                      },
-                      "points": Array [
-                        "br",
-                        "tr",
-                      ],
-                    },
-                  }
-                }
-                defaultFieldNames={
-                  Object {
-                    "children": "children",
-                    "label": "label",
-                    "value": "value",
-                  }
-                }
-                disabled={false}
-                dropdownMenuColumnStyle={Object {}}
-                expandIcon={<ForwardRef(RightOutlined) />}
-                expandTrigger="click"
-                fieldNames={
-                  Object {
-                    "children": "children",
-                    "label": "label",
-                    "value": "value",
-                  }
-                }
-                loadingIcon={
-                  <span
-                    className="ant-cascader-menu-item-loading-icon"
-                  >
-                    <ForwardRef(RedoOutlined)
-                      spin={true}
-                    />
-                  </span>
-                }
-                onChange={[Function]}
-                onItemDoubleClick={[Function]}
-                onPopupVisibleChange={[Function]}
-                onSelect={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "label": <Context.Consumer>
-                        [Function]
-                      </Context.Consumer>,
-                      "value": "ANT_CASCADER_NOT_FOUND",
-                    },
-                  ]
-                }
-                popupClassName="ant-cascader-menu-empty"
-                popupPlacement="bottomLeft"
-                popupVisible={true}
-                prefixCls="ant-cascader"
-                transitionName="slide-up"
-                value={Array []}
-                visible={true}
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div>
-                  <ul
-                    className="ant-cascader-menu"
-                    key="0"
-                    style={Object {}}
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
                   >
-                    <li
-                      className="ant-cascader-menu-item"
-                      key="ANT_CASCADER_NOT_FOUND"
-                      onClick={[Function]}
-                      onDoubleClick={[Function]}
-                      onMouseDown={[Function]}
-                      role="menuitem"
-                      title=""
-                    >
-                      <Empty
-                        className="ant-empty-small"
-                        image={<Simple />}
-                      >
-                        <LocaleReceiver
-                          componentName="Empty"
-                        >
-                          <div
-                            className="ant-empty ant-empty-normal ant-empty-small"
-                          >
-                            <div
-                              className="ant-empty-image"
-                            >
-                              <Simple>
-                                <svg
-                                  className="ant-empty-img-simple"
-                                  height="41"
-                                  viewBox="0 0 64 41"
-                                  width="64"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <g
-                                    fill="none"
-                                    fillRule="evenodd"
-                                    transform="translate(0 1)"
-                                  >
-                                    <ellipse
-                                      className="ant-empty-img-simple-ellipse"
-                                      cx="32"
-                                      cy="33"
-                                      rx="32"
-                                      ry="7"
-                                    />
-                                    <g
-                                      className="ant-empty-img-simple-g"
-                                      fillRule="nonzero"
-                                    >
-                                      <path
-                                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                      />
-                                      <path
-                                        className="ant-empty-img-simple-path"
-                                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                      />
-                                    </g>
-                                  </g>
-                                </svg>
-                              </Simple>
-                            </div>
-                            <p
-                              className="ant-empty-description"
-                            >
-                              No Data
-                            </p>
-                          </div>
-                        </LocaleReceiver>
-                      </Empty>
-                    </li>
-                  </ul>
-                </div>
-              </Menus>
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
-          </PopupInner>
-        </Align>
-      </CSSMotion>
-    </ForwardRef>
+            <p
+              class="ant-empty-description"
+            >
+              No Data
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-</Popup>
+</div>
 `;
 
 exports[`Cascader support controlled mode 1`] = `

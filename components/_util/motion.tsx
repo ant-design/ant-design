@@ -1,5 +1,4 @@
-import { CSSMotionProps } from 'rc-motion';
-import { MotionEventHandler, MotionEndEventHandler } from 'rc-motion/lib/CSSMotion';
+import { CSSMotionProps, MotionEventHandler, MotionEndEventHandler } from 'rc-motion';
 
 // ================== Collapse Motion ==================
 const getCollapsedHeight: MotionEventHandler = () => ({ height: 0, opacity: 0 });
