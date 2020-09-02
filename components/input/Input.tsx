@@ -246,6 +246,7 @@ class Input extends React.Component<InputProps, InputState> {
     return (
       <input
         autoComplete={input.autoComplete}
+        autoFocus={input.autoFocus}
         {...otherProps}
         onChange={this.handleChange}
         onFocus={this.onFocus}
