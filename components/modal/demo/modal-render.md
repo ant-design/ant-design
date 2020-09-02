@@ -21,32 +21,11 @@ class App extends React.Component {
   state = {
     visible: false,
     disabled: true,
-    customVisible: false,
   };
 
   showModal = () => {
     this.setState({
       visible: true,
-    });
-  };
-
-  showCustomRender = () => {
-    this.setState({
-      customVisible: true,
-    });
-  }
-
-  handleCustomOk = e => {
-    console.log(e);
-    this.setState({
-      customVisible: false,
-    });
-  };
-
-  handleCustomCancel = e => {
-    console.log(e);
-    this.setState({
-      customVisible: false,
     });
   };
 
@@ -64,37 +43,12 @@ class App extends React.Component {
     });
   };
 
-
   render() {
     return (
       <>
-        <Button type="primary" onClick={this.showCustomRender}>
-          Custom modal content render
-        </Button>
-        <br/>
-        <br/>
         <Button onClick={this.showModal}>
           Open Draggable Modal
         </Button>
-        <Modal
-          title="Custom modal content render"
-          visible={this.state.customVisible}
-          onOk={this.handleCustomOk}
-          onCancel={this.handleCustomCancel}
-          modalRender={node => {
-            return React.cloneElement(node, {
-              ...node.props,
-              style: { opacity: .5 },
-            })
-          }}
-        >
-          <p>
-            Just don&apos;t learn physics at school and your life will be full of magic and
-            miracles.
-          </p>
-          <br />
-          <p>Day before yesterday I saw a rabbit, and yesterday a deer, and today, you.</p>
-        </Modal>
         <Modal
           title={
             <div
