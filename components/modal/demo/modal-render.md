@@ -14,7 +14,7 @@ title:
 Custom modal content render. use `react-draggable` implements draggable.
 
 ```jsx
-import { Modal, Button, Space } from 'antd';
+import { Modal, Button } from 'antd';
 import Draggable from 'react-draggable';
 
 class App extends React.Component {
@@ -68,14 +68,14 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Space>
-          <Button type="primary" onClick={this.showCustomRender}>
-            Custom modal content render
-          </Button>
-          <Button onClick={this.showModal}>
-            Open Draggable Modal
-          </Button>
-        </Space>
+        <Button type="primary" onClick={this.showCustomRender}>
+          Custom modal content render
+        </Button>
+        <br/>
+        <br/>
+        <Button onClick={this.showModal}>
+          Open Draggable Modal
+        </Button>
         <Modal
           title="Custom modal content render"
           visible={this.state.customVisible}
