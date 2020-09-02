@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from 'rc-util/lib/warning'
+import { resetWarned } from 'rc-util/lib/warning';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
@@ -111,7 +111,7 @@ describe('Button', () => {
         {undefined}
       </Button>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('have static property for type detecting', () => {
@@ -282,7 +282,7 @@ describe('Button', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    resetWarned()
+    resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Button type="primary" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
@@ -294,24 +294,24 @@ describe('Button', () => {
   });
 
   it('should warning when pass type=link and ghost=true', () => {
-    resetWarned()
+    resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Button type="link" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
     warnSpy.mockRestore();
-  })
-  
+  });
+
   it('should warning when pass type=text and ghost=true', () => {
-    resetWarned()
+    resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Button type="text" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
     warnSpy.mockRestore();
-  })
+  });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
     const wrapper = mount(

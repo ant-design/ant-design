@@ -134,7 +134,7 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: 'z' } });
     expect(wrapper.state('inputValue')).toBe('z');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
@@ -184,7 +184,7 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: '__notfoundkeyword__' } });
     expect(wrapper.state('inputValue')).toBe('__notfoundkeyword__');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   it('should support to clear selection', async () => {
@@ -318,7 +318,7 @@ describe('Cascader', () => {
     const wrapper = mount(<Cascader options={customerOptions} />);
     wrapper.find('input').simulate('click');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   describe('limit filtered item count', () => {
