@@ -52,6 +52,7 @@ timeline: true
 - 💄 加深默认文本 `@text-color` 以满足 WCAG 2.0 对比度的规范。[#25630](https://github.com/ant-design/ant-design/pull/25630)
 - 🔥 新增图片组件 Image。[#26296](https://github.com/ant-design/ant-design/pull/26296)
 - 🔥 Table 新增 `sticky` 属性以支持固定表头和滚动条。[#25939](https://github.com/ant-design/ant-design/pull/25939)
+- 🛠 用 hooks 重构 Upload。[#26196](https://github.com/ant-design/ant-design/pull/26196)
 - Form
   - 🆕 Form 添加 `requiredMark` 属性以支持设置必选样式，废弃原 `hideRequiredMark`。[#26309](https://github.com/ant-design/ant-design/pull/26309)
   - 🆕 Form.List 中的 `add` 方法支持第二个 `index` 参数。[#26081](https://github.com/ant-design/ant-design/pull/26081)
