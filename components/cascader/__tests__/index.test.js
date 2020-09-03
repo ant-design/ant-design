@@ -532,7 +532,7 @@ describe('Cascader', () => {
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );
     wrapper.find('input').simulate('click');
-    wrapper.find('input').simulate('change', { target: { value: 'nan' } });
+    wrapper.find('input').simulate('change', { target: { value: 'est' } });
     const popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
     popupWrapper
       .find('.ant-cascader-menu')
@@ -540,9 +540,6 @@ describe('Cascader', () => {
       .find('.ant-cascader-menu-item')
       .at(0)
       .simulate('click');
-    expect(onChange).toHaveBeenCalledWith(
-      ['Jiangsu', 'Nanjing', 'Zhong Hua men'],
-      expect.anything(),
-    );
+    expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 });
