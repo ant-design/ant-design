@@ -52,6 +52,7 @@ timeline: true
 - 💄 Darker `@text-color` for WCAG 2.0 on contrast ratio. [#25630](https://github.com/ant-design/ant-design/pull/25630)
 - 🔥 New Image component. [#26296](https://github.com/ant-design/ant-design/pull/26296)
 - 🔥 Table support `sticky` prop to sticky header and scroll bar. [#25939](https://github.com/ant-design/ant-design/pull/25939)
+- 🛠 Refactor Upload via hooks. [#26196](https://github.com/ant-design/ant-design/pull/26196)
 - Form
   - 🆕 Form support style of required mark with `requiredMark` and deprecate `hideRequiredMark` prop. [#26309](https://github.com/ant-design/ant-design/pull/26309)
   - 🆕 Form.List support the second `index` param in `add`. [#26081](https://github.com/ant-design/ant-design/pull/26081)

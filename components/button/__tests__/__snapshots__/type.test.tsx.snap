@@ -291,54 +291,10 @@ exports[`Button should not render as link button when href is undefined 1`] = `
 `;
 
 exports[`Button should render empty button without errors 1`] = `
-<Button
-  block={false}
-  ghost={false}
-  htmlType="button"
-  loading={false}
->
-  <Wave>
-    <button
-      className="ant-btn"
-      onClick={[Function]}
-      type="button"
-    >
-      <LoadingIcon
-        existIcon={false}
-        loading={false}
-        prefixCls="ant-btn"
-      >
-        <ForwardRef
-          motionName="ant-btn-loading-icon-motion"
-          onAppearActive={[Function]}
-          onAppearStart={[Function]}
-          onEnterActive={[Function]}
-          onEnterStart={[Function]}
-          onLeaveActive={[Function]}
-          onLeaveStart={[Function]}
-          removeOnLeave={true}
-          visible={false}
-        >
-          <CSSMotion
-            internalRef={null}
-            motionAppear={true}
-            motionEnter={true}
-            motionLeave={true}
-            motionName="ant-btn-loading-icon-motion"
-            onAppearActive={[Function]}
-            onAppearStart={[Function]}
-            onEnterActive={[Function]}
-            onEnterStart={[Function]}
-            onLeaveActive={[Function]}
-            onLeaveStart={[Function]}
-            removeOnLeave={true}
-            visible={false}
-          />
-        </ForwardRef>
-      </LoadingIcon>
-    </button>
-  </Wave>
-</Button>
+<button
+  class="ant-btn"
+  type="button"
+/>
 `;
 
 exports[`Button should support link button 1`] = `
