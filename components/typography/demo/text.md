@@ -20,18 +20,18 @@ const { Text, Link } = Typography;
 
 ReactDOM.render(
   <Space direction="vertical">
-    <Text>Ant Design</Text>
-    <Text type="secondary">Ant Design</Text>
-    <Text type="success">Ant Design</Text>
-    <Text type="warning">Ant Design</Text>
-    <Text type="danger">Ant Design</Text>
-    <Text disabled>Ant Design</Text>
-    <Text mark>Ant Design</Text>
-    <Text code>Ant Design</Text>
-    <Text keyboard>Ant Design</Text>
-    <Text underline>Ant Design</Text>
-    <Text delete>Ant Design</Text>
-    <Text strong>Ant Design</Text>
+    <Text>(default)Ant Design</Text>
+    <Text type="secondary">secondary Ant Design</Text>
+    <Text type="success">success Ant Design</Text>
+    <Text type="warning">warning Ant Design</Text>
+    <Text type="danger">danger Ant Design</Text>
+    <Text disabled>disabled Ant Design</Text>
+    <Text mark>mark Ant Design</Text>
+    <Text code>code Ant Design</Text>
+    <Text keyboard>keyboard Ant Design</Text>
+    <Text underline>underline Ant Design</Text>
+    <Text delete>delete Ant Design</Text>
+    <Text strong>strong Ant Design</Text>
     <Link href="https://ant.design" target="_blank">
       Ant Design
     </Link>
