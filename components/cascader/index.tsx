@@ -128,6 +128,9 @@ interface CascaderLocale {
 // We limit the filtered item count by default
 const defaultLimit = 50;
 
+// keep value when filtering
+const keepFilteredValueField = '__KEEP_FILTERED_OPTION_VALUE';
+
 function highlightKeyword(str: string, keyword: string, prefixCls: string | undefined) {
   return str.split(keyword).map((node: string, index: number) =>
     index === 0
@@ -308,7 +311,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   handleChange = (value: any, selectedOptions: CascaderOptionType[]) => {
     this.setState({ inputValue: '' });
     if (selectedOptions[0].__IS_FILTERED_OPTION) {
-      const unwrappedValue = value[0];
+      const unwrappedValue =
+        selectedOptions[0][keepFilteredValueField] === undefined
+          ? value[0]
+          : selectedOptions[0][keepFilteredValueField];
       const unwrappedSelectedOptions = selectedOptions[0].path;
       this.setValue(unwrappedValue, unwrappedSelectedOptions);
       return;
@@ -413,11 +419,14 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     filtered = filtered.sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
+      // Fix issue: https://github.com/ant-design/ant-design/issues/26554
+      const field = names.value === names.label ? keepFilteredValueField : names.value;
+
       return filtered.map((path: CascaderOptionType[]) => {
         return {
           __IS_FILTERED_OPTION: true,
           path,
-          [names.value]: path.map((o: CascaderOptionType) => o[names.value]),
+          [field]: path.map((o: CascaderOptionType) => o[names.value]),
           [names.label]: render(inputValue, path, prefixCls, names),
           disabled: path.some((o: CascaderOptionType) => !!o.disabled),
           isEmptyNode: true,
