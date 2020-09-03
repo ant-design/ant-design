@@ -216,12 +216,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRefs.body.current) {
-      console.log('000');
       scrollTo(0, {
-        getContainer: () => {
-          console.log(111);
-          return internalRefs.body.current!;
-        },
+        getContainer: () => internalRefs.body.current!,
       });
     }
 
