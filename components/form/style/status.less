@@ -125,6 +125,7 @@
     //select
     .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
       .@{ant-prefix}-select-selector {
+        background-color: @form-warning-input-bg;
         border-color: @warning-color !important;
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
@@ -136,12 +137,14 @@
     //input-number, timepicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
+      background-color: @form-warning-input-bg;
       border-color: @warning-color;
       &-focused,
       &:focus {
         .active(@warning-color);
       }
       &:not([disabled]):hover {
+        background-color: @form-warning-input-bg;
         border-color: @warning-color;
       }
     }
@@ -163,6 +166,7 @@
     //select
     .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
       .@{ant-prefix}-select-selector {
+        background-color: @form-error-input-bg;
         border-color: @error-color !important;
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
@@ -188,12 +192,14 @@
     //input-number, timepicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
+      background-color: @form-error-input-bg;
       border-color: @error-color;
       &-focused,
       &:focus {
         .active(@error-color);
       }
       &:not([disabled]):hover {
+        background-color: @form-error-input-bg;
         border-color: @error-color;
       }
     }
@@ -201,6 +207,7 @@
       .@{ant-prefix}-mention-editor {
         &,
         &:not([disabled]):hover {
+          background-color: @form-error-input-bg;
           border-color: @error-color;
         }
       }
@@ -211,6 +218,7 @@
     }
 
     .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+      background-color: @form-error-input-bg;
       .active(@error-color);
     }
 

@@ -10,6 +10,7 @@
   .@{ant-prefix}-input-affix-wrapper {
     &,
     &:hover {
+      background-color: @background-color;
       border-color: @border-color;
     }
 
@@ -19,16 +20,15 @@
     }
   }
 
-  .@{ant-prefix}-input {
-    &:not(&-disabled) {
-      background-color: @background-color;
-    }
+  .@{ant-prefix}-input-disabled {
+    background-color: @input-disabled-bg;
+    border-color: @input-border-color;
   }
 
-  .@{ant-prefix}-input-affix-wrapper {
-    &:not(&-disabled) {
-      background-color: @background-color;
-    }
+  .@{ant-prefix}-input-affix-wrapper-disabled {
+    background-color: @input-disabled-bg;
+    border-color: @input-border-color;
+
     input:focus {
       box-shadow: none !important;
     }
