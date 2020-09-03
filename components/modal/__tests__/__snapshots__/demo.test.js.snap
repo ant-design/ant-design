@@ -312,7 +312,7 @@ exports[`renders ./components/modal/demo/width.md correctly 1`] = `
   type="button"
 >
   <span>
-    Vertically centered modal dialog
+    Open Modal of 1000px width
   </span>
 </button>
 `;
