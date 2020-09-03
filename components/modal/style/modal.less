@@ -7,7 +7,7 @@
   position: relative;
   top: 100px;
   width: auto;
-  max-width: calc(100vw - 16px);
+  max-width: calc(100vw - 32px);
   margin: 0 auto;
   padding-bottom: 24px;
 
@@ -123,6 +123,7 @@
 
 @media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
+    max-width: calc(100vw - 16px);
     margin: 8px auto;
   }
   .@{dialog-prefix-cls}-centered {
