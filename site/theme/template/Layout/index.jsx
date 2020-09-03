@@ -58,6 +58,7 @@ if (typeof window !== 'undefined') {
 
 const RESPONSIVE_MOBILE = 768;
 const SITE_THEME_STORE_KEY = 'site-theme';
+const SITE_DIRECTION_STORE_KEY = 'site-direction';
 
 // for dark.css timestamp to remove cache
 const timestamp = new Date().getTime();
@@ -85,7 +86,10 @@ export default class Layout extends React.Component {
           ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
           : 'default',
       setTheme: this.setTheme,
-      direction: 'ltr',
+      direction:
+        typeof localStorage !== 'undefined'
+          ? localStorage.getItem(SITE_DIRECTION_STORE_KEY) || 'ltr'
+          : 'ltr',
       setIframeTheme: this.setIframeTheme,
     };
   }
@@ -180,6 +184,7 @@ export default class Layout extends React.Component {
     this.setState({
       direction,
     });
+    localStorage.setItem(SITE_DIRECTION_STORE_KEY, direction);
   };
 
   render() {
