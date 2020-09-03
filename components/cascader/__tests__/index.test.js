@@ -524,4 +524,25 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: 'jin' } });
     expect(wrapper.state('popupVisible')).toBe(true);
   });
+
+  it('onChange works correctly when the label of fieldNames is the same as value', () => {
+    const onChange = jest.fn();
+    const sameNames = { label: 'label', value: 'label', children: 'children' };
+    const wrapper = mount(
+      <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
+    );
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'nan' } });
+    const popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
+    popupWrapper
+      .find('.ant-cascader-menu')
+      .at(0)
+      .find('.ant-cascader-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onChange).toHaveBeenCalledWith(
+      ['Jiangsu', 'Nanjing', 'Zhong Hua men'],
+      expect.anything(),
+    );
+  });
 });
