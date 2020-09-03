@@ -14,38 +14,30 @@ title:
 Use `width` to set the width of the modal dialog.
 
 ```jsx
+import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-class App extends React.Component {
-  state = {
-    modalVisible: false,
-  };
-
-  setmodalVisible(modalVisible) {
-    this.setState({ modalVisible });
-  }
-
-  render() {
-    return (
-      <>
-        <Button type="primary" onClick={() => this.setmodalVisible(true)}>
-          Vertically centered modal dialog
-        </Button>
-        <Modal
-          title="Vertically centered modal dialog"
-          centered
-          visible={this.state.modalVisible}
-          onOk={() => this.setmodalVisible(false)}
-          onCancel={() => this.setmodalVisible(false)}
-          width={1000}
-        >
-          <p>some contents...</p>
-          <p>some contents...</p>
-          <p>some contents...</p>
-        </Modal>
-      </>
-    );
-  }
+const App = () => {
+  const [visible, setVisible] = useState(false);
+  return (
+    <>
+      <Button type="primary" onClick={() => setVisible(true)}>
+        Open Modal of 1000px width
+      </Button>
+      <Modal
+        title="Modal 1000px width"
+        centered
+        visible={visible}
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+        width={1000}
+      >
+        <p>some contents...</p>
+        <p>some contents...</p>
+        <p>some contents...</p>
+      </Modal>
+    </>
+  );
 }
 
 ReactDOM.render(<App />, mountNode);
