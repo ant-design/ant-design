@@ -86,7 +86,7 @@ describe('Table.rowSelection', () => {
     const radios = wrapper.find('input');
 
     expect(radios.length).toBe(4);
-
+    radios.first().simulate('click');
     radios.first().simulate('change', { target: { checked: true } });
     expect(getSelections(wrapper)).toEqual([0]);
 
