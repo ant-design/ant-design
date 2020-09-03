@@ -809,7 +809,7 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading"
+        class="anticon anticon-loading ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
@@ -841,7 +841,7 @@ Array [
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading"
+        class="anticon anticon-loading ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
