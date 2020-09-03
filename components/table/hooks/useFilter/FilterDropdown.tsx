@@ -152,6 +152,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
   React.useEffect(() => {
     return () => {
+      console.log(222222222);
       window.clearTimeout(openRef.current);
     };
   }, []);

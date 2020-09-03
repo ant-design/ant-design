@@ -13,7 +13,7 @@ interface ScrollToOptions {
 
 export default function scrollTo(y: number, options: ScrollToOptions = {}) {
   const { getContainer = () => window, callback, duration = 450 } = options;
-
+  console.log(getContainer);
   const container = getContainer();
   const scrollTop = getScroll(container, true);
   const startTime = Date.now();
