@@ -14,7 +14,7 @@ title:
 Use `oneWay` to makes Transfer to one way style.
 
 ```jsx
-import { Space, Transfer, Switch } from 'antd';
+import { Transfer, Switch } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -74,15 +74,14 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
           oneWay
+          style={{ marginBottom: 16 }}
         />
-        <Space style={{ marginTop: 16 }}>
-          <Switch
-            unCheckedChildren="disabled"
-            checkedChildren="disabled"
-            checked={disabled}
-            onChange={this.handleDisable}
-          />
-        </Space>
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={this.handleDisable}
+        />
       </>
     );
   }

@@ -1,12 +1,14 @@
 import * as React from 'react';
 import RcTextArea, { TextAreaProps as RcTextAreaProps, ResizableTextArea } from 'rc-textarea';
 import omit from 'omit.js';
+import classNames from 'classnames';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { fixControlledValue, resolveOnChange } from './Input';
 
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
+  bordered?: boolean;
 }
 
 export interface TextAreaState {
@@ -27,7 +29,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   static getDerivedStateFromProps(nextProps: TextAreaProps) {
-    if ('value' in nextProps) {
+    if (nextProps.value !== undefined) {
       return {
         value: nextProps.value,
       };
@@ -36,7 +38,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   setValue(value: string, callback?: () => void) {
-    if (!('value' in this.props)) {
+    if (this.props.value === undefined) {
       this.setState({ value }, callback);
     }
   }
@@ -69,10 +71,13 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
   };
 
-  renderTextArea = (prefixCls: string) => {
+  renderTextArea = (prefixCls: string, bordered: boolean) => {
     return (
       <RcTextArea
-        {...omit(this.props, ['allowClear'])}
+        {...omit(this.props, ['allowClear', 'bordered'])}
+        className={classNames(this.props.className, {
+          [`${prefixCls}-borderless`]: !bordered,
+        })}
         prefixCls={prefixCls}
         onChange={this.handleChange}
         ref={this.saveTextArea}
@@ -82,7 +87,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
   renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
-    const { prefixCls: customizePrefixCls } = this.props;
+    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     return (
       <ClearableLabeledInput
@@ -91,10 +96,11 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         direction={direction}
         inputType="text"
         value={fixControlledValue(value)}
-        element={this.renderTextArea(prefixCls)}
+        element={this.renderTextArea(prefixCls, bordered)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
         triggerFocus={this.focus}
+        bordered={bordered}
       />
     );
   };

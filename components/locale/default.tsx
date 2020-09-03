@@ -21,6 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Reset',
     filterEmptyText: 'No filters',
+    emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
     selectionAll: 'Select all data',
@@ -75,6 +76,7 @@ const localeValues: Locale = {
     back: 'Back',
   },
   Form: {
+    optional: '(optional)',
     defaultValidateMessages: {
       default: 'Field validation error ${label}',
       required: 'Please enter ${label}',

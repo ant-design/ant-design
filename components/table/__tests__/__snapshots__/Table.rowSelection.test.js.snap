@@ -1038,7 +1038,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity: 0;"
+                            style="opacity: 0; pointer-events: none;"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
@@ -1368,7 +1368,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity: 0;"
+                            style="opacity: 0; pointer-events: none;"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"

@@ -28,7 +28,7 @@
     }
   }
 
-  .@{select-prefix-cls}-focused& {
+  .@{select-prefix-cls}-focused:not(.@{select-prefix-cls}-disabled)& {
     .active();
   }
 
@@ -123,6 +123,10 @@
       &:not(.@{select-prefix-cls}-suffix) {
         pointer-events: auto;
       }
+    }
+
+    .@{select-prefix-cls}-disabled & {
+      cursor: not-allowed;
     }
   }
 

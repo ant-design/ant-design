@@ -6,6 +6,7 @@ import ConfigProvider from '../../config-provider';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 const options = [
   {
@@ -133,7 +134,7 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: 'z' } });
     expect(wrapper.state('inputValue')).toBe('z');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
@@ -183,14 +184,21 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: '__notfoundkeyword__' } });
     expect(wrapper.state('inputValue')).toBe('__notfoundkeyword__');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
-  it('should support to clear selection', () => {
+  it('should support to clear selection', async () => {
     const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
+    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
+    const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('Zhejiang / Hangzhou');
     wrapper.find('.ant-cascader-picker-clear').at(0).simulate('click');
+    await sleep(300);
     expect(wrapper.find('.ant-cascader-picker-label').text()).toBe('');
+    wrapper.unmount();
+    expect(willUnmount).toHaveBeenCalled();
+    expect(clearTimeoutSpy).toHaveBeenCalled();
+    clearTimeoutSpy.mockRestore();
   });
 
   it('should close popup when clear selection', () => {
@@ -310,7 +318,7 @@ describe('Cascader', () => {
     const wrapper = mount(<Cascader options={customerOptions} />);
     wrapper.find('input').simulate('click');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   describe('limit filtered item count', () => {
@@ -507,5 +515,13 @@ describe('Cascader', () => {
       .at(0)
       .simulate('click');
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
+  });
+
+  it('options should open after press esc and then search', () => {
+    const wrapper = mount(<Cascader options={options} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
+    wrapper.find('input').simulate('keydown', { keyCode: KeyCode.ESC });
+    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
+    expect(wrapper.state('popupVisible')).toBe(true);
   });
 });

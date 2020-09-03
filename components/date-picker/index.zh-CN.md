@@ -17,11 +17,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 日期类组件包括以下五种形式。
 
 - DatePicker
-- MonthPicker
+- DatePicker\[picker="month"]
+- DatePicker\[picker="week"]
+- DatePicker\[picker="year"]
+- DatePicker\[picker="quarter"] (4.1.0 新增)
 - RangePicker
-- WeekPicker
-- YearPicker
-- QuarterPicker (4.1.0 新增)
 
 ### 国际化配置
 
@@ -30,6 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
 ```jsx
+import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
@@ -39,13 +40,16 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import locale from 'antd/es/locale/zh_CN';
 
-<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
+<ConfigProvider locale={locale}>
+  <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+</ConfigProvider>;
 ```
 
 ### 共同的 API
 
-以下 API 为 DatePicker、YearPicker、MonthPicker、RangePicker, WeekPicker 共享的 API。
+以下 API 为 DatePicker、 RangePicker 共享的 API。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -60,6 +64,7 @@ import 'moment/locale/zh-cn';
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | 控制弹层是否展开 | boolean | - |  |
+| panelRender | 自定义渲染面板 | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
@@ -96,7 +101,7 @@ import 'moment/locale/zh-cn';
 | onPanelChange | 日期面板变化时的回调 | function(value, mode) | - |  |
 | showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
-### YearPicker
+### DatePicker\[picker=year]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -107,7 +112,7 @@ import 'moment/locale/zh-cn';
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
-### QuarterPicker
+### DatePicker\[picker=quarter]
 
 `4.1.0` 新增。
 
@@ -120,7 +125,7 @@ import 'moment/locale/zh-cn';
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
-### MonthPicker
+### DatePicker\[picker=month]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -132,7 +137,7 @@ import 'moment/locale/zh-cn';
 | value | 日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
 
-### WeekPicker
+### DatePicker\[picker=week]
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -152,7 +157,7 @@ import 'moment/locale/zh-cn';
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | - |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
-| disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `start` \| `end`) | - |  |
+| disabledTime | 不可选择的时间 | function(date: moment, partial: `start` \| `end`) | - |  |
 | format | 展示的日期格式 | string | `YYYY-MM-DD HH:mm:ss` |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
@@ -160,33 +165,32 @@ import 'moment/locale/zh-cn';
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | 日期 | [moment](http://momentjs.com/)\[] | - |  |
-| onCalendarChange | 待选日期发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
+| onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[moment, moment\], dateStrings: \[string, string\], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | - |  |
-
-<style>
-.code-box-demo .ant-picker {
-  margin: 0 8px 12px 0;
-}
-.ant-row-rtl .code-box-demo .ant-picker {
-  margin: 0 0 12px 8px;
-}
-</style>
 
 ## FAQ
 
-- [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
+### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？
 
-- [如何在 DatePicker 中使用自定义日期库（如 dayjs ）？](/docs/react/replace-moment#DatePicker)
+请参考[常见问答](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
 
-- 如何修改周的起始日？
+### 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？
 
-  请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：https://codesandbox.io/s/moment-day-of-week-b24k5
+请参考[《替换 Moment.js》](/docs/react/replace-moment#DatePicker)
 
-  ```js
-  moment.locale('en', {
-    // 注意请修改你正在使用的 locale 语言，比如 zh-cn
-    week: {
-      dow: 1,
-    },
-  });
-  ```
+### 为何全局修改 moment.locale 不生效？
+
+v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `locale` 属性来单独设置，也可以通过 [ConfigProvider `locale`](/components/config-provider) 属性来配置。
+
+### 如何修改周的起始日？
+
+请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：https://codesandbox.io/s/moment-day-of-week-6dby5
+
+```js
+moment.locale('en', {
+  // 注意请修改你正在使用的 locale 语言，比如 zh-cn
+  week: {
+    dow: 1,
+  },
+});
+```

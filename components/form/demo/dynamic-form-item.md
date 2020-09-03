@@ -87,6 +87,15 @@ const DynamicFieldSet = () => {
                 >
                   <PlusOutlined /> Add field
                 </Button>
+                <Button
+                  type="dashed"
+                  onClick={() => {
+                    add('The head item', 0);
+                  }}
+                  style={{ width: '60%', marginTop: '20px' }}
+                >
+                  <PlusOutlined /> Add field at head
+                </Button>
               </Form.Item>
             </div>
           );

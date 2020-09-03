@@ -735,7 +735,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 
 exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -825,6 +825,33 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
       </span>
     </span>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -1089,112 +1116,250 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 `;
 
 exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
->
+Array [
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+    style="width:100%"
   >
-    <span
-      class="ant-select-selection-item"
+    <div
+      class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-item-content"
-      >
-        a10
-      </span>
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-item-remove"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
+        class="ant-select-selection-item"
       >
         <span
-          aria-label="close"
-          class="anticon anticon-close"
-          role="img"
+          class="ant-select-selection-item-content"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          a10
+        </span>
+        <span
+          aria-hidden="true"
+          class="ant-select-selection-item-remove"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
           >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
         </span>
       </span>
-    </span>
-    <span
-      class="ant-select-selection-item"
-    >
       <span
-        class="ant-select-selection-item-content"
-      >
-        c12
-      </span>
-      <span
-        aria-hidden="true"
-        class="ant-select-selection-item-remove"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
+        class="ant-select-selection-item"
       >
         <span
-          aria-label="close"
-          class="anticon anticon-close"
-          role="img"
+          class="ant-select-selection-item-content"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          c12
+        </span>
+        <span
+          aria-hidden="true"
+          class="ant-select-selection-item-remove"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
           >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
         </span>
       </span>
-    </span>
-    <span
-      class="ant-select-selection-search"
-      style="width:0"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        unselectable="on"
-        value=""
-      />
       <span
-        aria-hidden="true"
-        class="ant-select-selection-search-mirror"
+        class="ant-select-selection-search"
+        style="width:0"
       >
-         
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          unselectable="on"
+          value=""
+        />
+        <span
+          aria-hidden="true"
+          class="ant-select-selection-search-mirror"
+        >
+           
+        </span>
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-clear"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
       </span>
     </span>
-  </div>
-</div>
+  </div>,
+  <br />,
+  <div
+    class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+    style="width:100%"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-item"
+      >
+        <span
+          class="ant-select-selection-item-content"
+        >
+          a10
+        </span>
+        <span
+          aria-hidden="true"
+          class="ant-select-selection-item-remove"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <span
+        class="ant-select-selection-item"
+      >
+        <span
+          class="ant-select-selection-item-content"
+        >
+          c12
+        </span>
+        <span
+          aria-hidden="true"
+          class="ant-select-selection-item-remove"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <span
+        class="ant-select-selection-search"
+        style="width:0"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          disabled=""
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          unselectable="on"
+          value=""
+        />
+        <span
+          aria-hidden="true"
+          class="ant-select-selection-search-mirror"
+        >
+           
+        </span>
+      </span>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `

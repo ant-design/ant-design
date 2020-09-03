@@ -21,6 +21,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 | autoFocus | 自动获取焦点 | boolean | false |
 | defaultValue | 初始值 | number | - |
 | disabled | 禁用 | boolean | false |
+| readOnly | 只读 | boolean | false |
 | formatter | 指定输入框展示值的格式 | function(value: number \| string): string | - |
 | max | 最大值 | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) |
 | min | 最小值 | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) |
@@ -30,7 +31,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 |
 | value | 当前值 | number | - |
-| onChange | 变化回调 | Function(value: number \| string) | - |
+| onChange | 变化回调 | function(value: number \| string) | - |
 | onPressEnter | 按下回车的回调 | function(e) | - |
 
 ## 方法

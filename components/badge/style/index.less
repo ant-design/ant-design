@@ -23,13 +23,22 @@
     line-height: @badge-height;
     white-space: nowrap;
     text-align: center;
-    background: @highlight-color;
+    background: @badge-color;
     border-radius: @badge-height / 2;
     box-shadow: 0 0 0 1px @shadow-color-inverse;
     a,
     a:hover {
       color: @badge-text-color;
     }
+  }
+
+  &-count-sm {
+    min-width: @badge-height-sm;
+    height: @badge-height-sm;
+    padding: 0;
+    font-size: @badge-font-size-sm;
+    line-height: @badge-height-sm;
+    border-radius: @badge-height-sm / 2;
   }
 
   &-multiple-words {
@@ -190,4 +199,5 @@
   }
 }
 
+@import './ribbon';
 @import './rtl';

@@ -66,6 +66,8 @@ Methods for global configuration and destruction are also provided:
 - `message.config(options)`
 - `message.destroy()`
 
+> use `message.destroy(key)` to remove a message。
+
 #### message.config
 
 > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
@@ -78,13 +80,39 @@ message.config({
   duration: 2,
   maxCount: 3,
   rtl: true,
+  prefixCls: 'my-message',
 });
 ```
 
-| Argument | Description | Type | Default |
-| --- | --- | --- | --- |
-| duration | Time before auto-dismiss, in seconds | number | 1.5 |
-| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
-| maxCount | Max message show, drop oldest if exceed limit | number | - |
-| top | Distance from top | number | 24 |
-| rtl | Whether to enable RTL mode | boolean | false |
+| Argument | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| duration | Time before auto-dismiss, in seconds | number | 1.5 |  |
+| getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
+| maxCount | Max message show, drop oldest if exceed limit | number | - |  |
+| top | Distance from top | number | 24 |  |
+| rtl | Whether to enable RTL mode | boolean | false |  |
+| prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
+
+## FAQ
+
+### Why I can not access context, redux in message?
+
+antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context.
+
+When you need context info (like ConfigProvider context), you can use `message.useMessage` to get `api` instance and `contextHolder` node. And put it in your children:
+
+```tsx
+const [api, contextHolder] = message.useMessage();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder is inside Context1 which means api will get value of Context1 */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder is outside Context2 which means api will **not** get value of Context2 */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.

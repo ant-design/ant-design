@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount, render } from 'enzyme';
 import Layout from '..';
 import Icon from '../../icon';
@@ -14,7 +14,7 @@ describe('Layout', () => {
   mountTest(Sider);
   mountTest(() => (
     <Layout>
-      <Sider />
+      <Sider breakpoint="xs" />
       <Content />
     </Layout>
   ));
@@ -23,7 +23,7 @@ describe('Layout', () => {
   rtlTest(Content);
   rtlTest(Sider);
 
-  it('detect the sider as children', async () => {
+  it('detect the sider as children', () => {
     const wrapper = mount(
       <Layout>
         <Sider>Sider</Sider>
@@ -31,6 +31,34 @@ describe('Layout', () => {
       </Layout>,
     );
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    wrapper.unmount();
+  });
+
+  it('umount from multiple siders', async () => {
+    const App = () => {
+      const [hide1, setHide1] = useState(false);
+      const [hide2, setHide2] = useState(false);
+      return (
+        <Layout>
+          {hide1 ? null : <Sider>Sider</Sider>}
+          {hide2 ? null : <Sider>Sider</Sider>}
+          <Content>
+            <button onClick={() => setHide1(true)} type="button">
+              hide sider 1
+            </button>
+            <button onClick={() => setHide2(true)} type="button">
+              hide sider 2
+            </button>
+          </Content>
+        </Layout>
+      );
+    };
+    const wrapper = mount(<App />);
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    wrapper.find('button').at(0).simulate('click');
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    wrapper.find('button').at(1).simulate('click');
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
   });
 
   it('detect the sider inside the children', async () => {

@@ -933,6 +933,81 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
 </form>
 `;
 
+exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="debug"
+>
+  0
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="debug_debug1"
+        title="debug1"
+      >
+        debug1
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="debug_debug1"
+            type="text"
+            value="debug1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="debug_debug2"
+        title="debug2"
+      >
+        debug2
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="debug_debug2"
+            type="text"
+            value="debug2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -1002,7 +1077,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1042,7 +1119,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1113,7 +1192,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1153,7 +1234,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1250,7 +1333,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1303,7 +1388,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1392,7 +1479,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1441,7 +1530,9 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Buggy!
         </div>
       </div>
@@ -1499,6 +1590,39 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
               </span>
               <span>
                  Add field
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-dashed"
+              style="width:60%;margin-top:20px"
+              type="button"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs />
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+              <span>
+                 Add field at head
               </span>
             </button>
           </div>
@@ -2367,7 +2491,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -2394,7 +2518,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -3396,6 +3520,201 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required-mark-optional"
+        for="requiredMark"
+        title="Required Mark"
+      >
+        Required Mark
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline"
+            id="requiredMark"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="optional"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Optional
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="true"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Required
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="false"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Hidden
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required ant-form-item-required-mark-optional"
+        title="Field A"
+      >
+        Field A
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required-mark-optional"
+        title="Field B"
+      >
+        Field B
+        <span
+          class="ant-form-item-optional"
+        >
+          (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            placeholder="input placeholder"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/size.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"
@@ -3846,7 +4165,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -3873,7 +4192,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -4742,7 +5061,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -4769,7 +5088,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -5736,7 +6055,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     </svg>
                   </span>
                   <span>
-                     Click to upload
+                    Click to upload
                   </span>
                 </button>
               </span>
@@ -5904,7 +6223,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Should be combination of numbers & alphabets
         </div>
       </div>
@@ -6029,7 +6350,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           The information is being validated...
         </div>
       </div>
@@ -6207,7 +6530,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           Should be combination of numbers & alphabets
         </div>
       </div>
@@ -6592,7 +6917,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           The information is being validated...
         </div>
       </div>
@@ -6679,7 +7006,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               <div
                 class="ant-form-item-explain"
               >
-                <div>
+                <div
+                  role="alert"
+                >
                   Please select the correct date
                 </div>
               </div>
@@ -6784,7 +7113,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -6811,7 +7140,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -7202,7 +7531,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="ant-input-number-handler ant-input-number-handler-up"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="up"
@@ -7229,7 +7558,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="ant-input-number-handler ant-input-number-handler-down"
                 role="button"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <span
                   aria-label="down"
@@ -7275,7 +7604,9 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
       <div
         class="ant-form-item-explain"
       >
-        <div>
+        <div
+          role="alert"
+        >
           A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
         </div>
       </div>

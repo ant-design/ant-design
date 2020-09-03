@@ -21,6 +21,14 @@ describe('Slider', () => {
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
+  it('should show correct placement tooltip when set tooltipPlacement', () => {
+    const wrapper = mount(<Slider vertical defaultValue={30} tooltipPlacement="left" />);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+  });
+
   it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
     let wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);

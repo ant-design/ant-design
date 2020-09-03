@@ -31,7 +31,7 @@ See: https://ant.design/docs/react/customize-theme .
 
 ### Will you provide other themes?
 
-No, we follow Ant Design's design specification. 
+No, we follow Ant Design's design specification.
 
 Related issue: https://github.com/ant-design/ant-design/issues/1241
 
@@ -111,6 +111,26 @@ Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#is
 ##### Workaround
 
 You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are already planning to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements.
+
+### message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
+
+Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to indepent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
+
+1. Replace original usages with [message.useMessage](https://ant.design/components/message/#components-message-demo-hooks), [notification.useNotification](https://ant.design/components/notification/#Why-I-can-not-access-context,-redux-in-notification) and [Modal.useModal](https://ant.design/components/modal/#Why-I-can-not-access-context,-redux-in-Modal.xxx).
+
+2. Use `message.config`, `notification.config` and `Modal.config` to config `prefixCls` globally.
+
+```js
+message.config({
+  prefixCls: 'ant-message',
+});
+notification.config({
+  prefixCls: 'ant-notification',
+});
+Modal.config({
+  rootPrefixCls: 'ant',
+});
+```
 
 ### How to spell Ant Design correctly?
 

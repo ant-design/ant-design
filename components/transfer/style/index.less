@@ -94,6 +94,10 @@
         transform: translateY(10%);
         cursor: pointer;
         .iconfont-size-under-12px(10px);
+
+        &[disabled] {
+          cursor: not-allowed;
+        }
       }
     }
 
@@ -189,9 +193,9 @@
     }
 
     &-pagination {
-      flex: none;
-      align-self: flex-end;
       padding: @padding-xs 0;
+      text-align: right;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
 
     &-body-not-found {

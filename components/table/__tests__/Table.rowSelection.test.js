@@ -86,7 +86,7 @@ describe('Table.rowSelection', () => {
     const radios = wrapper.find('input');
 
     expect(radios.length).toBe(4);
-
+    radios.first().simulate('click');
     radios.first().simulate('change', { target: { checked: true } });
     expect(getSelections(wrapper)).toEqual([0]);
 
@@ -98,6 +98,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
+        indeterminate: record.name === 'Tom',
         name: record.name,
       }),
     };
@@ -109,6 +110,22 @@ describe('Table.rowSelection', () => {
     expect(checkboxes.at(1).props().name).toEqual(data[0].name);
     expect(checkboxes.at(2).props().disabled).toBe(true);
     expect(checkboxes.at(2).props().name).toEqual(data[1].name);
+
+    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
+  });
+
+  it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
+    const rowSelection = {
+      getCheckboxProps: record => ({
+        disabled: record.name === 'Lucy',
+        indeterminate: record.name === 'Tom',
+        name: record.name,
+      }),
+      selectedRowKeys: [2],
+    };
+
+    const wrapper = mount(createTable({ rowSelection }));
+    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
   });
 
   it('works with pagination', () => {
@@ -1040,6 +1057,26 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(wrapper)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
+    });
+    it('warns when set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured data.', () => {
+      resetWarned();
+      mount(
+        createTable({
+          dataSource: dataWithChildren,
+          defaultExpandAllRows: true,
+          rowSelection: {
+            checkStrictly: false,
+            getCheckboxProps() {
+              return {
+                indeterminate: true,
+              };
+            },
+          },
+        }),
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
+      );
     });
   });
 

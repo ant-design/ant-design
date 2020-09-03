@@ -1316,141 +1316,347 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
-<div
-  class="ant-tabs ant-tabs-top"
->
+Array [
   <div
-    class="ant-tabs-nav"
-    role="tablist"
+    class="ant-tabs ant-tabs-top"
   >
     <div
-      class="ant-tabs-nav-wrap"
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        class="ant-tabs-nav-wrap"
       >
         <div
-          class="ant-tabs-tab ant-tabs-tab-active"
+          class="ant-tabs-nav-list"
+          style="transform:translate(0px, 0px)"
         >
           <div
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab ant-tabs-tab-active"
           >
-            Tab 1
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            Tab 2
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            Tab 3
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
           </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="visibility:hidden;order:1"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Extra Action
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
         </div>
         <div
-          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
+        />
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
         />
       </div>
     </div>
-    <div
-      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-    >
-      <button
-        aria-controls="null-more-popup"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-hidden="true"
-        class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
-        tabindex="-1"
-        type="button"
-      >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-tabs-extra-content"
-    >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Extra Action
-        </span>
-      </button>
-    </div>
-  </div>
+  </div>,
+  <br />,
+  <br />,
+  <br />,
+  <div>
+    You can also specify its direction or both side
+  </div>,
   <div
-    class="ant-tabs-content-holder"
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="left"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        left
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="right"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        right
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-tabs ant-tabs-top"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        role="tabpanel"
-        tabindex="0"
+        class="ant-tabs-extra-content"
       >
-        Content of tab 1
+        <button
+          class="ant-btn"
+          style="margin-right:15px"
+          type="button"
+        >
+          <span>
+            Left Extra Action
+          </span>
+        </button>
       </div>
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
-        role="tabpanel"
-        style="display:none"
-        tabindex="-1"
-      />
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform:translate(0px, 0px)"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
       <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane"
-        role="tabpanel"
-        style="display:none"
-        tabindex="-1"
-      />
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="visibility:hidden;order:1"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Right Extra Action
+          </span>
+        </button>
+      </div>
     </div>
-  </div>
-</div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
+        </div>
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
+        />
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane"
+          role="tabpanel"
+          style="display:none"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `

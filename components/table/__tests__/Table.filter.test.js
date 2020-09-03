@@ -82,16 +82,23 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
-    const wrapper = mount(createTable({
-      columns: [
-        {
-          ...column,
-          filters: [],
-        },
-      ],
-    }));
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [],
+          },
+        ],
+      }),
+    );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
     expect(wrapper.find('Empty').length).toBe(1);
+    // eslint-disable-next-line no-console
+    expect(console.error).not.toHaveBeenCalled();
+    // eslint-disable-next-line no-console
+    console.error.mockRestore();
   });
 
   it('renders radio filter correctly', () => {
@@ -690,6 +697,22 @@ describe('Table.filter', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('renders custom filter icon as ReactNode', () => {
+    const filterIcon = <span className="customize-icon" />;
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('span.customize-icon').length).toBe(1);
+  });
+
   // https://github.com/ant-design/ant-design/issues/13028
   it('reset dropdown filter correctly', () => {
     class Demo extends React.Component {
@@ -1197,5 +1220,33 @@ describe('Table.filter', () => {
       .find('Checkbox')
       .first();
     expect(checkbox.props().checked).toEqual(false);
+  });
+
+  it('should not trigger onChange when filter is empty', () => {
+    const onChange = jest.fn();
+    const Test = ({ filters }) => (
+      <Table
+        onChange={onChange}
+        rowKey="name"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filters,
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
+    const wrapper = mount(<Test filters={[]} />);
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    expect(onChange).not.toHaveBeenCalled();
+    onChange.mockReset();
+    wrapper.unmount();
   });
 });

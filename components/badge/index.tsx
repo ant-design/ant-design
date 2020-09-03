@@ -2,12 +2,18 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import ScrollNumber from './ScrollNumber';
-import { PresetColorTypes, PresetColorType, PresetStatusColorType } from '../_util/colors';
+import Ribbon from './Ribbon';
+import { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
 import { LiteralUnion } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
+import { isPresetColor } from './utils';
 
 export { ScrollNumberProps } from './ScrollNumber';
+
+interface CompoundedComponent extends React.FC<BadgeProps> {
+  Ribbon: typeof Ribbon;
+}
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -24,15 +30,12 @@ export interface BadgeProps {
   status?: PresetStatusColorType;
   color?: LiteralUnion<PresetColorType, string>;
   text?: React.ReactNode;
+  size?: 'default' | 'small';
   offset?: [number | string, number | string];
   title?: string;
 }
 
-function isPresetColor(color?: string): boolean {
-  return (PresetColorTypes as any[]).indexOf(color) !== -1;
-}
-
-const Badge: React.FC<BadgeProps> = ({
+const Badge: CompoundedComponent = ({
   prefixCls: customizePrefixCls,
   scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
   children,
@@ -42,6 +45,7 @@ const Badge: React.FC<BadgeProps> = ({
   count = null,
   overflowCount = 99,
   dot = false,
+  size = 'default',
   title,
   offset,
   style,
@@ -58,9 +62,7 @@ const Badge: React.FC<BadgeProps> = ({
     return displayCount as string | number | null;
   };
 
-  const hasStatus = (): boolean => {
-    return !!status || !!color;
-  };
+  const hasStatus = (): boolean => (status !== null && status !== undefined) || (color !== null && color !== undefined);
 
   const isZero = () => {
     const numberedDisplayCount = getNumberedDisplayCount();
@@ -138,6 +140,7 @@ const Badge: React.FC<BadgeProps> = ({
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: bDot,
       [`${prefixCls}-count`]: !bDot,
+      [`${prefixCls}-count-sm`]: size === 'small',
       [`${prefixCls}-multiple-words`]:
         !bDot && count && count.toString && count.toString().length > 1,
       [`${prefixCls}-status-${status}`]: !!status,
@@ -209,5 +212,7 @@ const Badge: React.FC<BadgeProps> = ({
     </span>
   );
 };
+
+Badge.Ribbon = Ribbon;
 
 export default Badge;

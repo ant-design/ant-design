@@ -158,4 +158,20 @@ describe('Avatar Render', () => {
     wrapper.simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
   });
+
+  it('fallback', () => {
+    const div = global.document.createElement('div');
+    global.document.body.appendChild(div);
+    const wrapper = mount(
+      <Avatar shape="circle" src="http://error.url">
+        A
+      </Avatar>,
+      { attachTo: div },
+    );
+    wrapper.find('img').simulate('error');
+    wrapper.update();
+    expect(wrapper).toMatchRenderedSnapshot();
+    wrapper.detach();
+    global.document.body.removeChild(div);
+  });
 });

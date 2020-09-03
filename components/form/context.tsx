@@ -4,6 +4,7 @@ import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
+import { RequiredMark } from './Form';
 
 /**
  * Form Context
@@ -16,6 +17,7 @@ export interface FormContextProps {
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
+  requiredMark?: RequiredMark;
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
 }
 

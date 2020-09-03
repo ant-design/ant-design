@@ -226,17 +226,15 @@
     transform: rotateY(180deg);
   }
 
-  i {
-    color: @site-text-color-secondary;
-
-    &:hover {
-      color: @primary-color;
-    }
-  }
-
   .anticon {
     display: block;
+    color: @site-text-color-secondary;
     font-size: 16px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: @site-text-color;
+    }
   }
 }
 
@@ -256,15 +254,16 @@
 }
 
 .markdown.api-container {
-  overflow-x: auto;
-
   table {
-    min-width: 720px;
+    display: block;
     margin: 2em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
     font-size: max(@font-size-base - 1px, 12px);
     font-family: @code-family;
     line-height: @line-height-base;
     border: 1px solid @border-color-split;
+    -webkit-overflow-scrolling: touch;
 
     th,
     td {
@@ -287,18 +286,25 @@
 
     td {
       &:first-child {
-        width: 20%;
+        width: 18%;
         color: @gray-8;
         font-weight: 600;
+        white-space: nowrap;
+      }
+      &:nth-child(2) {
+        width: 55%;
       }
       &:nth-child(3) {
         width: 22%;
         color: @magenta-7;
         font-size: max(@font-size-base - 1px, 12px);
-        word-break: break-all;
       }
       &:nth-child(4) {
-        width: 16%;
+        width: 15%;
+        font-size: max(@font-size-base - 1px, 12px);
+      }
+      &:nth-child(5) {
+        width: 8%;
         font-size: max(@font-size-base - 1px, 12px);
       }
     }

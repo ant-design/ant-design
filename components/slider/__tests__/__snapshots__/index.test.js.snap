@@ -57,7 +57,7 @@ exports[`Slider should render in RTL direction 1`] = `
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip ant-tooltip-rtl"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-tooltip-content"
@@ -84,11 +84,64 @@ exports[`Slider should render in RTL direction 1`] = `
 </div>
 `;
 
+exports[`Slider should show correct placement tooltip when set tooltipPlacement 1`] = `
+<div>
+  <div
+    class="ant-tooltip ant-slider-tooltip"
+    style="opacity:0;pointer-events:none"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        30
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider should show correct placement tooltip when set tooltipPlacement 2`] = `
+<div>
+  <div
+    class="ant-tooltip ant-slider-tooltip ant-tooltip-hidden"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        30
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Slider should show tooltip when hovering slider handler 1`] = `
 <div>
   <div
     class="ant-tooltip ant-slider-tooltip"
-    style="opacity:0"
+    style="opacity:0;pointer-events:none"
   >
     <div
       class="ant-tooltip-content"

@@ -1,5 +1,11 @@
 #!/bin/sh
 
+echo "[TEST ALL] check-commit"
+npm run check-commit
+
+echo "[TEST ALL] lint"
+npm run lint
+
 if [ "$1" != "--skip-build" ]; then
   echo "[TEST ALL] dist"
   npm run dist
@@ -9,12 +15,6 @@ if [ "$1" != "--skip-build" ]; then
 else
   echo "Skip build..."
 fi
-
-echo "[TEST ALL] check-commit"
-npm run check-commit
-
-echo "[TEST ALL] lint"
-npm run lint
 
 echo "[TEST ALL] dekko dist"
 node ./tests/dekko/dist.test.js

@@ -185,6 +185,51 @@ exports[`Breadcrumb should render a menu 1`] = `
 </div>
 `;
 
+exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Location
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Mock Node
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Application Center
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
 exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
 <div
   class="ant-breadcrumb"

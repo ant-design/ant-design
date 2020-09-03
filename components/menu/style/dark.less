@@ -31,8 +31,13 @@
   &-dark&-horizontal > &-submenu {
     top: 0;
     margin-top: 0;
+    padding: @menu-item-padding;
     border-color: @menu-dark-bg;
     border-bottom: 0;
+  }
+
+  &-dark&-horizontal > &-item:hover {
+    background-color: @menu-dark-item-active-bg;
   }
 
   &-dark&-horizontal > &-item > a::before {

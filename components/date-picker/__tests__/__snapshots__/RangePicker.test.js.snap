@@ -150,7 +150,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"

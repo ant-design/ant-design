@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CSSMotion from 'rc-animate/lib/CSSMotion';
+import CSSMotion from 'rc-motion';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
 export interface LoadingIconProps {

@@ -103,6 +103,17 @@ describe('Table.pagination', () => {
     expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
+  it('should scroll inside .ant-table-body', () => {
+    scrollTo.mockImplementationOnce((top, { getContainer }) => {
+      expect(top).toBe(0);
+      expect(getContainer().className).toBe('ant-table-body');
+    });
+    const wrapper = mount(
+      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
+    );
+    wrapper.find('Pager').last().simulate('click');
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const handlePaginationChange = jest.fn();
@@ -349,7 +360,7 @@ describe('Table.pagination', () => {
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
 
-    expect(onChange).toBeCalledTimes(1)
+    expect(onChange).toBeCalledTimes(1);
   });
 
   it('dynamic warning', () => {
@@ -376,5 +387,26 @@ describe('Table.pagination', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
     );
+  });
+
+  it('should render pagination after last item on last page being removed', () => {
+    const total = data.length;
+    const paginationProp = {
+      pageSize: 1,
+      total,
+      current: total,
+      position: ['topLeft', 'bottomLeft'],
+    };
+    const wrapper = mount(
+      createTable({
+        pagination: paginationProp,
+      }),
+    );
+
+    wrapper.setProps({
+      dataSource: data.slice(total - 1),
+      pagination: { ...paginationProp, total: total - 1 },
+    });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(2);
   });
 });

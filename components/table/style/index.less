@@ -9,6 +9,8 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
+@table-sticky-zindex: @zindex-table-fixed + 1;
+@table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
   max-width: 100%;
@@ -410,12 +412,13 @@
     float: left;
     box-sizing: border-box;
 
-    width: ceil(@font-size-sm * 1.4);
-    height: ceil(@font-size-sm * 1.4);
+    width: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
+    height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
     padding: 0;
     color: inherit;
-    line-height: @font-size-sm;
-    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
+    line-height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base *
+      3;
+    // vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
     background: @table-expand-icon-bg;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
@@ -438,7 +441,7 @@
     }
 
     &::before {
-      top: 7px;
+      top: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
       right: 3px;
       left: 3px;
       height: @border-width-base;
@@ -447,7 +450,7 @@
     &::after {
       top: 3px;
       bottom: 3px;
-      left: 7px;
+      left: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
       width: @border-width-base;
       transform: rotate(90deg);
     }
@@ -472,7 +475,8 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
-      margin-top: (@font-size-base * @line-height-base - ceil(@font-size-sm * 1.4)) / 2;
+      margin-top: (@font-size-base * @line-height-base - @border-width-base * 3) / 2 -
+        ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
       margin-right: @padding-xs;
     }
   }
@@ -516,7 +520,7 @@
   &-cell-fix-right {
     position: -webkit-sticky !important;
     position: sticky !important;
-    z-index: 2;
+    z-index: @zindex-table-fixed;
     background: @table-bg;
   }
 
@@ -593,6 +597,36 @@
     .@{table-prefix-cls}-cell-fix-right-first::after,
     .@{table-prefix-cls}-cell-fix-right-last::after {
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+    }
+  }
+  &-sticky {
+    &-header {
+      position: sticky;
+      z-index: @table-sticky-zindex;
+    }
+    &-scroll {
+      position: fixed;
+      bottom: 0;
+      z-index: @table-sticky-zindex;
+      display: flex;
+      align-items: center;
+      background: lighten(@border-color-split, 80%);
+      border-top: 1px solid @border-color-split;
+      opacity: 0.6;
+      &:hover {
+        transform-origin: center bottom;
+      }
+      &-bar {
+        height: 8px;
+        background-color: @table-sticky-scroll-bar-bg;
+        border-radius: @table-sticky-scroll-bar-radius;
+        &:hover {
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+        &-active {
+          background-color: @table-sticky-scroll-bar-active-bg;
+        }
+      }
     }
   }
 }

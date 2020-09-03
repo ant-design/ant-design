@@ -70,6 +70,7 @@ module.exports = {
     'react/static-property-placement': 0,
     'react/no-find-dom-node': 0,
     'react/no-unused-prop-types': 0,
+    'react/default-props-match-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
 
     'import/extensions': 0,

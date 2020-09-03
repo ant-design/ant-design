@@ -396,7 +396,7 @@ exports[`List.pagination should change page size work 2`] = `
       <div>
         <div
           class="ant-select-dropdown"
-          style="min-width: 0; opacity: 0;"
+          style="min-width: 0; opacity: 0; pointer-events: none;"
         >
           <div>
             <div
@@ -422,77 +422,82 @@ exports[`List.pagination should change page size work 2`] = `
               </div>
             </div>
             <div
-              class=""
-              style="height: 256px;"
+              class="rc-virtual-list"
+              style="position: relative;"
             >
-              <div>
-                <div
-                  class=""
-                  style="display: flex; flex-direction: column;"
-                >
+              <div
+                class="rc-virtual-list-holder"
+                style="max-height: 256px; overflow-y: auto;"
+              >
+                <div>
                   <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    class="rc-virtual-list-holder-inner"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
-                      class="ant-select-item-option-content"
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     >
-                      10 / page
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        10 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                  >
                     <div
-                      class="ant-select-item-option-content"
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
                     >
-                      20 / page
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        20 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                  >
                     <div
-                      class="ant-select-item-option-content"
+                      aria-selected="true"
+                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     >
-                      50 / page
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        50 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
-                  </div>
-                  <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                  >
                     <div
-                      class="ant-select-item-option-content"
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
                     >
-                      100 / page
+                      <div
+                        class="ant-select-item-option-content"
+                      >
+                        100 / page
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select: none;"
-                      unselectable="on"
-                    />
                   </div>
                 </div>
               </div>

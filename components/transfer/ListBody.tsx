@@ -114,6 +114,8 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
       paginationNode = (
         <Pagination
           simple
+          size="small"
+          disabled={globalDisabled}
           className={`${prefixCls}-pagination`}
           total={filteredRenderItems.length}
           pageSize={mergedPagination.pageSize}

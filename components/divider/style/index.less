@@ -6,7 +6,7 @@
 .@{divider-prefix-cls} {
   .reset-component;
 
-  border-top: 1px solid @border-color-split;
+  border-top: 1px solid @divider-color;
 
   &-vertical {
     position: relative;
@@ -16,7 +16,7 @@
     margin: 0 8px;
     vertical-align: middle;
     border-top: 0;
-    border-left: 1px solid @border-color-split;
+    border-left: 1px solid @divider-color;
   }
 
   &-horizontal {
@@ -41,7 +41,7 @@
       position: relative;
       top: 50%;
       width: 50%;
-      border-top: 1px solid @border-color-split;
+      border-top: 1px solid @divider-color;
       transform: translateY(50%);
       content: '';
     }
@@ -76,7 +76,7 @@
 
   &-dashed {
     background: none;
-    border-color: @border-color-split;
+    border-color: @divider-color;
     border-style: dashed;
     border-width: 1px 0 0;
   }

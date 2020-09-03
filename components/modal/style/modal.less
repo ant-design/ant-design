@@ -9,19 +9,10 @@
   width: auto;
   margin: 0 auto;
   padding-bottom: 24px;
-  pointer-events: none;
   max-width: calc(100vw - 16px);
 
   &-wrap {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: @zindex-modal;
-    overflow: auto;
-    outline: 0;
-    -webkit-overflow-scrolling: touch;
   }
 
   &-title {
@@ -105,30 +96,6 @@
     button + button {
       margin-bottom: 0;
       margin-left: 8px;
-    }
-  }
-
-  &.zoom-enter,
-  &.zoom-appear {
-    transform: none; // reset scale avoid mousePosition bug
-    opacity: 0;
-    animation-duration: @animation-duration-slow;
-    user-select: none; // https://github.com/ant-design/ant-design/issues/11777
-  }
-
-  &-mask {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: @zindex-modal-mask;
-    height: 100%;
-    background-color: @modal-mask-bg;
-    filter: ~'alpha(opacity=50)';
-
-    &-hidden {
-      display: none;
     }
   }
 

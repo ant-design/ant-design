@@ -47,6 +47,13 @@
           visibility: visible;
         }
       }
+
+      // fix Carousel content height not match parent node
+      // when children is empty node
+      // https://github.com/ant-design/ant-design/issues/25878
+      > div > div {
+        vertical-align: bottom;
+      }
     }
   }
   .slick-slider .slick-track,
@@ -103,7 +110,6 @@
   .slick-vertical .slick-slide {
     display: block;
     height: auto;
-    border: @border-width-base @border-style-base transparent;
   }
   .slick-arrow.slick-hidden {
     display: none;
