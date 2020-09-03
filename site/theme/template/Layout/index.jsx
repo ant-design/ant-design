@@ -81,15 +81,9 @@ export default class Layout extends React.Component {
 
     this.state = {
       appLocale,
-      theme:
-        typeof localStorage !== 'undefined'
-          ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
-          : 'default',
+      theme: utils.matchTheme(pathname),
       setTheme: this.setTheme,
-      direction:
-        typeof localStorage !== 'undefined'
-          ? localStorage.getItem(SITE_DIRECTION_STORE_KEY) || 'ltr'
-          : 'ltr',
+      direction: utils.matchDirection(pathname),
       setIframeTheme: this.setIframeTheme,
     };
   }

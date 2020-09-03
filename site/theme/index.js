@@ -29,6 +29,7 @@ module.exports = {
     components(markdownData) {
       const { filename } = markdownData.meta;
       if (!/^components/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
+        console.log('null');
         return null;
       }
       return {
@@ -87,6 +88,10 @@ module.exports = {
       },
       {
         path: 'components/:children/',
+        component: contentTmpl,
+      },
+      {
+        path: 'components/:children/:style',
         component: contentTmpl,
       },
       {

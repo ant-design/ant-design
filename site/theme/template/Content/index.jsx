@@ -6,9 +6,16 @@ function isChangelog(pathname) {
   return pathname.indexOf('changelog') >= 0;
 }
 
+function replactPathName(pathname) {
+  const a = pathname.replace('-cn', '').split('/');
+  console.log(a);
+  return a;
+}
+
 export default collect(async nextProps => {
   const { pathname } = nextProps.location;
-  const pageDataPath = pathname.replace('-cn', '').split('/');
+  console.log(pathname);
+  const pageDataPath = replactPathName(pathname);
   const pageData = isChangelog(pathname)
     ? nextProps.data.changelog.CHANGELOG
     : nextProps.utils.get(nextProps.data, pageDataPath);

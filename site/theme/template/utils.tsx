@@ -115,6 +115,23 @@ export function isZhCN(pathname: string) {
   return /-cn\/?$/.test(pathname);
 }
 
+export function matchTheme(pathname: string) {
+  if (/dark/.test(pathname)) {
+    return 'dark';
+  }
+  if (/compact/.test(pathname)) {
+    return 'compact';
+  }
+  return 'default';
+}
+
+export function matchDirection(pathname: string) {
+  if (/rtl/.test(pathname)) {
+    return 'rtl';
+  }
+  return 'ltr';
+}
+
 export function getLocalizedPathname(
   path: string,
   zhCN?: boolean,
