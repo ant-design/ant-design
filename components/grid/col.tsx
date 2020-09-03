@@ -9,6 +9,7 @@ type ColSpanType = number | string;
 type FlexType = number | 'none' | 'auto' | string;
 
 export interface ColSize {
+  flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
   offset?: ColSpanType;
@@ -17,6 +18,7 @@ export interface ColSize {
 }
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
+  flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
   offset?: ColSpanType;
@@ -29,7 +31,6 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   xl?: ColSpanType | ColSize;
   xxl?: ColSpanType | ColSize;
   prefixCls?: string;
-  flex?: FlexType;
 }
 
 function parseFlex(flex: FlexType): string {
