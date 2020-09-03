@@ -38,3 +38,16 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     ob.instance().onResize([{ target: ob.getDOMNode() }]);
   },
 });
+
+Object.assign(Enzyme.ReactWrapper.prototype, {
+  triggerMotionEvent() {
+    this.find('CSSMotion').instance().onMotionEnd();
+    this.update();
+    return this;
+  },
+});
+
+// Fix css-animation deps on these
+// https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
+window.AnimationEvent = window.AnimationEvent || (() => {});
+window.TransitionEvent = window.TransitionEvent || (() => {});
