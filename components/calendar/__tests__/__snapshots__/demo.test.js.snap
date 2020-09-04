@@ -27,6 +27,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -86,6 +87,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -972,6 +974,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1031,6 +1034,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1979,6 +1983,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -2043,6 +2048,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -2886,6 +2892,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -2945,6 +2952,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -4240,6 +4248,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -4299,6 +4308,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />

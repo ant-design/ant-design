@@ -21,6 +21,7 @@ Array [
           autocomplete="off"
           class="ant-select-selection-search-input"
           role="combobox"
+          type="search"
           value=""
         />
       </span>
@@ -52,6 +53,7 @@ Array [
           autocomplete="off"
           class="ant-select-selection-search-input"
           role="combobox"
+          type="search"
           value=""
         />
       </span>
@@ -89,7 +91,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
           class="ant-input ant-input-lg"
           placeholder="input here"
           role="combobox"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -148,6 +150,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
         placeholder="input here"
         role="combobox"
         style="height:50px"
+        type="search"
       />
     </span>
     <span
@@ -202,6 +205,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   role="combobox"
+                  type="search"
                   value=""
                 />
               </span>
@@ -256,6 +260,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -342,6 +347,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -396,6 +402,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     autocomplete="off"
                     class="ant-select-selection-search-input"
                     role="combobox"
+                    type="search"
                     value=""
                   />
                 </span>
@@ -452,7 +459,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     autocomplete="off"
                     class="ant-input"
                     role="combobox"
-                    type="text"
+                    type="search"
                     value=""
                   />
                   <span
@@ -536,6 +543,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -593,7 +601,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       autocomplete="off"
                       class="ant-input"
                       role="combobox"
-                      type="text"
+                      type="search"
                       value=""
                     />
                     <span
@@ -678,6 +686,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -735,7 +744,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       autocomplete="off"
                       class="ant-input"
                       role="combobox"
-                      type="text"
+                      type="search"
                       value=""
                     />
                     <span
@@ -821,6 +830,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -878,7 +888,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       autocomplete="off"
                       class="ant-input"
                       role="combobox"
-                      type="text"
+                      type="search"
                       value=""
                     />
                     <span
@@ -969,6 +979,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -1001,6 +1012,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -1040,7 +1052,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
             class="ant-input ant-input-lg"
             placeholder="input here"
             role="combobox"
-            type="text"
+            type="search"
             value=""
           />
           <span

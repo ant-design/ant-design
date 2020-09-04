@@ -1833,6 +1833,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1890,6 +1891,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1947,6 +1949,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -2004,6 +2007,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -2628,6 +2632,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />

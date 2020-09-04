@@ -20,6 +20,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -105,6 +106,7 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>

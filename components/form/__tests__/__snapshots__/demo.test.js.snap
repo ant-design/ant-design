@@ -554,6 +554,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -721,6 +722,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -862,6 +864,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                     readonly=""
                     role="combobox"
                     style="opacity:0"
+                    type="search"
                     unselectable="on"
                     value=""
                   />
@@ -3284,6 +3287,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                         readonly=""
                         role="combobox"
                         style="opacity:0"
+                        type="search"
                         unselectable="on"
                         value=""
                       />
@@ -3378,7 +3382,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   class="ant-input ant-select-selection-search-input"
                   id="register_website"
                   role="combobox"
-                  type="text"
+                  type="search"
                   value=""
                 />
               </span>
@@ -3882,6 +3886,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -3964,6 +3969,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -4921,6 +4927,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -5008,6 +5015,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -6765,6 +6773,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
