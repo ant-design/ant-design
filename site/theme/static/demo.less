@@ -22,17 +22,6 @@
       background: @component-background;
     }
   }
-  .code-box-description {
-    p {
-      color: @site-text-color;
-    }
-  }
-  a.edit-button .anticon {
-    color: @icon-color;
-    &:hover {
-      color: @icon-color-hover;
-    }
-  }
   &,
   .code-box-demo {
     background-color: @component-background;
@@ -108,10 +97,19 @@
     background: inherit;
     transform: scale(0.9);
 
-    .ant-row-rtl & {
+    .anticon {
+      color: @site-text-color-secondary;
+      transition: all 0.3s;
+      &:hover {
+        color: @site-text-color;
+      }
+    }
+
+    .ant-row.ant-row-rtl & {
       right: auto;
-      left: -21px;
-      padding-right: 0;
+      left: -22px;
+      margin-right: 0;
+      padding-right: 8px;
       padding-left: 6px;
     }
   }
@@ -137,7 +135,7 @@
     }
 
     blockquote {
-      margin: 0;
+      line-height: 1.5;
     }
 
     h4,
@@ -216,8 +214,8 @@
   .highlight {
     position: relative;
 
-    .ant-tabs-nav-scroll {
-      text-align: center;
+    .ant-tabs-nav-list {
+      margin: 0 auto;
     }
 
     pre {
@@ -231,8 +229,9 @@
   }
 
   &-actions {
-    padding-top: 12px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
     border-top: 1px dashed @site-border-color-split;
     opacity: 0.7;
     transition: opacity 0.3s;
@@ -240,63 +239,47 @@
     &:hover {
       opacity: 1;
     }
-
-    > i,
-    > form,
-    > span {
-      position: relative;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      margin-left: 16px;
-      vertical-align: top;
-
-      .ant-row-rtl & {
-        margin-right: 16px;
-        margin-left: 0;
-      }
-
-      &:first-child {
-        margin-left: 0;
-
-        .ant-row-rtl & {
-          margin-right: 0;
-        }
-      }
-    }
-
-    > form {
-      top: -2px;
-    }
   }
 
-  &-code-action {
-    width: 20px;
-    height: 20px;
+  &-actions > &-code-action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    margin-left: 16px;
     color: @site-text-color-secondary;
-    font-size: 16px;
-    line-height: 18px;
     cursor: pointer;
     transition: all 0.24s;
+
+    .ant-row-rtl & {
+      margin-right: 16px;
+      margin-left: 0;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      .ant-row-rtl & {
+        margin-right: 0;
+      }
+    }
+
     &:hover {
-      color: @icon-color-hover;
+      color: @site-text-color;
     }
   }
 
   &-code-copy {
-    width: 20px;
-    height: 20px;
-    color: @site-text-color-secondary;
+    width: 14px;
+    height: 14px;
     font-size: 14px;
-    line-height: 20px;
     text-align: center;
     background: @component-background;
-    border-radius: 20px;
     cursor: pointer;
-    transition: all 0.24s;
+    transition: transform 0.24s;
 
     &:hover {
-      color: @icon-color-hover;
       transform: scale(1.2);
     }
     &.anticon-check {
@@ -306,52 +289,27 @@
   }
 
   &-codepen {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     overflow: hidden;
-    text-indent: -9999px;
-    background: transparent
-      url('https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg') center / 14px
-      no-repeat;
     border: 0;
     cursor: pointer;
-    opacity: 0.65;
-    transition: all 0.3s;
-    &:hover {
-      opacity: 1;
-    }
   }
 
   &-riddle {
-    display: none;
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     overflow: hidden;
-    text-indent: -9999px;
-    background: transparent
-      url('https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg') center / 14px
-      no-repeat;
     border: 0;
     cursor: pointer;
-    opacity: 0.65;
-    transition: all 0.3s;
-    &:hover {
-      opacity: 1;
-    }
   }
 
   &-codesandbox {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     overflow: hidden;
-    text-indent: -9999px;
-    background: transparent
-      url('https://gw.alipayobjects.com/zos/rmsportal/aaYmtdDyHSCkXyLZVgGK.svg') center / 14px
-      no-repeat;
     border: 0;
     cursor: pointer;
-    opacity: 0.65;
-    transition: all 0.3s;
     &:hover {
       opacity: 1;
     }
@@ -380,10 +338,6 @@
   &-debug &-title a {
     color: @purple-6;
   }
-}
-
-.show-riddle-button .code-box-riddle {
-  display: block;
 }
 
 .all-code-box-controls {

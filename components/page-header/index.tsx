@@ -1,10 +1,10 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Tag from '../tag';
+import { TagType } from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
@@ -17,7 +17,7 @@ export interface PageHeaderProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   breadcrumb?: BreadcrumbProps;
-  tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
+  tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
   avatar?: AvatarProps;
@@ -140,7 +140,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
 
         const prefixCls = getPrefixCls('page-header', customizePrefixCls);
         const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
-        const className = classnames(prefixCls, customizeClassName, {
+        const className = classNames(prefixCls, customizeClassName, {
           'has-breadcrumb': breadcrumbDom,
           'has-footer': footer,
           [`${prefixCls}-ghost`]: ghost,

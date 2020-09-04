@@ -1,8 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/space/demo/align.md correctly 1`] = `
+<div
+  class="space-align-container"
+>
+  <div
+    class="space-align-block"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        center
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="mock-block"
+        >
+          Block
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="space-align-block"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-start"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        start
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="mock-block"
+        >
+          Block
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="space-align-block"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-end"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        end
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="mock-block"
+        >
+          Block
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="space-align-block"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-baseline"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        baseline
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="mock-block"
+        >
+          Block
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/space/demo/base.md correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal"
+  class="ant-space ant-space-horizontal ant-space-align-center"
 >
   <div
     class="ant-space-item"
@@ -125,7 +276,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space ant-space-horizontal"
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
     <div
       class="ant-space-item"
@@ -184,7 +335,7 @@ Array [
 
 exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal"
+  class="ant-space ant-space-horizontal ant-space-align-center"
 >
   <div
     class="ant-space-item"
@@ -325,7 +476,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space ant-space-horizontal"
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
     <div
       class="ant-space-item"

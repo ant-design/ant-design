@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Row, Col, Typography, Card } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
+import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'bisheng/router';
 import { getLocalizedPathname } from '../../utils';
@@ -9,6 +9,7 @@ import Certainty from './Certainty';
 import Meaningful from './Meaningful';
 import Growth from './Growth';
 import Natural from './Natural';
+import SiteContext from '../../Layout/SiteContext';
 
 const { Title } = Typography;
 
@@ -28,7 +29,8 @@ const MINI_LIST: PanelProps[] = [
     href: 'https://antv.vision',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*I-ygS5prYksAAAAAAAAAAABkARQnAQ',
+    img:
+      'https://gw.alipayobjects.com/zos/antfincdn/888xda6kBc/Ant%252520Design%252520shouyepeitu.svg',
     title: 'Ant Design Pro',
     description: 'app.home.product-pro-slogan',
     href: 'https://pro.ant.design/',
@@ -97,6 +99,12 @@ const MiniPanel = ({
 export default function DesignPage() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
+  const { direction } = React.useContext(SiteContext);
+  let IconComponent = <RightOutlined className="home-link-arrow" />;
+
+  if (direction === 'rtl') {
+    IconComponent = <LeftOutlined className="home-link-arrow home-link-arrow-rtl" />;
+  }
 
   return (
     <div style={{ marginBottom: -28 }}>
@@ -118,7 +126,7 @@ export default function DesignPage() {
                   to={getLocalizedPathname('/docs/spec/values', isZhCN)}
                 >
                   <FormattedMessage id="app.home.detail" />
-                  <RightOutlined className="home-link-arrow" />
+                  {IconComponent}
                 </Link>
               </Col>
               <Col xs={24} sm={16}>
@@ -189,13 +197,13 @@ export default function DesignPage() {
                   <li>
                     <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN)}>
                       <FormattedMessage id="app.home.global-style" />
-                      <RightOutlined className="home-link-arrow" />
+                      {IconComponent}
                     </Link>
                   </li>
                   <li>
                     <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN)}>
                       <FormattedMessage id="app.home.design-patterns" />
-                      <RightOutlined className="home-link-arrow" />
+                      {IconComponent}
                     </Link>
                   </li>
                 </ul>
@@ -236,19 +244,19 @@ export default function DesignPage() {
                   <li>
                     <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
                       Ant Design of React
-                      <RightOutlined className="home-link-arrow" />
+                      {IconComponent}
                     </Link>
                   </li>
                   <li>
                     <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Angular
-                      <RightOutlined className="home-link-arrow" />
+                      {IconComponent}
                     </a>
                   </li>
                   <li>
                     <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Vue
-                      <RightOutlined className="home-link-arrow" />
+                      {IconComponent}
                     </a>
                   </li>
                 </ul>

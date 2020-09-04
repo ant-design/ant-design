@@ -1,11 +1,12 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
-import { resetWarned } from '../../_util/warning';
+import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -55,7 +56,6 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-
     wrapper.find('input').simulate('change', {
       target: {
         files: [{ file: 'foo.png' }],
@@ -219,13 +219,31 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
-  it('should not have id if upload is disabled, avoid being triggered by label', () => {
+  it('should not have id if Upload is disabled, avoid being triggered by label', () => {
     const Demo = ({ disabled }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload disabled={disabled}>
             <div>upload</div>
           </Upload>
+        </Form.Item>
+      </Form>
+    );
+
+    const wrapper = mount(<Demo />);
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.find('input#upload').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/24197
+  it('should not have id if upload.Dragger is disabled, avoid being triggered by label', () => {
+    const Demo = ({ disabled }) => (
+      <Form>
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
+          <Upload.Dragger disabled={disabled}>
+            <div>upload</div>
+          </Upload.Dragger>
         </Form.Item>
       </Form>
     );
@@ -245,10 +263,11 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
       },
     ];
-    const wrapper = mount(<Upload />);
-    expect(wrapper.instance().state.fileList).toEqual([]);
+    const ref = React.createRef();
+    const wrapper = mount(<Upload ref={ref} />);
+    expect(ref.current.fileList).toEqual([]);
     wrapper.setProps({ fileList });
-    expect(wrapper.instance().state.fileList).toEqual(fileList);
+    expect(ref.current.fileList).toEqual(fileList);
   });
 
   describe('util', () => {
@@ -446,25 +465,13 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14439
   it('should allow call abort function through upload instance', () => {
-    const wrapper = mount(
-      <Upload>
+    const ref = React.createRef();
+    mount(
+      <Upload ref={ref}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(typeof wrapper.instance().upload.abort).toBe('function');
-  });
-
-  it('unmount', () => {
-    const wrapper = mount(
-      <Upload>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    const clearIntervalSpy = jest.spyOn(global, 'clearInterval');
-    expect(clearIntervalSpy).not.toHaveBeenCalled();
-    wrapper.unmount();
-    expect(clearIntervalSpy).toHaveBeenCalled();
-    clearIntervalSpy.mockRestore();
+    expect(typeof ref.current.upload.abort).toBe('function');
   });
 
   it('correct dragCls when type is drag', () => {
@@ -479,14 +486,34 @@ describe('Upload', () => {
 
   it('return when targetItem is null', () => {
     const fileList = [{ uid: 'file' }];
-    const wrapper = mount(
-      <Upload type="drag" fileList={fileList}>
+    const ref = React.createRef();
+    mount(
+      <Upload ref={ref} type="drag" fileList={fileList}>
         <button type="button">upload</button>
       </Upload>,
-    ).instance();
-    expect(wrapper.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
-    expect(wrapper.onProgress('', { uid: 'fileItem' })).toBe(undefined);
-    expect(wrapper.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+    );
+    expect(ref.current.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
+    expect(ref.current.onProgress('', { uid: 'fileItem' })).toBe(undefined);
+    expect(ref.current.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+  });
+
+  it('should replace file when targetItem already exists', () => {
+    const fileList = [{ uid: 'file', name: 'file' }];
+    const ref = React.createRef();
+    mount(
+      <Upload ref={ref} defaultFileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    ref.current.onStart({
+      uid: 'file',
+      name: 'file1',
+    });
+    expect(ref.current.fileList.length).toBe(1);
+    expect(ref.current.fileList[0].originFileObj).toEqual({
+      name: 'file1',
+      uid: 'file',
+    });
   });
 
   it('warning if set `value`', () => {
@@ -509,5 +536,85 @@ describe('Upload', () => {
     };
     const wrapper = mount(<Upload listType="picture-card" fileList={[file]} />);
     expect(wrapper.find('img').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/25077
+  it('should support events', () => {
+    const onClick = jest.fn();
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
+    const wrapper = mount(
+      <Upload onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('.ant-upload').at(1).simulate('click');
+    expect(onClick).toHaveBeenCalled();
+    wrapper.find('.ant-upload').at(1).simulate('mouseEnter');
+    expect(onMouseEnter).toHaveBeenCalled();
+    wrapper.find('.ant-upload').at(1).simulate('mouseLeave');
+    expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/26427
+  it('should sync file list with control mode', done => {
+    let callTimes = 0;
+
+    const customRequest = jest.fn(async options => {
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    const Demo = () => {
+      const [fileList, setFileList] = React.useState([]);
+
+      const onChange = e => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+        const file = newFileList[0];
+
+        callTimes += 1;
+
+        switch (callTimes) {
+          case 1:
+          case 2:
+            expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 0 }));
+            break;
+
+          case 3:
+            expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 100 }));
+            break;
+
+          case 4:
+            expect(file).toEqual(expect.objectContaining({ status: 'done', percent: 100 }));
+            break;
+
+          default:
+          // Do nothing
+        }
+
+        if (callTimes >= 4) {
+          done();
+        }
+      };
+
+      return (
+        <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+
+    act(() => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [{ file: 'foo.png' }],
+        },
+      });
+    });
   });
 });

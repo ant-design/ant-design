@@ -44,11 +44,13 @@
   }
 }
 
-.explainAndExtraDistance(@num) when (@num>=0) {
+.explainAndExtraDistance(@num) when (@num >= 0) {
   padding-top: floor(@num);
 }
-.explainAndExtraDistance(@num) when (@num<0) {
-  margin-top: floor(@num);
+
+.explainAndExtraDistance(@num) when (@num < 0) {
+  margin-top: ceil(@num);
+  margin-bottom: ceil(@num);
 }
 
 // ================================================================
@@ -62,6 +64,12 @@
 
   &-with-help {
     margin-bottom: 0;
+  }
+
+  &-hidden,
+  &-hidden.@{ant-prefix}-row {
+    // https://github.com/ant-design/ant-design/issues/26141
+    display: none;
   }
 
   // ==============================================================
@@ -93,7 +101,8 @@
         vertical-align: top;
       }
 
-      &.@{form-item-prefix-cls}-required::before {
+      // Required mark
+      &.@{form-item-prefix-cls}-required:not(.@{form-item-prefix-cls}-required-mark-optional)::before {
         display: inline-block;
         margin-right: 4px;
         color: @label-required-color;
@@ -101,6 +110,17 @@
         font-family: SimSun, sans-serif;
         line-height: 1;
         content: '*';
+
+        .@{form-prefix-cls}-hide-required-mark & {
+          display: none;
+        }
+      }
+
+      // Optional mark
+      .@{form-item-prefix-cls}-optional {
+        display: inline-block;
+        margin-left: @margin-xss;
+        color: @text-color-secondary;
 
         .@{form-prefix-cls}-hide-required-mark & {
           display: none;

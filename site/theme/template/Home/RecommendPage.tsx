@@ -16,51 +16,51 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: 'Ant Design 4.0 正式版来了！',
+    title: '「人机自然交互」Ant Design 设计价值观解析',
     description:
-      'Ant Design 4.0 正式版于 2 月 28 日提前发布！设计资产不断丰富，设计工具层出不穷，为百万设计者和开发者创造快乐工作。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/109633620',
+      '这一次，我们将清晰阐述「自然」这一价值观，希望能启发或帮助大家完成自己的产品 / 体系构建；同时，你们的反馈和互动也会成为我们进步的源泉和动力。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/44809866',
     popularize: true,
   },
   {
-    title: '图表库 G2Plot 1.0 发布了！',
+    title: '言之有序 | Ant Design 4.0 系列分享',
     description:
-      '开箱即用图表库 G2Plot 1.0 发布，支持 40+ 图表类型，高级统计分析组件和复杂交互内置。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*Wv4XTIoIJ3gAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/113888415',
+      '信息组织是我们在日常生活中经常会遇到的问题，各式各样的信息是如何被组织编排到一起，又是以何种方式把信息呈现给用户呢？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
   {
-    title: 'HiTu·让人人都是插画师',
-    description: '图形化设计资产「海兔」帮助大家解决通用层面的需求，把设计师从重复劳动中解放出来。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sybfTLM-CA8AAAAAAAAAAABkARQnAQ',
-    href: 'https://ant.design/docs/spec/illustration-cn',
+    title: '整齐划一？不如错落有致。| Ant Design 4.0 系列分享',
+    description:
+      '表单是在各类业务产品中出现最高频的元素之一。今天我们来讨论一个被大家忽视但实则举重若轻的问题：怎样去考虑表单的宽度？',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
 ];
 
 const LIST_EN: Recommend[] = [
   {
-    title: 'Ant Design 4.0 is out!',
+    title: "「Natural Human Computer Interaction」Ant Design's Design Values",
     description:
-      '⚡️ Smaller, faster, prettier and more powerfull, finally Ant Design 4.0 right here.',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
-    href: 'https://github.com/ant-design/ant-design/issues/21656',
+      '🌺 This time, we will clearly explain one of our design values--「nature」, hoping to inspire you to complete your own products or systems.',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/44809866',
     popularize: true,
   },
   {
-    title: 'Introduce AntV',
-    description: '✨ New player of front-end data visualization',
-    img:
-      'https://gw.alipayobjects.com/zos/antfincdn/Vb5TpaLRSn/089e332b-a54c-421e-a4f0-f2a3480e2f42.png',
-    href:
-      'https://medium.com/ant-design/introduce-antv-a-new-player-in-data-visualization-90ca999cfb08',
+    title: 'Information Layouts | Ant Design 4.0',
+    description:
+      '🌃 Information organization is a problem we often encounter in our daily life. How to arrange all kinds of information together? And how to present them to users?',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110442621',
   },
   {
-    title: 'G2Plot: a charting library',
-    description: '📊 A charting library based on the grammar of graphics',
-    img:
-      'https://gw.alipayobjects.com/zos/antfincdn/NBwf%24mYoDf/d100a715-d763-4bc5-b801-23b7f56b665d.png',
-    href: 'https://github.com/antvis/G2Plot',
+    title: 'Form Widths | Ant Design 4.0',
+    description:
+      "💡 Form is one of the most frequently-used elements in business products. Now let's discuss a neglected question: how to decide the width of a form?",
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/110096160',
   },
 ];
 
@@ -101,7 +101,7 @@ const RecommendBlock = ({
       )}
       <div className="recommend-content">
         <Title level={4}>{title}</Title>
-        <Paragraph>{description}</Paragraph>
+        <Paragraph style={{ fontSize: 13 }}>{description}</Paragraph>
       </div>
     </a>
   );

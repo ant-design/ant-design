@@ -2,72 +2,70 @@
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 
-.@{tree-prefix-cls} {
-  &.@{tree-prefix-cls}-directory {
-    // ================== TreeNode ==================
-    .@{tree-prefix-cls}-treenode {
-      position: relative;
+.@{tree-prefix-cls}.@{tree-prefix-cls}-directory {
+  // ================== TreeNode ==================
+  .@{tree-prefix-cls}-treenode {
+    position: relative;
 
-      // Hover color
+    // Hover color
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      transition: background-color 0.3s;
+      content: '';
+      pointer-events: none;
+    }
+
+    &:hover {
       &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 4px;
-        left: 0;
-        transition: background-color 0.3s;
-        content: '';
-        pointer-events: none;
+        background: @item-hover-bg;
       }
+    }
+
+    // Elements
+    > * {
+      z-index: 1;
+    }
+
+    // >>> Switcher
+    .@{tree-prefix-cls}-switcher {
+      transition: color 0.3s;
+    }
+
+    // >>> Title
+    .@{tree-prefix-cls}-node-content-wrapper {
+      border-radius: 0;
+      user-select: none;
 
       &:hover {
-        &::before {
-          background: @item-hover-bg;
-        }
+        background: transparent;
       }
 
-      // Elements
-      > * {
-        z-index: 1;
+      &.@{tree-prefix-cls}-node-selected {
+        color: @tree-directory-selected-color;
+        background: transparent;
+      }
+    }
+
+    // ============= Selected =============
+    &-selected {
+      &:hover::before,
+      &::before {
+        background: @tree-directory-selected-bg;
       }
 
       // >>> Switcher
       .@{tree-prefix-cls}-switcher {
-        transition: color 0.3s;
+        color: @tree-directory-selected-color;
       }
 
       // >>> Title
       .@{tree-prefix-cls}-node-content-wrapper {
-        border-radius: 0;
-        user-select: none;
-
-        &:hover {
-          background: transparent;
-        }
-
-        &.@{tree-prefix-cls}-node-selected {
-          color: @tree-directory-selected-color;
-          background: transparent;
-        }
-      }
-
-      // ============= Selected =============
-      &-selected {
-        &:hover::before,
-        &::before {
-          background: @primary-color;
-        }
-
-        // >>> Switcher
-        .@{tree-prefix-cls}-switcher {
-          color: @tree-directory-selected-color;
-        }
-
-        // >>> Title
-        .@{tree-prefix-cls}-node-content-wrapper {
-          color: @tree-directory-selected-color;
-          background: transparent;
-        }
+        color: @tree-directory-selected-color;
+        background: transparent;
       }
     }
   }

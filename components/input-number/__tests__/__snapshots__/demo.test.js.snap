@@ -8,11 +8,10 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -36,11 +35,10 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -91,11 +89,10 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      aria-disabled="false"
       aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="up"
@@ -119,11 +116,10 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       </span>
     </span>
     <span
-      aria-disabled="false"
       aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down "
+      class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <span
         aria-label="down"
@@ -166,7 +162,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-input-number ant-input-number-disabled"
   >
@@ -176,9 +172,9 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
       <span
         aria-disabled="true"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -204,9 +200,9 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
       <span
         aria-disabled="true"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"
@@ -247,7 +243,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         value="3"
       />
     </div>
-  </div>
+  </div>,
   <div
     style="margin-top:20px"
   >
@@ -259,12 +255,12 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         Toggle disabled
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-input-number"
   >
@@ -272,11 +268,10 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -300,11 +295,10 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"
@@ -332,17 +326,19 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-valuemax="9007199254740991"
         aria-valuemin="-9007199254740991"
         aria-valuenow="1000"
         autocomplete="off"
         class="ant-input-number-input"
+        max="9007199254740991"
         min="-9007199254740991"
         role="spinbutton"
         step="1"
         value="$ 1,000"
       />
     </div>
-  </div>
+  </div>,
   <div
     class="ant-input-number"
   >
@@ -354,7 +350,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         aria-label="Increase Value"
         class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -378,11 +374,10 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"
@@ -422,8 +417,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         value="100%"
       />
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
@@ -437,11 +432,10 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -465,11 +459,10 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"
@@ -517,11 +510,10 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -545,11 +537,10 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"
@@ -597,11 +588,10 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="up"
@@ -625,11 +615,10 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         </span>
       </span>
       <span
-        aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down "
+        class="ant-input-number-handler ant-input-number-handler-down"
         role="button"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <span
           aria-label="down"

@@ -13,7 +13,7 @@ describe('Transfer.Customize', () => {
     errorSpy.mockRestore();
   });
 
-  it('props#body doesnot work anymore', () => {
+  it('props#body does not work anymore', () => {
     const body = jest.fn();
     mount(<Transfer body={body} />);
 
@@ -48,5 +48,17 @@ describe('Transfer.Customize', () => {
         </Transfer>,
       );
     });
+  });
+
+  it('warning if use `pagination`', () => {
+    mount(
+      <Transfer dataSource={[]} pagination>
+        {() => null}
+      </Transfer>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Transfer] `pagination` not support customize render list.',
+    );
   });
 });

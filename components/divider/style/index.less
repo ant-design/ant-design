@@ -2,83 +2,70 @@
 @import '../../style/mixins/index';
 
 @divider-prefix-cls: ~'@{ant-prefix}-divider';
-@divider-text-padding: 1em;
 
 .@{divider-prefix-cls} {
   .reset-component;
 
-  background: @border-color-split;
+  border-top: 1px solid @divider-color;
 
-  &,  /* for compatiable */
   &-vertical {
     position: relative;
     top: -0.06em;
     display: inline-block;
-    width: 1px;
     height: 0.9em;
     margin: 0 8px;
     vertical-align: middle;
+    border-top: 0;
+    border-left: 1px solid @divider-color;
   }
 
   &-horizontal {
-    display: block;
+    display: flex;
     clear: both;
     width: 100%;
     min-width: 100%; // Fix https://github.com/ant-design/ant-design/issues/10914
-    height: 1px;
     margin: 24px 0;
   }
 
-  &-horizontal&-with-text-center,
-  &-horizontal&-with-text-left,
-  &-horizontal&-with-text-right {
-    display: table;
+  &-horizontal&-with-text {
+    display: flex;
     margin: 16px 0;
     color: @heading-color;
     font-weight: 500;
     font-size: @font-size-lg;
     white-space: nowrap;
     text-align: center;
-    background: transparent;
+    border-top: 0;
     &::before,
     &::after {
       position: relative;
       top: 50%;
-      display: table-cell;
       width: 50%;
-      border-top: 1px solid @border-color-split;
+      border-top: 1px solid @divider-color;
       transform: translateY(50%);
       content: '';
-    }
-  }
-
-  &-horizontal&-with-text-left,
-  &-horizontal&-with-text-right {
-    .@{divider-prefix-cls}-inner-text {
-      display: inline-block;
-      padding: 0 @divider-text-padding;
     }
   }
 
   &-horizontal&-with-text-left {
     &::before {
       top: 50%;
-      width: 5%;
+      width: @divider-orientation-margin;
     }
     &::after {
       top: 50%;
-      width: 95%;
+      width: 100% - @divider-orientation-margin;
     }
   }
 
   &-horizontal&-with-text-right {
     &::before {
       top: 50%;
-      width: 95%;
+      width: 100% - @divider-orientation-margin;
     }
     &::after {
       top: 50%;
-      width: 5%;
+      width: @divider-orientation-margin;
     }
   }
 
@@ -89,14 +76,12 @@
 
   &-dashed {
     background: none;
-    border-color: @border-color-split;
+    border-color: @divider-color;
     border-style: dashed;
     border-width: 1px 0 0;
   }
 
-  &-horizontal&-with-text-center&-dashed,
-  &-horizontal&-with-text-left&-dashed,
-  &-horizontal&-with-text-right&-dashed {
+  &-horizontal&-with-text&-dashed {
     border-top: 0;
     &::before,
     &::after {
@@ -107,4 +92,12 @@
   &-vertical&-dashed {
     border-width: 0 0 0 1px;
   }
+
+  &-plain&-with-text {
+    color: @text-color;
+    font-weight: normal;
+    font-size: @font-size-base;
+  }
 }
+
+@import './rtl';

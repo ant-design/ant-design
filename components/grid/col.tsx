@@ -9,6 +9,7 @@ type ColSpanType = number | string;
 type FlexType = number | 'none' | 'auto' | string;
 
 export interface ColSize {
+  flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
   offset?: ColSpanType;
@@ -17,6 +18,7 @@ export interface ColSize {
 }
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
+  flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
   offset?: ColSpanType;
@@ -29,7 +31,6 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   xl?: ColSpanType | ColSize;
   xxl?: ColSpanType | ColSize;
   prefixCls?: string;
-  flex?: FlexType;
 }
 
 function parseFlex(flex: FlexType): string {
@@ -44,9 +45,8 @@ function parseFlex(flex: FlexType): string {
   return flex;
 }
 
-export default class Col extends React.Component<ColProps, {}> {
-  renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { props } = this;
+const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
+  const renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       span,
@@ -123,7 +123,7 @@ export default class Col extends React.Component<ColProps, {}> {
           }
 
           return (
-            <div {...others} style={mergedStyle} className={classes}>
+            <div {...others} style={mergedStyle} className={classes} ref={ref}>
               {children}
             </div>
           );
@@ -132,7 +132,9 @@ export default class Col extends React.Component<ColProps, {}> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderCol}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderCol}</ConfigConsumer>;
+});
+
+Col.displayName = 'Col';
+
+export default Col;

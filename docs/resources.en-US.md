@@ -25,7 +25,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Ant Design Pro
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - Common Templates and Pages
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.3.0.sketch
+  - https://gw.alipayobjects.com/os/antfincdn/wg3CvIX6Q9/Ant_Design_Pro_4.0.sketch
 - Ant Design Library
   - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
   - A powerful Axure library
@@ -50,38 +50,26 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Library of components for Desktop
   - https://www.antforfigma.com
+- UI Kit for Adobe XD
+  - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
+  - Library of components for Desktop
+  - https://gumroad.com/l/antdesign-xd
+- Figma Open Source Library
+  - https://i.imgur.com/kopdWeX.png
+  - Free open source Figma library with complete accrate to code components
+  - https://www.figma.com/community/file/831698976089873405
 - Ant Design Chart
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - Sketch Symbols for Chart
   - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
+- MockingBot
+  - https://cdn.modao.cc/logo_mockingbot.svg
+  - Rich component resources
+  - https://modao.cc/square/ant-design
 
 ## Articles
 
 Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://zhuanlan.zhihu.com/antdesign). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
-
-### Design
-
-- [解放图形化设计生产力 - HiTu](https://zhuanlan.zhihu.com/p/100925117)
-- [「自然交互」Ant Design 设计价值观解析](https://zhuanlan.zhihu.com/p/44809866)
-- [「自然交互 1」前馈：让功能找到用户；让用户体验美好](https://zhuanlan.zhihu.com/p/41952711)
-- [「自然交互 4」理解元数据，让人机自然交互](https://zhuanlan.zhihu.com/p/43613398)
-- [「自然交互 5」传感器——系统的五感【上】](https://zhuanlan.zhihu.com/p/52648777)
-- [1 块钱 6 周 DAU 增长翻倍：Ant Design 设计工具 Kitchen 获客增长实践](https://zhuanlan.zhihu.com/p/68707241)
-- [专访蚂蚁金服体验技术 UED：Ant Design 希望成为世界级设计体系](https://zhuanlan.zhihu.com/p/66781635)
-- [写给设计师的 Ant Design 栅格指南](https://zhuanlan.zhihu.com/p/63580649)
-- [Ant Design 情感化设计](https://zhuanlan.zhihu.com/p/55364776)
-- [Ant Design 资产一起造 工作坊（上）](https://zhuanlan.zhihu.com/p/54887681)
-- [Ant Design 资产一起造 工作坊（下）](https://zhuanlan.zhihu.com/p/54901534)
-- [轻推转型之门：Ant Design Pro 在企业级产品的实践（附演讲视频）](https://zhuanlan.zhihu.com/p/32771546)
-- [Ant Design 3.0 背后的故事（附演讲视频）](https://zhuanlan.zhihu.com/p/32746810)
-- [用户故事地图浅析](https://zhuanlan.zhihu.com/p/31503749)
-- [体验，不只是用户的！Ant Design 在蚂蚁中台的应用](https://zhuanlan.zhihu.com/p/26846739)
-- [在用 Sketch 和 iconfont？试试 Kitchen 吧！](https://zhuanlan.zhihu.com/p/36657030)
-
-### Technology
-
-- [Ant Design 色板生成算法演进之路](https://zhuanlan.zhihu.com/p/32422584)
-- [如何向开源项目提交无法解答的问题](https://zhuanlan.zhihu.com/p/25795393)
 
 ## Reference
 

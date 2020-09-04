@@ -22,18 +22,16 @@ const options = [
   { value: 'Wall Street' },
 ];
 
-const Complete: React.FC = () => {
-  return (
-    <AutoComplete
-      style={{ width: 200 }}
-      options={options}
-      placeholder="try to type `b`"
-      filterOption={(inputValue, option) =>
-        option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-      }
-    />
-  );
-}
+const Complete: React.FC = () => (
+  <AutoComplete
+    style={{ width: 200 }}
+    options={options}
+    placeholder="try to type `b`"
+    filterOption={(inputValue, option) =>
+      option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+    }
+  />
+);
 
 ReactDOM.render(<Complete />, mountNode);
 ```

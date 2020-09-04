@@ -22,7 +22,7 @@ const Demo: React.FC = () => {
   const [bottom, setBottom] = useState(10);
 
   return (
-    <div>
+    <>
       <Affix offsetTop={top}>
         <Button type="primary" onClick={() => setTop(top + 10)}>
           Affix top
@@ -34,7 +34,7 @@ const Demo: React.FC = () => {
           Affix bottom
         </Button>
       </Affix>
-    </div>
+    </>
   );
 };
 

@@ -9,10 +9,13 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
+import message from '../message';
+import notification from '../notification';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
+  'getTargetContainer',
   'getPopupContainer',
   'rootPrefixCls',
   'getPrefixCls',
@@ -24,6 +27,7 @@ export const configConsumerProps = [
 ];
 
 export interface ConfigProviderProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -32,6 +36,9 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   form?: {
     validateMessages?: ValidateMessages;
+  };
+  input?: {
+    autoComplete?: string;
   };
   locale?: Locale;
   pageHeader?: {
@@ -42,41 +49,68 @@ export interface ConfigProviderProps {
   space?: {
     size?: SizeType | number;
   };
+  virtual?: boolean;
+  dropdownMatchSelectWidth?: boolean;
 }
 
-class ConfigProvider extends React.Component<ConfigProviderProps> {
-  getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
-    const { prefixCls = 'ant' } = this.props;
+const ConfigProvider: React.FC<ConfigProviderProps> = props => {
+  React.useEffect(() => {
+    if (props.direction) {
+      message.config({
+        rtl: props.direction === 'rtl',
+      });
+      notification.config({
+        rtl: props.direction === 'rtl',
+      });
+    }
+  }, [props.direction]);
 
-    if (customizePrefixCls) return customizePrefixCls;
+  const getPrefixClsWrapper = (context: ConfigConsumerProps) => {
+    return (suffixCls: string, customizePrefixCls?: string) => {
+      const { prefixCls } = props;
 
-    return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+      if (customizePrefixCls) return customizePrefixCls;
+
+      const mergedPrefixCls = prefixCls || context.getPrefixCls('');
+
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls;
+    };
   };
 
-  renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
+  const renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
+      getTargetContainer,
       getPopupContainer,
       renderEmpty,
       csp,
       autoInsertSpaceInButton,
       form,
+      input,
       locale,
       pageHeader,
       componentSize,
       direction,
       space,
-    } = this.props;
+      virtual,
+      dropdownMatchSelectWidth,
+    } = props;
 
     const config: ConfigConsumerProps = {
       ...context,
-      getPrefixCls: this.getPrefixCls,
+      getPrefixCls: getPrefixClsWrapper(context),
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
       direction,
       space,
+      virtual,
+      dropdownMatchSelectWidth,
     };
+
+    if (getTargetContainer) {
+      config.getTargetContainer = getTargetContainer;
+    }
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
@@ -88,6 +122,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     if (pageHeader) {
       config.pageHeader = pageHeader;
+    }
+
+    if (input) {
+      config.input = input;
     }
 
     let childNode = children;
@@ -117,17 +155,15 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     );
   };
 
-  render() {
-    return (
-      <LocaleReceiver>
-        {(_, __, legacyLocale) => (
-          <ConfigConsumer>
-            {context => this.renderProvider(context, legacyLocale as Locale)}
-          </ConfigConsumer>
-        )}
-      </LocaleReceiver>
-    );
-  }
-}
+  return (
+    <LocaleReceiver>
+      {(_, __, legacyLocale) => (
+        <ConfigConsumer>
+          {context => renderProvider(context, legacyLocale as Locale)}
+        </ConfigConsumer>
+      )}
+    </LocaleReceiver>
+  );
+};
 
 export default ConfigProvider;

@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Empty
 cols: 1
+cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
 ---
 
 Empty state placeholder.
@@ -23,8 +24,8 @@ Empty state placeholder.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | description | Customize description | string \| ReactNode | - |  |
-| imageStyle | style of image | CSSProperties | - |  |
-| image | Customize image. Will treat as image url when string provided. | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
+| imageStyle | The style of image | CSSProperties | - |  |
+| image | Customize image. Will treat as image url when string provided | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
 
 ## Built-in images
 

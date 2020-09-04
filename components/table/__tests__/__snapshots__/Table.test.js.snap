@@ -117,7 +117,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-rtl"
+        class="ant-table ant-table-empty ant-table-rtl"
       >
         <div
           class="ant-table-container"

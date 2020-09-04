@@ -1005,7 +1005,7 @@ exports[`renders ./components/result/demo/500.md correctly 1`] = `
   <div
     class="ant-result-subtitle"
   >
-    Sorry, the server is wrong.
+    Sorry, something went wrong.
   </div>
   <div
     class="ant-result-extra"
@@ -1109,6 +1109,26 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
     Please check and modify the following information before resubmitting.
   </div>
   <div
+    class="ant-result-extra"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Go Console
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Buy Again
+      </span>
+    </button>
+  </div>
+  <div
     class="ant-result-content"
   >
     <div
@@ -1152,7 +1172,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
             />
           </svg>
         </span>
-         Your account has been frozen
+         Your account has been frozen. 
         <a>
           Thaw immediately &gt;
         </a>
@@ -1183,32 +1203,12 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
             />
           </svg>
         </span>
-         Your account is not yet eligible to apply 
+         Your account is not yet eligible to apply. 
         <a>
           Apply Unlock &gt;
         </a>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-result-extra"
-  >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span>
-        Go Console
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Buy Again
-      </span>
-    </button>
   </div>
 </div>
 `;

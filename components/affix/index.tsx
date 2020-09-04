@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import ResizeObserver from 'rc-resize-observer';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 import {
@@ -50,9 +50,7 @@ export interface AffixState {
 }
 
 class Affix extends React.Component<AffixProps, AffixState> {
-  static defaultProps = {
-    target: getDefaultTarget,
-  };
+  static contextType = ConfigContext;
 
   state: AffixState = {
     status: AffixStatus.None,
@@ -66,14 +64,27 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   private timeout: number;
 
+  context: ConfigConsumerProps;
+
+  private getTargetFunc() {
+    const { getTargetContainer } = this.context;
+    const { target } = this.props;
+
+    if (target !== undefined) {
+      return target;
+    }
+
+    return getTargetContainer || getDefaultTarget;
+  }
+
   // Event handler
   componentDidMount() {
-    const { target } = this.props;
-    if (target) {
+    const targetFunc = this.getTargetFunc();
+    if (targetFunc) {
       // [Legacy] Wait for parent component ref has its value.
       // We should use target as directly element instead of function which makes element check hard.
       this.timeout = setTimeout(() => {
-        addObserveTarget(target(), this);
+        addObserveTarget(targetFunc(), this);
         // Mock Event object.
         this.updatePosition();
       });
@@ -82,10 +93,10 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   componentDidUpdate(prevProps: AffixProps) {
     const { prevTarget } = this.state;
-    const { target } = this.props;
+    const targetFunc = this.getTargetFunc();
     let newTarget = null;
-    if (target) {
-      newTarget = target() || null;
+    if (targetFunc) {
+      newTarget = targetFunc() || null;
     }
 
     if (prevTarget !== newTarget) {
@@ -96,6 +107,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
         this.updatePosition();
       }
 
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ prevTarget: newTarget });
     }
 
@@ -141,15 +153,16 @@ class Affix extends React.Component<AffixProps, AffixState> {
   // =================== Measure ===================
   measure = () => {
     const { status, lastAffix } = this.state;
-    const { target, onChange } = this.props;
-    if (status !== AffixStatus.Prepare || !this.fixedNode || !this.placeholderNode || !target) {
+    const { onChange } = this.props;
+    const targetFunc = this.getTargetFunc();
+    if (status !== AffixStatus.Prepare || !this.fixedNode || !this.placeholderNode || !targetFunc) {
       return;
     }
 
     const offsetTop = this.getOffsetTop();
     const offsetBottom = this.getOffsetBottom();
 
-    const targetNode = target();
+    const targetNode = targetFunc();
     if (!targetNode) {
       return;
     }
@@ -220,15 +233,15 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   @throttleByAnimationFrameDecorator()
   lazyUpdatePosition() {
-    const { target } = this.props;
+    const targetFunc = this.getTargetFunc();
     const { affixStyle } = this.state;
 
     // Check position change before measure to make Safari smooth
-    if (target && affixStyle) {
+    if (targetFunc && affixStyle) {
       const offsetTop = this.getOffsetTop();
       const offsetBottom = this.getOffsetBottom();
 
-      const targetNode = target();
+      const targetNode = targetFunc();
       if (targetNode && this.placeholderNode) {
         const targetRect = getTargetRect(targetNode);
         const placeholderReact = getTargetRect(this.placeholderNode);
@@ -249,7 +262,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   // =================== Render ===================
-  renderAffix = ({ getPrefixCls }: ConfigConsumerProps) => {
+  render = () => {
+    const { getPrefixCls } = this.context;
     const { affixStyle, placeholderStyle } = this.state;
     const { prefixCls, children } = this.props;
     const className = classNames({
@@ -283,10 +297,6 @@ class Affix extends React.Component<AffixProps, AffixState> {
       </ResizeObserver>
     );
   };
-
-  render() {
-    return <ConfigConsumer>{this.renderAffix}</ConfigConsumer>;
-  }
 }
 
 export default Affix;

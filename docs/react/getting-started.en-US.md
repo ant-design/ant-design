@@ -3,17 +3,17 @@ order: 2
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you have installed [Node.js](https://nodejs.org/)(> 8.0.0) correctly.
+Ant Design React is dedicated to providing a **good development experience** for programmers. Before starting, it is recommended to learn [React](https://reactjs.org) and [ES2015](http://babeljs.io/docs/learn-es2015/) first, and correctly install and configure [Node.js](https://nodejs.org/) v8 or above.
 
-If you try in local environment, Please refer to [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
+The official guide also assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and React. If you are just starting to learn front-end or React, it may not be the best idea to use the UI framework as your first step.
 
-> Before delving into Ant Design React, a good knowledge base of [React](https://reactjs.org) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
+Finally, if you are working in a local development environment, please refer to [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
 
 ---
 
-## First Example
+## Your First Example
 
-Here is a simple codesandbox example to show the usage of Ant Design React.
+Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
 
 <iframe
   src="https://codesandbox.io/embed/antd-reproduction-template-6e93z?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
@@ -23,52 +23,47 @@ Here is a simple codesandbox example to show the usage of Ant Design React.
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 />
 
-### 1. Create one codesandbox
+Follow the steps below to play around with Ant Design yourself:
 
-Visit http://u.ant.design/codesandbox-repro to create a codesandbox. Don't forget to press the save button.
+### 1. Create a codesandbox
 
-### 2. Using antd component
+Visit http://u.ant.design/codesandbox-repro to create a codesandbox -- don't forget to press the save button as well to create a new instance.
 
-Replace the content of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
+### 2. Use and modify an antd component
 
-If you already set up by [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
+Replace the contents of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
+
+If you have already set things up by following the [Install and Initialization](/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", replace the content of `/src/index.js` as follows:
 
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { render } from 'react-dom';
 import { DatePicker, message } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 
-class App extends React.Component {
-  state = {
-    date: null,
+const App = () => {
+  const [date, setDate] = useState(null);
+  const handleChange = value => {
+    message.info(`Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`);
+    setDate(value);
   };
-
-  handleChange = date => {
-    message.info(`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`);
-    this.setState({ date });
-  };
-
-  render() {
-    const { date } = this.state;
-    return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={this.handleChange} />
-        <div style={{ marginTop: 20 }}>
-          Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-        </div>
+  return (
+    <div style={{ width: 400, margin: '100px auto' }}>
+      <DatePicker onChange={handleChange} />
+      <div style={{ marginTop: 16 }}>
+        Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
 ```
 
 ### 3. Explore more components
 
-You can look up components in the side menu of the Components page like the [Alert](/components/alert) component. Plenty of examples are provided in the component pages and API documentation.
+You can view the list of components in the side menu of the Components page, such as the [Alert](/components/alert) component. Plenty of examples are also provided in the component pages and API documentation as well.
 
 Click the "Open in Editor" icon in the first example to open an editor with source code to use out-of-the-box. Now you can import the `Alert` component into the codesandbox:
 
@@ -77,101 +72,45 @@ Click the "Open in Editor" icon in the first example to open an editor with sour
 + import { DatePicker, message, Alert } from 'antd';
 ```
 
-Add the following jsx into the `render` function.
+Now add the following jsx inside the `render` function.
 
 ```diff
   <DatePicker onChange={value => this.handleChange(value)} />
   <div style={{ marginTop: 20 }}>
 -   Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-+   <Alert message={`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`} type="success" />
++   <Alert message="Selected Date" description={date ? date.format('YYYY-MM-DD') : 'None'} />
   </div>
 ```
 
-Now you can see the result in the preview section.
+Select a date, and you can see the effect in the preview area on the right:
 
-<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/QjCr7oLcpT/c7ce72d2-601e-4130-a33b-456d4652bb2d.png" alt="codesandbox screenshot" />
+<img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/JrXptUm1Nz/6b50edc4-3a3c-4b2a-843e-f9f0af2c4667.png" alt="codesandbox screenshot" />
 
-OK! Now you know how to use antd components in a clear way. You are welcome to explore more components in the codesandbox. We also strongly recommend using codesandbox to provide a reproducible demo when reporting a bug.
+OK! Now that you know the basics of using antd components, you are welcome to explore more components in the codesandbox. When reporting a bug with ant design, we also strongly recommend using codesandbox to provide a reproducible demo as well.
 
-### 4. Next Step
+### 4. Next Steps
 
-In the real world you will need a development workflow consisting of `compile/build/deploy/lint/debug`. You can find and read articles on the subject or try other scaffolds provided below:
+During actual real-world project development, you will most likely need a development workflow consisting of `compile/build/deploy/lint/debug/` deployment. You can read the following documents on the subject or use the following scaffolds and examples provided below:
 
 - [Ant Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
-- more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
-
-## Compatibility
-
-Ant Design React supports all modern browsers and IE11+.
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
-| --- | --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
-
-Polyfills are needed for IE browsers. We recommend [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
-
-Ant Design 3.0 supports both React 15 and 16 but we strongly suggest React 16 for better performance and fewer bugs.
-
-#### IE note
-
-> We drop support of IE8 after `antd@2.0`, IE9/10 after `antd@4.0`,
-
-## Customized Work Flow
-
-If you want to customize your work flow, we recommend using [webpack](http://webpack.github.io/) to build and debug code.
-
-Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in the React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
-
-If you are trying [parcel](https://parceljs.org), here is [a demo repository](https://github.com/ant-design/parcel-antd).
-
-There are some [scaffolds](http://scaffold.ant.design/) which have already integrated antd, so you can try and start with one of these and even contribute.
+- More scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ## Import on Demand
 
-If you see logs like in the screenshot below, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network performance.
+`antd` supports tree shaking of ES modules, so using `import { Button } from 'antd';` would drop js code you didn't use.
+
+If you see logs like in the screenshot below, you might still be using `webpack@1.x` or have a wrong webpack config which can't support tree shaking.
 
 ```
-You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size. Please upgrade webpack or check the config.
 ```
 
 > ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
-However, we can import individual components on demand:
+## Customize your Workflow
 
-```jsx
-import Button from 'antd/es/button';
-import 'antd/es/button/style'; // or antd/es/button/style/css for css format file
-```
+If you want to customize your workflow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
 
-> Note: antd supports ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
-
-We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/es/xxx' way:
-
-```jsx
-import { Button } from 'antd';
-```
-
-And this plugin can load styles too. Read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
-
-> FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
-
-## Replace momentjs to Day.js
-
-You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically. You need to update your webpack config file like this:
-
-```js
-// webpack-config.js
-import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
-
-module.exports = {
-  // ...
-  plugins: [new AntdDayjsWebpackPlugin()],
-};
-```
-
-## Customization
-
-- [Customize Theme](/docs/react/customize-theme)
-- [Local Iconfont](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
+There are also some [scaffolds](http://scaffold.ant.design/) which have already been integrated into antd, so you can try and start with one of these and even contribute.

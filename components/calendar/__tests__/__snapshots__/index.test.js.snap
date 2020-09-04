@@ -28,11 +28,14 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="2018年"
         >
           2018年
         </span>
@@ -45,7 +48,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -86,11 +89,14 @@ exports[`Calendar Calendar should support locale 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="10月"
         >
           10月
         </span>
@@ -103,7 +109,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -942,7 +948,7 @@ exports[`Calendar Calendar should support locale 1`] = `
 
 exports[`Calendar rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full ant-picker-calendar-rtl"
 >
   <div
     class="ant-picker-calendar-header"
@@ -967,11 +973,14 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="2000"
         >
           2000
         </span>
@@ -984,7 +993,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
@@ -1024,11 +1033,14 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
+            unselectable="on"
             value=""
           />
         </span>
         <span
           class="ant-select-selection-item"
+          title="Sep"
         >
           Sep
         </span>
@@ -1041,7 +1053,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <span
           aria-label="down"
-          class="anticon anticon-down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg

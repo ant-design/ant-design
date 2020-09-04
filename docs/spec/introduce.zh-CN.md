@@ -8,9 +8,9 @@ title: 介绍
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*P0S-QIRUbsUAAAAAAAAAAABkARQnAQ">
 </div>
 
-蚂蚁的企业级产品是一个庞大且复杂的系统，数量多且功能复杂，而且变动和并发频繁，常常需要设计者与开发者能快速做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+蚂蚁集团的企业级产品是一个庞大且复杂的系统，数量多且功能复杂，而且变动和并发频繁，常常需要设计者与开发者能快速做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
 
-随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 —— Ant Design。基于「自然」、「确定性」、「意义感」、「生长性」四大[设计价值观](/docs/spec/values)，通过模块化解决方案，降低冗余的生产成本，让设计者专注于更好的用户体验。
+随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 —— Ant Design。基于「自然」、「确定性」、「意义感」、「生长性」四大[设计价值观](/docs/spec/values)，通过模块化解决方案，降低冗余的生产成本，让设计者专注于更好的用户体验。
 
 ---
 
@@ -47,40 +47,30 @@ const LinksList = () => (
     </li>
     <li>
       <a href="http://ng.ant.design" target="_blank">
-        NG-ZORRO - Ant Design of Angular<LinkIcon />
+        NG-ZORRO - Ant Design of Angular
       </a>
     </li>
     <li>
       <a href="http://ng.mobile.ant.design" target="_blank">
-        NG-ZORRO-MOBILE - Ant Design Mobile of Angular<LinkIcon />
+        NG-ZORRO-MOBILE - Ant Design Mobile of Angular
       </a>
     </li>
     <li>
-      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue</a>
+    </li>
+    <li>
+      <a href="https://ant-design-blazor.github.io/" target="_blank">
+        Ant Design Blazor
+      </a>
     </li>
     <li>
       <a href="https://ecomfe.github.io/santd" target="_blank">
-        San UI Toolkit for Ant Design<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
-        vue-beauty (vue)<LinkIcon />
+        San UI Toolkit for Ant Design
       </a>
     </li>
     <li>
       <a href="https://github.com/priornix/antizer" target="_blank">
-        antizer (ClojureScript)<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/idcos/antd-ember" target="_blank">
-        antd-ember<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/zzuu666/antue" target="_blank">
-        antue (vue)<LinkIcon />
+        antizer (ClojureScript)
       </a>
     </li>
   </ul>
@@ -91,7 +81,7 @@ ReactDOM.render(<LinksList />, mountNode);
 
 ## 谁在使用
 
-- [蚂蚁金服](http://www.antgroup.com/)
+- [蚂蚁集团](http://www.antgroup.com/)
 - [阿里巴巴](http://www.alibaba.com/)
 - [腾讯](http://www.tencent.com)
 - [百度](http://www.baidu.com)

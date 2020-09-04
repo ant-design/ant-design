@@ -8,12 +8,16 @@ export interface CSPConfig {
 }
 
 export interface ConfigConsumerProps {
+  getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  input?: {
+    autoComplete?: string;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -22,14 +26,16 @@ export interface ConfigConsumerProps {
   space?: {
     size?: SizeType | number;
   };
+  virtual?: boolean;
+  dropdownMatchSelectWidth?: boolean;
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
 
-    return `ant-${suffixCls}`;
+    return suffixCls ? `ant-${suffixCls}` : 'ant';
   },
 
   renderEmpty: defaultRenderEmpty,
@@ -40,7 +46,7 @@ export const ConfigConsumer = ConfigContext.Consumer;
 // =========================== withConfigConsumer ===========================
 // We need define many types here. So let's put in the block region
 type IReactComponent<P = any> =
-  | React.StatelessComponent<P>
+  | React.FC<P>
   | React.ComponentClass<P>
   | React.ClassicComponentClass<P>;
 

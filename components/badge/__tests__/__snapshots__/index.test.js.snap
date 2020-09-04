@@ -17,9 +17,6 @@ exports[`Badge badge should support float number 1`] = `
 exports[`Badge badge should support float number 2`] = `
 <Badge
   count="3.5"
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -51,7 +48,6 @@ exports[`Badge badge should support float number 2`] = `
           count="3.5"
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title="3.5"
         >
@@ -67,6 +63,343 @@ exports[`Badge badge should support float number 2`] = `
     </Animate>
   </span>
 </Badge>
+`;
+
+exports[`Badge render Badge size when contains children 1`] = `
+Array [
+  <span
+    class="ant-badge"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>,
+  <span
+    class="ant-badge"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          0
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          1
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          2
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          3
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          4
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          5
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          6
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          7
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          8
+        </p>
+        <p
+          class="ant-scroll-number-only-unit"
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>,
+]
 `;
 
 exports[`Badge render Badge status/color when contains children 1`] = `
@@ -766,6 +1099,181 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
 />
 `;
 
+exports[`Badge rtl render component should be rendered correctly in RTL direction 2`] = `
+<span
+  class="ant-badge ant-badge-rtl"
+>
+  <a
+    class="head-example"
+    href="#"
+  >
+    head
+  </a>
+  <sup
+    class="ant-scroll-number ant-badge-count"
+    data-show="true"
+    style="left:10px;margin-top:10px"
+    title="5"
+  >
+    <span
+      class="ant-scroll-number-only"
+      style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+    >
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        0
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        1
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        2
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        3
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        4
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        5
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        6
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        7
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        8
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        9
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        0
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        1
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        2
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        3
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        4
+      </p>
+      <p
+        class="ant-scroll-number-only-unit current"
+      >
+        5
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        6
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        7
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        8
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        9
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        0
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        1
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        2
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        3
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        4
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        5
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        6
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        7
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        8
+      </p>
+      <p
+        class="ant-scroll-number-only-unit"
+      >
+        9
+      </p>
+    </span>
+  </sup>
+</span>
+`;
+
 exports[`Badge should be compatible with borderColor style 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper"
@@ -938,9 +1446,6 @@ exports[`Badge should be compatible with borderColor style 1`] = `
 exports[`Badge should render when count is changed 1`] = `
 <Badge
   count={10}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -972,7 +1477,6 @@ exports[`Badge should render when count is changed 1`] = `
           count={10}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={10}
         >
@@ -1185,9 +1689,6 @@ exports[`Badge should render when count is changed 1`] = `
 exports[`Badge should render when count is changed 2`] = `
 <Badge
   count={11}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -1219,7 +1720,6 @@ exports[`Badge should render when count is changed 2`] = `
           count={11}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={11}
         >
@@ -1625,9 +2125,6 @@ exports[`Badge should render when count is changed 2`] = `
 exports[`Badge should render when count is changed 3`] = `
 <Badge
   count={11}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -1659,7 +2156,6 @@ exports[`Badge should render when count is changed 3`] = `
           count={11}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={11}
         >
@@ -2064,10 +2560,7 @@ exports[`Badge should render when count is changed 3`] = `
 
 exports[`Badge should render when count is changed 4`] = `
 <Badge
-  count={10}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
+  count={111}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -2096,17 +2589,16 @@ exports[`Badge should render when count is changed 4`] = `
       >
         <ScrollNumber
           className="ant-badge-count ant-badge-multiple-words"
-          count={10}
+          count="99+"
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
-          title={10}
+          title={111}
         >
           <sup
             className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
             data-show={true}
-            title={10}
+            title={111}
           >
             <span
               className="ant-scroll-number-only"
@@ -2504,10 +2996,58 @@ exports[`Badge should render when count is changed 4`] = `
 
 exports[`Badge should render when count is changed 5`] = `
 <Badge
+  count={10}
+>
+  <span
+    className="ant-badge ant-badge-not-a-wrapper"
+  >
+    <Animate
+      animation={Object {}}
+      component=""
+      componentProps={Object {}}
+      onAppear={[Function]}
+      onEnd={[Function]}
+      onEnter={[Function]}
+      onLeave={[Function]}
+      showProp="data-show"
+      transitionAppear={true}
+      transitionEnter={true}
+      transitionLeave={true}
+      transitionName=""
+    >
+      <AnimateChild
+        animation={Object {}}
+        key="scrollNumber"
+        transitionAppear={true}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName=""
+      >
+        <ScrollNumber
+          className="ant-badge-count ant-badge-multiple-words"
+          count={10}
+          data-show={true}
+          key="scrollNumber"
+          prefixCls="ant-scroll-number"
+          title={10}
+        >
+          <sup
+            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            data-show={true}
+            title={10}
+          >
+            99+
+          </sup>
+        </ScrollNumber>
+      </AnimateChild>
+    </Animate>
+  </span>
+</Badge>
+`;
+
+exports[`Badge should render when count is changed 6`] = `
+<Badge
   count={9}
-  dot={false}
-  overflowCount={99}
-  showZero={false}
 >
   <span
     className="ant-badge ant-badge-not-a-wrapper"
@@ -2539,7 +3079,6 @@ exports[`Badge should render when count is changed 5`] = `
           count={9}
           data-show={true}
           key="scrollNumber"
-          onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={9}
         >
@@ -2957,4 +3496,18 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
     style="right:-10px;margin-top:20px;color:#f5222d"
   />
 </span>
+`;
+
+exports[`Ribbon rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-ribbon-wrapper"
+>
+  <div
+    class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
+  >
+    <div
+      class="ant-ribbon-corner"
+    />
+  </div>
+</div>
 `;

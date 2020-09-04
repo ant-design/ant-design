@@ -55,41 +55,22 @@ class App extends React.Component {
           theme="dark"
           inlineCollapsed={this.state.collapsed}
         >
-          <Menu.Item key="1">
-            <PieChartOutlined />
-            <span>Option 1</span>
+          <Menu.Item key="1" icon={<PieChartOutlined />}>
+            Option 1
           </Menu.Item>
-          <Menu.Item key="2">
-            <DesktopOutlined />
-            <span>Option 2</span>
+          <Menu.Item key="2" icon={<DesktopOutlined />}>
+            Option 2
           </Menu.Item>
-          <Menu.Item key="3">
-            <ContainerOutlined />
-            <span>Option 3</span>
+          <Menu.Item key="3" icon={<ContainerOutlined />}>
+            Option 3
           </Menu.Item>
-          <SubMenu
-            key="sub1"
-            title={
-              <span>
-                <MailOutlined />
-                <span>Navigation One</span>
-              </span>
-            }
-          >
+          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
             <Menu.Item key="5">Option 5</Menu.Item>
             <Menu.Item key="6">Option 6</Menu.Item>
             <Menu.Item key="7">Option 7</Menu.Item>
             <Menu.Item key="8">Option 8</Menu.Item>
           </SubMenu>
-          <SubMenu
-            key="sub2"
-            title={
-              <span>
-                <AppstoreOutlined />
-                <span>Navigation Two</span>
-              </span>
-            }
-          >
+          <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
             <Menu.Item key="9">Option 9</Menu.Item>
             <Menu.Item key="10">Option 10</Menu.Item>
             <SubMenu key="sub3" title="Submenu">

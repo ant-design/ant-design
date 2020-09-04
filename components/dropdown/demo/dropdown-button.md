@@ -29,17 +29,14 @@ function handleMenuClick(e) {
 
 const menu = (
   <Menu onClick={handleMenuClick}>
-    <Menu.Item key="1">
-      <UserOutlined />
+    <Menu.Item key="1" icon={<UserOutlined />}>
       1st menu item
     </Menu.Item>
-    <Menu.Item key="2">
-      <UserOutlined />
+    <Menu.Item key="2" icon={<UserOutlined />}>
       2nd menu item
     </Menu.Item>
-    <Menu.Item key="3">
-      <UserOutlined />
-      3rd item
+    <Menu.Item key="3" icon={<UserOutlined />}>
+      3rd menu item
     </Menu.Item>
   </Menu>
 );
@@ -49,7 +46,7 @@ ReactDOM.render(
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button overlay={menu} icon={<UserOutlined />}>
+    <Dropdown.Button overlay={menu} placement="bottomCenter" icon={<UserOutlined />}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
@@ -61,7 +58,7 @@ ReactDOM.render(
         <Tooltip title="tooltip" key="leftButton">
           {leftButton}
         </Tooltip>,
-        rightButton,
+        React.cloneElement(rightButton, { loading: true }),
       ]}
     >
       With Tooltip

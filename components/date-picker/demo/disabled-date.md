@@ -15,7 +15,7 @@ Disabled part of dates and time by `disabledDate` and `disabledTime` respectivel
 
 ```jsx
 import moment from 'moment';
-import { DatePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
@@ -56,16 +56,14 @@ function disabledRangeTime(_, type) {
 }
 
 ReactDOM.render(
-  <div>
+  <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
       disabledDate={disabledDate}
       disabledTime={disabledDateTime}
       showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
     />
-    <br />
     <DatePicker picker="month" disabledDate={disabledDate} />
-    <br />
     <RangePicker disabledDate={disabledDate} />
     <RangePicker
       disabledDate={disabledDate}
@@ -76,7 +74,7 @@ ReactDOM.render(
       }}
       format="YYYY-MM-DD HH:mm:ss"
     />
-  </div>,
+  </Space>,
   mountNode,
 );
 ```

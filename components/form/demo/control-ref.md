@@ -15,6 +15,7 @@ We recommend use `Form.useForm` to create data control. If you are using class c
 
 ```tsx
 import { Form, Input, Button, Select } from 'antd';
+import { FormInstance } from 'antd/lib/form';
 
 const { Option } = Select;
 
@@ -27,7 +28,7 @@ const tailLayout = {
 };
 
 class Demo extends React.Component {
-  formRef = React.createRef();
+  formRef = React.createRef<FormInstance>();
 
   onGenderChange = value => {
     this.formRef.current.setFieldsValue({

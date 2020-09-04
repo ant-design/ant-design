@@ -62,7 +62,7 @@ class App extends React.Component {
   render() {
     const { targetKeys, selectedKeys, disabled } = this.state;
     return (
-      <div>
+      <>
         <Transfer
           dataSource={mockData}
           titles={['Source', 'Target']}
@@ -73,15 +73,15 @@ class App extends React.Component {
           onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
+          style={{ marginBottom: 16 }}
         />
         <Switch
           unCheckedChildren="disabled"
           checkedChildren="disabled"
           checked={disabled}
           onChange={this.handleDisable}
-          style={{ marginTop: 16 }}
         />
-      </div>
+      </>
     );
   }
 }

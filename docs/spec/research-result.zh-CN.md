@@ -7,7 +7,7 @@ title: 结果页
 
 结果页是用一个页面反馈操作结果，是反馈模式中最强的一种。
 
-## 设何时使用
+## 何时使用
 
 当完成一个流程操作后，需给与用户明确的结果反馈时，例如分步表单的最后一步。<br/> 当有大量的信息需要在结果页展示时。
 
@@ -100,7 +100,7 @@ title: 结果页
 
 #### 补充信息类型
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QjpBRpyx5ecAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*avS5TZcMawwAAAAAAAAAAABkARQnAQ">
 
 ## 延伸阅读
 
@@ -110,7 +110,7 @@ title: 结果页
 
 ### 会用到哪些模块或组件
 
-- [表单页](https://ant.design/components/form-cn/)
+- [表单页](/components/form-cn/)
 
 ### 外部参考文章
 

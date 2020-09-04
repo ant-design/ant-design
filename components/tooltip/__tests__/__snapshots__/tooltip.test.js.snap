@@ -55,6 +55,9 @@ exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`]
     style="pointer-events: none;"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />

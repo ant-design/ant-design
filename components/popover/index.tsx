@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 
 export interface PopoverProps extends AbstractTooltipProps {
@@ -8,51 +8,40 @@ export interface PopoverProps extends AbstractTooltipProps {
   content?: React.ReactNode | RenderFunction;
 }
 
-export default class Popover extends React.Component<PopoverProps, {}> {
-  static defaultProps = {
-    placement: 'top' as TooltipPlacement,
-    transitionName: 'zoom-big',
-    trigger: 'hover',
-    mouseEnterDelay: 0.1,
-    mouseLeaveDelay: 0.1,
-    overlayStyle: {},
-  };
+const Popover = React.forwardRef<unknown, PopoverProps>(
+  ({ prefixCls: customizePrefixCls, title, content, ...otherProps }, ref) => {
+    const { getPrefixCls } = React.useContext(ConfigContext);
 
-  private tooltip: Tooltip;
+    const getOverlay = (prefixCls: string) => {
+      return (
+        <>
+          {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+          <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
+        </>
+      );
+    };
 
-  getPopupDomNode() {
-    return this.tooltip.getPopupDomNode();
-  }
-
-  getOverlay(prefixCls: string) {
-    const { title, content } = this.props;
-    return (
-      <>
-        {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
-        <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
-      </>
-    );
-  }
-
-  saveTooltip = (node: any) => {
-    this.tooltip = node;
-  };
-
-  renderPopover = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, ...props } = this.props;
-    delete props.title;
     const prefixCls = getPrefixCls('popover', customizePrefixCls);
     return (
       <Tooltip
-        {...props}
+        {...otherProps}
         prefixCls={prefixCls}
-        ref={this.saveTooltip}
-        overlay={this.getOverlay(prefixCls)}
+        ref={ref as any}
+        overlay={getOverlay(prefixCls)}
       />
     );
-  };
+  },
+);
 
-  render() {
-    return <ConfigConsumer>{this.renderPopover}</ConfigConsumer>;
-  }
-}
+Popover.displayName = 'Popover';
+
+Popover.defaultProps = {
+  placement: 'top' as TooltipPlacement,
+  transitionName: 'zoom-big',
+  trigger: 'hover',
+  mouseEnterDelay: 0.1,
+  mouseLeaveDelay: 0.1,
+  overlayStyle: {},
+};
+
+export default Popover;

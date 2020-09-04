@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-基本使用。通过 options 设置自动完成的数据源
+基本使用，通过 `options` 设置自动完成的数据源。
 
 ## en-US
 
@@ -37,7 +37,7 @@ const Complete: React.FC = () => {
     setValue(data);
   };
   return (
-    <div>
+    <>
       <AutoComplete
         options={options}
         style={{ width: 200 }}
@@ -56,7 +56,7 @@ const Complete: React.FC = () => {
         onChange={onChange}
         placeholder="control mode"
       />
-    </div>
+    </>
   );
 };
 

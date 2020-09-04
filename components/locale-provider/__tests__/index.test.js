@@ -32,6 +32,8 @@ import faIR from '../fa_IR';
 import fiFI from '../fi_FI';
 import frBE from '../fr_BE';
 import frFR from '../fr_FR';
+import gaIE from '../ga_IE';
+import glES from '../gl_ES';
 import heIL from '../he_IL';
 import hiIN from '../hi_IN';
 import hrHR from '../hr_HR';
@@ -43,8 +45,10 @@ import itIT from '../it_IT';
 import jaJP from '../ja_JP';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
+import kmrIQ from '../kmr_IQ';
 import kuIQ from '../ku_IQ';
 import lvLV from '../lv_LV';
+import ltLT from '../lt_LT';
 import mkMK from '../mk_MK';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
@@ -67,6 +71,7 @@ import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
 import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
+import zhHK from '../zh_HK';
 import zhTW from '../zh_TW';
 
 const locales = [
@@ -86,6 +91,8 @@ const locales = [
   fiFI,
   frBE,
   frFR,
+  gaIE,
+  glES,
   heIL,
   hiIN,
   hrHR,
@@ -96,7 +103,9 @@ const locales = [
   jaJP,
   knIN,
   koKR,
+  kmrIQ,
   kuIQ,
+  ltLT,
   mkMK,
   msMY,
   mnMN,
@@ -121,6 +130,7 @@ const locales = [
   idID,
   lvLV,
   zhCN,
+  zhHK,
   zhTW,
 ];
 
@@ -174,7 +184,7 @@ describe('Locale Provider', () => {
   ));
 
   beforeAll(() => {
-    MockDate.set(moment('2017-09-18T03:30:07.795'));
+    MockDate.set(moment('2017-09-18T03:30:07.795').valueOf());
   });
 
   afterAll(() => {
@@ -195,9 +205,12 @@ describe('Locale Provider', () => {
   it('should change locale of Modal.xxx', () => {
     class ModalDemo extends React.Component {
       componentDidMount() {
+        jest.useFakeTimers();
         Modal.confirm({
           title: 'Hello World!',
         });
+        jest.runAllTimers();
+        jest.useRealTimers();
       }
 
       render() {
@@ -217,7 +230,7 @@ describe('Locale Provider', () => {
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;
       let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
-      if (locale.locale === 'zh-cn') {
+      if (locale.locale.indexOf('zh-') === 0) {
         cancelButtonText = cancelButtonText.replace(' ', '');
         okButtonText = okButtonText.replace(' ', '');
       }

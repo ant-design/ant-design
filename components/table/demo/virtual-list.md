@@ -21,7 +21,7 @@ import classNames from 'classnames';
 import { Table } from 'antd';
 
 function VirtualTable(props) {
-  const { columns, scroll, className } = props;
+  const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
 
   const widthColumnCount = columns.filter(({ width }) => !width).length;
@@ -58,7 +58,6 @@ function VirtualTable(props) {
     });
   };
 
-  useEffect(() => resetVirtualGrid, []);
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
   const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
@@ -103,7 +102,7 @@ function VirtualTable(props) {
     >
       <Table
         {...props}
-        className={classNames(className, 'virtual-table')}
+        className="virtual-table"
         columns={mergedColumns}
         pagination={false}
         components={{
@@ -124,13 +123,7 @@ const columns = [
   { title: 'F', dataIndex: 'key', width: 100 },
 ];
 
-const data = [];
-
-for (let i = 0; i < 100000; i += 1) {
-  data.push({
-    key: i,
-  });
-}
+const data = Array.from({ length: 100000 }, (_, key) => ({ key }));
 
 ReactDOM.render(
   <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />,

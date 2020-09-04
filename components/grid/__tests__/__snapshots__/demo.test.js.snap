@@ -74,9 +74,8 @@ Array [
 exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -109,9 +108,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -144,9 +142,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -179,9 +176,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -214,9 +210,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -254,9 +249,8 @@ Array [
 exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -305,9 +299,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -356,9 +349,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -410,38 +402,83 @@ Array [
 `;
 
 exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
-<div
-  class="ant-row"
->
+Array [
   <div
-    class="ant-col ant-col-6 ant-col-order-4"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    1 col-order-4
-  </div>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Normal
+    </span>
+  </div>,
   <div
-    class="ant-col ant-col-6 ant-col-order-3"
+    class="ant-row"
   >
-    2 col-order-3
-  </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-4"
+    >
+      1 col-order-4
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-3"
+    >
+      2 col-order-3
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-2"
+    >
+      3 col-order-2
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-order-1"
+    >
+      4 col-order-1
+    </div>
+  </div>,
   <div
-    class="ant-col ant-col-6 ant-col-order-2"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    3 col-order-2
-  </div>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Responsive
+    </span>
+  </div>,
   <div
-    class="ant-col ant-col-6 ant-col-order-1"
+    class="ant-row"
   >
-    4 col-order-1
-  </div>
-</div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
+    >
+      1 col-order-responsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3"
+    >
+      2 col-order-responsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1"
+    >
+      3 col-order-responsive
+    </div>
+    <div
+      class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2"
+    >
+      4 col-order-responsive
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -466,9 +503,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -493,9 +529,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -525,9 +560,8 @@ Array [
 exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -581,9 +615,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -637,9 +670,8 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
-    style="color:#333;font-weight:normal"
   >
     <span
       class="ant-divider-inner-text"
@@ -779,9 +811,7 @@ Array [
 
 exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
 Array [
-  <span
-    style="margin-right:6px"
-  >
+  <span>
     Horizontal Gutter (px): 
   </span>,
   <div
@@ -877,9 +907,7 @@ Array [
       </div>
     </div>
   </div>,
-  <span
-    style="margin-right:6px"
-  >
+  <span>
     Vertical Gutter (px): 
   </span>,
   <div
@@ -975,9 +1003,7 @@ Array [
       </div>
     </div>
   </div>,
-  <span
-    style="margin-right:6px"
-  >
+  <span>
     Column Count:
   </span>,
   <div
@@ -1147,7 +1173,9 @@ Array [
       </div>
     </div>
   </div>,
-  <pre>
+  <pre
+    class="demo-code"
+  >
     &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
@@ -1155,7 +1183,9 @@ Array [
   &lt;Col span={6} /&gt;
 &lt;/Row&gt;
   </pre>,
-  <pre>
+  <pre
+    class="demo-code"
+  >
     &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
@@ -1227,14 +1257,4 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `
-<div
-  class="ant-row"
->
-  <div
-    class="ant-col"
-  >
-    Current break point: 
-  </div>
-</div>
-`;
+exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `null`;

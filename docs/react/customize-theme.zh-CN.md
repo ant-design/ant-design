@@ -24,9 +24,10 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
 @text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
 @disabled-color: rgba(0, 0, 0, 0.25); // 失效色
-@border-radius-base: 4px; // 组件/浮层圆角
+@border-radius-base: 2px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05); // 浮层阴影
 ```
 
 如果以上变量不能满足你的定制需求，可以给我们提 issue。
@@ -51,14 +52,14 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+         'primary-color': '#1DA57A',
-+         'link-color': '#1DA57A',
-+         'border-radius-base': '2px',
-+         // or
-+         'hack': `true; @import "your-less-file-path.less";`, // Override with less file
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++         },
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
@@ -67,7 +68,10 @@ module.exports = {
 }
 ```
 
-注意 less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
+注意：
+
+1. less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
+2. `lessOptions` 的配置写法在 [less-loader@6.0.0](https://github.com/webpack-contrib/less-loader/releases/tag/v6.0.0) 里支持。
 
 ### 在 Umi 里配置主题
 
@@ -94,6 +98,7 @@ module.exports = {
 另外一种方式是建立一个单独的 `less` 变量文件，引入这个文件覆盖 `antd.less` 里的变量。
 
 ```css
+@import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
 @import 'your-theme-file.less'; // 用于覆盖上面定义的变量
 ```
@@ -173,11 +178,13 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: getThemeVariables({
-+         dark: true, // 开启暗黑模式
-+         compact: true, // 开启紧凑模式
-+       }),
-+       javascriptEnabled: true,
++       lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
++         modifyVars: getThemeVariables({
++           dark: true, // 开启暗黑模式
++           compact: true, // 开启紧凑模式
++         }),
++         javascriptEnabled: true,
++       },
 +     },
     }],
   }],
@@ -191,3 +198,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
+- [Zero config custom theme generator](https://www.npmjs.com/package/@emeks/antd-custom-theme-generator)

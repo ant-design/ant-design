@@ -38,9 +38,9 @@
 
   &-handle {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    margin-top: -5px;
+    width: @slider-handle-size;
+    height: @slider-handle-size;
+    margin-top: @slider-handle-margin-top;
     background-color: @slider-handle-background-color;
     border: solid @slider-handle-border-width @slider-handle-color;
     border-radius: 50%;
@@ -92,6 +92,7 @@
     text-align: center;
     word-break: keep-all;
     cursor: pointer;
+    user-select: none;
 
     &-active {
       color: @text-color;

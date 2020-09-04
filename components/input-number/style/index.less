@@ -72,6 +72,12 @@
     }
   }
 
+  &-readonly {
+    .@{input-number-prefix-cls}-handler-wrap {
+      display: none;
+    }
+  }
+
   &-input {
     width: 100%;
     height: @input-height-base - 2px;
@@ -164,8 +170,8 @@
     cursor: pointer;
     &-inner {
       top: 50%;
-      margin-top: -6px;
       text-align: center;
+      transform: translateY(-50%);
     }
     &:hover {
       height: 60% !important;

@@ -46,19 +46,20 @@ export default function createUseNotification(
     }
 
     // Fill functions
-    const hookAPI: any = {
-      open: notify,
-    };
+    const hookApiRef = React.useRef<any>({});
+
+    hookApiRef.current.open = notify;
+
     ['success', 'info', 'warning', 'error'].forEach(type => {
-      hookAPI[type] = (args: ArgsProps) =>
-        hookAPI.open({
+      hookApiRef.current[type] = (args: ArgsProps) =>
+        hookApiRef.current.open({
           ...args,
           type,
         });
     });
 
     return [
-      hookAPI,
+      hookApiRef.current,
       <ConfigConsumer key="holder">
         {(context: ConfigConsumerProps) => {
           ({ getPrefixCls } = context);

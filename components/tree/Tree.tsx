@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { DataNode, Key } from 'rc-tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import renderSwitcherIcon from './utils/iconUtil';
 
@@ -91,8 +91,8 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
-  showLine?: boolean;
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine'> {
+  showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
@@ -135,62 +135,63 @@ export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
   blockNode?: boolean;
 }
 
-export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode = TreeNode;
-
-  static DirectoryTree = DirectoryTree;
-
-  static defaultProps = {
-    checkable: false,
-    showIcon: false,
-    motion: {
-      ...collapseMotion,
-      motionAppear: false,
-    },
-    blockNode: false,
-  };
-
-  tree: any;
-
-  setTreeRef = (node: any) => {
-    this.tree = node;
-  };
-
-  renderTree = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { props } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      showIcon,
-      showLine,
-      switcherIcon,
-      blockNode,
-      children,
-    } = props;
-    const { checkable } = props;
-    const prefixCls = getPrefixCls('tree', customizePrefixCls);
-    return (
-      <RcTree
-        itemHeight={20}
-        ref={this.setTreeRef}
-        {...props}
-        prefixCls={prefixCls}
-        className={classNames(className, {
-          [`${prefixCls}-icon-hide`]: !showIcon,
-          [`${prefixCls}-block-node`]: blockNode,
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        })}
-        checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
-        switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
-        }
-      >
-        {children}
-      </RcTree>
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderTree}</ConfigConsumer>;
-  }
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<TreeProps & React.RefAttributes<RcTree>> {
+  TreeNode: typeof TreeNode;
+  DirectoryTree: typeof DirectoryTree;
 }
+
+const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
+  const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    showIcon,
+    showLine,
+    switcherIcon,
+    blockNode,
+    children,
+    checkable,
+  } = props;
+  const newProps = {
+    ...props,
+    showLine: Boolean(showLine),
+  };
+  const prefixCls = getPrefixCls('tree', customizePrefixCls);
+  return (
+    <RcTree
+      itemHeight={20}
+      ref={ref}
+      virtual={virtual}
+      {...newProps}
+      prefixCls={prefixCls}
+      className={classNames(className, {
+        [`${prefixCls}-icon-hide`]: !showIcon,
+        [`${prefixCls}-block-node`]: blockNode,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      })}
+      checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+      switcherIcon={(nodeProps: AntTreeNodeProps) =>
+        renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
+      }
+    >
+      {children}
+    </RcTree>
+  );
+}) as CompoundedComponent;
+
+Tree.TreeNode = TreeNode;
+
+Tree.DirectoryTree = DirectoryTree;
+
+Tree.defaultProps = {
+  checkable: false,
+  showIcon: false,
+  motion: {
+    ...collapseMotion,
+    motionAppear: false,
+  },
+  blockNode: false,
+};
+
+export default Tree;

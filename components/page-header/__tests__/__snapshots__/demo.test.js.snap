@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-page-header site-page-header ant-page-header-ghost"
   >
@@ -103,48 +103,60 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Created
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Lili Qu
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Created
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Lili Qu
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Association
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <a>
-                      421421
-                    </a>
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Association
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      <a>
+                        421421
+                      </a>
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Creation Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-01-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Creation Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-01-10
+                    </span>
+                  </div>
                 </td>
               </tr>
               <tr
@@ -154,31 +166,39 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Effective Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-10-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Effective Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-10-10
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="2"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Remarks
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Remarks
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -186,8 +206,8 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <br />
+  </div>,
+  <br />,
   <div
     class="ant-page-header ant-page-header-ghost"
   >
@@ -371,8 +391,8 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
@@ -827,48 +847,60 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Created
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Lili Qu
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Created
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Lili Qu
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Association
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <a>
-                      421421
-                    </a>
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Association
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      <a>
+                        421421
+                      </a>
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Creation Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-01-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Creation Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-01-10
+                    </span>
+                  </div>
                 </td>
               </tr>
               <tr
@@ -878,31 +910,39 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
                   class="ant-descriptions-item"
                   colspan="1"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Effective Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-10-10
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Effective Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-10-10
+                    </span>
+                  </div>
                 </td>
                 <td
                   class="ant-descriptions-item"
                   colspan="2"
                 >
-                  <span
-                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  <div
+                    class="ant-descriptions-item-container"
                   >
-                    Remarks
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                  </span>
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Remarks
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -915,116 +955,118 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 `;
 
 exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
-<div>
+<div
+  class="ant-page-header site-page-header-responsive has-footer ant-page-header-ghost"
+>
   <div
-    class="ant-page-header site-page-header-responsive has-footer ant-page-header-ghost"
+    class="ant-page-header-heading"
   >
     <div
-      class="ant-page-header-heading"
+      class="ant-page-header-heading-left"
     >
       <div
-        class="ant-page-header-heading-left"
+        class="ant-page-header-back"
       >
         <div
-          class="ant-page-header-back"
+          aria-label="Back"
+          class="ant-page-header-back-button"
+          role="button"
+          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+          tabindex="0"
         >
-          <div
-            aria-label="Back"
-            class="ant-page-header-back-button"
-            role="button"
-            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
-            tabindex="0"
+          <span
+            aria-label="arrow-left"
+            class="anticon anticon-arrow-left"
+            role="img"
           >
-            <span
-              aria-label="arrow-left"
-              class="anticon anticon-arrow-left"
-              role="img"
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="arrow-left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="arrow-left"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-                />
-              </svg>
-            </span>
-          </div>
+              <path
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
         </div>
-        <span
-          class="ant-page-header-heading-title"
-          title="Title"
-        >
-          Title
-        </span>
-        <span
-          class="ant-page-header-heading-sub-title"
-          title="This is a subtitle"
-        >
-          This is a subtitle
-        </span>
       </div>
       <span
-        class="ant-page-header-heading-extra"
+        class="ant-page-header-heading-title"
+        title="Title"
       >
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+        Title
+      </span>
+      <span
+        class="ant-page-header-heading-sub-title"
+        title="This is a subtitle"
+      >
+        This is a subtitle
       </span>
     </div>
+    <span
+      class="ant-page-header-heading-extra"
+    >
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Operation
+        </span>
+      </button>
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Operation
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Primary
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-page-header-content"
+  >
     <div
-      class="ant-page-header-content"
+      class="content"
     >
       <div
-        class="content"
+        class="main"
       >
         <div
-          class="main"
+          class="ant-descriptions ant-descriptions-small"
         >
           <div
-            class="ant-descriptions ant-descriptions-small"
+            class="ant-descriptions-view"
           >
-            <div
-              class="ant-descriptions-view"
-            >
-              <table>
-                <tbody>
-                  <tr
-                    class="ant-descriptions-row"
+            <table>
+              <tbody>
+                <tr
+                  class="ant-descriptions-row"
+                >
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
                   >
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Created
                       </span>
@@ -1033,13 +1075,17 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       >
                         Lili Qu
                       </span>
-                    </td>
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
+                    </div>
+                  </td>
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
+                  >
+                    <div
+                      class="ant-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Association
                       </span>
@@ -1050,17 +1096,21 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                           421421
                         </a>
                       </span>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-descriptions-row"
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-descriptions-row"
+                >
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
                   >
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Creation Time
                       </span>
@@ -1069,13 +1119,17 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       >
                         2017-01-10
                       </span>
-                    </td>
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="1"
+                    </div>
+                  </td>
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="1"
+                  >
+                    <div
+                      class="ant-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Effective Time
                       </span>
@@ -1084,17 +1138,21 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       >
                         2017-10-10
                       </span>
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-descriptions-row"
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-descriptions-row"
+                >
+                  <td
+                    class="ant-descriptions-item"
+                    colspan="2"
                   >
-                    <td
-                      class="ant-descriptions-item"
-                      colspan="2"
+                    <div
+                      class="ant-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                        class="ant-descriptions-item-label"
                       >
                         Remarks
                       </span>
@@ -1103,203 +1161,175 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                       >
                         Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
                       </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+      </div>
+      <div
+        class="extra"
+      >
         <div
-          class="extra"
+          style="display:flex;width:max-content;justify-content:flex-end"
         >
           <div
-            style="display:flex;width:max-content;justify-content:flex-end"
+            class="ant-statistic"
+            style="margin-right:32px"
           >
             <div
-              class="ant-statistic"
-              style="margin-right:32px"
+              class="ant-statistic-title"
             >
-              <div
-                class="ant-statistic-title"
-              >
-                Status
-              </div>
-              <div
-                class="ant-statistic-content"
-              >
-                <span
-                  class="ant-statistic-content-value"
-                >
-                  Pending
-                </span>
-              </div>
+              Status
             </div>
             <div
-              class="ant-statistic"
+              class="ant-statistic-content"
             >
-              <div
-                class="ant-statistic-title"
+              <span
+                class="ant-statistic-content-value"
               >
-                Price
-              </div>
-              <div
-                class="ant-statistic-content"
+                Pending
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-statistic"
+          >
+            <div
+              class="ant-statistic-title"
+            >
+              Price
+            </div>
+            <div
+              class="ant-statistic-content"
+            >
+              <span
+                class="ant-statistic-content-prefix"
+              >
+                $
+              </span>
+              <span
+                class="ant-statistic-content-value"
               >
                 <span
-                  class="ant-statistic-content-prefix"
+                  class="ant-statistic-content-value-int"
                 >
-                  $
+                  568
                 </span>
                 <span
-                  class="ant-statistic-content-value"
+                  class="ant-statistic-content-value-decimal"
                 >
-                  <span
-                    class="ant-statistic-content-value-int"
-                  >
-                    568
-                  </span>
-                  <span
-                    class="ant-statistic-content-value-decimal"
-                  >
-                    .08
-                  </span>
+                  .08
                 </span>
-              </div>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="ant-page-header-footer"
+  >
     <div
-      class="ant-page-header-footer"
+      class="ant-tabs ant-tabs-top"
     >
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-line"
+        class="ant-tabs-nav"
+        role="tablist"
       >
         <div
-          class="ant-tabs-bar ant-tabs-top-bar"
-          role="tablist"
-          tabindex="-1"
+          class="ant-tabs-nav-wrap"
         >
           <div
-            class="ant-tabs-nav-container"
+            class="ant-tabs-nav-list"
+            style="transform:translate(0px, 0px)"
           >
-            <span
-              class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-              unselectable="unselectable"
-            >
-              <span
-                class="ant-tabs-tab-prev-icon"
-              >
-                <span
-                  aria-label="left"
-                  class="anticon anticon-left ant-tabs-tab-prev-icon-target"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="left"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-            <span
-              class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-              unselectable="unselectable"
-            >
-              <span
-                class="ant-tabs-tab-next-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right ant-tabs-tab-next-icon-target"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
             <div
-              class="ant-tabs-nav-wrap"
+              class="ant-tabs-tab ant-tabs-tab-active"
             >
               <div
-                class="ant-tabs-nav-scroll"
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
               >
-                <div
-                  class="ant-tabs-nav ant-tabs-nav-animated"
-                >
-                  <div>
-                    <div
-                      aria-controls="tabpane-1"
-                      aria-disabled="false"
-                      aria-selected="true"
-                      class="ant-tabs-tab-active ant-tabs-tab"
-                      id="tab-1"
-                      role="tab"
-                      tabindex="0"
-                    >
-                      Details
-                    </div>
-                    <div
-                      aria-controls="tabpane-2"
-                      aria-disabled="false"
-                      aria-selected="false"
-                      class=" ant-tabs-tab"
-                      id="tab-2"
-                      role="tab"
-                      tabindex="-1"
-                    >
-                      Rule
-                    </div>
-                  </div>
-                  <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  />
-                </div>
+                Details
               </div>
             </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Rule
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
         <div
-          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-          style="margin-left:0%"
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="null-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="null-more"
+            style="visibility:hidden;order:1"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-content-holder"
+      >
+        <div
+          class="ant-tabs-content ant-tabs-content-top"
         >
           <div
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-            style="visibility:visible"
             tabindex="0"
           />
           <div
             aria-hidden="true"
-            class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+            class="ant-tabs-tabpane"
             role="tabpanel"
-            style="visibility:hidden"
+            style="display:none"
             tabindex="-1"
           />
         </div>

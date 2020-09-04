@@ -12,6 +12,7 @@ import './Navigation.less';
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
+  isRTL: boolean;
   pathname: string;
   responsive: null | 'narrow' | 'crowded';
   location: { pathname: string };
@@ -22,6 +23,7 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
+  isRTL,
   isMobile,
   pathname,
   responsive,
@@ -30,12 +32,10 @@ export default ({
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
+  const [isGitee, setIsGitee] = React.useState(false);
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
-  const module = pathname
-    .split('/')
-    .slice(0, -1)
-    .join('/');
+  const module = pathname.split('/').slice(0, -1).join('/');
   let activeMenuItem = module || 'home';
   if (location.pathname === 'changelog' || location.pathname === 'changelog-cn') {
     activeMenuItem = 'docs/react';
@@ -56,7 +56,7 @@ export default ({
     <Menu.Item key="switch-direction" onClick={onDirectionChange}>
       {directionText}
     </Menu.Item>,
-    getEcosystemGroup({ isZhCN }),
+    getEcosystemGroup({ isZhCN, isRTL }),
   ];
 
   if (isMobile) {
@@ -68,6 +68,10 @@ export default ({
       </Menu.SubMenu>
     );
   }
+
+  React.useEffect(() => {
+    setIsGitee(document.location.host.indexOf('gitee') !== -1);
+  }, []);
 
   return (
     <Menu
@@ -87,7 +91,7 @@ export default ({
         </Link>
       </Menu.Item>
       <Menu.Item key="components">
-        <Link to={utils.getLocalizedPathname('/components/button/', isZhCN)}>
+        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN)}>
           <FormattedMessage id="app.header.menu.components" />
         </Link>
       </Menu.Item>
@@ -96,6 +100,11 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>
+      {isZhCN && !isGitee && (
+        <Menu.Item key="mirror">
+          <a href="https://ant-design.gitee.io">国内镜像</a>
+        </Menu.Item>
+      )}
       {additional}
     </Menu>
   );

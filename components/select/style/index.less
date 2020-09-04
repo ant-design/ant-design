@@ -28,7 +28,7 @@
     }
   }
 
-  .@{select-prefix-cls}-focused& {
+  .@{select-prefix-cls}-focused:not(.@{select-prefix-cls}-disabled)& {
     .active();
   }
 
@@ -46,9 +46,17 @@
 /* Reset search input style */
 .select-search-input-without-border() {
   .@{select-prefix-cls}-selection-search-input {
+    margin: 0;
+    padding: 0;
     background: transparent;
     border: none;
     outline: none;
+    appearance: none;
+
+    &::-webkit-search-cancel-button {
+      display: none;
+      -webkit-appearance: none;
+    }
   }
 }
 
@@ -108,8 +116,9 @@
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
+    pointer-events: none;
 
-    .anticon {
+    .@{iconfont-css-prefix} {
       vertical-align: top;
       transition: transform 0.3s;
 
@@ -117,13 +126,13 @@
         vertical-align: top;
       }
 
-      .@{select-prefix-cls}-open &.anticon-down {
-        transform: rotate(180deg);
+      &:not(.@{select-prefix-cls}-suffix) {
+        pointer-events: auto;
       }
     }
 
-    &.anticon-down {
-      pointer-events: none;
+    .@{select-prefix-cls}-disabled & {
+      cursor: not-allowed;
     }
   }
 
@@ -201,6 +210,10 @@
     &-hidden {
       display: none;
     }
+
+    &-empty {
+      color: @disabled-color;
+    }
   }
 
   // ========================= Options =========================
@@ -217,6 +230,7 @@
 
   &-item-empty {
     .item();
+    color: @disabled-color;
   }
 
   &-item {
@@ -252,7 +266,7 @@
       }
 
       &-selected:not(&-disabled) {
-        color: @text-color;
+        color: @select-item-selected-color;
         font-weight: @select-item-selected-font-weight;
         background-color: @select-item-selected-bg;
 

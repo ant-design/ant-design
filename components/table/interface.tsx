@@ -5,7 +5,11 @@ import {
   ExpandableConfig,
 } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
-import { PaginationConfig } from '../pagination';
+import { PaginationProps } from '../pagination';
+import { Breakpoint } from '../_util/responsiveObserve';
+import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import { tuple } from '../_util/type';
+// import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -21,6 +25,7 @@ export interface TableLocale {
   filterTitle?: string;
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
+  filterEmptyText?: React.ReactNode;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
@@ -34,6 +39,9 @@ export interface TableLocale {
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;
+
+const TableActions = tuple('paginate', 'sort', 'filter');
+export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -95,6 +103,9 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+
+  // Responsive
+  responsive?: Breakpoint[];
 }
 
 export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
@@ -120,6 +131,8 @@ export type SelectionSelectFn<T> = (
 ) => void;
 
 export interface TableRowSelection<T> {
+  /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
+  preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
@@ -130,11 +143,12 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
-  selections?: SelectionItem[] | boolean;
-  hideDefaultSelections?: boolean;
+  selections?: INTERNAL_SELECTION_ITEM[] | boolean;
+  hideSelectAll?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
+  checkStrictly?: boolean;
   renderCell?: (
     value: boolean,
     record: T,
@@ -149,6 +163,7 @@ export type TransformColumns<RecordType> = (
 
 export interface TableCurrentDataSource<RecordType> {
   currentDataSource: RecordType[];
+  action: TableAction;
 }
 
 export interface SorterResult<RecordType> {
@@ -160,6 +175,14 @@ export interface SorterResult<RecordType> {
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
-export interface TablePaginationConfig extends PaginationConfig {
-  // position?: 'top' | 'bottom' | 'both';
+type TablePaginationPosition =
+  | 'topLeft'
+  | 'topCenter'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomCenter'
+  | 'bottomRight';
+
+export interface TablePaginationConfig extends PaginationProps {
+  position?: TablePaginationPosition[];
 }

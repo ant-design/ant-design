@@ -4,9 +4,9 @@ order: 3
 title: Font
 ---
 
-Font is one of the most basic foundational part of a interface design system.
+The font system is one of the most foundational parts of any interface design.
 
-Text is the major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The Ant Design typography system is based on the design principle of "dynamic order" combined with the law of natural logarithm and temperament. We strongly recommend it since it has been verified by a large number of Ant products. While defining the font system for a visual system, we propose to start from the following five aspects:
+Text is a major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The Ant Design typography system is based on the design principle of "dynamic order" combined with the law of natural logarithm and temperament. We strongly recommend it since it has been verified by a large number of Ant products. While defining the font system for a visual system, we propose to start from the following five aspects:
 
 1. Font Family
 2. Base Font Size
@@ -28,7 +28,7 @@ In order to implement a good font system, the first thing is to choose an approp
 
 > References：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ and http://markdotto.com/2018/02/07/github-system-fonts/
 
-In addition, in a lot of applications, numbers often need to be displayed vertically. We set the CSS property `font-variant-numeric` to `tabular-nums;` to use [tabular figures](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures).
+In addition, in many applications, numbers often need to be displayed vertically. We set the CSS property `font-variant-numeric` to `tabular-nums;` to use [tabular figures](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures).
 
 > References：https://stackoverflow.com/questions/32660748/how-to-use-apples-new-san-francisco-font-on-a-webpage#comment78509178_32660790
 
@@ -81,13 +81,13 @@ The choice of font weight is also based on the principles of order, stability, a
 Text will be difficult to read if it is too close to the background color. To achieve barrier-free design, we follow the WCAG standard, which maintains an AAA level of contrast ratio, i.e. 7:1 or more between body text, title, and background color.
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/jPbEabWakVQHosHxhQPR.png" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PdFFQr2NXyUAAAAAAAAAAAAAARQnAQ" />
 </div>
 
 ## Advanced Tips
 
 The construction of the font system is the first step to achieve "the beauty of dynamic order". In practical design, we have three more advanced tips：
 
-1. **Establish a systematic design thinking:** In the UI design of the same system, a systematic design thinking should be first established. The primary, secondary, auxiliary, title, display, and other types of fonts are planned in a unified manner. And then make any necessary fine tuning according to the specific situation. The establishment of a systematic design approach helps to increase the consistency of horizontal font landing, improve the cost-effectiveness of font uses, and avoid unnecessary style waste.
+1. **Establish a systematic design thinking:** In the UI design of the same system, a systematic design thinking should be established first. The primary, secondary, auxiliary, title, display, and other types of fonts are planned in a unified manner. And then make any necessary fine tuning according to the specific situation. The establishment of a systematic design approach helps to increase the consistency of horizontal font landing, improve the cost-effectiveness of font uses, and avoid unnecessary style waste.
 1. **Less is more：**Visual design should be achieved with as few styles as possible. Avoid meaningless use of large numbers of font scales, colors, and font weight to emphasize visual or contrast relationships.
-1. **Try to make font scale dance like a note** When you need to expand any gap, you can try to choose the size of the font to jump in the font scale table, which will create a subtle rhythm between the word scales.
+1. **Try to make font scale dance like a note** When you need to expand any gap, you can try to choose the different sizes of the font from the font scale table, which will create a subtle rhythm between the word scales.

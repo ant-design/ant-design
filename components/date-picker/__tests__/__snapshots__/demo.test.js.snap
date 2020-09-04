@@ -1,223 +1,481 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select week"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select week"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select quarter"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select quarter"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select year"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select year"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker ant-picker-borderless"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-borderless"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-borderless"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select week"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-borderless"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-borderless"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select year"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range ant-picker-borderless"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -245,19 +503,67 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-borderless"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-range ant-picker-borderless"
     >
-      <input
-        placeholder="Select week"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start week"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End week"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -285,19 +591,67 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-borderless"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-range ant-picker-borderless"
     >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -325,19 +679,66 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-borderless"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-range ant-picker-borderless"
     >
-      <input
-        placeholder="Select year"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start year"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End year"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -364,352 +765,119 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range ant-picker-borderless"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range ant-picker-borderless"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start week"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End week"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range ant-picker-borderless"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start month"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End month"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range ant-picker-borderless"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start year"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End year"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -736,106 +904,169 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker ant-picker-disabled"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-disabled"
     >
-      <input
-        disabled=""
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          disabled=""
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-disabled"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          disabled=""
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range ant-picker-disabled"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          disabled=""
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          disabled=""
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -863,20 +1094,67 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-disabled"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        disabled=""
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          disabled=""
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -902,216 +1180,190 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           </svg>
         </span>
       </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range ant-picker-disabled"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        disabled=""
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
       <span
-        aria-label="to"
-        class="ant-picker-separator"
+        class="ant-picker-clear"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="close-circle"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        disabled=""
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        disabled=""
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-    <span
-      class="ant-picker-clear"
-    >
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="21"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="21"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -1139,19 +1391,66 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -1178,187 +1477,165 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         </span>
       </span>
     </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="21"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -1386,19 +1663,67 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="21"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -1426,227 +1751,324 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker"
     >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
-      >
-        <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
-        </span>
-      </span>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-picker-clear"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-picker-clear"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-picker-clear"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -1697,258 +2119,119 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
-      >
-        <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        class="ant-picker-clear"
-      >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="close-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
-      >
-        <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        class="ant-picker-clear"
-      >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="close-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-    <span
-      class="ant-picker-clear"
-    >
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="21"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="21"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -1976,669 +2259,633 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start month"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End month"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="21"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="21"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start week"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start week"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End week"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End week"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start month"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End month"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker ant-picker-range"
     >
-      <input
-        placeholder="Start year"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start year"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End year"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="swap-right"
+            data-icon="calendar"
             fill="currentColor"
             focusable="false"
             height="1em"
-            viewBox="0 0 1024 1024"
+            viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
             />
           </svg>
         </span>
       </span>
     </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End year"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;
@@ -2651,6 +2898,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
     class="ant-picker-input ant-picker-input-active"
   >
     <input
+      autocomplete="off"
       placeholder="Start date"
       readonly=""
       size="12"
@@ -2690,6 +2938,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
     class="ant-picker-input"
   >
     <input
+      autocomplete="off"
       placeholder="End date"
       readonly=""
       size="12"
@@ -2728,245 +2977,227 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
 `;
 
 exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-radio-group ant-radio-group-outline"
-  >
-    <label
-      class="ant-radio-button-wrapper"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="large"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Large
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-    >
-      <span
-        class="ant-radio-button ant-radio-button-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-button-input"
-          type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Default
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Small
-      </span>
-    </label>
-  </div>
-  <br />
-  <br />
-  <div
-    class="ant-picker ant-picker-default"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-radio-group ant-radio-group-outline"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <label
+        class="ant-radio-button-wrapper"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-radio-button"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-default"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
-      >
-        <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range ant-picker-default"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+            value="large"
           />
-        </svg>
-      </span>
-    </span>
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Large
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      >
+        <span
+          class="ant-radio-button ant-radio-button-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-button-input"
+            type="radio"
+            value="default"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Default
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+            value="small"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Small
+        </span>
+      </label>
+    </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-default"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-default"
     >
-      <input
-        placeholder="Select week"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-default"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range ant-picker-default"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -2992,108 +3223,306 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           </svg>
         </span>
       </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-default"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select week"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-right:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Start"
-        readonly=""
-        size="21"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Start"
+          readonly=""
+          size="21"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
   <div
-    class="ant-picker"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="End"
-        readonly=""
-        size="21"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="End"
+          readonly=""
+          size="21"
+          title=""
+          value=""
+        />
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
           >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="smile"
+            class="anticon anticon-smile"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="smile"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="smile"
+            class="anticon anticon-smile"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="smile"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -3121,154 +3550,255 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select week"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="smile"
+            class="anticon anticon-smile"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="smile"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          ab
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select month"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          ab
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
       >
-        <span
-          aria-label="smile"
-          class="anticon anticon-smile"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="smile"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-            />
-          </svg>
-        </span>
+        ab
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker"
     >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select week"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          ab
+        </span>
+      </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
     <div
-      class="ant-picker-range-separator"
+      class="ant-select ant-select-single ant-select-show-arrow"
     >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
+      <div
+        class="ant-select-selector"
       >
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
+          class="ant-select-selection-search"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="smile"
-        class="anticon anticon-smile"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="smile"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
           />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select week"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="Time"
+        >
+          Time
+        </span>
+      </div>
       <span
-        class="ant-picker-suffix"
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
         <span
-          aria-label="smile"
-          class="anticon anticon-smile"
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
           role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="smile"
+            data-icon="down"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -3276,156 +3806,172 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
         </span>
       </span>
     </div>
   </div>
-  <br />
   <div
-    class="ant-picker"
+    class="ant-space-item"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
-        ab
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select month"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
-      >
-        ab
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="10"
+          title=""
+          value=""
+        />
         <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="12"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      ab
-    </span>
-  </div>
-  <br />
-  <div
-    class="ant-picker"
-  >
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="Select week"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
-      >
-        ab
-      </span>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-bottom:12px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        placeholder="Select date"
-        readonly=""
-        size="21"
-        title=""
-        value=""
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="21"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="18"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="18"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
       />
       <span
         class="ant-picker-suffix"
@@ -3452,88 +3998,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
-  <br />
-  <div
-    class="ant-picker ant-picker-range"
-  >
-    <div
-      class="ant-picker-input ant-picker-input-active"
-    >
-      <input
-        placeholder="Start date"
-        readonly=""
-        size="18"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-range-separator"
-    >
-      <span
-        aria-label="to"
-        class="ant-picker-separator"
-      >
-        <span
-          aria-label="swap-right"
-          class="anticon anticon-swap-right"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="swap-right"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-          >
-            <path
-              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-picker-input"
-    >
-      <input
-        placeholder="End date"
-        readonly=""
-        size="18"
-        value=""
-      />
-    </div>
-    <div
-      class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
-    />
-    <span
-      class="ant-picker-suffix"
-    >
-      <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </span>
-    </span>
   </div>
 </div>
 `;

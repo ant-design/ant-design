@@ -41,13 +41,11 @@ const props = {
 };
 
 ReactDOM.render(
-  <div>
+  <>
     <Upload {...props}>
-      <Button>
-        <UploadOutlined /> Upload
-      </Button>
+      <Button icon={<UploadOutlined />}>Upload</Button>
     </Upload>
-  </div>,
+  </>,
   mountNode,
 );
 ```

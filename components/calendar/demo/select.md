@@ -37,12 +37,12 @@ class App extends React.Component {
   render() {
     const { value, selectedValue } = this.state;
     return (
-      <div>
+      <>
         <Alert
           message={`You selected date: ${selectedValue && selectedValue.format('YYYY-MM-DD')}`}
         />
         <Calendar value={value} onSelect={this.onSelect} onPanelChange={this.onPanelChange} />
-      </div>
+      </>
     );
   }
 }

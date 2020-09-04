@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Radio } from 'antd';
+import { Table, Tag, Radio, Space } from 'antd';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },
@@ -35,7 +35,7 @@ const columns = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -51,9 +51,9 @@ const columns = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (tags) => (
+    render: tags => (
       <span>
-        {tags.map((tag) => {
+        {tags.map(tag => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
@@ -71,10 +71,10 @@ const columns = [
     title: 'Action',
     key: 'action',
     render: (text, record) => (
-      <span>
-        <a style={{ marginRight: 16 }}>Invite {record.name}</a>
+      <Space size="middle">
+        <a>Invite {record.name}</a>
         <a>Delete</a>
-      </span>
+      </Space>
     ),
   },
 ];
@@ -117,7 +117,7 @@ class Demo extends React.Component {
             style={{ marginBottom: 10 }}
             options={topOptions}
             value={this.state.top}
-            onChange={(e) => {
+            onChange={e => {
               this.setState({ top: e.target.value });
             }}
           />
@@ -126,7 +126,7 @@ class Demo extends React.Component {
           style={{ marginBottom: 10 }}
           options={bottomOptions}
           value={this.state.bottom}
-          onChange={(e) => {
+          onChange={e => {
             this.setState({ bottom: e.target.value });
           }}
         />

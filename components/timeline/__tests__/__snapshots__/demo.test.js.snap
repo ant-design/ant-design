@@ -388,9 +388,8 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
     >
       <span
         aria-label="clock-circle"
-        class="anticon anticon-clock-circle"
+        class="anticon anticon-clock-circle timeline-clock-icon"
         role="img"
-        style="font-size:16px"
       >
         <svg
           aria-hidden="true"

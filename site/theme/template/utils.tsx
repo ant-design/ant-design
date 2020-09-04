@@ -1,5 +1,6 @@
 import flattenDeep from 'lodash/flattenDeep';
 import flatten from 'lodash/flatten';
+import themeConfig from '../../themeConfig';
 
 interface Meta {
   skip?: boolean;
@@ -213,3 +214,7 @@ export function getMetaDescription(jml?: any[] | null) {
   ).find(p => p && typeof p === 'string' && !COMMON_TAGS.includes(p));
   return paragraph;
 }
+
+export const getThemeConfig = () => {
+  return themeConfig;
+};

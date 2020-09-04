@@ -27,11 +27,13 @@ title: 从 v3 到 v4
 - DatePicker 交互重做，面板和输入框分离，范围选择现可单独选择开始和结束时间。
 - Table 默认背景颜色从透明修改为白色。
 - Tabs 火柴棍样式缩短为和文字等长。
+- Tabs 交互重做，DOM 结构改变。`4.3.0`
 
 ### 兼容性调整
 
 - IE 最低支持版本为 IE 11。
 - React 最低支持版本为 React 16.9，部分组件开始使用 hooks 进行重构。
+  - 重构通过 `useMemo` 进行性能优化，请勿使用 mutable data 作为参数。
 
 #### 移除废弃的 API
 
@@ -53,6 +55,8 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
 - 移除了 Transfer 的 `lazy` 属性，它并没有起到真正的优化效果。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
+- 移除了 Table 的 `rowSelection.hideDefaultSelections` 属性，请在 `rowSelection.selections` 中使用 `SELECTION_ALL` 和 `SELECTION_INVERT` 替代，[自定义选择项](/components/table/#components-table-demo-row-selection-custom)。
+- 废弃 Button.Group，请使用 `Space` 代替。
 
 #### 图标升级
 
@@ -123,6 +127,8 @@ const Demo = () => (
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
   - Select 移除 `dropdownMenuStyle` 属性。
   - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
+  - `filterOption` 第二个参数直接返回原数据，不在需要通过 `option.props.children` 来进行匹配。
+  - Tree、TreeSelect 同时指定 `title` 和 `label` 的时候，会选择显示 `label`。为了 `labelInValue` 行为一致进行了该调整。[新行为](https://codesandbox.io/s/keen-curran-d3qnp)（在第一个节点展示 'label'），[旧行为](https://codesandbox.io/s/muddy-darkness-57lb3)（在第一个节点展示 'title'）。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
@@ -130,6 +136,9 @@ const Demo = () => (
   - 在没有 `columns` 时仍然会保留一列。
   - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
 - Pagination 自 `4.1.0` 起大于 50 条数据默认会展示 `pageSize` 切换器，这条规则同样会运用于 Table 上。
+- Tabs 重写（[4.3.0](https://github.com/ant-design/ant-design/pull/24552)）
+  - Dom 结构变化，如有覆盖样式需要仔细检查。
+  - 横向滚动交互变化，`onPrevClick` 和 `onNextClick` 不再工作。
 
 ```diff
 <Table

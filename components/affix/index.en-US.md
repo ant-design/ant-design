@@ -2,6 +2,7 @@
 category: Components
 type: Navigation
 title: Affix
+cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 ---
 
 Wrap Affix around another component to make it stick the viewport.
@@ -18,8 +19,8 @@ Please note that Affix should not cover other content on the page, especially wh
 | --- | --- | --- | --- |
 | offsetBottom | Offset from the bottom of the viewport (in pixels) | number | - |
 | offsetTop | Offset from the top of the viewport (in pixels) | number | 0 |
+| onChange | Callback for when Affix state is changed | function(affixed) | - |
 | target | Specifies the scrollable area DOM node | () => HTMLElement | () => window |
-| onChange | Callback for when Affix state is changed | Function(affixed) | - |
 
 **Note:** Children of `Affix` must not have the property `position: absolute`, but you can set `position: absolute` on `Affix` itself:
 

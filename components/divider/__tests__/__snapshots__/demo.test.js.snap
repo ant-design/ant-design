@@ -1,83 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/divider/demo/customize-style.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-    style="height:2px;background-color:#7cb305"
-  />
+    style="border-width:2px;border-color:#7cb305"
+  />,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
     role="separator"
     style="border-color:#7cb305"
-  />
+  />,
   <div
     class="ant-divider ant-divider-vertical"
     role="separator"
-    style="height:60px;background-color:#7cb305"
-  />
+    style="height:60px;border-color:#7cb305"
+  />,
   <div
     class="ant-divider ant-divider-vertical ant-divider-dashed"
     role="separator"
     style="height:60px;border-color:#7cb305"
-  />
-</div>
+  />,
+]
 `;
 
 exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
-<div>
+Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
+  </p>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />
+  />,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
+  </p>,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
     role="separator"
-  />
+  />,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-</div>
+  </p>,
+]
 `;
 
-exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
-<div>
-  Text
-  <div
-    class="ant-divider ant-divider-vertical"
-    role="separator"
-  />
-  <a
-    href="#"
-  >
-    Link
-  </a>
-  <div
-    class="ant-divider ant-divider-vertical"
-    role="separator"
-  />
-  <a
-    href="#"
-  >
-    Link
-  </a>
-</div>
-`;
-
-exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
-<div>
+exports[`renders ./components/divider/demo/plain.md correctly 1`] = `
+Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
+  </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-center"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
     role="separator"
   >
     <span
@@ -85,12 +61,12 @@ exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
     >
       Text
     </span>
-  </div>
+  </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
+  </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
     role="separator"
   >
     <span
@@ -98,12 +74,12 @@ exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
     >
       Left Text
     </span>
-  </div>
+  </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
+  </p>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-right"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right ant-divider-plain"
     role="separator"
   >
     <span
@@ -111,9 +87,80 @@ exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
     >
       Right Text
     </span>
-  </div>
+  </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-</div>
+  </p>,
+]
+`;
+
+exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
+Array [
+  "Text",
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />,
+  <a
+    href="#"
+  >
+    Link
+  </a>,
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />,
+  <a
+    href="#"
+  >
+    Link
+  </a>,
+]
+`;
+
+exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
+Array [
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Text
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Left Text
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Right Text
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+]
 `;

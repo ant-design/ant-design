@@ -28,7 +28,7 @@ interface IconDisplayState {
   searchKey: string;
 }
 
-class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
+class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState> {
   static categories: Categories = categories;
 
   static newIconNames: string[] = [];
@@ -67,6 +67,9 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             iconName.toLowerCase().includes(searchKey.toLowerCase()),
           );
         }
+
+        // CopyrightCircle is same as Copyright, don't show it
+        iconList = iconList.filter(icon => icon !== 'CopyrightCircle');
 
         return {
           category: key,

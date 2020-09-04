@@ -1,7 +1,9 @@
 @import './index';
 
-.table-size(@size, @padding-vertical, @padding-horizontal) {
+.table-size(@size, @padding-vertical, @padding-horizontal, @font-size) {
   .@{table-prefix-cls}.@{table-prefix-cls}-@{size} {
+    font-size: @font-size;
+
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
     .@{table-prefix-cls}-thead > tr > th,
@@ -32,21 +34,35 @@
     .@{table-prefix-cls}-expanded-row-fixed {
       margin: -@padding-vertical -@padding-horizontal;
     }
+
+    .@{table-prefix-cls}-tbody {
+      // ========================= Nest Table ===========================
+      .@{table-prefix-cls}-wrapper:only-child {
+        .@{table-prefix-cls} {
+          margin: -@padding-vertical -@padding-horizontal -@padding-vertical (@padding-horizontal +
+                ceil(@font-size-sm * 1.4));
+        }
+      }
+    }
   }
 }
 
 // ================================================================
 // =                            Middle                            =
 // ================================================================
-.table-size(~'middle', @table-padding-vertical-md, @table-padding-horizontal-md);
+.table-size(~'middle', @table-padding-vertical-md, @table-padding-horizontal-md, @table-font-size-md);
 
 // ================================================================
 // =                            Small                             =
 // ================================================================
-.table-size(~'small', @table-padding-vertical-sm, @table-padding-horizontal-sm);
+.table-size(~'small', @table-padding-vertical-sm, @table-padding-horizontal-sm, @table-font-size-sm);
 
 .@{table-prefix-cls}-small {
   .@{table-prefix-cls}-thead > tr > th {
     background-color: @table-header-bg-sm;
+  }
+  .@{table-prefix-cls}-selection-column {
+    width: 46px;
+    min-width: 46px;
   }
 }

@@ -51,15 +51,21 @@
   }
 
   &-menu {
-    &-rtl {
+    &-rtl & {
       direction: rtl;
       border-right: none;
       border-left: @border-width-base @border-style-base @border-color-split;
+      &:first-child {
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
       &:last-child {
         margin-right: 0;
         margin-left: -1px;
         border-left-color: transparent;
-        border-radius: 0 0 4px 4px;
+        border-radius: @border-radius-base 0 0 @border-radius-base;
+      }
+      &:only-child {
+        border-radius: @border-radius-base;
       }
     }
   }

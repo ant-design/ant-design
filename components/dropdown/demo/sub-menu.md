@@ -21,8 +21,10 @@ const { SubMenu } = Menu;
 
 const menu = (
   <Menu>
-    <Menu.Item>1st menu item</Menu.Item>
-    <Menu.Item>2nd menu item</Menu.Item>
+    <Menu.ItemGroup title="Group title">
+      <Menu.Item>1st menu item</Menu.Item>
+      <Menu.Item>2nd menu item</Menu.Item>
+    </Menu.ItemGroup>
     <SubMenu title="sub menu">
       <Menu.Item>3rd menu item</Menu.Item>
       <Menu.Item>4th menu item</Menu.Item>

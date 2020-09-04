@@ -18,24 +18,42 @@ describe('Wave component', () => {
   it('isHidden works', () => {
     const TEST_NODE_ENV = process.env.NODE_ENV;
     process.env.NODE_ENV = 'development';
-    const wrapper = mount(<Wave><button type="button">button</button></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <button type="button">button</button>
+      </Wave>,
+    );
     expect(wrapper.find('button').getDOMNode().className).toBe('');
     wrapper.find('button').getDOMNode().click();
-    expect(wrapper.find('button').getDOMNode().hasAttribute('ant-click-animating-without-extra-node')).toBe(false);
+    expect(
+      wrapper.find('button').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+    ).toBe(false);
     wrapper.unmount();
     process.env.NODE_ENV = TEST_NODE_ENV;
   });
 
   it('isHidden is mocked', () => {
-    const wrapper = mount(<Wave><button type="button">button</button></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <button type="button">button</button>
+      </Wave>,
+    );
     expect(wrapper.find('button').getDOMNode().className).toBe('');
     wrapper.find('button').getDOMNode().click();
-    expect(wrapper.find('button').getDOMNode().getAttribute('ant-click-animating-without-extra-node')).toBe('false');
+    expect(
+      wrapper.find('button').getDOMNode().getAttribute('ant-click-animating-without-extra-node'),
+    ).toBe('false');
     wrapper.unmount();
   });
 
   it('wave color is grey', async () => {
-    const wrapper = mount(<Wave><button type="button" style={{ borderColor: 'rgb(0, 0, 0)' }}>button</button></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderColor: 'rgb(0, 0, 0)' }}>
+          button
+        </button>
+      </Wave>,
+    );
     wrapper.find('button').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
@@ -44,7 +62,13 @@ describe('Wave component', () => {
   });
 
   it('wave color is not grey', async () => {
-    const wrapper = mount(<Wave><button type="button" style={{ borderColor: 'red' }}>button</button></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderColor: 'red' }}>
+          button
+        </button>
+      </Wave>,
+    );
     wrapper.find('button').getDOMNode().click();
     await sleep(200);
     const styles = document.getElementsByTagName('style');
@@ -54,7 +78,11 @@ describe('Wave component', () => {
   });
 
   it('read wave color from border-top-color', async () => {
-    const wrapper = mount(<Wave><div style={{ borderTopColor: 'blue' }}>button</div></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <div style={{ borderTopColor: 'blue' }}>button</div>
+      </Wave>,
+    );
     wrapper.find('div').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
@@ -64,7 +92,11 @@ describe('Wave component', () => {
   });
 
   it('read wave color from background color', async () => {
-    const wrapper = mount(<Wave><div style={{ backgroundColor: 'green' }}>button</div></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <div style={{ backgroundColor: 'green' }}>button</div>
+      </Wave>,
+    );
     wrapper.find('div').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
@@ -74,7 +106,11 @@ describe('Wave component', () => {
   });
 
   it('read wave color from border firstly', async () => {
-    const wrapper = mount(<Wave><div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
+      </Wave>,
+    );
     wrapper.find('div').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
@@ -84,7 +120,13 @@ describe('Wave component', () => {
   });
 
   it('hidden element with -leave className', async () => {
-    const wrapper = mount(<Wave><button type="button" className="xx-leave">button</button></Wave>);
+    const wrapper = mount(
+      <Wave>
+        <button type="button" className="xx-leave">
+          button
+        </button>
+      </Wave>,
+    );
     wrapper.find('button').getDOMNode().click();
     await sleep(0);
     const styles = document.getElementsByTagName('style');
@@ -95,7 +137,9 @@ describe('Wave component', () => {
   it('ConfigProvider csp', async () => {
     const wrapper = mount(
       <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
-        <Wave><button type="button">button</button></Wave>
+        <Wave>
+          <button type="button">button</button>
+        </Wave>
       </ConfigProvider>,
     );
     wrapper.find('button').getDOMNode().click();

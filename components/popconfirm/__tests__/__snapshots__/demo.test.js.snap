@@ -24,6 +24,9 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />

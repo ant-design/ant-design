@@ -18,7 +18,7 @@ Using JSX style API (introduced in 2.5.0)
 > Since this is just a syntax sugar for the prop `columns`, you can't compose `Column` and `ColumnGroup` with other Components.
 
 ```jsx
-import { Table, Tag } from 'antd';
+import { Table, Tag, Space } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
@@ -62,23 +62,23 @@ ReactDOM.render(
       dataIndex="tags"
       key="tags"
       render={tags => (
-        <span>
+        <>
           {tags.map(tag => (
             <Tag color="blue" key={tag}>
               {tag}
             </Tag>
           ))}
-        </span>
+        </>
       )}
     />
     <Column
       title="Action"
       key="action"
       render={(text, record) => (
-        <span>
-          <a style={{ marginRight: 16 }}>Invite {record.lastName}</a>
+        <Space size="middle">
+          <a>Invite {record.lastName}</a>
           <a>Delete</a>
-        </span>
+        </Space>
       )}
     />
   </Table>,

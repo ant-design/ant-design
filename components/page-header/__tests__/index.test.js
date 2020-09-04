@@ -4,24 +4,19 @@ import PageHeader from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { spyElementPrototypes } from '../../__tests__/util/domHook';
 
 describe('PageHeader', () => {
   mountTest(PageHeader);
   rtlTest(PageHeader);
 
-  let spy;
+  const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   beforeAll(() => {
-    spy = spyElementPrototypes(HTMLElement, {
-      getBoundingClientRect: () => ({
-        width: 100,
-      }),
-    });
+    mockGetBoundingClientRect.mockReturnValue({ width: 100 });
   });
 
   afterAll(() => {
-    spy.mockRestore();
+    mockGetBoundingClientRect.mockRestore();
   });
 
   it('pageHeader should not contain back it back', () => {
@@ -117,9 +112,10 @@ describe('PageHeader', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
-  it('change container width', () => {
+  it('change container width', async () => {
     const wrapper = mount(<PageHeader title="Page Title" extra="extra" />);
     wrapper.triggerResize();
+    await Promise.resolve();
     wrapper.update();
     expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBe(true);
   });

@@ -13,7 +13,6 @@ interface ScrollToOptions {
 
 export default function scrollTo(y: number, options: ScrollToOptions = {}) {
   const { getContainer = () => window, callback, duration = 450 } = options;
-
   const container = getContainer();
   const scrollTop = getScroll(container, true);
   const startTime = Date.now();
@@ -24,8 +23,8 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
     const nextScrollTop = easeInOutCubic(time > duration ? duration : time, scrollTop, y, duration);
     if (isWindow(container)) {
       (container as Window).scrollTo(window.pageXOffset, nextScrollTop);
-    } else if (container instanceof Document) {
-      container.documentElement.scrollTop = nextScrollTop;
+    } else if (container instanceof HTMLDocument || container.constructor.name === 'HTMLDocument') {
+      (container as HTMLDocument).documentElement.scrollTop = nextScrollTop;
     } else {
       (container as HTMLElement).scrollTop = nextScrollTop;
     }

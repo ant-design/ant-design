@@ -24,9 +24,10 @@ There are some major variables below, all less variables could be found in [Defa
 @text-color: rgba(0, 0, 0, 0.65); // major text color
 @text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
 @disabled-color: rgba(0, 0, 0, 0.25); // disable state color
-@border-radius-base: 4px; // major border radius
+@border-radius-base: 2px; // major border radius
 @border-color-base: #d9d9d9; // major border color
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05); // major shadow for layers
 ```
 
 Please report an issue if the existing list of variables is not enough for you.
@@ -51,14 +52,14 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: {
-+         'primary-color': '#1DA57A',
-+         'link-color': '#1DA57A',
-+         'border-radius-base': '2px',
-+         // or
-+         'hack': `true; @import "your-less-file-path.less";`, // Override with less file
++       lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
++         modifyVars: {
++           'primary-color': '#1DA57A',
++           'link-color': '#1DA57A',
++           'border-radius-base': '2px',
++         },
++         javascriptEnabled: true,
 +       },
-+       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
@@ -67,11 +68,14 @@ module.exports = {
 }
 ```
 
-Note that do not exclude antd package in node_modules when using less-loader.
+Note:
+
+1. Don't exclude `node_modules/antd` when using less-loader.
+2. `lessOptions` usage is supported at [less-loader@6.0.0](https://github.com/webpack-contrib/less-loader/releases/tag/v6.0.0).
 
 ### Customize in Umi
 
-You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be a object or a javascript file path.
+You can easily use [theme](https://umijs.org/config/#theme) field in [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [Umi](http://umijs.org/), which could be an object or a javascript file path.
 
 ```js
 "theme": {
@@ -94,6 +98,7 @@ Follow [Use in create-react-app](/docs/react/use-with-create-react-app).
 Another approach to customize theme is creating a `less` file within variables to override `antd.less`.
 
 ```css
+@import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
 @import 'your-theme-file.less'; // variables to override above
 ```
@@ -113,7 +118,7 @@ It's possible to configure webpack to load an alternate less file:
 ```ts
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
 
-#antd { @import '~antd/es/style/core/index.less'; @import '~antd/es/style/themes/default.less'; }
+#antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
 ```
 
 Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.
@@ -195,11 +200,13 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: getThemeVariables({
-+         dark: true, // enable dark mode
-+         compact: true, // enable compact mode
-+       }),
-+       javascriptEnabled: true,
++       lessOptions: { // If you are using less-loader@5 please spread the lessOptions to options directly
++         modifyVars: getThemeVariables({
++           dark: true, // 开启暗黑模式
++           compact: true, // 开启紧凑模式
++         }),
++         javascriptEnabled: true,
++       },
 +     },
     }],
   }],
@@ -213,3 +220,4 @@ module.exports = {
 - [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
 - [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
 - [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)
+- [Zero config custom theme generator](https://www.npmjs.com/package/@emeks/antd-custom-theme-generator)

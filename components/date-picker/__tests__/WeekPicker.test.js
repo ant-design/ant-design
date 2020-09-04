@@ -15,7 +15,7 @@ describe('WeekPicker', () => {
     resetMockDate();
   });
 
-  focusTest(WeekPicker, true);
+  focusTest(WeekPicker, { refFocus: true });
 
   it('should support style prop', () => {
     const wrapper = mount(<WeekPicker style={{ width: 400 }} />);

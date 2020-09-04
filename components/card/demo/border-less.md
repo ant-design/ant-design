@@ -30,8 +30,8 @@ ReactDOM.render(
 
 ```css
 .site-card-border-less-wrapper {
-  background: #ececec;
   padding: 30px;
+  background: #ececec;
 }
 ```
 

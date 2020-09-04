@@ -28,7 +28,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 
 ## Front-end Implementation
 
-[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
+[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](/docs/spec/introduce) in other front-end frameworks of their choice.
 
 ```__react
 import {
@@ -42,45 +42,35 @@ const LinkIcon = () => (
 const LinksList = () => (
   <ul>
     <li>
-      <a href="/docs/react/introduce" target="_blank">Ant Design of React</a>
+      <a href="/docs/react/introduce" target="_blank">Ant Design of React </a>
       (official implementation)
     </li>
     <li>
       <a href="http://ng.ant.design" target="_blank">
-        NG-ZORRO - Ant Design of Angular<LinkIcon />
+        NG-ZORRO - Ant Design of Angular
       </a>
     </li>
     <li>
       <a href="http://ng.mobile.ant.design" target="_blank">
-        NG-ZORRO-MOBILE - Ant Design Mobile of Angular<LinkIcon />
+        NG-ZORRO-MOBILE - Ant Design Mobile of Angular
       </a>
     </li>
     <li>
-      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue</a>
+    </li>
+    <li>
+      <a href="https://ant-design-blazor.github.io/" target="_blank">
+        Ant Design Blazor
+      </a>
     </li>
     <li>
       <a href="https://ecomfe.github.io/santd" target="_blank">
-        San UI Toolkit for Ant Design<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
-        vue-beauty (vue)<LinkIcon />
+        San UI Toolkit for Ant Design
       </a>
     </li>
     <li>
       <a href="https://github.com/priornix/antizer" target="_blank">
-        antizer (ClojureScript)<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/idcos/antd-ember" target="_blank">
-        antd-ember<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/zzuu666/antue" target="_blank">
-        antue (vue)<LinkIcon />
+        antizer (ClojureScript)
       </a>
     </li>
   </ul>

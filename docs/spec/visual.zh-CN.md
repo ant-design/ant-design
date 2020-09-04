@@ -13,6 +13,7 @@ title: 可视化
 
 - [G2 可视化引擎](https://g2.antv.vision/zh)
 - [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥
+- [G2Plot React 版](https://charts.ant.design)
 - [G6 图可视化引擎](https://g6.antv.vision/zh)
 - [L7 地理空间数据可视分析引擎](https://l7.antv.vision/zh)
 - [F2 移动端可视化方案](https://f2.antv.vision/zh)
@@ -104,7 +105,6 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 对当前的一组数据进行的内容标注。
 
-
 #### 提示信息
 
 <img class="preview-img no-padding" align="right" description="提示信息的元素" src="https://gw.alipayobjects.com/zos/basement_prod/f9683e72-81a4-47cc-a208-6570187cce11.svg" />
@@ -139,9 +139,9 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 在数据可视化中，我们根据用户的意识层次及每层次对应的目标，将交互动作拆解成“数据获取、信息加工、知识流转”三层。其匹配“概览第一，聚焦过滤，再按需查看详情”的可视化信息检索箴言。亦符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。
 
-更多交互式图表内容请前往 [ AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
+更多交互式图表内容请前往 [AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
 
 ## 设计资源
 
 - 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
-- 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。
+- 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈 图表生成器」，用保真数据动态生成图表。

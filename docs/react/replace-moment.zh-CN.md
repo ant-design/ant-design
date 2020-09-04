@@ -3,9 +3,7 @@ order: 7.1
 title: 替换 Moment.js
 ---
 
-## 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？
-
-考虑到包的大小，你可以用自定义日期库替换 Moment。在这里我们提供了两种方式来实现替换:
+你可以用自定义日期库（[day.js](https://day.js.org)、[date-fns](https://date-fns.org)）替换 Moment 以优化打包大小。在这里我们提供了两种方式来实现替换:
 
 ### 自定义组件
 
@@ -101,6 +99,38 @@ export { default as TimePicker } from './TimePicker';
 
 如果你熟悉 [umi](https://umijs.org/)，你可以参考 [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment)。
 
-### Webpack 配置替换
+### antd-dayjs-webpack-plugin
 
 我们还提供另一种实现方式。使用 `antd-dayjs-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Day.js`。请参考 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin)。
+
+```js
+// webpack-config.js
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdDayjsWebpackPlugin()],
+};
+```
+
+## 使用 date-fns
+
+[date-fns](https://date-fns.org/) 目前支持和 dayjs 类似的自定义组件方法，区别在于使用的参数类型不同，在 antd 4.5.0 以上版本提供支持。
+
+做一个简单的例子：
+
+### DatePicker.tsx
+
+新建 `src/components/DatePicker.tsx`。
+
+编写如下代码:
+
+```tsx
+import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
+import generatePicker from 'antd/es/date-picker/generatePicker';
+import 'antd/es/date-picker/style/index';
+
+const DatePicker = generatePicker<Date>(dateFnsGenerateConfig);
+
+export default DatePicker;
+```

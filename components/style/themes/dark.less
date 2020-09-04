@@ -164,7 +164,7 @@
 @body-background: @black;
 @component-background: #141414;
 
-@text-color: fade(@white, 65%);
+@text-color: fade(@white, 85%);
 @text-color-secondary: fade(@white, 45%);
 @text-color-inverse: @white;
 @icon-color-hover: fade(@white, 75%);
@@ -220,7 +220,7 @@
 @btn-default-ghost-color: @text-color;
 @btn-default-ghost-border: fade(@white, 25%);
 
-@btn-link-ghost-color: @text-color;
+@btn-text-hover-bg: rgba(255, 255, 255, 0.03);
 
 // Checkbox
 // ---
@@ -229,6 +229,10 @@
 // Descriptions
 // ---
 @descriptions-bg: @background-color-light;
+
+// Divider
+// ---
+@divider-color: rgba(255, 255, 255, 12%);
 
 // Modal
 // ---
@@ -239,15 +243,13 @@
 
 // Radio
 // ---
-@radtio-solid-checked-color: @white;
-// Keep typo compatible
-@radio-solid-checked-color: @radtio-solid-checked-color;
+@radio-solid-checked-color: @white;
 @radio-dot-disabled-color: fade(@white, 20%);
 
 // Radio buttons
 // ---
 @radio-disabled-button-checked-bg: fade(@white, 20%);
-@radio-disabled-button-checked-color: @black;
+@radio-disabled-button-checked-color: @disabled-color;
 
 // Layout
 // ---
@@ -260,7 +262,6 @@
 @input-bg: transparent;
 @input-placeholder-color: fade(@white, 30%);
 @input-icon-color: fade(@white, 30%);
-@input-number-handler-bg: transparent;
 @input-number-handler-active-bg: @item-hover-bg;
 @input-icon-hover-color: fade(@white, 85%);
 
@@ -271,6 +272,9 @@
 @select-clear-background: @component-background;
 @select-selection-item-bg: fade(@white, 8);
 @select-selection-item-border-color: @border-color-split;
+@select-multiple-disabled-background: @component-background;
+@select-multiple-item-disabled-color: #595959;
+@select-multiple-item-disabled-border-color: @popover-background;
 
 // Cascader
 // ---
@@ -359,7 +363,7 @@
 
 // Card
 // ---
-@card-actions-background: @background-color-light;
+@card-actions-background: @component-background;
 @card-skeleton-bg: #303030;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.64), 0 3px 6px 0 rgba(0, 0, 0, 0.48),
   0 5px 12px 4px rgba(0, 0, 0, 0.36);

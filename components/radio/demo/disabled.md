@@ -33,11 +33,11 @@ class App extends React.Component {
         <Radio defaultChecked={false} disabled={this.state.disabled}>
           Disabled
         </Radio>
-        <br />
         <Radio defaultChecked disabled={this.state.disabled}>
           Disabled
         </Radio>
-        <Button type="primary" onClick={this.toggleDisabled} style={{ marginTop: 20 }}>
+        <br />
+        <Button type="primary" onClick={this.toggleDisabled} style={{ marginTop: 16 }}>
           Toggle disabled
         </Button>
       </>

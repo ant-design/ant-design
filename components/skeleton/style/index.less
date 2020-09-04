@@ -7,6 +7,7 @@
 @skeleton-paragraph-prefix-cls: ~'@{skeleton-prefix-cls}-paragraph';
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 @skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
+@skeleton-image-prefix-cls: ~'@{skeleton-prefix-cls}-image';
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -31,12 +32,12 @@
     // Title
     .@{skeleton-title-prefix-cls} {
       width: 100%;
-      height: 16px;
+      height: @skeleton-title-height;
       margin-top: @margin-md;
       background: @skeleton-color;
 
       + .@{skeleton-paragraph-prefix-cls} {
-        margin-top: @margin-lg;
+        margin-top: @skeleton-title-paragraph-margin-top;
       }
     }
 
@@ -46,7 +47,7 @@
 
       > li {
         width: 100%;
-        height: 16px;
+        height: @skeleton-paragraph-li-height;
         list-style: none;
         background: @skeleton-color;
 
@@ -72,6 +73,13 @@
     }
   }
 
+  &-round &-content {
+    .@{skeleton-title-prefix-cls},
+    .@{skeleton-paragraph-prefix-cls} > li {
+      border-radius: 100px;
+    }
+  }
+
   // With active animation
   &.@{skeleton-prefix-cls}-active {
     & .@{skeleton-prefix-cls}-content {
@@ -92,11 +100,17 @@
     .@{skeleton-input-prefix-cls} {
       .skeleton-color();
     }
+
+    .@{skeleton-image-prefix-cls} {
+      .skeleton-color();
+    }
   }
 
   // Skeleton element
   &-element {
     display: inline-block;
+    width: auto;
+
     .@{skeleton-button-prefix-cls} {
       .skeleton-element-button();
     }
@@ -107,6 +121,10 @@
 
     .@{skeleton-input-prefix-cls} {
       .skeleton-element-input();
+    }
+
+    .@{skeleton-image-prefix-cls} {
+      .skeleton-element-image();
     }
   }
 }
@@ -161,6 +179,27 @@
   }
 }
 
+// Image
+.skeleton-element-image() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  background: @skeleton-color;
+
+  .skeleton-element-image-size(@image-size-base*2);
+
+  &-path {
+    fill: #bfbfbf;
+  }
+
+  &-svg {
+    .skeleton-element-image-size(@image-size-base);
+    max-width: @image-size-base * 4;
+    max-height: @image-size-base * 4;
+  }
+}
+
 .skeleton-element-avatar-size(@size) {
   width: @size;
   .skeleton-element-common-size(@size);
@@ -187,6 +226,15 @@
 .skeleton-element-input-size(@size) {
   width: 100%;
   .skeleton-element-common-size(@size);
+}
+
+.skeleton-element-image-size(@size) {
+  width: @size;
+  .skeleton-element-common-size(@size);
+
+  &.@{skeleton-image-prefix-cls}-circle {
+    border-radius: 50%;
+  }
 }
 
 .skeleton-element-common-size(@size) {

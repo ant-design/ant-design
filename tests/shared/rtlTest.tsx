@@ -9,7 +9,7 @@ export default function rtlTest(Component: React.ComponentType, mockDate?: boole
   describe(`rtl render`, () => {
     it(`component should be rendered correctly in RTL direction`, () => {
       if (mockDate) {
-        MockDate.set(Moment('2000-09-28').toDate());
+        MockDate.set(Moment('2000-09-28').valueOf());
       }
       const wrapper = mount(
         <ConfigProvider direction="rtl">

@@ -3,6 +3,7 @@ category: Components
 type: Data Entry
 cols: 1
 title: Form
+cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.
@@ -16,26 +17,28 @@ High performance Form component with data scope management. Including data colle
 
 ### Form
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |
-| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |
-| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
-| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |
-| hideRequiredMark | Hide required mark for all form items | boolean | false |
-| initialValues | Set value by Form initialization or reset | object | - |
-| labelAlign | text align of label of all items | `left` \| `right` | `right` |
-| labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |
-| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |
-| name | Form name. Will be the prefix of Field `id` | string | - |
-| scrollToFirstError | Auto scroll to first failed field when submit | false | - |
-| size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |
-| validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
-| wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#Col) | - |
-| onFinish | Trigger after submitting the form and verifying data successfully | Function(values) | - |
-| onFinishFailed | Trigger after submitting the form and verifying data failed | Function({ values, errorFields, outOfDate }) | - |
-| onFieldsChange | Trigger when field updated | Function(changedFields, allFields) | - |
-| onValuesChange | Trigger when value updated | Function(changedValues, allValues) | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
+| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
+| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
+| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
+| initialValues | Set value by Form initialization or reset | object | - |  |
+| labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
+| labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
+| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| name | Form name. Will be the prefix of Field `id` | string | - |  |
+| preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
+| requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` | true | 4.6.0 |
+| scrollToFirstError | Auto scroll to first failed field when submit | boolean | false |  |
+| size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
+| validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
+| validateTrigger | Config field validate trigger | string \| string[] | `onChange` | 4.3.0 |
+| wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#Col) | - |  |
+| onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
+| onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
+| onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
+| onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 
 ### validateMessages
 
@@ -71,26 +74,30 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | --- | --- | --- | --- | --- |
 | colon | Used with `label`, whether to display `:` after label text. | boolean | true |  |
 | dependencies | Set the dependency field. See [below](#dependencies) | [NamePath](#NamePath)[] | - |  |
-| extra | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time | string\|ReactNode | - |  |
+| extra | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time | string \| ReactNode | - |  |
 | getValueFromEvent | Specify how to get value from event or other onChange arguments | (..args: any[]) => any | - |  |
+| getValueProps | Additional props with sub component | (value: any) => any | - | 4.2.0 |
 | hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. Recommended to be used only with `Input` | boolean | false |  |
-| help | The prompt message. If not provided, the prompt message will be generated by the validation rule. | string\|ReactNode | - |  |
+| help | The prompt message. If not provided, the prompt message will be generated by the validation rule. | string \| ReactNode | - |  |
 | htmlFor | Set sub label `htmlFor` | string | - |  |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.2.0 |
 | noStyle | No style for `true`, used as a pure field control | boolean | false |  |
-| label | Label text | string\|ReactNode | - |  |
-| labelAlign | text align of label | `left` \| `right` | `right` |  |
+| label | Label text | string \| ReactNode | - |  |
+| labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance | (value, prevValue, prevValues) => any | - |  |
+| preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
 | required | Display required style. It will be generated by the validation rule | boolean | false |  |
 | rules | Rules for field validation. Click [here](#components-form-demo-basic) to see an example | [Rule](#Rule)[] | - |  |
 | shouldUpdate | Custom field update logic. See [below](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
-| trigger | When to collect the value of children node | string | onChange |  |
-| validateFirst | Whether stop validate on first rule of error for this field | boolean | false |  |
-| validateStatus | The validation status. If not provided, it will be generated by validation rule. options: 'success' 'warning' 'error' 'validating' | string | - |  |
-| validateTrigger | When to validate the value of children node | string \| string[] | onChange |  |
-| valuePropName | Props of children node, for example, the prop of Switch is 'checked' | string | 'value' |  |
+| trigger | When to collect the value of children node | string | `onChange` |  |
+| validateFirst | Whether stop validate on first rule of error for this field. Will parallel validate when `parallel` cofigured | boolean \| `parallel` | false | `parallel`: 4.5.0 |
+| validateStatus | The validation status. If not provided, it will be generated by validation rule. options: `success` `warning` `error` `validating` | string | - |  |
+| validateTrigger | When to validate the value of children node | string \| string[] | `onChange` |  |
+| valuePropName | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | string | `value` |  |
 | wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
+| hidden | Whether to hide Form.Item (still collect and validate value) | boolean | false |  |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
@@ -101,6 +108,10 @@ After wrapped by `Form.Item` with `name` property, `value`(or other property def
 ### dependencies
 
 Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-register).
+
+`dependencies` shouldn't be used together with `shouldUpdate`. Since it may cause chaos in updating logic.
+
+`dependencies` supports `Form.Item` with render props children since `4.5.0`.
 
 ### shouldUpdate
 
@@ -157,14 +168,24 @@ Provides array management for fields.
 </Form.List>
 ```
 
+## operation
+
+Some operator functions in render form of Form.List.
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
+| remove | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
+| move | move form item | (from: number, to: number) => void | - |
+
 ## Form.Provider
 
 Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| onFormChange | Triggered when a sub form field updates | Function(formName: string, info: { changedFields, forms }) | - |
-| onFormFinish | Triggered when a sub form submits | Function(formName: string, info: { values, forms }) | - |
+| onFormChange | Triggered when a sub form field updates | function(formName: string, info: { changedFields, forms }) | - |
+| onFormFinish | Triggered when a sub form submits | function(formName: string, info: { values, forms }) | - |
 
 ```jsx
 <Form.Provider
@@ -181,21 +202,22 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 ### FormInstance
 
-| Name | Description | Type |
-| --- | --- | --- |
-| getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
-| getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string[] |
-| getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
-| isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |
-| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
-| isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |
-| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
-| scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/blob/ece40bd9143f48caf4b99503425ecb16b0ad8249/src/types.ts#L10)]) => void |
-| setFields | Set fields status | (fields: FieldData[]) => void |
-| setFieldsValue | Set fields value | (values) => void |
-| submit | Submit the form. It's same as click `submit` button | () => void |
-| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)[]) => Promise |
+| Name | Description | Type | Version |
+| --- | --- | --- | --- |
+| getFieldInstance | Get field instance | (name: [NamePath](#NamePath)) => any | 4.4.0 |
+| getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |  |
+| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
+| getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string[] |  |
+| getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |  |
+| isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
+| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |  |
+| isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
+| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |  |
+| scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| setFields | Set fields status | (fields: [FieldData](#FieldData)[]) => void |  |
+| setFieldsValue | Set fields value | (values) => void |  |
+| submit | Submit the form. It's same as click `submit` button | () => void |  |
+| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)[]) => Promise |  |
 
 #### validateFields return sample
 
@@ -255,14 +277,14 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | --- | --- | --- |
 | enum | Match enum value | any[] |
 | len | Length of string, number, array | number |
-| max | Max length of string, number, array | number |
+| max | `type` required: max length of `string`, `number`, `array` | number |
 | message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |
-| min | Min length of string, number, array | number |
+| min | `type` required: min length of `string`, `number`, `array` | number |
 | pattern | Regex pattern | RegExp |
 | required | Required field | boolean |
 | transform | Transform value to the rule before validation | (value) => any |
 | type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |
-| validator | Customize validation rule. Accept Promise as return. [example](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
+| validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |
 | whitespace | Failed if only has whitespace | boolean |
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string[] |
 
@@ -302,19 +324,44 @@ validator(rule, value, callback) => {
 }
 ```
 
+### How does name fill value when it's array?
+
+`name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.
+
 ### Why is there a form warning when used in Modal?
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
 
-Before Modal open, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
+Before Modal opens, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
 
-### Why component `defaultValue` not working when inside Form.Item?
+### Why is component `defaultValue` not working when inside Form.Item?
 
-Components inside Form.Item with name property will turn into controlled mode, that makes `defaultValue` does not work anymore. Please try `initialValues` of Form to set default value.
+Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
 
-### Why resetFields will re-mount component?
+### Why can not call `ref` of From at first time?
 
-`resetFields` will re-mount component under Field to clean up customize component side effect(like asyn data, cached state, etc.). It's by design.
+`ref` only receives the mounted instance. please ref React official doc: https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs
+
+### Why `resetFields` will re-mount component?
+
+`resetFields` will re-mount component under Field to clean up customize component side effects (like async data, cached state, etc.). It's by design.
+
+### Difference between Form initialValues and Item initialValue?
+
+In most case, we always recommend to use Form `initialValues`. Use Item `initialValue` only with dynamic field usage. Priority follows the rules:
+
+1. Form `initialValues` is the first priority
+2. Field `initialValue` is secondary \*. Does not work when multiple Item with same `name` setting the `initialValue`
+
+### Why `onFieldsChange` triggers three times on change when field sets `rules`?
+
+Validating is also part of the value updating. It pass follow steps:
+
+1. Trigger value change
+2. Rule validating
+3. Rule validated
+
+In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
 <style>
   .site-form-item-icon {

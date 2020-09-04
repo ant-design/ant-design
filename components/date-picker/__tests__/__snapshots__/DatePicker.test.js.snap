@@ -9,6 +9,7 @@ Array [
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Select date"
         readonly=""
         size="12"
@@ -44,7 +45,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity: 0;"
+      style="opacity: 0; pointer-events: none;"
     >
       <div
         class="ant-picker-panel-container"
@@ -586,7 +587,8 @@ Array [
             class="ant-picker-footer"
           >
             <a
-              class="ant-picker-today-btn"
+              aria-disabled="true"
+              class="ant-picker-today-btn ant-picker-today-btn-disabled"
             >
               Today
             </a>
@@ -607,6 +609,7 @@ Array [
       class="ant-picker-input"
     >
       <input
+        autocomplete="off"
         placeholder="Избери дата"
         readonly=""
         size="12"
@@ -666,7 +669,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity: 0;"
+      style="opacity: 0; pointer-events: none;"
     >
       <div
         class="ant-picker-panel-container"

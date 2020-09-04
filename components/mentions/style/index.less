@@ -64,10 +64,6 @@
       background-color: transparent;
     }
     .placeholder();
-
-    &:read-only {
-      cursor: default;
-    }
   }
 
   &-measure {
@@ -123,7 +119,7 @@
         overflow: hidden;
         color: @text-color;
         font-weight: normal;
-        line-height: 22px;
+        line-height: @line-height-base;
         white-space: nowrap;
         text-overflow: ellipsis;
         cursor: pointer;

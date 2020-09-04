@@ -19,17 +19,15 @@
   &-heading {
     &-title {
       .@{pageheader-prefix-cls}-rtl & {
-        float: right;
-        padding-right: 0;
-        padding-left: 12px;
+        margin-right: 0;
+        margin-left: @margin-sm;
       }
     }
 
     .@{ant-prefix}-avatar {
       .@{pageheader-prefix-cls}-rtl & {
-        float: right;
         margin-right: 0;
-        margin-left: 12px;
+        margin-left: @margin-sm;
       }
     }
 
@@ -54,7 +52,7 @@
 
       > * {
         .@{pageheader-prefix-cls}-rtl & {
-          margin-right: 8px;
+          margin-right: @margin-sm;
           margin-left: 0;
         }
       }

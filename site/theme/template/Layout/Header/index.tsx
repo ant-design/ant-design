@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
@@ -53,6 +52,7 @@ export interface HeaderProps {
     locale: string;
   };
   location: { pathname: string };
+  router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
 }
@@ -64,11 +64,7 @@ interface HeaderState {
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
-    direction: PropTypes.string,
-  };
+  static contextType = SiteContext;
 
   state = {
     menuVisible: false,
@@ -77,8 +73,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 
   componentDidMount() {
-    const { intl } = this.props;
-    const { router } = this.context;
+    const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
     initDocSearch(intl.locale);
 
@@ -151,9 +146,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
-    window.location.href = currentUrl
-      .replace(window.location.origin, url)
-      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
+    if (/overview/.test(currentPathname) && /0?[1-39][0-3]?x/.test(url)) {
+      window.location.href = currentUrl
+        .replace(window.location.origin, url)
+        .replace(/\/components\/overview/, `/docs${/0(9|10)x/.test(url) ? '' : '/react'}/introduce`)
+        .replace(/\/$/, '');
+      return;
+    }
+    window.location.href = currentUrl.replace(window.location.origin, url);
   };
 
   onLangChange = () => {
@@ -180,6 +180,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <SiteContext.Consumer>
         {({ isMobile }) => {
           const { menuVisible, windowWidth, searching } = this.state;
+          const { direction } = this.context;
           const {
             location,
             themeConfig,
@@ -197,6 +198,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
           const isZhCN = locale === 'zh-CN';
+          const isRTL = direction === 'rtl';
           let responsive: null | 'narrow' | 'crowded' = null;
           if (windowWidth < RESPONSIVE_XS) {
             responsive = 'crowded';
@@ -211,6 +213,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
           const sharedProps = {
             isZhCN,
+            isRTL,
           };
 
           const searchBox = (

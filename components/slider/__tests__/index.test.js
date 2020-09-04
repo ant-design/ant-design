@@ -5,69 +5,37 @@ import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import focusTest from '../../../tests/shared/focusTest';
+import SliderTooltip from '../SliderTooltip';
 import { sleep } from '../../../tests/utils';
 
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider);
+  focusTest(Slider, { refFocus: true });
 
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
-    wrapper
-      .find('.ant-slider-handle')
-      .at(0)
-      .simulate('mouseEnter');
-    expect(
-      render(
-        wrapper
-          .find('Trigger')
-          .instance()
-          .getComponent(),
-      ),
-    ).toMatchSnapshot();
-    wrapper
-      .find('.ant-slider-handle')
-      .at(0)
-      .simulate('mouseLeave');
-    expect(
-      render(
-        wrapper
-          .find('Trigger')
-          .instance()
-          .getComponent(),
-      ),
-    ).toMatchSnapshot();
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+  });
+
+  it('should show correct placement tooltip when set tooltipPlacement', () => {
+    const wrapper = mount(<Slider vertical defaultValue={30} tooltipPlacement="left" />);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
     let wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
-    expect(
-      wrapper
-        .find('.ant-tooltip-content')
-        .at(0)
-        .hasClass('ant-tooltip-hidden'),
-    ).toBe(false);
-    wrapper
-      .find('.ant-slider-handle')
-      .at(0)
-      .simulate('mouseEnter');
-    expect(
-      wrapper
-        .find('.ant-tooltip-content')
-        .at(0)
-        .hasClass('ant-tooltip-hidden'),
-    ).toBe(false);
-    wrapper
-      .find('.ant-slider-handle')
-      .at(0)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('.ant-tooltip-content')
-        .at(0)
-        .hasClass('ant-tooltip-hidden'),
-    ).toBe(false);
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper.find('.ant-slider-handle').at(0).simulate('click');
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
     wrapper = mount(<Slider defaultValue={30} tooltipVisible={false} />);
     expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
   });
@@ -82,10 +50,19 @@ describe('Slider', () => {
   });
 
   it('should keepAlign by calling forcePopupAlign', async () => {
-    const wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
-    wrapper.find('Tooltip').instance().tooltip.forcePopupAlign = jest.fn();
+    let ref;
+    mount(
+      <SliderTooltip
+        title="30"
+        visible
+        ref={node => {
+          ref = node;
+        }}
+      />,
+    );
+    ref.forcePopupAlign = jest.fn();
     await sleep(20);
-    expect(wrapper.find('Tooltip').instance().tooltip.forcePopupAlign).toHaveBeenCalled();
+    expect(ref.forcePopupAlign).toHaveBeenCalled();
   });
 
   it('tipFormatter should not crash with undefined value', () => {

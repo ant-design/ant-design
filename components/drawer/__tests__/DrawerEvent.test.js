@@ -82,7 +82,7 @@ describe('Drawer', () => {
     expect(wrapper.instance().state.visible).toBe(true);
   });
 
-  it('destroyOnClose is true onClose', () => {
+  it('dom should be removed after close when destroyOnClose is true', () => {
     const wrapper = mount(<DrawerEventTester destroyOnClose />);
     wrapper.find('button.ant-btn').simulate('click');
     expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
@@ -92,6 +92,18 @@ describe('Drawer', () => {
     });
     wrapper.find('.ant-drawer-wrapper-body').simulate('transitionend');
     expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(false);
+  });
+
+  it('dom should be existed after close when destroyOnClose is false', () => {
+    const wrapper = mount(<DrawerEventTester />);
+    wrapper.find('button.ant-btn').simulate('click');
+    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
+
+    wrapper.setState({
+      visible: false,
+    });
+    wrapper.find('.ant-drawer-wrapper-body').simulate('transitionend');
+    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
   });
 
   it('no mask and no closable', () => {

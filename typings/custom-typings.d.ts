@@ -24,7 +24,7 @@ declare module 'rc-animate*';
 
 declare module 'rc-util*';
 
-declare module 'css-animation*';
+declare module '@ant-design/css-animation*';
 
 declare module 'rc-checkbox';
 
@@ -65,5 +65,3 @@ declare module '*.json' {
   export const version: string;
   export default value;
 }
-
-declare module 'react-copy-to-clipboard';

@@ -1,25 +1,35 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import Checkbox from '../checkbox';
+import Menu from '../menu';
+import Dropdown from '../dropdown';
 import {
   TransferItem,
   TransferDirection,
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
+  TransferLocale,
 } from './index';
 import Search from './search';
-import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
+import DefaultListBody, { TransferListBodyProps, OmitProps } from './ListBody';
+import { PaginationType } from './interface';
+import { isValidElement } from '../_util/reactNode';
 
 const defaultRender = () => null;
 
 function isRenderResultPlainObject(result: RenderResult) {
   return (
     result &&
-    !React.isValidElement(result) &&
+    !isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
+}
+
+function getEnabledItemKeys(items: TransferItem[]) {
+  return items.filter(data => !data.disabled).map(data => data.key);
 }
 
 export interface RenderedItem {
@@ -30,7 +40,7 @@ export interface RenderedItem {
 
 type RenderListFunction = (props: TransferListBodyProps) => React.ReactNode;
 
-export interface TransferListProps {
+export interface TransferListProps extends TransferLocale {
   prefixCls: string;
   titleText: string;
   dataSource: TransferItem[];
@@ -40,11 +50,12 @@ export interface TransferListProps {
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onItemSelect: (key: string, check: boolean) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+  onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
+  /** render item */
   render?: (item: TransferItem) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
-  notFoundContent: React.ReactNode;
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction;
@@ -54,23 +65,13 @@ export interface TransferListProps {
   direction: TransferDirection;
   showSelectAll?: boolean;
   selectAllLabel?: SelectAllLabel;
+  showRemove?: boolean;
+  pagination?: PaginationType;
 }
 
 interface TransferListState {
   /** Filter input value */
   filterValue: string;
-}
-
-function renderListNode(renderList: RenderListFunction | undefined, props: TransferListBodyProps) {
-  let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
-  const customize: boolean = !!bodyContent;
-  if (!customize) {
-    bodyContent = defaultRenderList(props);
-  }
-  return {
-    customize,
-    bodyContent,
-  };
 }
 
 export default class TransferList extends React.PureComponent<
@@ -86,6 +87,8 @@ export default class TransferList extends React.PureComponent<
   timer: number;
 
   triggerScrollTimer: number;
+
+  defaultListBodyRef = React.createRef<DefaultListBody>();
 
   constructor(props: TransferListProps) {
     super(props);
@@ -109,6 +112,7 @@ export default class TransferList extends React.PureComponent<
     return 'part';
   }
 
+  // ================================ Item ================================
   getFilteredItems(
     dataSource: TransferItem[],
     filterValue: string,
@@ -121,7 +125,7 @@ export default class TransferList extends React.PureComponent<
       const { renderedText } = renderedItem;
 
       // Filter skip
-      if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
+      if (filterValue && !this.matchFilter(renderedText, item)) {
         return null;
       }
 
@@ -131,6 +135,46 @@ export default class TransferList extends React.PureComponent<
 
     return { filteredItems, filteredRenderItems };
   }
+
+  // =============================== Filter ===============================
+  handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { handleFilter } = this.props;
+    const {
+      target: { value: filterValue },
+    } = e;
+    this.setState({ filterValue });
+    handleFilter(e);
+  };
+
+  handleClear = () => {
+    const { handleClear } = this.props;
+    this.setState({ filterValue: '' });
+    handleClear();
+  };
+
+  matchFilter = (text: string, item: TransferItem) => {
+    const { filterValue } = this.state;
+    const { filterOption } = this.props;
+    if (filterOption) {
+      return filterOption(filterValue, item);
+    }
+    return text.indexOf(filterValue) >= 0;
+  };
+
+  getCurrentPageItems = () => {};
+
+  // =============================== Render ===============================
+  renderListBody = (renderList: RenderListFunction | undefined, props: TransferListBodyProps) => {
+    let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
+    const customize: boolean = !!bodyContent;
+    if (!customize) {
+      bodyContent = <DefaultListBody ref={this.defaultListBodyRef} {...props} />;
+    }
+    return {
+      customize,
+      bodyContent,
+    };
+  };
 
   getListBody(
     prefixCls: string,
@@ -157,7 +201,7 @@ export default class TransferList extends React.PureComponent<
       </div>
     ) : null;
 
-    const { bodyContent, customize } = renderListNode(renderList, {
+    const { bodyContent, customize } = this.renderListBody(renderList, {
       ...omit(this.props, OmitProps),
       filteredItems,
       filteredRenderItems,
@@ -214,30 +258,6 @@ export default class TransferList extends React.PureComponent<
     return checkAllCheckbox;
   }
 
-  handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { handleFilter } = this.props;
-    const {
-      target: { value: filterValue },
-    } = e;
-    this.setState({ filterValue });
-    handleFilter(e);
-  };
-
-  handleClear = () => {
-    const { handleClear } = this.props;
-    this.setState({ filterValue: '' });
-    handleClear();
-  };
-
-  matchFilter = (text: string, item: TransferItem) => {
-    const { filterValue } = this.state;
-    const { filterOption } = this.props;
-    if (filterOption) {
-      return filterOption(filterValue, item);
-    }
-    return text.indexOf(filterValue) >= 0;
-  };
-
   renderItem = (item: TransferItem): RenderedItem => {
     const { render = defaultRender } = this.props;
     const renderResult: RenderResult = render(item);
@@ -279,16 +299,25 @@ export default class TransferList extends React.PureComponent<
       style,
       searchPlaceholder,
       notFoundContent,
+      selectAll,
+      selectCurrent,
+      selectInvert,
+      removeAll,
+      removeCurrent,
       renderList,
       onItemSelectAll,
+      onItemRemove,
       showSelectAll,
+      showRemove,
+      pagination,
     } = this.props;
 
     // Custom Layout
     const footerDom = footer && footer(this.props);
 
     const listCls = classNames(prefixCls, {
-      [`${prefixCls}-with-footer`]: !!footerDom,
+      [`${prefixCls}-with-pagination`]: pagination,
+      [`${prefixCls}-with-footer`]: footerDom,
     });
 
     // ====================== Get filtered, checked item list ======================
@@ -313,11 +342,97 @@ export default class TransferList extends React.PureComponent<
     // ================================ List Footer ================================
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-    const checkAllCheckbox = this.getCheckBox(
-      filteredItems,
-      onItemSelectAll,
-      showSelectAll,
-      disabled,
+    const checkAllCheckbox =
+      !showRemove &&
+      !pagination &&
+      this.getCheckBox(filteredItems, onItemSelectAll, showSelectAll, disabled);
+
+    let menu: React.ReactElement | null = null;
+    if (showRemove) {
+      menu = (
+        <Menu>
+          {/* Remove Current Page */}
+          {pagination && (
+            <Menu.Item
+              onClick={() => {
+                const pageKeys = getEnabledItemKeys(
+                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                );
+                onItemRemove?.(pageKeys);
+              }}
+            >
+              {removeCurrent}
+            </Menu.Item>
+          )}
+
+          {/* Remove All */}
+          <Menu.Item
+            onClick={() => {
+              onItemRemove?.(getEnabledItemKeys(filteredItems));
+            }}
+          >
+            {removeAll}
+          </Menu.Item>
+        </Menu>
+      );
+    } else {
+      menu = (
+        <Menu>
+          <Menu.Item
+            onClick={() => {
+              const keys = getEnabledItemKeys(filteredItems);
+              onItemSelectAll(keys, keys.length !== checkedKeys.length);
+            }}
+          >
+            {selectAll}
+          </Menu.Item>
+          {pagination && (
+            <Menu.Item
+              onClick={() => {
+                const pageItems = this.defaultListBodyRef.current?.getItems() || [];
+                onItemSelectAll(getEnabledItemKeys(pageItems.map(entity => entity.item)), true);
+              }}
+            >
+              {selectCurrent}
+            </Menu.Item>
+          )}
+          <Menu.Item
+            onClick={() => {
+              let availableKeys: string[];
+              if (pagination) {
+                availableKeys = getEnabledItemKeys(
+                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                );
+              } else {
+                availableKeys = getEnabledItemKeys(filteredItems);
+              }
+
+              const checkedKeySet = new Set(checkedKeys);
+              const newCheckedKeys: string[] = [];
+              const newUnCheckedKeys: string[] = [];
+
+              availableKeys.forEach(key => {
+                if (checkedKeySet.has(key)) {
+                  newUnCheckedKeys.push(key);
+                } else {
+                  newCheckedKeys.push(key);
+                }
+              });
+
+              onItemSelectAll(newCheckedKeys, true);
+              onItemSelectAll(newUnCheckedKeys, false);
+            }}
+          >
+            {selectInvert}
+          </Menu.Item>
+        </Menu>
+      );
+    }
+
+    const dropdown = (
+      <Dropdown className={`${prefixCls}-header-dropdown`} overlay={menu} disabled={disabled}>
+        <DownOutlined />
+      </Dropdown>
     );
 
     // ================================== Render ===================================
@@ -326,10 +441,12 @@ export default class TransferList extends React.PureComponent<
         {/* Header */}
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
+          {dropdown}
           <span className={`${prefixCls}-header-selected`}>
-            <span>{this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}</span>
-            <span className={`${prefixCls}-header-title`}>{titleText}</span>
+            {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
           </span>
+
+          <span className={`${prefixCls}-header-title`}>{titleText}</span>
         </div>
 
         {/* Body */}

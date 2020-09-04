@@ -2,6 +2,7 @@
 category: Components
 type: Navigation
 title: Breadcrumb
+cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 ---
 
 A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
@@ -21,22 +22,22 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
 | routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
-| separator | Custom separator | string\|ReactNode | '/' |  |
+| separator | Custom separator | string \| ReactNode | `/` |  |
 
 ### Breadcrumb.Item
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| href | Target of hyperlink | string | - |  |
-| overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
-| onClick | Set the handler to handle `click` event | (e:MouseEvent)=>void | - |  |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
+| href | Target of hyperlink | string | - |  |
+| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+| overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 
 ### Breadcrumb.Separator
 
-| Property | Description      | Type              | Default | Version |
-| -------- | ---------------- | ----------------- | ------- | ------- |
-| children | Custom separator | string\|ReactNode | '/'     |         |
+| Property | Description      | Type                | Default | Version |
+| -------- | ---------------- | ------------------- | ------- | ------- |
+| children | Custom separator | string \| ReactNode | `/`     |         |
 
 > When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
 

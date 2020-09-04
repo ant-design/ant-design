@@ -4,11 +4,14 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import { OptionProps } from 'rc-select/lib/Option';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 type RawValue = string | number;
+
+export { OptionProps };
 
 export type OptionType = typeof Option;
 
@@ -44,7 +47,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
   static defaultProps = {
     transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
+    choiceTransitionName: '',
     bordered: true,
   };
 
@@ -81,6 +84,8 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     getPrefixCls,
     renderEmpty,
     direction,
+    virtual,
+    dropdownMatchSelectWidth,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -88,7 +93,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       className,
       size: customizeSize,
       listHeight = 256,
-      listItemHeight = 32,
+      listItemHeight = 24,
       getPopupContainer,
       dropdownClassName,
       bordered,
@@ -113,6 +118,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
       ...this.props,
       multiple: isMultiple,
+      prefixCls,
     });
 
     const selectProps = omit(this.props, [
@@ -142,6 +148,8 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
           return (
             <RcSelect<ValueType>
               ref={this.selectRef}
+              virtual={virtual}
+              dropdownMatchSelectWidth={dropdownMatchSelectWidth}
               {...selectProps}
               listHeight={listHeight}
               listItemHeight={listItemHeight}

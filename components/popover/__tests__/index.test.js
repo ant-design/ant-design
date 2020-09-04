@@ -9,18 +9,20 @@ describe('Popover', () => {
   mountTest(Popover);
 
   it('should show overlay when trigger is clicked', async () => {
+    const ref = React.createRef();
+
     const popover = mount(
-      <Popover content="console.log('hello world')" title="code" trigger="click">
+      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
 
-    expect(popover.instance().getPopupDomNode()).toBe(null);
+    expect(ref.current.getPopupDomNode()).toBe(null);
 
     popover.find('span').simulate('click');
     await sleep(100);
 
-    const popup = popover.instance().getPopupDomNode();
+    const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();
@@ -29,16 +31,17 @@ describe('Popover', () => {
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
+    const ref = React.createRef();
 
     const popover = mount(
-      <Popover content={renderContent} title={renderTitle} trigger="click">
+      <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
 
     popover.find('span').simulate('click');
 
-    const popup = popover.instance().getPopupDomNode();
+    const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.innerHTML).toContain('some-title');
     expect(popup.innerHTML).toContain('some-content');
@@ -46,15 +49,17 @@ describe('Popover', () => {
   });
 
   it('handles empty title/content props safely', () => {
+    const ref = React.createRef();
+
     const popover = mount(
-      <Popover trigger="click">
+      <Popover trigger="click" ref={ref}>
         <span>show me your code</span>
       </Popover>,
     );
 
     popover.find('span').simulate('click');
 
-    const popup = popover.instance().getPopupDomNode();
+    const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.innerHTML).toMatchSnapshot();
   });

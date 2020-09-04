@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     const { current } = this.state;
     return (
-      <div>
+      <>
         <Steps current={current}>
           {steps.map(item => (
             <Step key={item.title} title={item.title} />
@@ -73,12 +73,12 @@ class App extends React.Component {
             </Button>
           )}
           {current > 0 && (
-            <Button style={{ margin: 8 }} onClick={() => this.prev()}>
+            <Button style={{ margin: '0 8px' }} onClick={() => this.prev()}>
               Previous
             </Button>
           )}
         </div>
-      </div>
+      </>
     );
   }
 }

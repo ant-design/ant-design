@@ -62,6 +62,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
+        role="alert"
       >
         <span
           class="ant-alert-message"
@@ -86,6 +87,9 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
@@ -132,6 +136,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
+        role="alert"
       >
         <span
           class="ant-alert-message"
@@ -156,6 +161,9 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
       role="switch"
       type="button"
     >
+      <div
+        class="ant-switch-handle"
+      />
       <span
         class="ant-switch-inner"
       />
@@ -165,66 +173,82 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
 `;
 
 exports[`renders ./components/spin/demo/size.md correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
   <div
-    class="ant-spin ant-spin-sm ant-spin-spinning"
+    class="ant-space-item"
+    style="margin-right:16px"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      class="ant-spin ant-spin-sm ant-spin-spinning"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
   </div>
   <div
-    class="ant-spin ant-spin-spinning"
+    class="ant-space-item"
+    style="margin-right:16px"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      class="ant-spin ant-spin-spinning"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
   </div>
   <div
-    class="ant-spin ant-spin-lg ant-spin-spinning"
+    class="ant-space-item"
   >
-    <span
-      class="ant-spin-dot ant-spin-dot-spin"
+    <div
+      class="ant-spin ant-spin-lg ant-spin-spinning"
     >
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-      <i
-        class="ant-spin-dot-item"
-      />
-    </span>
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
   </div>
 </div>
 `;
@@ -266,6 +290,7 @@ exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
     <div
       class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
       data-show="true"
+      role="alert"
     >
       <span
         class="ant-alert-message"

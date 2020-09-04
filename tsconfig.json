@@ -17,5 +17,5 @@
     "lib": ["dom", "es2017"],
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "lib", "es", "**/__tests__/**"]
+  "exclude": ["node_modules", "lib", "es"]
 }

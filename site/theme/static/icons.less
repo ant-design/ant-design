@@ -1,6 +1,7 @@
 ul.anticons-list {
   margin: 10px 0;
   overflow: hidden;
+  direction: ltr;
   list-style: none;
   li {
     position: relative;
@@ -17,6 +18,10 @@ ul.anticons-list {
     border-radius: 4px;
     cursor: pointer;
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    .rtl & {
+      margin: 3px 0;
+      padding: 10px 0 0;
+    }
     .anticon {
       margin: 12px 0 8px;
       font-size: 36px;

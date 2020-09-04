@@ -21,12 +21,17 @@ function traverseNodesKey(
 }
 
 /** 计算选中范围，只考虑expanded情况以优化性能 */
-export function calcRangeKeys(
-  treeData: DataNode[],
-  expandedKeys: Key[],
-  startKey?: Key,
-  endKey?: Key,
-): Key[] {
+export function calcRangeKeys({
+  treeData,
+  expandedKeys,
+  startKey,
+  endKey,
+}: {
+  treeData: DataNode[];
+  expandedKeys: Key[];
+  startKey?: Key;
+  endKey?: Key;
+}): Key[] {
   const keys: Key[] = [];
   let record: Record = Record.None;
 

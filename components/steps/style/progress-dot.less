@@ -47,16 +47,12 @@
         }
       }
     }
-    &-content {
-      width: @steps-desciption-max-width;
-    }
     &-process .@{steps-prefix-cls}-item-icon {
+      position: relative;
+      top: -1px;
       width: @steps-current-dot-size;
       height: @steps-current-dot-size;
       line-height: @steps-current-dot-size;
-      .@{steps-prefix-cls}-icon-dot {
-        top: -1px;
-      }
     }
   }
 }

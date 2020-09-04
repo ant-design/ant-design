@@ -14,7 +14,7 @@ title:
 Messages of success, error and warning types.
 
 ```jsx
-import { message, Button } from 'antd';
+import { message, Button, Space } from 'antd';
 
 const success = () => {
   message.success('This is a success message');
@@ -29,17 +29,11 @@ const warning = () => {
 };
 
 ReactDOM.render(
-  <div>
+  <Space>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
-  </div>,
+  </Space>,
   mountNode,
 );
 ```
-
-<style>
-#components-message-demo-other .ant-btn {
-  margin-right: 8px;
-}
-</style>

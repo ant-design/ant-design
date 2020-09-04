@@ -5,8 +5,16 @@ import { PickerLocale } from '../generatePicker';
 // Merge into a locale object
 const locale: PickerLocale = {
   lang: {
-    placeholder: 'Tarih Seç',
-    rangePlaceholder: ['Başlangıç Tarihi', 'Bitiş Tarihi'],
+    placeholder: 'Tarih seç',
+    yearPlaceholder: 'Yıl seç',
+    quarterPlaceholder: 'Çeyrek seç',
+    monthPlaceholder: 'Ay seç',
+    weekPlaceholder: 'Hafta seç',
+    rangePlaceholder: ['Başlangıç tarihi', 'Bitiş tarihi'],
+    rangeYearPlaceholder: ['Başlangıç yılı', 'Bitiş yılı'],
+    rangeMonthPlaceholder: ['Başlangıç ayı', 'Bitiş ayı'],
+    rangeWeekPlaceholder: ['Başlangıç haftası', 'Bitiş haftası'],
+
     ...CalendarLocale,
   },
   timePickerLocale: {

@@ -49,12 +49,14 @@ export default function generateRangePicker<DateType>(
     };
 
     renderPicker = (locale: PickerLocale) => {
-      const { getPrefixCls, direction } = this.context;
+      const { getPrefixCls, direction, getPopupContainer } = this.context;
       const {
         prefixCls: customizePrefixCls,
+        getPopupContainer: customGetPopupContainer,
         className,
         size: customizeSize,
         bordered = true,
+        placeholder,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
@@ -81,19 +83,20 @@ export default function generateRangePicker<DateType>(
                   </span>
                 }
                 ref={this.pickerRef}
-                placeholder={getRangePlaceholder(picker, locale)}
+                placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}
                 allowClear
                 transitionName="slide-up"
                 {...restProps}
+                {...additionalOverrideProps}
                 className={classNames(className, {
                   [`${prefixCls}-${mergedSize}`]: mergedSize,
                   [`${prefixCls}-borderless`]: !bordered,
                 })}
-                {...additionalOverrideProps}
                 locale={locale!.lang}
                 prefixCls={prefixCls}
+                getPopupContainer={customGetPopupContainer || getPopupContainer}
                 generateConfig={generateConfig}
                 prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                 nextIcon={<span className={`${prefixCls}-next-icon`} />}

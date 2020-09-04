@@ -1,11 +1,9 @@
 ---
 order: 3
-title: Real project with umi and dva
+title: Real project with umi
 ---
 
-In real project development, you might need a data flow solution like Redux or MobX. Ant Design React is a UI library that can be used with any data flow solution and application framework within the React ecosystem. We have launched dva based on Redux, as well as a pluggable enterprise application framework umi, which is recommended for use in your projects.
-
-Dva is a lightweight data flow solution based on Redux. The concept comes from elm. It supports side effects, hot module replacement, dynamic loading, react-native, SSR, etc. It has been widely used in production.
+In real project development, you may need data flow solutions such as Redux or MobX. Ant Design React is a UI library that can be used with data flow solutions and application frameworks in any React ecosystem. Based on the business scenario, we launched a pluggable enterprise-level application framework umi, which is recommended for use in the project.
 
 And [umi](http://umijs.org/) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/guide/router.html) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/en/plugin/umi-plugin-react.html#dynamicimport). With a complete [plugin system](https://umijs.org/plugin/) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs; meanwhile [Umi UI](https://umijs.org/guide/umi-ui.html) is provided to enhance the development experience and development efficiency through Visual Aided Programming (VAP).
 
@@ -19,11 +17,11 @@ It is recommended to use yarn to create an application and execute the following
 
 ```bash
 $ mkdir myapp && cd myapp
-$ yarn create @umijs/umi-app
+$ yarn create umi
 $ yarn
 ```
 
-> If you are using npm, execute `npm install umi -g` and the effect will be the same.
+> If you use npm, you can execute `npx create-umi` with the same effect.
 
 ## Install presets
 
@@ -105,72 +103,149 @@ const ProductList = ({ onDelete, products }) => {
 export default ProductList;
 ```
 
-## Define dva Model
+## Simple data management solution
 
-After completing the UI, we will begin processing the data and logic.
+`@umijs/plugin-model` is a simple data flow scheme based on the hooks paradigm, which can replace dva to perform global data flow in the middle stage under certain circumstances. We agree that the files in the `src/models` directory are the model files defined by the project. Each file needs to export a function by default, the function defines a hook, and files that do not meet the specifications will be filtered out.
 
-dva manages the domain model with `model`, with reducers for synchronous state updates, effects for async logic, and subscriptions for data source subscribe.
+The file name corresponds to the name of the final model, and you can consume the data in the model through the API provided by the plug-in.
 
-Let's create a model `src/models/products.ts` by typing,
+Let's take a simple table as an example. First you need to create a new file `src/models/useProductList.ts`.
 
-```js
-export default {
-  namespace: 'products',
-  state: [
-    { name: 'dva', id: 'dva' },
-    { name: 'antd', id: 'antd' },
-  ],
-  reducers: {
-    delete(state, { payload: id }) {
-      return state.filter(item => item.id !== id);
-    },
-  },
-};
+```tsx
+import { useRequest } from 'umi';
+import { queryProductList } from '@/services/product';
+
+export default function useProductList(params: { pageSize: number; current: number }) {
+  const msg = useRequest(() => queryUserList(params));
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      msg.run();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  return {
+    dataSource: msg.data,
+    reload: msg.run,
+    loading: msg.loading,
+    deleteProducts,
+  };
+}
 ```
 
-In this model:
+Edit `src/pages/products.tsx` and replace with the following:
 
-- `namespace` represents the key on global state
-- `state` is the initial value, here it is an empty array
-- `reducers` is equivalent to a reducer in redux, accepting an action, and update state simultaneously
-
-In umi, the model files under `src/models` will be automatically injected, you don't need to inject manually.
-
-## Connect
-
-So far, we have completed a separate model and component. How do we connect them together?
-
-dva provides a `connect` method. If you are familiar with redux, this connect is from react-redux.
-
-Edit `src/pages/products.js` and replace it with the following,
-
-```js
-import { connect } from 'umi';
+```tsx
+import { useModel } from 'umi';
 import ProductList from '@/components/ProductList';
 
-const Products = ({ dispatch, products }) => {
-  function handleDelete(id) {
-    dispatch({
-      type: 'products/delete',
-      payload: id,
-    });
-  }
+const Products = () => {
+  const { dataSource, reload, deleteProducts } = useModel('useProductList');
   return (
     <div>
-      <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={products} />
+      <a onClick={() => reload()}>reload</a>
+      <ProductList onDelete={deleteProducts} products={dataSource} />
     </div>
   );
 };
 
-export default connect(({ products }) => ({
-  products,
-}))(Products);
+export default Products;
 ```
 
 Refresh your browser, you should see the following result:
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/dPsy4tFHN3/umi.gif" />
+
+## ProLayout
+
+A standard mid-to-back page generally requires a layout. This layout is often highly similar. ProLayout encapsulates commonly used menus, breadcrumbs, page headers and other functions, provides an independent framework and works out of the box Advanced layout components.
+
+And supports three modes of `side`, `mix`, and `top`, and it also has built-in menu selection, the menu generates breadcrumbs, and automatically sets the logic of the page title. Can help you start a project quickly.
+
+![site](https://gw.alipayobjects.com/zos/antfincdn/gXkuc%26RmT7/64038246-E2BF-4840-8898-5AF531897A44.png)
+
+The method of use is also extremely simple, requiring only a few simple settings.
+
+```tsx
+import { Button } from 'antd';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+
+export default (
+  <ProLayout>
+    <PageContainer
+      extra={[
+        <Button key="3">Operating</Button>,
+        <Button key="2">Operating</Button>,
+        <Button key="1" type="primary">
+          Main Operating
+        </Button>,
+      ]}
+      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+    >
+      {children}
+    </PageContainer>
+  </ProLayout>
+);
+```
+
+Click here [Quick Start](https://prolayout.ant.design/getting-started).
+
+## ProTable
+
+Many data in an admin page does not need to be shared across pages, and models are sometimes not needed.
+
+```tsx
+import ProTable from '@ant-design/pro-table';
+import { Popconfirm, Button } from 'antd';
+import { queryProductList } from '@/services/product';
+
+const Products = () => {
+  const actionRef = useRef<ActionType>();
+
+  const deleteProducts = async (id: string) => {
+    try {
+      await removeProducts(id);
+      message.success('success');
+      actionRef.current?.reload();
+    } catch (error) {
+      message.error('fail');
+    }
+  };
+
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Actions',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
+    },
+  ];
+
+  return (
+    <ProTable<{ name: string }>
+      headerTitle="Query Table"
+      actionRef={actionRef}
+      rowKey="name"
+      request={(params, sorter, filter) => queryProductList({ ...params, sorter, filter })}
+      columns={columns}
+    />
+  );
+};
+```
+
+ProTable provides preset logic to handle loading, pagination and search forms, which can greatly reduce the amount of code, click here [Quick Start](https://protable.ant.design/getting-started).
 
 ## Build
 
@@ -199,5 +274,6 @@ You can:
 - Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
 - Know [the umi routes](https://umijs.org/zh/guide/router.html)
 - Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
-- Checkout [dva knowledge](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva
-- Be familiar with the [8 Concepts of dva](https://dvajs.com/guide/concepts.html), and understand how they are connected together
+- Scaffolding out of the box [Ant Design Pro](https://pro.ant.design)
+- Advanced Layout [ProLayout](https://prolayout.ant.design)
+- Advanced Table [ProTable](https://protable.ant.design)

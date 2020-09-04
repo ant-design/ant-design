@@ -21,6 +21,7 @@ const localeValues: Locale = {
     filterTitle: '筛选',
     filterConfirm: '确定',
     filterReset: '重置',
+    filterEmptyText: '无筛选项',
     selectAll: '全选当页',
     selectInvert: '反选当页',
     selectionAll: '全选所有',
@@ -44,6 +45,12 @@ const localeValues: Locale = {
     searchPlaceholder: '请输入搜索内容',
     itemUnit: '项',
     itemsUnit: '项',
+    remove: '删除',
+    selectCurrent: '全选当页',
+    removeCurrent: '删除当页',
+    selectAll: '全选所有',
+    removeAll: '删除全部',
+    selectInvert: '反选当页',
   },
   Upload: {
     uploading: '文件上传中',
@@ -68,6 +75,7 @@ const localeValues: Locale = {
     back: '返回',
   },
   Form: {
+    optional: '（可选）',
     defaultValidateMessages: {
       default: '字段验证错误${label}',
       required: '请输入${label}',

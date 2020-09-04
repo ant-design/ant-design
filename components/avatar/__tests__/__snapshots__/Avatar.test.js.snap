@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Avatar Render fallback 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle ant-avatar-image"
+>
+  <img
+    src="http://error.url"
+  />
+</span>
+`;
+
 exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
@@ -8,5 +18,133 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
     class="ant-avatar-string"
     style="opacity:0"
   />
+</span>
+`;
+
+exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `
+<span
+  className="ant-avatar-string"
+  style={
+    Object {
+      "WebkitTransform": "scale(0.72) translateX(-50%)",
+      "msTransform": "scale(0.72) translateX(-50%)",
+      "transform": "scale(0.72) translateX(-50%)",
+    }
+  }
+>
+  Avatar
+</span>
+`;
+
+exports[`Avatar Render should calculate scale of avatar children correctly 2`] = `
+<span
+  className="ant-avatar-string"
+  style={
+    Object {
+      "WebkitTransform": "scale(0.72) translateX(-50%)",
+      "msTransform": "scale(0.72) translateX(-50%)",
+      "transform": "scale(0.72) translateX(-50%)",
+    }
+  }
+>
+  xx
+</span>
+`;
+
+exports[`Avatar Render should calculate scale of avatar children correctly with gap 1`] = `
+<span
+  className="ant-avatar-string"
+  style={
+    Object {
+      "WebkitTransform": "scale(0.36) translateX(-50%)",
+      "msTransform": "scale(0.36) translateX(-50%)",
+      "transform": "scale(0.36) translateX(-50%)",
+    }
+  }
+>
+  Avatar
+</span>
+`;
+
+exports[`Avatar Render should handle onError correctly 1`] = `
+<Foo>
+  <Avatar
+    onError={[Function]}
+    shape="circle"
+    size="default"
+    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+  >
+    <span
+      className="ant-avatar ant-avatar-circle ant-avatar-image"
+      style={Object {}}
+    >
+      <img
+        onError={[Function]}
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+      />
+    </span>
+  </Avatar>
+</Foo>
+`;
+
+exports[`Avatar Render should show image on success after a failure state 1`] = `
+<Avatar
+  shape="circle"
+  size="default"
+  src="http://error.url"
+>
+  <span
+    className="ant-avatar ant-avatar-circle"
+    style={Object {}}
+  >
+    <ResizeObserver
+      onResize={[Function]}
+    >
+      <span
+        className="ant-avatar-string"
+        style={
+          Object {
+            "WebkitTransform": "scale(1) translateX(-50%)",
+            "msTransform": "scale(1) translateX(-50%)",
+            "transform": "scale(1) translateX(-50%)",
+          }
+        }
+      >
+        Fallback
+      </span>
+    </ResizeObserver>
+  </span>
+</Avatar>
+`;
+
+exports[`Avatar Render should show image on success after a failure state 2`] = `
+<Avatar
+  shape="circle"
+  size="default"
+  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+>
+  <span
+    className="ant-avatar ant-avatar-circle ant-avatar-image"
+    style={Object {}}
+  >
+    <img
+      onError={[Function]}
+      src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    />
+  </span>
+</Avatar>
+`;
+
+exports[`Avatar Render support size is number 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle"
+  style="width:100px;height:100px;line-height:100px;font-size:18px"
+>
+  <span
+    class="ant-avatar-string"
+    style="opacity:0"
+  >
+    TestString
+  </span>
 </span>
 `;

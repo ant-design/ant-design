@@ -27,11 +27,13 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - DatePicker interactive redo, range selection can now select start and end time separately.
 - Table change default background color from transparent to white.
 - Smaller Tabs bar width.
+- New Tabs interaction and dom structure is changed in `4.3.0`.
 
 ### Compatibility
 
 - The minimum supported version of IE is IE 11.
 - The minimum supported version of React is React 16.9, and some components have started to refactor using hooks.
+  - Internal using `useMemo` for performance, do not use mutable data as props.
 
 #### Remove deprecated API
 
@@ -53,10 +55,12 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - Removed the `body` attribute of Transfer. Please use `children` instead.
 - Removed the `lazy` attribute of Transfer, which did not really optimize the effect.
 - Removed `combobox` mode, please use `AutoComplete` instead.
+- Removed the `rowSelection.hideDefaultSelections` property of Table, please use `SELECTION_ALL` and `SELECTION_INVERT` in `rowSelection.selections` instead, [Custom Selection](/components/table/#components-table-demo-row-selection-custom).
+- Deprecated Button.Group, please use `Space` instead.
 
 #### Icon upgrade
 
-In `antd @ 3.9.0`, we introduced the svg icon ([Why use the svg icon?](Https://github.com/ant-design/ant-design/issues/10353)). The icon API using the string name cannot be loaded on demand, so the svg icon file is fully introduced, which greatly increases the size of the packaged product. In 4.0, we adjusted the icon usage API to support tree shaking, reducing the default package size of antd by about 150 KB (Gzipped).
+In `antd @ 3.9.0`, we introduced the svg icon ([Why use the svg icon?](https://github.com/ant-design/ant-design/issues/10353)). The icon API using the string name cannot be loaded on demand, so the svg icon file is fully introduced, which greatly increases the size of the packaged product. In 4.0, we adjusted the icon usage API to support tree shaking, reducing the default package size of antd by about 150 KB (Gzipped).
 
 Legacy Icon usage will be discarded:
 
@@ -123,6 +127,8 @@ const Demo = () => (
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
+  - `filterOption` return origin data with second params instead. No need to use `option.props.children` for matching.
+  - Tree, TreeSelect will display `label` when `title` and `label` are both set. The adjustment is for aligning behavior with `labelInValue`. [New behavior](https://codesandbox.io/s/keen-curran-d3qnp) (show 'label' on first node). [Old behavior](https://codesandbox.io/s/muddy-darkness-57lb3) (show 'title' on first node).
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
@@ -130,6 +136,9 @@ const Demo = () => (
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
 - Pagination will default set `showSizeChanger` to `true` since `4.1.0`. This change also applied on Table component.
+- Tabs rewrite. ([4.3.0](https://github.com/ant-design/ant-design/pull/24552))
+  - Dom structrue is changed, please check style if you override tabs css.
+  - `onPrevClick` 和 `onNextClick` would be not working anymore since we improve tabs scroll behavior.
 
 ```diff
 <Table

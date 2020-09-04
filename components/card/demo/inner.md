@@ -18,7 +18,6 @@ import { Card } from 'antd';
 
 ReactDOM.render(
   <Card title="Card title">
-    <p className="site-card-demo-inner-p">Group title</p>
     <Card type="inner" title="Inner Card title" extra={<a href="#">More</a>}>
       Inner Card content
     </Card>
@@ -34,18 +33,3 @@ ReactDOM.render(
   mountNode,
 );
 ```
-
-```css
-.site-card-demo-inner-p {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.85);
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-```
-
-<style>
-[data-theme="dark"] .site-card-demo-inner-p {
-  color: rgba(255,255,255,.85);
-}
-</style>

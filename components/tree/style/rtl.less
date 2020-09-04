@@ -3,48 +3,62 @@
 @import '../../checkbox/style/mixin';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
+@select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 
-.antTreeFn(@tree-prefix-cls) {
-  .@{tree-prefix-cls} {
+.@{tree-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  // ===================== TreeNode =====================
+  .@{tree-node-prefix-cls} {
     &-rtl {
       direction: rtl;
     }
+  }
 
-    // ===================== TreeNode =====================
-    .@{tree-node-prefix-cls} {
-      &-rtl {
-        direction: rtl;
-      }
-    }
-
-    // >>> Switcher
-    & &-switcher {
-      &_close {
-        .@{tree-prefix-cls}-switcher-icon {
-          svg {
-            .@{tree-prefix-cls}-rtl& {
-              transform: rotate(90deg);
-            }
+  // >>> Switcher
+  & &-switcher {
+    &_close {
+      .@{tree-prefix-cls}-switcher-icon {
+        svg {
+          .@{tree-prefix-cls}-rtl& {
+            transform: rotate(90deg);
           }
         }
       }
     }
-    // ==================== Show Line =====================
-    &-show-line {
-      // ================ Indent lines ================
-      .@{tree-prefix-cls}-indent {
-        &-unit {
-          &::before {
-            .@{tree-prefix-cls}-rtl& {
-              right: auto;
-              left: -@tree-title-height / 2;
-              border-right: none;
-              border-left: 1px solid @border-color-base;
-            }
+  }
+  // ==================== Show Line =====================
+  &-show-line {
+    // ================ Indent lines ================
+    .@{tree-prefix-cls}-indent {
+      &-unit {
+        &::before {
+          .@{tree-prefix-cls}-rtl& {
+            right: auto;
+            left: -@tree-title-height / 2 - 1px;
+            border-right: none;
+            border-left: 1px solid @border-color-base;
           }
         }
       }
+    }
+  }
+  // >>> Checkbox
+  & &-checkbox {
+    .@{tree-prefix-cls}-rtl& {
+      margin: ((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
+    }
+  }
+}
+
+.@{select-tree-prefix-cls} {
+  // >>> Checkbox
+  & &-checkbox {
+    .@{tree-prefix-cls}-select-dropdown-rtl & {
+      margin: ((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
     }
   }
 }

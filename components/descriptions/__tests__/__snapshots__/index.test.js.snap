@@ -16,16 +16,20 @@ exports[`Descriptions Descriptions support colon 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Product
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              Cloud Database
-            </span>
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-no-colon"
+              >
+                Product
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -51,11 +55,15 @@ exports[`Descriptions Descriptions support style 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Cloud Database
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -80,16 +88,20 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
             class="ant-descriptions-item my-class"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Product
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              Cloud Database
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Product
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -114,46 +126,58 @@ exports[`Descriptions column is number 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Product
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              Cloud Database
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Product
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Billing
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              Prepaid
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Billing
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Prepaid
+              </span>
+            </div>
           </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              time
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              18:00:00
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                time
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                18:00:00
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -163,16 +187,20 @@ exports[`Descriptions column is number 1`] = `
             class="ant-descriptions-item"
             colspan="3"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Amount
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              $80.00
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Amount
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $80.00
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -197,16 +225,20 @@ exports[`Descriptions should work with React Fragment 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              bamboo
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              bamboo
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                bamboo
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                bamboo
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -216,16 +248,20 @@ exports[`Descriptions should work with React Fragment 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              bamboo
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              bamboo
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                bamboo
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                bamboo
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -235,16 +271,20 @@ exports[`Descriptions should work with React Fragment 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              bamboo
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              bamboo
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                bamboo
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                bamboo
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -269,11 +309,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Product
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Product
+              </span>
+            </div>
           </th>
         </tr>
         <tr
@@ -283,11 +327,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Cloud Database
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -297,11 +345,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Billing
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Billing
+              </span>
+            </div>
           </th>
         </tr>
         <tr
@@ -311,11 +363,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Prepaid
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Prepaid
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -325,11 +381,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              time
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                time
+              </span>
+            </div>
           </th>
         </tr>
         <tr
@@ -339,11 +399,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
-              18:00:00
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                18:00:00
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -353,11 +417,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Amount
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Amount
+              </span>
+            </div>
           </th>
         </tr>
         <tr
@@ -367,11 +435,15 @@ exports[`Descriptions vertical layout 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-content"
+            <div
+              class="ant-descriptions-item-container"
             >
-              $80.00
-            </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $80.00
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -396,16 +468,20 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Product
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              Cloud Database
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Product
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -415,16 +491,20 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Billing
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              Prepaid
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Billing
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Prepaid
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -434,16 +514,20 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              time
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              18:00:00
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                time
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                18:00:00
+              </span>
+            </div>
           </td>
         </tr>
         <tr
@@ -453,16 +537,20 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             class="ant-descriptions-item"
             colspan="1"
           >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            <div
+              class="ant-descriptions-item-container"
             >
-              Amount
-            </span>
-            <span
-              class="ant-descriptions-item-content"
-            >
-              $80.00
-            </span>
+              <span
+                class="ant-descriptions-item-label"
+              >
+                Amount
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $80.00
+              </span>
+            </div>
           </td>
         </tr>
       </tbody>

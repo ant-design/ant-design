@@ -70,22 +70,12 @@
       border-bottom: 1px solid @border-color-split;
     }
 
-    &-codepen {
-      background: transparent
-        url('https://gw.alipayobjects.com/zos/antfincdn/1B3MOCiI5F/OtZslpOjYXijshDERXwc.svg') center /
-        14px no-repeat;
-    }
+    &-actions > &-code-action {
+      color: @site-text-color-secondary;
 
-    &-riddle {
-      background: transparent
-        url('https://gw.alipayobjects.com/zos/antfincdn/NByOhhT9rO/DlHbxMCyeuyOrqOdbgik.svg') center /
-        14px no-repeat;
-    }
-
-    &-codesandbox {
-      background: transparent
-        url('https://gw.alipayobjects.com/zos/antfincdn/hNEf2p1ZnS/aaYmtdDyHSCkXyLZVgGK.svg') center /
-        14px no-repeat;
+      &:hover {
+        color: @site-text-color;
+      }
     }
   }
 
@@ -101,6 +91,15 @@
         }
       }
     }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: @heading-color;
   }
 
   .markdown {

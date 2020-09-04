@@ -8,10 +8,10 @@ import focusTest from '../../../tests/shared/focusTest';
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  focusTest(DatePicker, true);
+  focusTest(DatePicker, { refFocus: true });
 
   beforeEach(() => {
-    MockDate.set(moment('2016-11-22'));
+    MockDate.set(moment('2016-11-22').valueOf());
   });
 
   afterEach(() => {
@@ -72,5 +72,112 @@ describe('DatePicker', () => {
     const wrapper = mount(<DatePicker disabledDate={disabledDate} open />);
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('placeholder', () => {
+    const wrapper = mount(<DatePicker placeholder={undefined} />);
+    expect(wrapper.find('input').props().placeholder).toEqual('Select date');
+  });
+
+  it('showTime={{ showHour: true, showMinute: true }}', () => {
+    const wrapper = mount(
+      <DatePicker
+        defaultValue={moment()}
+        showTime={{ showHour: true, showMinute: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(2);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(24);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showHour: true, showSecond: true }}', () => {
+    const wrapper = mount(
+      <DatePicker
+        defaultValue={moment()}
+        showTime={{ showHour: true, showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(2);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(24);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showMinute: true, showSecond: true }}', () => {
+    const wrapper = mount(
+      <DatePicker
+        defaultValue={moment()}
+        showTime={{ showMinute: true, showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(2);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+  });
+
+  it('12 hours', () => {
+    const wrapper = mount(
+      <DatePicker defaultValue={moment()} showTime format="YYYY-MM-DD HH:mm:ss A" open />,
+    );
+    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(4);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(12);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(2).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(3).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(2);
+  });
+
+  it('24 hours', () => {
+    const wrapper = mount(
+      <DatePicker defaultValue={moment()} showTime format="YYYY-MM-DD HH:mm:ss" open />,
+    );
+    expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(3);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(0).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(24);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(1).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
+    expect(
+      wrapper.find('.ant-picker-time-panel-column').at(2).find('.ant-picker-time-panel-cell')
+        .length,
+    ).toBe(60);
   });
 });

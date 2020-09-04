@@ -27,7 +27,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -45,7 +47,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 1
               </h3>
             </div>
@@ -63,7 +67,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 2
               </h3>
             </div>
@@ -81,7 +87,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 3
               </h3>
             </div>
@@ -99,7 +107,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -117,7 +127,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 1
               </h3>
             </div>
@@ -135,7 +147,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 2
               </h3>
             </div>
@@ -153,7 +167,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 3
               </h3>
             </div>
@@ -171,7 +187,9 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -243,7 +261,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -261,7 +281,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 1
               </h3>
             </div>
@@ -279,7 +301,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 2
               </h3>
             </div>
@@ -297,7 +321,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 3
               </h3>
             </div>
@@ -315,7 +341,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -333,7 +361,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 1
               </h3>
             </div>
@@ -351,7 +381,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 2
               </h3>
             </div>
@@ -369,7 +401,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 3
               </h3>
             </div>
@@ -387,7 +421,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -451,7 +487,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;width:11.11111111111111%;position:relative;left:0;opacity:1;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:0;opacity:1;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -459,7 +495,9 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 1
               </h3>
             </div>
@@ -469,7 +507,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-11px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-11px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -477,7 +515,9 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 2
               </h3>
             </div>
@@ -487,7 +527,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-22px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-22px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -495,7 +535,9 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 3
               </h3>
             </div>
@@ -505,7 +547,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="3"
-          style="outline:none;width:11.11111111111111%;position:relative;left:-33px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-33px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
           <div>
@@ -513,7 +555,9 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
               style="width:100%;display:inline-block"
               tabindex="-1"
             >
-              <h3>
+              <h3
+                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+              >
                 4
               </h3>
             </div>
@@ -559,7 +603,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
 `;
 
 exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom:8px"
@@ -641,7 +685,7 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
         Right
       </span>
     </label>
-  </div>
+  </div>,
   <div
     class="ant-carousel"
   >
@@ -668,7 +712,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   4
                 </h3>
               </div>
@@ -686,7 +732,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   1
                 </h3>
               </div>
@@ -704,7 +752,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   2
                 </h3>
               </div>
@@ -722,7 +772,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   3
                 </h3>
               </div>
@@ -740,7 +792,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   4
                 </h3>
               </div>
@@ -758,7 +812,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   1
                 </h3>
               </div>
@@ -776,7 +832,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   2
                 </h3>
               </div>
@@ -794,7 +852,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   3
                 </h3>
               </div>
@@ -812,7 +872,9 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
                 style="width:100%;display:inline-block"
                 tabindex="-1"
               >
-                <h3>
+                <h3
+                  style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                >
                   4
                 </h3>
               </div>
@@ -854,6 +916,6 @@ exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

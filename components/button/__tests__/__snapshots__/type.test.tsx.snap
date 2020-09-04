@@ -268,18 +268,6 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
 />
 `;
 
-exports[`Button should has click wave effect 1`] = `
-<button
-  ant-click-animating-without-extra-node="true"
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    button
-  </span>
-</button>
-`;
-
 exports[`Button should merge text if children using variable 1`] = `
 <button
   class="ant-btn"
@@ -287,17 +275,6 @@ exports[`Button should merge text if children using variable 1`] = `
 >
   <span>
     This is a test 1
-  </span>
-</button>
-`;
-
-exports[`Button should not insert space to link button 1`] = `
-<button
-  class="ant-btn ant-btn-link"
-  type="button"
->
-  <span>
-    按钮
   </span>
 </button>
 `;
@@ -314,60 +291,16 @@ exports[`Button should not render as link button when href is undefined 1`] = `
 `;
 
 exports[`Button should render empty button without errors 1`] = `
-<Button
-  block={false}
-  ghost={false}
-  htmlType="button"
-  loading={false}
->
-  <Wave>
-    <button
-      className="ant-btn"
-      onClick={[Function]}
-      type="button"
-    >
-      <LoadingIcon
-        existIcon={false}
-        loading={false}
-        prefixCls="ant-btn"
-      >
-        <ForwardRef
-          motionName="ant-btn-loading-icon-motion"
-          onAppearActive={[Function]}
-          onAppearStart={[Function]}
-          onEnterActive={[Function]}
-          onEnterStart={[Function]}
-          onLeaveActive={[Function]}
-          onLeaveStart={[Function]}
-          removeOnLeave={true}
-          visible={false}
-        >
-          <CSSMotion
-            internalRef={null}
-            motionAppear={true}
-            motionEnter={true}
-            motionLeave={true}
-            motionName="ant-btn-loading-icon-motion"
-            onAppearActive={[Function]}
-            onAppearStart={[Function]}
-            onEnterActive={[Function]}
-            onEnterStart={[Function]}
-            onLeaveActive={[Function]}
-            onLeaveStart={[Function]}
-            removeOnLeave={true}
-            visible={false}
-          />
-        </ForwardRef>
-      </LoadingIcon>
-    </button>
-  </Wave>
-</Button>
+<button
+  class="ant-btn"
+  type="button"
+/>
 `;
 
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"
-  href="http://ant.design"
+  href="https://ant.design"
   target="_blank"
 >
   <span>

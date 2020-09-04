@@ -24,30 +24,18 @@
     }
   }
 
-  &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    .@{btn-prefix-cls}-rtl& {
-      padding-right: 29px;
-      padding-left: @padding-md - 1px;
-    }
-
-    .@{iconfont-css-prefix}:not(:last-child) {
-      .@{btn-prefix-cls}-rtl& {
-        margin-right: -14px;
-        margin-left: 0;
-      }
-    }
-  }
-
-  &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    .@{btn-prefix-cls}-rtl& {
-      padding-right: 24px;
-      padding-left: @padding-xs - 1px;
-    }
-
+  & > &-loading-icon {
     .@{iconfont-css-prefix} {
       .@{btn-prefix-cls}-rtl& {
-        margin-right: -17px;
-        margin-left: 0;
+        padding-right: 0;
+        padding-left: @margin-xs;
+      }
+    }
+
+    &:only-child {
+      .@{iconfont-css-prefix} {
+        padding-right: 0;
+        padding-left: 0;
       }
     }
   }

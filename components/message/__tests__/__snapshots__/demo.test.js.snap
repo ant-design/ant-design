@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/message/demo/custom-style.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Customized style
+  </span>
+</button>
+`;
+
 exports[`renders ./components/message/demo/duration.md correctly 1`] = `
 <button
   class="ant-btn"
@@ -7,6 +18,17 @@ exports[`renders ./components/message/demo/duration.md correctly 1`] = `
 >
   <span>
     Customized display duration
+  </span>
+</button>
+`;
+
+exports[`renders ./components/message/demo/hooks.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Display normal message
   </span>
 </button>
 `;
@@ -34,31 +56,47 @@ exports[`renders ./components/message/demo/loading.md correctly 1`] = `
 `;
 
 exports[`renders ./components/message/demo/other.md correctly 1`] = `
-<div>
-  <button
-    class="ant-btn"
-    type="button"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
   >
-    <span>
-      Success
-    </span>
-  </button>
-  <button
-    class="ant-btn"
-    type="button"
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Success
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
   >
-    <span>
-      Error
-    </span>
-  </button>
-  <button
-    class="ant-btn"
-    type="button"
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Error
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Warning
-    </span>
-  </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Warning
+      </span>
+    </button>
+  </div>
 </div>
 `;
 

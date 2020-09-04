@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-image"
+>
+  <img
+    class="ant-image-img"
+  />
+</div>
+`;

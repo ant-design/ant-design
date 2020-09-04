@@ -1,8 +1,8 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { AntAnchor } from './Anchor';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import AnchorContext from './context';
 
 export interface AnchorLinkProps {
   prefixCls?: string;
@@ -13,37 +13,33 @@ export interface AnchorLinkProps {
   className?: string;
 }
 
-class AnchorLink extends React.Component<AnchorLinkProps, any> {
+class AnchorLink extends React.Component<AnchorLinkProps, any, AntAnchor> {
   static defaultProps = {
     href: '#',
   };
 
-  static contextTypes = {
-    antAnchor: PropTypes.object,
-  };
+  static contextType = AnchorContext;
 
-  context: {
-    antAnchor: AntAnchor;
-  };
+  context: AntAnchor;
 
   componentDidMount() {
-    this.context.antAnchor.registerLink(this.props.href);
+    this.context.registerLink(this.props.href);
   }
 
   componentDidUpdate({ href: prevHref }: AnchorLinkProps) {
     const { href } = this.props;
     if (prevHref !== href) {
-      this.context.antAnchor.unregisterLink(prevHref);
-      this.context.antAnchor.registerLink(href);
+      this.context.unregisterLink(prevHref);
+      this.context.registerLink(href);
     }
   }
 
   componentWillUnmount() {
-    this.context.antAnchor.unregisterLink(this.props.href);
+    this.context.unregisterLink(this.props.href);
   }
 
   handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    const { scrollTo, onClick } = this.context.antAnchor;
+    const { scrollTo, onClick } = this.context;
     const { href, title } = this.props;
     if (onClick) {
       onClick(e, { title, href });
@@ -54,7 +50,7 @@ class AnchorLink extends React.Component<AnchorLinkProps, any> {
   renderAnchorLink = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, href, title, children, className, target } = this.props;
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
-    const active = this.context.antAnchor.activeLink === href;
+    const active = this.context.activeLink === href;
     const wrapperClassName = classNames(className, `${prefixCls}-link`, {
       [`${prefixCls}-link-active`]: active,
     });

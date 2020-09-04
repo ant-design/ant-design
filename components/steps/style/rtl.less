@@ -11,7 +11,7 @@
 
 .@{steps-prefix-cls}-item {
   &-icon {
-    .@{steps-prefix-cls}-rtl & {
+    .@{steps-prefix-cls}.@{steps-prefix-cls}-rtl & {
       margin-right: 0;
       margin-left: 8px;
     }
@@ -42,13 +42,13 @@
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
     .@{steps-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: 16px;
+      padding-right: 16px;
+      padding-left: 0;
     }
 
-    &:last-child {
+    &:first-child {
       .@{steps-prefix-cls}-rtl& {
-        margin-left: 0;
+        padding-right: 0;
       }
     }
     &:last-child .@{steps-prefix-cls}-item-title {
@@ -115,13 +115,13 @@
   &.@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical)
     .@{steps-prefix-cls}-item {
     .@{steps-prefix-cls}-rtl& {
-      margin-right: 0;
-      margin-left: 12px;
+      padding-right: 12px;
+      padding-left: 0;
     }
 
-    &:last-child {
+    &:first-child {
       .@{steps-prefix-cls}-rtl& {
-        margin-left: 0;
+        padding-right: 0;
       }
     }
   }
@@ -129,6 +129,7 @@
   .@{steps-prefix-cls}-item-title {
     .@{steps-prefix-cls}-rtl& {
       padding-right: 0;
+      padding-left: 12px;
     }
   }
 }
@@ -140,7 +141,7 @@
       .@{steps-prefix-cls}-rtl& {
         float: right;
         margin-right: 0;
-        margin-left: 16px;
+        margin-left: @steps-vertical-icon-width;
       }
     }
   }
@@ -149,7 +150,7 @@
     > .@{steps-prefix-cls}-item-container
     > .@{steps-prefix-cls}-item-tail {
     .@{steps-prefix-cls}-rtl& {
-      right: 16px;
+      right: @steps-vertical-tail-width;
       left: auto;
     }
   }
@@ -157,7 +158,7 @@
   &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item-container {
     .@{steps-prefix-cls}-item-tail {
       .@{steps-prefix-cls}-rtl& {
-        right: 12px;
+        right: @steps-vertical-tail-width-sm;
         left: auto;
       }
     }

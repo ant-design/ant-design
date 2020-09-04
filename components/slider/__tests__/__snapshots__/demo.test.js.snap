@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-slider"
   >
@@ -28,7 +28,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-slider"
   >
@@ -65,23 +65,26 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
-  Disabled: 
+  </div>,
+  "Disabled: ",
   <button
     aria-checked="false"
-    class="ant-switch-small ant-switch"
+    class="ant-switch ant-switch-small"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/slider/demo/event.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-slider"
   >
@@ -108,7 +111,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-slider"
   >
@@ -145,8 +148,8 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
@@ -270,11 +273,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-input-number-handler-wrap"
         >
           <span
-            aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up "
+            class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="up"
@@ -302,7 +304,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             aria-label="Decrease Value"
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="down"
@@ -390,11 +392,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-input-number-handler-wrap"
         >
           <span
-            aria-disabled="false"
             aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up "
+            class="ant-input-number-handler ant-input-number-handler-up"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="up"
@@ -422,7 +423,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             aria-label="Decrease Value"
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
             role="button"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <span
               aria-label="down"
@@ -469,10 +470,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
 `;
 
 exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
-<div>
+Array [
   <h4>
     included=true
-  </h4>
+  </h4>,
   <div
     class="ant-slider ant-slider-with-marks"
   >
@@ -543,7 +544,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
         </strong>
       </span>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-slider ant-slider-with-marks"
   >
@@ -624,10 +625,10 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
         </strong>
       </span>
     </div>
-  </div>
+  </div>,
   <h4>
     included=false
-  </h4>
+  </h4>,
   <div
     class="ant-slider ant-slider-with-marks"
   >
@@ -694,10 +695,10 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
         </strong>
       </span>
     </div>
-  </div>
+  </div>,
   <h4>
     marks & step
-  </h4>
+  </h4>,
   <div
     class="ant-slider ant-slider-with-marks"
   >
@@ -768,10 +769,10 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
         </strong>
       </span>
     </div>
-  </div>
+  </div>,
   <h4>
     step=null
-  </h4>
+  </h4>,
   <div
     class="ant-slider ant-slider-with-marks"
   >
@@ -842,12 +843,12 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
         </strong>
       </span>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-slider"
   >
@@ -874,7 +875,7 @@ exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-slider"
   >
@@ -911,20 +912,22 @@ exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
-  Reversed: 
+  </div>,
+  "Reversed: ",
   <button
     aria-checked="true"
-    checked=""
-    class="ant-switch-small ant-switch ant-switch-checked"
+    class="ant-switch ant-switch-small ant-switch-checked"
     role="switch"
     type="button"
   >
+    <div
+      class="ant-switch-handle"
+    />
     <span
       class="ant-switch-inner"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
@@ -954,14 +957,18 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-tooltip-content"
       >
         <div
           class="ant-tooltip-arrow"
-        />
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <div
           class="ant-tooltip-inner"
           role="tooltip"
@@ -978,7 +985,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
 `;
 
 exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-slider"
   >
@@ -1005,7 +1012,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
+  </div>,
   <div
     class="ant-slider"
   >
@@ -1032,12 +1039,12 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
     <div
       class="ant-slider-mark"
     />
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
-<div>
+Array [
   <div
     style="display:inline-block;height:300px;margin-left:70px"
   >
@@ -1068,7 +1075,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-mark"
       />
     </div>
-  </div>
+  </div>,
   <div
     style="display:inline-block;height:300px;margin-left:70px"
   >
@@ -1109,7 +1116,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-mark"
       />
     </div>
-  </div>
+  </div>,
   <div
     style="display:inline-block;height:300px;margin-left:70px"
   >
@@ -1194,6 +1201,6 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         </span>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

@@ -4,8 +4,9 @@
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 
 .@{menu-prefix-cls} {
-  &-rtl {
+  &&-rtl {
     direction: rtl;
+    text-align: right;
   }
 
   &-item-group-title {
@@ -22,12 +23,10 @@
     }
   }
 
-  &-dark {
-    .@{menu-prefix-cls}-inline,
-    .@{menu-prefix-cls}-vertical {
-      .@{menu-prefix-cls}-rtl& {
-        border-left: none;
-      }
+  &-dark&-inline,
+  &-dark&-vertical {
+    .@{menu-prefix-cls}-rtl& {
+      border-left: none;
     }
   }
 
@@ -51,7 +50,7 @@
     .@{iconfont-css-prefix} {
       .@{menu-prefix-cls}-rtl & {
         margin-right: auto;
-        margin-left: 10px;
+        margin-left: @menu-icon-margin-right;
       }
     }
 
@@ -152,6 +151,7 @@
   }
 
   &-sub&-inline {
+    border: 0;
     & .@{menu-prefix-cls}-item-group-title {
       .@{menu-prefix-cls}-rtl& {
         padding-right: 32px;

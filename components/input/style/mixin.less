@@ -34,7 +34,7 @@
 }
 
 .disabled() {
-  color: @disabled-color;
+  color: @input-disabled-color;
   background-color: @input-disabled-bg;
   cursor: not-allowed;
   opacity: 1;
@@ -76,6 +76,19 @@
 
   &[disabled] {
     .disabled();
+  }
+
+  &-borderless {
+    &,
+    &:hover,
+    &:focus,
+    &-focused,
+    &-disabled,
+    &[disabled] {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
   }
 
   // Reset height for `textarea`s
@@ -259,11 +272,11 @@
   }
 
   // Fix https://github.com/ant-design/ant-design/issues/5754
-  &-lg .@{ant-prefix}-select-single .ant-select-selector {
+  &-lg .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
     height: @input-height-lg;
   }
 
-  &-sm .@{ant-prefix}-select-single .ant-select-selector {
+  &-sm .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
     height: @input-height-sm;
   }
 
@@ -342,6 +355,10 @@
       &:focus {
         z-index: 1;
       }
+    }
+
+    & > .@{ant-prefix}-select-focused {
+      z-index: 1;
     }
 
     // update z-index for arrow icon

@@ -4,8 +4,6 @@
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
 @notification-width: 384px;
-@notification-padding-vertical: 16px;
-@notification-padding-horizontal: 24px;
 @notification-padding: @notification-padding-vertical @notification-padding-horizontal;
 @notification-margin-bottom: 16px;
 
@@ -14,7 +12,6 @@
 
   position: fixed;
   z-index: @zindex-notification;
-  width: @notification-width;
   max-width: ~'calc(100vw - 32px)';
   margin-right: 24px;
 
@@ -37,11 +34,19 @@
   &-hook-holder,
   &-notice {
     position: relative;
+    width: @notification-width;
     margin-bottom: @notification-margin-bottom;
+    margin-left: auto;
     overflow: hidden;
     background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+
+    .@{notification-prefix-cls}-topLeft &,
+    .@{notification-prefix-cls}-bottomLeft & {
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
   &-hook-holder > &-notice {
@@ -212,3 +217,5 @@
     opacity: 0;
   }
 }
+
+@import './rtl';

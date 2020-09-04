@@ -40,15 +40,13 @@ ReactDOM.render(
 );
 ```
 
-```css
-.site-card-wrapper {
-  background: #ececec;
-  padding: 30px;
-}
-```
-
 <style>
-  [data-theme="dark"] .site-card-wrapper {
-    background: #303030;
-  }
+.site-card-wrapper {
+  padding: 30px;
+  background: #ececec;
+}
+
+[data-theme="dark"] .site-card-wrapper {
+  background: #303030;
+}
 </style>

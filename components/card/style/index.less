@@ -14,7 +14,6 @@
   position: relative;
   background: @card-background;
   border-radius: @card-radius;
-  transition: all 0.3s;
 
   &-rtl {
     direction: rtl;
@@ -22,6 +21,8 @@
 
   &-hoverable {
     cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s;
+
     &:hover {
       border-color: @card-hoverable-hover-border;
       box-shadow: @card-shadow;
@@ -76,7 +77,7 @@
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
     padding: @card-head-padding 0;
-    color: @text-color;
+    color: @card-head-extra-color;
     font-weight: normal;
     font-size: @font-size-base;
 
@@ -129,10 +130,12 @@
     padding-bottom: 0;
   }
 
-  &-cover {
+  &-bordered &-cover {
     margin-right: -1px;
     margin-left: -1px;
+  }
 
+  &-cover {
     > * {
       display: block;
       width: 100%;
@@ -166,7 +169,7 @@
         display: block;
         min-width: 32px;
         font-size: @font-size-base;
-        line-height: 22px;
+        line-height: @line-height-base;
         cursor: pointer;
 
         &:hover {

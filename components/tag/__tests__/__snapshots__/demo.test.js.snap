@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
-<div>
+Array [
   <div
     style="margin-bottom:16px"
   >
@@ -15,7 +15,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
           Tag 1
           <span
             aria-label="close"
-            class="anticon anticon-close"
+            class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
           >
@@ -45,7 +45,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
           Tag 2
           <span
             aria-label="close"
-            class="anticon anticon-close"
+            class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
           >
@@ -75,7 +75,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
           Tag 3
           <span
             aria-label="close"
-            class="anticon anticon-close"
+            class="anticon anticon-close ant-tag-close-icon"
             role="img"
             tabindex="-1"
           >
@@ -97,7 +97,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </div>,
   <span
     class="ant-tag site-tag-plus"
   >
@@ -126,17 +126,17 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
       </svg>
     </span>
      New Tag
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag"
   >
     Tag 1
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -145,14 +145,14 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     >
       Link
     </a>
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
     Tag 2
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -171,14 +171,14 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
     Prevent Default
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -197,37 +197,52 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
-<div>
+Array [
+  <span
+    style="margin-right:8px"
+  >
+    Categories:
+  </span>,
+  <span
+    class="ant-tag ant-tag-checkable"
+  >
+    Movies
+  </span>,
   <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
-    Tag1
-  </span>
+    Books
+  </span>,
   <span
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable"
   >
-    Tag2
-  </span>
+    Music
+  </span>,
   <span
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable"
   >
-    Tag3
-  </span>
-</div>
+    Sports
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
-<div>
-  <h4
-    style="margin-bottom:16px"
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Presets:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
   <div>
     <span
       class="ant-tag ant-tag-magenta"
@@ -284,12 +299,17 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     >
       purple
     </span>
-  </div>
-  <h4
-    style="margin:16px 0"
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
   >
-    Custom:
-  </h4>
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
   <div>
     <span
       class="ant-tag ant-tag-has-color"
@@ -315,19 +335,19 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     >
       #108ee9
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag edit-tag"
   >
     <span>
       Unremovable
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag edit-tag"
   >
@@ -336,7 +356,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     </span>
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -355,7 +375,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag edit-tag"
   >
@@ -364,7 +384,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     </span>
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -383,7 +403,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag site-tag-plus"
   >
@@ -412,19 +432,19 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
       </svg>
     </span>
      New Tag
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag"
   >
     Movies
     <span
       aria-label="close"
-      class="anticon anticon-close"
+      class="anticon anticon-close ant-tag-close-icon"
       role="img"
       tabindex="-1"
     >
@@ -443,8 +463,8 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
-  <br />
+  </span>,
+  <br />,
   <button
     class="ant-btn ant-btn-sm"
     type="button"
@@ -452,42 +472,59 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
     <span>
       Toggle
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
-exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
-<div>
+exports[`renders ./components/tag/demo/customize.md correctly 1`] = `
+Array [
   <span
-    style="margin-right:8px"
+    class="ant-tag"
   >
-    Categories:
-  </span>
+    Tag1
+    <div
+      class="ant-tag-close-icon"
+    >
+      关 闭
+    </div>
+  </span>,
   <span
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag"
   >
-    Movies
-  </span>
-  <span
-    class="ant-tag ant-tag-checkable"
-  >
-    Books
-  </span>
-  <span
-    class="ant-tag ant-tag-checkable"
-  >
-    Music
-  </span>
-  <span
-    class="ant-tag ant-tag-checkable"
-  >
-    Sports
-  </span>
-</div>
+    Tag2
+    <div
+      class="ant-tag-close-icon"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+          />
+          <path
+            d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
+      </span>
+    </div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
-<div>
+Array [
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#55acee"
@@ -515,7 +552,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       Twitter
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#cd201f"
@@ -543,7 +580,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       Youtube
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#3b5999"
@@ -571,7 +608,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       Facebook
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag ant-tag-has-color"
     style="background-color:#55acee"
@@ -599,36 +636,223 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
     <span>
       LinkedIn
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders ./components/tag/demo/status.md correctly 1`] = `
-<div>
-  <span
-    class="ant-tag ant-tag-success"
-  >
-    success
-  </span>
-  <span
-    class="ant-tag ant-tag-processing"
-  >
-    processing
-  </span>
-  <span
-    class="ant-tag ant-tag-error"
-  >
-    error
-  </span>
-  <span
-    class="ant-tag ant-tag-default"
-  >
-    default
-  </span>
-  <span
-    class="ant-tag ant-tag-warning"
-  >
-    warning
-  </span>
-</div>
+Array [
+  <div>
+    <h4>
+      Without icon
+    </h4>
+    <span
+      class="ant-tag ant-tag-success"
+    >
+      success
+    </span>
+    <span
+      class="ant-tag ant-tag-processing"
+    >
+      processing
+    </span>
+    <span
+      class="ant-tag ant-tag-error"
+    >
+      error
+    </span>
+    <span
+      class="ant-tag ant-tag-warning"
+    >
+      warning
+    </span>
+    <span
+      class="ant-tag ant-tag-default"
+    >
+      default
+    </span>
+  </div>,
+  <div>
+    <h4>
+      With icon
+    </h4>
+    <span
+      class="ant-tag ant-tag-success"
+    >
+      <span
+        aria-label="check-circle"
+        class="anticon anticon-check-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
+      </span>
+      <span>
+        success
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-processing"
+    >
+      <span
+        aria-label="sync"
+        class="anticon anticon-sync"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class="anticon-spin"
+          data-icon="sync"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        processing
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-error"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+          />
+          <path
+            d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
+      </span>
+      <span>
+        error
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-warning"
+    >
+      <span
+        aria-label="exclamation-circle"
+        class="anticon anticon-exclamation-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="exclamation-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+          />
+        </svg>
+      </span>
+      <span>
+        warning
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-default"
+    >
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="clock-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+          />
+        </svg>
+      </span>
+      <span>
+        waiting
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-default"
+    >
+      <span
+        aria-label="minus-circle"
+        class="anticon anticon-minus-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="minus-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+          />
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
+      </span>
+      <span>
+        stop
+      </span>
+    </span>
+  </div>,
+]
 `;

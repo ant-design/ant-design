@@ -56,23 +56,56 @@ const treeData = [
       },
     ],
   },
+  {
+    title: 'parent 2',
+    key: '0-1',
+    icon: <CarryOutOutlined />,
+    children: [
+      {
+        title: 'parent 2-0',
+        key: '0-1-0',
+        icon: <CarryOutOutlined />,
+        children: [
+          { title: 'leaf', key: '0-1-0-0', icon: <CarryOutOutlined /> },
+          { title: 'leaf', key: '0-1-0-1', icon: <CarryOutOutlined /> },
+        ],
+      },
+    ]
+  },
 ];
 
 const Demo: React.FC<{}> = () => {
   const [showLine, setShowLine] = useState(true);
   const [showIcon, setShowIcon] = useState(false);
+  const [showLeafIcon, setShowLeafIcon] = useState(true);
 
   const onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
   };
 
+  const onSetLeafIcon = checked => {
+    setShowLeafIcon(checked);
+    setShowLine({ showLeafIcon: checked });
+  };
+
+  const onSetShowLine = checked => {
+    if (checked) {
+      showLeafIcon ? setShowLine(checked) : setShowLine({ showLeafIcon });
+    } else {
+      setShowLine(checked);
+    }
+  };
+
   return (
     <div>
       <div style={{ marginBottom: 16 }}>
-        showLine: <Switch checked={showLine} onChange={setShowLine} />
+        showLine: <Switch checked={showLine} onChange={onSetShowLine} />
         <br />
         <br />
         showIcon: <Switch checked={showIcon} onChange={setShowIcon} />
+        <br />
+        <br />
+        showLeafIcon: <Switch checked={showLeafIcon} onChange={onSetLeafIcon} />
       </div>
       <Tree
         showLine={showLine}

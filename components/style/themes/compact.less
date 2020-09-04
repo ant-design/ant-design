@@ -1,6 +1,9 @@
 @import './default.less';
 
+@line-height-base: 1.66667;
 @mode: compact;
+@font-size-base: 12px;
+@font-size-lg: @font-size-base + 2px;
 
 // default paddings
 @default-padding-lg: 24px; // containers
@@ -37,23 +40,75 @@
 @btn-padding-horizontal-base: @default-padding-sm - 1px;
 @btn-padding-horizontal-lg: @btn-padding-horizontal-base;
 @btn-padding-horizontal-sm: @default-padding-xs - 1px;
-@btn-square-only-icon-size: 14px;
-@btn-square-only-icon-size-sm: 14px;
 @btn-square-only-icon-size-lg: 16px;
+@btn-square-only-icon-size: 14px;
+@btn-square-only-icon-size-sm: 12px;
+
+// Breadcrumb
+// ---
+@breadcrumb-font-size: @font-size-base;
+@breadcrumb-icon-font-size: @font-size-base;
 
 //Dropdown
 @dropdown-line-height: 18px;
 
+// Menu
+@menu-item-padding: 0 12px;
+@menu-horizontal-line-height: 38px;
+@menu-inline-toplevel-item-height: 32px;
+@menu-item-height: 32px;
+@menu-item-vertical-margin: 0px;
+@menu-item-boundary-margin: 0px;
+@menu-icon-margin-right: 8px;
+
+// Checkbox
+@checkbox-size: 14px;
+@checkbox-group-item-margin-right: 6px;
+
+// picker
+@picker-panel-cell-height: 22px;
+@picker-panel-cell-width: 32px;
+@picker-text-height: 32px;
+@picker-time-panel-cell-height: 24px;
+@picker-panel-without-time-cell-height: 48px;
+
 // Form
 // ---
 @form-item-margin-bottom: 16px;
+@form-vertical-label-padding: 0 0 4px;
+
+// Rate
+// ---
+@rate-star-size: 16px;
+
+// Radio
+// ---
+@radio-size: 14px;
+@radio-top: -2px;
+@radio-wrapper-margin-right: 6px;
+
+// Switch
+// ---
+@switch-height: 20px;
+@switch-sm-height: 14px;
+@switch-min-width: 40px;
+@switch-sm-min-width: 24px;
+@switch-inner-margin-min: 4px;
+@switch-inner-margin-max: 22px;
+
+// Slider
+// ---
+@slider-handle-size: 12px;
+@slider-handle-margin-top: -4px;
 
 // Input
 // ---
-@input-padding-vertical-base: max(
-  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
-    @border-width-base,
-  2px
+@input-padding-vertical-base: round(
+  max(
+    round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+      @border-width-base,
+    2px
+  )
 );
 @input-padding-horizontal-lg: 11px;
 
@@ -61,10 +116,14 @@
 // ---
 @page-header-padding: 16px;
 @page-header-padding-vertical: 8px;
+@page-header-heading-title: 16px;
+@page-header-heading-sub-title: 12px;
+@page-header-tabs-tab-font-size: 14px;
 
 // Pagination
 // ---
 @pagination-mini-options-size-changer-top: 1px;
+@pagination-item-size-sm: 22px;
 
 // Cascader
 // ----
@@ -86,6 +145,7 @@
 // ---
 @transfer-item-padding-vertical: 3px;
 @transfer-list-search-icon-top: 8px;
+@transfer-header-height: 36px;
 
 // Comment
 // ---
@@ -103,10 +163,14 @@
 @steps-icon-font-size: @font-size-base;
 @steps-dot-top: 4px;
 @steps-icon-top: 0px;
-
+@steps-small-icon-size: 20px;
+@steps-vertical-icon-width: 12px;
+@steps-vertical-tail-width: 12px;
+@steps-vertical-tail-width-sm: 10px;
 // Collapse
 // ---
-@collapse-header-padding-extra: 32px;
+//@collapse-header-padding-extra: 32px;
+@collapse-content-padding: @padding-md @padding-lg;
 
 // List
 // ---
@@ -122,10 +186,14 @@
 
 // Modal
 // --
-@modal-header-padding: 11px @padding-lg;
+@modal-header-padding: 11px @modal-header-padding-horizontal;
 @modal-footer-padding-vertical: @padding-sm;
 @modal-header-close-size: 44px;
 @modal-confirm-body-padding: 24px 24px 16px;
+
+// Message
+// ---
+@message-notice-content-padding: 8px 16px;
 
 // popover
 // --
@@ -137,11 +205,11 @@
 @card-padding-base: 16px;
 @card-head-height: 36px;
 @card-head-font-size: @card-head-font-size-sm;
-@card-head-padding: 8px;
+@card-head-padding: 8.5px;
 @card-padding-base: 12px;
 @card-padding-base-sm: @card-padding-base;
 @card-head-height-sm: 30px;
-@card-head-padding-sm: 4px;
+@card-head-padding-sm: 6px;
 @card-actions-li-margin: 4px 0;
 @card-head-tabs-margin-bottom: -9px;
 
@@ -153,6 +221,7 @@
 @table-padding-horizontal-md: 8px;
 @table-padding-vertical-sm: 4px;
 @table-padding-horizontal-sm: 4px;
+@table-selection-column-width: 54px;
 
 // Statistic
 // ---
@@ -160,13 +229,71 @@
 
 // Alert
 // ---
-@alert-with-description-no-icon-padding-vertical: 11px;
+@alert-with-description-no-icon-padding-vertical: 7px;
+@alert-with-description-padding-vertical: 11px;
+@alert-with-description-padding: @alert-with-description-padding-vertical 15px
+  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size * 2 +
+  @alert-with-description-padding-vertical;
+@alert-icon-top: 7px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
+@alert-with-description-icon-size: 20px;
+@alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
 // Skeleton
 // ---
 @skeleton-paragraph-margin-top: 20px;
 @skeleton-paragraph-li-margin-top: 12px;
+@skeleton-paragraph-li-height: 14px;
+@skeleton-title-height: 14px;
+@skeleton-title-paragraph-margin-top: 20px;
 
 // Descriptions
 @descriptions-title-margin-bottom: 8px;
 @descriptions-default-padding: 12px @padding-lg;
+@descriptions-item-padding-bottom: @padding-xs;
+
+// Avatar
+// ---
+@avatar-size-base: 28px;
+@avatar-size-lg: 32px;
+@avatar-size-sm: 22px;
+@avatar-font-size-base: 16px;
+@avatar-font-size-lg: 20px;
+@avatar-font-size-sm: 12px;
+
+// Badge
+// ---
+@badge-height: 18px;
+
+// Tag
+// ---
+@tag-line-height: 18px;
+
+// Notification
+// ---
+@notification-padding-vertical: 12px;
+@notification-padding-horizontal: 16px;
+
+//  Result
+// ---
+@result-title-font-size: 20px;
+@result-icon-font-size: 64px;
+@result-extra-margin: 24px 0 0 0;
+
+// Anchor
+// ---
+@anchor-link-top: 4px;
+@anchor-link-left: 16px;
+@anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
+
+// Tabs
+// ---
+@tabs-card-horizontal-padding: 4px @padding-md;
+
+// Progress
+// ---
+@progress-circle-text-font-size: 0.833333em;
+
+// Image
+// ---
+@image-size-base: 48px;
+@image-font-size-base: 24px;

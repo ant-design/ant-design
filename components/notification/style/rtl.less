@@ -1,0 +1,53 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@notification-prefix-cls: ~'@{ant-prefix}-notification';
+
+.@{notification-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
+  &-notice {
+    &-closable &-message {
+      .@{notification-prefix-cls}-rtl & {
+        padding-right: 0;
+        padding-left: 24px;
+      }
+    }
+
+    &-with-icon &-message {
+      .@{notification-prefix-cls}-rtl & {
+        margin-right: 48px;
+        margin-left: 0;
+      }
+    }
+
+    &-with-icon &-description {
+      .@{notification-prefix-cls}-rtl & {
+        margin-right: 48px;
+        margin-left: 0;
+      }
+    }
+
+    &-icon {
+      .@{notification-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
+    }
+
+    &-close {
+      .@{notification-prefix-cls}-rtl & {
+        right: auto;
+        left: 22px;
+      }
+    }
+
+    &-btn {
+      .@{notification-prefix-cls}-rtl & {
+        float: left;
+      }
+    }
+  }
+}

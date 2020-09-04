@@ -35,7 +35,7 @@ class Demo extends React.Component {
   render() {
     const { rows, longText, copyable, editable, expandable } = this.state;
     return (
-      <div>
+      <>
         <Switch
           checked={longText}
           checkedChildren="Long Text"
@@ -67,7 +67,7 @@ class Demo extends React.Component {
         <p>
           2333<Text ellipsis>2333</Text>2333
         </p>
-      </div>
+      </>
     );
   }
 }

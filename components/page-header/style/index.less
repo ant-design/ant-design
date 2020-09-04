@@ -65,7 +65,7 @@
       margin-bottom: 0;
       color: @heading-color;
       font-weight: 600;
-      font-size: @heading-4-size;
+      font-size: @page-header-heading-title;
       line-height: 32px;
       .text-overflow-ellipsis;
     }
@@ -77,8 +77,8 @@
     &-sub-title {
       margin-right: @margin-sm;
       color: @text-color-secondary;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: @page-header-heading-sub-title;
+      line-height: @line-height-base;
       .text-overflow-ellipsis;
     }
 
@@ -102,14 +102,17 @@
 
   &-footer {
     margin-top: @margin-md;
-    .@{ant-prefix}-tabs-bar {
-      margin-bottom: 1px;
-      border-bottom: 0;
-      .@{ant-prefix}-tabs-nav {
-        .@{ant-prefix}-tabs-tab {
-          padding: @tabs-horizontal-padding-sm;
-          font-size: 16px;
+    .@{ant-prefix}-tabs {
+      > .@{ant-prefix}-tabs-nav {
+        margin: 0;
+        &::before {
+          border: none;
         }
+      }
+
+      .@{ant-prefix}-tabs-tab {
+        padding: @tabs-horizontal-padding-sm;
+        font-size: @page-header-tabs-tab-font-size;
       }
     }
   }

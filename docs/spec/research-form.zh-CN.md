@@ -18,16 +18,16 @@ title: 表单页
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4IjJTbMSsmEAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>高效</h4>
-      <p>通过合理地信息组织形式和表单组价应用，使用户可以快速完成表单页任务。</p>
+      <p>通过合理的信息组织形式和表单组件的使用，使用户可以快速完成表单页任务。</p>
     </div>
   </div>
   <div>
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lEtuTZi2GvIAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>明确</h4>
-      <p>1. 快速定位重要信息和目标选项；</p>
-      <p>2. 标题、选项、提示等内容准确传达含义；</p>
-      <p>3. 让用户感知不同大小操作的前因后果，并及时响应相关反馈。</p>
+      <div>1. 快速定位重要信息和目标选项；</div>
+      <div>2. 标题、选项、提示等内容准确传达含义；</div>
+      <div>3. 让用户感知不同大小操作的前因后果，并及时响应相关反馈。</div>
     </div>
   </div>
   <div>
@@ -175,8 +175,8 @@ Ant Design 标准注册模板
 
 ### 前期准备
 
-- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](https://ant.design/components/form-cn/)；
-- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](https://ant.design/docs/spec/data-entry-cn/) 确定所使用的组件。
+- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](/components/form/)；
+- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](/docs/spec/data-entry/) 确定所使用的组件。
 
 ### 布局方式
 
@@ -212,7 +212,7 @@ Ant Design 标准注册模板
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
 
-关于使用何种布局方式的判断，和[详情页](https://ant.design/docs/spec/detail-page-cn#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
+关于使用何种布局方式的判断，和[详情页](/docs/spec/detail-page#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
 
 <br>
 
@@ -220,8 +220,8 @@ Ant Design 标准注册模板
 
 ### 会用到哪些模块或组件
 
-- [表单](https://ant.design/components/form-cn/#header)
-- [步骤条](https://ant.design/components/steps-cn/#header)
+- [表单](/components/form/#header)
+- [步骤条](/components/steps/#header)
 
 ### 外部参考文章
 

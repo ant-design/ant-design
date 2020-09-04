@@ -2,7 +2,7 @@
 @import './colors';
 
 .rc-footer {
-  z-index: 9;
+  z-index: 8;
 
   &-container {
     max-width: unset;
@@ -17,14 +17,14 @@
     justify-content: space-between;
   }
   &-item {
-    .page-wrapper-rtl & {
+    html.rtl & {
       display: flex;
       justify-content: flex-start;
       text-align: right;
     }
 
     &-icon {
-      .page-wrapper-rtl & {
+      html.rtl & {
         margin-right: 0;
         margin-left: 0.4em;
       }

@@ -23,10 +23,13 @@ ReactDOM.render(
     </Button>
     <Button danger>Default</Button>
     <Button type="dashed" danger>
-      link
+      Dashed
+    </Button>
+    <Button type="text" danger>
+      Text
     </Button>
     <Button type="link" danger>
-      link
+      Link
     </Button>
   </>,
   mountNode,
