@@ -17,7 +17,7 @@ export interface MenuProps extends RcMenuProps {
   theme?: MenuTheme;
   inlineIndent?: number;
   focusable?: boolean;
-  onOpenChange?: (string[]) => void
+  onOpenChange?: (keys: string[]) => void
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
