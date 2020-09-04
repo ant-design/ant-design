@@ -337,6 +337,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
         autocomplete="off"
         class="config-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -366,6 +367,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
         autocomplete="off"
         class="config-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -395,6 +397,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
         autocomplete="off"
         class="config-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -424,6 +427,7 @@ exports[`ConfigProvider components AutoComplete configProvider virtual and dropd
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -453,6 +457,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -482,6 +487,7 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
         autocomplete="off"
         class="prefix-AutoComplete-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -2272,6 +2278,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -2331,6 +2338,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -3211,6 +3219,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -3557,6 +3566,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -3616,6 +3626,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -4496,6 +4507,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -4842,6 +4854,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -4901,6 +4914,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -5781,6 +5795,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -6127,6 +6142,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -6186,6 +6202,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -7066,6 +7083,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -7412,6 +7430,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -7471,6 +7490,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -8351,6 +8371,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -8697,6 +8718,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -8756,6 +8778,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -9636,6 +9659,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17044,6 +17068,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17198,6 +17223,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17357,6 +17383,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17511,6 +17538,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17670,6 +17698,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17824,6 +17853,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -17983,6 +18013,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -18137,6 +18168,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -18296,6 +18328,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -18450,6 +18483,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -18609,6 +18643,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -18763,6 +18798,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -21868,6 +21904,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -21994,6 +22031,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -22120,6 +22158,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -22246,6 +22285,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -22372,6 +22412,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -22498,6 +22539,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -37138,6 +37180,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -37256,6 +37299,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -37374,6 +37418,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -37492,6 +37537,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -37610,6 +37656,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -37728,6 +37775,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />

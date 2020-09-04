@@ -3772,6 +3772,7 @@ exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
