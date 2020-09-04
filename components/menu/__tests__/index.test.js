@@ -231,9 +231,8 @@ describe('Menu', () => {
   it('should always follow openKeys when inlineCollapsed is switched', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
-        <Menu.Item key="menu1">
-          <InboxOutlined />
-          <span>Option</span>
+        <Menu.Item key="menu1" icon={<InboxOutlined />}>
+          Option
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option</Menu.Item>
@@ -264,9 +263,8 @@ describe('Menu', () => {
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['not-existed']} mode="inline">
-        <Menu.Item key="menu1">
-          <InboxOutlined />
-          <span>Option</span>
+        <Menu.Item key="menu1" icon={<InboxOutlined />}>
+          Option
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option</Menu.Item>
@@ -431,16 +429,13 @@ describe('Menu', () => {
     jest.useFakeTimers();
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed>
-        <Menu.Item key="1" title="bamboo lucky">
-          <PieChartOutlined />
-          <span>
-            Option 1
-            <img
-              style={{ width: 20 }}
-              alt="test"
-              src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-            />
-          </span>
+        <Menu.Item key="1" title="bamboo lucky" icon={<PieChartOutlined />}>
+          Option 1
+          <img
+            style={{ width: 20 }}
+            alt="test"
+            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+          />
         </Menu.Item>
       </Menu>,
     );
@@ -470,15 +465,7 @@ describe('Menu', () => {
             <Layout.Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
               <div className="logo" />
               <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <SubMenu
-                  key="sub1"
-                  title={
-                    <span>
-                      <UserOutlined />
-                      <span>User</span>
-                    </span>
-                  }
-                >
+                <SubMenu key="sub1" icon={<UserOutlined />} title="User">
                   <Menu.Item key="3">Tom</Menu.Item>
                   <Menu.Item key="4">Bill</Menu.Item>
                   <Menu.Item key="5">Alex</Menu.Item>
@@ -512,12 +499,10 @@ describe('Menu', () => {
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
     const wrapper = mount(
       <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
-        <Menu.Item key="mail">
-          <MailOutlined />
+        <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
-        <Menu.Item key="app">
-          <AppstoreOutlined />
+        <Menu.Item key="app" icon={<AppstoreOutlined />}>
           Navigation Two
         </Menu.Item>
         <Menu.Item key="alipay">
@@ -547,9 +532,8 @@ describe('Menu', () => {
   it('should controlled collapse work', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed={false}>
-        <Menu.Item key="1">
-          <PieChartOutlined />
-          <span>Option 1</span>
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
+          Option 1
         </Menu.Item>
       </Menu>,
     );
@@ -565,9 +549,8 @@ describe('Menu', () => {
     jest.useFakeTimers();
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed={false}>
-        <Menu.Item key="1">
-          <PieChartOutlined />
-          <span>Option 1</span>
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
+          Option 1
         </Menu.Item>
       </Menu>,
     );
