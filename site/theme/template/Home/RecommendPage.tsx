@@ -16,26 +16,26 @@ interface Recommend {
 
 const LIST_CN: Recommend[] = [
   {
-    title: '「人机自然交互」Ant Design 设计价值观解析',
+    title: '智能组件探索：这个工具栏会自动布局',
     description:
-      '这一次，我们将清晰阐述「自然」这一价值观，希望能启发或帮助大家完成自己的产品 / 体系构建；同时，你们的反馈和互动也会成为我们进步的源泉和动力。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fxVBRLq4TAcAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/44809866',
+      '工程师只需要选择「我要展示哪些元素、每个元素有多少」，而「这些元素怎么摆」、「间距是多少」等细节问题都会根据规则自动生成。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ijAcT7rl4nwAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/188693322',
     popularize: true,
   },
   {
-    title: '言之有序 | Ant Design 4.0 系列分享',
+    title: '一个好用的智能栅格工具是如何诞生的？',
     description:
-      '信息组织是我们在日常生活中经常会遇到的问题，各式各样的信息是如何被组织编排到一起，又是以何种方式把信息呈现给用户呢？',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*67WaSIK0AaYAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/110442621',
+      '和大家分享一下整个智能栅格的设计开发过程，并从中感受到设计的「穿透力」，聊聊如何打破界限、从表面到内核、从表象到本质。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jmkkRYTanJAAAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/176534657',
   },
   {
-    title: '整齐划一？不如错落有致。| Ant Design 4.0 系列分享',
+    title: '首个 Vue 3 组件库发布',
     description:
-      '表单是在各类业务产品中出现最高频的元素之一。今天我们来讨论一个被大家忽视但实则举重若轻的问题：怎样去考虑表单的宽度？',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lRHfT6DmdFcAAAAAAAAAAABkARQnAQ',
-    href: 'https://zhuanlan.zhihu.com/p/110096160',
+      '支持 Vite & TypeScript，开发体验比德芙还要丝滑！',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GuqtQ4IgCz4AAAAAAAAAAAAAARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/211136687',
   },
 ];
 
