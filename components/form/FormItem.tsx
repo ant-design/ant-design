@@ -51,7 +51,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   required?: boolean;
   hidden?: boolean;
   initialValue?: any;
-
+  labelInMessage?: string;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
 }
@@ -80,6 +80,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     children,
     required,
     label,
+    labelInMessage,
     trigger = 'onChange',
     validateTrigger,
     hidden,
@@ -260,7 +261,9 @@ function FormItem(props: FormItemProps): React.ReactElement {
   }
 
   const variables: Record<string, string> = {};
-  if (typeof label === 'string') {
+  if (labelInMessage) {
+    variables.label = labelInMessage;
+  } else if (typeof label === 'string') {
     variables.label = label;
   }
 
