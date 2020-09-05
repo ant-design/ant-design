@@ -122,10 +122,13 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   {...restProps}
                   {...additionalOverrideProps}
                   locale={locale!.lang}
-                  className={classNames(className, {
-                    [`${prefixCls}-${mergedSize}`]: mergedSize,
-                    [`${prefixCls}-borderless`]: !bordered,
-                  })}
+                  className={classNames(
+                    {
+                      [`${prefixCls}-${mergedSize}`]: mergedSize,
+                      [`${prefixCls}-borderless`]: !bordered,
+                    },
+                    className,
+                  )}
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
                   generateConfig={generateConfig}

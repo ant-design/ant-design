@@ -36,12 +36,15 @@ const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (prop
     radioProps.checked = props.value === context.value;
     radioProps.disabled = props.disabled || context.disabled;
   }
-  const wrapperClassString = classNames(className, {
-    [`${prefixCls}-wrapper`]: true,
-    [`${prefixCls}-wrapper-checked`]: radioProps.checked,
-    [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
-    [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
-  });
+  const wrapperClassString = classNames(
+    {
+      [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-wrapper-checked`]: radioProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control

@@ -502,13 +502,16 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           return (
             <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
               <Typography
-                className={classNames(className, {
-                  [`${prefixCls}-${type}`]: type,
-                  [`${prefixCls}-disabled`]: disabled,
-                  [`${prefixCls}-ellipsis`]: rows,
-                  [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                  [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-                })}
+                className={classNames(
+                  {
+                    [`${prefixCls}-${type}`]: type,
+                    [`${prefixCls}-disabled`]: disabled,
+                    [`${prefixCls}-ellipsis`]: rows,
+                    [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                    [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+                  },
+                  className,
+                )}
                 style={{
                   ...style,
                   WebkitLineClamp: cssLineClamp ? rows : null,

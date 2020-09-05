@@ -127,9 +127,14 @@ class Editable extends React.Component<EditableProps, EditableState> {
       maxLength,
       autoSize,
     } = this.props;
-    const textAreaClassName = classNames(prefixCls, className, `${prefixCls}-edit-content`, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const textAreaClassName = classNames(
+      prefixCls,
+      `${prefixCls}-edit-content`,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
     return (
       <div className={textAreaClassName} style={style}>
         <TextArea

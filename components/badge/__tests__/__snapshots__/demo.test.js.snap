@@ -1318,7 +1318,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     </sup>
   </span>
   <span
-    class="site-badge-count-4 ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper site-badge-count-4"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
@@ -1483,7 +1483,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     </sup>
   </span>
   <span
-    class="site-badge-count-109 ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper site-badge-count-109"
   >
     <sup
       class="ant-scroll-number ant-badge-count ant-badge-multiple-words"

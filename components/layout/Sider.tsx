@@ -217,12 +217,17 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       minWidth: siderWidth, // https://github.com/ant-design/ant-design/issues/6349
       width: siderWidth,
     };
-    const siderCls = classNames(className, prefixCls, `${prefixCls}-${theme}`, {
-      [`${prefixCls}-collapsed`]: !!collapsed,
-      [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
-      [`${prefixCls}-below`]: !!below,
-      [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
-    });
+    const siderCls = classNames(
+      prefixCls,
+      `${prefixCls}-${theme}`,
+      {
+        [`${prefixCls}-collapsed`]: !!collapsed,
+        [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
+        [`${prefixCls}-below`]: !!below,
+        [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
+      },
+      className,
+    );
     return (
       <aside className={siderCls} {...divProps} style={divStyle}>
         <div className={`${prefixCls}-children`}>{children}</div>

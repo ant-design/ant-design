@@ -515,15 +515,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           [`${prefixCls}-picker-arrow`]: true,
           [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
         });
-        const pickerCls = classNames(className, `${prefixCls}-picker`, {
-          [`${prefixCls}-picker-rtl`]: isRtlLayout,
-          [`${prefixCls}-picker-with-value`]: state.inputValue,
-          [`${prefixCls}-picker-disabled`]: disabled,
-          [`${prefixCls}-picker-${mergedSize}`]: !!mergedSize,
-          [`${prefixCls}-picker-show-search`]: !!showSearch,
-          [`${prefixCls}-picker-focused`]: inputFocused,
-          [`${prefixCls}-picker-borderless`]: !bordered,
-        });
+        const pickerCls = classNames(
+          `${prefixCls}-picker`,
+          {
+            [`${prefixCls}-picker-rtl`]: isRtlLayout,
+            [`${prefixCls}-picker-with-value`]: state.inputValue,
+            [`${prefixCls}-picker-disabled`]: disabled,
+            [`${prefixCls}-picker-${mergedSize}`]: !!mergedSize,
+            [`${prefixCls}-picker-show-search`]: !!showSearch,
+            [`${prefixCls}-picker-focused`]: inputFocused,
+            [`${prefixCls}-picker-borderless`]: !bordered,
+          },
+          className,
+        );
 
         // Fix bug of https://github.com/facebook/react/pull/5004
         // and https://fb.me/react-unknown-prop

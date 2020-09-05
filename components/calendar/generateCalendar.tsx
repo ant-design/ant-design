@@ -241,11 +241,15 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
         {(mergedLocale: any) => {
           return (
             <div
-              className={classNames(calendarPrefixCls, className, {
-                [`${calendarPrefixCls}-full`]: fullscreen,
-                [`${calendarPrefixCls}-mini`]: !fullscreen,
-                [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
-              })}
+              className={classNames(
+                calendarPrefixCls,
+                {
+                  [`${calendarPrefixCls}-full`]: fullscreen,
+                  [`${calendarPrefixCls}-mini`]: !fullscreen,
+                  [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
+                },
+                className,
+              )}
               style={style}
             >
               {headerRender ? (

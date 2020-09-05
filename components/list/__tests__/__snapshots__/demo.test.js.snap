@@ -1106,7 +1106,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 
 exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
-  class="ant-list demo-loadmore-list ant-list-split ant-list-loading"
+  class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
 >
   <div
     class="ant-spin-nested-loading"

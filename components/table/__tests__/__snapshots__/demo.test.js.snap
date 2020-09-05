@@ -112,7 +112,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1086,7 +1086,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1129,7 +1129,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1172,7 +1172,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -2773,7 +2773,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -8319,7 +8319,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -9020,7 +9020,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+        class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -9198,7 +9198,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -9344,7 +9344,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -9508,7 +9508,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -11932,7 +11932,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -12096,7 +12096,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -14935,7 +14935,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -15134,7 +15134,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li

@@ -79,7 +79,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-search ant-select-selection-search-input ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-search ant-select-selection-search-input"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -448,7 +448,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <span
-                  class="ant-select-selection-search-input ant-input-affix-wrapper"
+                  class="ant-input-affix-wrapper ant-select-selection-search-input"
                 >
                   <input
                     aria-activedescendant="undefined_list_0"
@@ -590,7 +590,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-select-selection-search-input ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-select-selection-search-input"
                   >
                     <input
                       aria-activedescendant="undefined_list_0"
@@ -733,7 +733,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-input-search ant-select-selection-search-input ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-search ant-select-selection-search-input"
                   >
                     <input
                       aria-activedescendant="undefined_list_0"
@@ -877,7 +877,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-input-search ant-select-selection-search-input ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-search ant-select-selection-search-input"
                   >
                     <input
                       aria-activedescendant="undefined_list_0"
@@ -1037,7 +1037,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-search ant-select-selection-search-input ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-enter-button ant-input-search-large ant-select-selection-search-input"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -1059,7 +1059,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+              class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
               type="button"
             >
               <span

@@ -167,15 +167,23 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
     const getClassName = (size: SizeType) => {
       let inputClassName;
       if (enterButton) {
-        inputClassName = classNames(prefixCls, className, {
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-enter-button`]: !!enterButton,
-          [`${prefixCls}-${size}`]: !!size,
-        });
+        inputClassName = classNames(
+          prefixCls,
+          {
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-enter-button`]: !!enterButton,
+            [`${prefixCls}-${size}`]: !!size,
+          },
+          className,
+        );
       } else {
-        inputClassName = classNames(prefixCls, className, {
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        });
+        inputClassName = classNames(
+          prefixCls,
+          {
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+        );
       }
       return inputClassName;
     };

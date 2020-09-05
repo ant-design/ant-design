@@ -367,7 +367,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-password ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -1938,7 +1938,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-typography ant-form-text ant-typography-secondary"
+            class="ant-typography ant-typography-secondary ant-form-text"
           >
             ( 
             <span
@@ -2819,7 +2819,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <button
-            class="ant-btn login-form-button ant-btn-primary"
+            class="ant-btn ant-btn-primary login-form-button"
             type="submit"
           >
             <span>
@@ -2979,7 +2979,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-password ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -3045,7 +3045,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-password ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -7253,7 +7253,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <span
                 aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
                 role="button"
                 tabindex="-1"
               >
@@ -7325,7 +7325,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-password ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -7414,7 +7414,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-password ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -7428,7 +7428,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <span
                 aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
                 role="button"
                 tabindex="-1"
               >
