@@ -106,11 +106,14 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
-  const mergedClassName = classNames(className, {
-    [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-focused`]: focused,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const mergedClassName = classNames(
+    {
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-focused`]: focused,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     <RcMentions

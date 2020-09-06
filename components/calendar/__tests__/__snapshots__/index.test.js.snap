@@ -954,7 +954,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-picker-calendar-year-select ant-select-rtl ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1014,7 +1014,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-select ant-picker-calendar-month-select ant-select-rtl ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"

@@ -321,7 +321,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   if (listType === 'picture-card') {
     return (
-      <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
+      <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
         {renderUploadList(uploadButton)}
       </span>
     );

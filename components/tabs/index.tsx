@@ -52,12 +52,15 @@ function Tabs({ type, className, size, onEdit, hideAdd, centered, addIcon, ...pr
       direction={direction}
       {...props}
       moreTransitionName="slide-up"
-      className={classNames(className, {
-        [`${prefixCls}-${size}`]: size,
-        [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
-        [`${prefixCls}-editable-card`]: type === 'editable-card',
-        [`${prefixCls}-centered`]: centered,
-      })}
+      className={classNames(
+        {
+          [`${prefixCls}-${size}`]: size,
+          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+          [`${prefixCls}-editable-card`]: type === 'editable-card',
+          [`${prefixCls}-centered`]: centered,
+        },
+        className,
+      )}
       editable={editable}
       moreIcon={<EllipsisOutlined />}
       prefixCls={prefixCls}

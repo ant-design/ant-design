@@ -13,9 +13,14 @@ const SkeletonButton = (props: SkeletonButtonProps) => {
     const { prefixCls: customizePrefixCls, className, active } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
     const otherProps = omit(props, ['prefixCls']);
-    const cls = classNames(prefixCls, className, `${prefixCls}-element`, {
-      [`${prefixCls}-active`]: active,
-    });
+    const cls = classNames(
+      prefixCls,
+      `${prefixCls}-element`,
+      {
+        [`${prefixCls}-active`]: active,
+      },
+      className,
+    );
     return (
       <div className={cls}>
         <Element prefixCls={`${prefixCls}-button`} {...otherProps} />

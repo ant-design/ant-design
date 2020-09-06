@@ -1965,7 +1965,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2300,7 +2300,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow ant-select-disabled"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled"
       >
         <div
           class="ant-select-selector"

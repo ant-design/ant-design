@@ -1466,7 +1466,7 @@ Array [
     class="ant-checkbox-group"
   >
     <label
-      class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"
@@ -1486,7 +1486,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"

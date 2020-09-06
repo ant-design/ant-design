@@ -92,7 +92,7 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -200,7 +200,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -322,7 +322,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -456,7 +456,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -789,7 +789,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1022,7 +1022,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >

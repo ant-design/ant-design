@@ -350,7 +350,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-lg config-select-single config-select-show-search"
+  class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -3547,7 +3547,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-lg config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -3607,7 +3607,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-lg config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -4488,7 +4488,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-lg config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -13489,7 +13489,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default config-btn-icon-only"
+    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -13529,7 +13529,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default config-btn-lg config-btn-icon-only"
+    class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -13569,7 +13569,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default config-btn-icon-only"
+    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -13609,7 +13609,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -13649,7 +13649,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -13689,7 +13689,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -14459,7 +14459,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       value=""
     />
     <span
-      class="config-input-search config-input-affix-wrapper"
+      class="config-input-affix-wrapper config-input-search"
     >
       <input
         class="config-input"
@@ -14494,7 +14494,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <span
-    class="config-input-password config-input-affix-wrapper"
+    class="config-input-affix-wrapper config-input-password"
   >
     <input
       action="click"
@@ -14548,7 +14548,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <span
-      class="config-input-search config-input-affix-wrapper config-input-affix-wrapper-lg"
+      class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-search"
     >
       <input
         class="config-input config-input-lg"
@@ -14583,7 +14583,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-password config-input-affix-wrapper config-input-affix-wrapper-lg"
+    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-password"
   >
     <input
       action="click"
@@ -14637,7 +14637,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       value=""
     />
     <span
-      class="config-input-search config-input-affix-wrapper"
+      class="config-input-affix-wrapper config-input-search"
     >
       <input
         class="config-input"
@@ -14672,7 +14672,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <span
-    class="config-input-password config-input-affix-wrapper"
+    class="config-input-affix-wrapper config-input-password"
   >
     <input
       action="click"
@@ -14726,7 +14726,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
       value=""
     />
     <span
-      class="ant-input-search ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-search"
     >
       <input
         class="ant-input"
@@ -14761,7 +14761,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
     </span>
   </span>
   <span
-    class="ant-input-password ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-password"
   >
     <input
       action="click"
@@ -14815,7 +14815,7 @@ exports[`ConfigProvider components Input normal 1`] = `
       value=""
     />
     <span
-      class="ant-input-search ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-search"
     >
       <input
         class="ant-input"
@@ -14850,7 +14850,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-password ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-password"
   >
     <input
       action="click"
@@ -14904,7 +14904,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       value=""
     />
     <span
-      class="prefix-Input ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper prefix-Input"
     >
       <input
         class="ant-input"
@@ -14939,7 +14939,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     </span>
   </span>
   <span
-    class="prefix-Input ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper prefix-Input"
   >
     <input
       action="click"
@@ -17204,7 +17204,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-select config-pagination-options-size-changer config-select-sm config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -17364,7 +17364,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-pagination-options-size-changer config-select-lg config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -17519,7 +17519,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-pagination-options-size-changer config-select-sm config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -17834,7 +17834,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
-        class="config-select config-pagination-options-size-changer config-select-sm config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -18149,7 +18149,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -18464,7 +18464,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -18779,7 +18779,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="ant-select prefix-Pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -23836,7 +23836,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
                       >
                         <span
-                          class="config-table-filter-trigger config-dropdown-trigger"
+                          class="config-dropdown-trigger config-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -24110,7 +24110,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
                       >
                         <span
-                          class="config-table-filter-trigger config-dropdown-trigger"
+                          class="config-dropdown-trigger config-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -24384,7 +24384,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
                       >
                         <span
-                          class="config-table-filter-trigger config-dropdown-trigger"
+                          class="config-dropdown-trigger config-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -24658,7 +24658,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                         class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -24932,7 +24932,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -25206,7 +25206,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="prefix-Table-filter-trigger-container prefix-Table-filter-trigger-container-open"
                       >
                         <span
-                          class="prefix-Table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger prefix-Table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -36481,7 +36481,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     </div>
   </div>
   <div
-    class="config-tree config-tree-directory config-tree-block-node"
+    class="config-tree config-tree-block-node config-tree-directory"
   >
     <div
       role="tree"
@@ -36602,7 +36602,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     </div>
   </div>
   <div
-    class="config-tree config-tree-directory config-tree-block-node"
+    class="config-tree config-tree-block-node config-tree-directory"
   >
     <div
       role="tree"
@@ -36723,7 +36723,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     </div>
   </div>
   <div
-    class="config-tree config-tree-directory config-tree-block-node"
+    class="config-tree config-tree-block-node config-tree-directory"
   >
     <div
       role="tree"
@@ -36844,7 +36844,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     </div>
   </div>
   <div
-    class="ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree ant-tree-block-node ant-tree-directory"
   >
     <div
       role="tree"
@@ -36965,7 +36965,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     </div>
   </div>
   <div
-    class="ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree ant-tree-block-node ant-tree-directory"
   >
     <div
       role="tree"
@@ -37086,7 +37086,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     </div>
   </div>
   <div
-    class="prefix-Tree prefix-Tree-directory prefix-Tree-block-node"
+    class="prefix-Tree prefix-Tree-block-node prefix-Tree-directory"
   >
     <div
       role="tree"
@@ -37940,7 +37940,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                 class="config-upload-list-item-card-actions "
               >
                 <button
-                  class="config-btn config-upload-list-item-card-actions-btn config-btn-text config-btn-sm config-btn-icon-only"
+                  class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
                   title="Remove file"
                   type="button"
                 >
@@ -38044,7 +38044,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
                 class="config-upload-list-item-card-actions "
               >
                 <button
-                  class="config-btn config-upload-list-item-card-actions-btn config-btn-text config-btn-sm config-btn-icon-only"
+                  class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
                   title="Remove file"
                   type="button"
                 >
@@ -38148,7 +38148,7 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
                 class="config-upload-list-item-card-actions "
               >
                 <button
-                  class="config-btn config-upload-list-item-card-actions-btn config-btn-text config-btn-sm config-btn-icon-only"
+                  class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
                   title="Remove file"
                   type="button"
                 >
@@ -38252,7 +38252,7 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
                 class="ant-upload-list-item-card-actions "
               >
                 <button
-                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
                   title="Remove file"
                   type="button"
                 >
@@ -38356,7 +38356,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
                 class="ant-upload-list-item-card-actions "
               >
                 <button
-                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
                   title="Remove file"
                   type="button"
                 >
@@ -38460,7 +38460,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                 class="ant-upload-list-item-card-actions "
               >
                 <button
-                  class="ant-btn ant-upload-list-item-card-actions-btn ant-btn-text ant-btn-sm ant-btn-icon-only"
+                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
                   title="Remove file"
                   type="button"
                 >

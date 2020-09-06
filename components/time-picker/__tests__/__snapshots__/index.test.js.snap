@@ -1530,7 +1530,7 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
 
 exports[`TimePicker should support bordered 1`] = `
 <div
-  class="ant-picker custom-class ant-picker-borderless"
+  class="ant-picker ant-picker-borderless custom-class"
 >
   <div
     class="ant-picker-input"

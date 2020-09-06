@@ -143,11 +143,15 @@ function Descriptions({
 
   return (
     <div
-      className={classNames(prefixCls, className, {
-        [`${prefixCls}-${size}`]: size && size !== 'default',
-        [`${prefixCls}-bordered`]: !!bordered,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      })}
+      className={classNames(
+        prefixCls,
+        {
+          [`${prefixCls}-${size}`]: size && size !== 'default',
+          [`${prefixCls}-bordered`]: !!bordered,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        },
+        className,
+      )}
       style={style}
     >
       {(title || extra) && (
