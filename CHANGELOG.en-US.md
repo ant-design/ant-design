@@ -19,6 +19,7 @@ timeline: true
 
 `2020-09-06`
 
+- 🛎 Sort props `className` to the end. [#26602](https://github.com/ant-design/ant-design/pull/26602)
 - Table
   - 💄 Fix Table nested table styles affects all sub-level tables. [#26568](https://github.com/ant-design/ant-design/pull/26568) [@willc001](https://github.com/willc001)
   - 🐞 Fix elements above Table was not clickable elements which has `float: right;` style. [#26599](https://github.com/ant-design/ant-design/pull/26599)

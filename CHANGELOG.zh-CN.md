@@ -19,6 +19,7 @@ timeline: true
 
 `2020-09-06`
 
+- 🛎 移动 props 中的 `className` 到最后。[#26602](https://github.com/ant-design/ant-design/pull/26602)
 - Table
   - 💄 修复 Table 嵌套表格样式会影响所有子层级表格的问题。[#26568](https://github.com/ant-design/ant-design/pull/26568) [@willc001](https://github.com/willc001)
   - 🐞 修复 Table 上方元素 `float: right;` 后无法交互的问题。[#26599](https://github.com/ant-design/ant-design/pull/26599)
