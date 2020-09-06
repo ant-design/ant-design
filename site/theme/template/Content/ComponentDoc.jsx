@@ -157,7 +157,7 @@ class ComponentDoc extends React.Component {
           <ul id="demo-toc" className="toc">
             {jumper}
             {doc.api && (
-              <li key="API" title="API">
+              <li key={'API' + new Date().getTime()} title="API">
                 <a href="#API">API</a>
               </li>
             )}
