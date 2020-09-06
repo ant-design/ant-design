@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.6.3
+
+`2020-09-06`
+
+- 💄 修复 Table 上方元素 `float: right;` 后无法交互的问题。[#26599](https://github.com/ant-design/ant-design/pull/26599)
+- 🐞 修复 Upload 组件中 `customRequest` 的 `onError` 的类型定义。[#26601](https://github.com/ant-design/ant-design/pull/26601) [@yingpengsha](https://github.com/yingpengsha)
+- 🐞 修复 Select/TreeSelect 在 Chrome 下出现原生自动完成列表的问题。[#26590](https://github.com/ant-design/ant-design/pull/26590)
+- 🐞 修复 Cascader 搜索时 value 被覆盖的情况。[#26569](https://github.com/ant-design/ant-design/pull/26569) [@lich-yoo](https://github.com/lich-yoo)
+- 🐞 修复 Modal 在某些情况下溢出视窗的问题。[#25765](https://github.com/ant-design/ant-design/pull/25765) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
+- 🐞 修复 Radio.Group 在 legacy Form 中，不能正常工作的问题。[#26555](https://github.com/ant-design/ant-design/pull/26555) [@willc001](https://github.com/willc001)
+- 🐞 修复 Pagination 切换按钮在 windows 下的对齐问题。[#26549](https://github.com/ant-design/ant-design/pull/26549)
+- 🐞 修复 Form 使用 `help` 时出现的同构问题。[#26542](https://github.com/ant-design/ant-design/pull/26542)
+- 🐞 修复 Avatar 在 `display: none` 时不会正确缩放 fallback 文字的问题。[#26522](https://github.com/ant-design/ant-design/pull/26522) [@zhangyu1818](https://github.com/zhangyu1818)
+- TypeScript
+  - 🤖 Col 增加 `ColSize` 增加 `flex` 的定义。 [#26578](https://github.com/ant-design/ant-design/pull/26578) [@blaiz](https://github.com/blaiz)
+  - 🤖 修复 Tooltip/Popover `children` 定义不接受 ReactNode 的问题。[#26534](https://github.com/ant-design/ant-design/pull/26534)
+
 ## 4.6.2
 
 `2020-08-31`

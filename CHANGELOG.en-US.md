@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.6.3
+
+`2020-09-06`
+
+- 💄 Fix elements above Table was not clickable elements which has `float: right;` style. [#26599](https://github.com/ant-design/ant-design/pull/26599)
+- 🐞 Fix the type declaration of onError in `customRequest` options of Upload. [#26601](https://github.com/ant-design/ant-design/pull/26601) [@yingpengsha](https://github.com/yingpengsha)
+- 🐞 Shutdown Select/TreeSelect autocomplete list in Chrome. [#26590](https://github.com/ant-design/ant-design/pull/26590)
+- 🐞 Fix Cascader value overwritten when filtering. [#26569](https://github.com/ant-design/ant-design/pull/26569) [@lich-yoo](https://github.com/lich-yoo)
+- 🐞 Fix Modal jump out of screen in some situations. [#25765](https://github.com/ant-design/ant-design/pull/25765) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
+- 🐞 Fix Radio.Group not working properly, when is used in legacy Form. [#26555](https://github.com/ant-design/ant-design/pull/26555) [@willc001](https://github.com/willc001)
+- 🐞 Fix Pagination align issue in windows. [#26549](https://github.com/ant-design/ant-design/pull/26549)
+- 🐞 Fix Form with `help` make ssr un-sync issue. [#26542](https://github.com/ant-design/ant-design/pull/26542)
+- 🐞 Fix Avatar doesn't scale fallback text well when display is none. [#26522](https://github.com/ant-design/ant-design/pull/26522) [@zhangyu1818](https://github.com/zhangyu1818)
+- TypeScript
+  - 🤖 Col Add `flex` type to `ColSize` ol interface. [#26578](https://github.com/ant-design/ant-design/pull/26578) [@blaiz](https://github.com/blaiz)
+  - 🤖 Fix Tooltip/Popover `children` tsd to accept ReactNode. [#26534](https://github.com/ant-design/ant-design/pull/26534)
+
 ## 4.6.2
 
 `2020-08-31`
