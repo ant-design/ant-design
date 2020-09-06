@@ -32,7 +32,7 @@ timeline: true
 - 🐞 Fix Form with `help` make ssr un-sync issue. [#26542](https://github.com/ant-design/ant-design/pull/26542)
 - 🐞 Fix Avatar doesn't scale fallback text well when display is none. [#26522](https://github.com/ant-design/ant-design/pull/26522) [@zhangyu1818](https://github.com/zhangyu1818)
 - TypeScript
-  - 🤖 Col Add `flex` type to `ColSize` ol interface. [#26578](https://github.com/ant-design/ant-design/pull/26578) [@blaiz](https://github.com/blaiz)
+  - 🤖 Col Add `flex` type to `ColSize` interface. [#26578](https://github.com/ant-design/ant-design/pull/26578) [@blaiz](https://github.com/blaiz)
   - 🤖 Fix Tooltip/Popover `children` tsd to accept ReactNode. [#26534](https://github.com/ant-design/ant-design/pull/26534)
 
 ## 4.6.2
