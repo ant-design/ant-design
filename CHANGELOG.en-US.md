@@ -19,7 +19,10 @@ timeline: true
 
 `2020-09-06`
 
-- 💄 Fix elements above Table was not clickable elements which has `float: right;` style. [#26599](https://github.com/ant-design/ant-design/pull/26599)
+- Table
+  - 💄 Fix Table nested table styles affects all sub-level tables. [#26568](https://github.com/ant-design/ant-design/pull/26568) [@willc001](https://github.com/willc001)
+  - 🐞 Fix elements above Table was not clickable elements which has `float: right;` style. [#26599](https://github.com/ant-design/ant-design/pull/26599)
+- 🐞 Fix Modal closing cause scroll position jump up. [#26538](https://github.com/ant-design/ant-design/pull/26538)
 - 🐞 Fix the type declaration of onError in `customRequest` options of Upload. [#26601](https://github.com/ant-design/ant-design/pull/26601) [@yingpengsha](https://github.com/yingpengsha)
 - 🐞 Shutdown Select/TreeSelect autocomplete list in Chrome. [#26590](https://github.com/ant-design/ant-design/pull/26590)
 - 🐞 Fix Cascader value overwritten when filtering. [#26569](https://github.com/ant-design/ant-design/pull/26569) [@lich-yoo](https://github.com/lich-yoo)

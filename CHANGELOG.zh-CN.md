@@ -19,7 +19,10 @@ timeline: true
 
 `2020-09-06`
 
-- 💄 修复 Table 上方元素 `float: right;` 后无法交互的问题。[#26599](https://github.com/ant-design/ant-design/pull/26599)
+- Table
+  - 💄 修复 Table 嵌套表格样式会影响所有子层级表格的问题。[#26568](https://github.com/ant-design/ant-design/pull/26568) [@willc001](https://github.com/willc001)
+  - 🐞 修复 Table 上方元素 `float: right;` 后无法交互的问题。[#26599](https://github.com/ant-design/ant-design/pull/26599)
+- 🐞 修复 Modal 关闭时导致滚动条向上跳动的问题。[#26538](https://github.com/ant-design/ant-design/pull/26538)
 - 🐞 修复 Upload 组件中 `customRequest` 的 `onError` 的类型定义。[#26601](https://github.com/ant-design/ant-design/pull/26601) [@yingpengsha](https://github.com/yingpengsha)
 - 🐞 修复 Select/TreeSelect 在 Chrome 下出现原生自动完成列表的问题。[#26590](https://github.com/ant-design/ant-design/pull/26590)
 - 🐞 修复 Cascader 搜索时 value 被覆盖的情况。[#26569](https://github.com/ant-design/ant-design/pull/26569) [@lich-yoo](https://github.com/lich-yoo)
