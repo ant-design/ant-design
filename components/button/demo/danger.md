@@ -21,7 +21,9 @@ ReactDOM.render(
     <Button type="primary" danger>
       Primary
     </Button>
-    <Button danger>Default</Button>
+    <Button type="primary" danger disabled>
+      Default
+    </Button>
     <Button type="dashed" danger>
       Dashed
     </Button>
