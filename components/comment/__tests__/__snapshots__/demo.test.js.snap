@@ -196,7 +196,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
 
 exports[`renders ./components/comment/demo/list.md correctly 1`] = `
 <div
-  class="ant-list comment-list ant-list-split"
+  class="ant-list ant-list-split comment-list"
 >
   <div
     class="ant-list-header"

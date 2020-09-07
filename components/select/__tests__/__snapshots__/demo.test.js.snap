@@ -21,6 +21,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
       <span
@@ -60,6 +61,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -122,6 +124,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -182,6 +185,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -242,6 +246,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -390,6 +395,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -442,6 +448,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -504,6 +511,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -569,6 +577,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -629,6 +638,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -693,6 +703,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -814,6 +825,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -886,6 +898,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -982,6 +995,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1033,6 +1047,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1074,6 +1089,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1211,6 +1227,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1347,6 +1364,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1384,6 +1402,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1484,6 +1503,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1520,6 +1540,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1582,6 +1603,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1618,6 +1640,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -1724,6 +1747,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1858,6 +1882,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -1963,6 +1988,7 @@ Array [
           autocomplete="off"
           class="ant-select-selection-search-input"
           role="combobox"
+          type="search"
           value=""
         />
         <span
@@ -2000,6 +2026,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -2062,6 +2089,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -2125,6 +2153,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
       <span

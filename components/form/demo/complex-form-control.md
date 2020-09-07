@@ -31,7 +31,7 @@ title:
 
 ## en-US
 
-This demo show how to use `Form.Item` with multiple controls. `<Form.Item name="field" />` will only bind control(Input/Select) which is the only children of it. Image this case, you add some text description after Input, then you have to wrap Input by a extra `<Form.item name="field">`. `style` property of `Form.Item` could be useful to modify the nested form item layout, or `<Form.Item noStyle />` turn it into a pure form bind component(like `getFieldDecorator` in 3.x).
+This demo show how to use `Form.Item` with multiple controls. `<Form.Item name="field" />` will only bind control(Input/Select) which is the only children of it. Image this case, you add some text description after Input, then you have to wrap Input by a extra `<Form.Item name="field">`. `style` property of `Form.Item` could be useful to modify the nested form item layout, or `<Form.Item noStyle />` turn it into a pure form bind component(like `getFieldDecorator` in 3.x).
 
 ```diff
 - <Form.Item label="Field" name="field">

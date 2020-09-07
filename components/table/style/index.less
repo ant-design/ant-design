@@ -13,6 +13,7 @@
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 
 .@{table-prefix-cls}-wrapper {
+  clear: both;
   max-width: 100%;
   .clearfix;
 }
@@ -21,7 +22,6 @@
   .reset-component;
   position: relative;
   z-index: 0;
-  clear: both;
   font-size: @table-font-size;
   background: @table-bg;
   border-radius: @border-radius-base;
@@ -106,6 +106,23 @@
       > td {
         border-bottom: @border-width-base @border-style-base @border-color-split;
         transition: background 0.3s;
+
+        // ========================= Nest Table ===========================
+        > .@{table-prefix-cls}-wrapper:only-child {
+          .@{table-prefix-cls} {
+            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+                  ceil(@font-size-sm * 1.4));
+
+            &-tbody > tr:last-child > td {
+              border-bottom: 0;
+
+              &:first-child,
+              &:last-child {
+                border-radius: 0;
+              }
+            }
+          }
+        }
       }
 
       &.@{table-prefix-cls}-row:hover {
@@ -123,23 +140,6 @@
         &:hover {
           > td {
             background: @table-selected-row-hover-bg;
-          }
-        }
-      }
-
-      // ========================= Nest Table ===========================
-      .@{table-prefix-cls}-wrapper:only-child {
-        .@{table-prefix-cls} {
-          margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-                ceil(@font-size-sm * 1.4));
-
-          &-tbody > tr:last-child > td {
-            border-bottom: 0;
-
-            &:first-child,
-            &:last-child {
-              border-radius: 0;
-            }
           }
         }
       }
@@ -162,16 +162,18 @@
   }
 
   &-pagination {
+    display: flex;
+
     &-left {
-      float: left;
+      justify-content: start;
     }
 
     &-center {
-      text-align: center;
+      justify-content: center;
     }
 
     &-right {
-      float: right;
+      justify-content: end;
     }
   }
 

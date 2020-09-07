@@ -316,3 +316,14 @@ Array [
   </button>,
 ]
 `;
+
+exports[`renders ./components/modal/demo/width.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Modal of 1000px width
+  </span>
+</button>
+`;

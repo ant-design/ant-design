@@ -154,9 +154,13 @@ class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGrou
       cancelValue: this.cancelValue,
     };
 
-    const classString = classNames(groupPrefixCls, className, {
-      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-    });
+    const classString = classNames(
+      groupPrefixCls,
+      {
+        [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
     return (
       <div className={classString} style={style} {...domProps}>
         <GroupContext.Provider value={context}>{children}</GroupContext.Provider>

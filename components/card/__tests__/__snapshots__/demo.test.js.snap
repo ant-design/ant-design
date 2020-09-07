@@ -839,7 +839,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
       >
         <div
           class="ant-tabs-nav"
@@ -962,7 +962,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
       >
         <div
           class="ant-tabs-nav"

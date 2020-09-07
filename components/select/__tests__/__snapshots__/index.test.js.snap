@@ -22,6 +22,7 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -83,6 +84,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -142,6 +144,7 @@ exports[`Select rtl render component should be rendered correctly in RTL directi
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />

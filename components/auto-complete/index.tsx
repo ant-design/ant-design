@@ -117,7 +117,7 @@ const AutoComplete: React.ForwardRefRenderFunction<Select, AutoCompleteProps> = 
             ref={selectRef as any}
             {...omit(props, ['dataSource'])}
             prefixCls={prefixCls}
-            className={classNames(className, `${prefixCls}-auto-complete`)}
+            className={classNames(`${prefixCls}-auto-complete`, className)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
             getInputElement={getInputElement}
           >

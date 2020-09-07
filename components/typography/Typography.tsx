@@ -43,9 +43,13 @@ const Typography: React.ForwardRefRenderFunction<{}, InternalTypographyProps> = 
       {({ getPrefixCls, direction }: ConfigConsumerProps) => {
         const Component = component as any;
         const prefixCls = getPrefixCls('typography', customizePrefixCls);
-        const componentClassName = classNames(prefixCls, className, {
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        });
+        const componentClassName = classNames(
+          prefixCls,
+          {
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+        );
         return (
           <Component
             className={componentClassName}
