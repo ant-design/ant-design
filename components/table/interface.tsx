@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   GetRowKey,
   ColumnType as RcColumnType,

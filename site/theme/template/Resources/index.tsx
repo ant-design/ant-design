@@ -7,6 +7,8 @@ import * as utils from '../utils';
 import './index.less';
 import AffixTabs from './AffixTabs';
 
+type ContentUnit = string | Record<string, any> | ContentUnit[];
+
 interface PageData {
   meta: {
     order?: number;
@@ -38,8 +40,6 @@ interface ResourcesProps {
     get: (data: PagesData, path: string[]) => any;
   };
 }
-
-type ContentUnit = string | Record<string, any> | ContentUnit[];
 
 function getUnitString(unit: ContentUnit[]): string {
   if (!unit) return '';
