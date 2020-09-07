@@ -17,6 +17,14 @@ describe('Upload', () => {
   beforeEach(() => setup());
   afterEach(() => teardown());
 
+  // Mock for rc-util raf
+  window.requestAnimationFrame = callback => {
+    window.setTimeout(callback, 16);
+  };
+  window.cancelAnimationFrame = id => {
+    window.clearTimeout(id);
+  };
+
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref;
@@ -255,6 +263,7 @@ describe('Upload', () => {
   });
 
   it('should be controlled by fileList', () => {
+    jest.useFakeTimers();
     const fileList = [
       {
         uid: '-1',
@@ -266,8 +275,11 @@ describe('Upload', () => {
     const ref = React.createRef();
     const wrapper = mount(<Upload ref={ref} />);
     expect(ref.current.fileList).toEqual([]);
+
     wrapper.setProps({ fileList });
+    jest.runAllTimers();
     expect(ref.current.fileList).toEqual(fileList);
+    jest.useRealTimers();
   });
 
   describe('util', () => {
