@@ -58,12 +58,16 @@ function getSideBarOpenKeys(nextProps) {
   return shouldOpenKeys;
 }
 
+function clearActiveToc() {
+  [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
+    node.className = '';
+  });
+}
+
 function updateActiveToc(id) {
   const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${id}"]`)[0];
   if (currentNode) {
-    [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-      node.className = '';
-    });
+    clearActiveToc();
     currentNode.className = 'current';
   }
 }
@@ -97,6 +101,7 @@ class MainContent extends Component {
       this.bindScroller();
     }
     if (!window.location.hash && prevLocation.pathname !== location.pathname) {
+      clearActiveToc();
       window.scrollTo(0, 0);
     }
     // when subMenu not equal
