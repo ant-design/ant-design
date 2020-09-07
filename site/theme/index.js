@@ -91,10 +91,6 @@ module.exports = {
         component: contentTmpl,
       },
       {
-        path: 'components/:children/:style',
-        component: contentTmpl,
-      },
-      {
         path: 'docs/spec/:children',
         component: contentTmpl,
       },

@@ -57,8 +57,6 @@ if (typeof window !== 'undefined') {
 }
 
 const RESPONSIVE_MOBILE = 768;
-const SITE_THEME_STORE_KEY = 'site-theme';
-const SITE_DIRECTION_STORE_KEY = 'site-direction';
 
 // for dark.css timestamp to remove cache
 const timestamp = new Date().getTime();
@@ -81,16 +79,16 @@ export default class Layout extends React.Component {
 
     this.state = {
       appLocale,
-      theme: utils.matchTheme(pathname),
+      theme: 'default',
       setTheme: this.setTheme,
-      direction: utils.matchDirection(pathname),
+      direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
     };
   }
 
   componentDidMount() {
-    const { theme } = this.state;
     const { location, router } = this.props;
+    console.log(location);
     router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
@@ -107,7 +105,18 @@ export default class Layout extends React.Component {
         this.setTheme('default', false);
       }
     });
-    this.setTheme(/^\/?components/.test(location.pathname) ? theme : 'default');
+
+    if (location.query.theme && /^\/?components/.test(location.pathname)) {
+      this.setTheme(location.query.theme, false);
+    } else {
+      this.setTheme('default', false);
+    }
+
+    if (location.query.direction) {
+      this.changeDirection(location.query.direction);
+    } else {
+      this.changeDirection('ltr');
+    }
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
@@ -178,7 +187,6 @@ export default class Layout extends React.Component {
     this.setState({
       direction,
     });
-    localStorage.setItem(SITE_DIRECTION_STORE_KEY, direction);
   };
 
   render() {
