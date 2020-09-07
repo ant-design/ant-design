@@ -923,7 +923,7 @@ describe('Upload List', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/26536
-  it.only('multiple file upload should keep the internal fileList async', async () => {
+  it('multiple file upload should keep the internal fileList async', async () => {
     jest.useFakeTimers();
 
     const uploadRef = React.createRef();
