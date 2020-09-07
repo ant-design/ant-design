@@ -66,8 +66,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const onChange = (info: UploadChangeParam) => {
     setFileList(info.fileList);
-    console.log('onChange >>>', info.fileList);
-    forceUpdate();
 
     const { onChange: onChangeProp } = props;
     if (onChangeProp) {
@@ -90,7 +88,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     } else {
       nextFileList[fileIndex] = targetItem;
     }
-    console.log('onStart:', nextFileList);
 
     onChange({
       file: targetItem,
@@ -120,10 +117,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     });
   };
 
-  console.log('render:', getFileList());
   const onProgress = (e: { percent: number }, file: UploadFile) => {
     const targetItem = getFileItem(file, getFileList());
-    console.log('onProgress:', file, getFileList(), targetItem);
     // removed
     if (!targetItem) {
       return;

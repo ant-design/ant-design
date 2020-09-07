@@ -147,7 +147,7 @@
     "rc-tree": "~3.9.0",
     "rc-tree-select": "~4.1.1",
     "rc-trigger": "~4.4.0",
-    "rc-upload": "~3.3.0",
+    "rc-upload": "~3.3.1",
     "rc-util": "^5.1.0",
     "scroll-into-view-if-needed": "^2.2.25",
     "warning": "^4.0.3"
