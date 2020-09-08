@@ -86,7 +86,7 @@ const Home = (props: { location: any }) => {
           </BlockContent>
         ) : null}
       </div>
-      <Footer />
+      <Footer location={location} />
     </div>
   );
 };

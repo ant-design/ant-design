@@ -441,7 +441,7 @@ class MainContent extends Component {
               </div>
             )}
             <PrevAndNext prev={prev} next={next} />
-            <Footer />
+            <Footer location={location} />
           </Col>
         </Row>
       </div>
