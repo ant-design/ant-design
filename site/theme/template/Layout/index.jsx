@@ -10,6 +10,7 @@ import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
+import { browserHistory } from 'bisheng/router';
 // eslint-disable-next-line import/no-unresolved
 import zhCN from 'antd/es/locale/zh_CN';
 import Header from './Header';
@@ -112,9 +113,13 @@ export default class Layout extends React.Component {
     }
 
     if (location.query.direction) {
-      this.changeDirection(location.query.direction);
+      this.setState({
+        direction: location.query.direction,
+      });
     } else {
-      this.changeDirection('ltr');
+      this.setState({
+        direction: 'ltr',
+      });
     }
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
@@ -183,9 +188,13 @@ export default class Layout extends React.Component {
   };
 
   changeDirection = direction => {
+    const { location } = this.props;
     this.setState({
       direction,
     });
+    location.query = { direction };
+    console.log(location);
+    browserHistory.push(location);
   };
 
   render() {
