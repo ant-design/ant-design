@@ -15,7 +15,7 @@ export interface NavigationProps extends SharedProps {
   isRTL: boolean;
   pathname: string;
   responsive: null | 'narrow' | 'crowded';
-  location: { pathname: string };
+  location: { pathname: string; query: any };
   directionText: string;
   onLangChange: () => void;
   onDirectionChange: () => void;
@@ -81,22 +81,22 @@ export default ({
       id="nav"
     >
       <Menu.Item key="docs/spec">
-        <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+        <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, location.query)}>
           <FormattedMessage id="app.header.menu.spec" />
         </Link>
       </Menu.Item>
       <Menu.Item key="docs/react">
-        <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+        <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}>
           <FormattedMessage id="app.header.menu.documentation" />
         </Link>
       </Menu.Item>
       <Menu.Item key="components">
-        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN)}>
+        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, location.query)}>
           <FormattedMessage id="app.header.menu.components" />
         </Link>
       </Menu.Item>
       <Menu.Item key="docs/resources">
-        <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN)}>
+        <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, location.query)}>
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>

@@ -51,7 +51,7 @@ export interface HeaderProps {
   intl: {
     locale: string;
   };
-  location: { pathname: string };
+  location: { pathname: string; query: any };
   router: any;
   themeConfig: { docVersions: Record<string, string> };
   changeDirection: (direction: string) => void;
@@ -158,7 +158,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   onLangChange = () => {
     const {
-      location: { pathname },
+      location: { pathname, query },
     } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
     const currentHref = window.location.href.substr(currentProtocol.length);
@@ -171,7 +171,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       currentProtocol +
       currentHref.replace(
         window.location.pathname,
-        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname), query).pathname,
       );
   };
 

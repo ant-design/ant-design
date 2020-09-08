@@ -248,18 +248,15 @@ class MainContent extends Component {
     const { disabled } = item;
     const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
 
-    const getLink = () => {
-      const link = {};
-      link.pathname = utils.getLocalizedPathname(
-        /^components/.test(url) ? `${url}/` : url,
-        locale === 'zh-CN',
-      );
-      link.query = location.query;
-      return link;
-    };
-
     const child = !item.link ? (
-      <Link to={getLink()} disabled={disabled}>
+      <Link
+        to={utils.getLocalizedPathname(
+          /^components/.test(url) ? `${url}/` : url,
+          locale === 'zh-CN',
+          location.query,
+        )}
+        disabled={disabled}
+      >
         {before}
         {text}
         {after}
