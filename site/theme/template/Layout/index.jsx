@@ -188,26 +188,14 @@ export default class Layout extends React.Component {
   };
 
   changeDirection = direction => {
-    const { location } = this.props;
     this.setState({
       direction,
     });
-    const pathnames = location.pathname.split('/');
-    const pathname = pathnames[pathnames.length - 1];
-    console.log(location.pathname);
-    console.log(pathnames);
-
-    if (pathnames[0] === 'components') {
-      browserHistory.push({
-        pathname: location.pathname,
-        query: { direction },
-      });
-    } else {
-      browserHistory.push({
-        pathname,
-        query: { direction },
-      });
-    }
+    const { pathname } = this.props.location;
+    browserHistory.push({
+      pathname: `/${pathname}`,
+      query: { direction },
+    });
   };
 
   render() {
