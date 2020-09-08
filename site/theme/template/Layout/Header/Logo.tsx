@@ -4,7 +4,12 @@ import * as utils from '../../utils';
 
 import './Logo.less';
 
-const Logo = ({ isZhCN, location }) => {
+export interface LogoProps {
+  isZhCN: boolean;
+  location: any;
+}
+
+const Logo = ({ isZhCN, location }: LogoProps) => {
   return (
     <h1>
       <Link to={utils.getLocalizedPathname('/', isZhCN, location.query)} id="logo">
