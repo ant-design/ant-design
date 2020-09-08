@@ -230,6 +230,7 @@ class MainContent extends Component {
   generateMenuItem(isTop, item, { before = null, after = null }) {
     const {
       intl: { locale },
+      location,
     } = this.props;
     const key = fileNameToPath(item.filename);
     if (!item.title) {
@@ -246,14 +247,19 @@ class MainContent extends Component {
         ];
     const { disabled } = item;
     const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
+
+    const getLink = () => {
+      const link = {};
+      link.pathname = utils.getLocalizedPathname(
+        /^components/.test(url) ? `${url}/` : url,
+        locale === 'zh-CN',
+      );
+      link.query = location.query;
+      return link;
+    };
+
     const child = !item.link ? (
-      <Link
-        to={utils.getLocalizedPathname(
-          /^components/.test(url) ? `${url}/` : url,
-          locale === 'zh-CN',
-        )}
-        disabled={disabled}
-      >
+      <Link to={getLink()} disabled={disabled}>
         {before}
         {text}
         {after}
