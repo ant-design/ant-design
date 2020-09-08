@@ -540,11 +540,11 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
-  it('`labelInMessage` support validate', async () => {
+  it('`messageVariables` support validate', async () => {
     const wrapper = mount(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
-        <Form.Item name="test" labelInMessage="Bamboo" rules={[{ required: true }]}>
+        <Form.Item name="test" messageVariables={{ label: 'Bamboo' }} rules={[{ required: true }]}>
           <input />
         </Form.Item>
       </Form>,
