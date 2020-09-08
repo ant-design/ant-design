@@ -138,12 +138,15 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       <SizeContext.Consumer>
         {size => {
           const mergedSize = customizeSize || size;
-          const mergedClassName = classNames(className, {
-            [`${prefixCls}-lg`]: mergedSize === 'large',
-            [`${prefixCls}-sm`]: mergedSize === 'small',
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-borderless`]: !bordered,
-          });
+          const mergedClassName = classNames(
+            {
+              [`${prefixCls}-lg`]: mergedSize === 'large',
+              [`${prefixCls}-sm`]: mergedSize === 'small',
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+              [`${prefixCls}-borderless`]: !bordered,
+            },
+            className,
+          );
 
           return (
             <RcSelect<ValueType>

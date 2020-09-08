@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.6.2",
+  "version": "4.6.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -14,7 +14,7 @@
     "react-component",
     "ui"
   ],
-  "homepage": "https://ant.design/",
+  "homepage": "https://ant.design",
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
@@ -84,10 +84,10 @@
     "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
     "start:preact": "antd-tools run clean && cross-env NODE_ENV=development REACT_ENV=preact concurrently \"npm run color-less\" \"bisheng start -c ./site/bisheng.config.js\"",
-    "test": "jest --config .jest.js --no-cache",
-    "test:update": "jest --config .jest.js --no-cache --update-snapshot",
+    "test": "jest --config .jest.js --cache=false",
+    "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
-    "test-node": "jest --config .jest.node.js --no-cache",
+    "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false",
     "test-image": "npm run compile:less && docker-compose run tests",
@@ -125,7 +125,7 @@
     "rc-drawer": "~4.1.0",
     "rc-dropdown": "~3.1.2",
     "rc-field-form": "~1.10.0",
-    "rc-image": "~3.0.2",
+    "rc-image": "~3.0.6",
     "rc-input-number": "~6.0.0",
     "rc-mentions": "~1.4.0",
     "rc-menu": "~8.5.2",
@@ -136,7 +136,7 @@
     "rc-progress": "~3.1.0",
     "rc-rate": "~2.8.2",
     "rc-resize-observer": "^0.2.3",
-    "rc-select": "~11.1.0",
+    "rc-select": "~11.2.0",
     "rc-slider": "~9.3.0",
     "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
@@ -147,7 +147,7 @@
     "rc-tree": "~3.9.0",
     "rc-tree-select": "~4.1.1",
     "rc-trigger": "~4.4.0",
-    "rc-upload": "~3.3.0",
+    "rc-upload": "~3.3.1",
     "rc-util": "^5.1.0",
     "scroll-into-view-if-needed": "^2.2.25",
     "warning": "^4.0.3"

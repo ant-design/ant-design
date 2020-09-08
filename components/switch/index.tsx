@@ -61,11 +61,14 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       </div>
     );
 
-    const classes = classNames(className, {
-      [`${prefixCls}-small`]: (customizeSize || size) === 'small',
-      [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const classes = classNames(
+      {
+        [`${prefixCls}-small`]: (customizeSize || size) === 'small',
+        [`${prefixCls}-loading`]: loading,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     return (
       <Wave insertExtraNode>

@@ -467,9 +467,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     };
   }
 
-  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {
-    [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
-  });
+  const wrapperClassNames = classNames(
+    `${prefixCls}-wrapper`,
+    {
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
   return (
     <div className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>

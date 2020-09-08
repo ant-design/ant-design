@@ -289,10 +289,13 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           } = this.props;
 
           const prefixCls = getPrefixCls('select', customizePrefixCls);
-          const drawerClassName = classNames(className, {
-            'no-mask': !mask,
-            [`${prefixCls}-rtl`]: direction === 'rtl',
-          });
+          const drawerClassName = classNames(
+            {
+              'no-mask': !mask,
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+            },
+            className,
+          );
           const offsetStyle = mask ? this.getOffsetStyle() : {};
 
           return (

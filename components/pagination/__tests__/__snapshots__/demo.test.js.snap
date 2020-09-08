@@ -204,6 +204,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -585,6 +586,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -827,6 +829,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1154,6 +1157,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1397,6 +1401,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1648,6 +1653,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1959,7 +1965,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1978,6 +1984,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -2293,7 +2300,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
-        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow ant-select-disabled"
+        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled"
       >
         <div
           class="ant-select-selector"
@@ -2314,6 +2321,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -2617,6 +2625,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -2994,6 +3003,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -3189,6 +3199,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />

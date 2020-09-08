@@ -72,9 +72,13 @@ const Comment: React.FC<CommentProps> = ({
     </div>
   );
 
-  const cls = classNames(prefixCls, className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     <div {...otherProps} className={cls}>

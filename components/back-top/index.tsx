@@ -98,9 +98,13 @@ const BackTop: React.FC<BackTopProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
-  const classString = classNames(prefixCls, className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const classString = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   // fix https://fb.me/react-unknown-prop
   const divProps = omit(props, [

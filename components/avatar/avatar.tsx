@@ -128,11 +128,16 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     [`${prefixCls}-sm`]: size === 'small',
   });
 
-  const classString = classNames(prefixCls, className, sizeCls, {
-    [`${prefixCls}-${shape}`]: shape,
-    [`${prefixCls}-image`]: src && isImgExist,
-    [`${prefixCls}-icon`]: icon,
-  });
+  const classString = classNames(
+    prefixCls,
+    sizeCls,
+    {
+      [`${prefixCls}-${shape}`]: shape,
+      [`${prefixCls}-image`]: src && isImgExist,
+      [`${prefixCls}-icon`]: icon,
+    },
+    className,
+  );
 
   const sizeStyle: React.CSSProperties =
     typeof size === 'number'

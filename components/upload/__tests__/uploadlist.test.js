@@ -26,6 +26,14 @@ const fileList = [
 ];
 
 describe('Upload List', () => {
+  // Mock for rc-util raf
+  window.requestAnimationFrame = callback => {
+    window.setTimeout(callback, 16);
+  };
+  window.cancelAnimationFrame = id => {
+    window.clearTimeout(id);
+  };
+
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
@@ -912,5 +920,52 @@ describe('Upload List', () => {
     expect(wrapper.exists('.ant-upload-list button.trigger')).toBe(true);
     wrapper.setProps({ showUploadList: false });
     expect(wrapper.exists('.ant-upload-list button.trigger')).toBe(false);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/26536
+  it('multiple file upload should keep the internal fileList async', async () => {
+    jest.useFakeTimers();
+
+    const uploadRef = React.createRef();
+
+    const MyUpload = () => {
+      const [testFileList, setTestFileList] = React.useState([]);
+
+      return (
+        <Upload
+          ref={uploadRef}
+          fileList={testFileList}
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          multiple
+          onChange={info => {
+            setTestFileList([...info.fileList]);
+          }}
+        >
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    mount(<MyUpload />);
+
+    // Mock async update in a frame
+    const files = ['light', 'bamboo', 'little'];
+
+    /* eslint-disable no-await-in-loop */
+    for (let i = 0; i < files.length; i += 1) {
+      await Promise.resolve();
+      uploadRef.current.onStart({
+        uid: files[i],
+        name: files[i],
+      });
+    }
+    /* eslint-enable */
+
+    expect(uploadRef.current.fileList).toHaveLength(files.length);
+
+    jest.runAllTimers();
+    expect(uploadRef.current.fileList).toHaveLength(files.length);
+
+    jest.useRealTimers();
   });
 });

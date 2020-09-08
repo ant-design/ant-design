@@ -7,7 +7,7 @@ import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 
-const RadioGroup: React.FC<RadioGroupProps> = props => {
+const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -96,6 +96,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         id={id}
+        ref={ref}
       >
         {childrenToRender}
       </div>
@@ -114,7 +115,7 @@ const RadioGroup: React.FC<RadioGroupProps> = props => {
       {renderGroup()}
     </RadioGroupContextProvider>
   );
-};
+});
 
 RadioGroup.defaultProps = {
   buttonStyle: 'outline' as RadioGroupButtonStyle,
