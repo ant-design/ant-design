@@ -112,7 +112,9 @@ Likewise，`disabledDate` [cannot work on year/month panels](https://github.com/
 
 ##### Workaround
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are already planning to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` would be effect on those pickers too.
+You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
+
+Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too.
 
 ### message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
 
