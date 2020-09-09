@@ -124,6 +124,14 @@ describe('TextArea', () => {
       }),
     );
   });
+
+  it('should works same as Input', async () => {
+    const input = mount(<Input value="111" />);
+    const textarea = mount(<TextArea value="111" />);
+    input.setProps({ value: undefined });
+    textarea.setProps({ value: undefined });
+    expect(textarea.getDOMNode().value).toBe(input.getDOMNode().value);
+  });
 });
 
 describe('TextArea allowClear', () => {
