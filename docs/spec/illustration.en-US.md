@@ -43,7 +43,7 @@ Sea Hare's color matching system is inspired by Ant Design's application of colo
 
 ### Default Asset Colors of Sea Hare
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*t4D6QaFM2DAAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0Dv9Rrp7GtMAAAAAAAAAAAAAARQnAQ" />
 
 Through research, we discovered blue and white accounts for a large proportion among enterprise products. We chose Geek Blue as our primary color for its technological, exploration and focused vibes.
 

@@ -24,6 +24,8 @@ When there is a need for autocomplete functionality.
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| dropdownClassName | The className of dropdown menu | string | - |  |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | placeholder | The placeholder of input | string | - |  |
 | value | Selected option | string | - |  |
@@ -34,6 +36,7 @@ When there is a need for autocomplete functionality.
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | open | Controlled open state of dropdown | boolean | - |  |
+| options | Select options. Will get better perf than jsx definition | { label, value }[] | - |  |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
 
