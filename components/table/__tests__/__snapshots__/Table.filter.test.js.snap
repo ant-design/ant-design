@@ -36,6 +36,7 @@ exports[`Table.filter renders custom content correctly 1`] = `
 <div>
   <div
     class="ant-dropdown ant-dropdown-hidden"
+    style="pointer-events: none;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -543,6 +544,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 <div>
   <div
     class="ant-dropdown ant-dropdown-hidden"
+    style="pointer-events: none;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -647,6 +649,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
 <div>
   <div
     class="ant-dropdown ant-dropdown-hidden"
+    style="pointer-events: none;"
   >
     <div
       class="ant-table-filter-dropdown"

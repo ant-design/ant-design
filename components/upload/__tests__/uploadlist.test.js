@@ -807,30 +807,36 @@ describe('Upload List', () => {
   });
 
   describe('thumbUrl support for non-image', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
     const nonImageFile = new File([''], 'foo.7z', { type: 'application/x-7z-compressed' });
-    it('should render <img /> when upload non-image file and configure thumbUrl in onChange', done => {
+
+    /** Wait for a long promise since `rc-util` internal has at least 3 promise wait */
+    async function waitPromise() {
+      /* eslint-disable no-await-in-loop */
+      for (let i = 0; i < 10; i += 1) {
+        await Promise.resolve();
+      }
+      /* eslint-enable */
+    }
+
+    it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       let wrapper;
-      const onChange = async ({ file, fileList: files }) => {
+      const onChange = jest.fn(({ fileList: files }) => {
         const newFileList = files.map(item => ({
           ...item,
           thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         }));
 
         wrapper.setProps({ fileList: newFileList });
+      });
 
-        if (file.status === 'uploading') {
-          return;
-        }
-
-        act(async () => {
-          await sleep();
-          wrapper.update();
-        });
-
-        const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
-        expect(imgNode.length).toBe(1);
-        done();
-      };
       wrapper = mount(
         <Upload
           action="http://jsonplaceholder.typicode.com/posts/"
@@ -843,8 +849,27 @@ describe('Upload List', () => {
         </Upload>,
       );
       const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
-      expect(imgNode.length).toBe(0);
+      expect(imgNode.length).toBeFalsy();
+
+      // Simulate change is a timeout change
       wrapper.find('input').simulate('change', { target: { files: [nonImageFile] } });
+
+      // Wait for `rc-upload` process file
+      await waitPromise();
+
+      // Wait for mock request finish request
+      jest.runAllTimers();
+
+      // Basic called times
+      expect(onChange).toHaveBeenCalled();
+
+      // Check for images
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      const afterImgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(afterImgNode.length).toBeTruthy();
     });
 
     it('should not render <img /> when upload non-image file without thumbUrl in onChange', done => {

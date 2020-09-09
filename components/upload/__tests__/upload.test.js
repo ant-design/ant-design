@@ -18,13 +18,12 @@ describe('Upload', () => {
   afterEach(() => teardown());
 
   // Mock for rc-util raf
-  window.requestAnimationFrame = (callback) => {
+  window.requestAnimationFrame = callback => {
     window.setTimeout(callback, 16);
   };
-  window.cancelAnimationFrame = (id) => {
+  window.cancelAnimationFrame = id => {
     window.clearTimeout(id);
   };
-
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {

@@ -241,6 +241,7 @@ exports[`Cascader can be selected 3`] = `
 <div>
   <div
     class="ant-cascader-menus ant-cascader-menus-hidden"
+    style="pointer-events:none"
   >
     <div>
       <ul
@@ -669,6 +670,7 @@ exports[`Cascader popup correctly when panel is hidden 1`] = `
 <div>
   <div
     class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-hidden"
+    style="pointer-events:none"
   >
     <div />
   </div>
