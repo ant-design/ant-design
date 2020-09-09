@@ -128,7 +128,7 @@
     "rc-image": "~3.0.6",
     "rc-input-number": "~6.0.0",
     "rc-mentions": "~1.4.0",
-    "rc-menu": "~8.5.2",
+    "rc-menu": "~8.6.0",
     "rc-motion": "^2.0.0",
     "rc-notification": "~4.4.0",
     "rc-pagination": "~3.0.3",
