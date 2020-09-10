@@ -14,22 +14,83 @@ title:
 Nest dynamic field need extends `field`. Pass `field.name` and `field.fieldKey` to nest item.
 
 ```jsx
-import { Form, Input, Button, Space } from 'antd';
+import { Form, Input, Button, Space, Select } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
+const options = [
+  { label: 'A', value: 'a' },
+  { label: 'B', value: 'b' },
+];
+
+const data = [];
+
+for (let i = 0; i < 10; i++) {
+  data.push({ name: `A${i}`, type: 'a' });
+  data.push({ name: `B${i}`, type: 'b' });
+}
+
 const Demo = () => {
+  const [form] = Form.useForm();
+
   const onFinish = values => {
     console.log('Received values of form:', values);
   };
 
+  const handleChange = () => {
+    const users = form.getFieldValue('users');
+    if (users) {
+      users.forEach(item => {
+        if (item) {
+          delete item.type;
+        }
+      });
+      form.setFieldsValue({ users });
+    }
+  };
+
   return (
-    <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
+    <Form form={form} name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
+      <Form.Item name="type">
+        <Select options={options} onChange={handleChange} />
+      </Form.Item>
       <Form.List name="users">
         {(fields, { add, remove }) => {
           return (
             <div>
               {fields.map(field => (
                 <Space key={field.key} style={{ display: 'flex', marginBottom: 8 }} align="start">
+                  <Form.Item
+                    shouldUpdate={(prevValues, curValues) =>
+                      prevValues.type !== curValues.type || prevValues.users !== curValues.users
+                    }
+                  >
+                    {() => (
+                      <Form.Item
+                        {...field}
+                        name={[field.name, 'type']}
+                        fieldKey={[field.fieldKey, 'type']}
+                        rules={[{ required: true, message: 'Missing type' }]}
+                      >
+                        <Select disabled={!form.getFieldValue('type')} style={{ width: 100 }}>
+                          {data
+                            .filter(p => p.type === form.getFieldValue('type'))
+                            .map(item => (
+                              <Select.Option
+                                key={item.name}
+                                value={item.name}
+                                disabled={
+                                  form
+                                    .getFieldValue('users')
+                                    .findIndex(p => p && p.type === item.name) !== -1
+                                }
+                              >
+                                {item.name}
+                              </Select.Option>
+                            ))}
+                        </Select>
+                      </Form.Item>
+                    )}
+                  </Form.Item>
                   <Form.Item
                     {...field}
                     name={[field.name, 'first']}
