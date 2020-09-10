@@ -92,7 +92,8 @@ export default class Layout extends React.Component {
   componentDidMount() {
     const {
       location: {
-        query: { theme, direction, pathname: pathnameProp },
+        query: { theme, direction },
+        pathname: pathnameProp,
       },
       router,
     } = this.props;
