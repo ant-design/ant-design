@@ -25,7 +25,9 @@ const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
 
   return (
     <List {...props}>
-      {(fields, operation) => {
+      {(fields, operation, meta) => {
+        console.log('~~~~>', meta);
+
         return children(
           fields.map(field => ({ ...field, fieldKey: field.key })),
           operation,
