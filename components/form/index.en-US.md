@@ -146,6 +146,21 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 
 You can ref [example](#components-form-demo-control-hooks) to see detail.
 
+### messageVariables
+
+You can modify the default verification information of Form.Item through `messageVariables`.
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
+
 ## Form.List
 
 Provides array management for fields.

@@ -147,6 +147,21 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 你可以参考[示例](#components-form-demo-control-hooks)查看具体使用场景。
 
+### messageVariables
+
+你可以通过 `messageVariables` 修改 Form.Item 的默认验证信息。
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
+
 ## Form.List
 
 为字段提供数组化管理。
