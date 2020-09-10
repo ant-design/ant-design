@@ -220,7 +220,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     const downloadIcon =
       showDownloadIcon && file.status === 'done'
         ? handleActionIconRender(
-            (typeof customDownloadIcon=== 'function' ? customDownloadIconi(file) : customDownloadIcon) || <DownloadOutlined />,
+            (typeof customDownloadIcon=== 'function' ? customDownloadIcon(file) : customDownloadIcon) || <DownloadOutlined />,
             () => handleDownload(file),
             prefixCls,
             locale.downloadFile,
