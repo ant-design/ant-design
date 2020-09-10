@@ -3,7 +3,6 @@ order: 4
 title:
   zh-CN: 动态增减表单项
   en-US: Dynamic Form Item
-only: true
 ---
 
 ## zh-CN
@@ -46,7 +45,7 @@ const DynamicFieldSet = () => {
         name="names"
         rules={[
           {
-            validator: (_, names) => {
+            validator: async (_, names) => {
               if (!names || names.length < 2) {
                 return Promise.reject(new Error('At least 2 passengers'));
               }

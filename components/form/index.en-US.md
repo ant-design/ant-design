@@ -149,10 +149,11 @@ You can ref [example](#components-form-demo-control-hooks) to see detail.
 
 Provides array management for fields.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| name | Field name, support array | [NamePath](#NamePath) | - |
-| children | Render function | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| name | Field name, support array | [NamePath](#NamePath) | - |  |
+| children | Render function | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }[] | - | 4.7.0 |
 
 ```tsx
 <Form.List>
@@ -177,6 +178,14 @@ Some operator functions in render form of Form.List.
 | add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
 | remove | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
 | move | move form item | (from: number, to: number) => void | - |
+
+## Form.ErrorList
+
+New in 4.7.0. Show error messages, should only work with `rules` of Form.List.
+
+| Property | Description | Type        | Default |
+| -------- | ----------- | ----------- | ------- |
+| errors   | Error list  | ReactNode[] | -       |
 
 ## Form.Provider
 
