@@ -47,14 +47,14 @@ const DynamicFieldSet = () => {
         rules={[
           {
             validator: (_, names) => {
-              if (names.length < 2) {
+              if (!names || names.length < 2) {
                 return Promise.reject(new Error('At least 2 passengers'));
               }
             },
           },
         ]}
       >
-        {(fields, { add, remove }) => {
+        {(fields, { add, remove }, { errors }) => {
           return (
             <div>
               {fields.map((field, index) => (
@@ -108,6 +108,8 @@ const DynamicFieldSet = () => {
                 >
                   <PlusOutlined /> Add field at head
                 </Button>
+
+                <Form.ErrorList errors={errors} />
               </Form.Item>
             </div>
           );

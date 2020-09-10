@@ -6,6 +6,18 @@
   // ================================================================
   /* Some non-status related component style is in `components.less` */
 
+  // ========================= Explain =========================
+  /* To support leave along ErrorList. We add additional className to handle explain style */
+  &-explain {
+    &&-error {
+      color: @error-color;
+    }
+
+    &&-warning {
+      color: @warning-color;
+    }
+  }
+
   &-has-feedback {
     // ========================= Input =========================
     .@{ant-prefix}-input {

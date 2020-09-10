@@ -7,7 +7,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
-import { FormContext } from './context';
+import { FormContext, FormItemPrefixContext } from './context';
 import ErrorList from './ErrorList';
 
 interface FormItemInputMiscProps {
@@ -23,6 +23,7 @@ export interface FormItemInputProps {
   wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
+  status?: ValidateStatus;
 }
 
 const iconMap: { [key: string]: any } = {
@@ -34,6 +35,7 @@ const iconMap: { [key: string]: any } = {
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
+  status,
   wrapperCol,
   children,
   help,
@@ -79,12 +81,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           <div className={`${baseClassName}-control-input-content`}>{children}</div>
           {icon}
         </div>
-        <ErrorList
-          prefixCls={prefixCls}
-          errors={errors}
-          help={help}
-          onDomErrorVisibleChange={onDomErrorVisibleChange}
-        />
+        <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
+          <ErrorList
+            errors={errors}
+            help={help}
+            onDomErrorVisibleChange={onDomErrorVisibleChange}
+          />
+        </FormItemPrefixContext.Provider>
         {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
       </Col>
     </FormContext.Provider>

@@ -4,23 +4,25 @@ import CSSMotion from 'rc-motion';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import useCacheErrors from './hooks/useCacheErrors';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
+import { FormItemPrefixContext } from './context';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
 export interface ErrorListProps {
-  prefixCls: string;
   errors?: React.ReactNode[];
+  /** @private Internal usage. Do not use in your production */
   help?: React.ReactNode;
+  /** @private Internal usage. Do not use in your production */
   onDomErrorVisibleChange?: (visible: boolean) => void;
 }
 
 export default function ErrorList({
-  prefixCls,
   errors = EMPTY_LIST,
   help,
   onDomErrorVisibleChange,
 }: ErrorListProps) {
   const forceUpdate = useForceUpdate();
+  const { prefixCls, status } = React.useContext(FormItemPrefixContext);
 
   const [visible, cacheErrors] = useCacheErrors(
     errors,
@@ -46,7 +48,7 @@ export default function ErrorList({
     (_, nextVisible) => nextVisible,
   );
 
-  const baseClassName = `${prefixCls}-item`;
+  const baseClassName = `${prefixCls}-item-explain`;
 
   return (
     <CSSMotion
@@ -61,7 +63,16 @@ export default function ErrorList({
     >
       {({ className: motionClassName }: { className: string }) => {
         return (
-          <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
+          <div
+            className={classNames(
+              baseClassName,
+              {
+                [`${baseClassName}-${status}`]: status,
+              },
+              motionClassName,
+            )}
+            key="help"
+          >
             {memoErrors.map((error, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <div key={index} role="alert">

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext, useRef } from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
@@ -13,7 +14,7 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, FormItemContext } from './context';
+import { FormContext, FormItemContext, FormItemPrefixContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -85,15 +86,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
     hidden,
     ...restProps
   } = props;
-  const destroyRef = React.useRef(false);
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName, requiredMark } = React.useContext(FormContext);
-  const { updateItemErrors } = React.useContext(FormItemContext);
+  const destroyRef = useRef(false);
+  const { getPrefixCls } = useContext(ConfigContext);
+  const { name: formName, requiredMark } = useContext(FormContext);
+  const { updateItemErrors } = useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  const prevValidateStatusRef = React.useRef<ValidateStatus | undefined>(validateStatus);
+  const prevValidateStatusRef = useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
-  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
@@ -106,7 +107,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const hasName = hasValidName(name);
 
   // Cache Field NamePath
-  const nameRef = React.useRef<(string | number)[]>([]);
+  const nameRef = useRef<(string | number)[]>([]);
 
   // Should clean up if Field removed
   React.useEffect(() => {
@@ -238,6 +239,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           {...meta}
           errors={mergedErrors}
           prefixCls={prefixCls}
+          status={mergedValidateStatus}
           onDomErrorVisibleChange={setDomErrorVisible}
           validateStatus={mergedValidateStatus}
         >
@@ -252,7 +254,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const isRenderProps = typeof children === 'function';
 
   // Record for real component render
-  const updateRef = React.useRef(0);
+  const updateRef = useRef(0);
   updateRef.current += 1;
 
   if (!hasName && !isRenderProps && !dependencies) {
