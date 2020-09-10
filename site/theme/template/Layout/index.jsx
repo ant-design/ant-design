@@ -111,9 +111,9 @@ export default class Layout extends React.Component {
       if (!componentPage) {
         this.isBeforeComponent = false;
         this.setTheme('default', false);
-      } else if (theme && !this.isBeforeComponent) {
+      } else if (location.theme && !this.isBeforeComponent) {
         this.isBeforeComponent = true;
-        this.setTheme(theme, false);
+        this.setTheme(location.theme, false);
       }
     });
 
