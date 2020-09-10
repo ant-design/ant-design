@@ -90,13 +90,11 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
+    const { location, router } = this.props;
     const {
-      location: {
-        query: { theme, direction },
-        pathname: pathnameProp,
-      },
-      router,
-    } = this.props;
+      query: { theme, direction },
+      pathname: pathnameProp,
+    } = location;
     router.listen(({ pathname, search }) => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', pathname + search);
