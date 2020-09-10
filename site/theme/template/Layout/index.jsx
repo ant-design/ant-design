@@ -191,10 +191,16 @@ export default class Layout extends React.Component {
     this.setState({
       direction,
     });
-    const { pathname } = this.props.location;
+    const { pathname, hash, query } = this.props.location;
+    if (direction === 'ltr') {
+      delete query.direction;
+    } else {
+      query.direction = 'rtl';
+    }
     browserHistory.push({
       pathname: `/${pathname}`,
-      query: { direction },
+      query,
+      hash,
     });
   };
 

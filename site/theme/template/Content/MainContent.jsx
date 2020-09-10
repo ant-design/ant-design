@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'bisheng/router';
+import { Link, browserHistory } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
@@ -315,8 +315,19 @@ class MainContent extends Component {
 
   changeThemeMode = theme => {
     const { setTheme, theme: selectedTheme } = this.context;
+    const { pathname, hash, query } = this.props.location;
     if (selectedTheme !== theme) {
       setTheme(theme);
+      if (theme === 'default') {
+        delete query.theme;
+      } else {
+        query.theme = theme;
+      }
+      browserHistory.push({
+        pathname: `/${pathname}`,
+        query,
+        hash,
+      });
     }
   };
 
