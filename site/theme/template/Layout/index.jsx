@@ -73,6 +73,8 @@ const { switcher } = themeSwitcher(themeConfig);
 export default class Layout extends React.Component {
   static contextType = SiteContext;
 
+  static isBeforeComponent = false;
+
   constructor(props) {
     super(props);
     const { pathname } = props.location;
@@ -84,14 +86,12 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
-      isBeforeComponent: false,
     };
   }
 
   componentDidMount() {
     const { location, router } = this.props;
     router.listen(loc => {
-      const { isBeforeComponent } = this.state;
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       }
@@ -105,19 +105,19 @@ export default class Layout extends React.Component {
 
       // only component page can use `dark` theme
       if (!componentPage) {
-        this.setState({ isBeforeComponent: false });
+        this.isBeforeComponent = false;
         this.setTheme('default', false);
-      } else if (location.query.theme && !isBeforeComponent) {
-        this.setState({ isBeforeComponent: true });
+      } else if (location.query.theme && !this.isBeforeComponent) {
+        this.isBeforeComponent = true;
         this.setTheme(location.query.theme, false);
       }
     });
 
     if (location.query.theme && /^\/?components/.test(location.pathname)) {
-      this.setState({ isBeforeComponent: true });
+      this.isBeforeComponent = true;
       this.setTheme(location.query.theme, false);
     } else {
-      this.setState({ isBeforeComponent: false });
+      this.isBeforeComponent = false;
       this.setTheme('default', false);
     }
 
