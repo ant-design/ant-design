@@ -73,7 +73,7 @@ const { switcher } = themeSwitcher(themeConfig);
 export default class Layout extends React.Component {
   static contextType = SiteContext;
 
-  static isBeforeComponent = false;
+  isBeforeComponent = false;
 
   constructor(props) {
     super(props);
