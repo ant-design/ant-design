@@ -14,7 +14,7 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, FormItemContext, FormItemPrefixContext } from './context';
+import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -91,7 +91,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const { name: formName, requiredMark } = useContext(FormContext);
   const { updateItemErrors } = useContext(FormItemContext);
   const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
-  const prevValidateStatusRef = useRef<ValidateStatus | undefined>(validateStatus);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
@@ -176,10 +175,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
-    if (domErrorVisible && help) {
-      prevValidateStatusRef.current = mergedValidateStatus;
-    }
-
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
@@ -190,8 +185,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      [`${prefixCls}-item-has-error-leave`]:
-        !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
       [`${prefixCls}-item-hidden`]: hidden,
     };

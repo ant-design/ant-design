@@ -48,6 +48,14 @@ export default function ErrorList({
     (_, nextVisible) => nextVisible,
   );
 
+  // Memo status in same visible
+  const [innerStatus, setInnerStatus] = React.useState(status);
+  React.useEffect(() => {
+    if (visible && status) {
+      setInnerStatus(status);
+    }
+  }, [visible, status]);
+
   const baseClassName = `${prefixCls}-item-explain`;
 
   return (
@@ -67,7 +75,7 @@ export default function ErrorList({
             className={classNames(
               baseClassName,
               {
-                [`${baseClassName}-${status}`]: status,
+                [`${baseClassName}-${innerStatus}`]: innerStatus,
               },
               motionClassName,
             )}
