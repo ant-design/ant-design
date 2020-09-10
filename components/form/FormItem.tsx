@@ -261,10 +261,11 @@ function FormItem(props: FormItemProps): React.ReactElement {
   }
 
   let variables: Record<string, string> = {};
-  if (messageVariables) {
-    variables = messageVariables;
-  } else if (typeof label === 'string') {
+  if (typeof label === 'string') {
     variables.label = label;
+  }
+  if (messageVariables) {
+    variables = { ...variables, ...messageVariables };
   }
 
   return (
