@@ -84,12 +84,14 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
+      isBeforeComponent: false,
     };
   }
 
   componentDidMount() {
     const { location, router } = this.props;
     router.listen(loc => {
+      const { isBeforeComponent } = this.state;
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       }
@@ -98,11 +100,24 @@ export default class Layout extends React.Component {
         // eslint-disable-next-line
         window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
       }
+      const { pathname } = loc;
+      const componentPage = /^\/?components/.test(pathname);
+
+      // only component page can use `dark` theme
+      if (!componentPage) {
+        this.setState({ isBeforeComponent: false });
+        this.setTheme('default', false);
+      } else if (location.query.theme && !isBeforeComponent) {
+        this.setState({ isBeforeComponent: true });
+        this.setTheme(location.query.theme, false);
+      }
     });
 
-    if (location.query.theme) {
+    if (location.query.theme && /^\/?components/.test(location.pathname)) {
+      this.setState({ isBeforeComponent: true });
       this.setTheme(location.query.theme, false);
     } else {
+      this.setState({ isBeforeComponent: false });
       this.setTheme('default', false);
     }
 
