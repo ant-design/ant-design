@@ -86,6 +86,7 @@ const validateMessages = {
 | label | `label` 标签的文本 | string \| ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
+| messageVariables | 默认验证字段的信息 | Record<string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
@@ -145,6 +146,21 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 ```
 
 你可以参考[示例](#components-form-demo-control-hooks)查看具体使用场景。
+
+### messageVariables
+
+你可以通过 `messageVariables` 修改 Form.Item 的默认验证信息。
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
 
 ## Form.List
 

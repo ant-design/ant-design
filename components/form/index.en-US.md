@@ -85,6 +85,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | label | Label text | string \| ReactNode | - |  |
 | labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
+| messageVariables | default validate filed info | Record<string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance | (value, prevValue, prevValues) => any | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
@@ -144,6 +145,21 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 ```
 
 You can ref [example](#components-form-demo-control-hooks) to see detail.
+
+### messageVariables
+
+You can modify the default verification information of Form.Item through `messageVariables`.
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
 
 ## Form.List
 
