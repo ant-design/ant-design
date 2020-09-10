@@ -36,7 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | name | 发到后台的文件参数名 | string | `file` |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise<dataURL: string> | - |  |
 | isImageUrl | 自定义缩略图是否使用 &lt;img /> 标签进行显示 | (file: UploadFile) => boolean | [(内部实现)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
-| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, removeIcon?: React.ReactNode, downloadIcon?: React.ReactNode } | true |  |
+| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` 和 `downloadIcon` | boolean \| { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean, removeIcon?: React.ReactNode \| (file: UploadFile) => React.ReactNode, downloadIcon?: React.ReactNode \| (file: UploadFile) => React.ReactNode } | true |  |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |  |
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | function | - |  |
