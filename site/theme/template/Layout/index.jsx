@@ -98,15 +98,9 @@ export default class Layout extends React.Component {
         // eslint-disable-next-line
         window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
       }
-      const { pathname } = loc;
-      const componentPage = /^\/?components/.test(pathname);
-      // only component page can use `dark` theme
-      if (!componentPage) {
-        this.setTheme('default', false);
-      }
     });
 
-    if (location.query.theme && /^\/?components/.test(location.pathname)) {
+    if (location.query.theme) {
       this.setTheme(location.query.theme, false);
     } else {
       this.setTheme('default', false);
