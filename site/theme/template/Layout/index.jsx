@@ -90,40 +90,44 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
-    const { location, router } = this.props;
-    router.listen(loc => {
+    const {
+      location: {
+        query: { theme, direction, pathname: pathnameProp },
+      },
+      router,
+    } = this.props;
+    router.listen(({ pathname, search }) => {
       if (typeof window.ga !== 'undefined') {
-        window.ga('send', 'pageview', loc.pathname + loc.search);
+        window.ga('send', 'pageview', pathname + search);
       }
       // eslint-disable-next-line
       if (typeof window._hmt !== 'undefined') {
         // eslint-disable-next-line
-        window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
+        window._hmt.push(['_trackPageview', pathname + search]);
       }
-      const { pathname } = loc;
       const componentPage = /^\/?components/.test(pathname);
 
       // only component page can use `dark` theme
       if (!componentPage) {
         this.isBeforeComponent = false;
         this.setTheme('default', false);
-      } else if (location.query.theme && !this.isBeforeComponent) {
+      } else if (theme && !this.isBeforeComponent) {
         this.isBeforeComponent = true;
-        this.setTheme(location.query.theme, false);
+        this.setTheme(theme, false);
       }
     });
 
-    if (location.query.theme && /^\/?components/.test(location.pathname)) {
+    if (theme && /^\/?components/.test(pathnameProp)) {
       this.isBeforeComponent = true;
-      this.setTheme(location.query.theme, false);
+      this.setTheme(theme, false);
     } else {
       this.isBeforeComponent = false;
       this.setTheme('default', false);
     }
 
-    if (location.query.direction) {
+    if (direction) {
       this.setState({
-        direction: location.query.direction,
+        direction,
       });
     } else {
       this.setState({
