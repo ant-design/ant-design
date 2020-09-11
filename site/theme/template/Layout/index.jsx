@@ -91,11 +91,8 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     const { location, router } = this.props;
-    const {
-      query: { theme, direction },
-      pathname: pathnameProp,
-    } = location;
     router.listen(({ pathname, search }) => {
+      const { theme } = this.props.location.query;
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', pathname + search);
       }
@@ -116,17 +113,17 @@ export default class Layout extends React.Component {
       }
     });
 
-    if (theme && /^\/?components/.test(pathnameProp)) {
+    if (location.query.theme && /^\/?components/.test(location.pathname)) {
       this.isBeforeComponent = true;
-      this.setTheme(theme, false);
+      this.setTheme(location.query.theme, false);
     } else {
       this.isBeforeComponent = false;
       this.setTheme('default', false);
     }
 
-    if (direction) {
+    if (location.query.direction) {
       this.setState({
-        direction,
+        direction: location.query.direction,
       });
     } else {
       this.setState({
@@ -174,6 +171,7 @@ export default class Layout extends React.Component {
   };
 
   setTheme = (theme, persist = true) => {
+    console.log('theme');
     if (typeof window === 'undefined') {
       return;
     }
