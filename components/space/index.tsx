@@ -40,7 +40,6 @@ const Space: React.FC<SpaceProps> = props => {
   const queryMatches = useMediaQuery({ query: responsiveMaximumMap[responsive || 'xs'] });
   const inverseDirection = responsive && queryMatches;
   const childNodes = toArray(children, { keepEmpty: true });
-  console.log(queryMatches);
 
   if (childNodes.length === 0) {
     return null;
