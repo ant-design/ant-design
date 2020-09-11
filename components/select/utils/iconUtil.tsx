@@ -1,5 +1,5 @@
 import * as React from 'react';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
@@ -41,7 +41,7 @@ export default function getIcons({
       if (open && showSearch) {
         return <SearchOutlined className={iconCls} />;
       }
-      return <DownOutlined className={iconCls} />;
+      return <CaretDownOutlined className={iconCls} />;
     };
   }
 

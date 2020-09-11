@@ -179,6 +179,23 @@ function FormItem(props: FormItemProps): React.ReactElement {
       prevValidateStatusRef.current = mergedValidateStatus;
     }
 
+    const isASelectOrInputNumber = (
+      baseChildrenForCheck: React.ReactNode,
+    ): 'select' | 'input-number' | undefined => {
+      const baseChildElement = baseChildrenForCheck as JSX.Element;
+      if (baseChildElement) {
+        if (
+          typeof baseChildElement.type === 'function' &&
+          baseChildElement.type.name === 'Select'
+        ) {
+          return 'select';
+        }
+        if (baseChildElement.props && baseChildElement.props.isInputNumber) {
+          return 'input-number';
+        }
+      }
+    };
+
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
@@ -193,6 +210,12 @@ function FormItem(props: FormItemProps): React.ReactElement {
         !help && domErrorVisible && prevValidateStatusRef.current === 'error',
       [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
       [`${prefixCls}-item-hidden`]: hidden,
+      [`${prefixCls}-item-is-select`]:
+        mergedValidateStatus && hasFeedback && isASelectOrInputNumber(baseChildren) === 'select',
+      [`${prefixCls}-item-is-input-number`]:
+        mergedValidateStatus &&
+        hasFeedback &&
+        isASelectOrInputNumber(baseChildren) === 'input-number',
     };
 
     // ======================= Children =======================

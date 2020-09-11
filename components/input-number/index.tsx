@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import UpOutlined from '@ant-design/icons/UpOutlined';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
@@ -34,6 +34,7 @@ export interface InputNumberProps
   id?: string;
   precision?: number;
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
+  isInputNumber: true;
 }
 
 const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
@@ -46,8 +47,8 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
       ...others
     } = props;
     const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-    const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+    const upIcon = <CaretUpOutlined className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <CaretDownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
     return (
       <SizeContext.Consumer>
@@ -84,6 +85,7 @@ const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => 
 
 InputNumber.defaultProps = {
   step: 1,
+  isInputNumber: true,
 };
 
 export default InputNumber;
