@@ -409,6 +409,64 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/space/demo/responsive.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-responsive ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:10px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:10px"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:10px"
+  >
+    <button
+      class="ant-btn ant-btn-dashed"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-link"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/space/demo/size.md correctly 1`] = `
 Array [
   <div

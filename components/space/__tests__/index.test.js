@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { render, mount } from 'enzyme';
 import { act } from 'react-test-renderer';
+import { useMediaQuery } from 'react-responsive';
 import Space from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
+
+jest.mock('react-responsive');
 
 describe('Space', () => {
   mountTest(Space);
@@ -124,5 +127,45 @@ describe('Space', () => {
     });
 
     expect(wrapper.find('#demo').text()).toBe('2');
+  });
+
+  describe('when responsive is set', () => {
+    describe('and screen size matches', () => {
+      beforeEach(() => {
+        useMediaQuery.mockImplementation(() => true);
+      });
+
+      it('should inverse direction', () => {
+        const wrapper = mount(
+          <Space responsiveFrom="xs" size={10}>
+            <span>1</span>
+            <span>2</span>
+          </Space>,
+        );
+
+        expect(wrapper.find('.ant-space').hasClass('ant-space-responsive')).toBeTruthy();
+        expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginBottom).toBe(10);
+        expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
+      });
+    });
+
+    describe('and screen size does not match', () => {
+      beforeEach(() => {
+        useMediaQuery.mockImplementation(() => false);
+      });
+
+      it('should keep direction', () => {
+        const wrapper = mount(
+          <Space responsiveFrom="sm" size={10}>
+            <span>1</span>
+            <span>2</span>
+          </Space>,
+        );
+
+        expect(wrapper.find('.ant-space').hasClass('ant-space-responsive')).toBeFalsy();
+        expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginRight).toBe(10);
+        expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
+      });
+    });
   });
 });
