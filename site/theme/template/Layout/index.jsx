@@ -171,7 +171,6 @@ export default class Layout extends React.Component {
   };
 
   setTheme = (theme, persist = true) => {
-    console.log('theme');
     if (typeof window === 'undefined') {
       return;
     }
