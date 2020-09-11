@@ -41,8 +41,19 @@ const DynamicFieldSet = () => {
 
   return (
     <Form name="dynamic_form_item" {...formItemLayoutWithOutLabel} onFinish={onFinish}>
-      <Form.List name="names">
-        {(fields, { add, remove }) => {
+      <Form.List
+        name="names"
+        rules={[
+          {
+            validator: async (_, names) => {
+              if (!names || names.length < 2) {
+                return Promise.reject(new Error('At least 2 passengers'));
+              }
+            },
+          },
+        ]}
+      >
+        {(fields, { add, remove }, { errors }) => {
           return (
             <div>
               {fields.map((field, index) => (
@@ -96,6 +107,8 @@ const DynamicFieldSet = () => {
                 >
                   <PlusOutlined /> Add field at head
                 </Button>
+
+                <Form.ErrorList errors={errors} />
               </Form.Item>
             </div>
           );

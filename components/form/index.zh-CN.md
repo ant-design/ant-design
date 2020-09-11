@@ -166,10 +166,11 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 为字段提供数组化管理。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| name | 字段名，支持数组 | [NamePath](#NamePath) | - |
-| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
+| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#Form.ErrorList) 一同使用。 | { validator, message }[] | - | 4.7.0 |
 
 ```tsx
 <Form.List>
@@ -195,6 +196,14 @@ Form.List 渲染表单相关操作函数。
 | add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
 | remove | 删除表单项 | (index: number \| number[]) => void                | number[]: 4.5.0    |
 | move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
+
+## Form.ErrorList
+
+4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。
+
+| 参数   | 说明     | 类型        | 默认值 |
+| ------ | -------- | ----------- | ------ |
+| errors | 错误列表 | ReactNode[] | -      |
 
 ## Form.Provider
 
@@ -380,6 +389,10 @@ validator(rule, value, callback) => {
 3. Rule validated
 
 在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
+
+### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？
+
+Form.List 本身是 renderProps，内部样式非常自由。因而默认配置 `label` 和 `error` 节点很难与之配合。如果你需要 antd 样式的 `label`，可以通过外部包裹 Form.Item 来实现。
 
 <style>
   .site-form-item-icon {
