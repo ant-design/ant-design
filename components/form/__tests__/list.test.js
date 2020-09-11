@@ -208,4 +208,29 @@ describe('Form.List', () => {
 
     jest.useRealTimers();
   });
+
+  describe('ErrorList component', () => {
+    it('should trigger onDomErrorVisibleChange by motion end', async () => {
+      jest.useFakeTimers();
+
+      const onDomErrorVisibleChange = jest.fn();
+      const wrapper = mount(<Form.ErrorList onDomErrorVisibleChange={onDomErrorVisibleChange} />);
+      wrapper.setProps({ errors: ['Light is bamboo'] });
+
+      await act(async () => {
+        await sleep();
+        jest.runAllTimers();
+        wrapper.update();
+      });
+
+      act(() => {
+        const motionEvent = new Event('animationend');
+        wrapper.find('div').first().instance().dispatchEvent(motionEvent);
+      });
+
+      expect(onDomErrorVisibleChange).toHaveBeenCalled();
+
+      jest.useRealTimers();
+    });
+  });
 });
