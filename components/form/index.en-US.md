@@ -372,6 +372,10 @@ Validating is also part of the value updating. It pass follow steps:
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
+### Why Form.List do not support `label` and need ErrorList to show errors?
+
+Form.List use renderProps which mean internal structure is flexible. Thus `label` and `error` can not have best place. If you want to use antd `label`, you can wrap with Form.Item instead.
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);

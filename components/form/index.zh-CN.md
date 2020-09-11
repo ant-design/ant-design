@@ -374,6 +374,10 @@ validator(rule, value, callback) => {
 
 在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
 
+### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？
+
+Form.List 本身是 renderProps，内部样式非常自由。因而默认配置 `label` 和 `error` 节点很难与之配合。如果你需要 antd 样式的 `label`，可以通过外部包裹 Form.Item 来实现。
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
