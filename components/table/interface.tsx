@@ -77,15 +77,14 @@ export interface FilterDropdownProps {
 
 export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   title?: ColumnTitle<RecordType>;
-
   // Sorter
   sorter?:
     | boolean
     | CompareFn<RecordType>
     | {
-        compare: CompareFn<RecordType>;
+        compare?: CompareFn<RecordType>;
         /** Config multiple sorter order priority */
-        multiple: number;
+        multiple?: number;
       };
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
