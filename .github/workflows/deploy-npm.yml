@@ -15,7 +15,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@master
       with:
-        node-version: 10.0.0
+        node-version: 12.18.3
     - run: npm install
     - run: npm run dist
     - run: npm run compile
