@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LastIndexContext } from '.';
+import { LastIndexContext, Directions } from '.';
 import { SizeType } from '../config-provider/SizeContext';
 
 const spaceSize = {
@@ -12,14 +12,23 @@ export interface ItemProps {
   className: string;
   children: React.ReactNode;
   index: number;
-  direction?: 'horizontal' | 'vertical';
+  direction: Directions;
+  inverseDirection?: boolean;
   size?: SizeType | number;
   marginDirection: 'marginLeft' | 'marginRight';
 }
 
+const getDirection = (direction: Directions, inverseDirection?: boolean): Directions => {
+  if (inverseDirection && direction === 'horizontal') return 'vertical';
+  if (inverseDirection && direction === 'vertical') return 'horizontal';
+
+  return direction;
+};
+
 export default function Item({
   className,
   direction,
+  inverseDirection,
   index,
   size,
   marginDirection,
@@ -38,8 +47,9 @@ export default function Item({
         index >= latestIndex
           ? {}
           : {
-              [direction === 'vertical' ? 'marginBottom' : marginDirection]:
-                typeof size === 'string' ? spaceSize[size] : size,
+              [getDirection(direction, inverseDirection) === 'vertical'
+                ? 'marginBottom'
+                : marginDirection]: typeof size === 'string' ? spaceSize[size] : size,
             }
       }
     >

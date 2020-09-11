@@ -1,18 +1,23 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import { useMediaQuery } from 'react-responsive';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
+import { Breakpoint, responsiveMap } from '../_util/responsiveObserve';
 
 export const LastIndexContext = React.createContext(0);
+
+export type Directions = 'horizontal' | 'vertical';
 
 export interface SpaceProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   size?: SizeType | number;
-  direction?: 'horizontal' | 'vertical';
+  direction?: Directions;
+  responsiveFrom?: Breakpoint;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
 }
@@ -28,10 +33,12 @@ const Space: React.FC<SpaceProps> = props => {
     className,
     children,
     direction = 'horizontal',
+    responsiveFrom,
     prefixCls: customizePrefixCls,
     ...otherProps
   } = props;
-
+  const queryMatches = useMediaQuery({ query: responsiveMap[responsiveFrom || 'xs'] });
+  const inverseDirection = responsiveFrom && queryMatches;
   const childNodes = toArray(children, { keepEmpty: true });
 
   if (childNodes.length === 0) {
@@ -42,9 +49,10 @@ const Space: React.FC<SpaceProps> = props => {
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const cn = classNames(
     prefixCls,
-    `${prefixCls}-${direction}`,
+    `${prefixCls}-${inverseDirection ? 'vertical' : direction}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
+      [`${prefixCls}-responsive`]: inverseDirection,
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
     className,
@@ -67,6 +75,7 @@ const Space: React.FC<SpaceProps> = props => {
         className={itemClassName}
         key={`${itemClassName}-${i}`}
         direction={direction}
+        inverseDirection={inverseDirection}
         size={size}
         index={i}
         marginDirection={marginDirection}
