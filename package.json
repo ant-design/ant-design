@@ -149,6 +149,7 @@
     "rc-trigger": "~5.0.3",
     "rc-upload": "~3.3.1",
     "rc-util": "^5.1.0",
+    "react-responsive": "^8.1.0",
     "scroll-into-view-if-needed": "^2.2.25",
     "warning": "^4.0.3"
   },
@@ -170,6 +171,7 @@
     "@types/react-color": "^3.0.1",
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@types/react-dom": "^16.9.5",
+    "@types/react-responsive": "^8.0.2",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
