@@ -214,8 +214,12 @@ describe('Form.List', () => {
       jest.useFakeTimers();
 
       const onDomErrorVisibleChange = jest.fn();
-      const wrapper = mount(<Form.ErrorList onDomErrorVisibleChange={onDomErrorVisibleChange} />);
-      wrapper.setProps({ errors: ['Light is bamboo'] });
+      const wrapper = mount(
+        <Form.ErrorList
+          errors={['bamboo is light']}
+          onDomErrorVisibleChange={onDomErrorVisibleChange}
+        />,
+      );
 
       await act(async () => {
         await sleep();
@@ -224,11 +228,10 @@ describe('Form.List', () => {
       });
 
       act(() => {
-        const motionEvent = new Event('animationend');
-        wrapper.find('div').first().instance().dispatchEvent(motionEvent);
+        wrapper.find('CSSMotion').props().onLeaveEnd();
       });
 
-      expect(onDomErrorVisibleChange).toHaveBeenCalled();
+      expect(onDomErrorVisibleChange).toHaveBeenCalledWith(false);
 
       jest.useRealTimers();
     });
