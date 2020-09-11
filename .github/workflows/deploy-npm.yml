@@ -16,6 +16,9 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10.0.0
+    - run: npm install
+    - run: npm run dist
+    - run: npm run compile
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@06e0830ea83eea10ed4a62654eeaedafb8bf50fc
       with: # All of theses inputs are optional
