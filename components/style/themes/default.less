@@ -14,7 +14,7 @@
 @info-color: @primary-color;
 @success-color: @green-6;
 @processing-color: @blue-6;
-@error-color: @red-5;
+@error-color: #cd2d15;
 @highlight-color: @red-5;
 @warning-color: @gold-6;
 @normal-color: #d9d9d9;
@@ -106,9 +106,9 @@
 @margin-xss: 4px; // more small
 
 // height rules
-@height-base: 32px;
+@height-base: 40px;
 @height-lg: 40px;
-@height-sm: 24px;
+@height-sm: 30px;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -419,7 +419,7 @@
 @form-item-label-height: @input-height-base;
 @form-item-label-colon-margin-right: 8px;
 @form-item-label-colon-margin-left: 2px;
-@form-error-input-bg: @input-bg;
+@form-error-input-bg: #fcefeb;
 
 // Input
 // ---
@@ -441,11 +441,12 @@
 );
 @input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
-@input-placeholder-color: hsv(0, 0, 75%);
-@input-color: @text-color;
+@input-placeholder-color: @cadet-grey;
+@input-color: @charcoal-base;
 @input-icon-color: @input-color;
-@input-border-color: @border-color-base;
-@input-bg: @component-background;
+@input-border-color: @grey-5;
+@input-border-active-color: @blue-crayola;
+@input-bg: @grey-4;
 @input-number-hover-border-color: @input-hover-border-color;
 @input-number-handler-active-bg: #f4f4f4;
 @input-number-handler-hover-bg: @primary-5;

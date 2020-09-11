@@ -219,7 +219,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   // large => lg
   // small => sm
-  let sizeCls = 'lg';
+  let sizeCls = '';
   switch (customizeSize || size) {
     case 'large':
       sizeCls = 'lg';
