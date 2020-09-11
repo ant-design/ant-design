@@ -18,7 +18,7 @@ import { Space, Button } from 'antd';
 
 function Responsive() {
   return (
-    <Space responsiveFrom="xs" size={10}>
+    <Space responsive="xl" size={10}>
       <Button type="primary">Primary</Button>
       <Button>Default</Button>
       <Button type="dashed">Dashed</Button>

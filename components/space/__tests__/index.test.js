@@ -137,7 +137,7 @@ describe('Space', () => {
 
       it('should inverse direction', () => {
         const wrapper = mount(
-          <Space responsiveFrom="xs" size={10}>
+          <Space responsive="xs" size={10}>
             <span>1</span>
             <span>2</span>
           </Space>,
@@ -156,7 +156,7 @@ describe('Space', () => {
 
       it('should keep direction', () => {
         const wrapper = mount(
-          <Space responsiveFrom="sm" size={10}>
+          <Space responsive="sm" size={10}>
             <span>1</span>
             <span>2</span>
           </Space>,

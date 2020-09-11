@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
-import { Breakpoint, responsiveMap } from '../_util/responsiveObserve';
+import { Breakpoint, responsiveMaximumMap } from '../_util/responsiveObserve';
 
 export const LastIndexContext = React.createContext(0);
 
@@ -17,7 +17,7 @@ export interface SpaceProps {
   style?: React.CSSProperties;
   size?: SizeType | number;
   direction?: Directions;
-  responsiveFrom?: Breakpoint;
+  responsive?: Breakpoint;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
 }
@@ -33,13 +33,14 @@ const Space: React.FC<SpaceProps> = props => {
     className,
     children,
     direction = 'horizontal',
-    responsiveFrom,
+    responsive,
     prefixCls: customizePrefixCls,
     ...otherProps
   } = props;
-  const queryMatches = useMediaQuery({ query: responsiveMap[responsiveFrom || 'xs'] });
-  const inverseDirection = responsiveFrom && queryMatches;
+  const queryMatches = useMediaQuery({ query: responsiveMaximumMap[responsive || 'xs'] });
+  const inverseDirection = responsive && queryMatches;
   const childNodes = toArray(children, { keepEmpty: true });
+  console.log(queryMatches);
 
   if (childNodes.length === 0) {
     return null;
