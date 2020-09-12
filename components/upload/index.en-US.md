@@ -35,7 +35,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | name | The name of uploading file | string | `file` |  |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  |
-| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: React.ReactNode \| (file: UploadFile) => React.ReactNode, downloadIcon?: React.ReactNode \| (file: UploadFile) => React.ReactNode } | true |  |
+| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: React.ReactNode \| (file: UploadFile) => React.ReactNode, downloadIcon?: React.ReactNode \| (file: UploadFile) => React.ReactNode } | true | function: 4.7.0 |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  |
 | openFileDialogOnClick | Click open file dialog | boolean | true |  |
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | function | - |  |
