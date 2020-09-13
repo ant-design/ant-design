@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 4.6.4
+
+`2020-09-13`
+
+- 💄 style: Card card image has extra 1px border. [#26659](https://github.com/ant-design/ant-design/pull/26659)
+- 💄 Fix Select `placeholder` color not same as Input. [#26651](https://github.com/ant-design/ant-design/pull/26651) [@wangcch](https://github.com/wangcch)
+- 🐞 Fix Menu not support React.Fragment inside. [#26656](https://github.com/ant-design/ant-design/pull/26656)
+- 🐞 Fix TextArea different behavior with Input when set `value` to `undefined`. [#26652](https://github.com/ant-design/ant-design/pull/26652)
+- 🐞 Fix Motion related issue like Upload align flash and Form.Item with `help` ssr issue. [#26628](https://github.com/ant-design/ant-design/pull/26628)
+- 🐞 Fix Typography.Link warning `Invalid value for prop navigate` when using with react-router. [#26623](https://github.com/ant-design/ant-design/pull/26623)
+- 🐞 Fix Table pagination missing when is above table. [#26618](https://github.com/ant-design/ant-design/pull/26618)
+- 🐞 Fix Upload in control miss file when upload multiple file in same time. [#26612](https://github.com/ant-design/ant-design/pull/26612)
+- TypeScript
+  - 🤖 Fix Table that sorter `compare` and `multiple` should be optional. [#26686](https://github.com/ant-design/ant-design/pull/26686)
+
 ## 4.6.3
 
 `2020-09-06`

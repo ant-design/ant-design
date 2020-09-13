@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 4.6.4
+
+`2020-09-13`
+
+- 💄 修复 Card 封面图片上有 1px 白边的问题。[#26659](https://github.com/ant-design/ant-design/pull/26659)
+- 💄 修复 Select 的 `placeholder` 颜色与 Input 不一致的问题。[#26651](https://github.com/ant-design/ant-design/pull/26651) [@wangcch](https://github.com/wangcch)
+- 🐞 修复 Menu 不支持 React.Fragment 的问题。[#26656](https://github.com/ant-design/ant-design/pull/26656)
+- 🐞 修复 TextArea 设置 `value` 为 `undefined` 时和 Input 行为不一致的问题。[#26652](https://github.com/ant-design/ant-design/pull/26652)
+- 🐞 修复 Motion 相关问题例如 Upload 对齐闪烁与 Form.Item 配置 `help` 的 ssr 问题。[#26628](https://github.com/ant-design/ant-design/pull/26628)
+- 🐞 修复 Typography.Link 和 react-router 一起使用时抛出 `Invalid value for prop navigate` 的问题。[#26623](https://github.com/ant-design/ant-design/pull/26623)
+- 🐞 修复 Table 分页器在表格上方消失的问题。[#26618](https://github.com/ant-design/ant-design/pull/26618)
+- 🐞 修复 Upload 受控时同时上传多份文件会丢失部分文件的问题。[#26612](https://github.com/ant-design/ant-design/pull/26612)
+- TypeScript
+  - 🤖 修复 Table sorter 的 `compare` 和 `multiple` 不是可选的问题。[#26686](https://github.com/ant-design/ant-design/pull/26686)
+
 ## 4.6.3
 
 `2020-09-06`
