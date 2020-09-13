@@ -533,7 +533,7 @@ describe('Upload List', () => {
         showUploadList={{
           showRemoveIcon: true,
           showDownloadIcon: true,
-          removeIcon: <i>RM</i>,
+          removeIcon: () => <i>RM</i>,
           downloadIcon: <i>DL</i>,
         }}
       >
