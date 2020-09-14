@@ -37,13 +37,27 @@
     > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear {
-      right: 32px;
+      right: 10px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
+    }
+
+    &.@{form-item-prefix-cls}-is-select {
+      .@{form-item-prefix-cls}-children-icon {
+        right: 15px !important;
+      }
+    }
+
+    // ======================== Input-Number =========================
+
+    &.@{form-item-prefix-cls}-is-input-number {
+      .@{form-item-prefix-cls}-children-icon {
+        right: 18px !important;
+      }
     }
 
     // ======================= Cascader ========================

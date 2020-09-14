@@ -78,13 +78,21 @@
 
     & + .@{ant-prefix}-input-group-addon,
     input + .@{ant-prefix}-input-group-addon {
-      padding: 0;
-      border: 0;
+      padding: 0 5px;
+      background-color: @input-bg;
 
-      .@{search-prefix}-button {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+      .@{ant-prefix}-btn {
+        height: 30px;
+        padding: 0px 14px;
       }
+
+      // RESET BELOW TO REMOVE PADDING
+      // border: 0;
+
+      // .@{search-prefix}-button {
+      //   border-top-left-radius: 0;
+      //   border-bottom-left-radius: 0;
+      // }
     }
   }
 }

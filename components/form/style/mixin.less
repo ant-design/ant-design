@@ -10,6 +10,7 @@
   .@{ant-prefix}-input-affix-wrapper {
     &,
     &:hover {
+      background-color: @background-color;
       border-color: @border-color;
     }
 
@@ -31,6 +32,12 @@
     }
     input:focus {
       box-shadow: none !important;
+    }
+  }
+
+  .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
+    .@{ant-prefix}-select-selector {
+      background-color: @background-color;
     }
   }
 

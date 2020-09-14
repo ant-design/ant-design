@@ -14,7 +14,7 @@
 @info-color: @primary-color;
 @success-color: @green-6;
 @processing-color: @blue-6;
-@error-color: @red-5;
+@error-color: #cd2d15;
 @highlight-color: @red-5;
 @warning-color: @gold-6;
 @normal-color: #d9d9d9;
@@ -106,9 +106,9 @@
 @margin-xss: 4px; // more small
 
 // height rules
-@height-base: 32px;
+@height-base: 40px;
 @height-lg: 40px;
-@height-sm: 24px;
+@height-sm: 30px;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -161,7 +161,7 @@
 
 // Disabled states
 @disabled-color: fade(#000, 25%);
-@disabled-bg: @background-color-base;
+@disabled-bg: #f7f7f7;
 @disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
@@ -271,12 +271,19 @@
 @btn-text-hover-bg: rgba(0, 0, 0, 0.018);
 
 // Checkbox
-@checkbox-size: 16px;
-@checkbox-color: @primary-color;
-@checkbox-check-color: #fff;
-@checkbox-check-bg: @checkbox-check-color;
-@checkbox-border-width: @border-width-base;
+@checkbox-size: 18px;
+@checkbox-color: @cadet-grey;
+@checkbox-hover-color: @slate-grey;
+@checkbox-check-color: @blue-crayola;
+@checkbox-check-bg: #fff;
+@checkbox-border-width: 2px;
+@checkbox-border-color: @cadet-grey;
+@checkbox-check-border-color: @blue-crayola;
+@checkbox-intermediate-border-color: @blue-crayola;
+@checkbox-intermediate-check-color: @blue-crayola;
 @checkbox-group-item-margin-right: 8px;
+@checkbox-disabled-color: @cadet-grey;
+@checkbox-border-radius: 1px;
 
 // Descriptions
 @descriptions-bg: #fafafa;
@@ -303,10 +310,12 @@
 @empty-font-size: @font-size-base;
 
 // Radio
-@radio-size: 16px;
+@radio-size: 20px;
 @radio-top: 0px;
-@radio-dot-color: @primary-color;
-@radio-dot-disabled-color: fade(@black, 20%);
+@radio-dot-color: @blue-crayola;
+@radio-border-color: @cadet-grey;
+@radio-border-width: 2px;
+@radio-dot-disabled-color: @cadet-grey;
 @radio-solid-checked-color: @component-background;
 
 // Radio buttons
@@ -419,7 +428,7 @@
 @form-item-label-height: @input-height-base;
 @form-item-label-colon-margin-right: 8px;
 @form-item-label-colon-margin-left: 2px;
-@form-error-input-bg: @input-bg;
+@form-error-input-bg: #fcefeb;
 
 // Input
 // ---
@@ -441,16 +450,18 @@
 );
 @input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
-@input-placeholder-color: hsv(0, 0, 75%);
-@input-color: @text-color;
+@input-placeholder-color: @cadet-grey;
+@input-color: @charcoal-base;
 @input-icon-color: @input-color;
-@input-border-color: @border-color-base;
-@input-bg: @component-background;
+@input-border-color: @grey-5;
+@input-number-border-color: @grey-5;
+@input-border-active-color: @blue-crayola;
+@input-bg: @grey-4;
 @input-number-hover-border-color: @input-hover-border-color;
 @input-number-handler-active-bg: #f4f4f4;
 @input-number-handler-hover-bg: @primary-5;
 @input-number-handler-bg: @component-background;
-@input-number-handler-border-color: @border-color-base;
+@input-number-handler-border-color: @grey-5;
 @input-addon-bg: @background-color-light;
 @input-hover-border-color: @primary-5;
 @input-disabled-bg: @disabled-bg;
@@ -465,7 +476,7 @@
 
 // Select
 // ---
-@select-border-color: @border-color-base;
+@select-border-color: @grey-5;
 @select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
@@ -475,9 +486,9 @@
 @select-dropdown-font-size: @dropdown-font-size;
 @select-dropdown-line-height: @dropdown-line-height;
 @select-dropdown-height: 32px;
-@select-background: @component-background;
-@select-clear-background: @select-background;
-@select-selection-item-bg: @background-color-base;
+@select-background: @grey-4;
+@select-clear-background: @grey-4;
+@select-selection-item-bg: @grey-3;
 @select-selection-item-border-color: @border-color-split;
 @select-single-item-height-lg: 40px;
 @select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
@@ -670,7 +681,7 @@
 
 // TimePicker
 // ---
-@picker-bg: @component-background;
+@picker-bg: @grey-4;
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
 @picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);

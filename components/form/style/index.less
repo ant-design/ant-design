@@ -102,7 +102,7 @@
       }
 
       // Required mark
-      &.@{form-item-prefix-cls}-required:not(.@{form-item-prefix-cls}-required-mark-optional)::before {
+      &.@{form-item-prefix-cls}-required:not(.@{form-item-prefix-cls}-required-mark-optional)::after {
         display: inline-block;
         margin-right: 4px;
         color: @label-required-color;
@@ -175,10 +175,10 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
-    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
+    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height));
     color: @text-color-secondary;
-    font-size: @font-size-base;
-    line-height: @line-height-base;
+    font-size: @font-size-base - 2px;
+    line-height: 16px;
     transition: color 0.3s @ease-out; // sync input color transition
   }
 }

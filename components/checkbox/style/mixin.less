@@ -16,9 +16,12 @@
     cursor: pointer;
 
     .@{checkbox-prefix-cls}-wrapper:hover &-inner,
-    &:hover &-inner,
+    &:hover &-inner {
+      border-color: @checkbox-hover-color;
+    }
+
     &-input:focus + &-inner {
-      border-color: @checkbox-color;
+      border-color: @checkbox-check-border-color;
     }
 
     &-checked::after {
@@ -27,8 +30,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 1px solid @checkbox-color;
-      border-radius: @border-radius-base;
+      border: 2px solid @checkbox-color;
+      border-radius: @checkbox-border-radius;
       visibility: hidden;
       animation: antCheckboxEffect 0.36s ease-in-out;
       animation-fill-mode: backwards;
@@ -49,8 +52,8 @@
       height: @checkbox-size;
       direction: ltr;
       background-color: @checkbox-check-bg;
-      border: @checkbox-border-width @border-style-base @border-color-base;
-      border-radius: @border-radius-base;
+      border: @checkbox-border-width @border-style-base @checkbox-border-color;
+      border-radius: @checkbox-border-radius;
       // Fix IE checked style
       // https://github.com/ant-design/ant-design/issues/12597
       border-collapse: separate;
@@ -62,7 +65,7 @@
 
         position: absolute;
         top: 50%;
-        left: 22%;
+        left: 18%;
         display: table;
         width: @check-width;
         height: @check-height;
@@ -105,8 +108,8 @@
 
   .@{checkbox-prefix-cls}-checked {
     .@{checkbox-inner-prefix-cls} {
-      background-color: @checkbox-color;
-      border-color: @checkbox-color;
+      background-color: @checkbox-check-bg;
+      border-color: @checkbox-check-border-color;
     }
   }
 
@@ -115,7 +118,7 @@
 
     &.@{checkbox-prefix-cls}-checked {
       .@{checkbox-inner-prefix-cls}::after {
-        border-color: @disabled-color;
+        border-color: @checkbox-disabled-color;
         animation-name: none;
       }
     }
@@ -126,7 +129,7 @@
 
     .@{checkbox-inner-prefix-cls} {
       background-color: @input-disabled-bg;
-      border-color: @border-color-base !important;
+      border-color: @checkbox-disabled-color !important;
       &::after {
         border-color: @input-disabled-bg;
         border-collapse: separate;
@@ -185,17 +188,17 @@
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
       background-color: @checkbox-check-bg;
-      border-color: @border-color-base;
+      border-color: @checkbox-intermediate-border-color;
     }
     .@{checkbox-inner-prefix-cls}::after {
       @indeterminate-width: @checkbox-size - 8px;
-      @indeterminate-height: @checkbox-size - 8px;
+      @indeterminate-height: @checkbox-size - 16px;
 
       top: 50%;
       left: 50%;
       width: @indeterminate-width;
       height: @indeterminate-height;
-      background-color: @checkbox-color;
+      background-color: @checkbox-intermediate-check-color;
       border: 0;
       transform: translate(-50%, -50%) scale(1);
       opacity: 1;

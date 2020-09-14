@@ -13,7 +13,7 @@
   width: 90px;
   margin: 0;
   padding: 0;
-  border: @border-width-base @border-style-base @border-color-base;
+  border: @border-width-base @border-style-base @input-number-border-color;
   border-radius: @border-radius-base;
 
   &-handler {
@@ -125,7 +125,6 @@
     background: @input-number-handler-bg;
     border-left: @border-width-base @border-style-base @input-number-handler-border-color;
     border-radius: 0 @border-radius-base @border-radius-base 0;
-    opacity: 0;
     transition: opacity 0.24s linear 0.1s;
 
     // Fix input number inside Menu makes icon too large
@@ -134,20 +133,17 @@
     .@{input-number-prefix-cls}-handler {
       .@{input-number-prefix-cls}-handler-up-inner,
       .@{input-number-prefix-cls}-handler-down-inner {
-        .iconfont-size-under-12px(7px);
+        .iconfont-size-under-12px(10px);
 
         min-width: auto;
         margin-right: 0;
+        color: @slate-grey;
       }
     }
   }
 
   &-handler-wrap:hover &-handler {
     height: 40%;
-  }
-
-  &:hover &-handler-wrap {
-    opacity: 1;
   }
 
   &-handler-up {
