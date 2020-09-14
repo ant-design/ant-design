@@ -45,7 +45,7 @@ export interface DrawerProps {
   prefixCls?: string;
   push?: boolean | PushState;
   placement?: placementType;
-  onChange?: ((visible?: boolean) => void);
+  onChange?: (visible?: boolean) => void;
   onClose?: (e: EventType) => void;
   afterVisibleChange?: (visible: boolean) => void;
   className?: string;
