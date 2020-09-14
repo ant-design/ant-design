@@ -439,6 +439,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                      title="10 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -455,6 +456,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
+                      title="20 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -471,6 +473,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                      title="50 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -487,6 +490,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
+                      title="100 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
