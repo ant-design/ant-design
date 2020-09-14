@@ -81,8 +81,11 @@
     > tr {
       > th {
         color: @table-header-color;
-        font-weight: 500;
+        font-weight: 400;
         text-align: left;
+        font-size: 12px;
+        text-transform: uppercase;
+
         background: @table-header-bg;
         border-bottom: @border-width-base @border-style-base @border-color-split;
         transition: background 0.3s ease;
@@ -106,6 +109,7 @@
       > td {
         border-bottom: @border-width-base @border-style-base @border-color-split;
         transition: background 0.3s;
+        color: #384248;
 
         // ========================= Nest Table ===========================
         > .@{table-prefix-cls}-wrapper:only-child {
