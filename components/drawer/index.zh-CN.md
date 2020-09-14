@@ -38,6 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | className | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |
+| onChange | 切换抽屉时的同步回调 | function(visible) | - |
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |
 | afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | - |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
