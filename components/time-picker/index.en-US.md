@@ -53,6 +53,7 @@ import moment from 'moment';
 | value | To set time | [moment](http://momentjs.com/) | - |  |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
+| onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
 
 ## Methods
