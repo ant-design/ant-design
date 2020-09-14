@@ -363,7 +363,7 @@ Before Modal opens, children elements do not exist in the view. You can set `for
 
 Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
 
-### Why can not call `ref` of From at first time?
+### Why can not call `ref` of Form at first time?
 
 `ref` only receives the mounted instance. please ref React official doc: https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs
 

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.6.3",
+  "version": "4.6.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -128,7 +128,7 @@
     "rc-image": "~3.0.6",
     "rc-input-number": "~6.0.0",
     "rc-mentions": "~1.4.0",
-    "rc-menu": "~8.5.2",
+    "rc-menu": "~8.6.1",
     "rc-motion": "^2.0.0",
     "rc-notification": "~4.4.0",
     "rc-pagination": "~3.0.3",
@@ -303,7 +303,7 @@
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "66 kB"
+      "maxSize": "67 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",

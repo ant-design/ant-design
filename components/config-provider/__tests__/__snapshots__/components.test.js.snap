@@ -21959,6 +21959,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
                 <div
                   aria-selected="false"
                   class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                  title="Light"
                 >
                   <div
                     class="config-select-item-option-content"
@@ -22086,6 +22087,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
                 <div
                   aria-selected="false"
                   class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                  title="Light"
                 >
                   <div
                     class="config-select-item-option-content"
@@ -22213,6 +22215,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
                 <div
                   aria-selected="false"
                   class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                  title="Light"
                 >
                   <div
                     class="config-select-item-option-content"
@@ -22340,6 +22343,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                  title="Light"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -22467,6 +22471,7 @@ exports[`ConfigProvider components Select normal 1`] = `
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                  title="Light"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -22594,6 +22599,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
                 <div
                   aria-selected="false"
                   class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
+                  title="Light"
                 >
                   <div
                     class="prefix-Select-item-option-content"
