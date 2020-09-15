@@ -282,18 +282,18 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             ? [{ flex: 'none' }, { flex: 'auto' }]
             : [
                 {
-                  xxl: 4,
-                  xl: 5,
-                  lg: 6,
-                  md: 6,
-                  sm: 24,
-                  xs: 24,
+                  xxl: 1,
+                  xl: 2,
+                  lg: 2,
+                  md: 2,
+                  sm: 12,
+                  xs: 12,
                 },
                 {
-                  xxl: 20,
-                  xl: 19,
-                  lg: 18,
-                  md: 18,
+                  xxl: 11,
+                  xl: 10,
+                  lg: 9,
+                  md: 9,
                   sm: 0,
                   xs: 0,
                 },
