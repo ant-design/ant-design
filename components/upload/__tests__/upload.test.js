@@ -539,7 +539,7 @@ describe('Upload', () => {
     errorSpy.mockRestore();
   });
 
-  it('it should be treated as file but not an image', () => {
+  it('should be treated as file but not an image', () => {
     const file = {
       status: 'done',
       uid: '-1',
