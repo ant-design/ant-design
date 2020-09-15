@@ -1743,7 +1743,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items-link.md correctly 1`] = `
+exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -1752,6 +1752,17 @@ exports[`renders ./components/form/demo/dynamic-form-items-link.md correctly 1`]
   <div
     class="ant-row ant-form-item"
   >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="dynamic_form_nest_item_area"
+        title="Area"
+      >
+        Area
+      </label>
+    </div>
     <div
       class="ant-col ant-form-item-control"
     >
@@ -1771,14 +1782,14 @@ exports[`renders ./components/form/demo/dynamic-form-items-link.md correctly 1`]
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="dynamic_form_nest_item_type_list_0"
+                  aria-activedescendant="dynamic_form_nest_item_area_list_0"
                   aria-autocomplete="list"
-                  aria-controls="dynamic_form_nest_item_type_list"
+                  aria-controls="dynamic_form_nest_item_area_list"
                   aria-haspopup="listbox"
-                  aria-owns="dynamic_form_nest_item_type_list"
+                  aria-owns="dynamic_form_nest_item_area_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="dynamic_form_nest_item_type"
+                  id="dynamic_form_nest_item_area"
                   readonly=""
                   role="combobox"
                   style="opacity:0"
@@ -1865,7 +1876,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-link.md correctly 1`]
                 </svg>
               </span>
               <span>
-                 Add field
+                 Add sights
               </span>
             </button>
           </div>
