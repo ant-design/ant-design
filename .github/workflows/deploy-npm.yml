@@ -17,8 +17,8 @@ jobs:
       with:
         node-version: 12.18.3
     - run: npm install
-    - run: npm run dist
     - run: npm run compile
+    - run: npm run dist
     - name: NPM Publish
       uses: JS-DevTools/npm-publish@v1
       with: # All of theses inputs are optional
