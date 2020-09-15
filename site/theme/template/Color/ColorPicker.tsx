@@ -88,7 +88,7 @@ export default class ColorPicker extends Component<ColorPickerProps> {
         position: 'inherit',
         zIndex: 100,
         borderRadius: '10px',
-        boxShadow: '0 4px 12px rgba(0,0,0,.1)',
+        boxShadow: '0 4px 12px rgba(0,0,0,.2)',
       } as React.CSSProperties,
     };
 

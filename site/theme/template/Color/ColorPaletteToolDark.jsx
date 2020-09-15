@@ -3,50 +3,26 @@ import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'antd';
 import ColorPicker from './ColorPicker';
 import ColorPatterns from './ColorPatterns';
-
-const primaryMinSaturation = 70; // 主色推荐最小饱和度
-const primaryMinBrightness = 70; // 主色推荐最小亮度
+import { validateColor } from './utils';
 
 export default class ColorPaletteTool extends Component {
   state = {
     primaryColor: '#1890ff',
     backgroundColor: '#141414',
-    primaryColorInstance: null,
   };
 
-  handleChangeColor = (e, color) => {
-    const value = e.target ? e.target.value : e;
-    this.setState({
-      primaryColor: value,
-      primaryColorInstance: color,
-    });
-  };
+  handleChangeColor = color => this.setState({ primaryColor: color });
 
-  handleChangeBackgroundColor = e => {
-    const value = e.target ? e.target.value : e;
+  handleChangeBackgroundColor = color => {
     this.setState({
-      backgroundColor: value,
+      backgroundColor: color,
     });
   };
 
   renderColorValidation() {
-    const { primaryColorInstance } = this.state;
-    let text = '';
-    if (primaryColorInstance) {
-      if (primaryColorInstance.hsv.s * 100 < primaryMinSaturation) {
-        text += ` 饱和度建议不低于${primaryMinSaturation}（现在 ${(
-          primaryColorInstance.hsv.s * 100
-        ).toFixed(2)}）`;
-      }
-      if (primaryColorInstance.hsv.v * 100 < primaryMinBrightness) {
-        text += ` 亮度建议不低于${primaryMinBrightness}（现在 ${(
-          primaryColorInstance.hsv.v * 100
-        ).toFixed(2)}）`;
-      }
-    }
     return (
       <span className="color-palette-picker-validation color-palette-picker-validation-dark">
-        {text.trim()}
+        {validateColor(this.state.primaryColor)}
       </span>
     );
   }
@@ -83,7 +59,6 @@ export default class ColorPaletteTool extends Component {
                 <Row>
                   <Col span={18}>
                     <ColorPicker
-                      type="chrome"
                       color={backgroundColor}
                       onChange={this.handleChangeBackgroundColor}
                     />
