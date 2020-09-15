@@ -15,7 +15,7 @@
 
 // input status
 // == when focus or actived
-.active(@color: @outline-color) {
+.active(@color: @blue-crayola) {
   & when (@theme = dark) {
     border-color: @color;
   }
@@ -24,7 +24,7 @@
   }
   border-right-width: @border-width-base !important;
   outline: 0;
-  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, @outline-fade);
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width @color;
 }
 
 // == when hoverd
@@ -192,7 +192,6 @@
         .@{ant-prefix}-select-selector {
         background-color: inherit;
         border: @border-width-base @border-style-base transparent;
-        box-shadow: none;
       }
 
       &-open,

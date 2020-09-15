@@ -72,7 +72,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text');
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text', 'secondary');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
@@ -219,7 +219,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   // large => lg
   // small => sm
-  let sizeCls = 'lg';
+  let sizeCls = '';
   switch (customizeSize || size) {
     case 'large':
       sizeCls = 'lg';
