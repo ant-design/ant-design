@@ -16,10 +16,10 @@ type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
-let defaultTop: number;
+let defaultTop: number | string = '80%';
 let key = 1;
 let localPrefixCls = 'ant-message';
-let transitionName = 'move-up';
+let transitionName = 'move-down';
 let getContainer: () => HTMLElement;
 let maxCount: number;
 let rtl = false;

@@ -130,6 +130,7 @@ const Pagination: React.FC<PaginationProps> = ({
         className={extendedClassName}
         selectComponentClass={isSmall ? MiniSelect : Select}
         locale={locale}
+        showSizeChanger
       />
     );
   };

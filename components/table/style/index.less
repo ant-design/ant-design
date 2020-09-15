@@ -374,6 +374,26 @@
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
+
+    .@{ant-prefix}-checkbox-wrapper {
+      > .@{ant-prefix}-checkbox-checked {
+        .@{ant-prefix}-checkbox-inner {
+          background-color: @table-checkbox-background;
+        }
+        .@{ant-prefix}-checkbox-inner::after {
+          border-color: @table-checkbox-color;
+        }
+      }
+
+      > .@{ant-prefix}-checkbox-indeterminate {
+        .@{ant-prefix}-checkbox-inner {
+          background-color: @table-checkbox-intermediate-background;
+        }
+        .@{ant-prefix}-checkbox-inner::after {
+          background-color: @table-checkbox-intermediate-color;
+        }
+      }
+    }
   }
 
   &-selection {
@@ -422,12 +442,8 @@
     height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base * 3;
     padding: 0;
     color: inherit;
-    line-height: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2) * 2 + @border-width-base *
-      3;
-    // vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
-    background: @table-expand-icon-bg;
-    border: @border-width-base @border-style-base @border-color-split;
-    border-radius: @border-radius-base;
+    line-height: @font-size-sm;
+    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
     outline: none;
     transition: all 0.3s;
     user-select: none;
@@ -441,32 +457,8 @@
     &::before,
     &::after {
       position: absolute;
-      background: currentColor;
       transition: transform 0.3s ease-out;
       content: '';
-    }
-
-    &::before {
-      top: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
-      right: 3px;
-      left: 3px;
-      height: @border-width-base;
-    }
-
-    &::after {
-      top: 3px;
-      bottom: 3px;
-      left: ceil((@font-size-sm * 1.4 - @border-width-base * 3) / 2);
-      width: @border-width-base;
-      transform: rotate(90deg);
-    }
-
-    // Motion effect
-    &-collapsed::before {
-      transform: rotate(-180deg);
-    }
-    &-collapsed::after {
-      transform: rotate(0deg);
     }
 
     &-spaced {

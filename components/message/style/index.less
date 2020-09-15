@@ -5,7 +5,9 @@
 
 .@{message-prefix-cls} {
   .reset-component;
-
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
   position: fixed;
   top: 8px;
   left: 0;
@@ -25,30 +27,40 @@
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
     pointer-events: all;
+    min-width: 530px;
+    overflow: hidden;
   }
 
-  &-success .@{iconfont-css-prefix} {
-    color: @success-color;
+  &-custom-content {
+    padding: @message-notice-text-padding;
+    text-align: left;
   }
 
-  &-error .@{iconfont-css-prefix} {
-    color: @error-color;
+  .@{message-prefix-cls}-success {
+    background-color: @message-notice-success-color;
   }
 
-  &-warning .@{iconfont-css-prefix} {
-    color: @warning-color;
+  .@{message-prefix-cls}-error {
+    background-color: @error-color;
   }
 
-  &-info .@{iconfont-css-prefix},
-  &-loading .@{iconfont-css-prefix} {
-    color: @info-color;
+  .@{message-prefix-cls}-warning {
+    background-color: @warning-color;
+  }
+
+  &-info,
+  &-loading {
+    color: #000;
+    .@{iconfont-css-prefix} {
+      color: @info-color;
+    }
   }
 
   .@{iconfont-css-prefix} {
     position: relative;
     top: 1px;
     margin-right: 8px;
-    font-size: @font-size-lg;
+    font-size: @font-size-lg + 2px;
   }
 
   &-notice.move-up-leave.move-up-leave-active {

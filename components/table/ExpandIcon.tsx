@@ -1,5 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import UpOutlined from '@ant-design/icons/UpOutlined';
 import { TableLocale } from './interface';
 
 interface DefaultExpandIconProps<RecordType> {
@@ -20,8 +22,13 @@ function renderExpandIcon(locale: TableLocale) {
   }: DefaultExpandIconProps<RecordType>) {
     const iconPrefix = `${prefixCls}-row-expand-icon`;
 
+    let Icon = DownOutlined;
+    if (expandable && expanded) {
+      Icon = UpOutlined;
+    }
+
     return (
-      <button
+      <Icon
         type="button"
         onClick={e => {
           onExpand(record, e!);
