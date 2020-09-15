@@ -2,6 +2,7 @@ import * as React from 'react';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
+import { InputNumberProps } from '../input-number';
 
 export interface CSPConfig {
   nonce?: string;
@@ -18,6 +19,7 @@ export interface ConfigConsumerProps {
   input?: {
     autoComplete?: string;
   };
+  inputNumber?: InputNumberProps;
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;

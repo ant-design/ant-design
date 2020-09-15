@@ -4,7 +4,7 @@ import RcInputNumber from 'rc-input-number';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
@@ -37,49 +37,43 @@ export interface InputNumberProps
 }
 
 const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
-  const renderInputNumber = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      className,
-      size: customizeSize,
-      prefixCls: customizePrefixCls,
-      readOnly,
-      ...others
-    } = props;
-    const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-    const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+  const { getPrefixCls, direction, inputNumber = {} } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
 
-    return (
-      <SizeContext.Consumer>
-        {size => {
-          const mergeSize = customizeSize || size;
-          const inputNumberClass = classNames(
-            {
-              [`${prefixCls}-lg`]: mergeSize === 'large',
-              [`${prefixCls}-sm`]: mergeSize === 'small',
-              [`${prefixCls}-rtl`]: direction === 'rtl',
-              [`${prefixCls}-readonly`]: readOnly,
-            },
-            className,
-          );
+  const {
+    className,
+    size: customizeSize,
+    prefixCls: customizePrefixCls,
+    readOnly,
+    ...others
+  } = props;
+  const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+  const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+  const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
-          return (
-            <RcInputNumber
-              ref={ref}
-              className={inputNumberClass}
-              upHandler={upIcon}
-              downHandler={downIcon}
-              prefixCls={prefixCls}
-              readOnly={readOnly}
-              {...others}
-            />
-          );
-        }}
-      </SizeContext.Consumer>
-    );
-  };
+  const mergeSize = customizeSize || size;
+  const inputNumberClass = classNames(
+    {
+      [`${prefixCls}-lg`]: mergeSize === 'large',
+      [`${prefixCls}-sm`]: mergeSize === 'small',
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-readonly`]: readOnly,
+    },
+    className,
+  );
 
-  return <ConfigConsumer>{renderInputNumber}</ConfigConsumer>;
+  return (
+    <RcInputNumber
+      {...inputNumber}
+      ref={ref}
+      className={inputNumberClass}
+      upHandler={upIcon}
+      downHandler={downIcon}
+      prefixCls={prefixCls}
+      readOnly={readOnly}
+      {...others}
+    />
+  );
 });
 
 InputNumber.defaultProps = {

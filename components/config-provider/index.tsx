@@ -11,6 +11,7 @@ import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from '.
 import { SizeType, SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
+import { InputNumberProps } from '../input-number';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
@@ -40,6 +41,7 @@ export interface ConfigProviderProps {
   input?: {
     autoComplete?: string;
   };
+  inputNumber?: InputNumberProps;
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -89,6 +91,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       autoInsertSpaceInButton,
       form,
       input,
+      inputNumber,
       locale,
       pageHeader,
       componentSize,
@@ -128,6 +131,10 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 
     if (input) {
       config.input = input;
+    }
+
+    if (input) {
+      config.inputNumber = inputNumber;
     }
 
     let childNode = children;
