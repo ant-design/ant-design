@@ -68,7 +68,8 @@ const MiniPanel = ({
   href,
   link,
   isZhCN,
-}: PanelProps & { isZhCN: boolean }) => {
+  query,
+}: PanelProps & { isZhCN: boolean } & { query: object }) => {
   let content = (
     <Card
       hoverable
@@ -86,7 +87,7 @@ const MiniPanel = ({
       </a>
     );
   } else if (link) {
-    content = <Link to={getLocalizedPathname(link, isZhCN)}>{content}</Link>;
+    content = <Link to={getLocalizedPathname(link, isZhCN, query)}>{content}</Link>;
   }
 
   return (
@@ -96,7 +97,8 @@ const MiniPanel = ({
   );
 };
 
-export default function DesignPage() {
+const DesignPage = (props: { location: any }) => {
+  const { location } = props;
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
   const { direction } = React.useContext(SiteContext);
@@ -123,7 +125,7 @@ export default function DesignPage() {
 
                 <Link
                   className="design-card-detail"
-                  to={getLocalizedPathname('/docs/spec/values', isZhCN)}
+                  to={getLocalizedPathname('/docs/spec/values', isZhCN, location.query)}
                 >
                   <FormattedMessage id="app.home.detail" />
                   {IconComponent}
@@ -195,13 +197,13 @@ export default function DesignPage() {
 
                 <ul>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN, location.query)}>
                       <FormattedMessage id="app.home.global-style" />
                       {IconComponent}
                     </Link>
                   </li>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN, location.query)}>
                       <FormattedMessage id="app.home.design-patterns" />
                       {IconComponent}
                     </Link>
@@ -242,7 +244,9 @@ export default function DesignPage() {
 
                 <ul>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <Link
+                      to={getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}
+                    >
                       Ant Design of React
                       {IconComponent}
                     </Link>
@@ -284,9 +288,11 @@ export default function DesignPage() {
         className="design-mini-panels"
       >
         {MINI_LIST.map(panel => (
-          <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} />
+          <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} query={location.query} />
         ))}
       </Row>
     </div>
   );
-}
+};
+
+export default DesignPage;

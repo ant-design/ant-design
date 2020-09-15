@@ -980,7 +980,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1332,7 +1332,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <div
-  class="ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
+  class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
 >
   <div
     role="tree"
@@ -2262,7 +2262,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
 exports[`renders ./components/tree/demo/search.md correctly 1`] = `
 <div>
   <span
-    class="ant-input-search ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-search"
     style="margin-bottom:8px"
   >
     <input

@@ -214,9 +214,13 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const { prefixCls: customizePrefixCls, className, ...otherProps } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
-  const connectClassName = classNames(`${prefixCls}-directory`, className, {
-    [`${prefixCls}-directory-rtl`]: direction === 'rtl',
-  });
+  const connectClassName = classNames(
+    `${prefixCls}-directory`,
+    {
+      [`${prefixCls}-directory-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   return (
     <Tree

@@ -61,6 +61,7 @@ Array [
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -129,6 +130,7 @@ Array [
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -538,6 +540,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -598,6 +601,7 @@ Array [
           readonly=""
           role="combobox"
           style="opacity:0"
+          type="search"
           unselectable="on"
           value=""
         />
@@ -878,6 +882,7 @@ Array [
           autocomplete="off"
           class="ant-select-selection-search-input"
           role="combobox"
+          type="search"
           value=""
         />
       </span>
@@ -976,7 +981,7 @@ Array [
     >
       <span
         aria-label="close-circle"
-        class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
         role="button"
         tabindex="-1"
       >
@@ -1008,7 +1013,7 @@ Array [
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -1101,7 +1106,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon ant-input-textarea-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -1135,7 +1140,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     >
       <span
         aria-label="close-circle"
-        class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
         role="button"
         tabindex="-1"
       >
@@ -1272,6 +1277,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1329,7 +1335,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value="0571"
     />
     <span
-      class="ant-input-search ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-search"
       style="width:30%"
     >
       <input
@@ -1388,6 +1394,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1682,6 +1689,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1741,6 +1749,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1805,6 +1814,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1892,6 +1902,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -1950,6 +1961,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             autocomplete="off"
             class="ant-select-selection-search-input"
             role="combobox"
+            type="search"
             value=""
           />
         </span>
@@ -1986,6 +1998,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -2076,7 +2089,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-password ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-password"
     >
       <input
         action="click"
@@ -2119,7 +2132,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
     class="ant-space-item"
   >
     <span
-      class="ant-input-password ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-password"
     >
       <input
         action="click"
@@ -2274,7 +2287,7 @@ Array [
 exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
 Array [
   <span
-    class="ant-input-search ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-search"
     style="width:200px"
   >
     <input
@@ -2312,7 +2325,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-enter-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2327,7 +2340,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-input-search-button ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-input-search-button"
           type="button"
         >
           <span
@@ -2357,7 +2370,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-enter-button ant-input-search-large"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2372,7 +2385,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
           type="button"
         >
           <span>
@@ -2385,13 +2398,13 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-enter-button ant-input-search-large"
   >
     <span
       class="ant-input-wrapper ant-input-group"
     >
       <span
-        class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+        class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-search ant-input-search-enter-button ant-input-search-large"
       >
         <input
           class="ant-input ant-input-lg"
@@ -2429,7 +2442,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
           type="button"
         >
           <span>
@@ -2445,7 +2458,7 @@ Array [
 exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] = `
 Array [
   <span
-    class="ant-input-search ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-search"
   >
     <input
       class="ant-input"
@@ -2481,7 +2494,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-enter-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -2496,7 +2509,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-input-search-button ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-input-search-button"
           type="button"
         >
           <span

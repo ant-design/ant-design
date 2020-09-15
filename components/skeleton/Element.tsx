@@ -35,7 +35,7 @@ const Element = (props: SkeletonElementProps) => {
 
   return (
     <span
-      className={classNames(prefixCls, className, sizeCls, shapeCls)}
+      className={classNames(prefixCls, sizeCls, shapeCls, className)}
       style={{ ...sizeStyle, ...style }}
     />
   );

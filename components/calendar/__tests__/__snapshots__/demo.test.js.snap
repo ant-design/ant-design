@@ -27,6 +27,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -86,6 +87,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -953,7 +955,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -972,6 +974,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1012,7 +1015,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-sm ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1031,6 +1034,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -1960,7 +1964,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
           style="padding-left:4px;padding-right:4px"
         >
           <div
-            class="ant-select my-year-select ant-select-sm ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm my-year-select ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -1979,6 +1983,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -2043,6 +2048,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -2886,6 +2892,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -2945,6 +2952,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             readonly=""
             role="combobox"
             style="opacity:0"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -4240,6 +4248,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />
@@ -4299,6 +4308,7 @@ Array [
               readonly=""
               role="combobox"
               style="opacity:0"
+              type="search"
               unselectable="on"
               value=""
             />

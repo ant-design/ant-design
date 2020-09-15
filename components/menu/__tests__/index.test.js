@@ -24,6 +24,26 @@ describe('Menu', () => {
     </Menu>
   ));
 
+  mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <>
+        <Menu.ItemGroup />
+        <Menu.SubMenu />
+        {null}
+      </>
+      <>
+        <Menu.Item />
+      </>
+      {undefined}
+      <>
+        <>
+          <Menu.Item />
+        </>
+      </>
+    </Menu>
+  ));
+
   rtlTest(() => (
     <Menu>
       <Menu.Item />

@@ -69,9 +69,12 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return (
       <CloseCircleFilled
         onClick={handleReset}
-        className={classNames(className, {
-          [`${className}-hidden`]: !needClear,
-        })}
+        className={classNames(
+          {
+            [`${className}-hidden`]: !needClear,
+          },
+          className,
+        )}
         role="button"
       />
     );
@@ -114,16 +117,20 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(className, `${prefixCls}-affix-wrapper`, {
-      [`${prefixCls}-affix-wrapper-focused`]: focused,
-      [`${prefixCls}-affix-wrapper-disabled`]: disabled,
-      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
-      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-      [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-      [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-    });
+    const affixWrapperCls = classNames(
+      `${prefixCls}-affix-wrapper`,
+      {
+        [`${prefixCls}-affix-wrapper-focused`]: focused,
+        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
+        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
+        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+      },
+      className,
+    );
     return (
       <span
         ref={this.containerRef}
@@ -161,11 +168,15 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
-    const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
-      [`${prefixCls}-group-wrapper-sm`]: size === 'small',
-      [`${prefixCls}-group-wrapper-lg`]: size === 'large',
-      [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-    });
+    const mergedGroupClassName = classNames(
+      `${prefixCls}-group-wrapper`,
+      {
+        [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
@@ -188,13 +199,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       });
     }
     const affixWrapperCls = classNames(
-      className,
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
       },
+      className,
     );
     return (
       <span className={affixWrapperCls} style={style}>

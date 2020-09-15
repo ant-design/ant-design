@@ -141,12 +141,16 @@ const Skeleton = (props: SkeletonProps) => {
         );
       }
 
-      const cls = classNames(prefixCls, className, {
-        [`${prefixCls}-with-avatar`]: hasAvatar,
-        [`${prefixCls}-active`]: active,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-round`]: round,
-      });
+      const cls = classNames(
+        prefixCls,
+        {
+          [`${prefixCls}-with-avatar`]: hasAvatar,
+          [`${prefixCls}-active`]: active,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-round`]: round,
+        },
+        className,
+      );
 
       return (
         <div className={cls}>

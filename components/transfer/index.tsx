@@ -371,11 +371,15 @@ class Transfer extends React.Component<TransferProps, TransferState> {
         const leftActive = targetSelectedKeys.length > 0;
         const rightActive = sourceSelectedKeys.length > 0;
 
-        const cls = classNames(className, prefixCls, {
-          [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-customize-list`]: !!children,
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        });
+        const cls = classNames(
+          prefixCls,
+          {
+            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-customize-list`]: !!children,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+        );
 
         const titles = this.getTitles(locale);
         const selectAllLabels = this.props.selectAllLabels || [];

@@ -5,6 +5,7 @@ import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
+  ShowUploadListInterface,
   UploadProps,
   UploadFile,
   UploadLocale,
@@ -17,8 +18,8 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import useSyncState from '../_util/hooks/useSyncState';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
+import useFreshState from './useFreshState';
 
 export { UploadProps };
 
@@ -44,15 +45,18 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     style,
   } = props;
 
-  const [getFileList, setFileList] = useSyncState<Array<UploadFile>>(
-    fileListProp || defaultFileList || [],
-  );
   const [dragState, setDragState] = React.useState<string>('drop');
+  const forceUpdate = useForceUpdate();
+
+  // Refresh always use fresh data
+  const [getFileList, setFileList] = useFreshState<UploadFile<any>[]>(
+    fileListProp || defaultFileList || [],
+    fileListProp,
+  );
 
   const upload = React.useRef<any>();
 
   React.useEffect(() => {
-    setFileList(fileListProp || defaultFileList || []);
     devWarning(
       'fileList' in props || !('value' in props),
       'Upload',
@@ -60,16 +64,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     );
   }, []);
 
-  React.useEffect(() => {
-    if ('fileList' in props) {
-      setFileList(fileListProp || []);
-    }
-  }, [fileListProp]);
-
   const onChange = (info: UploadChangeParam) => {
-    if (!('fileList' in props)) {
-      setFileList(info.fileList);
-    }
+    setFileList(info.fileList);
 
     const { onChange: onChangeProp } = props;
     if (onChangeProp) {
@@ -206,7 +202,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     return true;
   };
   // Test needs
-  const forceUpdate = useForceUpdate();
   React.useImperativeHandle(ref, () => ({
     onStart,
     onSuccess,
@@ -247,11 +242,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
           const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
-            typeof showUploadList === 'boolean' ? ({} as any) : showUploadList;
+            typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
               listType={listType}
-              items={getFileList()}
+              items={getFileList(true)}
               previewFile={previewFile}
               onPreview={onPreview}
               onDownload={onDownload}
@@ -270,7 +265,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           );
         }}
       </LocaleReceiver>
-    ) : button;
+    ) : (
+      button
+    );
 
   if (type === 'drag') {
     const dragCls = classNames(
@@ -317,7 +314,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   if (listType === 'picture-card') {
     return (
-      <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
+      <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
         {renderUploadList(uploadButton)}
       </span>
     );

@@ -23,6 +23,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -34,7 +35,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity: 0; min-width: 0; width: 0px;"
+      style="opacity: 0; pointer-events: none; min-width: 0; width: 0px;"
     >
       <div>
         <div>
@@ -187,6 +188,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
         readonly=""
         role="combobox"
         style="opacity: 0;"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -232,6 +234,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />

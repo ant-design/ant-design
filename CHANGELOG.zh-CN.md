@@ -15,6 +15,65 @@ timeline: true
 
 ---
 
+## 4.6.4
+
+`2020-09-13`
+
+- 💄 修复 Card 封面图片上有 1px 白边的问题。[#26659](https://github.com/ant-design/ant-design/pull/26659)
+- 💄 修复 Select 的 `placeholder` 颜色与 Input 不一致的问题。[#26651](https://github.com/ant-design/ant-design/pull/26651) [@wangcch](https://github.com/wangcch)
+- 🐞 修复 Menu 不支持 React.Fragment 的问题。[#26656](https://github.com/ant-design/ant-design/pull/26656)
+- 🐞 修复 TextArea 设置 `value` 为 `undefined` 时和 Input 行为不一致的问题。[#26652](https://github.com/ant-design/ant-design/pull/26652)
+- 🐞 修复 Motion 相关问题例如 Upload 对齐闪烁与 Form.Item 配置 `help` 的 ssr 问题。[#26628](https://github.com/ant-design/ant-design/pull/26628)
+- 🐞 修复 Typography.Link 和 react-router 一起使用时抛出 `Invalid value for prop navigate` 的问题。[#26623](https://github.com/ant-design/ant-design/pull/26623)
+- 🐞 修复 Table 分页器在表格上方消失的问题。[#26618](https://github.com/ant-design/ant-design/pull/26618)
+- 🐞 修复 Upload 受控时同时上传多份文件会丢失部分文件的问题。[#26612](https://github.com/ant-design/ant-design/pull/26612)
+- TypeScript
+  - 🤖 修复 Table sorter 的 `compare` 和 `multiple` 不是可选的问题。[#26686](https://github.com/ant-design/ant-design/pull/26686)
+
+## 4.6.3
+
+`2020-09-06`
+
+- 🛎 移动 props 中的 `className` 到最后。[#26602](https://github.com/ant-design/ant-design/pull/26602)
+- Table
+  - 💄 修复 Table 嵌套表格样式会影响所有子层级表格的问题。[#26568](https://github.com/ant-design/ant-design/pull/26568) [@willc001](https://github.com/willc001)
+  - 🐞 修复 Table 上方元素 `float: right;` 后无法交互的问题。[#26599](https://github.com/ant-design/ant-design/pull/26599)
+- 🐞 修复 Modal 关闭时导致滚动条向上跳动的问题。[#26538](https://github.com/ant-design/ant-design/pull/26538)
+- 🐞 修复 Upload 组件中 `customRequest` 的 `onError` 的类型定义。[#26601](https://github.com/ant-design/ant-design/pull/26601) [@yingpengsha](https://github.com/yingpengsha)
+- 🐞 修复 Select/TreeSelect 在 Chrome 下出现原生自动完成列表的问题。[#26590](https://github.com/ant-design/ant-design/pull/26590)
+- 🐞 修复 Cascader 搜索时 value 被覆盖的情况。[#26569](https://github.com/ant-design/ant-design/pull/26569) [@lich-yoo](https://github.com/lich-yoo)
+- 🐞 修复 Modal 在某些情况下溢出视窗的问题。[#25765](https://github.com/ant-design/ant-design/pull/25765) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
+- 🐞 修复 Radio.Group 在 legacy Form 中，不能正常工作的问题。[#26555](https://github.com/ant-design/ant-design/pull/26555) [@willc001](https://github.com/willc001)
+- 🐞 修复 Pagination 切换按钮在 windows 下的对齐问题。[#26549](https://github.com/ant-design/ant-design/pull/26549)
+- 🐞 修复 Form 使用 `help` 时出现的同构问题。[#26542](https://github.com/ant-design/ant-design/pull/26542)
+- 🐞 修复 Avatar 在 `display: none` 时不会正确缩放 fallback 文字的问题。[#26522](https://github.com/ant-design/ant-design/pull/26522) [@zhangyu1818](https://github.com/zhangyu1818)
+- TypeScript
+  - 🤖 Col 增加 `ColSize` 增加 `flex` 的定义。 [#26578](https://github.com/ant-design/ant-design/pull/26578) [@blaiz](https://github.com/blaiz)
+  - 🤖 修复 Tooltip/Popover `children` 定义不接受 ReactNode 的问题。[#26534](https://github.com/ant-design/ant-design/pull/26534)
+
+## 4.6.2
+
+`2020-08-31`
+
+- Upload
+  - 🐞 修复 Upload 在受控模式下同步更新导致的状态错误问题。[#26481](https://github.com/ant-design/ant-design/pull/26481)
+  - 💄 修复 Upload 图片样式在 Form.Item 中有异常 margin 的问题。[#26367](https://github.com/ant-design/ant-design/pull/26367)
+- 💄 修复 Select focus 状态样式无阴影。[#26465](https://github.com/ant-design/ant-design/pull/26465) [@Rainy](https://github.com/Rainy)
+- Table
+  - 🐞 修复 Table Pagination 展示于上侧且没有数据时不消失的问题。[#26143](https://github.com/ant-design/ant-design/pull/26143) [@zhangchen915](https://github.com/zhangchen915)
+  - 💄 修复 Table 展开图标在 `@font-size-base` 为 `12px` 时样式错位的问题。[#26409](https://github.com/ant-design/ant-design/pull/26409)
+- Space
+  - 🐞 修复 Space 不支持 React.Fragment 的问题。[#26444](https://github.com/ant-design/ant-design/pull/26444)
+  - 🐞 修复 Space 在 `children` 中包含空节点时会出现空 dom 的问题。[#26389](https://github.com/ant-design/ant-design/pull/26389)
+- 🐞 修复 Badge 在 `status` 或 `color` 为空时不展示。[#26375](https://github.com/ant-design/ant-design/pull/26375) [@zhangchen915](https://github.com/zhangchen915)
+- 💄 修复 Tree `draggable` 切换时样式 transition 变化的问题。[#26387](https://github.com/ant-design/ant-design/pull/26387)
+- 🐞 修复使用主题有时会报 `colorPalette is not defined` 的问题。[#26395](https://github.com/ant-design/ant-design/pull/26395)
+- TypeScript
+  - 🐞 修复 TimePicker.RangePicker 定义需要 `picker` 的问题。[#26446](https://github.com/ant-design/ant-design/pull/26446)
+  - 🐞 Upload 组件 `showUploadList` 类型添加 `removeIcon` 和 `downloadIcon` 属性声明。[#26406](https://github.com/ant-design/ant-design/pull/26406) [@bencallaway](https://github.com/bencallaway)
+- RTL
+  - 🐞 修复 Col RTL 样式。[#26479](https://github.com/ant-design/ant-design/pull/26479) [#26482](https://github.com/ant-design/ant-design/pull/26482) [@TrueMoein](https://github.com/TrueMoein)
+
 ## 4.6.1
 
 `2020-08-24`
@@ -29,6 +88,7 @@ timeline: true
 - 💄 加深默认文本 `@text-color` 以满足 WCAG 2.0 对比度的规范。[#25630](https://github.com/ant-design/ant-design/pull/25630)
 - 🔥 新增图片组件 Image。[#26296](https://github.com/ant-design/ant-design/pull/26296)
 - 🔥 Table 新增 `sticky` 属性以支持固定表头和滚动条。[#25939](https://github.com/ant-design/ant-design/pull/25939)
+- 🛠 用 hooks 重构 Upload。[#26196](https://github.com/ant-design/ant-design/pull/26196)
 - Form
   - 🆕 Form 添加 `requiredMark` 属性以支持设置必选样式，废弃原 `hideRequiredMark`。[#26309](https://github.com/ant-design/ant-design/pull/26309)
   - 🆕 Form.List 中的 `add` 方法支持第二个 `index` 参数。[#26081](https://github.com/ant-design/ant-design/pull/26081)

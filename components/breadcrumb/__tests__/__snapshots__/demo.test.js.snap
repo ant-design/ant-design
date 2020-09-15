@@ -97,7 +97,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
   </span>
   <span>
     <span
-      class="ant-breadcrumb-overlay-link ant-dropdown-trigger"
+      class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
     >
       <span
         class="ant-breadcrumb-link"

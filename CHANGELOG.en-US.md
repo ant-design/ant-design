@@ -15,6 +15,65 @@ timeline: true
 
 ---
 
+## 4.6.4
+
+`2020-09-13`
+
+- 💄 style: Card card image has extra 1px border. [#26659](https://github.com/ant-design/ant-design/pull/26659)
+- 💄 Fix Select `placeholder` color not same as Input. [#26651](https://github.com/ant-design/ant-design/pull/26651) [@wangcch](https://github.com/wangcch)
+- 🐞 Fix Menu not support React.Fragment inside. [#26656](https://github.com/ant-design/ant-design/pull/26656)
+- 🐞 Fix TextArea different behavior with Input when set `value` to `undefined`. [#26652](https://github.com/ant-design/ant-design/pull/26652)
+- 🐞 Fix Motion related issue like Upload align flash and Form.Item with `help` ssr issue. [#26628](https://github.com/ant-design/ant-design/pull/26628)
+- 🐞 Fix Typography.Link warning `Invalid value for prop navigate` when using with react-router. [#26623](https://github.com/ant-design/ant-design/pull/26623)
+- 🐞 Fix Table pagination missing when is above table. [#26618](https://github.com/ant-design/ant-design/pull/26618)
+- 🐞 Fix Upload in control miss file when upload multiple file in same time. [#26612](https://github.com/ant-design/ant-design/pull/26612)
+- TypeScript
+  - 🤖 Fix Table that sorter `compare` and `multiple` should be optional. [#26686](https://github.com/ant-design/ant-design/pull/26686)
+
+## 4.6.3
+
+`2020-09-06`
+
+- 🛎 Sort props `className` to the end. [#26602](https://github.com/ant-design/ant-design/pull/26602)
+- Table
+  - 💄 Fix Table nested table styles affects all sub-level tables. [#26568](https://github.com/ant-design/ant-design/pull/26568) [@willc001](https://github.com/willc001)
+  - 🐞 Fix elements above Table was not clickable elements which has `float: right;` style. [#26599](https://github.com/ant-design/ant-design/pull/26599)
+- 🐞 Fix Modal closing cause scroll position jump up. [#26538](https://github.com/ant-design/ant-design/pull/26538)
+- 🐞 Fix the type declaration of onError in `customRequest` options of Upload. [#26601](https://github.com/ant-design/ant-design/pull/26601) [@yingpengsha](https://github.com/yingpengsha)
+- 🐞 Shutdown Select/TreeSelect autocomplete list in Chrome. [#26590](https://github.com/ant-design/ant-design/pull/26590)
+- 🐞 Fix Cascader value overwritten when filtering. [#26569](https://github.com/ant-design/ant-design/pull/26569) [@lich-yoo](https://github.com/lich-yoo)
+- 🐞 Fix Modal jump out of screen in some situations. [#25765](https://github.com/ant-design/ant-design/pull/25765) [@tanmoyopenroot](https://github.com/tanmoyopenroot)
+- 🐞 Fix Radio.Group not working properly, when is used in legacy Form. [#26555](https://github.com/ant-design/ant-design/pull/26555) [@willc001](https://github.com/willc001)
+- 🐞 Fix Pagination align issue in windows. [#26549](https://github.com/ant-design/ant-design/pull/26549)
+- 🐞 Fix Form with `help` make ssr un-sync issue. [#26542](https://github.com/ant-design/ant-design/pull/26542)
+- 🐞 Fix Avatar doesn't scale fallback text well when display is none. [#26522](https://github.com/ant-design/ant-design/pull/26522) [@zhangyu1818](https://github.com/zhangyu1818)
+- TypeScript
+  - 🤖 Col Add `flex` type to `ColSize` interface. [#26578](https://github.com/ant-design/ant-design/pull/26578) [@blaiz](https://github.com/blaiz)
+  - 🤖 Fix Tooltip/Popover `children` tsd to accept ReactNode. [#26534](https://github.com/ant-design/ant-design/pull/26534)
+
+## 4.6.2
+
+`2020-08-31`
+
+- Upload
+  - 🐞 Fix Upload list status issue when in control mode. [#26481](https://github.com/ant-design/ant-design/pull/26481)
+  - 💄 Fix Upload `picture-card` style unexpected margin in Form.Item. [#26367](https://github.com/ant-design/ant-design/pull/26367)
+- 💄 Fix Select focus shadow style. [#26465](https://github.com/ant-design/ant-design/pull/26465) [@Rainy](https://github.com/Rainy)
+- Table
+  - 🐞 Fix Table Pagination not hide with empty data when show on top position. [#26143](https://github.com/ant-design/ant-design/pull/26143) [@zhangchen915](https://github.com/zhangchen915)
+  - 💄 Fix Table expand icon size issue when `@font-size-base` is `12px`. [#26409](https://github.com/ant-design/ant-design/pull/26409)
+- Space
+  - 🐞 Fix Space not support React.Fragment issue. [#26444](https://github.com/ant-design/ant-design/pull/26444)
+  - 🐞 Fix Space preserve empty dom node when `children` contains empty node. [#26389](https://github.com/ant-design/ant-design/pull/26389)
+- 🐞 Fix Badge not work when `status` or `color` is empty. [#26375](https://github.com/ant-design/ant-design/pull/26375) [@zhangchen915](https://github.com/zhangchen915)
+- 💄 Fix Tree draggable transition style. [#26387](https://github.com/ant-design/ant-design/pull/26387)
+- 🐞 Fix `colorPalette is not defined` when customize theme in some situation. [#26395](https://github.com/ant-design/ant-design/pull/26395)
+- TypeScript
+  - 🐞 Fix TimePicker.RangePicker typescript need `picker` issue. [#26446](https://github.com/ant-design/ant-design/pull/26446)
+  - 🐞 Upload extended `showUploadList` of Upload with `removeIcon` and `downloadIcon` properties. [#26406](https://github.com/ant-design/ant-design/pull/26406) [@bencallaway](https://github.com/bencallaway)
+- RTL
+  - 🐞 Fix the rtl style of Col. [#26479](https://github.com/ant-design/ant-design/pull/26479) [#26482](https://github.com/ant-design/ant-design/pull/26482) [@TrueMoein](https://github.com/TrueMoein)
+
 ## 4.6.1
 
 `2020-08-24`
@@ -29,6 +88,7 @@ timeline: true
 - 💄 Darker `@text-color` for WCAG 2.0 on contrast ratio. [#25630](https://github.com/ant-design/ant-design/pull/25630)
 - 🔥 New Image component. [#26296](https://github.com/ant-design/ant-design/pull/26296)
 - 🔥 Table support `sticky` prop to sticky header and scroll bar. [#25939](https://github.com/ant-design/ant-design/pull/25939)
+- 🛠 Refactor Upload via hooks. [#26196](https://github.com/ant-design/ant-design/pull/26196)
 - Form
   - 🆕 Form support style of required mark with `requiredMark` and deprecate `hideRequiredMark` prop. [#26309](https://github.com/ant-design/ant-design/pull/26309)
   - 🆕 Form.List support the second `index` param in `add`. [#26081](https://github.com/ant-design/ant-design/pull/26081)

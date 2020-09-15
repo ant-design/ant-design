@@ -97,18 +97,22 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
     className="ant-avatar ant-avatar-circle"
     style={Object {}}
   >
-    <span
-      className="ant-avatar-string"
-      style={
-        Object {
-          "WebkitTransform": "scale(0.72) translateX(-50%)",
-          "msTransform": "scale(0.72) translateX(-50%)",
-          "transform": "scale(0.72) translateX(-50%)",
-        }
-      }
+    <ResizeObserver
+      onResize={[Function]}
     >
-      Fallback
-    </span>
+      <span
+        className="ant-avatar-string"
+        style={
+          Object {
+            "WebkitTransform": "scale(1) translateX(-50%)",
+            "msTransform": "scale(1) translateX(-50%)",
+            "transform": "scale(1) translateX(-50%)",
+          }
+        }
+      >
+        Fallback
+      </span>
+    </ResizeObserver>
   </span>
 </Avatar>
 `;

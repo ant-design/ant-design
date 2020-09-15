@@ -1582,7 +1582,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       style="padding:24px 0"
     >
       <aside
-        class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark site-layout-background"
         style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
@@ -1881,7 +1881,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     class="ant-layout"
   >
     <aside
-      class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark site-layout-background"
       style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div

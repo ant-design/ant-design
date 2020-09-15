@@ -51,7 +51,7 @@ exports[`Input allowClear should change type when click 2`] = `
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -88,7 +88,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -125,7 +125,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -162,7 +162,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -199,7 +199,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -236,7 +236,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -273,7 +273,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-clear-icon ant-input-clear-icon-hidden"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -357,7 +357,7 @@ exports[`Input should support size in form 1`] = `
 
 exports[`Input.Search should support suffix 1`] = `
 <span
-  class="ant-input-search ant-input-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-search"
 >
   <input
     class="ant-input"

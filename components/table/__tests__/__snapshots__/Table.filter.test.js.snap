@@ -36,6 +36,7 @@ exports[`Table.filter renders custom content correctly 1`] = `
 <div>
   <div
     class="ant-dropdown ant-dropdown-hidden"
+    style="pointer-events: none;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -44,6 +45,114 @@ exports[`Table.filter renders custom content correctly 1`] = `
         class="custom-filter-dropdown"
       >
         custom filter
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-filter-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-filter-trigger-container"
+                      >
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            class="customize-icon"
+                          />
+                        </span>
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -92,7 +201,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -214,7 +323,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -226,7 +335,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                           <div>
                             <div
                               class="ant-tooltip"
-                              style="opacity: 0;"
+                              style="opacity: 0; pointer-events: none;"
                             >
                               <div
                                 class="ant-tooltip-content"
@@ -348,7 +457,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -435,6 +544,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 <div>
   <div
     class="ant-dropdown ant-dropdown-hidden"
+    style="pointer-events: none;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -539,6 +649,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
 <div>
   <div
     class="ant-dropdown ant-dropdown-hidden"
+    style="pointer-events: none;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -681,7 +792,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -709,7 +820,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity: 0;"
+                            style="opacity: 0; pointer-events: none;"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -914,7 +1025,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -942,7 +1053,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity: 0;"
+                            style="opacity: 0; pointer-events: none;"
                           >
                             <div
                               class="ant-table-filter-dropdown"

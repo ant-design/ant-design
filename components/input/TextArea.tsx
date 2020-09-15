@@ -13,6 +13,8 @@ export interface TextAreaProps extends RcTextAreaProps {
 
 export interface TextAreaState {
   value: any;
+  /** `value` from prev props */
+  prevValue: any;
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
@@ -25,16 +27,17 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
+      // eslint-disable-next-line react/no-unused-state
+      prevValue: props.value,
     };
   }
 
-  static getDerivedStateFromProps(nextProps: TextAreaProps) {
-    if (nextProps.value !== undefined) {
-      return {
-        value: nextProps.value,
-      };
+  static getDerivedStateFromProps(nextProps: TextAreaProps, { prevValue }: TextAreaState) {
+    const newState: Partial<TextAreaState> = { prevValue: nextProps.value };
+    if (nextProps.value !== undefined || prevValue !== nextProps.value) {
+      newState.value = nextProps.value;
     }
-    return null;
+    return newState;
   }
 
   setValue(value: string, callback?: () => void) {
@@ -75,9 +78,12 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     return (
       <RcTextArea
         {...omit(this.props, ['allowClear', 'bordered'])}
-        className={classNames(this.props.className, {
-          [`${prefixCls}-borderless`]: !bordered,
-        })}
+        className={classNames(
+          {
+            [`${prefixCls}-borderless`]: !bordered,
+          },
+          this.props.className,
+        )}
         prefixCls={prefixCls}
         onChange={this.handleChange}
         ref={this.saveTextArea}

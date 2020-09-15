@@ -286,9 +286,13 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       visible: activeLink,
     });
 
-    const wrapperClass = classNames(className, `${prefixCls}-wrapper`, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const wrapperClass = classNames(
+      `${prefixCls}-wrapper`,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     const anchorClass = classNames(prefixCls, {
       fixed: !affix && !showInkInFixed,

@@ -232,6 +232,7 @@ exports[`List.pagination should change page size work 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -382,6 +383,7 @@ exports[`List.pagination should change page size work 2`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
             unselectable="on"
             value=""
           />
@@ -396,7 +398,7 @@ exports[`List.pagination should change page size work 2`] = `
       <div>
         <div
           class="ant-select-dropdown"
-          style="min-width: 0; opacity: 0;"
+          style="pointer-events: none; min-width: 0; opacity: 0;"
         >
           <div>
             <div
@@ -437,6 +439,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                      title="10 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -453,6 +456,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
+                      title="20 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -469,6 +473,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                      title="50 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -485,6 +490,7 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
+                      title="100 / page"
                     >
                       <div
                         class="ant-select-item-option-content"
@@ -669,6 +675,7 @@ exports[`List.pagination should default work 1`] = `
             readonly=""
             role="combobox"
             style="opacity: 0;"
+            type="search"
             unselectable="on"
             value=""
           />

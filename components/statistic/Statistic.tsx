@@ -41,9 +41,13 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     onMouseLeave,
   } = props;
   const valueNode = <StatisticNumber {...props} value={value} />;
-  const cls = classNames(prefixCls, className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
   return (
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}

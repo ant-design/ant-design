@@ -112,7 +112,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1086,7 +1086,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1129,7 +1129,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -1172,7 +1172,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -2773,7 +2773,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -4655,6 +4655,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -6979,6 +6980,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -8225,6 +8227,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -8316,7 +8319,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -9017,7 +9020,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+        class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -9195,7 +9198,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -9214,6 +9217,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -9340,7 +9344,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -9504,7 +9508,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         class="ant-table-filter-trigger-container"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -11928,7 +11932,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -12092,7 +12096,7 @@ Array [
                           class="ant-table-filter-trigger-container"
                         >
                           <span
-                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            class="ant-dropdown-trigger ant-table-filter-trigger"
                             role="button"
                             tabindex="-1"
                           >
@@ -12352,7 +12356,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell react-resizable"
-                    handle="[object Object]"
                   >
                     Date
                     <span
@@ -12361,7 +12364,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
-                    handle="[object Object]"
                   >
                     <div
                       class="ant-table-column-sorters-with-tooltip"
@@ -12428,7 +12430,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
-                    handle="[object Object]"
                   >
                     Type
                     <span
@@ -12437,7 +12438,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
-                    handle="[object Object]"
                   >
                     Note
                     <span
@@ -14935,7 +14935,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -15134,7 +15134,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -16246,6 +16246,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   readonly=""
                   role="combobox"
                   style="opacity:0"
+                  type="search"
                   unselectable="on"
                   value=""
                 />
@@ -16978,9 +16979,28 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+                <col
+                  style="width:200px;min-width:200px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >

@@ -134,7 +134,7 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: 'z' } });
     expect(wrapper.state('inputValue')).toBe('z');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
@@ -184,7 +184,7 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('change', { target: { value: '__notfoundkeyword__' } });
     expect(wrapper.state('inputValue')).toBe('__notfoundkeyword__');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   it('should support to clear selection', async () => {
@@ -318,7 +318,7 @@ describe('Cascader', () => {
     const wrapper = mount(<Cascader options={customerOptions} />);
     wrapper.find('input').simulate('click');
     const popupWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(popupWrapper).toMatchSnapshot();
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   describe('limit filtered item count', () => {
@@ -523,5 +523,23 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('keydown', { keyCode: KeyCode.ESC });
     wrapper.find('input').simulate('change', { target: { value: 'jin' } });
     expect(wrapper.state('popupVisible')).toBe(true);
+  });
+
+  it('onChange works correctly when the label of fieldNames is the same as value', () => {
+    const onChange = jest.fn();
+    const sameNames = { label: 'label', value: 'label', children: 'children' };
+    const wrapper = mount(
+      <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
+    );
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'est' } });
+    const popupWrapper = mount(wrapper.find('Cascader').find('Trigger').instance().getComponent());
+    popupWrapper
+      .find('.ant-cascader-menu')
+      .at(0)
+      .find('.ant-cascader-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 });
