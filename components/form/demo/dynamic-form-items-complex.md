@@ -53,7 +53,7 @@ const Demo = () => {
       <Form.List name="sights">
         {(fields, { add, remove }) => {
           return (
-            <div>
+            <>
               {fields.map(field => (
                 <Space key={field.key} align="start">
                   <Form.Item
@@ -105,7 +105,7 @@ const Demo = () => {
                   <PlusOutlined /> Add sights
                 </Button>
               </Form.Item>
-            </div>
+            </>
           );
         }}
       </Form.List>
