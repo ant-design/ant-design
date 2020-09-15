@@ -993,4 +993,20 @@ describe('Upload List', () => {
 
     jest.useRealTimers();
   });
+
+  it('itemRender', () => {
+    const itemRender = (originNode, file, currFileList) => {
+      const { name, status, uid, url } = file;
+      const index = currFileList.indexOf(file);
+      return (
+        <span className="custom-item-render">
+          {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
+            currFileList.length
+          }`}
+        </span>
+      );
+    };
+    const wrapper = mount(<UploadList locale={{}} items={fileList} itemRender={itemRender} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

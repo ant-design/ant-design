@@ -46,6 +46,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | -   |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
 | progress | 自定义进度条样式 | [ProgressProps](/components/progress/#API)（仅支持 `type="line"`） | { strokeWidth: 2, showInfo: false } | 4.3.0 |
+| itemRender | 自定义上传列表项 | (originNode: React.ReactElement, file: UploadFile, fileList?: object\[]) => React.ReactNode | - | 4.7.0 |
 
 ### onChange
 
