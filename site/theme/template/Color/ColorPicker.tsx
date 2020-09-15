@@ -52,9 +52,7 @@ export default class ColorPicker extends Component<ColorPickerProps> {
   };
 
   debounceHandleChange = debounce((color: string) => {
-    const { onChangeComplete } = this.props;
-    console.log(color);
-    onChangeComplete(color);
+    this.props.onChangeComplete(color);
   }, 200);
 
   render() {
@@ -89,6 +87,8 @@ export default class ColorPicker extends Component<ColorPickerProps> {
       wrapper: {
         position: 'inherit',
         zIndex: 100,
+        borderRadius: '10px',
+        boxShadow: '0 4px 12px rgba(0,0,0,.1)',
       } as React.CSSProperties,
     };
 
