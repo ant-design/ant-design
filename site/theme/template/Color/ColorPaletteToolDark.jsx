@@ -67,11 +67,7 @@ export default class ColorPaletteTool extends Component {
               <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                 <Row>
                   <Col span={18}>
-                    <ColorPicker
-                      type="chrome"
-                      color={primaryColor}
-                      onChange={this.handleChangeColor}
-                    />
+                    <ColorPicker color={primaryColor} onChange={this.handleChangeColor} />
                   </Col>
                   <Col span={6}>
                     <span className="color-palette-pick-hex">{primaryColor}</span>

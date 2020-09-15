@@ -452,20 +452,7 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
 
   renderThemeChanger() {
     const { color } = this.state;
-    const colors = Object.keys(presetPalettes).filter(item => item !== 'grey');
-    return (
-      <ColorPicker
-        small
-        color={color}
-        position="top"
-        presetColors={[
-          ...colors.map(c => presetPalettes[c][5]),
-          ...colors.map(c => presetPalettes[c][4]),
-          ...colors.map(c => presetPalettes[c][6]),
-        ]}
-        onChangeComplete={this.handleColorChange}
-      />
-    );
+    return <ColorPicker position="top" color={color} onChangeComplete={this.handleColorChange} />;
   }
 
   render() {

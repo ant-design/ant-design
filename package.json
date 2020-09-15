@@ -245,6 +245,7 @@
     "rc-virtual-list": "^3.0.3",
     "react": "^16.9.0",
     "react-color": "^2.17.3",
+    "react-colorful": "^4.0.4",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dnd": "^11.1.1",
     "react-dnd-html5-backend": "^11.1.1",

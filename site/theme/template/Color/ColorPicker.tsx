@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { SketchPicker } from 'react-color';
+import debounce from 'lodash/debounce';
+import { HexColorPicker } from 'react-colorful';
+import 'react-colorful/dist/index.css';
 
 const noop = () => {};
 
 interface ColorPickerProps {
   color?: string;
-  small: boolean;
+  small?: boolean;
   position: string;
-  presetColors?: string[];
-  onChange: (hex: string, color: { hex: string }) => void;
   onChangeComplete: (hex: string) => void;
+  onChange: (hex: string) => void;
 }
 
 export default class ColorPicker extends Component<ColorPickerProps> {
@@ -42,20 +43,22 @@ export default class ColorPicker extends Component<ColorPickerProps> {
     this.setState({ displayColorPicker: false });
   };
 
-  handleChange = (color: { hex: string }) => {
+  handleChange = (color: string) => {
     const { onChange } = this.props;
-    this.setState({ color: color.hex });
-    onChange(color.hex, color);
+    this.setState({ color });
+    onChange(color);
+
+    this.debounceHandleChange(color);
   };
 
-  handleChangeComplete = (color: { hex: string }) => {
+  debounceHandleChange = debounce((color: string) => {
     const { onChangeComplete } = this.props;
-    this.setState({ color: color.hex });
-    onChangeComplete(color.hex);
-  };
+    console.log(color);
+    onChangeComplete(color);
+  }, 200);
 
   render() {
-    const { small, position, presetColors } = this.props;
+    const { small, position } = this.props;
     const { color, displayColorPicker } = this.state;
     const styles = {
       color: {
@@ -103,12 +106,7 @@ export default class ColorPicker extends Component<ColorPickerProps> {
       <div style={styles.popover}>
         <div style={styles.cover} onClick={this.handleClose} />
         <div style={styles.wrapper}>
-          <SketchPicker
-            presetColors={presetColors}
-            color={color}
-            onChange={this.handleChange}
-            onChangeComplete={this.handleChangeComplete}
-          />
+          <HexColorPicker color={color} onChange={this.handleChange} />
         </div>
       </div>
     ) : null;
