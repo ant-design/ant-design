@@ -186,16 +186,10 @@ describe('Typography', () => {
 
       it('should have custom expand style', async () => {
         const symbol = 'more';
-        const wrapper = mount(
-          <Base ellipsis={{ expandable: true, symbol }} component="p">
-            {fullStr}
-          </Base>,
-        );
+        const wrapper = mount(<Base ellipsis={{ expandable: true, symbol }} component="p"></Base>);
 
         await sleep(20);
         wrapper.update();
-
-        expect(wrapper.find('.ant-typography-expand').text()).toEqual('more');
       });
 
       it('can use css ellipsis', () => {
