@@ -9,6 +9,8 @@ import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 import AnchorContext from './context';
 
+export type AnchorContainer = HTMLElement | Window;
+
 function getDefaultContainer() {
   return window;
 }
@@ -37,8 +39,6 @@ type Section = {
   link: string;
   top: number;
 };
-
-export type AnchorContainer = HTMLElement | Window;
 
 export interface AnchorProps {
   prefixCls?: string;

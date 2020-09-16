@@ -121,6 +121,14 @@ module.exports = {
     'unicorn/prefer-trim-start-end': 2,
     'unicorn/expiring-todo-comments': 2,
     'unicorn/no-abusive-eslint-disable': 2,
+
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2540#issuecomment-692866111
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': 2,
+    'no-shadow': 0,
+    '@typescript-eslint/no-shadow': [2, { ignoreTypeValueShadow: true }],
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
+    'no-undef': 0,
   },
   globals: {
     gtag: true,

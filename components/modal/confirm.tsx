@@ -33,7 +33,7 @@ export interface ModalStaticFunctions {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
-  // eslint-disable-next-line no-use-before-define
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
@@ -47,7 +47,7 @@ export default function confirm(config: ModalFuncProps) {
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
-      // eslint-disable-next-line no-use-before-define
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       if (fn === close) {
         destroyFns.splice(i, 1);
         break;
