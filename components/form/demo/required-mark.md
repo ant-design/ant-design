@@ -3,6 +3,7 @@ order: 3.1
 title:
   zh-CN: 必选样式
   en-US: Required style
+only: true
 ---
 
 ## zh-CN
@@ -40,7 +41,7 @@ const FormLayoutDemo = () => {
           <Radio.Button value={false}>Hidden</Radio.Button>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label="Field A" required>
+      <Form.Item label="Field A" required tooltip="This is a required field">
         <Input placeholder="input placeholder" />
       </Form.Item>
       <Form.Item label="Field B">
