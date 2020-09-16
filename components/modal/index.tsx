@@ -16,9 +16,10 @@ function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));
 }
 
-type Modal = typeof OriginModal &
+type ModalType = typeof OriginModal &
   ModalStaticFunctions & { destroyAll: () => void; config: typeof globalConfig };
-const Modal = OriginModal as Modal;
+
+const Modal = OriginModal as ModalType;
 
 Modal.info = function infoFn(props: ModalFuncProps) {
   return confirm(withInfo(props));
