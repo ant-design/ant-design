@@ -136,7 +136,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   const RangePicker = generateRangePicker(generateConfig);
 
   // =========================== Export ===========================
-  type MergedDatePicker = typeof DatePicker & {
+  type MergedDatePickerType = typeof DatePicker & {
     WeekPicker: typeof WeekPicker;
     MonthPicker: typeof MonthPicker;
     YearPicker: typeof YearPicker;
@@ -145,7 +145,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     QuarterPicker: typeof QuarterPicker;
   };
 
-  const MergedDatePicker = DatePicker as MergedDatePicker;
+  const MergedDatePicker = DatePicker as MergedDatePickerType;
   MergedDatePicker.WeekPicker = WeekPicker;
   MergedDatePicker.MonthPicker = MonthPicker;
   MergedDatePicker.YearPicker = YearPicker;

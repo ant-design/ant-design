@@ -23,8 +23,6 @@ export interface RenderResultObject {
 
 export type RenderResult = React.ReactElement | RenderResultObject | string | null;
 
-type TransferRender = (item: TransferItem) => RenderResult;
-
 export interface TransferItem {
   key: string;
   title?: string;
@@ -33,6 +31,8 @@ export interface TransferItem {
   [name: string]: any;
 }
 
+type TransferRender = (item: TransferItem) => RenderResult;
+
 export interface ListStyle {
   direction: TransferDirection;
 }
@@ -40,6 +40,20 @@ export interface ListStyle {
 export type SelectAllLabel =
   | React.ReactNode
   | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
+
+export interface TransferLocale {
+  titles: string[];
+  notFoundContent?: React.ReactNode;
+  searchPlaceholder: string;
+  itemUnit: string;
+  itemsUnit: string;
+  remove: string;
+  selectAll: string;
+  selectCurrent: string;
+  selectInvert: string;
+  removeAll: string;
+  removeCurrent: string;
+}
 
 export interface TransferProps {
   prefixCls?: string;
@@ -68,20 +82,6 @@ export interface TransferProps {
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
-}
-
-export interface TransferLocale {
-  titles: string[];
-  notFoundContent?: React.ReactNode;
-  searchPlaceholder: string;
-  itemUnit: string;
-  itemsUnit: string;
-  remove: string;
-  selectAll: string;
-  selectCurrent: string;
-  selectInvert: string;
-  removeAll: string;
-  removeCurrent: string;
 }
 
 interface TransferState {
