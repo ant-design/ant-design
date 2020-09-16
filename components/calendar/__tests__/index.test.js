@@ -214,7 +214,7 @@ describe('Calendar', () => {
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('3'));
   });
 
-  it('if start.month > value.month, set value.month to start.month ', () => {
+  it('if start.month > value.month, set value.month to start.month', () => {
     const value = new Moment('1990-01-03');
     const start = new Moment('2019-11-01');
     const end = new Moment('2019-03-01');
@@ -223,7 +223,7 @@ describe('Calendar', () => {
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
-  it('if change year and new month > end month, set value.month to end.month ', () => {
+  it('if change year and new month > end month, set value.month to end.month', () => {
     const value = new Moment('2018-11-03');
     const start = new Moment('2000-01-01');
     const end = new Moment('2019-03-01');

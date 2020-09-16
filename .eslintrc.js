@@ -113,6 +113,9 @@ module.exports = {
 
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
+    'jest/no-done-callback': 0,
+    'jest/valid-title': 0,
+    'jest/no-conditional-expect': 0,
 
     'unicorn/better-regex': 2,
     'unicorn/prefer-trim-start-end': 2,

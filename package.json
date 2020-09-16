@@ -162,7 +162,7 @@
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.3",
     "@types/jest": "^26.0.0",
-    "@types/jest-image-snapshot": "^3.1.0",
+    "@types/jest-image-snapshot": "^4.1.0",
     "@types/lodash": "^4.14.139",
     "@types/puppeteer": "^3.0.0",
     "@types/raf": "^3.4.0",
