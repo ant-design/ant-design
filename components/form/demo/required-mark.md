@@ -3,7 +3,6 @@ order: 3.1
 title:
   zh-CN: 必选样式
   en-US: Required style
-only: true
 ---
 
 ## zh-CN
