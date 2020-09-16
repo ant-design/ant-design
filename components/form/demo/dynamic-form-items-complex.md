@@ -27,13 +27,6 @@ const sights = {
   Shanghai: ['Oriental Pearl', 'The Bund'],
 };
 
-const data = [];
-
-for (let i = 0; i < 10; i++) {
-  data.push({ name: `A${i}`, type: 'a' });
-  data.push({ name: `B${i}`, type: 'b' });
-}
-
 const Demo = () => {
   const [form] = Form.useForm();
 
