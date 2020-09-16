@@ -307,6 +307,12 @@
         width: 8%;
         font-size: max(@font-size-base - 1px, 12px);
       }
+      &:nth-last-child(3):first-child {
+        width: 38%;
+      }
+      &:nth-last-child(3):first-child ~ td:nth-last-child(2) {
+        width: 70%;
+      }
     }
   }
 

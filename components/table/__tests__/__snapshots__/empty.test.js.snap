@@ -250,7 +250,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
             style="overflow-x:auto;overflow-y:hidden"
           >
             <table
-              style="width:1px;min-width:100%;table-layout:fixed"
+              style="min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col

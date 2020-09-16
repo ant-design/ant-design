@@ -21,9 +21,8 @@ For displaying anchor hyperlinks on page and jumping between them.
 | affix | Fixed mode of Anchor | boolean | true |  |
 | bounds | Bounding distance of anchor area | number | 5 |  |
 | getContainer | Scrolling container | () => HTMLElement | () => window |  |
-| offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |  |
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |  |
-| showInkInFixed | Whether show ink-balls in Fixed mode | boolean | false |  |
+| showInkInFixed | Whether show ink-balls when `affix={false}` | boolean | false |  |
 | onClick | Set the handler to handle `click` event | function(e: Event, link: Object) | - |  |
 | getCurrentAnchor | Customize the anchor highlight | () => string | - |  |
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | - |  |

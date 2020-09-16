@@ -53,7 +53,9 @@ export interface ConfigProviderProps {
   dropdownMatchSelectWidth?: boolean;
 }
 
-const ConfigProvider: React.FC<ConfigProviderProps> = props => {
+const ConfigProvider: React.FC<ConfigProviderProps> & {
+  ConfigContext: typeof ConfigContext;
+} = props => {
   React.useEffect(() => {
     if (props.direction) {
       message.config({
@@ -166,4 +168,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> = props => {
   );
 };
 
+/** @private internal usage. do not use in your production */
+ConfigProvider.ConfigContext = ConfigContext;
 export default ConfigProvider;
