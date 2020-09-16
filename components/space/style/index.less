@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @space-prefix-cls: ~'@{ant-prefix}-space';
+@space-item-prefix-cls: ~'@{ant-prefix}-space-item';
 
 .@{space-prefix-cls} {
   display: inline-flex;
@@ -22,6 +23,12 @@
     &-baseline {
       align-items: baseline;
     }
+  }
+}
+
+.@{space-item-prefix-cls} {
+  &:empty {
+    display: none;
   }
 }
 

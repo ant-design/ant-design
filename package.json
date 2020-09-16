@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.6.3",
+  "version": "4.6.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -121,10 +121,10 @@
     "rc-cascader": "~1.3.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~2.0.0",
-    "rc-dialog": "~8.2.1",
+    "rc-dialog": "~8.3.0",
     "rc-drawer": "~4.1.0",
     "rc-dropdown": "~3.1.2",
-    "rc-field-form": "~1.10.0",
+    "rc-field-form": "~1.11.0",
     "rc-image": "~3.0.6",
     "rc-input-number": "~6.0.0",
     "rc-mentions": "~1.4.0",
@@ -249,6 +249,7 @@
     "react-dnd": "^11.1.1",
     "react-dnd-html5-backend": "^11.1.1",
     "react-dom": "^16.9.0",
+    "react-draggable": "^4.4.3",
     "react-github-button": "^0.1.11",
     "react-helmet-async": "^1.0.4",
     "react-highlight-words": "^0.16.0",
@@ -302,7 +303,7 @@
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "66 kB"
+      "maxSize": "67 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",

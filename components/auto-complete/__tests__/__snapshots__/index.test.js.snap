@@ -64,6 +64,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  title="ReactNode"
                 >
                   <div
                     class="ant-select-item-option-content"

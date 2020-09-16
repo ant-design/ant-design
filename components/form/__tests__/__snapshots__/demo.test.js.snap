@@ -1078,7 +1078,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1120,7 +1120,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1193,7 +1193,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1235,7 +1235,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1334,7 +1334,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1389,7 +1389,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1480,7 +1480,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -1531,7 +1531,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -6395,7 +6395,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -6522,7 +6522,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-validating"
       >
         <div
           role="alert"
@@ -6702,7 +6702,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -7090,7 +7090,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-validating"
       >
         <div
           role="alert"
@@ -7179,7 +7179,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-form-item-explain"
+                class="ant-form-item-explain ant-form-item-explain-error"
               >
                 <div
                   role="alert"

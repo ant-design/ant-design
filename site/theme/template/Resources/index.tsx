@@ -30,6 +30,7 @@ interface PagesData {
 interface ResourcesProps {
   location: {
     pathname: string;
+    query: object;
   };
   data: PagesData;
   localizedPageData: PageData;
@@ -116,7 +117,7 @@ function injectCards(content: ContentUnit[]): ContentUnit[] {
 }
 
 const Resources = (props: ResourcesProps) => {
-  const { localizedPageData } = props;
+  const { localizedPageData, location } = props;
   const { locale } = useIntl();
 
   const content = React.useMemo(() => injectCards(localizedPageData.content), [
@@ -137,7 +138,7 @@ const Resources = (props: ResourcesProps) => {
         titleRegionClassName="title-region"
       />
 
-      <Footer />
+      <Footer location={location} />
     </div>
   );
 };

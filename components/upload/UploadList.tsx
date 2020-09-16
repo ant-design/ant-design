@@ -210,7 +210,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
     const removeIcon = showRemoveIcon
       ? handleActionIconRender(
-          customRemoveIcon || <DeleteOutlined />,
+          (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || <DeleteOutlined />,
           () => handleClose(file),
           prefixCls,
           locale.removeFile,
@@ -220,7 +220,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     const downloadIcon =
       showDownloadIcon && file.status === 'done'
         ? handleActionIconRender(
-            customDownloadIcon || <DownloadOutlined />,
+            (typeof customDownloadIcon=== 'function' ? customDownloadIcon(file) : customDownloadIcon) || <DownloadOutlined />,
             () => handleDownload(file),
             prefixCls,
             locale.downloadFile,

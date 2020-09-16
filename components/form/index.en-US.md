@@ -85,6 +85,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | label | Label text | string \| ReactNode | - |  |
 | labelAlign | The text align of label | `left` \| `right` | `right` |  |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
+| messageVariables | default validate filed info | Record<string, string> | - | 4.7.0 |
 | name | Field name, support array | [NamePath](#NamePath) | - |  |
 | normalize | Normalize value from component value before passing to Form instance | (value, prevValue, prevValues) => any | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
@@ -145,14 +146,30 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 
 You can ref [example](#components-form-demo-control-hooks) to see detail.
 
+### messageVariables
+
+You can modify the default verification information of Form.Item through `messageVariables`.
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
+
 ## Form.List
 
 Provides array management for fields.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| name | Field name, support array | [NamePath](#NamePath) | - |
-| children | Render function | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| name | Field name, support array | [NamePath](#NamePath) | - |  |
+| children | Render function | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }[] | - | 4.7.0 |
 
 ```tsx
 <Form.List>
@@ -177,6 +194,14 @@ Some operator functions in render form of Form.List.
 | add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
 | remove | remove form item | (index: number \| number[]) => void | number[]: 4.5.0 |
 | move | move form item | (from: number, to: number) => void | - |
+
+## Form.ErrorList
+
+New in 4.7.0. Show error messages, should only work with `rules` of Form.List.
+
+| Property | Description | Type        | Default |
+| -------- | ----------- | ----------- | ------- |
+| errors   | Error list  | ReactNode[] | -       |
 
 ## Form.Provider
 
@@ -338,7 +363,7 @@ Before Modal opens, children elements do not exist in the view. You can set `for
 
 Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
 
-### Why can not call `ref` of From at first time?
+### Why can not call `ref` of Form at first time?
 
 `ref` only receives the mounted instance. please ref React official doc: https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs
 
@@ -362,6 +387,10 @@ Validating is also part of the value updating. It pass follow steps:
 3. Rule validated
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
+
+### Why Form.List do not support `label` and need ErrorList to show errors?
+
+Form.List use renderProps which mean internal structure is flexible. Thus `label` and `error` can not have best place. If you want to use antd `label`, you can wrap with Form.Item instead.
 
 <style>
   .site-form-item-icon {

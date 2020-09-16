@@ -5,6 +5,8 @@ import ResizeObserver from 'rc-resize-observer';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { composeRef } from '../_util/ref';
+import { Breakpoint, responsiveArray, ScreenSizeMap } from '../_util/responsiveObserve';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -13,7 +15,7 @@ export interface AvatarProps {
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
    * */
-  size?: 'large' | 'small' | 'default' | number;
+  size?: 'large' | 'small' | 'default' | number | ScreenSizeMap;
   gap?: number;
   /** Src of image avatar */
   src?: string;
@@ -93,6 +95,25 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     children,
     ...others
   } = props;
+
+  const screens = useBreakpoint();
+  const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {
+    if (typeof size !== 'object') {
+      return {};
+    }
+
+    const currentBreakpoint: Breakpoint = responsiveArray.find(screen => screens[screen])!;
+    const currentSize = size[currentBreakpoint];
+
+    return currentSize
+      ? {
+          width: currentSize,
+          height: currentSize,
+          lineHeight: `${currentSize}px`,
+          fontSize: icon ? currentSize / 2 : 18,
+        }
+      : {};
+  }, [screens, size]);
 
   devWarning(
     !(typeof icon === 'string' && icon.length > 2),
@@ -185,7 +206,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   return (
     <span
       {...others}
-      style={{ ...sizeStyle, ...others.style }}
+      style={{ ...sizeStyle, ...responsiveSizeStyle, ...others.style }}
       className={classString}
       ref={avatarNodeMergeRef as any}
     >

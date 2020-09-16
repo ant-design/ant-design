@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'bisheng/router';
+import { Link, browserHistory } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
@@ -230,6 +230,7 @@ class MainContent extends Component {
   generateMenuItem(isTop, item, { before = null, after = null }) {
     const {
       intl: { locale },
+      location,
     } = this.props;
     const key = fileNameToPath(item.filename);
     if (!item.title) {
@@ -246,11 +247,13 @@ class MainContent extends Component {
         ];
     const { disabled } = item;
     const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
+
     const child = !item.link ? (
       <Link
         to={utils.getLocalizedPathname(
           /^components/.test(url) ? `${url}/` : url,
           locale === 'zh-CN',
+          location.query,
         )}
         disabled={disabled}
       >
@@ -312,8 +315,19 @@ class MainContent extends Component {
 
   changeThemeMode = theme => {
     const { setTheme, theme: selectedTheme } = this.context;
+    const { pathname, hash, query } = this.props.location;
     if (selectedTheme !== theme) {
       setTheme(theme);
+      if (theme === 'default') {
+        delete query.theme;
+      } else {
+        query.theme = theme;
+      }
+      browserHistory.push({
+        pathname: `/${pathname}`,
+        query,
+        hash,
+      });
     }
   };
 
@@ -438,7 +452,7 @@ class MainContent extends Component {
               </div>
             )}
             <PrevAndNext prev={prev} next={next} />
-            <Footer />
+            <Footer location={location} />
           </Col>
         </Row>
       </div>
