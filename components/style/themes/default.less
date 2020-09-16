@@ -361,7 +361,7 @@
 @screen-xl-max: (@screen-xxl-min - 1px);
 
 // Grid system
-@grid-columns: 24;
+@grid-columns: 12;
 
 // Layout
 @layout-body-background: #f0f2f5;
@@ -635,11 +635,11 @@
 // Table
 // --
 @table-bg: @component-background;
-@table-header-bg: @background-color-light;
-@table-header-color: @heading-color;
+@table-header-bg: #f5f8fa;
+@table-header-color: #505862;
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: #fafafa;
-@table-row-hover-bg: @background-color-light;
+@table-row-hover-bg: #f8f8f8;
 @table-selected-row-color: inherit;
 @table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
@@ -658,6 +658,11 @@
 @table-font-size: @font-size-base;
 @table-font-size-md: @table-font-size;
 @table-font-size-sm: @table-font-size;
+@table-checkbox-background: @blue-crayola;
+@table-checkbox-color: #fff;
+@table-checkbox-intermediate-background: @blue-crayola;
+@table-checkbox-intermediate-color: #fff;
+
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
@@ -932,8 +937,11 @@
 
 // Message
 // ---
-@message-notice-content-padding: 10px 16px;
+@message-notice-content-padding: 0px;
+@message-notice-text-padding: 20px 16px;
 @message-notice-content-bg: @component-background;
+@message-notice-success-color: #11ae58;
+
 // Motion
 // ---
 @wave-animation-width: 6px;

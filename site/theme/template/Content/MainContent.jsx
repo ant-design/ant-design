@@ -434,13 +434,13 @@ class MainContent extends Component {
               {menuChild}
             </MobileMenu>
           ) : (
-            <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
+            <Col xxl={2} xl={2} lg={3} md={3} sm={12} xs={12} className="main-menu">
               <Affix>
                 <section className="main-menu-inner">{menuChild}</section>
               </Affix>
             </Col>
           )}
-          <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+          <Col xxl={10} xl={10} lg={9} md={9} sm={12} xs={12}>
             <section className={mainContainerClass}>
               {this.renderMainContent({ theme, setIframeTheme })}
             </section>
