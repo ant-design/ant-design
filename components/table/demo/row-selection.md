@@ -98,6 +98,7 @@ const Demo = () => {
         }}
         columns={columns}
         dataSource={data}
+        loading={true}
       />
     </div>
   );
