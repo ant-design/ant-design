@@ -198,7 +198,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
             size={customizeSize || size}
             prefixCls={inputPrefixCls}
             addonAfter={renderAddonAfter(prefixCls, customizeSize || size)}
-            suffix={renderSuffix(prefixCls)}
+            prefix={renderSuffix(prefixCls)}
             onChange={onChange}
             className={getClassName(customizeSize || size)}
           />
