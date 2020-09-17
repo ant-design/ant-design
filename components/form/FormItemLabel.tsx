@@ -9,15 +9,19 @@ import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import Tooltip, { TooltipProps } from '../tooltip';
 
-export type LabelTooltipType = TooltipProps | React.ReactNode;
+export type WrapperTooltipProps = TooltipProps & {
+  icon?: React.ReactElement;
+};
 
-function toTooltipProps(tooltip: LabelTooltipType): TooltipProps | null {
+export type LabelTooltipType = WrapperTooltipProps | React.ReactNode;
+
+function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
   if (!tooltip) {
     return null;
   }
 
   if (tooltip && typeof tooltip === 'object' && !React.isValidElement(tooltip)) {
-    return tooltip as TooltipProps;
+    return tooltip as WrapperTooltipProps;
   }
 
   return {
@@ -80,11 +84,11 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
         // Tooltip
         const tooltipProps = toTooltipProps(tooltip);
-        let tooltipNode: React.ReactNode;
         if (tooltipProps) {
-          tooltipNode = (
-            <Tooltip {...tooltipProps}>
-              <QuestionCircleOutlined className={`${prefixCls}-item-tooltip`} />
+          const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
+          const tooltipNode = (
+            <Tooltip {...restTooltipProps}>
+              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip` })}
             </Tooltip>
           );
 
