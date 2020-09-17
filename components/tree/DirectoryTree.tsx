@@ -10,7 +10,7 @@ import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
 import { ConfigContext } from '../config-provider';
 
-import Tree, { TreeProps, AntdTreeNodeAttribute } from './Tree';
+import Tree, { TreeProps, AntdTreeNodeAttribute, AntTreeNodeMouseEventParams } from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -132,6 +132,18 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     }
   };
 
+  const onMouseEnter = (info: AntTreeNodeMouseEventParams<HTMLSpanElement>) => {
+    if (props.onMouseEnter) {
+      props.onMouseEnter(info);
+    }
+  };
+
+  const onMouseLeave = (info: AntTreeNodeMouseEventParams<HTMLSpanElement>) => {
+    if (props.onMouseLeave) {
+      props.onMouseLeave(info);
+    }
+  };
+
   const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
     const { expandAction } = props;
 
@@ -236,6 +248,8 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       onClick={onClick}
       onDoubleClick={onDoubleClick}
       onExpand={onExpand}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     />
   );
 };
