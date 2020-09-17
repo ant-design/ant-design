@@ -17,6 +17,7 @@ type ListItemProps = {
   onRemove?: (item: TransferItem) => void;
   item: TransferItem;
   showRemove?: boolean;
+  singleClick?: boolean;
 };
 
 const ListItem = (props: ListItemProps) => {
@@ -30,6 +31,7 @@ const ListItem = (props: ListItemProps) => {
     onClick,
     onRemove,
     showRemove,
+    singleClick = false,
   } = props;
 
   const className = classNames({
@@ -72,7 +74,7 @@ const ListItem = (props: ListItemProps) => {
         liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
         return (
           <li {...liProps}>
-            <Checkbox checked={checked} disabled={disabled || item.disabled} />
+            {!singleClick && <Checkbox checked={checked} disabled={disabled || item.disabled} />}
             {labelNode}
           </li>
         );

@@ -15,6 +15,7 @@ export interface TransferListBodyProps extends PartialTransferListProps {
   filteredItems: TransferItem[];
   filteredRenderItems: RenderedItem[];
   selectedKeys: string[];
+  singleClick: boolean;
 }
 
 function parsePagination(pagination?: PaginationType) {
@@ -105,6 +106,7 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
       disabled: globalDisabled,
       showRemove,
       pagination,
+      singleClick,
     } = this.props;
 
     const mergedPagination = parsePagination(pagination);
@@ -149,6 +151,7 @@ class ListBody extends React.Component<TransferListBodyProps, TransferListBodySt
                 onClick={this.onItemSelect}
                 onRemove={this.onItemRemove}
                 showRemove={showRemove}
+                singleClick={singleClick}
               />
             );
           })}
