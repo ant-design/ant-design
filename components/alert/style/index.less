@@ -59,6 +59,22 @@
     }
   }
 
+  &-cta {
+    background-color: @alert-cta-bg-color;
+    border: @border-width-base @border-style-base @alert-cta-border-color;
+    .@{alert-prefix-cls}-icon {
+      color: @alert-cta-icon-color;
+    }
+  }
+
+  &-normal {
+    background-color: @alert-normal-bg-color;
+    border: @border-width-base @border-style-base @alert-normal-border-color;
+    .@{alert-prefix-cls}-icon {
+      color: @alert-normal-icon-color;
+    }
+  }
+
   &-error {
     background-color: @alert-error-bg-color;
     border: @border-width-base @border-style-base @alert-error-border-color;
@@ -134,7 +150,7 @@
     display: block;
     margin-bottom: 4px;
     color: @alert-message-color;
-    font-size: @font-size-lg;
+    font-size: @font-size-base;
   }
 
   &-message {

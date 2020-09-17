@@ -5,22 +5,32 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import QuestionCircleFilled from '@ant-design/icons/QuestionCircleFilled';
+import Icon from '@ant-design/icons';
 import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
+import ExclamationTriangleSvg from './customIcon/ExclamationTriangleSvg';
+import MessageSvg from './customIcon/MessageSvg';
 
 import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
 
+const ExclamationTriangleFilled = (props: any): JSX.Element => (
+  <Icon component={ExclamationTriangleSvg} ariaLabel="exclamation-triangle" {...props} />
+);
+const MessageFilled = (props: any): JSX.Element => (
+  <Icon component={MessageSvg} ariaLabel="message-box" {...props} />
+);
 export interface AlertProps {
   /**
-   * Type of Alert styles, options:`success`, `info`, `warning`, `error`
+   * Type of Alert styles, options:`success`, `info`, `warning`, `error`, `cta`, `normal`
    */
-  type?: 'success' | 'info' | 'warning' | 'error';
+  type?: 'success' | 'info' | 'warning' | 'error' | 'cta' | 'normal';
   /** Whether Alert can be closed */
   closable?: boolean;
   /** Close text to show */
@@ -51,7 +61,9 @@ const iconMapFilled = {
   success: CheckCircleFilled,
   info: InfoCircleFilled,
   error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
+  warning: ExclamationTriangleFilled,
+  cta: QuestionCircleFilled,
+  normal: MessageFilled,
 };
 
 const iconMapOutlined = {
@@ -59,6 +71,8 @@ const iconMapOutlined = {
   info: InfoCircleOutlined,
   error: CloseCircleOutlined,
   warning: ExclamationCircleOutlined,
+  cta: QuestionCircleOutlined,
+  normal: MessageFilled,
 };
 
 interface AlertInterface extends React.FC<AlertProps> {
@@ -108,7 +122,7 @@ const Alert: AlertInterface = ({
   const renderIconNode = () => {
     const { icon } = props;
     // use outline icon in alert with description
-    const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
+    const iconType = (description ? iconMapFilled : iconMapOutlined)[type] || null;
     if (icon) {
       return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
         className: classNames(`${prefixCls}-icon`, {

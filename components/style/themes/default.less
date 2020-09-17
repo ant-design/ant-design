@@ -252,7 +252,7 @@
 @btn-height-lg: @height-lg;
 @btn-height-sm: 30px;
 
-@btn-line-height: @line-height-base;
+@btn-line-height: 1;
 
 @btn-circle-size: @btn-height-base;
 @btn-circle-size-lg: @btn-height-lg;
@@ -527,13 +527,14 @@
 // Tooltip text color
 @tooltip-color: #fff;
 // Tooltip background color
-@tooltip-bg: rgba(0, 0, 0, 0.75);
+@tooltip-bg: #3d3d3d;
 // Tooltip arrow width
 @tooltip-arrow-width: 5px;
 // Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+@tooltip-error-color: @candy-apple-red;
 
 // Popover
 // ---
@@ -910,7 +911,9 @@
 // ---
 @collapse-header-padding: @padding-sm @padding-md;
 @collapse-header-padding-extra: 40px;
-@collapse-header-bg: @background-color-light;
+@collapse-header-bg: #fff;
+@collapse-header-color: @charcoal-base;
+@collapse-content-color: @charcoal-base;
 @collapse-content-padding: @padding-md;
 @collapse-content-bg: @component-background;
 @collapse-header-arrow-left: 16px;
@@ -951,17 +954,17 @@
 @alert-success-border-color: ~`colorPalette('@{success-color}', 3) `;
 @alert-success-bg-color: ~`colorPalette('@{success-color}', 1) `;
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: ~`colorPalette('@{info-color}', 3) `;
-@alert-info-bg-color: ~`colorPalette('@{info-color}', 1) `;
-@alert-info-icon-color: @info-color;
-@alert-warning-border-color: ~`colorPalette('@{warning-color}', 3) `;
-@alert-warning-bg-color: ~`colorPalette('@{warning-color}', 1) `;
+@alert-info-border-color: #bdd4e1;
+@alert-info-bg-color: @alica-lightest;
+@alert-info-icon-color: @blue-crayola;
+@alert-warning-border-color: #ded1a5;
+@alert-warning-bg-color: #fff6d7;
 @alert-warning-icon-color: @warning-color;
 @alert-error-border-color: ~`colorPalette('@{error-color}', 3) `;
 @alert-error-bg-color: ~`colorPalette('@{error-color}', 1) `;
 @alert-error-icon-color: @error-color;
 @alert-message-color: @heading-color;
-@alert-text-color: @text-color;
+@alert-text-color: @charcoal-base;
 @alert-close-color: @text-color-secondary;
 @alert-close-hover-color: @icon-color-hover;
 @alert-no-icon-padding-vertical: @padding-xs;
@@ -972,7 +975,13 @@
   @alert-with-description-padding-vertical;
 @alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
 @alert-with-description-icon-size: 24px;
-@alert-with-description-icon-top: @alert-with-description-padding-vertical;
+@alert-with-description-icon-top: @alert-with-description-padding-vertical + 5px;
+@alert-cta-bg-color: #fff;
+@alert-cta-border-color: #c5c5c5;
+@alert-cta-icon-color: #c4c4c4;
+@alert-normal-bg-color: #f7f0ff;
+@alert-normal-border-color: #c6b2de;
+@alert-normal-icon-color: #985ee5;
 
 // List
 // ---

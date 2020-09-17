@@ -29,14 +29,12 @@ ReactDOM.render(
       showIcon
     />
     <Alert
-      message="Informational Notes"
       description="Additional description and information about copywriting."
       type="info"
       showIcon
     />
     <Alert
-      message="Warning"
-      description="This is a warning notice about copywriting."
+      description="This section contains all the conversation done with bot or agent. You can also filter the given table on the basis of certain criteria along with the search."
       type="warning"
       showIcon
       closable
@@ -45,6 +43,12 @@ ReactDOM.render(
       message="Error"
       description="This is an error message about copywriting."
       type="error"
+      showIcon
+    />
+    <Alert description="Notification is disabled, want to enable ?" type="cta" showIcon />
+    <Alert
+      description="This section contains all the conversation done with bot or agent. You can also filter the given table on the basis of certain criteria along with the search."
+      type="normal"
       showIcon
     />
   </>,
