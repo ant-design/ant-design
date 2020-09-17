@@ -112,6 +112,13 @@
         position: relative;
         flex: none;
         padding: @padding-sm;
+
+        .@{transfer-prefix-cls}-list-search-below-text {
+          color: @transfer-list-search-below-text-color;
+          font-size: @transfer-list-search-below-text-size;
+          line-height: @transfer-list-search-below-text-line-height;
+          margin-top: 8px;
+        }
       }
     }
 
@@ -231,6 +238,14 @@
         font-size: 12px;
       }
     }
+  }
+
+  &-arrow {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-self: center;
+    margin: 0 8px;
   }
 
   .@{ant-prefix}-empty-image {

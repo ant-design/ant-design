@@ -67,6 +67,7 @@ export interface TransferListProps extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
+  singleClick?: boolean;
 }
 
 interface TransferListState {
@@ -187,6 +188,7 @@ export default class TransferList extends React.PureComponent<
     renderList?: RenderListFunction,
     showSearch?: boolean,
     disabled?: boolean,
+    singleClick?: boolean,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -198,6 +200,11 @@ export default class TransferList extends React.PureComponent<
           value={filterValue}
           disabled={disabled}
         />
+        {singleClick && (
+          <p className={`${prefixCls}-search-below-text`}>
+            Total items: {filteredItems.length || 0}
+          </p>
+        )}
       </div>
     ) : null;
 
@@ -206,6 +213,7 @@ export default class TransferList extends React.PureComponent<
       filteredItems,
       filteredRenderItems,
       selectedKeys: checkedKeys,
+      singleClick,
     });
 
     let bodyNode: React.ReactNode;
@@ -310,6 +318,7 @@ export default class TransferList extends React.PureComponent<
       showSelectAll,
       showRemove,
       pagination,
+      singleClick,
     } = this.props;
 
     // Custom Layout
@@ -337,6 +346,7 @@ export default class TransferList extends React.PureComponent<
       renderList,
       showSearch,
       disabled,
+      singleClick,
     );
 
     // ================================ List Footer ================================
@@ -439,15 +449,17 @@ export default class TransferList extends React.PureComponent<
     return (
       <div className={listCls} style={style}>
         {/* Header */}
-        <div className={`${prefixCls}-header`}>
-          {checkAllCheckbox}
-          {dropdown}
-          <span className={`${prefixCls}-header-selected`}>
-            {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
-          </span>
+        {!singleClick && (
+          <div className={`${prefixCls}-header`}>
+            {checkAllCheckbox}
+            {dropdown}
+            <span className={`${prefixCls}-header-selected`}>
+              {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
+            </span>
 
-          <span className={`${prefixCls}-header-title`}>{titleText}</span>
-        </div>
+            <span className={`${prefixCls}-header-title`}>{titleText}</span>
+          </div>
+        )}
 
         {/* Body */}
         {listBody}

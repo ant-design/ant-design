@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import Icon from '@ant-design/icons';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
@@ -9,6 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../conf
 import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
 import devWarning from '../_util/devWarning';
+import TransferSvg from './icon/TransferSvg';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -68,6 +70,7 @@ export interface TransferProps {
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
+  singleClick?: boolean;
 }
 
 export interface TransferLocale {
@@ -89,6 +92,10 @@ interface TransferState {
   targetSelectedKeys: string[];
 }
 
+const TransferIcon = (props: any): JSX.Element => (
+  <Icon component={TransferSvg} aria-label="transfer-arrow" {...props} />
+);
+
 class Transfer extends React.Component<TransferProps, TransferState> {
   // For high-level customized Transfer @dqaria
   static List = List;
@@ -102,6 +109,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     locale: {},
     showSearch: false,
     listStyle: () => {},
+    singleClick: true,
   };
 
   static getDerivedStateFromProps({
@@ -145,15 +153,31 @@ class Transfer extends React.Component<TransferProps, TransferState> {
   setStateKeys = (
     direction: TransferDirection,
     keys: string[] | ((prevKeys: string[]) => string[]),
+    moveCheck?: boolean | undefined,
   ) => {
+    const { singleClick } = this.props;
     if (direction === 'left') {
-      this.setState(({ sourceSelectedKeys }) => ({
-        sourceSelectedKeys: typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys,
-      }));
+      this.setState(
+        ({ sourceSelectedKeys }) => ({
+          sourceSelectedKeys: typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys,
+        }),
+        () => {
+          if (moveCheck && singleClick) {
+            this.moveToRight();
+          }
+        },
+      );
     } else {
-      this.setState(({ targetSelectedKeys }) => ({
-        targetSelectedKeys: typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys,
-      }));
+      this.setState(
+        ({ targetSelectedKeys }) => ({
+          targetSelectedKeys: typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys,
+        }),
+        () => {
+          if (moveCheck && singleClick) {
+            this.moveToLeft();
+          }
+        },
+      );
     }
   };
 
@@ -256,7 +280,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     this.handleSelectChange(direction, holder);
 
     if (!this.props.selectedKeys) {
-      this.setStateKeys(direction, holder);
+      this.setStateKeys(direction, holder, true);
     }
   };
 
@@ -360,6 +384,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
           showSelectAll,
           oneWay,
           pagination,
+          singleClick,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -406,21 +431,28 @@ class Transfer extends React.Component<TransferProps, TransferState> {
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
+              singleClick={singleClick}
               {...locale}
             />
-            <Operation
-              className={`${prefixCls}-operation`}
-              rightActive={rightActive}
-              rightArrowText={operations[0]}
-              moveToRight={this.moveToRight}
-              leftActive={leftActive}
-              leftArrowText={operations[1]}
-              moveToLeft={this.moveToLeft}
-              style={operationStyle}
-              disabled={disabled}
-              direction={direction}
-              oneWay={oneWay}
-            />
+            {singleClick ? (
+              <p className={`${prefixCls}-arrow`}>
+                <TransferIcon />
+              </p>
+            ) : (
+              <Operation
+                className={`${prefixCls}-operation`}
+                rightActive={rightActive}
+                rightArrowText={operations[0]}
+                moveToRight={this.moveToRight}
+                leftActive={leftActive}
+                leftArrowText={operations[1]}
+                moveToLeft={this.moveToLeft}
+                style={operationStyle}
+                disabled={disabled}
+                direction={direction}
+                oneWay={oneWay}
+              />
+            )}
             <List
               prefixCls={`${prefixCls}-list`}
               titleText={titles[1]}
@@ -444,6 +476,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
+              singleClick={singleClick}
               {...locale}
             />
           </div>
