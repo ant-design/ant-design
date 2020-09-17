@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
 import classNames from 'classnames';
-import { DataNode, Key } from 'rc-tree/lib/interface';
+import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
 import { ConfigContext } from '../config-provider';
@@ -77,6 +77,11 @@ export interface AntTreeNodeMouseEvent {
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
   expandedKeys: Key[];
+}
+
+export interface AntTreeNodeMouseEventParams<T> {
+  event: React.MouseEvent<T>;
+  node: EventDataNode;
 }
 
 export interface AntTreeNodeDropEvent {

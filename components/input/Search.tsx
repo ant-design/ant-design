@@ -68,23 +68,23 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
     return <LoadingOutlined className={`${prefixCls}-icon`} key="loadingIcon" />;
   };
 
-  const renderSuffix = (prefixCls: string) => {
-    const { suffix, enterButton, loading } = props;
+  const renderPrefix = (prefixCls: string) => {
+    const { prefix, enterButton, loading } = props;
 
     if (loading && !enterButton) {
-      return [suffix, renderLoading(prefixCls)];
+      return [prefix, renderLoading(prefixCls)];
     }
 
-    if (enterButton) return suffix;
+    if (enterButton) return prefix;
 
     const icon = (
       <SearchOutlined className={`${prefixCls}-icon`} key="searchIcon" onClick={onSearch} />
     );
 
-    if (suffix) {
+    if (prefix) {
       return [
-        replaceElement(suffix, null, {
-          key: 'suffix',
+        replaceElement(prefix, null, {
+          key: 'prefix',
         }),
         icon,
       ];
@@ -198,7 +198,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
             size={customizeSize || size}
             prefixCls={inputPrefixCls}
             addonAfter={renderAddonAfter(prefixCls, customizeSize || size)}
-            suffix={renderSuffix(prefixCls)}
+            prefix={renderPrefix(prefixCls)}
             onChange={onChange}
             className={getClassName(customizeSize || size)}
           />

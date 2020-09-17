@@ -109,7 +109,7 @@ class Transfer extends React.Component<TransferProps, TransferState> {
     locale: {},
     showSearch: false,
     listStyle: () => {},
-    singleClick: true,
+    singleClick: false,
   };
 
   static getDerivedStateFromProps({

@@ -8,7 +8,8 @@
 .searchInputIcon(@input-height, @font-size) {
   .@{search-prefix}-icon {
     @horizontal-padding: (@input-height - @font-size) / 2;
-    padding: 0 @horizontal-padding;
+    padding: 0 0;
+    font-size: 16px;
 
     &::before {
       transform: translateX(-@horizontal-padding - @border-width-base);
@@ -31,23 +32,9 @@
 
 .@{search-prefix} {
   &-icon {
-    margin-left: 0.5em;
-    color: @text-color-secondary;
-    cursor: pointer;
+    color: @input-search-icon-color;
     transition: all 0.3s;
-    &:hover {
-      color: @input-icon-hover-color;
-    }
-
-    &::before {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      display: block;
-      border-left: @border-width-base @border-style-base @input-border-color;
-      transition: all 0.3s;
-      content: '';
-    }
+    cursor: text !important;
 
     &::after {
       position: absolute;
@@ -85,14 +72,6 @@
         height: 30px;
         padding: 0px 14px;
       }
-
-      // RESET BELOW TO REMOVE PADDING
-      // border: 0;
-
-      // .@{search-prefix}-button {
-      //   border-top-left-radius: 0;
-      //   border-bottom-left-radius: 0;
-      // }
     }
   }
 }

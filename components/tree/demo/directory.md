@@ -42,6 +42,14 @@ const Demo: React.FC<{}> = () => {
     console.log('Trigger Select', keys, event);
   };
 
+  const onMouseEnter = info => {
+    console.log('Trigger MouseEnter', info);
+  };
+
+  const onMouseLeave = info => {
+    console.log('Trigger MouseLeave', info);
+  };
+
   const onExpand = () => {
     console.log('Trigger Expand');
   };
@@ -53,6 +61,8 @@ const Demo: React.FC<{}> = () => {
       onSelect={onSelect}
       onExpand={onExpand}
       treeData={treeData}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     />
   );
 };
