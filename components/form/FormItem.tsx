@@ -12,7 +12,7 @@ import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
+import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
@@ -56,6 +56,7 @@ export interface FormItemProps<Values = any>
   hidden?: boolean;
   initialValue?: any;
   messageVariables?: Record<string, string>;
+  tooltip?: LabelTooltipType;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
 }
@@ -216,6 +217,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'normalize',
           'preserve',
           'required',
+          'tooltip',
           'validateFirst',
           'validateStatus',
           'valuePropName',
