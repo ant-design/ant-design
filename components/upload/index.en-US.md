@@ -45,6 +45,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | transformFile   | Customize transform file before request | Function(file): string \| Blob \| File \| Promise&lt;string \| Blob \| File> | - |  |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
 | progress | Custom progress bar | [ProgressProps](/components/progress/#API) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
+| itemRender | Custom item of uploadList | (originNode: ReactElement, file: UploadFile, fileList?: object\[]) => React.ReactNode | - | 4.7.0 |
 
 ### onChange
 

@@ -111,6 +111,11 @@ export interface UploadProps<T = any> {
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   progress?: UploadListProgressProps;
+  itemRender?: (
+    originNode: React.ReactElement,
+    file: UploadFile,
+    fileList?: Array<UploadFile<T>>,
+  ) => React.ReactNode;
 }
 
 export interface UploadState<T = any> {
@@ -136,4 +141,9 @@ export interface UploadListProps<T = any> {
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   appendAction?: React.ReactNode;
+  itemRender?: (
+    originNode: React.ReactElement,
+    file: UploadFile,
+    fileList?: Array<UploadFile<T>>,
+  ) => React.ReactNode;
 }

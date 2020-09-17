@@ -37,6 +37,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     downloadIcon: customDownloadIcon,
     progress: progressProps,
     appendAction,
+    itemRender,
   },
   ref,
 ) => {
@@ -210,7 +211,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
     const removeIcon = showRemoveIcon
       ? handleActionIconRender(
-          (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || <DeleteOutlined />,
+          (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (
+            <DeleteOutlined />
+          ),
           () => handleClose(file),
           prefixCls,
           locale.removeFile,
@@ -220,7 +223,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     const downloadIcon =
       showDownloadIcon && file.status === 'done'
         ? handleActionIconRender(
-            (typeof customDownloadIcon=== 'function' ? customDownloadIcon(file) : customDownloadIcon) || <DownloadOutlined />,
+            (typeof customDownloadIcon === 'function'
+              ? customDownloadIcon(file)
+              : customDownloadIcon) || <DownloadOutlined />,
             () => handleDownload(file),
             prefixCls,
             locale.downloadFile,
@@ -317,15 +322,17 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     const listContainerNameClass = classNames({
       [`${prefixCls}-list-picture-card-container`]: listType === 'picture-card',
     });
+    const item =
+      file.status === 'error' ? (
+        <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+          {dom}
+        </Tooltip>
+      ) : (
+        <span>{dom}</span>
+      );
     return (
       <div key={file.uid} className={listContainerNameClass}>
-        {file.status === 'error' ? (
-          <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
-            {dom}
-          </Tooltip>
-        ) : (
-          <span>{dom}</span>
-        )}
+        {itemRender ? itemRender(item, file, items) : item}
       </div>
     );
   });
