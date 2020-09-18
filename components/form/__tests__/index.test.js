@@ -751,4 +751,32 @@ describe('Form', () => {
 
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
   });
+
+  describe('tooltip', () => {
+    it('ReactNode', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="light" tooltip={<span>Bamboo</span>}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      const tooltipProps = wrapper.find('Tooltip').props();
+      expect(tooltipProps.title).toEqual(<span>Bamboo</span>);
+    });
+
+    it('config', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      const tooltipProps = wrapper.find('Tooltip').props();
+      expect(tooltipProps.title).toEqual('Bamboo');
+    });
+  });
 });

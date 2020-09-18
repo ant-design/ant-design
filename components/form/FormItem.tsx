@@ -12,7 +12,7 @@ import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
+import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
@@ -23,9 +23,9 @@ import useItemRef from './hooks/useItemRef';
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
-type RenderChildren = (form: FormInstance) => React.ReactNode;
+type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps = Omit<FieldProps, 'children'>;
-type ChildrenType = RenderChildren | React.ReactNode;
+type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
 interface MemoInputProps {
   value: any;
@@ -40,12 +40,15 @@ const MemoInput = React.memo(
   },
 );
 
-export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
+export interface FormItemProps<Values = any>
+  extends FormItemLabelProps,
+    FormItemInputProps,
+    RcFieldProps {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children?: ChildrenType;
+  children?: ChildrenType<Values>;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
@@ -53,6 +56,7 @@ export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, R
   hidden?: boolean;
   initialValue?: any;
   messageVariables?: Record<string, string>;
+  tooltip?: LabelTooltipType;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
 }
@@ -64,7 +68,7 @@ function hasValidName(name?: NamePath): Boolean {
   return !(name === undefined || name === null);
 }
 
-function FormItem(props: FormItemProps): React.ReactElement {
+function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
     fieldKey,
@@ -213,6 +217,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'normalize',
           'preserve',
           'required',
+          'tooltip',
           'validateFirst',
           'validateStatus',
           'valuePropName',

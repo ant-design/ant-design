@@ -127,6 +127,13 @@
         }
       }
 
+      // Optional mark
+      .@{form-item-prefix-cls}-tooltip {
+        writing-mode: horizontal-tb;
+        margin-inline-start: @margin-xss;
+        color: @text-color-secondary;
+      }
+
       &::after {
         & when (@form-item-trailing-colon=true) {
           content: ':';
