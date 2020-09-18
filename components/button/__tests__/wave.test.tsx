@@ -15,8 +15,7 @@ describe('click wave effect', () => {
 
   it('should have click wave effect for primary button', async () => {
     const wrapper = mount(<Button type="primary">button</Button>);
-    clickButton(wrapper);
-    await sleep(0);
+    await clickButton(wrapper);
     expect(
       wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(true);
@@ -41,7 +40,6 @@ describe('click wave effect', () => {
   it('should not have click wave effect for text type button', async () => {
     const wrapper = mount(<Button type="text">button</Button>);
     await clickButton(wrapper);
-    await sleep(0);
     expect(
       wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(false);
@@ -84,5 +82,6 @@ describe('click wave effect', () => {
     Object.assign(event, { animationName: 'fadeEffect' });
     wrapper.find('.ant-btn').getDOMNode().dispatchEvent(event);
     expect(resetEffect).toHaveBeenCalledTimes(2);
+    resetEffect.mockRestore();
   });
 });
