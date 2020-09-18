@@ -2,13 +2,12 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {
   mountTest(Popover);
 
-  it('should show overlay when trigger is clicked', async () => {
+  it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef();
 
     const popover = mount(
@@ -20,12 +19,7 @@ describe('Popover', () => {
     expect(ref.current.getPopupDomNode()).toBe(null);
 
     popover.find('span').simulate('click');
-    await sleep(100);
-
-    const popup = ref.current.getPopupDomNode();
-    expect(popup).not.toBe(null);
-    expect(popup.className).toContain('ant-popover-placement-top');
-    expect(popup.innerHTML).toMatchSnapshot();
+    expect(popover.find('Trigger PopupInner').props().visible).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
