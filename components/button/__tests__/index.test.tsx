@@ -211,33 +211,6 @@ describe('Button', () => {
     expect(<Button>{false}</Button>).toMatchRenderedSnapshot();
   });
 
-  it('should have click wave effect', async () => {
-    const wrapper = mount(<Button type="primary">button</Button>);
-    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
-    await sleep(0);
-    expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
-    ).toBe(true);
-  });
-
-  it('should not have click wave effect for link type button', async () => {
-    const wrapper = mount(<Button type="link">button</Button>);
-    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
-    await sleep(0);
-    expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
-    ).toBe(false);
-  });
-
-  it('should not have click wave effect for text type button', async () => {
-    const wrapper = mount(<Button type="link">button</Button>);
-    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
-    await sleep(0);
-    expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
-    ).toBe(false);
-  });
-
   it('should not render as link button when href is undefined', async () => {
     const wrapper = mount(
       <Button type="primary" href={undefined}>
