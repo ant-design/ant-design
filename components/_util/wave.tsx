@@ -174,6 +174,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   resetEffect(node: HTMLElement) {
     if (!node || node === this.extraNode || !(node instanceof Element)) {
+      /* istanbul ignore next */
       return;
     }
     const { insertExtraNode } = this.props;
