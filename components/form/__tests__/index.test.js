@@ -136,6 +136,7 @@ describe('Form', () => {
       "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
     );
   });
+
   it('`name` should not work with render props', () => {
     mount(
       <Form>
@@ -148,6 +149,7 @@ describe('Form', () => {
       "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
     );
   });
+
   it('children is array has name props', () => {
     mount(
       <Form>
@@ -433,6 +435,24 @@ describe('Form', () => {
     await change(wrapper, 0, '');
     expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-has-error')).toBeTruthy();
     expect(wrapper.find('.ant-form-item-explain').text()).toEqual('help');
+  });
+
+  it('clear validation message when ', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="username" rules={[{ required: true, message: 'message' }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    await change(wrapper, 0, '1');
+    expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
+    await change(wrapper, 0, '');
+    expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+    await change(wrapper, 0, '123');
+    await sleep(800);
+    wrapper.update();
+    expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/21167

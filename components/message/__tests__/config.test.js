@@ -60,7 +60,7 @@ describe('message.config', () => {
       duration: 0.5,
     });
     message.info('last');
-    await sleep(600);
+    await sleep(1000);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
     message.config({
       duration: 3,

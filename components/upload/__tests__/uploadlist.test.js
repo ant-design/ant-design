@@ -131,7 +131,7 @@ describe('Upload List', () => {
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
     wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
-    await sleep(400);
+    await sleep(1000);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });

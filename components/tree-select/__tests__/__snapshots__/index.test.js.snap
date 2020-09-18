@@ -34,7 +34,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-tree-select-dropdown"
+      class="ant-select-dropdown ant-tree-select-dropdown slide-up-appear slide-up-appear-prepare slide-up"
       style="opacity: 0; pointer-events: none; min-width: 0; width: 0px;"
     >
       <div>
