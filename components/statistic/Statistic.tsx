@@ -1,8 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
+// import { LoadingOutlined } from '@ant-design/icons';
 
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
+import Spin, { SpinProps } from '../spin';
 import StatisticNumber from './Number';
 import Countdown from './Countdown';
 import { valueType, FormatConfig } from './utils';
@@ -21,6 +23,7 @@ export interface StatisticProps extends FormatConfig {
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  loading?: boolean | SpinProps;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -36,11 +39,27 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     valueRender,
     prefix,
     suffix,
+    loading,
     direction,
     onMouseEnter,
     onMouseLeave,
   } = props;
-  const valueNode = <StatisticNumber {...props} value={value} />;
+  let spinProps: SpinProps = { spinning: false };
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
+    };
+  } else if (typeof loading === 'object') {
+    spinProps = {
+      spinning: true,
+      ...loading,
+    };
+  }
+  const valueNode = spinProps.spinning ? (
+    <Spin {...spinProps} />
+  ) : (
+    <StatisticNumber {...props} value={value} />
+  );
   const cls = classNames(
     prefixCls,
     {
