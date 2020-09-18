@@ -63,7 +63,6 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="primary">button</Button>);
     const waveInstance = wrapper.find(Wave).instance() as any;
     const resetEffect = jest.spyOn(waveInstance, 'resetEffect');
-    expect(resetEffect).toHaveBeenCalledTimes(0);
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);
     wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
@@ -77,9 +76,13 @@ describe('click wave effect', () => {
 
   it('should handle transitionend', async () => {
     const wrapper = mount(<Button type="primary">button</Button>);
+    const waveInstance = wrapper.find(Wave).instance() as any;
+    const resetEffect = jest.spyOn(waveInstance, 'resetEffect');
     await clickButton(wrapper);
+    expect(resetEffect).toHaveBeenCalledTimes(1);
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
     wrapper.find('.ant-btn').getDOMNode().dispatchEvent(event);
+    expect(resetEffect).toHaveBeenCalledTimes(2);
   });
 });
