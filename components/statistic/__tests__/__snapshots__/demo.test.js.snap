@@ -89,24 +89,15 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
         class="ant-statistic-content"
       >
         <div
-          class="ant-spin ant-spin-spinning"
+          class="ant-skeleton"
         >
-          <span
-            class="ant-spin-dot ant-spin-dot-spin"
+          <div
+            class="ant-skeleton-content"
           >
-            <i
-              class="ant-spin-dot-item"
+            <h3
+              class="ant-skeleton-title"
             />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-          </span>
+          </div>
         </div>
       </div>
     </div>

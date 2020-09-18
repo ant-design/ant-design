@@ -50,21 +50,17 @@ describe('Statistic', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('loading with spin', async () => {
+  it('loading with skeleton', async () => {
     const loading = {
-      spinning: false,
-      delay: 500,
+      loading: false,
     };
     const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
-    expect(wrapper.find('.ant-spin')).toHaveLength(0);
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
     expect(wrapper.find('.ant-statistic-content-value')).toHaveLength(1);
 
-    loading.spinning = true;
+    loading.loading = true;
     wrapper.setProps({ loading });
-    expect(wrapper.find('.ant-spin')).toHaveLength(1);
-    await sleep(500);
-    wrapper.update();
-    expect(wrapper.find('.ant-spin')).toHaveLength(1);
+    expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
     expect(wrapper.find('.ant-statistic-content-value')).toHaveLength(0);
   });
 

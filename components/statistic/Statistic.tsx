@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
-import Spin, { SpinProps } from '../spin';
+import Skeleton, { SkeletonProps } from '../skeleton';
 import StatisticNumber from './Number';
 import Countdown from './Countdown';
 import { valueType, FormatConfig } from './utils';
@@ -22,7 +22,7 @@ export interface StatisticProps extends FormatConfig {
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  loading?: boolean | SpinProps;
+  loading?: boolean | SkeletonProps;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -43,21 +43,21 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     onMouseEnter,
     onMouseLeave,
   } = props;
-  let spinProps: SpinProps = { spinning: false };
+  let skeletonProps: SkeletonProps = { loading: false };
   if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
+    skeletonProps = {
+      loading,
     };
   } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
+    skeletonProps = {
+      loading: true,
       ...loading,
     };
   }
-  const valueNode = spinProps.spinning ? (
-    <Spin {...spinProps} />
-  ) : (
-    <StatisticNumber {...props} value={value} />
+  const valueNode = (
+    <Skeleton paragraph={false} {...skeletonProps}>
+      <StatisticNumber {...props} value={value} />
+    </Skeleton>
   );
   const cls = classNames(
     prefixCls,
