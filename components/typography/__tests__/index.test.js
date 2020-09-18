@@ -191,9 +191,9 @@ describe('Typography', () => {
             {fullStr}
           </Base>,
         );
-
         await sleep(20);
         wrapper.update();
+        expect(wrapper.find('.ant-typography-expand').text()).toEqual('more');
       });
 
       it('can use css ellipsis', () => {
