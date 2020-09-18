@@ -44,7 +44,7 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown"
+      class="ant-picker-dropdown slide-up-appear slide-up-appear-prepare slide-up"
       style="opacity: 0; pointer-events: none;"
     >
       <div
@@ -668,7 +668,7 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown"
+      class="ant-picker-dropdown slide-up-appear slide-up-appear-prepare slide-up"
       style="opacity: 0; pointer-events: none;"
     >
       <div

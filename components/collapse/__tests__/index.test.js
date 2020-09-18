@@ -3,17 +3,6 @@ import { mount } from 'enzyme';
 import { sleep } from '../../../tests/utils';
 
 describe('Collapse', () => {
-  // Fix css-animation deps on these
-  // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
-  window.AnimationEvent = window.AnimationEvent || (() => {});
-  window.TransitionEvent = window.TransitionEvent || (() => {});
-
-  afterAll(() => {
-    // restore it
-    delete window.AnimationEvent;
-    delete window.TransitionEvent;
-  });
-
   // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
