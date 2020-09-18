@@ -56,7 +56,7 @@ export const FormProvider: React.FC<FormProviderProps> = props => {
  */
 export interface FormItemPrefixContextProps {
   prefixCls: string;
-  status?: ValidateStatus;
+  validateStatus?: ValidateStatus;
 }
 
 export const FormItemPrefixContext = React.createContext<FormItemPrefixContextProps>({

@@ -23,7 +23,6 @@ export interface FormItemInputProps {
   wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
-  status?: ValidateStatus;
 }
 
 const iconMap: { [key: string]: any } = {
@@ -35,7 +34,6 @@ const iconMap: { [key: string]: any } = {
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
-  status,
   wrapperCol,
   children,
   help,
@@ -81,7 +79,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           <div className={`${baseClassName}-control-input-content`}>{children}</div>
           {icon}
         </div>
-        <FormItemPrefixContext.Provider value={{ prefixCls, status }}>
+        <FormItemPrefixContext.Provider value={{ prefixCls, validateStatus }}>
           <ErrorList
             errors={errors}
             help={help}

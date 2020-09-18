@@ -1,9 +1,10 @@
 ---
-order: 20
+order: 20.1
 title:
-  zh-CN: 自定义校验
-  en-US: Customized Validation
+  zh-CN: 遗留自定义校验
+  en-US: Legacy Customized Validation
 only: true
+debug: true
 ---
 
 ## zh-CN

@@ -238,7 +238,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           {...meta}
           errors={mergedErrors}
           prefixCls={prefixCls}
-          status={mergedValidateStatus}
           onDomErrorVisibleChange={setDomErrorVisible}
           validateStatus={mergedValidateStatus}
         >

@@ -1,12 +1,33 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CSSMotion from 'rc-motion';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import useCacheErrors from './hooks/useCacheErrors';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
+import { ValidateStatus } from './FormItem';
 
 const EMPTY_LIST: React.ReactNode[] = [];
+
+const IconMap: Partial<Record<ValidateStatus, React.ComponentType>> = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: LoadingOutlined,
+};
+
+function getStatusIcon(prefixCls: string, status?: ValidateStatus) {
+  const Component = IconMap[status!];
+  return Component ? (
+    <span className={`${prefixCls}-icon`}>
+      <Component />
+    </span>
+  ) : null;
+}
 
 export interface ErrorListProps {
   errors?: React.ReactNode[];
@@ -22,7 +43,7 @@ export default function ErrorList({
   onDomErrorVisibleChange,
 }: ErrorListProps) {
   const forceUpdate = useForceUpdate();
-  const { prefixCls, status } = React.useContext(FormItemPrefixContext);
+  const { prefixCls, validateStatus } = React.useContext(FormItemPrefixContext);
 
   const [visible, cacheErrors] = useCacheErrors(
     errors,
@@ -48,13 +69,13 @@ export default function ErrorList({
     (_, nextVisible) => nextVisible,
   );
 
-  // Memo status in same visible
-  const [innerStatus, setInnerStatus] = React.useState(status);
+  // Memo validateStatus in same visible
+  const [innerStatus, setInnerStatus] = React.useState(validateStatus);
   React.useEffect(() => {
-    if (visible && status) {
-      setInnerStatus(status);
+    if (visible && validateStatus) {
+      setInnerStatus(validateStatus);
     }
-  }, [visible, status]);
+  }, [visible, validateStatus]);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
@@ -81,12 +102,17 @@ export default function ErrorList({
             )}
             key="help"
           >
-            {memoErrors.map((error, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <div key={index} role="alert">
-                {error}
-              </div>
-            ))}
+            {memoErrors.map((error, index) => {
+              const icon = getStatusIcon(baseClassName, validateStatus);
+
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <div key={index} role="alert">
+                  {icon}
+                  {error}
+                </div>
+              );
+            })}
           </div>
         );
       }}
