@@ -44,11 +44,3 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     ob.instance().onResize([{ target: ob.getDOMNode() }]);
   },
 });
-
-Object.assign(Enzyme.ReactWrapper.prototype, {
-  triggerMotionEvent() {
-    this.find('CSSMotion').instance().onMotionEnd();
-    this.update();
-    return this;
-  },
-});
