@@ -47,7 +47,7 @@ This demo show three typical usages:
 
 - `Username`: extra elements after control, using `<Form.Item name="field" noStyle />` inside `Form.Item` to bind Input.
 - `Address`: two controls in one line, using two `<Form.Item name="field" noStyle />` to bind each control.
-- `BirthDate`：two controls in one line with indeptent error message, using two `<Form.Item name="field" noStyle />` to bind each control, make layout inline by customizing `style` property.
+- `BirthDate`：two controls in one line with independent error message, using two `<Form.Item name="field" noStyle />` to bind each control, make layout inline by customizing `style` property.
 
 > Note, in this case, no more `name` property should be left in Form.Item with label.
 
