@@ -109,8 +109,19 @@
         cursor: pointer;
         transition: background 0.3s ease;
 
-        &:hover {
-          background: tint(@layout-sider-background, 10%);
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
+        }
+
+        &:hover::after {
+          background: rgba(255, 255, 255, 0.1);
         }
 
         &-right {
