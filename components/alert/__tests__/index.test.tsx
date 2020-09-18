@@ -31,7 +31,6 @@ describe('Alert', () => {
     );
     wrapper.find('.ant-alert-close-icon').simulate('click');
     jest.runAllTimers();
-    (wrapper.find('CSSMotion').instance() as any).onDomUpdate();
     expect(onClose).toHaveBeenCalled();
   });
 
