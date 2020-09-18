@@ -213,6 +213,7 @@ export default (
 
     // Not handle other type of content
     // PS: This code should not be attached after react 16
+    /* istanbul ignore next */
     return {
       finished: false,
       reactNode: null,
