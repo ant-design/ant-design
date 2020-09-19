@@ -291,7 +291,7 @@ describe('Form', () => {
   it('should show related className when customize help', () => {
     const wrapper = mount(
       <Form>
-        <Form.Item help="good">
+        <Form.Item feedback="good">
           <input />
         </Form.Item>
       </Form>,
@@ -349,7 +349,7 @@ describe('Form', () => {
       const [message, updateMessage] = React.useState('');
       return (
         <Form>
-          <Form.Item label="hello" help={message}>
+          <Form.Item label="hello" feedback={message}>
             <Input />
           </Form.Item>
           <Button onClick={() => updateMessage('bamboo')} />
@@ -414,7 +414,7 @@ describe('Form', () => {
 
   it('empty help should also render', () => {
     const wrapper = mount(
-      <Form.Item help="">
+      <Form.Item feedback="">
         <input />
       </Form.Item>,
     );
@@ -424,7 +424,7 @@ describe('Form', () => {
   it('Form.Item with `help` should display error style when validate failed', async () => {
     const wrapper = mount(
       <Form>
-        <Form.Item name="test" help="help" rules={[{ required: true, message: 'message' }]}>
+        <Form.Item name="test" feedback="help" rules={[{ required: true, message: 'message' }]}>
           <Input />
         </Form.Item>
       </Form>,
@@ -500,7 +500,7 @@ describe('Form', () => {
       return (
         <Form>
           <Form.Item
-            help={error ? 'This is an error msg' : undefined}
+            feedback={error ? 'This is an error msg' : undefined}
             validateStatus={error ? 'error' : ''}
             label="Username"
             name="username"
@@ -658,7 +658,7 @@ describe('Form', () => {
         return (
           <Form>
             {this.state.showA ? (
-              <Form.Item name="a" help="error">
+              <Form.Item name="a" feedback="error">
                 <input />
               </Form.Item>
             ) : (
