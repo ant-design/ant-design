@@ -39,10 +39,6 @@ Related issue: https://github.com/ant-design/ant-design/issues/1241
 
 While you can override a component's style, we don't recommend doing so. antd is not only a set of React components, but also a design specification as well.
 
-### How do I replace Moment.js with Day.js to reduce bundle size？
-
-Please refer to [Replace Moment.js](/docs/react/replace-moment).
-
 ### It doesn't work when I change `defaultValue` dynamically.
 
 The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -182,8 +182,8 @@ describe('ConfigProvider', () => {
     // Calendar
     testPair('Calendar', props => (
       <div>
-        <Calendar {...props} value={moment('2000-09-03')} mode="month" />
-        <Calendar {...props} value={moment('2000-09-03')} mode="year" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="month" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="year" />
       </div>
     ));
 
@@ -543,7 +543,7 @@ describe('ConfigProvider', () => {
 
     // TimePicker
     testPair('TimePicker', props => (
-      <TimePicker {...props} open defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+      <TimePicker {...props} open defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')} />
     ));
 
     // Timeline

@@ -15,12 +15,12 @@ A basic calendar component with Year/Month switch.
 
 ```jsx
 import { Calendar, Alert } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 class App extends React.Component {
   state = {
-    value: moment('2017-01-25'),
-    selectedValue: moment('2017-01-25'),
+    value: dayjs('2017-01-25'),
+    selectedValue: dayjs('2017-01-25'),
   };
 
   onSelect = value => {

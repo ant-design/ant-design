@@ -4,17 +4,9 @@ const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const EsbuildPlugin = require('esbuild-webpack-plugin').default;
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
-
-const { webpack } = getWebpackConfig;
-
-// noParse still leave `require('./locale' + name)` in dist files
-// ignore is better: http://stackoverflow.com/q/25384360
-function ignoreMomentLocale(webpackConfig) {
-  delete webpackConfig.module.noParse;
-  webpackConfig.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
-}
 
 function addLocales(webpackConfig) {
   let packageName = 'antd-with-locales';
@@ -23,15 +15,6 @@ function addLocales(webpackConfig) {
   }
   webpackConfig.entry[packageName] = './index-with-locales.js';
   webpackConfig.output.filename = '[name].js';
-}
-
-function externalMoment(config) {
-  config.externals.moment = {
-    root: 'moment',
-    commonjs2: 'moment',
-    commonjs: 'moment',
-    amd: 'moment',
-  };
 }
 
 function injectWarningCondition(config) {
@@ -54,8 +37,7 @@ function injectWarningCondition(config) {
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
-    ignoreMomentLocale(config);
-    externalMoment(config);
+    config.plugins.push(new AntdDayjsWebpackPlugin());
 
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
@@ -92,8 +74,8 @@ webpackConfig.forEach(config => {
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
-    ignoreMomentLocale(config);
-    externalMoment(config);
+    config.plugins.push(new AntdDayjsWebpackPlugin());
+
     addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;

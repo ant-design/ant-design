@@ -15,7 +15,10 @@ Comment can be used as an editor, so the user can customize the contents of the 
 
 ```jsx
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 const { TextArea } = Input;
 
@@ -66,7 +69,7 @@ class App extends React.Component {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
+            datetime: dayjs().fromNow(),
           },
           ...this.state.comments,
         ],

@@ -999,8 +999,8 @@ exports[`Picker format by locale week 1`] = `
       placeholder="请选择周"
       readonly=""
       size="12"
-      title="1999-52周"
-      value="1999-52周"
+      title="2000-1st"
+      value="2000-1st"
     />
     <span
       class="ant-picker-suffix"

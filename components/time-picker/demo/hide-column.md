@@ -15,15 +15,9 @@ While part of `format` is omitted, the corresponding column in panel will disapp
 
 ```jsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const format = 'HH:mm';
 
-ReactDOM.render(
-  <TimePicker
-    defaultValue={moment('12:08', format)}
-    format={format}
-  />,
-  mountNode,
-);
+ReactDOM.render(<TimePicker defaultValue={dayjs('12:08', format)} format={format} />, mountNode);
 ```

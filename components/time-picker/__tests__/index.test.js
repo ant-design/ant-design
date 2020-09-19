@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -39,7 +39,7 @@ describe('TimePicker', () => {
 
   it('not render clean icon when allowClear is false', () => {
     const wrapper = mount(
-      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} allowClear={false} />,
+      <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} allowClear={false} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -57,7 +57,7 @@ describe('TimePicker', () => {
       placeholder: 'Избери дата',
     };
     const wrapper = mount(
-      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
+      <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} open locale={locale} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -66,7 +66,7 @@ describe('TimePicker', () => {
     const popupClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
@@ -77,7 +77,7 @@ describe('TimePicker', () => {
     const wrapper = mount(
       <TimePicker
         className="custom-class"
-        defaultValue={moment('2000-01-01 00:00:00')}
+        defaultValue={dayjs('2000-01-01 00:00:00')}
         bordered={false}
       />,
     );

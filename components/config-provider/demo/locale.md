@@ -30,10 +30,10 @@ import {
 } from 'antd';
 import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 
-moment.locale('en');
+dayjs.locale('en');
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -109,7 +109,7 @@ class Page extends React.Component {
           <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
         </div>
         <div className="site-config-provider-calendar-wrapper">
-          <Calendar fullscreen={false} value={moment()} />
+          <Calendar fullscreen={false} value={dayjs()} />
         </div>
         <div className="example">
           <Table dataSource={[]} columns={columns} />
@@ -134,9 +134,9 @@ class App extends React.Component {
     const localeValue = e.target.value;
     this.setState({ locale: localeValue });
     if (!localeValue) {
-      moment.locale('en');
+      dayjs.locale('en');
     } else {
-      moment.locale('zh-cn');
+      dayjs.locale('zh-cn');
     }
   };
 

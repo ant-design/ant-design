@@ -1,7 +1,7 @@
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 type CheerIO = ReturnType<typeof render>;
 type CheerIOElement = CheerIO[0];
@@ -53,7 +53,7 @@ export default function demoTest(component: string, options: Options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
-      MockDate.set(moment('2016-11-22').valueOf());
+      MockDate.set(dayjs('2016-11-22').valueOf());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
 

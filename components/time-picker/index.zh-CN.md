@@ -19,8 +19,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
 ---
 
 ```jsx
-import moment from 'moment';
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
+import dayjs from 'dayjs';
+
+<TimePicker defaultValue={dayjs('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -30,7 +31,7 @@ import moment from 'moment';
 | bordered | 是否有边框 | boolean | true |  |
 | className | 选择器类名 | string | - |  |
 | clearText | 清除按钮的提示文案 | string | clear |  |
-| defaultValue | 默认时间 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认时间 | [dayjs](https://day.js.org/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
 | disabledHours | 禁止选择部分小时选项 | function() | - |  |
 | disabledMinutes | 禁止选择部分分钟选项 | function(selectedHour) | - |  |
@@ -50,8 +51,8 @@ import moment from 'moment';
 | clearIcon | 自定义的清除图标 | ReactNode | - |  |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
-| value | 当前时间 | [moment](http://momentjs.com/) | - |  |
-| onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
+| value | 当前时间 | [dayjs](https://day.js.org/) | - |  |
+| onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 
@@ -77,4 +78,4 @@ import moment from 'moment';
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/replace-dayjs#TimePicker)

@@ -1,5 +1,5 @@
 import React from 'react';
-import Moment from 'moment';
+import dayjs from 'dayjs';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import ConfigProvider from '../../components/config-provider';
@@ -9,7 +9,7 @@ export default function rtlTest(Component: React.ComponentType, mockDate?: boole
   describe(`rtl render`, () => {
     it(`component should be rendered correctly in RTL direction`, () => {
       if (mockDate) {
-        MockDate.set(Moment('2000-09-28').valueOf());
+        MockDate.set(dayjs('2000-09-28').valueOf());
       }
       const wrapper = mount(
         <ConfigProvider direction="rtl">

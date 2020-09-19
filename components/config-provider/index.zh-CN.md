@@ -63,11 +63,12 @@ export default () => (
 
 #### 为什么我使用了 ConfigProvider `locale`，时间类组件的国际化还有问题？
 
-请检查是否正确设置了 moment 语言包，或者是否有两个版本的 moment 共存。
+请检查是否正确设置了 dayjs 语言包，或者是否有两个版本的 dayjs 共存。
 
 ```js
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+import 'dayjs/locale/zh-cn';
+
+dayjs.locale('zh-cn');
 ```
 
 #### 配置 `getPopupContainer` 导致 Modal 报错？

@@ -6,7 +6,7 @@ import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
 import themeSwitcher from 'theme-switcher';
 import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import 'moment/locale/zh-cn';
+import 'dayjs/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';

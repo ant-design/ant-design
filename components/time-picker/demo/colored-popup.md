@@ -16,7 +16,7 @@ Passing custom class to `TimePicker` popup
 
 ```jsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const onChange = (time, timeString) => {
   console.log(time, timeString);
@@ -25,7 +25,7 @@ const onChange = (time, timeString) => {
 ReactDOM.render(
   <TimePicker
     onChange={onChange}
-    defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+    defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
     popupClassName="myCustomClassName"
   />,
   mountNode,

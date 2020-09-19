@@ -1,6 +1,6 @@
 import React from 'react';
-import Moment from 'moment';
-import momentGenerateConfig from 'rc-picker/lib/generate/moment';
+import Dayjs from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import Calendar from '..';
@@ -34,15 +34,15 @@ describe('Calendar', () => {
     wrapper.find('.ant-picker-cell').at(0).simulate('click');
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
     const value = onSelect.mock.calls[0][0];
-    expect(Moment.isMoment(value)).toBe(true);
+    expect(Dayjs.isDayjs(value)).toBe(true);
     expect(onChange).toHaveBeenCalled();
   });
 
   it('only Valid range should be selectable', () => {
     const onSelect = jest.fn();
-    const validRange = [Moment('2018-02-02'), Moment('2018-02-18')];
+    const validRange = [Dayjs('2018-02-02'), Dayjs('2018-02-18')];
     const wrapper = mount(
-      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
+      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Dayjs('2018-02-02')} />,
     );
     wrapper.find('[title="2018-02-01"]').at(0).simulate('click');
     wrapper.find('[title="2018-02-02"]').at(0).simulate('click');
@@ -51,9 +51,9 @@ describe('Calendar', () => {
 
   it('dates other than in valid range should be disabled', () => {
     const onSelect = jest.fn();
-    const validRange = [Moment('2018-02-02'), Moment('2018-02-18')];
+    const validRange = [Dayjs('2018-02-02'), Dayjs('2018-02-18')];
     const wrapper = mount(
-      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
+      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Dayjs('2018-02-02')} />,
     );
     wrapper.find('[title="2018-02-20"]').at(0).simulate('click');
     const elem = wrapper.find('[title="2018-02-20"]').hasClass('ant-picker-cell-disabled');
@@ -63,12 +63,12 @@ describe('Calendar', () => {
 
   it('months other than in valid range should be disabled', () => {
     const onSelect = jest.fn();
-    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const validRange = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     const wrapper = mount(
       <Calendar
         onSelect={onSelect}
         validRange={validRange}
-        defaultValue={Moment('2018-02-02')}
+        defaultValue={Dayjs('2018-02-02')}
         mode="year"
       />,
     );
@@ -83,7 +83,7 @@ describe('Calendar', () => {
   });
 
   it('months other than in valid range should not be shown in header', () => {
-    const validRange = [Moment('2017-02-02'), Moment('2018-05-18')];
+    const validRange = [Dayjs('2017-02-02'), Dayjs('2018-05-18')];
     const wrapper = mount(<Calendar validRange={validRange} />);
     openSelect(wrapper, '.ant-picker-calendar-year-select');
     clickSelectItem(wrapper);
@@ -93,30 +93,30 @@ describe('Calendar', () => {
   });
 
   it('getDateRange should returns a disabledDate function', () => {
-    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
-    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2018-02-02')} />);
+    const validRange = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
+    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Dayjs('2018-02-02')} />);
     const { disabledDate } = wrapper.find('PickerPanel').props();
-    expect(disabledDate(Moment('2018-06-02'))).toBe(true);
-    expect(disabledDate(Moment('2018-04-02'))).toBe(false);
+    expect(disabledDate(Dayjs('2018-06-02'))).toBe(true);
+    expect(disabledDate(Dayjs('2018-04-02'))).toBe(false);
   });
 
   it('validRange should work with disabledDate function', () => {
-    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const validRange = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     const wrapper = mount(
-      <Calendar validRange={validRange} disabledDate={data => data.isSame(Moment('2018-02-03'))} />,
+      <Calendar validRange={validRange} disabledDate={data => data.isSame(Dayjs('2018-02-03'))} />,
     );
 
     const { disabledDate } = wrapper.find('PickerPanel').props();
-    expect(disabledDate(Moment('2018-02-01'))).toBe(true);
-    expect(disabledDate(Moment('2018-02-02'))).toBe(false);
-    expect(disabledDate(Moment('2018-02-03'))).toBe(true);
-    expect(disabledDate(Moment('2018-02-04'))).toBe(false);
-    expect(disabledDate(Moment('2018-06-01'))).toBe(true);
+    expect(disabledDate(Dayjs('2018-02-01'))).toBe(true);
+    expect(disabledDate(Dayjs('2018-02-02'))).toBe(false);
+    expect(disabledDate(Dayjs('2018-02-03'))).toBe(true);
+    expect(disabledDate(Dayjs('2018-02-04'))).toBe(false);
+    expect(disabledDate(Dayjs('2018-06-01'))).toBe(true);
   });
 
   it('Calendar MonthSelect should display correct label', () => {
-    const validRange = [Moment('2018-02-02'), Moment('2019-06-1')];
-    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2019-01-01')} />);
+    const validRange = [Dayjs('2018-02-02'), Dayjs('2019-06-1')];
+    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Dayjs('2019-01-01')} />);
     const { options } = wrapper.find('MonthSelect > Select').props();
     expect(options.length).toBe(6);
     expect(options[5]).toEqual({ label: 'Jun', value: 5 });
@@ -143,7 +143,7 @@ describe('Calendar', () => {
   });
 
   it('Calendar should support locale', () => {
-    MockDate.set(Moment('2018-10-19').valueOf());
+    MockDate.set(Dayjs('2018-10-19').valueOf());
     // eslint-disable-next-line global-require
     const zhCN = require('../locale/zh_CN').default;
     const wrapper = mount(<Calendar locale={zhCN} />);
@@ -154,7 +154,7 @@ describe('Calendar', () => {
   describe('onPanelChange', () => {
     it('trigger when click last month of date', () => {
       const onPanelChange = jest.fn();
-      const date = new Moment('1990-09-03');
+      const date = new Dayjs('1990-09-03');
       const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
       wrapper.find('.ant-picker-cell').at(0).simulate('click');
@@ -165,7 +165,7 @@ describe('Calendar', () => {
 
     it('not trigger when in same month', () => {
       const onPanelChange = jest.fn();
-      const date = new Moment('1990-09-03');
+      const date = new Dayjs('1990-09-03');
       const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
       wrapper.find('.ant-picker-cell').at(10).simulate('click');
@@ -176,7 +176,7 @@ describe('Calendar', () => {
 
   it('switch should work correctly without prop mode', async () => {
     const onPanelChange = jest.fn();
-    const date = new Moment(new Date(Date.UTC(2017, 7, 9, 8)));
+    const date = new Dayjs(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
     expect(wrapper.find('CalendarHeader').props().mode).toBe('month');
@@ -194,7 +194,7 @@ describe('Calendar', () => {
     const wrapper = mount(
       <Header
         prefixCls="ant-picker-calendar"
-        generateConfig={momentGenerateConfig}
+        generateConfig={dayjsGenerateConfig}
         onChange={onValueChange}
         value={value}
         validRange={[start, end]}
@@ -206,32 +206,32 @@ describe('Calendar', () => {
   };
 
   it('if value.month > end.month, set value.month to end.month', () => {
-    const value = new Moment('1990-01-03');
-    const start = new Moment('2019-04-01');
-    const end = new Moment('2019-11-01');
+    const value = new Dayjs('1990-01-03');
+    const start = new Dayjs('2019-04-01');
+    const end = new Dayjs('2019-11-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('3'));
   });
 
   it('if start.month > value.month, set value.month to start.month', () => {
-    const value = new Moment('1990-01-03');
-    const start = new Moment('2019-11-01');
-    const end = new Moment('2019-03-01');
+    const value = new Dayjs('1990-01-03');
+    const start = new Dayjs('2019-11-01');
+    const end = new Dayjs('2019-03-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
   it('if change year and new month > end month, set value.month to end.month', () => {
-    const value = new Moment('2018-11-03');
-    const start = new Moment('2000-01-01');
-    const end = new Moment('2019-03-01');
+    const value = new Dayjs('2018-11-03');
+    const start = new Dayjs('2000-01-01');
+    const end = new Dayjs('2019-03-01');
     const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
         prefixCls="ant-picker-calendar"
-        generateConfig={momentGenerateConfig}
+        generateConfig={dayjsGenerateConfig}
         onChange={onValueChange}
         value={value}
         validRange={[start, end]}
@@ -244,14 +244,14 @@ describe('Calendar', () => {
   });
 
   it('onMonthChange should work correctly', () => {
-    const start = new Moment('2018-11-01');
-    const end = new Moment('2019-03-01');
-    const value = new Moment('2018-12-03');
+    const start = new Dayjs('2018-11-01');
+    const end = new Dayjs('2019-03-01');
+    const value = new Dayjs('2018-12-03');
     const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
         prefixCls="ant-picker-calendar"
-        generateConfig={momentGenerateConfig}
+        generateConfig={dayjsGenerateConfig}
         onChange={onValueChange}
         value={value}
         validRange={[start, end]}
@@ -266,11 +266,11 @@ describe('Calendar', () => {
 
   it('onTypeChange should work correctly', () => {
     const onTypeChange = jest.fn();
-    const value = new Moment('2018-12-03');
+    const value = new Dayjs('2018-12-03');
     const wrapper = mount(
       <Header
         prefixCls="ant-picker-calendar"
-        generateConfig={momentGenerateConfig}
+        generateConfig={dayjsGenerateConfig}
         onModeChange={onTypeChange}
         locale={{ year: '年', month: '月', locale: 'zh_CN' }}
         value={value}

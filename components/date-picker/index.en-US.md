@@ -29,7 +29,7 @@ The default locale is en-US, if you need to use other languages, recommend to us
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
-import 'moment/locale/zh-cn';
+import 'dayjs/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />;
@@ -37,12 +37,12 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
-import moment from 'moment';
-import 'moment/locale/zh-cn';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 import locale from 'antd/es/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
-  <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+  <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
 </ConfigProvider>;
 ```
 
@@ -55,9 +55,9 @@ The following APIs are shared by DatePicker, RangePicker.
 | allowClear | Whether to show clear button | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | className | The picker className | string | - |  |
-| dateRender | Custom rendering function for date cells | function(currentDate: moment, today: moment) => React.ReactNode | - |  |
+| dateRender | Custom rendering function for date cells | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
-| disabledDate | Specify the date that cannot be selected | (currentDate: moment) => boolean | - |  |
+| disabledDate | Specify the date that cannot be selected | (currentDate: dayjs) => boolean | - |  |
 | dropdownClassName | To customize the className of the popup calendar | string | - |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
@@ -86,16 +86,16 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - |  |
-| defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD` |  |
+| format | To set the date format, refer to [dayjs.js](https://day.js.org/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD` |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |  |
+| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showToday | Whether to show `Today` button | boolean | true |  |
-| value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
+| value | To set date | [dayjs](https://day.js.org/) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 | onOk | Callback when click ok button | function() | - |  |
 | onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 | showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
@@ -104,12 +104,12 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
-| defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY` |  |
+| defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| format | To set the date format, refer to [dayjs.js](https://day.js.org/) | string | `YYYY` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
-| value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
+| value | To set date | [dayjs](https://day.js.org/) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 
 ### DatePicker\[picker=quarter]
 
@@ -117,34 +117,34 @@ Added in `4.1.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
-| defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-\QQ` |  |
+| defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| format | To set the date format, refer to [dayjs.js](https://day.js.org/) | string | `YYYY-\QQ` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
-| value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
+| value | To set date | [dayjs](https://day.js.org/) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 
 ### DatePicker\[picker=month]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
-| defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-MM` |  |
+| defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| format | To set the date format, refer to [dayjs.js](https://day.js.org/) | string | `YYYY-MM` |  |
 | monthCellRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
-| value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
+| value | To set date | [dayjs](https://day.js.org/) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 
 ### DatePicker\[picker=week]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
-| defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-wo` |  |
-| value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
+| defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
+| defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
+| format | To set the date format, refer to [dayjs.js](https://day.js.org/) | string | `YYYY-wo` |  |
+| value | To set date | [dayjs](https://day.js.org/) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 
 ### RangePicker
@@ -152,20 +152,20 @@ Added in `4.1.0`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
-| dateRender | Customize date cell. `info` argument is added in 4.3.0 | function(currentDate: moment, today: moment, info: { range: `start` \| `end` }) => React.ReactNode | - |  |
-| defaultValue | To set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| defaultPickerValue | To set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
+| dateRender | Customize date cell. `info` argument is added in 4.3.0 | function(currentDate: dayjs, today: dayjs, info: { range: `start` \| `end` }) => React.ReactNode | - |  |
+| defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
+| defaultPickerValue | To set default picker date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)\] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
-| disabledTime | To specify the time that cannot be selected | function(date: moment, partial: `start` \| `end`) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD HH:mm:ss` |  |
-| ranges | The preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
+| disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`) | - |  |
+| format | To set the date format, refer to [dayjs.js](https://day.js.org/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD HH:mm:ss` |  |
+| ranges | The preseted ranges for quick selection | { \[range: string]: [dayjs](https://day.js.org/)\[] } \| { \[range: string]: () => [dayjs](https://day.js.org/)\[] } | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | string | `~` |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
-| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
-| value | To set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
+| showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
+| value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
 
 ## FAQ
 
@@ -175,18 +175,18 @@ Please refer [FAQ](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cann
 
 ### How to use DatePicker with customize date library like dayjs?
 
-Please refer [replace moment](/docs/react/replace-moment#DatePicker)
+Please refer [replace dayjs](/docs/react/replace-dayjs#DatePicker)
 
-### Why config moment.locale globally not work?
+### Why config dayjs.locale globally not work?
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
 ### How to modify start day of week?
 
-Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: https://codesandbox.io/s/moment-day-of-week-6dby5
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update dayjs `locale` config: https://codesandbox.io/s/dayjs-day-of-week-6dby5
 
 ```js
-moment.locale('en', {
+dayjs.locale('en', {
   week: {
     dow: 1,
   },

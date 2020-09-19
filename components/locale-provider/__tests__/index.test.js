@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import MockDate from 'mockdate';
 import mountTest from '../../../tests/shared/mountTest';
 import {
@@ -162,13 +162,13 @@ const App = () => (
       <Option value="lucy">lucy</Option>
     </Select>
     <DatePicker open />
-    <TimePicker open defaultOpenValue={moment()} />
+    <TimePicker open defaultOpenValue={dayjs()} />
     <RangePicker open style={{ width: 200 }} />
     <Popconfirm title="Question?" visible>
       <a>Click to confirm</a>
     </Popconfirm>
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
-    <Calendar fullscreen={false} value={moment()} />
+    <Calendar fullscreen={false} value={dayjs()} />
     <Table dataSource={[]} columns={columns} />
     <Modal title="Locale Modal" visible getContainer={false}>
       <p>Locale Modal</p>
@@ -184,7 +184,7 @@ describe('Locale Provider', () => {
   ));
 
   beforeAll(() => {
-    MockDate.set(moment('2017-09-18T03:30:07.795').valueOf());
+    MockDate.set(dayjs('2017-09-18T03:30:07.795').valueOf());
   });
 
   afterAll(() => {
@@ -239,7 +239,7 @@ describe('Locale Provider', () => {
     });
   });
 
-  it('set moment locale when locale changes', () => {
+  it('set dayjs locale when locale changes', () => {
     class Test extends React.Component {
       state = {
         locale: zhCN,
@@ -250,7 +250,7 @@ describe('Locale Provider', () => {
         return (
           <LocaleProvider locale={locale}>
             <div>
-              <DatePicker defaultValue={moment()} open />
+              <DatePicker defaultValue={dayjs()} open />
             </div>
           </LocaleProvider>
         );

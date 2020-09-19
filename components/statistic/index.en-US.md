@@ -30,12 +30,12 @@ Display statistic number.
 
 #### Statistic.Countdown
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| format | Format as [moment](http://momentjs.com/) | string | `HH:mm:ss` |  |
-| onFinish | Trigger when time's up | () => void | - |  |
-| prefix | The prefix node of value | string \| ReactNode | - |  |
-| suffix | The suffix node of value | string \| ReactNode | - |  |
-| title | Display title | string \| ReactNode | - |  |
-| value | Set target countdown time | number \| moment | - |  |
-| valueStyle | Set value css style | CSSProperties | - |  |
+| Property   | Description                            | Type                | Default    | Version |
+| ---------- | -------------------------------------- | ------------------- | ---------- | ------- |
+| format     | Format as [dayjs](https://day.js.org/) | string              | `HH:mm:ss` |         |
+| onFinish   | Trigger when time's up                 | () => void          | -          |         |
+| prefix     | The prefix node of value               | string \| ReactNode | -          |         |
+| suffix     | The suffix node of value               | string \| ReactNode | -          |         |
+| title      | Display title                          | string \| ReactNode | -          |         |
+| value      | Set target countdown time              | number \| dayjs     | -          |         |
+| valueStyle | Set value css style                    | CSSProperties       | -          |         |

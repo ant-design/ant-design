@@ -96,9 +96,9 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
         <span
           class="ant-select-selection-item"
-          title="10月"
+          title="Oct"
         >
-          10月
+          Oct
         </span>
       </div>
       <span
@@ -189,30 +189,47 @@ exports[`Calendar Calendar should support locale 1`] = `
           <thead>
             <tr>
               <th>
-                一
+                Su
               </th>
               <th>
-                二
+                Mo
               </th>
               <th>
-                三
+                Tu
               </th>
               <th>
-                四
+                We
               </th>
               <th>
-                五
+                Th
               </th>
               <th>
-                六
+                Fr
               </th>
               <th>
-                日
+                Sa
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td
+                class="ant-picker-cell"
+                title="2018-09-30"
+              >
+                <div
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                >
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
+                </div>
+              </td>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-01"
@@ -315,6 +332,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-07"
@@ -332,8 +351,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-08"
@@ -436,6 +453,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-14"
@@ -453,8 +472,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-15"
@@ -557,6 +574,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-21"
@@ -574,8 +593,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-22"
@@ -678,6 +695,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-28"
@@ -695,8 +714,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr>
               <td
                 class="ant-picker-cell ant-picker-cell-in-view"
                 title="2018-10-29"
@@ -799,6 +816,8 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
+            </tr>
+            <tr>
               <td
                 class="ant-picker-cell"
                 title="2018-11-04"
@@ -816,8 +835,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                   />
                 </div>
               </td>
-            </tr>
-            <tr>
               <td
                 class="ant-picker-cell"
                 title="2018-11-05"
@@ -914,23 +931,6 @@ exports[`Calendar Calendar should support locale 1`] = `
                     class="ant-picker-calendar-date-value"
                   >
                     10
-                  </div>
-                  <div
-                    class="ant-picker-calendar-date-content"
-                  />
-                </div>
-              </td>
-              <td
-                class="ant-picker-cell"
-                title="2018-11-11"
-              >
-                <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
-                >
-                  <div
-                    class="ant-picker-calendar-date-value"
-                  >
-                    11
                   </div>
                   <div
                     class="ant-picker-calendar-date-content"
