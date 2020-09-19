@@ -3,6 +3,7 @@ order: 12
 title:
   zh-CN: 注册新用户
   en-US: Registration
+only: true
 ---
 
 ## zh-CN
@@ -251,7 +252,10 @@ const RegistrationForm = () => {
         name="agreement"
         valuePropName="checked"
         rules={[
-          { validator:(_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
+          {
+            validator: (_, value) =>
+              value ? Promise.resolve() : Promise.reject('Should accept agreement'),
+          },
         ]}
         {...tailFormItemLayout}
       >

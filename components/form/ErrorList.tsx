@@ -5,11 +5,9 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CSSMotion from 'rc-motion';
-import useMemo from 'rc-util/lib/hooks/useMemo';
-import useCacheErrors from './hooks/useCacheErrors';
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
 import { ValidateStatus } from './FormItem';
+import useStatusFeedback from './hooks/useStatusFeedback';
 
 export type FeedbackIconType = React.ReactNode | ((status: ValidateStatus) => React.ReactNode);
 
@@ -51,11 +49,11 @@ export interface ErrorListProps {
 
 export default function ErrorList({
   errors = EMPTY_LIST,
-  feedback,
+  // feedback,
   feedbackIcon,
   onDomErrorVisibleChange,
 }: ErrorListProps) {
-  const forceUpdate = useForceUpdate();
+  // const forceUpdate = useForceUpdate();
   const {
     prefixCls,
     validateStatus,
@@ -65,47 +63,25 @@ export default function ErrorList({
 
   const mergedFeedbackIcon = feedbackIcon || contextFeedbackIcon;
 
-  const [visible, cacheErrors] = useCacheErrors(
-    errors,
-    changedVisible => {
-      if (changedVisible) {
-        /**
-         * We trigger in sync to avoid dom shaking but this get warning in react 16.13.
-         * So use Promise to keep in micro async to handle this.
-         * https://github.com/ant-design/ant-design/issues/21698#issuecomment-593743485
-         */
-        Promise.resolve().then(() => {
-          onDomErrorVisibleChange?.(true);
-        });
-      }
-      forceUpdate();
-    },
-    !!feedback,
-  );
+  const [feedbackVisible, feedbackList, feedbackStatus] = useStatusFeedback(errors, validateStatus);
 
-  const memoErrors = useMemo(
-    () => cacheErrors,
-    visible,
-    (_, nextVisible) => nextVisible,
-  );
-
-  // Memo validateStatus in same visible
-  const [innerStatus, setInnerStatus] = React.useState(validateStatus);
-  React.useEffect(() => {
-    if (visible && validateStatus) {
-      setInnerStatus(validateStatus);
+  React.useLayoutEffect(() => {
+    if (feedbackVisible) {
+      onDomErrorVisibleChange?.(true);
     }
-  }, [visible, validateStatus]);
+  }, [feedbackVisible]);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
   return (
     <CSSMotion
       motionDeadline={500}
-      visible={visible}
+      visible={feedbackVisible}
       motionName="show-help"
       onLeaveEnd={() => {
-        onDomErrorVisibleChange?.(false);
+        if (!feedbackVisible) {
+          onDomErrorVisibleChange?.(false);
+        }
       }}
       motionAppear
       removeOnLeave
@@ -116,16 +92,16 @@ export default function ErrorList({
             className={classNames(
               baseClassName,
               {
-                [`${baseClassName}-${innerStatus}`]: innerStatus,
+                [`${baseClassName}-${feedbackStatus}`]: feedbackStatus,
               },
               motionClassName,
             )}
             key="help"
           >
-            {memoErrors.map((error, index) => {
+            {feedbackList.map((error, index) => {
               const icon =
                 compatibleIconType === true &&
-                getStatusIcon(`${baseClassName}-icon`, validateStatus, mergedFeedbackIcon);
+                getStatusIcon(`${baseClassName}-icon`, feedbackStatus, mergedFeedbackIcon);
 
               return (
                 // eslint-disable-next-line react/no-array-index-key

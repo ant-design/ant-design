@@ -201,7 +201,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: domErrorVisible || mergedFeedback,
+      [`${prefixCls}-item-with-help`]:
+        domErrorVisible || (mergedFeedback !== undefined && mergedFeedback !== null),
       [`${className}`]: !!className,
 
       // Status

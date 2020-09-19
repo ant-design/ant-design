@@ -34,6 +34,12 @@ export interface Locale {
   Form?: {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
+    status?: {
+      success: string;
+      validating: string;
+      warning: string;
+      error: string;
+    };
   };
 }
 
