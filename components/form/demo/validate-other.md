@@ -67,7 +67,6 @@ const Demo = () => {
       <Form.Item
         name="select"
         label="Select"
-        hasFeedback
         rules={[{ required: true, message: 'Please select your country!' }]}
       >
         <Select placeholder="Please select a country">

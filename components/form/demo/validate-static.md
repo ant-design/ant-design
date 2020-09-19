@@ -3,7 +3,6 @@ order: 20
 title:
   zh-CN: 自定义校验
   en-US: Customized Validation
-only: true
 ---
 
 ## zh-CN

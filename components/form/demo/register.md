@@ -3,7 +3,6 @@ order: 12
 title:
   zh-CN: 注册新用户
   en-US: Registration
-only: true
 ---
 
 ## zh-CN
@@ -160,7 +159,6 @@ const RegistrationForm = () => {
             message: 'Please input your password!',
           },
         ]}
-        hasFeedback
       >
         <Input.Password />
       </Form.Item>
@@ -169,7 +167,6 @@ const RegistrationForm = () => {
         name="confirm"
         label="Confirm Password"
         dependencies={['password']}
-        hasFeedback
         rules={[
           {
             required: true,
