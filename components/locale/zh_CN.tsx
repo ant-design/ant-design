@@ -76,12 +76,6 @@ const localeValues: Locale = {
   },
   Form: {
     optional: '（可选）',
-    status: {
-      success: '校验成功',
-      validating: '校验中……',
-      warning: '校验警告',
-      error: '校验失败',
-    },
     defaultValidateMessages: {
       default: '字段验证错误${label}',
       required: '请输入${label}',

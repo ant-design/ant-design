@@ -77,12 +77,6 @@ const localeValues: Locale = {
   },
   Form: {
     optional: '(optional)',
-    status: {
-      success: 'Validate success',
-      validating: 'Validating...',
-      warning: 'Warning',
-      error: 'Validate failed',
-    },
     defaultValidateMessages: {
       default: 'Field validation error ${label}',
       required: 'Please enter ${label}',

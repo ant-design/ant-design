@@ -56,7 +56,7 @@ const RawForm = () => {
         {...formItemLayout}
         label="Prime between 8 & 12"
         validateStatus={number.validateStatus}
-        help={number.errorMsg || tips}
+        feedback={number.errorMsg || tips}
       >
         <InputNumber min={8} max={12} value={number.value} onChange={onNumberChange} />
       </Form.Item>
