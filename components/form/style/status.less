@@ -9,12 +9,20 @@
   // ========================= Explain =========================
   /* To support leave along ErrorList. We add additional className to handle explain style */
   &-explain {
+    &&-success &-icon {
+      color: @success-color;
+    }
+
     &&-error {
       color: @error-color;
     }
 
-    &&-warning {
+    &&-warning &-icon {
       color: @warning-color;
+    }
+
+    &&-validating &-icon {
+      color: @primary-color;
     }
 
     &-icon {

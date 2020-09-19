@@ -23,7 +23,7 @@ We provide properties like `validateStatus` `feedback` `feedbackIcon` to customi
 3. `feedbackIcon`: to customize feedback icon.
 
 ```tsx
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined, FrownOutlined } from '@ant-design/icons';
 import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
 
 const { Option } = Select;
@@ -49,7 +49,7 @@ ReactDOM.render(
       <Input placeholder="unavailable choice" id="error" />
     </Form.Item>
 
-    <Form.Item label="Warning" validateStatus="warning">
+    <Form.Item label="Warning" validateStatus="warning" feedback="A warn feedback here...">
       <Input placeholder="Warning" id="warning" prefix={<SmileOutlined />} />
     </Form.Item>
 
@@ -61,7 +61,7 @@ ReactDOM.render(
       <Input placeholder="I'm the content is being validated" id="validating" />
     </Form.Item>
 
-    <Form.Item label="Success" validateStatus="success">
+    <Form.Item label="Success" validateStatus="success" feedback="A validate success feedback...">
       <Input placeholder="I'm the content" id="success" />
     </Form.Item>
 
@@ -69,11 +69,7 @@ ReactDOM.render(
       <Input placeholder="Warning" id="warning2" />
     </Form.Item>
 
-    <Form.Item
-      label="Fail"
-      validateStatus="error"
-      feedback="Should be combination of numbers & alphabets"
-    >
+    <Form.Item label="Fail" validateStatus="error" feedbackIcon={<FrownOutlined />}>
       <Input placeholder="unavailable choice" id="error2" />
     </Form.Item>
 

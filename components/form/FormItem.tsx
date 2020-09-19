@@ -103,10 +103,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [mergedFeedback, compatibleIconType] = React.useMemo<
     [React.ReactNode, CompatibleIconType]
   >(() => {
-    if (feedback) {
-      return [feedback, true];
+    if (!feedback && (hasFeedback || help)) {
+      return [help, hasFeedback ? 'legacy' : false];
     }
-    return [help, hasFeedback ? 'legacy' : false];
+
+    return [feedback, true];
   }, [help, feedback, hasFeedback]);
 
   const destroyRef = useRef(false);
