@@ -6,6 +6,8 @@ import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { RequiredMark } from './Form';
 import { ValidateStatus } from './FormItem';
+import { FeedbackIconType } from './ErrorList';
+import { CompatibleIconType } from './FormItemInput';
 
 /**
  * Form Context
@@ -57,6 +59,8 @@ export const FormProvider: React.FC<FormProviderProps> = props => {
 export interface FormItemPrefixContextProps {
   prefixCls: string;
   validateStatus?: ValidateStatus;
+  feedbackIcon?: FeedbackIconType;
+  compatibleIconType?: CompatibleIconType;
 }
 
 export const FormItemPrefixContext = React.createContext<FormItemPrefixContextProps>({

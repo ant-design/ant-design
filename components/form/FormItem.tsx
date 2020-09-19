@@ -13,7 +13,7 @@ import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemInput, { FormItemInputProps } from './FormItemInput';
+import FormItemInput, { CompatibleIconType, FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
@@ -50,8 +50,6 @@ export interface FormItemProps<Values = any>
   className?: string;
   children?: ChildrenType<Values>;
   id?: string;
-  hasFeedback?: boolean;
-  validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;
   initialValue?: any;
@@ -59,6 +57,14 @@ export interface FormItemProps<Values = any>
   tooltip?: LabelTooltipType;
   /** Auto passed by List render props. User should not use this. */
   fieldKey?: React.Key | React.Key[];
+
+  /** Feedback */
+  validateStatus?: ValidateStatus;
+  /** @deprecated Design updated. Please use `feedbackIcon` instead. */
+  hasFeedback?: boolean;
+  /** @deprecated Please use `feedback` instead. */
+  help?: React.ReactNode;
+  feedbackIcon?: React.ReactNode;
 }
 
 function hasValidName(name?: NamePath): Boolean {
@@ -80,6 +86,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     shouldUpdate,
     hasFeedback,
     help,
+    feedback,
     rules,
     validateStatus,
     children,
@@ -91,11 +98,22 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     hidden,
     ...restProps
   } = props;
+
+  // Merge feedback
+  const [mergedFeedback, compatibleIconType] = React.useMemo<
+    [React.ReactNode, CompatibleIconType]
+  >(() => {
+    if (feedback) {
+      return [feedback, true];
+    }
+    return [help, hasFeedback ? 'legacy' : false];
+  }, [help, feedback, hasFeedback]);
+
   const destroyRef = useRef(false);
   const { getPrefixCls } = useContext(ConfigContext);
   const { name: formName, requiredMark } = useContext(FormContext);
   const { updateItemErrors } = useContext(FormItemContext);
-  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!mergedFeedback);
   const [inlineErrors, setInlineErrors] = useFrameState<Record<string, string[]>>({});
 
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
@@ -161,8 +179,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     // >>> merged errors
     let mergedErrors: React.ReactNode[];
-    if (help !== undefined && help !== null) {
-      mergedErrors = toArray(help);
+    if (mergedFeedback !== undefined && mergedFeedback !== null) {
+      mergedErrors = toArray(mergedFeedback);
     } else {
       mergedErrors = meta ? meta.errors : [];
       mergedErrors = [...mergedErrors, ...subErrorList];
@@ -182,11 +200,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: domErrorVisible || help,
+      [`${prefixCls}-item-with-help`]: domErrorVisible || mergedFeedback,
       [`${className}`]: !!className,
 
       // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && compatibleIconType === 'legacy',
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
@@ -207,6 +225,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'getValueProps',
           'hasFeedback',
           'help',
+          'feedback',
+          'feedbackIcon',
           'htmlFor',
           'id', // It is deprecated because `htmlFor` is its replacement.
           'initialValue',
@@ -240,6 +260,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           prefixCls={prefixCls}
           onDomErrorVisibleChange={setDomErrorVisible}
           validateStatus={mergedValidateStatus}
+          // Feedback
+          feedback={mergedFeedback}
+          compatibleIconType={compatibleIconType}
         >
           <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
             {baseChildren}

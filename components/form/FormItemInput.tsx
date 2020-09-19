@@ -1,45 +1,41 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
-import ErrorList from './ErrorList';
+import ErrorList, { FeedbackIconType, getStatusIcon } from './ErrorList';
+
+/**
+ * Legacy: show use `legacy`, and `false` to hidden.
+ * Latest: `true`
+ */
+export type CompatibleIconType = 'legacy' | boolean;
 
 interface FormItemInputMiscProps {
   prefixCls: string;
+  compatibleIconType?: CompatibleIconType;
   children: React.ReactNode;
   errors: React.ReactNode[];
-  hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
 }
 
 export interface FormItemInputProps {
   wrapperCol?: ColProps;
-  help?: React.ReactNode;
+  feedback?: React.ReactNode;
+  feedbackIcon?: FeedbackIconType;
   extra?: React.ReactNode;
 }
-
-const iconMap: { [key: string]: any } = {
-  success: CheckCircleFilled,
-  warning: ExclamationCircleFilled,
-  error: CloseCircleFilled,
-  validating: LoadingOutlined,
-};
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
   wrapperCol,
   children,
-  help,
+  feedback,
+  feedbackIcon,
+  compatibleIconType,
   errors,
   onDomErrorVisibleChange,
-  hasFeedback,
   validateStatus,
   extra,
 }) => {
@@ -59,13 +55,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   );
 
   // Should provides additional icon if `hasFeedback`
-  const IconNode = validateStatus && iconMap[validateStatus];
   const icon =
-    hasFeedback && IconNode ? (
-      <span className={`${baseClassName}-children-icon`}>
-        <IconNode />
-      </span>
-    ) : null;
+    compatibleIconType === 'legacy' &&
+    getStatusIcon(`${baseClassName}-children-icon`, validateStatus);
 
   // Pass to sub FormItem should not with col info
   const subFormContext = { ...formContext };
@@ -79,10 +71,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           <div className={`${baseClassName}-control-input-content`}>{children}</div>
           {icon}
         </div>
-        <FormItemPrefixContext.Provider value={{ prefixCls, validateStatus }}>
+        <FormItemPrefixContext.Provider
+          value={{ prefixCls, validateStatus, feedbackIcon, compatibleIconType }}
+        >
           <ErrorList
             errors={errors}
-            help={help}
+            feedback={feedback}
             onDomErrorVisibleChange={onDomErrorVisibleChange}
           />
         </FormItemPrefixContext.Provider>

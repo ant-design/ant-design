@@ -11,6 +11,8 @@ import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { FormItemPrefixContext } from './context';
 import { ValidateStatus } from './FormItem';
 
+export type FeedbackIconType = React.ReactNode | ((status: ValidateStatus) => React.ReactNode);
+
 const EMPTY_LIST: React.ReactNode[] = [];
 
 const IconMap: Partial<Record<ValidateStatus, React.ComponentType>> = {
@@ -20,30 +22,48 @@ const IconMap: Partial<Record<ValidateStatus, React.ComponentType>> = {
   validating: LoadingOutlined,
 };
 
-function getStatusIcon(prefixCls: string, status?: ValidateStatus) {
-  const Component = IconMap[status!];
-  return Component ? (
-    <span className={`${prefixCls}-icon`}>
-      <Component />
-    </span>
-  ) : null;
+export function getStatusIcon(
+  className: string,
+  status: ValidateStatus | undefined,
+  feedbackIcon?: FeedbackIconType,
+) {
+  let iconNode: React.ReactNode;
+  if (typeof feedbackIcon === 'function') {
+    iconNode = feedbackIcon(status!);
+  } else if (feedbackIcon) {
+    iconNode = feedbackIcon;
+  } else {
+    const Component = IconMap[status!];
+    iconNode = Component ? <Component /> : null;
+  }
+
+  return iconNode && <span className={className}>{iconNode}</span>;
 }
 
 export interface ErrorListProps {
   errors?: React.ReactNode[];
   /** @private Internal usage. Do not use in your production */
-  help?: React.ReactNode;
+  feedback?: React.ReactNode;
+  feedbackIcon?: FeedbackIconType;
   /** @private Internal usage. Do not use in your production */
   onDomErrorVisibleChange?: (visible: boolean) => void;
 }
 
 export default function ErrorList({
   errors = EMPTY_LIST,
-  help,
+  feedback,
+  feedbackIcon,
   onDomErrorVisibleChange,
 }: ErrorListProps) {
   const forceUpdate = useForceUpdate();
-  const { prefixCls, validateStatus } = React.useContext(FormItemPrefixContext);
+  const {
+    prefixCls,
+    validateStatus,
+    feedbackIcon: contextFeedbackIcon,
+    compatibleIconType,
+  } = React.useContext(FormItemPrefixContext);
+
+  const mergedFeedbackIcon = feedbackIcon || contextFeedbackIcon;
 
   const [visible, cacheErrors] = useCacheErrors(
     errors,
@@ -60,7 +80,7 @@ export default function ErrorList({
       }
       forceUpdate();
     },
-    !!help,
+    !!feedback,
   );
 
   const memoErrors = useMemo(
@@ -103,7 +123,9 @@ export default function ErrorList({
             key="help"
           >
             {memoErrors.map((error, index) => {
-              const icon = getStatusIcon(baseClassName, validateStatus);
+              const icon =
+                compatibleIconType === true &&
+                getStatusIcon(`${baseClassName}-icon`, validateStatus, mergedFeedbackIcon);
 
               return (
                 // eslint-disable-next-line react/no-array-index-key

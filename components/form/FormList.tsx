@@ -41,7 +41,7 @@ const FormList: React.FC<FormListProps> = ({
     <List {...props}>
       {(fields, operation, meta) => {
         return (
-          <FormItemPrefixContext.Provider value={{ prefixCls, status: 'error' }}>
+          <FormItemPrefixContext.Provider value={{ prefixCls, validateStatus: 'error' }}>
             {children(
               fields.map(field => ({ ...field, fieldKey: field.key })),
               operation,
