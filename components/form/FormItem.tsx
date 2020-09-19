@@ -103,7 +103,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [mergedFeedback, compatibleIconType] = React.useMemo<
     [React.ReactNode, CompatibleIconType]
   >(() => {
-    if (!feedback && (hasFeedback || help)) {
+    if (!feedback && (hasFeedback || (help !== undefined && help !== null))) {
       return [help, hasFeedback ? 'legacy' : false];
     }
 

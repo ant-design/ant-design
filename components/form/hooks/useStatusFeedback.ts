@@ -16,7 +16,7 @@ export default (
   const forceUpdate = useForceUpdate();
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    function update() {
       const prevErrors = prevErrorsRef.current || [];
       const currentErrors = errors || [];
 
@@ -39,7 +39,14 @@ export default (
 
         forceUpdate();
       }
-    }, 10);
+    }
+
+    let timeout: NodeJS.Timeout;
+    if (errors?.length) {
+      update();
+    } else {
+      timeout = setTimeout(update, 10);
+    }
 
     return () => {
       clearTimeout(timeout);

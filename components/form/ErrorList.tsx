@@ -8,6 +8,7 @@ import CSSMotion from 'rc-motion';
 import { FormItemPrefixContext } from './context';
 import { ValidateStatus } from './FormItem';
 import useStatusFeedback from './hooks/useStatusFeedback';
+import useIsomorphicEffect from '../_util/hooks/useIsomorphicEffect';
 
 export type FeedbackIconType = React.ReactNode | ((status: ValidateStatus) => React.ReactNode);
 
@@ -65,7 +66,7 @@ export default function ErrorList({
 
   const [feedbackVisible, feedbackList, feedbackStatus] = useStatusFeedback(errors, validateStatus);
 
-  React.useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (feedbackVisible) {
       onDomErrorVisibleChange?.(true);
     }

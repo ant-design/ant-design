@@ -1,5 +1,8 @@
 const React = require('react');
 
+// Hack to avoid warning in jsdom
+React.useLayoutEffect = React.useEffect;
+
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 

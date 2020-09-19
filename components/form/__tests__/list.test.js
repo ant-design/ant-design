@@ -222,6 +222,7 @@ describe('Form.List', () => {
       );
 
       await act(async () => {
+        wrapper.setProps({ errors: [] });
         await sleep();
         jest.runAllTimers();
         wrapper.update();
