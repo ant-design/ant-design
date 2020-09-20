@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import { ConfigContext } from '../config-provider';
 
-export interface TimeLineItemProps {
+export interface TimelineItemProps {
   prefixCls?: string;
   className?: string;
   color?: string;
@@ -14,7 +14,7 @@ export interface TimeLineItemProps {
   label?: React.ReactNode;
 }
 
-const TimelineItem: React.FC<TimeLineItemProps> = props => {
+const TimelineItem: React.FC<TimelineItemProps> = props => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
