@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import {
   MailOutlined,
   InboxOutlined,
@@ -411,23 +410,17 @@ describe('Menu', () => {
         </Menu>,
       );
       wrapper.find('.ant-menu-submenu-title').simulate('click');
-      await act(async () => {
-        await sleep(600);
-      });
+      await sleep(600);
       expect(onAppearEnd).toHaveBeenCalledTimes(1);
       expect(onEnterEnd).toHaveBeenCalledTimes(0);
       expect(onLeaveEnd).toHaveBeenCalledTimes(0);
       wrapper.find('.ant-menu-submenu-title').simulate('click');
-      await act(async () => {
-        await sleep(600);
-      });
+      await sleep(600);
       expect(onAppearEnd).toHaveBeenCalledTimes(1);
       expect(onEnterEnd).toHaveBeenCalledTimes(0);
       expect(onLeaveEnd).toHaveBeenCalledTimes(1);
       wrapper.find('.ant-menu-submenu-title').simulate('click');
-      await act(async () => {
-        await sleep(600);
-      });
+      await sleep(600);
       expect(onAppearEnd).toHaveBeenCalledTimes(1);
       expect(onEnterEnd).toHaveBeenCalledTimes(1);
       expect(onLeaveEnd).toHaveBeenCalledTimes(1);
