@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.6.5
+
+`2020-09-20`
+
+- 💄 修复 Descriptions 长文本溢出的样式问题。[#26820](https://github.com/ant-design/ant-design/pull/26820)
+- 🐞 修复 Menu 子菜单展开/收起时会出现滚动条的问题。[#26817](https://github.com/ant-design/ant-design/pull/26817)
+- 🐞 修复 `@layout-sider-background` 变量不能设置为渐变色的问题。[#26810](https://github.com/ant-design/ant-design/pull/26810)
+- 🐞 修复 Select 搜索时输入第一个字符后中文输入法状态丢失的问题。[#26796](https://github.com/ant-design/ant-design/pull/26796)
+- 🐞 修复 Table `@table-sticky-zindex` less 报错问题。[#26800](https://github.com/ant-design/ant-design/pull/26800) [@chimp1nski](https://github.com/chimp1nski)
+- Button
+  - 💄 修复 Button 只有图标时的对齐问题。[#26785](https://github.com/ant-design/ant-design/pull/26785)
+  - 🐞 修复 Button 和 react-router 一起使用时抛出 `Invalid value for prop navigate` 的问题。[#26740](https://github.com/ant-design/ant-design/pull/26740) [@knobo](https://github.com/knobo)
+- 💄 修复 TimePicker 选择框 hover 时文字内容左移的问题，并新增 `@picker-time-panel-column-width` 和 `@picker-time-panel-column-height` less 变量。[#26784](https://github.com/ant-design/ant-design/pull/26784)
+- 🐞 修复 AutoComplete 使用 `placeholder` 和 `allowClear` 时抛出警告的问题。[#26765](https://github.com/ant-design/ant-design/pull/26765)
+- 🐞 修复 Space 空条目会占据一格的样式问题。[#26721](https://github.com/ant-design/ant-design/pull/26721) [@knobo](https://github.com/knobo)
+- 🛠 去重多版本 `rc-trigger` 以降低打包尺寸。[#26803](https://github.com/ant-design/ant-design/pull/26803)
+- TypeScript
+  - 🤖 Cascader 增加 `name` 和 `id` 属性。[#26660](https://github.com/ant-design/ant-design/pull/26660) [@alwaysloseall](https://github.com/alwaysloseall)
+
 ## 4.6.4
 
 `2020-09-13`
@@ -27,7 +46,6 @@ timeline: true
 - 🐞 修复 Typography.Link 和 react-router 一起使用时抛出 `Invalid value for prop navigate` 的问题。[#26623](https://github.com/ant-design/ant-design/pull/26623)
 - 🐞 修复 Table 分页器在表格上方消失的问题。[#26618](https://github.com/ant-design/ant-design/pull/26618)
 - 🐞 修复 Upload 受控时同时上传多份文件会丢失部分文件的问题。[#26612](https://github.com/ant-design/ant-design/pull/26612)
-- 🛠 去重多版本 `rc-trigger` 以降低打包尺寸。[#26803](https://github.com/ant-design/ant-design/pull/26803)
 - TypeScript
   - 🤖 修复 Table sorter 的 `compare` 和 `multiple` 不是可选的问题。[#26686](https://github.com/ant-design/ant-design/pull/26686)
 
