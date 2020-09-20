@@ -7,7 +7,6 @@ import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
-import openAnimation from '../openAnimation';
 import { sleep } from '../../../tests/utils';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -184,23 +183,6 @@ describe('Test utils function', () => {
       expect(onClick).toHaveBeenCalled();
       wrapper.simulate('keyDown', { keyCode: KeyCode.ENTER, preventDefault });
       expect(preventDefault).toHaveBeenCalled();
-    });
-  });
-
-  describe('openAnimation', () => {
-    it('should support openAnimation', () => {
-      const done = jest.fn();
-      const domNode = document.createElement('div');
-      expect(typeof openAnimation.enter).toBe('function');
-      expect(typeof openAnimation.leave).toBe('function');
-      expect(typeof openAnimation.appear).toBe('function');
-      const appear = openAnimation.appear(domNode, done);
-      const enter = openAnimation.enter(domNode, done);
-      const leave = openAnimation.leave(domNode, done);
-      expect(typeof appear.stop).toBe('function');
-      expect(typeof enter.stop).toBe('function');
-      expect(typeof leave.stop).toBe('function');
-      expect(done).toHaveBeenCalled();
     });
   });
 });
