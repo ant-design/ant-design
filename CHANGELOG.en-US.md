@@ -19,7 +19,7 @@ timeline: true
 
 `2020-09-20`
 
-- 💄 fix Descriptions item long text ellipsis issue. [#26820](https://github.com/ant-design/ant-design/pull/26820)
+- 💄 Fix Descriptions item long text ellipsis issue. [#26820](https://github.com/ant-design/ant-design/pull/26820)
 - 🐞 Fix Menu unexpected scrollbar when show and hide. [#26817](https://github.com/ant-design/ant-design/pull/26817)
 - 🐞 Fix `@layout-sider-background` cannot set to linear gradient color. [#26810](https://github.com/ant-design/ant-design/pull/26810)
 - 🐞 Fix Select compositing status lost when input first letter in Chinese. [#26796](https://github.com/ant-design/ant-design/pull/26796)
