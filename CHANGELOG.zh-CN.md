@@ -29,7 +29,7 @@ timeline: true
   - 🐞 修复 Button 和 react-router 一起使用时抛出 `Invalid value for prop navigate` 的问题。[#26740](https://github.com/ant-design/ant-design/pull/26740) [@knobo](https://github.com/knobo)
 - 💄 修复 TimePicker 选择框 hover 时文字内容左移的问题，并新增 `@picker-time-panel-column-width` 和 `@picker-time-panel-column-height` less 变量。[#26784](https://github.com/ant-design/ant-design/pull/26784)
 - 🐞 修复 AutoComplete 使用 `placeholder` 和 `allowClear` 时抛出警告的问题。[#26765](https://github.com/ant-design/ant-design/pull/26765)
-- 🐞 Space 修复空条目会占据一格的样式问题。[#26721](https://github.com/ant-design/ant-design/pull/26721) [@knobo](https://github.com/knobo)
+- 🐞 修复 Space 空条目会占据一格的样式问题。[#26721](https://github.com/ant-design/ant-design/pull/26721) [@knobo](https://github.com/knobo)
 - 🛠 去重多版本 `rc-trigger` 以降低打包尺寸。[#26803](https://github.com/ant-design/ant-design/pull/26803)
 - TypeScript
   - 🤖 Cascader 增加 `name` 和 `id` 属性。[#26660](https://github.com/ant-design/ant-design/pull/26660) [@alwaysloseall](https://github.com/alwaysloseall)
