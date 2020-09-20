@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.6.5
+
+`2020-09-20`
+
+- 💄 fix Descriptions item long text ellipsis issue. [#26820](https://github.com/ant-design/ant-design/pull/26820)
+- 🐞 Fix Menu unexpected scrollbar when show and hide. [#26817](https://github.com/ant-design/ant-design/pull/26817)
+- 🐞 Fix `@layout-sider-background` cannot set to linear gradient color. [#26810](https://github.com/ant-design/ant-design/pull/26810)
+- 🐞 Fix Select compositing status lost when input first letter in Chinese. [#26796](https://github.com/ant-design/ant-design/pull/26796)
+- 🐞 Fix Table `@table-sticky-zindex` less compile error issue. [#26800](https://github.com/ant-design/ant-design/pull/26800) [@chimp1nski](https://github.com/chimp1nski)
+- Button
+  - 💄 Fix Button align issue when has icon only. [#26785](https://github.com/ant-design/ant-design/pull/26785)
+  - 🐞 Fix Button warning `Invalid value for prop navigate` when using with react-router. [#26740](https://github.com/ant-design/ant-design/pull/26740) [@Knut Olav Bøhmer](https://github.com/Knut Olav Bøhmer)
+- 💄 Fix TimePicker column align issue, add `@picker-time-panel-column-width` and `@picker-time-panel-column-height` less variables. [#26784](https://github.com/ant-design/ant-design/pull/26784)
+- 🐞 Fix AutoComplete warning when using `placeholder` and `allowClear`. [#26765](https://github.com/ant-design/ant-design/pull/26765)
+- 🐞 Fix Space show items when it's render empty dom. [#26721](https://github.com/ant-design/ant-design/pull/26721) [@knobo](https://github.com/knobo)
+
+- TypeScript
+  - 🤖 Cascader add `name` and `id` props definition. [#26660](https://github.com/ant-design/ant-design/pull/26660) [@alwaysloseall](https://github.com/alwaysloseall)
+
 ## 4.6.4
 
 `2020-09-13`
