@@ -46,6 +46,7 @@ timeline: true
 - 🐞 Fix Typography.Link warning `Invalid value for prop navigate` when using with react-router. [#26623](https://github.com/ant-design/ant-design/pull/26623)
 - 🐞 Fix Table pagination missing when is above table. [#26618](https://github.com/ant-design/ant-design/pull/26618)
 - 🐞 Fix Upload in control miss file when upload multiple file in same time. [#26612](https://github.com/ant-design/ant-design/pull/26612)
+- 🛠 Dedupe `rc-trigger` version to reduce package size. [#26803](https://github.com/ant-design/ant-design/pull/26803)
 - TypeScript
   - 🤖 Fix Table that sorter `compare` and `multiple` should be optional. [#26686](https://github.com/ant-design/ant-design/pull/26686)
 
