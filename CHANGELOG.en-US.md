@@ -26,11 +26,11 @@ timeline: true
 - 🐞 Fix Table `@table-sticky-zindex` less compile error issue. [#26800](https://github.com/ant-design/ant-design/pull/26800) [@chimp1nski](https://github.com/chimp1nski)
 - Button
   - 💄 Fix Button align issue when has icon only. [#26785](https://github.com/ant-design/ant-design/pull/26785)
-  - 🐞 Fix Button warning `Invalid value for prop navigate` when using with react-router. [#26740](https://github.com/ant-design/ant-design/pull/26740) [@Knut Olav Bøhmer](https://github.com/Knut Olav Bøhmer)
+  - 🐞 Fix Button warning `Invalid value for prop navigate` when using with react-router. [#26740](https://github.com/ant-design/ant-design/pull/26740) [@knobo](https://github.com/knobo)
 - 💄 Fix TimePicker column align issue, add `@picker-time-panel-column-width` and `@picker-time-panel-column-height` less variables. [#26784](https://github.com/ant-design/ant-design/pull/26784)
 - 🐞 Fix AutoComplete warning when using `placeholder` and `allowClear`. [#26765](https://github.com/ant-design/ant-design/pull/26765)
 - 🐞 Fix Space show items when it's render empty dom. [#26721](https://github.com/ant-design/ant-design/pull/26721) [@knobo](https://github.com/knobo)
-
+- 🛠 Dedupe `rc-trigger` version to reduce package size. [#26803](https://github.com/ant-design/ant-design/pull/26803)
 - TypeScript
   - 🤖 Cascader add `name` and `id` props definition. [#26660](https://github.com/ant-design/ant-design/pull/26660) [@alwaysloseall](https://github.com/alwaysloseall)
 
@@ -46,7 +46,6 @@ timeline: true
 - 🐞 Fix Typography.Link warning `Invalid value for prop navigate` when using with react-router. [#26623](https://github.com/ant-design/ant-design/pull/26623)
 - 🐞 Fix Table pagination missing when is above table. [#26618](https://github.com/ant-design/ant-design/pull/26618)
 - 🐞 Fix Upload in control miss file when upload multiple file in same time. [#26612](https://github.com/ant-design/ant-design/pull/26612)
-- 🛠 Dedupe `rc-trigger` version to reduce package size. [#26803](https://github.com/ant-design/ant-design/pull/26803)
 - TypeScript
   - 🤖 Fix Table that sorter `compare` and `multiple` should be optional. [#26686](https://github.com/ant-design/ant-design/pull/26686)
 
