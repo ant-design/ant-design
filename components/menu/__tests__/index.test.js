@@ -398,9 +398,7 @@ describe('Menu', () => {
     it('inline menu collapseMotion should be triggered', async () => {
       jest.useRealTimers();
       const onAppearEnd = jest.spyOn(collapseMotion, 'onAppearEnd');
-      const onEnterEnd = jest.spyOn(collapseMotion, 'onEnterEnd');
-      const onLeaveEnd = jest.spyOn(collapseMotion, 'onLeaveEnd');
-      Object.defineProperty(collapseMotion, 'motionDeadline', { value: 10 });
+      collapseMotion.motionDeadline = 1;
       const wrapper = mount(
         <Menu mode="inline">
           <SubMenu key="1" title="submenu1">
@@ -411,23 +409,9 @@ describe('Menu', () => {
         </Menu>,
       );
       wrapper.find('.ant-menu-submenu-title').simulate('click');
-      await sleep(400);
+      await sleep(3000);
       expect(onAppearEnd).toHaveBeenCalledTimes(1);
-      expect(onEnterEnd).toHaveBeenCalledTimes(0);
-      expect(onLeaveEnd).toHaveBeenCalledTimes(0);
-      wrapper.find('.ant-menu-submenu-title').simulate('click');
-      await sleep(100);
-      expect(onAppearEnd).toHaveBeenCalledTimes(1);
-      expect(onEnterEnd).toHaveBeenCalledTimes(0);
-      expect(onLeaveEnd).toHaveBeenCalledTimes(1);
-      wrapper.find('.ant-menu-submenu-title').simulate('click');
-      await sleep(100);
-      expect(onAppearEnd).toHaveBeenCalledTimes(1);
-      expect(onEnterEnd).toHaveBeenCalledTimes(1);
-      expect(onLeaveEnd).toHaveBeenCalledTimes(1);
       onAppearEnd.mockRestore();
-      onEnterEnd.mockRestore();
-      onLeaveEnd.mockRestore();
     });
 
     it('vertical with hover(default)', () => {
