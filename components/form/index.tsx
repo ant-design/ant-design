@@ -1,7 +1,7 @@
 import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
 import InternalForm, { useForm, FormInstance, FormProps } from './Form';
 import Item, { FormItemProps } from './FormItem';
-import List from './FormList';
+import List, { FormListProps } from './FormList';
 import { FormProvider } from './context';
 import devWarning from '../_util/devWarning';
 
@@ -31,6 +31,6 @@ Form.create = () => {
   );
 };
 
-export { FormInstance, FormProps, FormItemProps, Rule, RuleObject, RuleRender };
+export { FormInstance, FormProps, FormItemProps, FormListProps, Rule, RuleObject, RuleRender };
 
 export default Form;
