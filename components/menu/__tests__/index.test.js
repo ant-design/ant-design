@@ -12,6 +12,8 @@ import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import collapseMotion from '../../_util/motion';
+import { sleep } from '../../../tests/utils';
 
 const { SubMenu } = Menu;
 
@@ -391,6 +393,25 @@ describe('Menu', () => {
         () => toggleMenu(wrapper, 0, 'click'),
         () => toggleMenu(wrapper, 0, 'click'),
       );
+    });
+
+    it('inline menu collapseMotion should be triggered', async () => {
+      jest.useRealTimers();
+      const onAppearEnd = jest.spyOn(collapseMotion, 'onAppearEnd');
+      collapseMotion.motionDeadline = 1;
+      const wrapper = mount(
+        <Menu mode="inline">
+          <SubMenu key="1" title="submenu1">
+            <Menu.Item key="submenu1">Option 1</Menu.Item>
+            <Menu.Item key="submenu2">Option 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="2">menu2</Menu.Item>
+        </Menu>,
+      );
+      wrapper.find('.ant-menu-submenu-title').simulate('click');
+      await sleep(3000);
+      expect(onAppearEnd).toHaveBeenCalledTimes(1);
+      onAppearEnd.mockRestore();
     });
 
     it('vertical with hover(default)', () => {

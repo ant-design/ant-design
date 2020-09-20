@@ -5,7 +5,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import CollapsePanel from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
-import animation from '../_util/openAnimation';
+import animation from './openAnimation';
 import { cloneElement } from '../_util/reactNode';
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
