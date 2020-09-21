@@ -1,4 +1,4 @@
-const isStyleSupport = (styleName: string | Array<string>): boolean => {
+export const isStyleSupport = (styleName: string | Array<string>): boolean => {
   if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
     const styleNameList = Array.isArray(styleName) ? styleName : [styleName];
     const { documentElement } = window.document;
@@ -9,5 +9,3 @@ const isStyleSupport = (styleName: string | Array<string>): boolean => {
 };
 
 export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
-
-export default isStyleSupport;
