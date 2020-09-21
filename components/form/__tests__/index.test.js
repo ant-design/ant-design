@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import Input from '../../input';
@@ -777,6 +778,42 @@ describe('Form', () => {
 
       const tooltipProps = wrapper.find('Tooltip').props();
       expect(tooltipProps.title).toEqual('Bamboo');
+    });
+  });
+
+  describe('feedbackIcon', () => {
+    function testFeedbackIcon(name, feedbackIcon) {
+      it(name, () => {
+        jest.useFakeTimers();
+
+        const wrapper = mount(
+          <Form>
+            <Form.Item
+              validateStatus="warning"
+              feedback="Light is Bamboo"
+              feedbackIcon={feedbackIcon}
+            >
+              <Input />
+            </Form.Item>
+          </Form>,
+        );
+
+        act(() => {
+          jest.runAllTimers();
+          wrapper.update();
+        });
+
+        expect(wrapper.find('.coffee').length).toBeTruthy();
+
+        jest.useRealTimers();
+      });
+    }
+
+    testFeedbackIcon('ReactNode', <span className="coffee" />);
+    testFeedbackIcon('function', validateStatus => {
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(validateStatus).toEqual('warning');
+      return <span className="coffee" />;
     });
   });
 });
