@@ -76,7 +76,7 @@ const validateMessages = {
 | colon | 配合 `label` 属性使用，表示是否显示 `label` 后面的冒号 | boolean | true |  |
 | dependencies | 设置依赖字段，说明[见下](#dependencies) | [NamePath](#NamePath)[] | - |  |
 | extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string \| ReactNode | - |  |
-| feedback | 提示信息，如不设置，则会根据校验规则自动生成 | string \| ReactNode | - | 4.7.0 |
+| feedback | 提示信息，如不设置，则会根据校验规则自动生成（代替原 `help` 属性） | string \| ReactNode | - | 4.7.0 |
 | feedbackIcon | 自定义提示信息图标 | ReactNode \| validateStatus => ReactNode | - | 4.7.0 |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any[]) => any | - |  |
 | getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
