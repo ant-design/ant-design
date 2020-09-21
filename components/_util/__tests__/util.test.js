@@ -7,6 +7,7 @@ import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
+import { isStyleSupport, isFlexSupported } from '../styleChecker';
 import { sleep } from '../../../tests/utils';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -183,6 +184,26 @@ describe('Test utils function', () => {
       expect(onClick).toHaveBeenCalled();
       wrapper.simulate('keyDown', { keyCode: KeyCode.ENTER, preventDefault });
       expect(preventDefault).toHaveBeenCalled();
+    });
+  });
+
+  describe('style', () => {
+    it('isFlexSupported', () => {
+      expect(isFlexSupported).toBe(true);
+    });
+
+    it('isStyleSupport', () => {
+      expect(isStyleSupport('color')).toBe(true);
+      expect(isStyleSupport('not-existed')).toBe(false);
+    });
+
+    it('isStyleSupport return false in service side', () => {
+      const spy = jest
+        .spyOn(window.document, 'documentElement', 'get')
+        .mockImplementation(() => undefined);
+      expect(isStyleSupport('color')).toBe(false);
+      expect(isStyleSupport('not-existed')).toBe(false);
+      spy.mockRestore();
     });
   });
 });
