@@ -14,7 +14,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
-import isStyleSupport from '../_util/styleChecker';
+import { isStyleSupport } from '../_util/styleChecker';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';

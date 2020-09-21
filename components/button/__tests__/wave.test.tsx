@@ -84,4 +84,10 @@ describe('click wave effect', () => {
     expect(resetEffect).toHaveBeenCalledTimes(2);
     resetEffect.mockRestore();
   });
+
+  it('Wave on falsy element', async () => {
+    const wrapper = mount(<Wave />);
+    const waveInstance = wrapper.find(Wave).instance() as any;
+    waveInstance.resetEffect();
+  });
 });

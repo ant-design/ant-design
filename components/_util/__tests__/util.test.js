@@ -3,38 +3,61 @@ import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import delayRaf from '../raf';
-import throttleByAnimationFrame from '../throttleByAnimationFrame';
+import {
+  throttleByAnimationFrame,
+  throttleByAnimationFrameDecorator,
+} from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
+import { isStyleSupport, isFlexSupported } from '../styleChecker';
 import { sleep } from '../../../tests/utils';
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('Test utils function', () => {
   focusTest(TransButton);
 
-  it('throttle function should work', async () => {
-    const callback = jest.fn();
-    const throttled = throttleByAnimationFrame(callback);
-    expect(callback).not.toHaveBeenCalled();
+  describe('throttle', () => {
+    it('throttle function should work', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
+      expect(callback).not.toHaveBeenCalled();
 
-    throttled();
-    throttled();
-    await sleep(20);
+      throttled();
+      throttled();
+      await sleep(20);
 
-    expect(callback).toHaveBeenCalled();
-    expect(callback.mock.calls.length).toBe(1);
-  });
+      expect(callback).toHaveBeenCalled();
+      expect(callback.mock.calls.length).toBe(1);
+    });
 
-  it('throttle function should be canceled', async () => {
-    const callback = jest.fn();
-    const throttled = throttleByAnimationFrame(callback);
+    it('throttle function should be canceled', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
 
-    throttled();
-    throttled.cancel();
-    await sleep(20);
+      throttled();
+      throttled.cancel();
+      await sleep(20);
 
-    expect(callback).not.toHaveBeenCalled();
+      expect(callback).not.toHaveBeenCalled();
+    });
+
+    it('throttleByAnimationFrameDecorator should works', async () => {
+      const callbackFn = jest.fn();
+      class Test {
+        @throttleByAnimationFrameDecorator()
+        // eslint-disable-next-line class-methods-use-this
+        callback() {
+          callbackFn();
+        }
+      }
+      const test = new Test();
+      test.callback();
+      test.callback();
+      test.callback();
+      await sleep(30);
+      expect(callbackFn).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('getDataOrAriaProps', () => {
@@ -183,6 +206,26 @@ describe('Test utils function', () => {
       expect(onClick).toHaveBeenCalled();
       wrapper.simulate('keyDown', { keyCode: KeyCode.ENTER, preventDefault });
       expect(preventDefault).toHaveBeenCalled();
+    });
+  });
+
+  describe('style', () => {
+    it('isFlexSupported', () => {
+      expect(isFlexSupported).toBe(true);
+    });
+
+    it('isStyleSupport', () => {
+      expect(isStyleSupport('color')).toBe(true);
+      expect(isStyleSupport('not-existed')).toBe(false);
+    });
+
+    it('isStyleSupport return false in service side', () => {
+      const spy = jest
+        .spyOn(window.document, 'documentElement', 'get')
+        .mockImplementation(() => undefined);
+      expect(isStyleSupport('color')).toBe(false);
+      expect(isStyleSupport('not-existed')).toBe(false);
+      spy.mockRestore();
     });
   });
 });
