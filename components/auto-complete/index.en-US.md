@@ -58,3 +58,25 @@ Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [
 ### Part of api from v3 not available in v4?
 
 AutoComplete is a Input component support auto complete tips which should not support `labelInValue` prop to modify dispaly value in input. In v3, AutoComplete realization can not handle case that user type match of both `value` & `label` are the same. v4 not longer support `label` as the value input.
+
+Besides, to unique API, `dataSource` replaced with `options`:
+
+#### v3
+
+```tsx
+dataSource = ['light', 'bamboo'];
+// or
+dataSource = [
+  { value: 'light', text: 'Light' },
+  { value: 'bamboo', text: 'Bamboo' },
+];
+```
+
+#### v4
+
+```tsx
+options = [
+  { value: 'light', label: 'Light' },
+  { value: 'bamboo', label: 'Bamboo' },
+];
+```
