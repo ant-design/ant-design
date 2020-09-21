@@ -22,6 +22,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
 | decimalSeparator | 设置小数点 | string | `.` |  |
 | formatter | 自定义数值展示 | (value) => ReactNode | - |  |
 | groupSeparator | 设置千分位标识符 | string | `,` |  |
+| loading | 数值是否加载中 | boolean \| [object](/components/skeleton/#API) | false | 4.7.0 |
 | precision | 数值精度 | number | - |  |
 | prefix | 设置数值的前缀 | ReactNode | - |  |
 | suffix | 设置数值的后缀 | ReactNode | - |  |

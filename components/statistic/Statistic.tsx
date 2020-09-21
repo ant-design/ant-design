@@ -43,7 +43,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     onMouseEnter,
     onMouseLeave,
   } = props;
-  let skeletonProps: SkeletonProps = { loading: false };
+  let skeletonProps: SkeletonProps | undefined;
   if (typeof loading === 'boolean') {
     skeletonProps = {
       loading,
@@ -54,11 +54,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
       ...loading,
     };
   }
-  const valueNode = (
-    <Skeleton paragraph={false} {...skeletonProps}>
-      <StatisticNumber {...props} value={value} />
-    </Skeleton>
-  );
+  const valueNode = <StatisticNumber {...props} value={value} />;
   const cls = classNames(
     prefixCls,
     {
@@ -69,11 +65,13 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   return (
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <div style={valueStyle} className={`${prefixCls}-content`}>
-        {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-        {valueRender ? valueRender(valueNode) : valueNode}
-        {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
-      </div>
+      <Skeleton paragraph={false} {...skeletonProps}>
+        <div style={valueStyle} className={`${prefixCls}-content`}>
+          {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
+          {valueRender ? valueRender(valueNode) : valueNode}
+          {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
+        </div>
+      </Skeleton>
     </div>
   );
 };
@@ -81,6 +79,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
 Statistic.defaultProps = {
   decimalSeparator: '.',
   groupSeparator: ',',
+  loading: false,
 };
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({

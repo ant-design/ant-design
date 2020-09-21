@@ -56,12 +56,12 @@ describe('Statistic', () => {
     };
     const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
     expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
-    expect(wrapper.find('.ant-statistic-content-value')).toHaveLength(1);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(1);
 
     loading.loading = true;
     wrapper.setProps({ loading });
     expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
-    expect(wrapper.find('.ant-statistic-content-value')).toHaveLength(0);
+    expect(wrapper.find('.ant-statistic-content')).toHaveLength(0);
   });
 
   describe('Countdown', () => {
