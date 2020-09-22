@@ -189,6 +189,7 @@ export default class TransferList extends React.PureComponent<
     showSearch?: boolean,
     disabled?: boolean,
     singleClick?: boolean,
+    titleText?: string,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -199,10 +200,11 @@ export default class TransferList extends React.PureComponent<
           placeholder={searchPlaceholder}
           value={filterValue}
           disabled={disabled}
+          singleClick={singleClick}
         />
         {singleClick && (
           <p className={`${prefixCls}-search-below-text`}>
-            Total items: {filteredItems.length || 0}
+            {titleText || 'Total items'} : {filteredItems.length || 0}
           </p>
         )}
       </div>
@@ -347,6 +349,7 @@ export default class TransferList extends React.PureComponent<
       showSearch,
       disabled,
       singleClick,
+      titleText,
     );
 
     // ================================ List Footer ================================
