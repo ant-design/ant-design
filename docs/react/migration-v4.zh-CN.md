@@ -125,6 +125,7 @@ const Demo = () => (
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值，且返回 React 原生的 `event` 对象。
   - AutoComplete 不再支持 `optionLabelProp`，请直接设置 Option `value` 属性。
+  - AutoComplete 选项与 Select 对齐，请使用 `options` 代替 `dataSource`。
   - Select 移除 `dropdownMenuStyle` 属性。
   - 如果你需要设置弹窗高度请使用 `listHeight` 来代替 `dropdownStyle` 的高度样式。
   - `filterOption` 第二个参数直接返回原数据，不在需要通过 `option.props.children` 来进行匹配。

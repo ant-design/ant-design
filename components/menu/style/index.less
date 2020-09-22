@@ -147,7 +147,8 @@
     transform-origin: 0 0;
 
     // https://github.com/ant-design/ant-design/issues/22244
-    &:not(.zoom-big-enter-active):not(.zoom-big-leave-active) {
+    // https://github.com/ant-design/ant-design/issues/26812
+    &:not([class*='-active']) {
       overflow-x: hidden;
       overflow-y: auto;
     }
