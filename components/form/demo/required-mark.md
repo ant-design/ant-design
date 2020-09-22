@@ -16,6 +16,7 @@ Switch required or optional style with `requiredMark`.
 ```tsx
 import React, { useState } from 'react';
 import { Form, Input, Button, Radio } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const FormLayoutDemo = () => {
   const [form] = Form.useForm();
@@ -40,10 +41,13 @@ const FormLayoutDemo = () => {
           <Radio.Button value={false}>Hidden</Radio.Button>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label="Field A" required>
+      <Form.Item label="Field A" required tooltip="This is a required field">
         <Input placeholder="input placeholder" />
       </Form.Item>
-      <Form.Item label="Field B">
+      <Form.Item
+        label="Field B"
+        tooltip={{ title: 'Tooltip with customize icon', icon: <InfoCircleOutlined /> }}
+      >
         <Input placeholder="input placeholder" />
       </Form.Item>
       <Form.Item>

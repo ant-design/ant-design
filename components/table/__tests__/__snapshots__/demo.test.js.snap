@@ -5701,37 +5701,103 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -6095,37 +6161,103 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -7099,13 +7231,31 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -8521,28 +8671,76 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -15361,37 +15559,103 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -16530,10 +16794,22 @@ Array [
                   >
                     <td
                       style="padding:0;border:0;height:0"
-                    />
+                    >
+                      <div
+                        style="height:0;overflow:hidden"
+                      >
+                         
+                      </div>
+                    </td>
                     <td
                       style="padding:0;border:0;height:0"
-                    />
+                    >
+                      <div
+                        style="height:0;overflow:hidden"
+                      >
+                         
+                      </div>
+                    </td>
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"

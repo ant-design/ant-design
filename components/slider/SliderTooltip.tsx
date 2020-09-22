@@ -34,13 +34,8 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   }
 
   function keepAlign() {
-    if (rafRef.current !== null) {
-      return;
-    }
-
     rafRef.current = window.requestAnimationFrame(() => {
       (tooltipRef.current as any).forcePopupAlign();
-
       rafRef.current = null;
       keepAlign();
     });

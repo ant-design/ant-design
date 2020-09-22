@@ -34,6 +34,7 @@ const ComponentOverview = ({
     meta: { title },
     content,
   },
+  location,
   utils: { toReactComponent },
 }) => {
   const { locale, formatMessage } = useIntl();
@@ -103,7 +104,7 @@ const ComponentOverview = ({
                     const url = `${component.filename
                       .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                       .toLowerCase()}/`;
-                    const href = getLocalizedPathname(url, locale === 'zh-CN');
+                    const href = getLocalizedPathname(url, locale === 'zh-CN', location.query);
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
                         <Link to={href} onClick={() => onClickCard(href)}>

@@ -80,13 +80,31 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -413,10 +431,22 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -704,10 +734,22 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 >
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                   <td
                     style="padding:0;border:0;height:0"
-                  />
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                       
+                    </div>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
@@ -1038,7 +1080,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown"
+                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
@@ -1368,7 +1410,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown"
+                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul

@@ -28,7 +28,7 @@ exports[`Upload List handle error 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class=""
+      class="ant-upload-animate-enter ant-upload-animate-enter-active"
     >
       <div
         class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
@@ -104,6 +104,31 @@ exports[`Upload List handle error 1`] = `
     </div>
   </div>
 </span>
+`;
+
+exports[`Upload List itemRender 1`] = `
+<div
+  class="ant-upload-list ant-upload-list-text"
+>
+  <div
+    class=""
+  >
+    <span
+      class="custom-item-render"
+    >
+      uid:-1 name: xxx.png status: removed url: https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png  1/2
+    </span>
+  </div>
+  <div
+    class=""
+  >
+    <span
+      class="custom-item-render"
+    >
+      uid:-2 name: yyy.png status: removed url: https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png  2/2
+    </span>
+  </div>
+</div>
 `;
 
 exports[`Upload List should be uploading when upload a file 1`] = `
@@ -262,7 +287,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class=""
+      class="ant-upload-animate-enter ant-upload-animate-enter-active"
     >
       <span>
         <div

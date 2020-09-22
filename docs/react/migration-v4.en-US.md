@@ -125,6 +125,7 @@ const Demo = () => (
   - use virtual scrolling.
   - `onBlur` no longer trigger value change and return React origin `event` object instead.
   - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
+  - AutoComplete options definition align with Select. Please use `options` instead of `dataSource`.
   - Select remove `dropdownMenuStyle` prop.
   - Use `listHeight` to config popup height instead of `dropdownStyle`.
   - `filterOption` return origin data with second params instead. No need to use `option.props.children` for matching.

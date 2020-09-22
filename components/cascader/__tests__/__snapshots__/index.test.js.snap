@@ -601,7 +601,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
 <div>
   <div
-    class="ant-cascader-menus"
+    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1046,7 +1046,7 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
 exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
 <div>
   <div
-    class="ant-cascader-menus"
+    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1083,7 +1083,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
 exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `
 <div>
   <div
-    class="ant-cascader-menus"
+    class="ant-cascader-menus slide-up-appear slide-up-appear-prepare slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1126,7 +1126,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 exports[`Cascader should render not found content 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-empty"
+    class="ant-cascader-menus ant-cascader-menu-empty slide-up-appear slide-up-appear-prepare slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>
@@ -1195,7 +1195,7 @@ exports[`Cascader should render not found content 1`] = `
 exports[`Cascader should show not found content when options.length is 0 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-empty"
+    class="ant-cascader-menus ant-cascader-menu-empty slide-up-appear slide-up-appear-prepare slide-up"
     style="opacity: 0; pointer-events: none;"
   >
     <div>

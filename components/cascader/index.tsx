@@ -84,6 +84,10 @@ export interface CascaderProps {
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: SizeType;
+  /** 输入框name */
+  name?: string;
+  /** 输入框id */
+  id?: string;
   /** whether has border style */
   bordered?: boolean;
   /** 禁用 */

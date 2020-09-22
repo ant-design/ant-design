@@ -69,4 +69,13 @@ describe('AutoComplete', () => {
     wrapper.find('input').simulate('change', { target: { value: '1' } });
     expect(wrapper.find('.ant-select-item-option').length).toBe(2);
   });
+
+  it('should not warning when getInputElement is null', () => {
+    jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    mount(<AutoComplete placeholder="input here" allowClear />);
+    // eslint-disable-next-line no-console
+    expect(console.warn).not.toBeCalled();
+    // eslint-disable-next-line no-console
+    console.warn.mockRestore();
+  });
 });

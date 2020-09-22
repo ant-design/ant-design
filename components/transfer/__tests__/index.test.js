@@ -1,4 +1,4 @@
-/* eslint no-use-before-define: "off" */
+/* eslint @typescript-eslint/no-use-before-define: "off" */
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Transfer from '..';

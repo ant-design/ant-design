@@ -194,7 +194,7 @@ describe('Form.List', () => {
     async function addItem() {
       await act(async () => {
         operation.add();
-        await sleep();
+        await sleep(100);
         jest.runAllTimers();
         wrapper.update();
       });

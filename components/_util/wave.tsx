@@ -116,7 +116,6 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     if (!e || e.target !== node || this.animationStart) {
       return;
     }
-
     this.resetEffect(node);
   };
 
