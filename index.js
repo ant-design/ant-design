@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-function camelCase(name) {
+function PascalCase(name) {
   return name.charAt(0).toUpperCase() + name.slice(1).replace(/-(\w)/g, (m, n) => n.toUpperCase());
 }
 
@@ -17,7 +17,7 @@ req.keys().forEach(mod => {
       // message & notification should not be capitalized
       exports[match[1]] = v;
     } else {
-      exports[camelCase(match[1])] = v;
+      exports[PascalCase(match[1])] = v;
     }
   }
 });
