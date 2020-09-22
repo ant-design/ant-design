@@ -812,7 +812,8 @@ exports[`Directory Tree expand click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
@@ -1070,6 +1071,10 @@ exports[`Directory Tree expand click 2`] = `
             </span>
           </div>
           <div
+            class="ant-tree-treenode-motion ant-motion-collapse-leave ant-motion-collapse-leave-start ant-motion-collapse"
+            style="height: 0px;"
+          />
+          <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
@@ -1226,7 +1231,8 @@ exports[`Directory Tree expand double click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
@@ -1484,6 +1490,10 @@ exports[`Directory Tree expand double click 2`] = `
             </span>
           </div>
           <div
+            class="ant-tree-treenode-motion ant-motion-collapse-leave ant-motion-collapse-leave-start ant-motion-collapse"
+            style="height: 0px;"
+          />
+          <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
@@ -1640,7 +1650,8 @@ exports[`Directory Tree expand with state control click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
@@ -1787,7 +1798,8 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
@@ -1996,7 +2008,8 @@ exports[`Directory Tree expandedKeys update 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close"

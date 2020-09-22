@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import Tooltip from '..';
 import Button from '../../button';
 import Switch from '../../switch';
@@ -14,6 +15,12 @@ import rtlTest from '../../../tests/shared/rtlTest';
 describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
+
+  beforeAll(() => {
+    spyElementPrototype(HTMLElement, 'offsetParent', {
+      get: () => ({}),
+    });
+  });
 
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();

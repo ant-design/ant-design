@@ -1080,7 +1080,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown"
+                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
@@ -1410,7 +1410,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown"
+                            class="ant-dropdown slide-up-appear slide-up-appear-prepare slide-up"
                             style="opacity: 0; pointer-events: none;"
                           >
                             <ul
