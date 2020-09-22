@@ -21,10 +21,10 @@ import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
 
 const ExclamationTriangleFilled = (props: any): JSX.Element => (
-  <Icon component={ExclamationTriangleSvg} ariaLabel="exclamation-triangle" {...props} />
+  <Icon component={ExclamationTriangleSvg} aria-label="exclamation-triangle" {...props} />
 );
 const MessageFilled = (props: any): JSX.Element => (
-  <Icon component={MessageSvg} ariaLabel="message-box" {...props} />
+  <Icon component={MessageSvg} aria-label="message-box" {...props} />
 );
 export interface AlertProps {
   /**
