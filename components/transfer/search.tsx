@@ -4,6 +4,7 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
 import Input from '../input';
 
+const { Search: InputSearch } = Input;
 export interface TransferSearchProps {
   prefixCls?: string;
   placeholder?: string;
@@ -11,6 +12,7 @@ export interface TransferSearchProps {
   handleClear?: (e: React.MouseEvent<HTMLElement>) => void;
   value?: string;
   disabled?: boolean;
+  singleClick?: boolean;
 }
 
 export default class Search extends React.Component<TransferSearchProps, any> {
@@ -34,7 +36,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
   };
 
   render() {
-    const { placeholder, value, prefixCls, disabled } = this.props;
+    const { placeholder, value, prefixCls, disabled, singleClick } = this.props;
     const icon =
       value && value.length > 0 ? (
         <a className={`${prefixCls}-action`} onClick={this.handleClear}>
@@ -45,6 +47,20 @@ export default class Search extends React.Component<TransferSearchProps, any> {
           <SearchOutlined />
         </span>
       );
+
+    if (singleClick) {
+      return (
+        <>
+          <InputSearch
+            placeholder={placeholder}
+            className={prefixCls}
+            value={value}
+            onChange={this.handleChange}
+            disabled={disabled}
+          />
+        </>
+      );
+    }
 
     return (
       <>

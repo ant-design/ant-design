@@ -70,6 +70,7 @@ class App extends React.Component {
         onChange={this.handleChange}
         render={item => `${item.title}-${item.description}`}
         singleClick
+        titles={['whatsup', 'whatsdown']}
       />
     );
   }

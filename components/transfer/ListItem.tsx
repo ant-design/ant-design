@@ -36,6 +36,7 @@ const ListItem = (props: ListItemProps) => {
 
   const className = classNames({
     [`${prefixCls}-content-item`]: true,
+    [`${prefixCls}-content-item-single-click`]: singleClick,
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked,
   });

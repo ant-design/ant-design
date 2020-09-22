@@ -137,6 +137,11 @@
         line-height: @transfer-item-height - 2 * @transfer-item-padding-vertical;
         transition: all 0.3s;
 
+        &-single-click {
+          border-bottom: @transfer-single-bottom-border;
+          color: @transfer-single-click-text-color;
+        }
+
         > *:not(:last-child) {
           margin-right: 8px;
         }
