@@ -112,9 +112,9 @@
     "@ant-design/react-slick": "~0.27.0",
     "@babel/runtime": "^7.10.4",
     "array-tree-filter": "^2.1.0",
-    "cssnano": "^4.1.10",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
+    "cssnano": "^4.1.10",
     "file-loader": "~3.0.1",
     "lodash": "^4.17.13",
     "moment": "^2.25.3",
@@ -150,12 +150,10 @@
     "rc-trigger": "~4.3.0",
     "rc-upload": "~3.2.0",
     "rc-util": "^5.0.1",
-    "react-json-view": "^1.19.1",
     "scroll-into-view-if-needed": "^2.2.25",
     "warning": "^4.0.3"
   },
   "devDependencies": {
-    "@allenai/varnish": "^1.0.0",
     "@ant-design/bisheng-plugin": "^2.3.0",
     "@ant-design/colors": "^4.0.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",

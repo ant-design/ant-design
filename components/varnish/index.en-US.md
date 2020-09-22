@@ -6,24 +6,45 @@ cols: 1
 cover: https://allenai.org/favicon.ico
 ---
 
-Theme for Varnish Theming.
+The default Varnish theme, which provides programmatic access to the default values for a colors, typography and other properties related to the user interface.
 
-## When To Use
+## Example Usage in a Component
 
-- After wrapping your App in the `ThemeProvider`, when you want to set a css value to match the Varnish theme.
+```ts
+import styled from 'styled-components';
 
-## Example Usage
-
-```css
-background: ${({theme}) => theme.color.R6};
+const RedBackground = styled.div`
+  background: ${({ theme }) => theme.color.R6};
+`;
 ```
 
 ## Default Theme
 
 ```__react
-import ReactJson from 'react-json-view';
 import { Theme } from './Theme';
+import { Collapse } from '@allenai/varnish';
+
+/*
+
+TODO: We should have better reference docs for this. This is one of the key interfaces that users
+or @allenai/varnish will interact with, yet:
+
+- Our docs for it aren't great
+- Typesafey falls out the window
+
+We should fix one (or both) of these. I bet the former is the easier fix...
+
+*/
+
+const topLevelKeys = Object.keys(Theme.default);
+
 ReactDOM.render(
-    <ReactJson name="Theme" collapsed={2} collapseStringsAfterLength={65} src={Theme.default} />
+    <Collapse>
+        {topLevelKeys.map(key => (
+            <Collapse.Panel key={key} header={<code>{key}</code>}>
+                <pre><code>{JSON.stringify(Theme.default[key], null, 2)}</code></pre>
+            </Collapse.Panel>
+        ))}
+    </Collapse>
 , mountNode);
 ```
