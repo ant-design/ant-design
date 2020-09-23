@@ -365,6 +365,25 @@ validator(rule, value, callback) => {
 
 在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
 
+### 为什么 Form.Item 的 `dependencies` 对 Form.List 下的字段没有效果？
+
+Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
+
+```tsx
+<Form.List name="users">
+  {fields =>
+    fields.map(field => (
+      <React.Fragment key={field.key}>
+        <Form.Item name={[field.name, 'name']} {...someRest1} />
+        <Form.Item name={[field.name, 'age']} {...someRest1} />
+      </React.Fragment>
+    ))
+  }
+</Form.List>
+```
+
+依赖则是：`['users', 0, 'name']`
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
