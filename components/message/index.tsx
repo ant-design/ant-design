@@ -190,10 +190,12 @@ function isArgsProps(content: JointContent): content is ArgsProps {
   );
 }
 
+type MessageKey = number | string;
+
 const api: any = {
   open: notice,
   config: setMessageConfig,
-  destroy(messageKey?: number | string) {
+  destroy(messageKey?: MessageKey) {
     if (messageInstance) {
       if (messageKey) {
         const { removeNotice } = messageInstance;
@@ -243,7 +245,7 @@ export interface MessageInstance {
 export interface MessageApi extends MessageInstance {
   warn(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
   config(options: ConfigOptions): void;
-  destroy(): void;
+  destroy(messageKey?: MessageKey): void;
   useMessage(): [MessageInstance, React.ReactElement];
 }
 
