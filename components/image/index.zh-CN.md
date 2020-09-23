@@ -25,5 +25,6 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 | preview     | 是否开启预览                       | boolean          | true   | 4.6.0 |
 | src         | 图片地址                           | string           | -      | 4.6.0 |
 | width       | 图像宽度                           | string \| number | -      | 4.6.0 |
+| getPopupContainer | 指定 Preview 挂载的 HTML 节点 | function | () => document.body | 4.7.0 |
 
 其他属性见 [<img\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
