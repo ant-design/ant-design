@@ -8,7 +8,7 @@ const Image: React.FC<ImageProps> = ({ prefixCls: customizePrefixCls, getPopupCo
 
   return <RcImage 
            prefixCls={prefixCls} 
-           getPopupContainer={getPopupContainer === undefined ? getContextPopupContainer : getPopupContainer}
+           getPopupContainer={getPopupContainer ?? getContextPopupContainer}
            {...otherProps} 
          />;
 };
