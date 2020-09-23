@@ -35,13 +35,18 @@
     font-size: @font-size-lg;
     white-space: nowrap;
     text-align: center;
+    border-color: @divider-color;
     border-top: 0;
+
     &::before,
     &::after {
       position: relative;
       top: 50%;
       width: 50%;
-      border-top: 1px solid @divider-color;
+      border-top: 1px solid transparent;
+      // Chrome not accept `inherit` in `border-top`
+      border-top-color: inherit;
+      border-bottom: 0;
       transform: translateY(50%);
       content: '';
     }
