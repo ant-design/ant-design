@@ -20,9 +20,6 @@ function animate(node: HTMLElement, show: boolean, done: () => void) {
       }
     },
     active() {
-      if (requestAnimationFrameId) {
-        raf.cancel(requestAnimationFrameId);
-      }
       requestAnimationFrameId = raf(() => {
         node.style.height = `${show ? height : 0}px`;
         node.style.opacity = show ? '1' : '0';

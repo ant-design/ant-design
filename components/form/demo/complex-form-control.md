@@ -31,7 +31,7 @@ title:
 
 ## en-US
 
-This demo show how to use `Form.Item` with multiple controls. `<Form.Item name="field" />` will only bind control(Input/Select) which is the only children of it. Image this case, you add some text description after Input, then you have to wrap Input by a extra `<Form.item name="field">`. `style` property of `Form.Item` could be useful to modify the nested form item layout, or `<Form.Item noStyle />` turn it into a pure form bind component(like `getFieldDecorator` in 3.x).
+This demo show how to use `Form.Item` with multiple controls. `<Form.Item name="field" />` will only bind control(Input/Select) which is the only children of it. Image this case, you add some text description after Input, then you have to wrap Input by a extra `<Form.Item name="field">`. `style` property of `Form.Item` could be useful to modify the nested form item layout, or `<Form.Item noStyle />` turn it into a pure form bind component(like `getFieldDecorator` in 3.x).
 
 ```diff
 - <Form.Item label="Field" name="field">
@@ -47,7 +47,7 @@ This demo show three typical usages:
 
 - `Username`: extra elements after control, using `<Form.Item name="field" noStyle />` inside `Form.Item` to bind Input.
 - `Address`: two controls in one line, using two `<Form.Item name="field" noStyle />` to bind each control.
-- `BirthDate`：two controls in one line with indeptent error message, using two `<Form.Item name="field" noStyle />` to bind each control, make layout inline by customizing `style` property.
+- `BirthDate`：two controls in one line with independent error message, using two `<Form.Item name="field" noStyle />` to bind each control, make layout inline by customizing `style` property.
 
 > Note, in this case, no more `name` property should be left in Form.Item with label.
 

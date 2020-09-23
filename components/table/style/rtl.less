@@ -53,26 +53,15 @@
 
   // ========================== Pagination ==========================
   &-pagination {
-    .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-      float: left;
-    }
-
     &-left {
       .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-        float: left;
+        justify-content: flex-end;
       }
     }
 
     &-right {
       .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-        float: right;
-      }
-    }
-
-    &-center {
-      .@{table-wrapepr-cls}.@{table-wrapepr-rtl-cls} & {
-        float: initial;
-        text-align: center;
+        justify-content: flex-start;
       }
     }
   }

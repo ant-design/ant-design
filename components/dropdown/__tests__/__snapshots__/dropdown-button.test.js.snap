@@ -9,7 +9,7 @@ exports[`DropdownButton rtl render component should be rendered correctly in RTL
     type="button"
   />
   <button
-    class="ant-btn ant-dropdown-trigger ant-dropdown-rtl ant-btn-default ant-btn-icon-only ant-btn-rtl"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-rtl ant-dropdown-trigger ant-dropdown-rtl"
     type="button"
   >
     <span
@@ -45,7 +45,7 @@ exports[`DropdownButton should support href like Button 1`] = `
     href="https://ant.design"
   />
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span

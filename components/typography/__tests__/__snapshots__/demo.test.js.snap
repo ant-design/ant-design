@@ -843,7 +843,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     <span
       class="ant-typography"
     >
-      Ant Design
+      Ant Design (default)
     </span>
   </div>
   <div
@@ -853,7 +853,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     <span
       class="ant-typography ant-typography-secondary"
     >
-      Ant Design
+      Ant Design (secondary)
     </span>
   </div>
   <div
@@ -863,7 +863,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     <span
       class="ant-typography ant-typography-success"
     >
-      Ant Design
+      Ant Design (success)
     </span>
   </div>
   <div
@@ -873,7 +873,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     <span
       class="ant-typography ant-typography-warning"
     >
-      Ant Design
+      Ant Design (warning)
     </span>
   </div>
   <div
@@ -883,7 +883,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     <span
       class="ant-typography ant-typography-danger"
     >
-      Ant Design
+      Ant Design (danger)
     </span>
   </div>
   <div
@@ -893,7 +893,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     <span
       class="ant-typography ant-typography-disabled"
     >
-      Ant Design
+      Ant Design (disabled)
     </span>
   </div>
   <div
@@ -904,7 +904,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       class="ant-typography"
     >
       <mark>
-        Ant Design
+        Ant Design (mark)
       </mark>
     </span>
   </div>
@@ -916,7 +916,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       class="ant-typography"
     >
       <code>
-        Ant Design
+        Ant Design (code)
       </code>
     </span>
   </div>
@@ -928,7 +928,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       class="ant-typography"
     >
       <kbd>
-        Ant Design
+        Ant Design (keyboard)
       </kbd>
     </span>
   </div>
@@ -940,7 +940,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       class="ant-typography"
     >
       <u>
-        Ant Design
+        Ant Design (underline)
       </u>
     </span>
   </div>
@@ -952,7 +952,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       class="ant-typography"
     >
       <del>
-        Ant Design
+        Ant Design (delete)
       </del>
     </span>
   </div>
@@ -964,7 +964,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       class="ant-typography"
     >
       <strong>
-        Ant Design
+        Ant Design (strong)
       </strong>
     </span>
   </div>
@@ -977,7 +977,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
       rel="noopener noreferrer"
       target="_blank"
     >
-      Ant Design
+      Ant Design (Link)
     </a>
   </div>
 </div>

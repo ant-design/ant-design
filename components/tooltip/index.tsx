@@ -37,7 +37,7 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 
-export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
+export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'children'>> {
   style?: React.CSSProperties;
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
@@ -47,6 +47,7 @@ export interface AbstractTooltipProps extends Partial<RcTooltipProps> {
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  children?: React.ReactNode;
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -211,8 +212,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     overlayClassName,
     color,
     overlayInnerStyle,
+    children,
   } = props;
-  const children = props.children as React.ReactElement<any>;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   let tempVisible = visible;
   // Hide tooltip when there is no title

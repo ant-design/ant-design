@@ -27,10 +27,6 @@ export interface AbstractCheckboxProps<T> {
   type?: string;
 }
 
-export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
-  indeterminate?: boolean;
-}
-
 export interface CheckboxChangeEventTarget extends CheckboxProps {
   checked: boolean;
 }
@@ -40,6 +36,10 @@ export interface CheckboxChangeEvent {
   stopPropagation: () => void;
   preventDefault: () => void;
   nativeEvent: MouseEvent;
+}
+
+export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
+  indeterminate?: boolean;
 }
 
 class Checkbox extends React.PureComponent<CheckboxProps, {}> {
@@ -119,12 +119,15 @@ class Checkbox extends React.PureComponent<CheckboxProps, {}> {
       checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
       checkboxProps.disabled = props.disabled || checkboxGroup.disabled;
     }
-    const classString = classNames(className, {
-      [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
-      [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
-    });
+    const classString = classNames(
+      {
+        [`${prefixCls}-wrapper`]: true,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
+        [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
+      },
+      className,
+    );
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
     });

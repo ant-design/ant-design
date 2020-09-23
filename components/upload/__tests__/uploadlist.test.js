@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
@@ -25,6 +26,14 @@ const fileList = [
 ];
 
 describe('Upload List', () => {
+  // Mock for rc-util raf
+  window.requestAnimationFrame = callback => {
+    window.setTimeout(callback, 16);
+  };
+  window.cancelAnimationFrame = id => {
+    window.clearTimeout(id);
+  };
+
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
@@ -122,7 +131,7 @@ describe('Upload List', () => {
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
     wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
-    await sleep(400);
+    await sleep(1000);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
@@ -798,21 +807,36 @@ describe('Upload List', () => {
   });
 
   describe('thumbUrl support for non-image', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
     const nonImageFile = new File([''], 'foo.7z', { type: 'application/x-7z-compressed' });
-    it('should render <img /> when upload non-image file and configure thumbUrl in onChange', done => {
+
+    /** Wait for a long promise since `rc-util` internal has at least 3 promise wait */
+    async function waitPromise() {
+      /* eslint-disable no-await-in-loop */
+      for (let i = 0; i < 10; i += 1) {
+        await Promise.resolve();
+      }
+      /* eslint-enable */
+    }
+
+    it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       let wrapper;
-      const onChange = async ({ fileList: files }) => {
-        const newfileList = files.map(item => ({
+      const onChange = jest.fn(({ fileList: files }) => {
+        const newFileList = files.map(item => ({
           ...item,
           thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         }));
-        wrapper.setProps({ fileList: newfileList });
 
-        await sleep();
-        const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
-        expect(imgNode.length).toBe(1);
-        done();
-      };
+        wrapper.setProps({ fileList: newFileList });
+      });
+
       wrapper = mount(
         <Upload
           action="http://jsonplaceholder.typicode.com/posts/"
@@ -825,8 +849,27 @@ describe('Upload List', () => {
         </Upload>,
       );
       const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
-      expect(imgNode.length).toBe(0);
+      expect(imgNode.length).toBeFalsy();
+
+      // Simulate change is a timeout change
       wrapper.find('input').simulate('change', { target: { files: [nonImageFile] } });
+
+      // Wait for `rc-upload` process file
+      await waitPromise();
+
+      // Wait for mock request finish request
+      jest.runAllTimers();
+
+      // Basic called times
+      expect(onChange).toHaveBeenCalled();
+
+      // Check for images
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      const afterImgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(afterImgNode.length).toBeTruthy();
     });
 
     it('should not render <img /> when upload non-image file without thumbUrl in onChange', done => {
@@ -902,5 +945,52 @@ describe('Upload List', () => {
     expect(wrapper.exists('.ant-upload-list button.trigger')).toBe(true);
     wrapper.setProps({ showUploadList: false });
     expect(wrapper.exists('.ant-upload-list button.trigger')).toBe(false);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/26536
+  it('multiple file upload should keep the internal fileList async', async () => {
+    jest.useFakeTimers();
+
+    const uploadRef = React.createRef();
+
+    const MyUpload = () => {
+      const [testFileList, setTestFileList] = React.useState([]);
+
+      return (
+        <Upload
+          ref={uploadRef}
+          fileList={testFileList}
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          multiple
+          onChange={info => {
+            setTestFileList([...info.fileList]);
+          }}
+        >
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    mount(<MyUpload />);
+
+    // Mock async update in a frame
+    const files = ['light', 'bamboo', 'little'];
+
+    /* eslint-disable no-await-in-loop */
+    for (let i = 0; i < files.length; i += 1) {
+      await Promise.resolve();
+      uploadRef.current.onStart({
+        uid: files[i],
+        name: files[i],
+      });
+    }
+    /* eslint-enable */
+
+    expect(uploadRef.current.fileList).toHaveLength(files.length);
+
+    jest.runAllTimers();
+    expect(uploadRef.current.fileList).toHaveLength(files.length);
+
+    jest.useRealTimers();
   });
 });

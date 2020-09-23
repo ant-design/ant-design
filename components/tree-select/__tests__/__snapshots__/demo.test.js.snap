@@ -22,6 +22,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -81,10 +82,8 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
-        readonly=""
         role="combobox"
-        style="opacity:0"
-        unselectable="on"
+        type="search"
         value=""
       />
     </span>
@@ -183,6 +182,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -221,6 +221,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />
@@ -259,10 +260,8 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
-        readonly=""
         role="combobox"
-        style="opacity:0"
-        unselectable="on"
+        type="search"
         value=""
       />
     </span>
@@ -324,6 +323,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
         readonly=""
         role="combobox"
         style="opacity:0"
+        type="search"
         unselectable="on"
         value=""
       />

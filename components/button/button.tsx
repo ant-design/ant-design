@@ -233,18 +233,22 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const iconType = innerLoading ? 'loading' : icon;
 
-  const classes = classNames(prefixCls, className, {
-    [`${prefixCls}-${type}`]: type,
-    [`${prefixCls}-${shape}`]: shape,
-    [`${prefixCls}-${sizeCls}`]: sizeCls,
-    [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-    [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
-    [`${prefixCls}-loading`]: innerLoading,
-    [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
-    [`${prefixCls}-block`]: block,
-    [`${prefixCls}-dangerous`]: !!danger,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${shape}`]: shape,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+      [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
+      [`${prefixCls}-loading`]: innerLoading,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
+      [`${prefixCls}-block`]: block,
+      [`${prefixCls}-dangerous`]: !!danger,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   const iconNode =
     icon && !innerLoading ? (
@@ -258,7 +262,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       ? spaceChildren(children, isNeedInserted() && autoInsertSpace)
       : null;
 
-  const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
+  const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading', 'navigate']);
   if (linkButtonRestProps.href !== undefined) {
     return (
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>

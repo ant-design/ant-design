@@ -25,6 +25,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultValue | 指定默认选中的条目 | string | - |  |
 | disabled | 是否禁用 | boolean | false |  |
+| dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| function(inputValue, option) | true |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | placeholder | 输入框提示 | string | - |  |
@@ -36,6 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | open | 是否展开下拉菜单 | boolean | - |  |
+| options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }[] | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | - |  |
 
@@ -57,3 +60,25 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 ### v3 的部分属性为何在 v4 中没有了？
 
 AutoComplete 组件是一个支持自动提示的 Input 组件，因而其不具有 `labelInValue` 等影响 value 展示的属性。在 v3 版本，AutoComplete 实现存在输入值如果遇到 `value` 与 `label` 相同时无法映射的问题。 v4 中不再支持 `label` 为值的输入形态。
+
+此外为了统一 API，`dataSource` 改为 `options` 你可以如下转换：
+
+#### v3
+
+```tsx
+dataSource = ['light', 'bamboo'];
+// or
+dataSource = [
+  { value: 'light', text: 'Light' },
+  { value: 'bamboo', text: 'Bamboo' },
+];
+```
+
+#### v4
+
+```tsx
+options = [
+  { value: 'light', label: 'Light' },
+  { value: 'bamboo', label: 'Bamboo' },
+];
+```

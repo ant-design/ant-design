@@ -86,6 +86,7 @@ describe('Carousel', () => {
 
   describe('should works for dotPosition', () => {
     ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+      // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
         const wrapper = mount(
           <Carousel dotPosition={dotPosition}>
@@ -118,12 +119,7 @@ describe('Carousel', () => {
         children: [<div key="1" />, <div key="2" />, <div key="3" />],
       });
       wrapper.update();
-      expect(
-        wrapper
-          .find('.slick-dots li')
-          .at(1)
-          .hasClass('slick-active'),
-      ).toBeTruthy();
+      expect(wrapper.find('.slick-dots li').at(1).hasClass('slick-active')).toBeTruthy();
     });
   });
 

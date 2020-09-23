@@ -14,7 +14,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
-import isStyleSupport from '../_util/styleChecker';
+import { isStyleSupport } from '../_util/styleChecker';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
@@ -502,13 +502,16 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
           return (
             <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
               <Typography
-                className={classNames(className, {
-                  [`${prefixCls}-${type}`]: type,
-                  [`${prefixCls}-disabled`]: disabled,
-                  [`${prefixCls}-ellipsis`]: rows,
-                  [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                  [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-                })}
+                className={classNames(
+                  {
+                    [`${prefixCls}-${type}`]: type,
+                    [`${prefixCls}-disabled`]: disabled,
+                    [`${prefixCls}-ellipsis`]: rows,
+                    [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                    [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+                  },
+                  className,
+                )}
                 style={{
                   ...style,
                   WebkitLineClamp: cssLineClamp ? rows : null,

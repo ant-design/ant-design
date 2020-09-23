@@ -1,6 +1,6 @@
 import raf from 'raf';
 
-export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
+export function throttleByAnimationFrame(fn: (...args: any[]) => void) {
   let requestId: number | null;
 
   const later = (args: any[]) => () => {
@@ -20,15 +20,18 @@ export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
 }
 
 export function throttleByAnimationFrameDecorator() {
-  // eslint-disable-next-line func-names
-  return function(target: any, key: string, descriptor: any) {
+  return function throttle(target: any, key: string, descriptor: any) {
     const fn = descriptor.value;
     let definingProperty = false;
     return {
       configurable: true,
       get() {
+        // In IE11 calling Object.defineProperty has a side-effect of evaluating the
+        // getter for the property which is being replaced. This causes infinite
+        // recursion and an "Out of stack space" error.
         // eslint-disable-next-line no-prototype-builtins
         if (definingProperty || this === target.prototype || this.hasOwnProperty(key)) {
+          /* istanbul ignore next */
           return fn;
         }
 

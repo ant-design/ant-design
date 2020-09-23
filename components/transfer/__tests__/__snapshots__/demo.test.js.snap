@@ -3698,7 +3698,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+                  class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
                   unselectable="unselectable"
                 >
                   <li
@@ -4137,7 +4137,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-table-pagination ant-table-pagination-right mini"
+                  class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
                   unselectable="unselectable"
                 >
                   <li
@@ -4262,7 +4262,7 @@ Array [
 
 exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
 <div
-  class="tree-transfer ant-transfer ant-transfer-customize-list"
+  class="ant-transfer ant-transfer-customize-list tree-transfer"
 >
   <div
     class="ant-transfer-list"

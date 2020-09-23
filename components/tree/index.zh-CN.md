@@ -32,6 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | draggable | 设置节点可拖拽（IE>8） | boolean | false |  |
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |  |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  |
+| height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - |  |
 | loadData | 异步加载数据 | function(node) | - |  |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  |
@@ -108,3 +109,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 ### defaultExpandedAll 在异步加载数据时为何不生效？
 
 `default` 前缀属性只有在初始化时生效，因而异步加载数据时 `defaultExpandedAll` 已经执行完成。你可以通过受控 `expandedKeys` 或者在数据加载完成后渲染 Tree 来实现全部展开。
+
+### 虚拟滚动的限制
+
+虚拟滚动通过在仅渲染可视区域的元素来提升渲染性能。但是同时由于不会渲染所有节点，所以无法自动拓转横向宽度（比如超长 `title` 的横向滚动条）。
