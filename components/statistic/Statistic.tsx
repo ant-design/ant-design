@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
-import Skeleton, { SkeletonProps } from '../skeleton';
+import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import Countdown from './Countdown';
 import { valueType, FormatConfig } from './utils';
@@ -22,7 +22,7 @@ export interface StatisticProps extends FormatConfig {
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  loading?: boolean | SkeletonProps;
+  loading?: boolean;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -43,17 +43,6 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     onMouseEnter,
     onMouseLeave,
   } = props;
-  let skeletonProps: SkeletonProps | undefined;
-  if (typeof loading === 'boolean') {
-    skeletonProps = {
-      loading,
-    };
-  } else if (typeof loading === 'object') {
-    skeletonProps = {
-      loading: true,
-      ...loading,
-    };
-  }
   const valueNode = <StatisticNumber {...props} value={value} />;
   const cls = classNames(
     prefixCls,
@@ -65,7 +54,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   return (
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <Skeleton paragraph={false} {...skeletonProps}>
+      <Skeleton paragraph={false} loading={loading}>
         <div style={valueStyle} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
           {valueRender ? valueRender(valueNode) : valueNode}
