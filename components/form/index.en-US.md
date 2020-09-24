@@ -363,6 +363,25 @@ Validating is also part of the value updating. It pass follow steps:
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
+### Why Form.Item `dependencies` can not work on Form.List field?
+
+Your name path should also contain Form.List `name`:
+
+```tsx
+<Form.List name="users">
+  {fields =>
+    fields.map(field => (
+      <React.Fragment key={field.key}>
+        <Form.Item name={[field.name, 'name']} {...someRest1} />
+        <Form.Item name={[field.name, 'age']} {...someRest1} />
+      </React.Fragment>
+    ))
+  }
+</Form.List>
+```
+
+dependencies should be `['users', 0, 'name']`
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
