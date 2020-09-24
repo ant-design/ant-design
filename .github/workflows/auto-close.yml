@@ -1,0 +1,16 @@
+name: 🧐 Auto Closer
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  close-by-label:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == '3.x'
+    steps:
+      - name: Comment on issue
+        uses: peter-evans/close-issue@v1
+        with:
+          comment: "Hi @${{ github.event.issue.user.login }},<br />Current branch is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.<br /><br />你好 @${{ github.event.issue.user.login }},<br />当前分支已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。"
+      
