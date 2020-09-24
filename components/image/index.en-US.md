@@ -24,6 +24,6 @@ Previewable image.
 | preview | Whether to enable the preview | boolean | true | 4.6.0 |
 | src | Image path | string | - | 4.6.0 |
 | width | Image width | string \| number | - | 4.6.0 |
-| getPopupContainer | The DOM container of the preview dialog | function | () => document.body | 4.7.0 |
+| getPopupContainer | The DOM container of the preview dialog | () => HTMLElement | () => document.body | 4.7.0 |
 
 Other attributes [<img\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
