@@ -244,6 +244,17 @@
         }
       }
     }
+
+    // RadioGroup
+    .@{ant-prefix}-radio-button-wrapper {
+      border-color: @error-color !important;
+
+      &:not(:first-child) {
+        &::before {
+          background-color: @error-color;
+        }
+      }
+    }
   }
 
   // ====================== Validating =======================
