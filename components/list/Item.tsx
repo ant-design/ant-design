@@ -103,9 +103,13 @@ const Item: ListItemTypeProps = ({
   const itemChildren = (
     <Element
       {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
-      className={classNames(`${prefixCls}-item`, className, {
-        [`${prefixCls}-item-no-flex`]: !isFlexMode(),
-      })}
+      className={classNames(
+        `${prefixCls}-item`,
+        {
+          [`${prefixCls}-item-no-flex`]: !isFlexMode(),
+        },
+        className,
+      )}
     >
       {itemLayout === 'vertical' && extra
         ? [

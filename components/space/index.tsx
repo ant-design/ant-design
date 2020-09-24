@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
@@ -31,9 +32,9 @@ const Space: React.FC<SpaceProps> = props => {
     ...otherProps
   } = props;
 
-  const len = React.Children.count(children);
+  const childNodes = toArray(children, { keepEmpty: true });
 
-  if (len === 0) {
+  if (childNodes.length === 0) {
     return null;
   }
 
@@ -55,7 +56,7 @@ const Space: React.FC<SpaceProps> = props => {
 
   // Calculate latest one
   let latestIndex = 0;
-  const nodes = React.Children.map(children, (child, i) => {
+  const nodes = childNodes.map((child, i) => {
     if (child !== null && child !== undefined) {
       latestIndex = i;
     }

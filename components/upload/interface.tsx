@@ -15,7 +15,7 @@ export interface RcFile extends File {
 
 export interface RcCustomRequestOptions {
   onProgress: (event: { percent: number }, file: RcFile) => void;
-  onError: (error: Error) => void;
+  onError: (error: Error, response?: any, file?: RcFile) => void;
   onSuccess: (response: object, file: RcFile) => void;
   data: object;
   filename: string;
@@ -56,6 +56,8 @@ export interface ShowUploadListInterface {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   showDownloadIcon?: boolean;
+  removeIcon?: React.ReactNode;
+  downloadIcon?: React.ReactNode;
 }
 
 export interface UploadLocale {

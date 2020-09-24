@@ -165,11 +165,14 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       virtual={virtual}
       {...newProps}
       prefixCls={prefixCls}
-      className={classNames(className, {
-        [`${prefixCls}-icon-hide`]: !showIcon,
-        [`${prefixCls}-block-node`]: blockNode,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      })}
+      className={classNames(
+        {
+          [`${prefixCls}-icon-hide`]: !showIcon,
+          [`${prefixCls}-block-node`]: blockNode,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        },
+        className,
+      )}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)

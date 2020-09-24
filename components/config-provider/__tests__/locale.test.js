@@ -6,12 +6,6 @@ import zhCN from '../../locale/zh_CN';
 import enUS from '../../locale/en_US';
 import TimePicker from '../../time-picker';
 import Modal from '../../modal';
-import Form from '../../form';
-
-const delay = (timeout = 0) =>
-  new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
 
 describe('ConfigProvider.Locale', () => {
   function $$(className) {
@@ -111,43 +105,6 @@ describe('ConfigProvider.Locale', () => {
       );
 
       testLocale(wrapper);
-    });
-  });
-
-  describe('form validateMessages', () => {
-    const wrapperComponent = ({ validateMessages }) =>
-      mount(
-        <ConfigProvider locale={zhCN} form={{ validateMessages }}>
-          <Form initialValues={{ age: 18 }}>
-            <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
-              <input />
-            </Form.Item>
-            <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
-              <input />
-            </Form.Item>
-          </Form>
-        </ConfigProvider>,
-      );
-
-    it('set locale zhCN', async () => {
-      const wrapper = wrapperComponent({});
-
-      wrapper.find('form').simulate('submit');
-      await delay(50);
-      wrapper.update();
-
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入姓名');
-    });
-
-    it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
-      const wrapper = wrapperComponent({ validateMessages: { required: '必须' } });
-
-      wrapper.find('form').simulate('submit');
-      await delay(200);
-      wrapper.update();
-
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
-      expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄必须等于17');
     });
   });
 });

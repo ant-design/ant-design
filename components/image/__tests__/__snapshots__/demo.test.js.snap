@@ -20,6 +20,7 @@ exports[`renders ./components/image/demo/fallback.md correctly 1`] = `
   <img
     class="ant-image-img"
     src="error"
+    style="height:200px"
   />
 </div>
 `;

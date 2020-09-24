@@ -51,9 +51,13 @@ class AnchorLink extends React.Component<AnchorLinkProps, any, AntAnchor> {
     const { prefixCls: customizePrefixCls, href, title, children, className, target } = this.props;
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
     const active = this.context.activeLink === href;
-    const wrapperClassName = classNames(className, `${prefixCls}-link`, {
-      [`${prefixCls}-link-active`]: active,
-    });
+    const wrapperClassName = classNames(
+      `${prefixCls}-link`,
+      {
+        [`${prefixCls}-link-active`]: active,
+      },
+      className,
+    );
     const titleClassName = classNames(`${prefixCls}-link-title`, {
       [`${prefixCls}-link-title-active`]: active,
     });

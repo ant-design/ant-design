@@ -20,6 +20,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>
@@ -30,7 +31,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         <div
@@ -63,6 +64,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  title="ReactNode"
                 >
                   <div
                     class="ant-select-item-option-content"
@@ -88,7 +90,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
 
 exports[`AutoComplete rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-rtl ant-select-single ant-select-show-search"
+  class="ant-select ant-select-rtl ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -105,6 +107,7 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
         autocomplete="off"
         class="ant-select-selection-search-input"
         role="combobox"
+        type="search"
         value=""
       />
     </span>

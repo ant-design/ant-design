@@ -22,7 +22,7 @@ import {
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
-class Footer extends React.Component<WrappedComponentProps> {
+class Footer extends React.Component<WrappedComponentProps & { location: any }> {
   lessLoaded = false;
 
   state = {
@@ -47,8 +47,28 @@ class Footer extends React.Component<WrappedComponentProps> {
   }
 
   getColumns() {
-    const { intl } = this.props;
+    const { intl, location } = this.props;
+
     const isZhCN = intl.locale === 'zh-CN';
+
+    const getLinkHash = (path: string, hash: { zhCN: string; enUS: string }) => {
+      const pathName = getLocalizedPathname(path, isZhCN, location.query, hash);
+      const { pathname, query } = pathName;
+      const pathnames = pathname.split('#');
+      if ('direction' in query) {
+        return `${pathnames[0]}?direction=rtl#${pathnames[1]}`;
+      }
+      return pathname;
+    };
+
+    const getLink = (path: string) => {
+      const pathName = getLocalizedPathname(path, isZhCN, location.query);
+      const { pathname, query } = pathName;
+      if ('direction' in query) {
+        return `${pathname}?direction=rtl}`;
+      }
+      return pathname;
+    };
 
     const col1 = {
       title: <FormattedMessage id="app.footer.resources" />,
@@ -128,7 +148,7 @@ class Footer extends React.Component<WrappedComponentProps> {
         },
         {
           title: <FormattedMessage id="app.footer.design-resources" />,
-          url: getLocalizedPathname('/docs/resources', isZhCN, {
+          url: getLinkHash('/docs/resources', {
             zhCN: '设计资源',
             enUS: 'Design-Resources',
           }),
@@ -193,7 +213,7 @@ class Footer extends React.Component<WrappedComponentProps> {
       col2.items.push({
         icon: <UsergroupAddOutlined />,
         title: <FormattedMessage id="app.footer.work_with_us" />,
-        url: getLocalizedPathname('/docs/resources', isZhCN, {
+        url: getLinkHash('/docs/resources', {
           zhCN: '加入我们',
           enUS: 'JoinUs',
         }),
@@ -213,13 +233,13 @@ class Footer extends React.Component<WrappedComponentProps> {
         {
           icon: <HistoryOutlined />,
           title: <FormattedMessage id="app.footer.change-log" />,
-          url: getLocalizedPathname('/changelog', isZhCN),
+          url: getLink('/changelog'),
           LinkComponent: Link,
         },
         {
           icon: <ProfileOutlined />,
           title: <FormattedMessage id="app.footer.faq" />,
-          url: getLocalizedPathname('/docs/react/faq', isZhCN),
+          url: getLink('/docs/react/faq'),
           LinkComponent: Link,
         },
         {

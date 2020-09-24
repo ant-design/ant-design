@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import ResizeObserver from 'rc-resize-observer';
 
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
@@ -41,9 +42,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   const avatarNodeMergeRef = composeRef(ref, avatarNodeRef);
 
-  let lastChildrenWidth: number;
-  let lastNodeWidth: number;
-
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const setScaleParam = () => {
@@ -52,19 +50,12 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     }
     const childrenWidth = avatarChildrenRef.current.offsetWidth; // offsetWidth avoid affecting be transform scale
     const nodeWidth = avatarNodeRef.current.offsetWidth;
-    const { gap = 4 } = props;
     // denominator is 0 is no meaning
-    if (
-      childrenWidth !== 0 &&
-      nodeWidth !== 0 &&
-      (lastChildrenWidth !== childrenWidth || lastNodeWidth !== nodeWidth)
-    ) {
-      lastChildrenWidth = childrenWidth;
-      lastNodeWidth = nodeWidth;
-    }
-
-    if (gap * 2 < nodeWidth) {
-      setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
+    if (childrenWidth !== 0 && nodeWidth !== 0) {
+      const { gap = 4 } = props;
+      if (gap * 2 < nodeWidth) {
+        setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
+      }
     }
   };
 
@@ -79,13 +70,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   React.useEffect(() => {
     setScaleParam();
-  }, [props.children, props.gap, props.size]);
-
-  React.useEffect(() => {
-    if (props.children) {
-      setScaleParam();
-    }
-  }, [isImgExist]);
+  }, [props.gap]);
 
   const handleImgLoadError = () => {
     const { onError } = props;
@@ -122,11 +107,16 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     [`${prefixCls}-sm`]: size === 'small',
   });
 
-  const classString = classNames(prefixCls, className, sizeCls, {
-    [`${prefixCls}-${shape}`]: shape,
-    [`${prefixCls}-image`]: src && isImgExist,
-    [`${prefixCls}-icon`]: icon,
-  });
+  const classString = classNames(
+    prefixCls,
+    sizeCls,
+    {
+      [`${prefixCls}-${shape}`]: shape,
+      [`${prefixCls}-image`]: src && isImgExist,
+      [`${prefixCls}-icon`]: icon,
+    },
+    className,
+  );
 
   const sizeStyle: React.CSSProperties =
     typeof size === 'number'
@@ -161,15 +151,17 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
         : {};
 
     childrenToRender = (
-      <span
-        className={`${prefixCls}-string`}
-        ref={(node: HTMLElement) => {
-          avatarChildrenRef.current = node;
-        }}
-        style={{ ...sizeChildrenStyle, ...childrenStyle }}
-      >
-        {children}
-      </span>
+      <ResizeObserver onResize={setScaleParam}>
+        <span
+          className={`${prefixCls}-string`}
+          ref={(node: HTMLElement) => {
+            avatarChildrenRef.current = node;
+          }}
+          style={{ ...sizeChildrenStyle, ...childrenStyle }}
+        >
+          {children}
+        </span>
+      </ResizeObserver>
     );
   } else {
     childrenToRender = (

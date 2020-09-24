@@ -1,3 +1,4 @@
+import TestUtils from 'react-dom/test-utils';
 import Modal from '..';
 import { destroyFns } from '../Modal';
 
@@ -137,6 +138,42 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       jest.runAllTimers();
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
     });
+    jest.useRealTimers();
+  });
+
+  it('should close confirm modal when click cancel button', () => {
+    jest.useFakeTimers();
+    const onCancel = jest.fn();
+    Modal.confirm({
+      title: 'title',
+      content: 'content',
+      onCancel,
+    });
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
+    $$('.ant-btn')[0].click();
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    jest.useRealTimers();
+  });
+
+  it('should close confirm modal when press ESC', () => {
+    jest.useFakeTimers();
+    const onCancel = jest.fn();
+    Modal.confirm({
+      title: 'title',
+      content: 'content',
+      onCancel,
+    });
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
+    TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
+      keyCode: 27,
+    });
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
+    expect(onCancel).toHaveBeenCalledTimes(1);
     jest.useRealTimers();
   });
 

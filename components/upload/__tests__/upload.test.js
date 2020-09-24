@@ -1,6 +1,7 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
@@ -15,6 +16,14 @@ describe('Upload', () => {
 
   beforeEach(() => setup());
   afterEach(() => teardown());
+
+  // Mock for rc-util raf
+  window.requestAnimationFrame = callback => {
+    window.setTimeout(callback, 16);
+  };
+  window.cancelAnimationFrame = id => {
+    window.clearTimeout(id);
+  };
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
@@ -254,6 +263,7 @@ describe('Upload', () => {
   });
 
   it('should be controlled by fileList', () => {
+    jest.useFakeTimers();
     const fileList = [
       {
         uid: '-1',
@@ -265,8 +275,11 @@ describe('Upload', () => {
     const ref = React.createRef();
     const wrapper = mount(<Upload ref={ref} />);
     expect(ref.current.fileList).toEqual([]);
+
     wrapper.setProps({ fileList });
+    jest.runAllTimers();
     expect(ref.current.fileList).toEqual(fileList);
+    jest.useRealTimers();
   });
 
   describe('util', () => {
@@ -526,7 +539,7 @@ describe('Upload', () => {
     errorSpy.mockRestore();
   });
 
-  it('it should be treated as file but not an image', () => {
+  it('should be treated as file but not an image', () => {
     const file = {
       status: 'done',
       uid: '-1',
@@ -553,5 +566,67 @@ describe('Upload', () => {
     expect(onMouseEnter).toHaveBeenCalled();
     wrapper.find('.ant-upload').at(1).simulate('mouseLeave');
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/26427
+  it('should sync file list with control mode', done => {
+    let callTimes = 0;
+
+    const customRequest = jest.fn(async options => {
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    const Demo = () => {
+      const [fileList, setFileList] = React.useState([]);
+
+      const onChange = e => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+        const file = newFileList[0];
+
+        callTimes += 1;
+
+        switch (callTimes) {
+          case 1:
+          case 2:
+            expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 0 }));
+            break;
+
+          case 3:
+            expect(file).toEqual(expect.objectContaining({ status: 'uploading', percent: 100 }));
+            break;
+
+          case 4:
+            expect(file).toEqual(expect.objectContaining({ status: 'done', percent: 100 }));
+            break;
+
+          default:
+          // Do nothing
+        }
+
+        if (callTimes >= 4) {
+          done();
+        }
+      };
+
+      return (
+        <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+
+    act(() => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          files: [{ file: 'foo.png' }],
+        },
+      });
+    });
   });
 });

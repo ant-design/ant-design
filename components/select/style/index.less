@@ -28,7 +28,7 @@
     }
   }
 
-  .@{select-prefix-cls}-focused&:not(.@{select-prefix-cls}-disabled&) {
+  .@{select-prefix-cls}-focused:not(.@{select-prefix-cls}-disabled)& {
     .active();
   }
 
@@ -51,6 +51,12 @@
     background: transparent;
     border: none;
     outline: none;
+    appearance: none;
+
+    &::-webkit-search-cancel-button {
+      display: none;
+      -webkit-appearance: none;
+    }
   }
 }
 
@@ -84,9 +90,9 @@
   &-selection-placeholder {
     flex: 1;
     overflow: hidden;
+    color: @input-placeholder-color;
     white-space: nowrap;
     text-overflow: ellipsis;
-    opacity: 0.4;
 
     // IE11 css hack. `*::-ms-backdrop,` is a must have
     @media all and (-ms-high-contrast: none) {

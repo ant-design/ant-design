@@ -420,7 +420,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
-  if (pagination !== false) {
+  if (pagination !== false && mergedPagination?.total) {
     let paginationSize: TablePaginationConfig['size'];
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
@@ -467,9 +467,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     };
   }
 
-  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {
-    [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
-  });
+  const wrapperClassNames = classNames(
+    `${prefixCls}-wrapper`,
+    {
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
   return (
     <div className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
@@ -495,7 +499,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           internalRefs={internalRefs as any}
           transformColumns={transformColumns}
         />
-        {mergedData && mergedData.length > 0 && bottomPaginationNode}
+        {bottomPaginationNode}
       </Spin>
     </div>
   );

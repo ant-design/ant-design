@@ -62,9 +62,8 @@ const Badge: CompoundedComponent = ({
     return displayCount as string | number | null;
   };
 
-  const hasStatus = (): boolean => {
-    return !!status || !!color;
-  };
+  const hasStatus = (): boolean =>
+    (status !== null && status !== undefined) || (color !== null && color !== undefined);
 
   const isZero = () => {
     const numberedDisplayCount = getNumberedDisplayCount();
@@ -179,11 +178,15 @@ const Badge: CompoundedComponent = ({
     statusStyle.background = color;
   }
 
-  const badgeClassName = classNames(className, prefixCls, {
-    [`${prefixCls}-status`]: hasStatus(),
-    [`${prefixCls}-not-a-wrapper`]: !children,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const badgeClassName = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-status`]: hasStatus(),
+      [`${prefixCls}-not-a-wrapper`]: !children,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+  );
 
   // <Badge status="success" />
   if (!children && hasStatus()) {

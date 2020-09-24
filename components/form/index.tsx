@@ -1,12 +1,13 @@
 import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
 import InternalForm, { useForm, FormInstance, FormProps } from './Form';
 import Item, { FormItemProps } from './FormItem';
-import List from './FormList';
+import List, { FormListProps } from './FormList';
 import { FormProvider } from './context';
 import devWarning from '../_util/devWarning';
 
-type InternalForm = typeof InternalForm;
-interface Form extends InternalForm {
+type InternalFormType = typeof InternalForm;
+
+interface FormInterface extends InternalFormType {
   useForm: typeof useForm;
   Item: typeof Item;
   List: typeof List;
@@ -16,7 +17,7 @@ interface Form extends InternalForm {
   create: () => void;
 }
 
-const Form: Form = InternalForm as Form;
+const Form = InternalForm as FormInterface;
 
 Form.Item = Item;
 Form.List = List;
@@ -30,6 +31,6 @@ Form.create = () => {
   );
 };
 
-export { FormInstance, FormProps, FormItemProps, Rule, RuleObject, RuleRender };
+export { FormInstance, FormProps, FormItemProps, FormListProps, Rule, RuleObject, RuleRender };
 
 export default Form;

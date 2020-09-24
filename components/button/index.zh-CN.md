@@ -47,7 +47,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 | shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设 | string | - |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | - |  |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
-| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `danger` \| `link` \| `text` \| `default` | `default` |  |
+| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 
 支持原生 button 的其他所有属性。
 

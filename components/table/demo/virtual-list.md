@@ -62,6 +62,7 @@ function VirtualTable(props) {
 
   const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
+    const totalHeight = rawData.length * 54;
 
     return (
       <Grid
@@ -70,7 +71,9 @@ function VirtualTable(props) {
         columnCount={mergedColumns.length}
         columnWidth={index => {
           const { width } = mergedColumns[index];
-          return index === mergedColumns.length - 1 ? width - scrollbarSize - 1 : width;
+          return totalHeight > scroll.y && index === mergedColumns.length - 1
+            ? width - scrollbarSize - 1
+            : width;
         }}
         height={scroll.y}
         rowCount={rawData.length}

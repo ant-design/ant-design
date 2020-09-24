@@ -2,7 +2,7 @@
 
 exports[`Directory Tree DirectoryTree should expend all when use treeData and defaultExpandAll is true 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -218,7 +218,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
 
 exports[`Directory Tree defaultExpandAll 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -570,7 +570,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
 
 exports[`Directory Tree defaultExpandParent 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -726,7 +726,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
 
 exports[`Directory Tree expand click 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -812,7 +812,8 @@ exports[`Directory Tree expand click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
@@ -984,7 +985,7 @@ exports[`Directory Tree expand click 1`] = `
 
 exports[`Directory Tree expand click 2`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1070,6 +1071,10 @@ exports[`Directory Tree expand click 2`] = `
             </span>
           </div>
           <div
+            class="ant-tree-treenode-motion ant-motion-collapse-leave ant-motion-collapse-leave-start ant-motion-collapse"
+            style="height: 0px;"
+          />
+          <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
@@ -1140,7 +1145,7 @@ exports[`Directory Tree expand click 2`] = `
 
 exports[`Directory Tree expand double click 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1226,7 +1231,8 @@ exports[`Directory Tree expand double click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
@@ -1398,7 +1404,7 @@ exports[`Directory Tree expand double click 1`] = `
 
 exports[`Directory Tree expand double click 2`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1484,6 +1490,10 @@ exports[`Directory Tree expand double click 2`] = `
             </span>
           </div>
           <div
+            class="ant-tree-treenode-motion ant-motion-collapse-leave ant-motion-collapse-leave-start ant-motion-collapse"
+            style="height: 0px;"
+          />
+          <div
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
@@ -1554,7 +1564,7 @@ exports[`Directory Tree expand double click 2`] = `
 
 exports[`Directory Tree expand with state control click 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1640,7 +1650,8 @@ exports[`Directory Tree expand with state control click 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
@@ -1701,7 +1712,7 @@ exports[`Directory Tree expand with state control click 1`] = `
 
 exports[`Directory Tree expand with state control doubleClick 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1787,7 +1798,8 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
@@ -1848,7 +1860,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
 
 exports[`Directory Tree expandedKeys update 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -1996,7 +2008,8 @@ exports[`Directory Tree expandedKeys update 1`] = `
             </span>
           </div>
           <div
-            class="ant-tree-treenode-motion"
+            class="ant-tree-treenode-motion ant-motion-collapse-appear ant-motion-collapse-appear-start ant-motion-collapse"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
@@ -2106,7 +2119,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
 
 exports[`Directory Tree group select 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -2458,7 +2471,7 @@ exports[`Directory Tree group select 1`] = `
 
 exports[`Directory Tree group select 2`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
@@ -2841,7 +2854,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
 
 exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-directory-rtl ant-tree-block-node ant-tree-rtl"
+  class="ant-tree ant-tree-block-node ant-tree-rtl ant-tree-directory ant-tree-directory-rtl"
 >
   <div
     role="tree"
@@ -2872,7 +2885,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
 
 exports[`Directory Tree selectedKeys update 1`] = `
 <div
-  class="ant-tree ant-tree-directory ant-tree-block-node"
+  class="ant-tree ant-tree-block-node ant-tree-directory"
 >
   <div
     role="tree"
