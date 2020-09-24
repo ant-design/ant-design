@@ -5612,7 +5612,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-required"
         for="validate_other_radio-button"
         title="Radio.Button"
       >

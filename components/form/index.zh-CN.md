@@ -85,22 +85,10 @@ const validateMessages = {
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
 | label | `label` 标签的文本 | string \| ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
-| labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
-| messageVariables | 默认验证字段的信息 | Record<string, string> | - | 4.7.0 |
-| name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
-| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
-| normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
-| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
-| rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
-| shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
-| tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 |
-| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
-| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
-| validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
-| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false |  |
+
+<<<<<<< HEAD | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | | | messageVariables | 默认验证字段的信息 | Record<string, string> | - | 4.7.0 | ======= | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | |
+
+> > > > > > > origin/master | name | 字段名，支持数组 | [NamePath](#NamePath) | - | | | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 | | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - | | | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false | | | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - | | | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false | | | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 | | trigger | 设置收集字段值变更的时机 | string | `onChange` | | | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 | | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - | | | validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` | | | valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` | | | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | | | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -394,6 +382,25 @@ validator(rule, value, callback) => {
 ### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？
 
 Form.List 本身是 renderProps，内部样式非常自由。因而默认配置 `label` 和 `error` 节点很难与之配合。如果你需要 antd 样式的 `label`，可以通过外部包裹 Form.Item 来实现。
+
+### 为什么 Form.Item 的 `dependencies` 对 Form.List 下的字段没有效果？
+
+Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
+
+```tsx
+<Form.List name="users">
+  {fields =>
+    fields.map(field => (
+      <React.Fragment key={field.key}>
+        <Form.Item name={[field.name, 'name']} {...someRest1} />
+        <Form.Item name={[field.name, 'age']} {...someRest1} />
+      </React.Fragment>
+    ))
+  }
+</Form.List>
+```
+
+依赖则是：`['users', 0, 'name']`
 
 <style>
   .site-form-item-icon {
