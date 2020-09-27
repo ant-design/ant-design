@@ -1,5 +1,5 @@
 import { sleep } from '../../../tests/utils';
-import message from '..';
+import message, { getInstance } from '..';
 
 describe('message.config', () => {
   beforeEach(() => {
@@ -60,8 +60,10 @@ describe('message.config', () => {
       duration: 0.5,
     });
     message.info('last');
+    expect(getInstance().component.state.notices).toHaveLength(1);
+
     await sleep(1000);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    expect(getInstance().component.state.notices).toHaveLength(0);
     message.config({
       duration: 3,
     });
