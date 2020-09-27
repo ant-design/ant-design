@@ -3,7 +3,7 @@ order: 6
 title: 更新日志
 toc: false
 timeline: true
----
+--
 
 `antd` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
 
@@ -14,6 +14,19 @@ timeline: true
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+## 4.6.6
+
+`2020-09-27`
+
+- 🐞 修复 Steps 在小屏幕下第一项偏移的问题。[#26894](https://github.com/ant-design/ant-design/pull/26894)
+- 💄 修复 Divider 在有文字时，设置边框颜色无效的问题。[#26863](https://github.com/ant-design/ant-design/pull/26863)
+- 🐞 Fix Radio.Button validation error highlight。[#26849](https://github.com/ant-design/ant-design/pull/26849) [@dhorelik](https://github.com/dhorelik)
+- 💄 修复 Typography 链接下划线样式。[#26854](https://github.com/ant-design/ant-design/pull/26854) [@vineetvk01](https://github.com/vineetvk01)
+- TypeScript
+  - 🤖 修复 message.destroy 参数类型错误。[#26864](https://github.com/ant-design/ant-design/pull/26864) [@lihqi](https://github.com/lihqi)
+  - 🤖 优化 Slider 类型定义。[#26884](https://github.com/ant-design/ant-design/pull/26884)
+  - 🤖 Form properly export `FormListProps` type。[#26831](https://github.com/ant-design/ant-design/pull/26831) [@mgcrea](https://github.com/mgcrea)
 
 ## 4.6.5
 
