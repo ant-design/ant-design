@@ -17,8 +17,8 @@ const localeValues: Locale = {
     selectAll: 'Zaznacz bieżącą stronę',
     selectInvert: 'Odwróć zaznaczenie',
     triggerDesc: 'Sortuj rosnąco',
-    triggerAsc: 'Sortuj opadająco',
-    cancelSort: 'Usuń sortowanie'
+    triggerAsc: 'Sortuj malejąco',
+    cancelSort: 'Usuń sortowanie',
   },
   Modal: {
     okText: 'OK',
