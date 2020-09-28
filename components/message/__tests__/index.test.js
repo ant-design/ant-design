@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
-import message from '..';
+import message, { getInstance } from '..';
 
 describe('message', () => {
   beforeEach(() => {
@@ -19,10 +19,10 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
     hide1();
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    expect(getInstance().component.state.notices).toHaveLength(1);
     hide2();
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should be able to remove manually with a unique key', () => {
@@ -33,10 +33,10 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
     message.destroy(key1);
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    expect(getInstance().component.state.notices).toHaveLength(1);
     message.destroy(key2);
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should be able to destroy globally', () => {
@@ -93,7 +93,7 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
     hide();
     jest.runAllTimers();
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should allow custom icon', () => {
@@ -169,7 +169,7 @@ describe('message', () => {
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
     jest.advanceTimersByTime(1500);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should not throw error when pass null', () => {
