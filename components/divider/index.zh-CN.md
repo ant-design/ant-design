@@ -28,7 +28,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
 
 ### Divider.Group
 
-| 参数   | 说明             | 类型                       | 默认值     | 版本  |
-| ------ | ---------------- | -------------------------- | ---------- | ----- |
-| dashed | 是否虚线         | boolean                    | false      | 4.7.0 |
-| type   | 水平还是垂直类型 | `horizontal` \| `vertical` | `vertical` | 4.7.0 |
+| 参数      | 说明             | 类型                       | 默认值       | 版本  |
+| --------- | ---------------- | -------------------------- | ------------ | ----- |
+| className | 分割线样式类     | string                     | -            | 4.7.0 |
+| dashed    | 是否虚线         | boolean                    | false        | 4.7.0 |
+| style     | 分割线样式对象   | CSSProperties              | -            | 4.7.0 |
+| type      | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` | 4.7.0 |

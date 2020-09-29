@@ -27,7 +27,9 @@ A divider line separates different content.
 
 ### Divider.Group
 
-| Property | Description                   | Type                       | Default    | Version |
-| -------- | ----------------------------- | -------------------------- | ---------- | ------- |
-| dashed   | Whether line is dashed        | boolean                    | false      | 4.7.0   |
-| type     | The direction type of divider | `horizontal` \| `vertical` | `vertical` | 4.7.0   |
+| Property  | Description                   | Type                       | Default      | Version |
+| --------- | ----------------------------- | -------------------------- | ------------ | ------- |
+| className | The className of container    | string                     | -            | 4.7.0   |
+| dashed    | Whether line is dashed        | boolean                    | false        | 4.7.0   |
+| style     | The style object of container | CSSProperties              | -            | 4.7.0   |
+| type      | The direction type of divider | `horizontal` \| `vertical` | `horizontal` | 4.7.0   |

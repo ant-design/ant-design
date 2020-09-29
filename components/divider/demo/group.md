@@ -17,7 +17,7 @@ Use `Divider.Group` make it vertical.
 import { Divider } from 'antd';
 
 ReactDOM.render(
-  <Divider.Group>
+  <Divider.Group type="vertical">
     Text
     <a href="#">Link</a>
     <a href="#">Link</a>

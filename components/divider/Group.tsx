@@ -1,13 +1,10 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
-import Divider from './Divider';
+import Divider, { DividerProps } from './Divider';
 
-export interface DividerGroupProps {
-  dashed?: boolean;
-  type?: 'horizontal' | 'vertical';
-}
+export interface DividerGroupProps extends Omit<DividerProps, 'plain' | 'orientation'> {}
 
-const Group: React.FC<DividerGroupProps> = ({ children, dashed, type = 'vertical' }) => {
+const Group: React.FC<DividerGroupProps> = ({ children, ...props }) => {
   const childNodes = toArray(children);
   if (childNodes.length === 0) {
     return null;
@@ -18,7 +15,7 @@ const Group: React.FC<DividerGroupProps> = ({ children, dashed, type = 'vertical
     return (
       <React.Fragment key={i}>
         {child}
-        {i !== childNodes.length - 1 && <Divider type={type} dashed={dashed} />}
+        {i !== childNodes.length - 1 && <Divider {...props} />}
       </React.Fragment>
     );
     /* eslint-enable */
