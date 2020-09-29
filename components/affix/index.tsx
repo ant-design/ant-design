@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import ResizeObserver from 'rc-resize-observer';
+import warning from 'rc-util/lib/warning';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
@@ -274,6 +275,12 @@ class Affix extends React.Component<AffixProps, AffixState> {
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
       props = omit(props, ['onTestUpdatePosition']);
+    }
+    if (children.length > 1) {
+      warning(
+        false,
+        'Affix component received more than one child node with `children`. ResizeObserver will only observe first one.',
+      );
     }
 
     return (
