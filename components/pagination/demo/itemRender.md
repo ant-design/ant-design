@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use text link for prev and next button.
+Use text link for prev and next button. YM
 
 ```jsx
 import { Pagination } from 'antd';

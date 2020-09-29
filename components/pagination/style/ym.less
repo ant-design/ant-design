@@ -2,11 +2,9 @@
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
-@import './ym';
+@pagination-ym-prefix-cls: ~'@{ant-prefix}-pagination-ym';
 
-@pagination-prefix-cls: ~'@{ant-prefix}-pagination';
-
-.@{pagination-prefix-cls} {
+.@{pagination-ym-prefix-cls} {
   .reset-component;
 
   ul,
@@ -34,7 +32,7 @@
   }
 
   &-item {
-    display: inline-block;
+    display: none;
     min-width: @pagination-item-size;
     height: @pagination-item-size;
     margin-right: 8px;
@@ -94,10 +92,10 @@
   &-jump-prev,
   &-jump-next {
     outline: 0;
-    .@{pagination-prefix-cls}-item-container {
+    .@{pagination-ym-prefix-cls}-item-container {
       position: relative;
 
-      .@{pagination-prefix-cls}-item-link-icon {
+      .@{pagination-ym-prefix-cls}-item-link-icon {
         color: @primary-color;
         font-size: @font-size-sm;
         letter-spacing: -1px;
@@ -112,7 +110,7 @@
         }
       }
 
-      .@{pagination-prefix-cls}-item-ellipsis {
+      .@{pagination-ym-prefix-cls}-item-ellipsis {
         position: absolute;
         top: 0;
         right: 0;
@@ -132,10 +130,10 @@
 
     &:focus,
     &:hover {
-      .@{pagination-prefix-cls}-item-link-icon {
+      .@{pagination-ym-prefix-cls}-item-link-icon {
         opacity: 1;
       }
-      .@{pagination-prefix-cls}-item-ellipsis {
+      .@{pagination-ym-prefix-cls}-item-ellipsis {
         opacity: 0;
       }
     }
@@ -164,10 +162,16 @@
     transition: all 0.3s;
   }
 
+  &-jump-prev,
+  &-jump-next {
+    display: none;
+  }
+
   &-prev,
   &-next {
     font-family: Arial, Helvetica, sans-serif;
     outline: 0;
+    position: absolute;
 
     button {
       color: @text-color;
@@ -179,7 +183,7 @@
       border-color: @primary-5;
     }
 
-    .@{pagination-prefix-cls}-item-link {
+    .@{pagination-ym-prefix-cls}-item-link {
       display: block;
       width: 100%;
       height: 100%;
@@ -192,11 +196,23 @@
       transition: all 0.3s;
     }
 
-    &:focus .@{pagination-prefix-cls}-item-link,
-    &:hover .@{pagination-prefix-cls}-item-link {
+    &:focus .@{pagination-ym-prefix-cls}-item-link,
+    &:hover .@{pagination-ym-prefix-cls}-item-link {
       color: @primary-color;
       border-color: @primary-color;
     }
+  }
+
+  &-prev {
+    right: 60px;
+  }
+
+  &-next {
+    right: 25px;
+  }
+
+  &-goto {
+    display: inline;
   }
 
   &-disabled {
@@ -204,7 +220,7 @@
     &:hover,
     &:focus {
       cursor: not-allowed;
-      .@{pagination-prefix-cls}-item-link {
+      .@{pagination-ym-prefix-cls}-item-link {
         color: @disabled-color;
         border-color: @border-color-base;
         cursor: not-allowed;
@@ -236,6 +252,9 @@
     }
 
     &-quick-jumper {
+      position: absolute;
+      right: 140px;
+      top: 2px;
       display: inline-block;
       height: @input-height-base;
       line-height: @input-height-base;
@@ -255,7 +274,7 @@
     height: @pagination-item-size-sm;
     line-height: @pagination-item-size-sm;
     vertical-align: top;
-    .@{pagination-prefix-cls}-item-link {
+    .@{pagination-ym-prefix-cls}-item-link {
       height: @pagination-item-size-sm;
       background-color: transparent;
       border: 0;
@@ -362,7 +381,7 @@
   &&-disabled {
     cursor: not-allowed;
 
-    .@{pagination-prefix-cls}-item {
+    .@{pagination-ym-prefix-cls}-item {
       background: @disabled-bg;
       border-color: @border-color-base;
       cursor: not-allowed;
@@ -383,32 +402,32 @@
       }
     }
 
-    .@{pagination-prefix-cls}-item-link {
+    .@{pagination-ym-prefix-cls}-item-link {
       color: @disabled-color;
       background: @disabled-bg;
       border-color: @border-color-base;
       cursor: not-allowed;
-      .@{pagination-prefix-cls}-simple& {
+      .@{pagination-ym-prefix-cls}-simple& {
         background: transparent;
       }
     }
 
-    .@{pagination-prefix-cls}-item-link-icon {
+    .@{pagination-ym-prefix-cls}-item-link-icon {
       opacity: 0;
     }
 
-    .@{pagination-prefix-cls}-item-ellipsis {
+    .@{pagination-ym-prefix-cls}-item-ellipsis {
       opacity: 1;
     }
 
-    .@{pagination-prefix-cls}-simple-pager {
+    .@{pagination-ym-prefix-cls}-simple-pager {
       color: @disabled-color;
     }
   }
 }
 
 @media only screen and (max-width: @screen-lg) {
-  .@{pagination-prefix-cls}-item {
+  .@{pagination-ym-prefix-cls}-item {
     &-after-jump-prev,
     &-before-jump-next {
       display: none;
@@ -417,9 +436,7 @@
 }
 
 @media only screen and (max-width: @screen-sm) {
-  .@{pagination-prefix-cls}-options {
+  .@{pagination-ym-prefix-cls}-options {
     display: none;
   }
 }
-
-@import './rtl';

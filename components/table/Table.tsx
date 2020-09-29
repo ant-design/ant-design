@@ -428,13 +428,26 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (position: string) => (
-      <Pagination
-        className={`${prefixCls}-pagination ${prefixCls}-pagination-${position}`}
-        {...mergedPagination}
-        size={paginationSize}
-      />
-    );
+    const renderPagination = (position: string) => {
+      if (pagination?.ym) {
+        return (
+          <div style={{ position: 'relative' }}>
+            <Pagination
+              className={`${prefixCls}-pagination-ym`}
+              {...mergedPagination}
+              size={paginationSize}
+            />
+          </div>
+        );
+      }
+      return (
+        <Pagination
+          className={`${prefixCls}-pagination ${prefixCls}-pagination-${position}`}
+          {...mergedPagination}
+          size={paginationSize}
+        />
+      );
+    };
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     if (mergedPagination.position !== null && Array.isArray(mergedPagination.position)) {
       const topPos = mergedPagination.position.find(p => p.indexOf('top') !== -1);

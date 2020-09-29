@@ -2,11 +2,10 @@ import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
+import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
-
 import MiniSelect from './MiniSelect';
 import Select from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -62,7 +61,6 @@ const Pagination: React.FC<PaginationProps> = ({
   ...restProps
 }) => {
   const { xs } = useBreakpoint();
-
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
@@ -70,12 +68,12 @@ const Pagination: React.FC<PaginationProps> = ({
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
     let prevIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
-        <LeftOutlined />
+        <ArrowLeftOutlined />
       </button>
     );
     let nextIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
-        <RightOutlined />
+        <ArrowRightOutlined />
       </button>
     );
     let jumpPrevIcon = (
@@ -130,7 +128,7 @@ const Pagination: React.FC<PaginationProps> = ({
         className={extendedClassName}
         selectComponentClass={isSmall ? MiniSelect : Select}
         locale={locale}
-        showSizeChanger
+        showSizeChanger={restProps.showSizeChanger}
       />
     );
   };
