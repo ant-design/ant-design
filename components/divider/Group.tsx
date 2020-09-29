@@ -2,12 +2,12 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import Divider from './Divider';
 
-export interface GroupProps {
+export interface DividerGroupProps {
   dashed?: boolean;
   type?: 'horizontal' | 'vertical';
 }
 
-const Group: React.FC<GroupProps> = ({ children, dashed, type = 'vertical' }) => {
+const Group: React.FC<DividerGroupProps> = ({ children, dashed, type = 'vertical' }) => {
   const childNodes = toArray(children);
   if (childNodes.length === 0) {
     return null;
