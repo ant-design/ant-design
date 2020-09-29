@@ -58,7 +58,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
-| onSearch | 点击搜索或按下回车键时的回调 | function(value, event) | - |
+| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event) | - |
 | loading | 搜索 loading | boolean | false |
 
 其余属性和 Input 一致。
