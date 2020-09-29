@@ -36,6 +36,30 @@ Array [
 ]
 `;
 
+exports[`renders ./components/divider/demo/group.md correctly 1`] = `
+<div>
+  Text
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />
+  <a
+    href="#"
+  >
+    Link
+  </a>
+  <div
+    class="ant-divider ant-divider-vertical"
+    role="separator"
+  />
+  <a
+    href="#"
+  >
+    Link
+  </a>
+</div>
+`;
+
 exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
 Array [
   <p>

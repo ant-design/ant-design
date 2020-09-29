@@ -14,6 +14,8 @@ A divider line separates different content.
 
 ## API
 
+### Divider
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | The className of container | string | - |  |
@@ -22,3 +24,10 @@ A divider line separates different content.
 | plain | Divider text show as plain style | boolean | true | 4.2.0 |
 | style | The style object of container | CSSProperties | - |  |
 | type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+
+### Divider.Group
+
+| Property | Description                   | Type                       | Default    | Version |
+| -------- | ----------------------------- | -------------------------- | ---------- | ------- |
+| dashed   | Whether line is dashed        | boolean                    | false      | 4.7.0   |
+| type     | The direction type of divider | `horizontal` \| `vertical` | `vertical` | 4.7.0   |
