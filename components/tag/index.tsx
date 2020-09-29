@@ -23,7 +23,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   closable?: boolean;
   closeIcon?: React.ReactNode;
   visible?: boolean;
-  onClose?: Function;
+  onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
 }
