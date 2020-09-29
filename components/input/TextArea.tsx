@@ -19,12 +19,6 @@ export interface TextAreaState {
   prevValue: any;
 }
 
-function countSymbols(text: string = ''): number {
-  if (!text) return 0;
-  const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]|\n/g;
-  return text.toString().replace(regexAstralSymbols, ' ').length;
-}
-
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   resizableTextArea: ResizableTextArea;
 
@@ -85,7 +79,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   renderTextArea = (prefixCls: string, bordered: boolean) => {
     return (
       <RcTextArea
-        {...omit(this.props, ['allowClear', 'bordered'])}
+        {...omit(this.props, ['allowClear', 'bordered', 'showCount'])}
         className={classNames(
           {
             [`${prefixCls}-borderless`]: !bordered,
@@ -117,7 +111,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
           [`${prefixCls}-textarea-show-count`]: showCount,
         })}
         {...(showCount
-          ? { 'data-count': `${countSymbols(value)}${hasMaxLength ? ` / ${maxLength}` : ''}` }
+          ? { 'data-count': `${[...value].length}${hasMaxLength ? ` / ${maxLength}` : ''}` }
           : {})}
       >
         <ClearableLabeledInput
