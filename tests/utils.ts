@@ -16,34 +16,3 @@ export const sleep = async (timeout = 0) => {
     await new Promise(resolve => globalTimeout(resolve, timeout));
   });
 };
-
-/** Only use when you are calling render out of enzyme wrapper */
-export const getDomFiberNodeProps = (element: HTMLElement, displayName?: string) => {
-  const keys = Object.keys(element);
-  let fiberNode;
-
-  console.log(keys);
-
-  for (let i = 0; i < keys.length; i += 1) {
-    const key = keys[i];
-    if (key.startsWith('__reactInternalInstance')) {
-      fiberNode = (element as any)[key];
-      break;
-    }
-  }
-
-  while (fiberNode && displayName) {
-    if (fiberNode?.elementType?.displayName === displayName) {
-      break;
-    }
-
-    fiberNode = fiberNode.return;
-  }
-
-  if (!fiberNode) {
-    console.log('Fiber Not Found:', element);
-    throw new Error('Fiber Not Found!');
-  }
-
-  return fiberNode.memoizedProps;
-};
