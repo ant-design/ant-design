@@ -9,12 +9,20 @@ import { fixControlledValue, resolveOnChange } from './Input';
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
+  showCount?: boolean;
+  maxLength?: number;
 }
 
 export interface TextAreaState {
   value: any;
   /** `value` from prev props */
   prevValue: any;
+}
+
+function countSymbols(text: string = ''): number {
+  if (!text) return 0;
+  const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]|\n/g;
+  return text.toString().replace(regexAstralSymbols, ' ').length;
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
@@ -92,22 +100,39 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { value } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+    let value = fixControlledValue(this.state?.value);
+    const {
+      prefixCls: customizePrefixCls,
+      bordered = true,
+      showCount = false,
+      maxLength,
+    } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    const hasMaxLength = Number(maxLength) > 0;
+    value = hasMaxLength ? value?.slice(0, maxLength) : value;
+
     return (
-      <ClearableLabeledInput
-        {...this.props}
-        prefixCls={prefixCls}
-        direction={direction}
-        inputType="text"
-        value={fixControlledValue(value)}
-        element={this.renderTextArea(prefixCls, bordered)}
-        handleReset={this.handleReset}
-        ref={this.saveClearableInput}
-        triggerFocus={this.focus}
-        bordered={bordered}
-      />
+      <div
+        className={classNames(`${prefixCls}-textarea`, {
+          [`${prefixCls}-textarea-show-count`]: showCount,
+        })}
+        {...(showCount
+          ? { 'data-count': `${countSymbols(value)}${hasMaxLength ? ` / ${maxLength}` : ''}` }
+          : {})}
+      >
+        <ClearableLabeledInput
+          {...this.props}
+          prefixCls={prefixCls}
+          direction={direction}
+          inputType="text"
+          value={value}
+          element={this.renderTextArea(prefixCls, bordered)}
+          handleReset={this.handleReset}
+          ref={this.saveClearableInput}
+          triggerFocus={this.focus}
+          bordered={bordered}
+        />
+      </div>
     );
   };
 

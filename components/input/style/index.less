@@ -43,6 +43,15 @@
       padding-bottom: 3px;
     }
   }
+
+  &-textarea {
+    &-show-count::after {
+      content: attr(data-count);
+      color: @normal-color;
+      text-align: right;
+      display: block;
+    }
+  }
 }
 
 @import './search-input';
