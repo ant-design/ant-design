@@ -429,20 +429,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     const renderPagination = (position: string) => {
-      if (pagination?.ym) {
-        return (
-          <div style={{ position: 'relative' }}>
-            <Pagination
-              className={`${prefixCls}-pagination-ym`}
-              {...mergedPagination}
-              size={paginationSize}
-            />
-          </div>
-        );
-      }
       return (
         <Pagination
-          className={`${prefixCls}-pagination ${prefixCls}-pagination-${position}`}
+          className={`${prefixCls}-pagination`}
           {...mergedPagination}
           size={paginationSize}
         />

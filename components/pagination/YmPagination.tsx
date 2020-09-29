@@ -6,22 +6,30 @@ import Input from '../input';
 const { Option } = Select;
 
 const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
-  const { defaultPageSize = 10, defaultCurrent = 1 } = restProps;
-  const [pageSize, setPageSize] = useState<number>(defaultPageSize);
-  const [totalPage, setTotalPage] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<string | number>(defaultCurrent);
+  const { pageSize, defaultPageSize, current, defaultCurrent, total } = restProps;
+
+  const currentToSet = current || defaultCurrent || 1;
+  const pageSizeToSet = pageSize || defaultPageSize || 10;
+
+  const [currentPageSize, setCurrentPageSize] = useState<number>(pageSizeToSet);
+  const [totalPage, setTotalPage] = useState<number>(total || 0);
+  const [currentPage, setCurrentPage] = useState<string | number>(currentToSet);
+
+  const prefixCls = 'ant-pagination-ym';
 
   const Selector = ({ total }: { total: number }) => {
     setTotalPage(total);
+
     return (
-      <span>
+      <div className={`${prefixCls}-showing-select`}>
         {'Showing '}
         <Select
+          disabled={restProps.disabled}
           size="small"
-          defaultValue={pageSize}
-          style={{ width: 60 }}
+          defaultValue={currentPageSize}
+          className={`${prefixCls}-select`}
           onChange={value => {
-            setPageSize(value);
+            setCurrentPageSize(value);
             if (restProps.onChange) {
               restProps.onChange(Number(currentPage), value);
             }
@@ -30,20 +38,21 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
           <Option value={10}>10</Option>
           <Option value={20}>20</Option>
           <Option value={30}>30</Option>
+          <Option value={50}>50</Option>
         </Select>
         {` of ${total}`}
-      </span>
+      </div>
     );
   };
 
-  const totalPages = Math.ceil(totalPage / pageSize);
+  const totalPages = Math.ceil(totalPage / currentPageSize);
 
   const handleSetPage = (value: string | number | undefined) => {
     const pageToGo = Number(value);
     if (Number.isInteger(pageToGo) && pageToGo > 0 && pageToGo <= totalPages) {
       setCurrentPage(pageToGo);
       if (restProps.onChange) {
-        restProps.onChange(pageToGo, pageSize);
+        restProps.onChange(pageToGo, currentPageSize);
       }
     }
     if (value === '') {
@@ -51,14 +60,12 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
     }
   };
 
-  const prefixCls = 'ant-pagination-ym';
-
   return (
-    <div style={{ width: '100%', position: 'relative' }}>
+    <div className={`${prefixCls}-container`}>
       <Pagination
         prefixCls={prefixCls}
         showTotal={total => <Selector total={total} />}
-        pageSize={pageSize}
+        pageSize={currentPageSize}
         current={Number(currentPage)}
         onChange={(...params) => {
           if (restProps.onChange) {
@@ -74,8 +81,9 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
       <div className={`${prefixCls}-options-quick-jumper`}>
         Go to
         <Input
+          disabled={restProps.disabled}
           className={`${prefixCls}-input`}
-          value={currentPage}
+          value={restProps.current || currentPage}
           onChange={e => handleSetPage(e.target.value)}
         />
         / {totalPages}

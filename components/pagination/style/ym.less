@@ -31,6 +31,11 @@
     vertical-align: middle;
   }
 
+  &-container {
+    width: 100%;
+    position: relative;
+  }
+
   &-item {
     display: none;
     min-width: @pagination-item-size;
@@ -149,11 +154,11 @@
   &-jump-prev,
   &-jump-next {
     display: inline-block;
-    min-width: @pagination-item-size;
-    height: @pagination-item-size;
+    min-width: 30px;
+    height: 30px;
     color: @text-color;
     font-family: @pagination-font-family;
-    line-height: @pagination-item-size;
+    line-height: 30px;
     text-align: center;
     vertical-align: middle;
     list-style: none;
@@ -172,6 +177,7 @@
     font-family: Arial, Helvetica, sans-serif;
     outline: 0;
     position: absolute;
+    top: 10px;
 
     button {
       color: @text-color;
@@ -190,8 +196,7 @@
       font-size: 12px;
       text-align: center;
       background-color: @pagination-item-link-bg;
-      border: @border-width-base @border-style-base @border-color-base;
-      border-radius: @border-radius-base;
+      border: @border-width-base @border-style-base @slate-grey;
       outline: none;
       transition: all 0.3s;
     }
@@ -204,11 +209,19 @@
   }
 
   &-prev {
-    right: 60px;
+    right: 20px;
+    .@{pagination-ym-prefix-cls}-item-link {
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+    }
   }
 
   &-next {
-    right: 25px;
+    right: 0px;
+    .@{pagination-ym-prefix-cls}-item-link {
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+    }
   }
 
   &-goto {
@@ -222,7 +235,7 @@
       cursor: not-allowed;
       .@{pagination-ym-prefix-cls}-item-link {
         color: @disabled-color;
-        border-color: @border-color-base;
+        border-color: @cadet-grey;
         cursor: not-allowed;
       }
     }
@@ -230,6 +243,20 @@
 
   &-slash {
     margin: 0 10px 0 5px;
+  }
+
+  &-showing-select {
+    position: absolute;
+    top: 10px;
+    line-height: 30px;
+    vertical-align: middle;
+  }
+
+  &-select.ant-select-single {
+    .ant-select-selector {
+      width: 55px;
+      background-color: #fff;
+    }
   }
 
   &-options {
@@ -253,11 +280,11 @@
 
     &-quick-jumper {
       position: absolute;
-      right: 140px;
-      top: 2px;
+      right: 70px;
+      top: 10px;
       display: inline-block;
-      height: @input-height-base;
-      line-height: @input-height-base;
+      height: 30px;
+      line-height: 30px;
       vertical-align: top;
 
       input {
@@ -265,6 +292,9 @@
 
         width: 50px;
         margin: 0 8px;
+        height: 30px;
+        background-color: transparent;
+        text-align: center;
       }
     }
   }
