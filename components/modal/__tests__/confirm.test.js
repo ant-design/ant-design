@@ -1,10 +1,10 @@
 import TestUtils, { act } from 'react-dom/test-utils';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Modal from '..';
 import { destroyFns } from '../Modal';
-import { getDomFiberNodeProps, sleep } from '../../../tests/utils';
-import KeyCode from 'rc-util/lib/KeyCode';
+import { sleep } from '../../../tests/utils';
 
 const { confirm } = Modal;
 
