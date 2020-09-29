@@ -1,11 +1,22 @@
 import TestUtils, { act } from 'react-dom/test-utils';
+import CSSMotion from 'rc-motion';
+import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import Modal from '..';
 import { destroyFns } from '../Modal';
 import { getDomFiberNodeProps, sleep } from '../../../tests/utils';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 const { confirm } = Modal;
 
+jest.mock('rc-motion');
+
 describe('Modal.confirm triggers callbacks correctly', () => {
+  // Inject CSSMotion to replace with No transition support
+  const MockCSSMotion = genCSSMotion(false);
+  Object.keys(MockCSSMotion).forEach(key => {
+    CSSMotion[key] = MockCSSMotion[key];
+  });
+
   // Mock for rc-util raf
   window.requestAnimationFrame = callback => {
     return window.setTimeout(callback, 16);
@@ -13,15 +24,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   window.cancelAnimationFrame = id => {
     window.clearTimeout(id);
   };
-
-  function triggerDialogMotionLeaved(element) {
-    /**
-     * Since static function is render out of life cycle.
-     * We have to hack the fiber node to trigger related event.
-     */
-    const fiberNodeProps = getDomFiberNodeProps(element, 'CSSMotion');
-    fiberNodeProps.onVisibleChanged(false);
-  }
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -113,6 +115,25 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('should close confirm modal when press ESC', () => {
+    jest.useFakeTimers();
+    const onCancel = jest.fn();
+    Modal.confirm({
+      title: 'title',
+      content: 'content',
+      onCancel,
+    });
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
+    TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
+      keyCode: KeyCode.ESC,
+    });
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    jest.useRealTimers();
+  });
+
   it('should not hide confirm when onOk return Promise.resolve', () => {
     open({
       onOk: () => Promise.resolve(''),
@@ -142,167 +163,145 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-modal-confirm')).toHaveLength(1);
     $$('.ant-btn')[0].click();
 
-    act(() => {
-      jest.runAllTimers();
-      triggerDialogMotionLeaved($$('.ant-modal-confirm')[0]);
-    });
+    jest.runAllTimers();
     expect($$('.ant-modal-confirm')).toHaveLength(0);
     jest.useRealTimers();
   });
 
-  // it('ok only', () => {
-  //   open({ okCancel: false });
-  //   expect($$('.ant-btn')).toHaveLength(1);
-  //   expect($$('.ant-btn')[0].innerHTML).toContain('OK');
-  // });
+  it('ok only', () => {
+    open({ okCancel: false });
+    expect($$('.ant-btn')).toHaveLength(1);
+    expect($$('.ant-btn')[0].innerHTML).toContain('OK');
+  });
 
-  // it('allows extra props on buttons', () => {
-  //   open({ okButtonProps: { disabled: true }, cancelButtonProps: { 'data-test': 'baz' } });
-  //   expect($$('.ant-btn')).toHaveLength(2);
-  //   expect($$('.ant-btn')[0].attributes['data-test'].value).toBe('baz');
-  //   expect($$('.ant-btn')[1].disabled).toBe(true);
-  // });
+  it('allows extra props on buttons', () => {
+    open({ okButtonProps: { disabled: true }, cancelButtonProps: { 'data-test': 'baz' } });
+    expect($$('.ant-btn')).toHaveLength(2);
+    expect($$('.ant-btn')[0].attributes['data-test'].value).toBe('baz');
+    expect($$('.ant-btn')[1].disabled).toBe(true);
+  });
 
-  // it('should close modals when click confirm button', () => {
-  //   jest.useFakeTimers();
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     Modal[type]({
-  //       title: 'title',
-  //       content: 'content',
-  //     });
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //     $$('.ant-btn')[0].click();
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
-  //   });
-  //   jest.useRealTimers();
-  // });
+  it('should close modals when click confirm button', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      $$('.ant-btn')[0].click();
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
 
-  // it('should close confirm modal when click cancel button', () => {
-  //   jest.useFakeTimers();
-  //   const onCancel = jest.fn();
-  //   Modal.confirm({
-  //     title: 'title',
-  //     content: 'content',
-  //     onCancel,
-  //   });
-  //   jest.runAllTimers();
-  //   expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
-  //   $$('.ant-btn')[0].click();
-  //   jest.runAllTimers();
-  //   expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
-  //   expect(onCancel).toHaveBeenCalledTimes(1);
-  //   jest.useRealTimers();
-  // });
+  it('should close confirm modal when click cancel button', () => {
+    jest.useFakeTimers();
+    const onCancel = jest.fn();
+    Modal.confirm({
+      title: 'title',
+      content: 'content',
+      onCancel,
+    });
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
+    $$('.ant-btn')[0].click();
+    jest.runAllTimers();
+    expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    jest.useRealTimers();
+  });
 
-  // it('should close confirm modal when press ESC', () => {
-  //   jest.useFakeTimers();
-  //   const onCancel = jest.fn();
-  //   Modal.confirm({
-  //     title: 'title',
-  //     content: 'content',
-  //     onCancel,
-  //   });
-  //   jest.runAllTimers();
-  //   expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
-  //   TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
-  //     keyCode: 27,
-  //   });
-  //   jest.runAllTimers();
-  //   expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
-  //   expect(onCancel).toHaveBeenCalledTimes(1);
-  //   jest.useRealTimers();
-  // });
+  it('should not close modals when click confirm button when onOk has argument', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+        onOk: close => null, // eslint-disable-line no-unused-vars
+      });
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      $$('.ant-btn')[0].click();
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+    });
+    jest.useRealTimers();
+  });
 
-  // it('should not close modals when click confirm button when onOk has argument', () => {
-  //   jest.useFakeTimers();
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     Modal[type]({
-  //       title: 'title',
-  //       content: 'content',
-  //       onOk: close => null, // eslint-disable-line no-unused-vars
-  //     });
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //     $$('.ant-btn')[0].click();
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //   });
-  //   jest.useRealTimers();
-  // });
+  it('could be update', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
+      expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('content');
+      instance.update({
+        title: 'new title',
+        content: 'new content',
+      });
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('new title');
+      expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('new content');
+      instance.destroy();
+      jest.runAllTimers();
+    });
+    jest.useRealTimers();
+  });
 
-  // it('could be update', () => {
-  //   jest.useFakeTimers();
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     const instance = Modal[type]({
-  //       title: 'title',
-  //       content: 'content',
-  //     });
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //     expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
-  //     expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('content');
-  //     instance.update({
-  //       title: 'new title',
-  //       content: 'new content',
-  //     });
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //     expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('new title');
-  //     expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('new content');
-  //     instance.destroy();
-  //     jest.runAllTimers();
-  //   });
-  //   jest.useRealTimers();
-  // });
+  it('could be destroy', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+      instance.destroy();
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
 
-  // it('could be destroy', () => {
-  //   jest.useFakeTimers();
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     const instance = Modal[type]({
-  //       title: 'title',
-  //       content: 'content',
-  //     });
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //     instance.destroy();
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
-  //   });
-  //   jest.useRealTimers();
-  // });
+  it('could be Modal.destroyAll', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+    });
+    Modal.destroyAll();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
 
-  // it('could be Modal.destroyAll', () => {
-  //   jest.useFakeTimers();
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     Modal[type]({
-  //       title: 'title',
-  //       content: 'content',
-  //     });
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-  //   });
-  //   Modal.destroyAll();
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     jest.runAllTimers();
-  //     expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
-  //   });
-  //   jest.useRealTimers();
-  // });
+  it('prefixCls', () => {
+    open({ prefixCls: 'custom-modal' });
+    expect($$('.custom-modal-mask')).toHaveLength(1);
+    expect($$('.custom-modal-wrap')).toHaveLength(1);
+    expect($$('.custom-modal-confirm')).toHaveLength(1);
+    expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
+  });
 
-  // it('prefixCls', () => {
-  //   open({ prefixCls: 'custom-modal' });
-  //   expect($$('.custom-modal-mask')).toHaveLength(1);
-  //   expect($$('.custom-modal-wrap')).toHaveLength(1);
-  //   expect($$('.custom-modal-confirm')).toHaveLength(1);
-  //   expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
-  // });
-
-  // it('should be Modal.confirm without mask', () => {
-  //   open({ mask: false });
-  //   expect($$('.ant-modal-mask')).toHaveLength(0);
-  // });
+  it('should be Modal.confirm without mask', () => {
+    open({ mask: false });
+    expect($$('.ant-modal-mask')).toHaveLength(0);
+  });
 
   // it('destroyFns should reduce when instance.destroy', () => {
   //   jest.useFakeTimers();
