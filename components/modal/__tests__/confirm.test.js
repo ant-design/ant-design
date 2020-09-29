@@ -1,11 +1,20 @@
-import TestUtils from 'react-dom/test-utils';
+import TestUtils, { act } from 'react-dom/test-utils';
 import Modal from '..';
 import { destroyFns } from '../Modal';
+import { getDomFiberNodeProps } from '../../../tests/utils';
 
 const { confirm } = Modal;
 
 describe('Modal.confirm triggers callbacks correctly', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  // Mock for rc-util raf
+  window.requestAnimationFrame = callback => {
+    return window.setTimeout(callback, 16);
+  };
+  window.cancelAnimationFrame = id => {
+    window.clearTimeout(id);
+  };
+
+  const errorSpy = jest.spyOn(console, 'error');
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -268,23 +277,46 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('destroyFns should reduce when instance.destroy', () => {
     jest.useFakeTimers();
+
     Modal.destroyAll(); // clear destroyFns
     jest.runAllTimers();
+
     const instances = [];
     ['info', 'success', 'warning', 'error'].forEach(type => {
       const instance = Modal[type]({
         title: 'title',
         content: 'content',
       });
-      instances.push(instance);
+
+      // Render modal
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      instances.push({
+        instance,
+        element: document.body.lastChild.querySelector('.ant-modal'),
+      });
     });
     const { length } = instances;
-    instances.forEach((instance, index) => {
+    instances.forEach(({ instance, element }, index) => {
       expect(destroyFns.length).toBe(length - index);
-      instance.destroy();
-      jest.runAllTimers();
+
+      act(() => {
+        instance.destroy();
+        jest.runAllTimers();
+
+        /**
+         * Since static function is render out of life cycle.
+         * We have to hack the fiber node to trigger related event.
+         */
+        const fiberNodeProps = getDomFiberNodeProps(element, 'CSSMotion');
+        fiberNodeProps.onVisibleChanged(false);
+      });
+
       expect(destroyFns.length).toBe(length - index - 1);
     });
+
     jest.useRealTimers();
   });
 
