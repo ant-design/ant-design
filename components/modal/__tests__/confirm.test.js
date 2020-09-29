@@ -303,116 +303,114 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-modal-mask')).toHaveLength(0);
   });
 
-  // it('destroyFns should reduce when instance.destroy', () => {
-  //   jest.useFakeTimers();
+  it('destroyFns should reduce when instance.destroy', () => {
+    jest.useFakeTimers();
 
-  //   Modal.destroyAll(); // clear destroyFns
-  //   jest.runAllTimers();
+    Modal.destroyAll(); // clear destroyFns
+    jest.runAllTimers();
 
-  //   const instances = [];
-  //   ['info', 'success', 'warning', 'error'].forEach(type => {
-  //     const instance = Modal[type]({
-  //       title: 'title',
-  //       content: 'content',
-  //     });
+    const instances = [];
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
 
-  //     // Render modal
-  //     act(() => {
-  //       jest.runAllTimers();
-  //     });
+      // Render modal
+      act(() => {
+        jest.runAllTimers();
+      });
 
-  //     instances.push({
-  //       instance,
-  //       element: document.body.lastChild.querySelector('.ant-modal'),
-  //     });
-  //   });
-  //   const { length } = instances;
-  //   instances.forEach(({ instance, element }, index) => {
-  //     expect(destroyFns.length).toBe(length - index);
+      instances.push({
+        instance,
+        element: document.body.lastChild.querySelector('.ant-modal'),
+      });
+    });
+    const { length } = instances;
+    instances.forEach(({ instance, element }, index) => {
+      expect(destroyFns.length).toBe(length - index);
 
-  //     act(() => {
-  //       instance.destroy();
-  //       jest.runAllTimers();
+      act(() => {
+        instance.destroy();
+        jest.runAllTimers();
+      });
+      expect(destroyFns.length).toBe(length - index - 1);
+    });
 
-  // triggerDialogMotionLeaved(element);
+    jest.useRealTimers();
+  });
 
-  //     expect(destroyFns.length).toBe(length - index - 1);
-  //   });
+  it('should warning when pass a string as icon props', () => {
+    jest.useFakeTimers();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    confirm({
+      content: 'some descriptions',
+      icon: 'ab',
+    });
+    jest.runAllTimers();
+    expect(warnSpy).not.toHaveBeenCalled();
+    confirm({
+      content: 'some descriptions',
+      icon: 'question',
+    });
+    jest.runAllTimers();
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Modal] \`icon\` is using ReactNode instead of string naming in v4. Please check \`question\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
+    jest.useRealTimers();
+  });
 
-  //   jest.useRealTimers();
-  // });
+  it('ok button should trigger onOk once when click it many times quickly', () => {
+    const onOk = jest.fn();
+    open({ onOk });
+    $$('.ant-btn-primary')[0].click();
+    $$('.ant-btn-primary')[0].click();
+    expect(onOk).toHaveBeenCalledTimes(1);
+  });
 
-  // it('should warning when pass a string as icon props', () => {
-  //   jest.useFakeTimers();
-  //   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  //   confirm({
-  //     content: 'some descriptions',
-  //     icon: 'ab',
-  //   });
-  //   jest.runAllTimers();
-  //   expect(warnSpy).not.toHaveBeenCalled();
-  //   confirm({
-  //     content: 'some descriptions',
-  //     icon: 'question',
-  //   });
-  //   jest.runAllTimers();
-  //   expect(warnSpy).toHaveBeenCalledWith(
-  //     `Warning: [antd: Modal] \`icon\` is using ReactNode instead of string naming in v4. Please check \`question\` at https://ant.design/components/icon`,
-  //   );
-  //   warnSpy.mockRestore();
-  //   jest.useRealTimers();
-  // });
+  // https://github.com/ant-design/ant-design/issues/23358
+  it('ok button should trigger onOk multiple times when onOk has close argument', () => {
+    const onOk = jest.fn();
+    open({
+      onOk: close => {
+        onOk();
+        (() => {})(close); // do nothing
+      },
+    });
+    $$('.ant-btn-primary')[0].click();
+    $$('.ant-btn-primary')[0].click();
+    $$('.ant-btn-primary')[0].click();
+    expect(onOk).toHaveBeenCalledTimes(3);
+  });
 
-  // it('ok button should trigger onOk once when click it many times quickly', () => {
-  //   const onOk = jest.fn();
-  //   open({ onOk });
-  //   $$('.ant-btn-primary')[0].click();
-  //   $$('.ant-btn-primary')[0].click();
-  //   expect(onOk).toHaveBeenCalledTimes(1);
-  // });
-
-  // // https://github.com/ant-design/ant-design/issues/23358
-  // it('ok button should trigger onOk multiple times when onOk has close argument', () => {
-  //   const onOk = jest.fn();
-  //   open({
-  //     onOk: close => {
-  //       onOk();
-  //       (() => {})(close); // do nothing
-  //     },
-  //   });
-  //   $$('.ant-btn-primary')[0].click();
-  //   $$('.ant-btn-primary')[0].click();
-  //   $$('.ant-btn-primary')[0].click();
-  //   expect(onOk).toHaveBeenCalledTimes(3);
-  // });
-
-  // it('should be able to config rootPrefixCls', () => {
-  //   jest.useFakeTimers();
-  //   Modal.config({
-  //     rootPrefixCls: 'my',
-  //   });
-  //   confirm({
-  //     title: 'title',
-  //   });
-  //   jest.runAllTimers();
-  //   expect(document.querySelectorAll('.ant-btn').length).toBe(0);
-  //   expect(document.querySelectorAll('.my-btn').length).toBe(2);
-  //   expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-  //   Modal.config({
-  //     rootPrefixCls: 'your',
-  //   });
-  //   confirm({
-  //     title: 'title',
-  //   });
-  //   jest.runAllTimers();
-  //   expect(document.querySelectorAll('.ant-btn').length).toBe(0);
-  //   expect(document.querySelectorAll('.my-btn').length).toBe(2);
-  //   expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-  //   expect(document.querySelectorAll('.your-btn').length).toBe(2);
-  //   expect(document.querySelectorAll('.your-modal-confirm').length).toBe(1);
-  //   Modal.config({
-  //     rootPrefixCls: 'ant',
-  //   });
-  //   jest.useRealTimers();
-  // });
+  it('should be able to config rootPrefixCls', () => {
+    jest.useFakeTimers();
+    Modal.config({
+      rootPrefixCls: 'my',
+    });
+    confirm({
+      title: 'title',
+    });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-btn').length).toBe(0);
+    expect(document.querySelectorAll('.my-btn').length).toBe(2);
+    expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
+    Modal.config({
+      rootPrefixCls: 'your',
+    });
+    confirm({
+      title: 'title',
+    });
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-btn').length).toBe(0);
+    expect(document.querySelectorAll('.my-btn').length).toBe(2);
+    expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
+    expect(document.querySelectorAll('.your-btn').length).toBe(2);
+    expect(document.querySelectorAll('.your-modal-confirm').length).toBe(1);
+    Modal.config({
+      rootPrefixCls: 'ant',
+    });
+    jest.useRealTimers();
+  });
 });
