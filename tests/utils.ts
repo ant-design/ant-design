@@ -38,5 +38,10 @@ export const getDomFiberNodeProps = (element: HTMLElement, displayName?: string)
     fiberNode = fiberNode.return;
   }
 
-  return fiberNode?.memoizedProps;
+  if (!fiberNode) {
+    console.log('Fiber Not Found:', element);
+    throw new Error('Fiber Not Found!');
+  }
+
+  return fiberNode.memoizedProps;
 };
