@@ -321,13 +321,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         jest.runAllTimers();
       });
 
-      instances.push({
-        instance,
-        element: document.body.lastChild.querySelector('.ant-modal'),
-      });
+      instances.push(instance);
     });
     const { length } = instances;
-    instances.forEach(({ instance, element }, index) => {
+    instances.forEach((instance, index) => {
       expect(destroyFns.length).toBe(length - index);
 
       act(() => {
