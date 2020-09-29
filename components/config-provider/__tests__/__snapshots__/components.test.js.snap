@@ -16275,12 +16275,12 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
       class="config-modal-mask"
     />
     <div
-      class="config-modal-wrap "
+      class="config-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="config-modal "
+        class="config-modal"
         role="document"
         style="width:520px"
       >
@@ -16368,12 +16368,12 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
       class="config-modal-mask"
     />
     <div
-      class="config-modal-wrap "
+      class="config-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="config-modal "
+        class="config-modal"
         role="document"
         style="width:520px"
       >
@@ -16461,12 +16461,12 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
       class="config-modal-mask"
     />
     <div
-      class="config-modal-wrap "
+      class="config-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="config-modal "
+        class="config-modal"
         role="document"
         style="width:520px"
       >
@@ -16554,12 +16554,12 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
       class="ant-modal-mask"
     />
     <div
-      class="ant-modal-wrap "
+      class="ant-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="ant-modal "
+        class="ant-modal"
         role="document"
         style="width:520px"
       >
@@ -16647,12 +16647,12 @@ exports[`ConfigProvider components Modal normal 1`] = `
       class="ant-modal-mask"
     />
     <div
-      class="ant-modal-wrap "
+      class="ant-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="ant-modal "
+        class="ant-modal"
         role="document"
         style="width:520px"
       >
@@ -16740,12 +16740,12 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
       class="prefix-Modal-mask"
     />
     <div
-      class="prefix-Modal-wrap "
+      class="prefix-Modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="prefix-Modal "
+        class="prefix-Modal"
         role="document"
         style="width:520px"
       >
