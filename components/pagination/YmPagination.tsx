@@ -6,19 +6,19 @@ import Input from '../input';
 const { Option } = Select;
 
 const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
-  const { pageSize, defaultPageSize, current, defaultCurrent, total } = restProps;
+  const { pageSize, defaultPageSize, current, defaultCurrent, total: quantity } = restProps;
 
   const currentToSet = current || defaultCurrent || 1;
   const pageSizeToSet = pageSize || defaultPageSize || 10;
 
   const [currentPageSize, setCurrentPageSize] = useState<number>(pageSizeToSet);
-  const [totalPage, setTotalPage] = useState<number>(total || 0);
+  const [totalItems, setTotalItems] = useState<number>(quantity || 0);
   const [currentPage, setCurrentPage] = useState<string | number>(currentToSet);
 
   const prefixCls = 'ant-pagination-ym';
 
   const Selector = ({ total }: { total: number }) => {
-    setTotalPage(total);
+    setTotalItems(total);
 
     return (
       <div className={`${prefixCls}-showing-select`}>
@@ -45,7 +45,7 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
     );
   };
 
-  const totalPages = Math.ceil(totalPage / currentPageSize);
+  const totalPages = Math.ceil(totalItems / currentPageSize);
 
   const handleSetPage = (value: string | number | undefined) => {
     const pageToGo = Number(value);

@@ -5,7 +5,7 @@ import RcTable, { Summary } from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import Skeleton from '../skeleton';
-import Pagination from '../pagination';
+import YmPagination from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -430,7 +430,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
     const renderPagination = (position: string) => {
       return (
-        <Pagination
+        <YmPagination
           className={`${prefixCls}-pagination`}
           {...mergedPagination}
           size={paginationSize}
