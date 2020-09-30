@@ -18,7 +18,7 @@ import { Space, Typography, Divider } from 'antd';
 
 function SpaceVertical() {
   return (
-    <Space type="vertical" split={<Divider />}>
+    <Space direction="vertical" split={<Divider />}>
       <Typography.Link>Link</Typography.Link>
       <Typography.Link>Link</Typography.Link>
       <Typography.Link>Link</Typography.Link>
