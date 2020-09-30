@@ -36,7 +36,7 @@ The numerical value is used to indicate the measurement size, it can be used alo
 
 | Currency Symbol | How and When to Use | Example |
 | --- | --- | --- |
-| Character | Take RMB as example, its character symbol is "¥", placed in front of the amount. | ¥123.00 |
+| Character | Take RMB as example, its character symbol is `¥`, placed in front of the amount. | ¥123.00 |
 | Letter | Take RMB as example, it is recommended to use CNY, which is the international currency code. | CNY123.00 |
 
 Large amount: If an amount is large, "M/Mill." (abbreviation of million) and "B/Bill." (abbreviation of billion) can be used.
@@ -54,7 +54,7 @@ We suggest the following formats:
 | Format | How and when to use | Examples |
 | --- | --- | --- |
 | Year, month, day | In China「YYYY-MM-DD」format is used by default. | `2019-12-08` |
-| Terms | When a special term containing a date expressed with numbers，display a "." between the month and the day, and quotation marks should be added before and after the term. | `6.1 children's day` |
+| Terms | When a special term containing a date expressed with numbers，display a `.` between the month and the day, and quotation marks should be added before and after the term. | `6.1 children's day` |
 | Date range | Put "~" or "-" between the date or time range (space is required before and after). | `2018-12-08 ~ 2019-12-07` |
 
 **Time Format:**
