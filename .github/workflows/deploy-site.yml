@@ -1,9 +1,10 @@
 name: Deploy website
 on:
-  release:
-    types: [published]
+  push:
     branches:
-      - master
+      - master # Change this to your default branch
+    tags:
+      - v*
 
 jobs:
   build-and-deploy:
