@@ -33,6 +33,7 @@ export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'>
 export interface SelectProps<VT>
   extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'> {
   mode?: 'multiple' | 'tags';
+  showSearch?: boolean;
 }
 
 // We still use class here since `forwardRef` not support generic in typescript
