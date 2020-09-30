@@ -23,7 +23,7 @@ const CheckboxGroup = Checkbox.Group;
 const operations = <Button>Extra Action</Button>;
 
 const OperationsSlot = {
-  left: <Button style={{ marginRight: 15 }}>Left Extra Action</Button>,
+  left: <Button className="tabs-extra-demo-button">Left Extra Action</Button>,
   right: <Button>Right Extra Action</Button>,
 };
 
@@ -84,4 +84,15 @@ const Demo = () => {
 };
 
 ReactDOM.render(<Demo />, mountNode);
+```
+
+```css
+.tabs-extra-demo-button {
+  margin-right: 16px;
+}
+
+.ant-row-rtl .tabs-extra-demo-button {
+  margin-right: 0;
+  margin-left: 16px;
+}
 ```
