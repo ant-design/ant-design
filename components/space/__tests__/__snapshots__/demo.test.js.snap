@@ -541,16 +541,14 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
     class="ant-space-item"
     style="margin-right:4px"
   >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
+    <article
+      class="ant-typography"
     >
-      <span>
-        Button
-      </span>
-    </button>
+      Link
+    </article>
   </div>
   <span
+    class="ant-space-item-split"
     style="margin-right:4px"
   >
     <div
@@ -562,16 +560,14 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
     class="ant-space-item"
     style="margin-right:4px"
   >
-    <button
-      class="ant-btn"
-      type="button"
+    <a
+      class="ant-typography"
     >
-      <span>
-        Button
-      </span>
-    </button>
+      Link
+    </a>
   </div>
   <span
+    class="ant-space-item-split"
     style="margin-right:4px"
   >
     <div
@@ -582,8 +578,10 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <a>
-      a
+    <a
+      class="ant-typography"
+    >
+      Link
     </a>
   </div>
 </div>
@@ -657,6 +655,61 @@ exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
         </p>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/space/demo/vertical-split.md correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  type="vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:4px"
+  >
+    <article
+      class="ant-typography"
+    >
+      Link
+    </article>
+  </div>
+  <span
+    class="ant-space-item-split"
+    style="margin-right:4px"
+  >
+    <div
+      class="ant-divider ant-divider-horizontal"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+    style="margin-right:4px"
+  >
+    <a
+      class="ant-typography"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-split"
+    style="margin-right:4px"
+  >
+    <div
+      class="ant-divider ant-divider-horizontal"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography"
+    >
+      Link
+    </a>
   </div>
 </div>
 `;

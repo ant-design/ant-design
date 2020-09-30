@@ -46,7 +46,11 @@ export default function Item({
       <div className={className} style={style}>
         {children}
       </div>
-      {index < latestIndex && split && <span style={style}>{split}</span>}
+      {index < latestIndex && split && (
+        <span className={`${className}-split`} style={style}>
+          {split}
+        </span>
+      )}
     </>
   );
 }

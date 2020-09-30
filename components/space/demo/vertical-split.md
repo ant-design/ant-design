@@ -1,24 +1,24 @@
 ---
 order: 99
 title:
-  zh-CN: 分隔符
-  en-US: Split
+  zh-CN: 垂直分隔符
+  en-US: Vertical Split
 ---
 
 ## zh-CN
 
-相邻组件拆分。
+相邻组件垂直分隔。
 
 ## en-US
 
-Crowded components split.
+Crowded components vertical split.
 
 ```jsx
 import { Space, Typography, Divider } from 'antd';
 
-function SpaceSplit() {
+function SpaceVertical() {
   return (
-    <Space split={<Divider type="vertical" />}>
+    <Space type="vertical" split={<Divider />}>
       <Typography>Link</Typography>
       <Typography.Link>Link</Typography.Link>
       <Typography.Link>Link</Typography.Link>
@@ -26,5 +26,5 @@ function SpaceSplit() {
   );
 }
 
-ReactDOM.render(<SpaceSplit />, mountNode);
+ReactDOM.render(<SpaceVertical />, mountNode);
 ```

@@ -99,6 +99,7 @@ exports[`Space split 1`] = `
     text1
   </div>
   <span
+    class="ant-space-item-split"
     style="margin-right:4px"
   >
     -
@@ -112,6 +113,7 @@ exports[`Space split 1`] = `
     </span>
   </div>
   <span
+    class="ant-space-item-split"
     style="margin-right:4px"
   >
     -

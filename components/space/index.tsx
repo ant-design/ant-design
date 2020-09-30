@@ -15,7 +15,7 @@ export interface SpaceProps {
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
-  split?: string | React.ReactNode;
+  split?: React.ReactNode;
 }
 
 const Space: React.FC<SpaceProps> = props => {
