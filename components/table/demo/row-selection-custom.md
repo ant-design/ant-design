@@ -89,7 +89,14 @@ class App extends React.Component {
         },
       ],
     };
-    return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
+    return (
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={data}
+        pagination={{ ym: true }}
+      />
+    );
   }
 }
 
