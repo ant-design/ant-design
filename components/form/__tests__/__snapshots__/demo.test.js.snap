@@ -2106,7 +2106,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           <span
             class="ant-typography ant-typography-secondary ant-form-text"
           >
-            ( 
+            (
             <span
               aria-label="smile"
               class="anticon anticon-smile"
@@ -2788,10 +2788,14 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <textarea
-            class="ant-input"
-            id="nest-messages_user_introduction"
-          />
+          <div
+            class="ant-input-textarea"
+          >
+            <textarea
+              class="ant-input"
+              id="nest-messages_user_introduction"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -2992,7 +2996,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               Log in
             </span>
           </button>
-          Or 
+          Or
           <a
             href=""
           >
@@ -3651,7 +3655,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               />
             </span>
             <span>
-              I have read the 
+              I have read the
               <a
                 href=""
               >
