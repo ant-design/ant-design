@@ -541,11 +541,11 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
     class="ant-space-item"
     style="margin-right:4px"
   >
-    <article
+    <a
       class="ant-typography"
     >
       Link
-    </article>
+    </a>
   </div>
   <span
     class="ant-space-item-split"
@@ -668,11 +668,11 @@ exports[`renders ./components/space/demo/vertical-split.md correctly 1`] = `
     class="ant-space-item"
     style="margin-right:4px"
   >
-    <article
+    <a
       class="ant-typography"
     >
       Link
-    </article>
+    </a>
   </div>
   <span
     class="ant-space-item-split"
