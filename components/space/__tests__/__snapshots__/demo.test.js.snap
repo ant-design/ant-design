@@ -661,12 +661,11 @@ exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
 
 exports[`renders ./components/space/demo/vertical-split.md correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  type="vertical"
+  class="ant-space ant-space-vertical"
 >
   <div
     class="ant-space-item"
-    style="margin-right:4px"
+    style="margin-bottom:4px"
   >
     <a
       class="ant-typography"
@@ -676,7 +675,7 @@ exports[`renders ./components/space/demo/vertical-split.md correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
+    style="margin-bottom:4px"
   >
     <div
       class="ant-divider ant-divider-horizontal"
@@ -685,7 +684,7 @@ exports[`renders ./components/space/demo/vertical-split.md correctly 1`] = `
   </span>
   <div
     class="ant-space-item"
-    style="margin-right:4px"
+    style="margin-bottom:4px"
   >
     <a
       class="ant-typography"
@@ -695,7 +694,7 @@ exports[`renders ./components/space/demo/vertical-split.md correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
+    style="margin-bottom:4px"
   >
     <div
       class="ant-divider ant-divider-horizontal"
