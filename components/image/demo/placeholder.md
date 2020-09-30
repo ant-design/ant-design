@@ -15,12 +15,12 @@ Progressive when large image loading.
 
 ```jsx
 import React from 'react';
-import { Image, Button } from 'antd';
+import { Image, Button, Space } from 'antd';
 
 function ImageDemo() {
   const [random, setRandom] = React.useState();
   return (
-    <>
+    <Space size={12}>
       <Image
         width={200}
         src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
@@ -33,16 +33,13 @@ function ImageDemo() {
       />
       <Button
         type="primary"
-        style={{
-          marginLeft: 10,
-        }}
         onClick={() => {
           setRandom(Date.now());
         }}
       >
         Reload
       </Button>
-    </>
+    </Space>
   );
 }
 
