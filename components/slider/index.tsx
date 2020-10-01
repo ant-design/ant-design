@@ -32,7 +32,7 @@ export interface SliderBaseProps {
   reverse?: boolean;
   min?: number;
   max?: number;
-  step?: number;
+  step?: null | number;
   marks?: SliderMarks;
   dots?: boolean;
   included?: boolean;

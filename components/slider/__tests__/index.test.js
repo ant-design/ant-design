@@ -40,6 +40,20 @@ describe('Slider', () => {
     expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
   });
 
+  it('when step is null, thumb can only be slided to the specific mark', () => {
+    const intentionallyWrongValue = 40;
+    const marks = {
+      0: '0',
+      48: '48',
+      100: '100',
+    };
+
+    const wrapper = mount(
+      <Slider marks={marks} defaultValue={intentionallyWrongValue} step={null} tooltipVisible />,
+    );
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 48);
+  });
+
   it('should render in RTL direction', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
