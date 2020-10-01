@@ -23,7 +23,7 @@ And 4 other properties additionally.
 
 - `danger`: used for actions of risk, like deletion or authorization.
 - `ghost`: used in situations with complex background, home pages usually.
-- `disabled`: when actions is not available.
+- `disabled`: when actions are not available.
 - `loading`: add loading spinner in button, avoiding multiple submits too.
 
 ## API
