@@ -17,6 +17,7 @@ export interface MenuProps extends RcMenuProps {
   theme?: MenuTheme;
   inlineIndent?: number;
   focusable?: boolean;
+  arrow?: boolean;
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
@@ -26,6 +27,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     className: '',
     theme: 'light', // or dark
     focusable: false,
+    arrow: false,
   };
 
   constructor(props: InternalMenuProps) {
@@ -53,7 +55,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, theme } = this.props;
+    const { prefixCls: customizePrefixCls, className, theme, arrow = false } = this.props;
     const defaultMotions = {
       horizontal: { motionName: 'slide-up' },
       inline: collapseMotion,
@@ -75,6 +77,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: theme,
           direction,
+          arrow,
         }}
       >
         <RcMenu
