@@ -143,6 +143,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       return (
         <RcRange
           {...(restProps as SliderRangeProps)}
+          step={restProps.step!}
           className={cls}
           ref={ref}
           handle={(info: HandleGeneratorInfo) =>
@@ -159,6 +160,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     return (
       <RcSlider
         {...(restProps as SliderSingleProps)}
+        step={restProps.step!}
         className={cls}
         ref={ref}
         handle={(info: HandleGeneratorInfo) =>

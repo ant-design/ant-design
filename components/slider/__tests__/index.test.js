@@ -54,6 +54,30 @@ describe('Slider', () => {
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 48);
   });
 
+  it('when step is not null, thumb can be slided to the multiples of step', () => {
+    const marks = {
+      0: '0',
+      48: '48',
+      100: '100',
+    };
+
+    const wrapper = mount(<Slider marks={marks} defaultValue={49} step={1} tooltipVisible />);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
+  });
+
+  it('when step is undefined, thumb can be slided to the multiples of step', () => {
+    const marks = {
+      0: '0',
+      48: '48',
+      100: '100',
+    };
+
+    const wrapper = mount(
+      <Slider marks={marks} defaultValue={49} step={undefined} tooltipVisible />,
+    );
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
+  });
+
   it('should render in RTL direction', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
