@@ -108,4 +108,9 @@ describe('Slider', () => {
       mount(<Slider value={value} tooltipVisible />);
     });
   });
+  it('step should not crash with undefined value', () => {
+    [undefined, null].forEach(value => {
+      mount(<Slider step={value} tooltipVisible />);
+    });
+  });
 });
