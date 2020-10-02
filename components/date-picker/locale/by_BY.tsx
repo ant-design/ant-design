@@ -1,7 +1,5 @@
-// import CalendarLocale from "rc-picker/es/locale/by_BY";
-import TimePickerLocale from '../../time-picker/locale/by_BY'; // Merge into a locale object
 
-var locale = {
+ const locale = {
   lang: {
     placeholder: 'Выберыце дату',
     yearPlaceholder: 'Выберыце год',
@@ -36,12 +34,12 @@ var locale = {
     previousDecade: 'Папярэдняе дзесяцігоддзе',
     nextDecade: 'Наступнае дзесяцігоддзе',
     previousCentury: 'Папярэдні век',
-    nextCentury: 'Наступны век'
+    nextCentury: 'Наступны век',
   }, 
-  // ...CalendarLocale,
   timePickerLocale:{ 
-      ...TimePickerLocale,
-  }
+    placeholder: 'Выберыце час',
+    rangePlaceholder: ['Час пачатку', 'Час заканчэння'],
+  },
 }; 
 
 export default locale;
