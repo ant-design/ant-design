@@ -30,17 +30,16 @@ interface EmptyType extends React.FC<EmptyProps> {
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
 }
 
-const Empty: EmptyType = (props: EmptyProps) => {
+const Empty: EmptyType = ({
+  className,
+  prefixCls: customizePrefixCls,
+  image = defaultEmptyImg,
+  description,
+  children,
+  imageStyle,
+  ...restProps
+}) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const {
-    className,
-    prefixCls: customizePrefixCls,
-    image = defaultEmptyImg,
-    description,
-    children,
-    imageStyle,
-    ...restProps
-  } = props;
 
   return (
     <LocaleReceiver componentName="Empty">
