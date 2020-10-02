@@ -1,8 +1,8 @@
 import DatePicker from '../date-picker/locale/by_BY';
 import TimePicker from '../time-picker/locale/by_BY';
 
-var typeTemplate = "${label} не з'яўляецца тыпам ${type}";
-var localeValues = {
+const typeTemplate = "${label} не з'яўляецца тыпам ${type}";
+const localeValues = {
   locale: 'by',
   Pagination: {
      // Options.jsx
@@ -155,8 +155,8 @@ var localeValues = {
       },
       pattern: {
         mismatch: '${label} не адпавядае шаблону ${pattern}',
-      }
-    }
-  }
+      },
+    },
+  },
 };
 export default localeValues;
