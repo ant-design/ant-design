@@ -87,7 +87,7 @@ Data redaction refers to representing truncated data to protect sensitive privac
 <img class="preview-img good" align="right" alt="Do" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
 <img class="preview-img bad" align="right" alt="Don't" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
 
-Generally used for particularly important and sensitive information such as amount and time. All the numbers need to be hidden. And the data is replaced by "\*\*\*".
+Generally used for particularly important and sensitive information such as amount and time. All the numbers need to be hidden. And the data is replaced by `***`.
 
 #### Partial Redaction
 
