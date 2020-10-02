@@ -105,7 +105,7 @@ title: 数据格式
 <img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
 <img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
 
-一般用于金额、时间等特别重要敏感的信息，需要对所有数字进行脱敏。数据用一个「\*\*\*」代替。
+一般用于金额、时间等特别重要敏感的信息，需要对所有数字进行脱敏。数据用一个 `***` 代替。
 
 #### 部分脱敏
 
