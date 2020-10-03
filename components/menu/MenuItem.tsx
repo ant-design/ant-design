@@ -2,10 +2,16 @@ import * as React from 'react';
 import { Item, MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
+import Icon from '@ant-design/icons';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import { isValidElement } from '../_util/reactNode';
+import RightArrowSVG from './customIcons/RightArrow';
+
+const RightArrowFilled = (props: any): JSX.Element => (
+  <Icon component={RightArrowSVG} aria-label="Right Arrow" {...props} />
+);
 
 export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
@@ -31,13 +37,22 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     return <span>{children}</span>;
   }
 
+  renderArrow() {
+    const { rootPrefixCls } = this.props;
+    return (
+      <span className={`${rootPrefixCls}-item-arrow`}>
+        <RightArrowFilled />
+      </span>
+    );
+  }
+
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
     const { level, className, children, rootPrefixCls } = this.props;
     const { title, icon, danger, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
-        {({ inlineCollapsed, direction }: MenuContextProps) => {
+        {({ inlineCollapsed, direction, arrow }: MenuContextProps) => {
           let tooltipTitle = title;
           if (typeof title === 'undefined') {
             tooltipTitle = level === 1 ? children : '';
@@ -75,6 +90,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
               >
                 {icon}
                 {this.renderItemChildren(inlineCollapsed)}
+                {arrow && this.renderArrow()}
               </Item>
             </Tooltip>
           );

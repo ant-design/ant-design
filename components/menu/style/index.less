@@ -80,6 +80,12 @@
     }
   }
 
+  &-item-arrow {
+    position: absolute;
+    right: 0;
+    color: @cadet-grey;
+  }
+
   // https://github.com/ant-design/ant-design/issues/19809
   &-item > .@{ant-prefix}-badge a {
     color: @menu-item-color;
@@ -124,6 +130,7 @@
 
   &:not(&-horizontal) &-item-selected {
     background-color: @menu-item-active-bg;
+    font-weight: @menu-highlight-weight;
   }
 
   &-inline,
