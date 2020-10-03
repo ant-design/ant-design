@@ -14,6 +14,10 @@ export interface TimelineItemProps {
   label?: React.ReactNode;
 }
 
+// for compatibililty
+// https://github.com/ant-design/ant-design/pull/26832
+export interface TimeLineItemProps extends TimelineItemProps {};
+
 const TimelineItem: React.FC<TimelineItemProps> = props => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const {
