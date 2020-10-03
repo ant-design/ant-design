@@ -69,6 +69,19 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-table-filter-column')).toHaveLength(0);
   });
 
+  // https://github.com/ant-design/ant-design/issues/26988
+  it('not show filter icon when filter and filterDropdown is undefined', () => {
+    const noFilterColumn = { ...column, filters: undefined, filterDropdown: undefined };
+    delete noFilterColumn.onFilter;
+    const wrapper = mount(
+      createTable({
+        columns: [noFilterColumn],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-column')).toHaveLength(0);
+  });
+
   it('renders filter correctly', () => {
     const wrapper = mount(createTable());
 
