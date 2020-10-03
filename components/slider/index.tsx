@@ -47,6 +47,7 @@ export interface SliderBaseProps {
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  autoFocus?: boolean;
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
