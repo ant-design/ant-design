@@ -29,4 +29,21 @@ describe('Slider.typescript', () => {
     );
     expect(result).toBeTruthy();
   });
+
+  it('step can be null value', () => {
+    const value = 0;
+    function onChange(v: number) {
+      return v;
+    }
+    const result = (
+      <Slider
+        defaultValue={value}
+        value={value}
+        onChange={onChange}
+        onAfterChange={onChange}
+        step={null}
+      />
+    );
+    expect(result).toBeTruthy();
+  });
 });

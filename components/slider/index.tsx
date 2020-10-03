@@ -32,7 +32,7 @@ export interface SliderBaseProps {
   reverse?: boolean;
   min?: number;
   max?: number;
-  step?: number;
+  step?: null | number;
   marks?: SliderMarks;
   dots?: boolean;
   included?: boolean;
@@ -47,6 +47,7 @@ export interface SliderBaseProps {
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  autoFocus?: boolean;
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
@@ -143,6 +144,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       return (
         <RcRange
           {...(restProps as SliderRangeProps)}
+          step={restProps.step!}
           className={cls}
           ref={ref}
           handle={(info: HandleGeneratorInfo) =>
@@ -159,6 +161,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     return (
       <RcSlider
         {...(restProps as SliderSingleProps)}
+        step={restProps.step!}
         className={cls}
         ref={ref}
         handle={(info: HandleGeneratorInfo) =>

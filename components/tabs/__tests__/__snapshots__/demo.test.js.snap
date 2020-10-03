@@ -1519,8 +1519,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn"
-          style="margin-right:15px"
+          class="ant-btn tabs-extra-demo-button"
           type="button"
         >
           <span>
