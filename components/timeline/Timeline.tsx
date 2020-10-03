@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
-import TimelineItem, { TimeLineItemProps } from './TimelineItem';
+import TimelineItem, { TimelineItemProps } from './TimelineItem';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 
@@ -18,7 +18,7 @@ export interface TimelineProps {
 }
 
 interface TimelineType extends React.FC<TimelineProps> {
-  Item: React.FC<TimeLineItemProps>;
+  Item: React.FC<TimelineItemProps>;
 }
 
 const Timeline: TimelineType = props => {
