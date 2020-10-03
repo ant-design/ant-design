@@ -84,7 +84,7 @@ const columns = [
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
 | showSorterTooltip | The header show next sorter direction tooltip | boolean | true |  |
-| sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number}` | - | 4.6.0 |
+| sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
 
 #### onRow usage
 
