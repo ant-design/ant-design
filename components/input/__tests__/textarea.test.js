@@ -134,7 +134,7 @@ describe('TextArea', () => {
   });
 
   it('should support showCount', async () => {
-    const wrapper = mount(<TextArea showCount maxLength={5} value="12345678" />);
+    const wrapper = mount(<TextArea maxLength={{showCount: true, value: 5}} value="12345678" />);
     const textarea = wrapper.find('.ant-input-textarea');
     expect(wrapper.find('textarea').prop('value')).toBe('12345');
     expect(textarea.prop('data-count')).toBe('5 / 5');

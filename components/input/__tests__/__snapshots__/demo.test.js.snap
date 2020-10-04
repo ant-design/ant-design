@@ -2680,12 +2680,10 @@ Array [
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
 <div
-  class="ant-input-textarea ant-input-textarea-show-count"
-  data-count="0 / 100"
+  class="ant-input-textarea"
 >
   <textarea
     class="ant-input"
-    maxlength="100"
     rows="4"
   />
 </div>
@@ -2713,6 +2711,18 @@ Array [
     </textarea>
   </div>,
 ]
+`;
+
+exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = `
+<div
+  class="ant-input-textarea ant-input-textarea-show-count"
+  data-count="0 / 100"
+>
+  <textarea
+    class="ant-input"
+    maxlength="100"
+  />
+</div>
 `;
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `
