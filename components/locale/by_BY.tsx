@@ -1,7 +1,7 @@
 import DatePicker from '../date-picker/locale/by_BY';
 import TimePicker from '../time-picker/locale/by_BY';
 
-const typeTemplate = "${label} не з'яўляецца тыпам ${type}";
+const typeTemplate = "'${label}' не з'яўляецца тыпам '${type}'";
 const localeValues = {
   locale: 'by',
   Pagination: {
@@ -18,8 +18,8 @@ const localeValues = {
      prev_3: 'Папярэднія 3',
      next_3: 'Наступныя 3',
   },
-  DatePicker: DatePicker,
-  TimePicker: TimePicker,
+  DatePicker,
+  TimePicker,
   Calendar:{
     locale: 'by_BY',
     today: 'Сёння',
@@ -112,14 +112,14 @@ const localeValues = {
   },
   Form: {
     defaultValidateMessages: {
-      "default": 'Памылка праверкі поля ${label}',
-      required: 'Калі ласка, увядзіце ${label}',
-      "enum": '${label} павінен быць адным з [${enum}]',
-      whitespace: '${label} не можа быць пустым',
+      "default": "Памылка праверкі поля '${label}'",
+      required: "Калі ласка, увядзіце '${label}'",
+      "enum": "'${label}' павінен быць адным з '[${enum}]'",
+      whitespace: "'${label}' не можа быць пустым",
       date: {
-        format: '${label} няправільны фармат даты',
-        parse: '${label} не можа быць пераўтворана ў дату',
-        invalid: "${label} не з'яўляецца карэктнай датай",
+        format: "'${label}' няправільны фармат даты",
+        parse: "'${label}' не можа быць пераўтворана ў дату",
+        invalid: "'${label}' не з'яўляецца карэктнай датай",
       },
       types: {
         string: typeTemplate,
@@ -134,27 +134,27 @@ const localeValues = {
         regexp: typeTemplate,
         email: typeTemplate,
         url: typeTemplate,
-        hex: typeTemplate
+        hex: typeTemplate,
       },
       string: {
-        len: '${label} павінна быць ${len} сімвалаў',
-        min: '${label} павінна быць больш або роўная ${min} сімвалаў',
-        max: '${label} павінна быць менш або роўная ${max} сімвалаў',
-        range: 'Даўжыня ${label} павінна быць паміж ${min}-${max} сімвалаў',
+        len: "'${label}' павінна быць '${len}' сімвалаў",
+        min: "'${label}' павінна быць больш або роўная '${min}' сімвалаў",
+        max: "'${label}' павінна быць менш або роўная '${max}' сімвалаў",
+        range: "Даўжыня '${label}' павінна быць паміж '${min}'-'${max}' сімвалаў",
       },
       number: {
-        len: '${label} павінна быць роўная ${len}',
-        min: '${label} павінна быць больш або роўная ${min}',
-        max: '${label} павінна быць больш або роўная ${max}',
+        len: "'${label}' павінна быць роўная '${len}'",
+        min: "'${label}' павінна быць больш або роўная '${min}'",
+        max: "'${label}' павінна быць больш або роўная '${max}'",
       },
       array: {
-        len: 'Колькасць элементаў ${label} павінна быць роўная ${len}',
-        min: 'Колькасць элементаў ${label} павінна быць больш або роўная ${min}',
-        max: 'Колькасць элементаў ${label} павінна быць менш або роўная ${max}',
-        range: 'Колькасць элементаў ${label} павінна быць паміж ${min} і ${max}',
+        len: "Колькасць элементаў '${label}' павінна быць роўная '${len}'",
+        min: "Колькасць элементаў '${label}' павінна быць больш або роўная '${min}'",
+        max: "Колькасць элементаў '${label}' павінна быць менш або роўная '${max}'",
+        range: "Колькасць элементаў '${label}' павінна быць паміж ${min} і '${max}'",
       },
       pattern: {
-        mismatch: '${label} не адпавядае шаблону ${pattern}',
+        mismatch: "'${label}' не адпавядае шаблону '${pattern}'",
       },
     },
   },
