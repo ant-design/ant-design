@@ -10,7 +10,7 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'maxLength'> {
   allowClear?: boolean;
   bordered?: boolean;
   showCount?: boolean;
-  maxLength?: { showCount: boolean, value: number };
+  maxLength?: { showCount: boolean, value: number } | number;
 }
 
 export interface TextAreaState {

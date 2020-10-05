@@ -36,8 +36,8 @@ The numerical value is used to indicate the measurement size, it can be used alo
 
 | Currency Symbol | How and When to Use | Example |
 | --- | --- | --- |
-| Character | Take RMB as example, its character symbol is "¥", placed in front of the amount. | ¥123.00 |
-| Letter | Take RMB as example, it is recommended to use CNY, which is the international currency code. | CNY123.00 |
+| Character | Take RMB as example, its character symbol is `¥`, placed in front of the amount. | ¥123.00 |
+| Letter | Take RMB as example, it is recommended to use `CNY`, which is the international currency code. | CNY123.00 |
 
 Large amount: If an amount is large, "M/Mill." (abbreviation of million) and "B/Bill." (abbreviation of billion) can be used.
 
@@ -53,16 +53,16 @@ We suggest the following formats:
 
 | Format | How and when to use | Examples |
 | --- | --- | --- |
-| Year, month, day | In China「YYYY-MM-DD」format is used by default. | `2019-12-08` |
-| Terms | When a special term containing a date expressed with numbers，display a "." between the month and the day, and quotation marks should be added before and after the term. | `6.1 children's day` |
-| Date range | Put "~" or "-" between the date or time range (space is required before and after). | `2018-12-08 ~ 2019-12-07` |
+| Year, month, day | In China `YYYY-MM-DD` format is used by default. | 2019-12-08 |
+| Terms | When a special term containing a date expressed with numbers，display a `.` between the month and the day, and quotation marks should be added before and after the term. | 6.1 children's day |
+| Date range | Put `~` or `-` between the date or time range (space is required before and after). | 2018-12-08 ~ 2019-12-07 |
 
 **Time Format:**
 
 | Time System | How and when to use | Examples |
 | --- | --- | --- |
-| 24-hour clock | The format is HH:MM:SS. Omit hours or second if not apply. Use the 24-hour clock by default. | `14:08:00` |
-| 12-hour clock | Use the format H:MM:SS AM/PM (or am/pm).  | `2:08:00 PM ~ 2:08:00 AM` |
+| 24-hour clock | The format is `HH:MM:SS`. Omit hours or second if not apply. Use the 24-hour clock by default. | 14:08:00 |
+| 12-hour clock | Use the format `H:MM:SS AM/PM` (or am/pm).  | 2:08:00 PM ~ 2:08:00 AM |
 
 **Standard format**: When put a date and a time together, show a space between them, e.g. "2019-12-08 06:00:00".
 
@@ -75,8 +75,8 @@ To the users, the accuracy of time is not so important as the immediacy of the i
 | Less than 1 minute   | just now                                  |
 | Less than 1 hour     | N minutes ago                             |
 | Within 24 hours      | N hours ago                               |
-| Longer than 24 hours | MM-DD HH:MM, e.g. "12-08 08:00"           |
-| Longer than one year | YYYY-MM-DD HH:MM，e.g. "2019-12-08 08:00" |
+| Longer than 24 hours | `MM-DD HH:MM`, e.g. "12-08 08:00"           |
+| Longer than one year | `YYYY-MM-DD HH:MM`，e.g. "2019-12-08 08:00" |
 
 ### Data Redaction
 
@@ -87,21 +87,21 @@ Data redaction refers to representing truncated data to protect sensitive privac
 <img class="preview-img good" align="right" alt="Do" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
 <img class="preview-img bad" align="right" alt="Don't" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
 
-Generally used for particularly important and sensitive information such as amount and time. All the numbers need to be hidden. And the data is replaced by "\*\*\*".
+Generally used for particularly important and sensitive information such as amount and time. All the numbers need to be hidden. And the data is replaced by `***`.
 
 #### Partial Redaction
 
-Generally used for situations that require partial information for identification. In such cases, some part of the information is truncated, but the numerical digits of the numbers need to retain. The truncated data is replaced by "\*".
+Generally used for situations that require partial information for identification. In such cases, some part of the information is truncated, but the numerical digits of the numbers need to retain. The truncated data is replaced by `*`.
 
 | Data Type | How and When to Use | Example |
 | --- | --- | --- |
-| Name | Two-character name: display the first character, followed by a "\*". | 仲\* |
-|  | Names with three characters or more: display the first character and the last character, replace the middle character(s) with "\*". | 仲\*妮 <br /> 仲\*\*妮 |
+| Name | Two-character name: display the first character, followed by a `*`. | 仲\* |
+|  | Names with three characters or more: display the first character and the last character, replace the middle character(s) with `*`. | 仲\*妮 <br /> 仲\*\*妮 |
 | Mobile number | Keep the first three and the last four digits of the mobile number. | 186\*\*\*\*1402 |
-| ID number | The Chinese citizenship number consists of six address codes, eight birthdate codes, three sequential codes and one check code.<br /><br />Redaction rules are classified into high, medium and low levels: <br />**High**: Show the first and last digits, and replace the others with `_`.<br />**Medium**: Show the first three and the last three. Replace the others with `_`.<br />**Low**: Show the first six and the last four. Replace the others with `*`. | High:<br />`6*************2`<br />Medium:<br />`213***********203`<br />Low:<br />`212912******2233` |
-| Address | Keep the provinces, cities and district information, followed by several "\*". | 浙江省杭州市 西湖区 \***\*\*\*\*** |
-| Email | Keep the host name of the mail and the first three characters, indicate the rest information with "\*". | 123\***\*\*\*\*\*\***@163.com |
-| Bank card number | The bank card number consists of the issuing bank identification code (ranging from 6 to 12 digits), personal account identification (ranging from 6 to 12 digits), and a check code. <br /><br />Redaction rules are classified into high, medium and low levels: <br />**High**: Display the last four digits, and replace the others with `_`.<br />**Medium**: Display the first six and the last four digits, replace the others with `_`. <br />**Low**: Display the first six and the last six digits, display the remaining digits with `*`. | \***\*\*\*\*\*\*\***1208<br />620121**\*\***1208<br />620121\*\*\*\*111208 |
+| ID number | The Chinese citizenship number consists of six address codes, eight birthdate codes, three sequential codes and one check code.<br /><br />Redaction rules are classified into high, medium and low levels: <br />**High**: Show the first and last digits, and replace the others with `*`.<br />**Medium**: Show the first three and the last three. Replace the others with `*`.<br />**Low**: Show the first six and the last four. Replace the others with `*`. | 6\*\*\*\*\*\*\*\*\*\*\*\*\*2<br />213\*\*\*\*\*\*\*\*\*\*\*203<br />212912\*\*\*\*\*\*2233 |
+| Address | Keep the provinces, cities and district information, followed by several `*`. | 浙江省杭州市 西湖区 \***\*\*\*\*** |
+| Email | Keep the host name of the mail and the first three characters, indicate the rest information with `*`. | 123\***\*\*\*\*\*\***@163.com |
+| Bank card number | The bank card number consists of the issuing bank identification code (ranging from 6 to 12 digits), personal account identification (ranging from 6 to 12 digits), and a check code. <br /><br />Redaction rules are classified into high, medium and low levels: <br />**High**: Display the last four digits, and replace the others with `*`.<br />**Medium**: Display the first six and the last four digits, replace the others with `*`. <br />**Low**: Display the first six and the last six digits, display the remaining digits with `*`. | \*\*\*\*\*\*\*\*1208<br />620121\*\*1208<br />620121\*\*\*\*111208 |
 
 ### Data Status
 

@@ -642,10 +642,17 @@ Array [
 
 exports[`renders ./components/tag/demo/status.md correctly 1`] = `
 Array [
-  <div>
-    <h4>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
       Without icon
-    </h4>
+    </span>
+  </div>,
+  <div>
     <span
       class="ant-tag ant-tag-success"
     >
@@ -672,10 +679,17 @@ Array [
       default
     </span>
   </div>,
-  <div>
-    <h4>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
       With icon
-    </h4>
+    </span>
+  </div>,
+  <div>
     <span
       class="ant-tag ant-tag-success"
     >
