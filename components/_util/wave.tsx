@@ -4,7 +4,7 @@ import TransitionEvents from 'css-animation/lib/Event';
 import raf from '../_util/raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig } from '../config-provider';
 
-let styleForPesudo: HTMLStyleElement | null;
+let styleForPseudo: HTMLStyleElement | null;
 
 // Where el is the DOM element you'd like to test for visibility
 function isHidden(element: HTMLElement) {
@@ -44,8 +44,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     extraNode.className = 'ant-click-animating-node';
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
-    // Not white or transparnt or grey
-    styleForPesudo = styleForPesudo || document.createElement('style');
+    // Not white or transparent or grey
+    styleForPseudo = styleForPseudo || document.createElement('style');
     if (
       waveColor &&
       waveColor !== '#ffffff' &&
@@ -56,13 +56,13 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     ) {
       // Add nonce if CSP exist
       if (this.csp && this.csp.nonce) {
-        styleForPesudo.nonce = this.csp.nonce;
+        styleForPseudo.nonce = this.csp.nonce;
       }
 
       extraNode.style.borderColor = waveColor;
-      styleForPesudo.innerHTML = `[ant-click-animating-without-extra-node="true"]:after { border-color: ${waveColor}; }`;
-      if (!document.body.contains(styleForPesudo)) {
-        document.body.appendChild(styleForPesudo);
+      styleForPseudo.innerHTML = `[ant-click-animating-without-extra-node="true"]:after { border-color: ${waveColor}; }`;
+      if (!document.body.contains(styleForPseudo)) {
+        document.body.appendChild(styleForPseudo);
       }
     }
     if (insertExtraNode) {
@@ -151,8 +151,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   };
 
   removeExtraStyleNode() {
-    if (styleForPesudo) {
-      styleForPesudo.innerHTML = '';
+    if (styleForPseudo) {
+      styleForPseudo.innerHTML = '';
     }
   }
 
