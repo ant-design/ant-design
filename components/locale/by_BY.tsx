@@ -1,12 +1,19 @@
-import Pagination from 'rc-pagination/lib/locale/by_BY';
-// import DatePicker from '../date-picker/locale/by_BY';
-import TimePicker from '../time-picker/locale/by_BY';
-// import Calendar from '../calendar/locale/by_BY';
-// import { Locale } from '../locale-provider';
-
 const localeValues = {
   locale: 'by',
-  Pagination,
+  Pagination: {
+    // Options.jsx
+    items_per_page: '/ стр.',
+    jump_to: 'Перайсці',
+    jump_to_confirm: 'Пацвердзіць',
+    page: '',
+    // Pagination.jsx
+    prev_page: 'Назад',
+    next_page: 'Наперад',
+    prev_5: 'Папярэднія 5',
+    next_5: 'Наступныя 5',
+    prev_3: 'Папярэднія 3',
+    next_3: 'Наступныя 3',
+  },
   DatePicker: {
     lang: {
       placeholder: 'Выберыце дату',
