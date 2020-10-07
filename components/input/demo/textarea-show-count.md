@@ -18,5 +18,5 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-ReactDOM.render(<TextArea maxLength={{value: 100, showCount: true}} />, mountNode);
+ReactDOM.render(<TextArea showCount maxLength={100} />, mountNode);
 ```

@@ -49,7 +49,8 @@ The rest of the props of Input are exactly the same as the original [input](http
 | allowClear | If allow to remove input content with clear icon | boolean | false |  |
 | onResize | The callback function that is triggered when resize | function({ width, height }) | - |  |
 | bordered | Whether has border style | boolean | true | 4.5.0 |
-| maxLength | The textArea character limiting and counting | number \| { showCount: boolean, value: number } | - |  |
+| showCount | Whether show text count | boolean | false |  |
+| maxLength | The max length | number | - |  |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 

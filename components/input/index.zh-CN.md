@@ -50,7 +50,8 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
-| maxLength | 内容最大长度和字数提示  | number \| { showCount: boolean, value: number } | - |  |
+| showCount | 是否展示字数 | boolean | false |  |
+| maxLength | 内容最大长度 | number | - |  |
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
