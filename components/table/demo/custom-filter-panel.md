@@ -41,7 +41,7 @@ const data = [
     key: '4',
     name: 'Jim Red',
     age: 32,
-    address: 'London No. 2 Lake Park',
+    address: 'London No. 2 Lake Park Delhi',
   },
 ];
 

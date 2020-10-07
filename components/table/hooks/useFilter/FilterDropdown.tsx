@@ -1,11 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
-import FilterFilled from '@ant-design/icons/FilterFilled';
+import Icon from '@ant-design/icons';
+import { MenuClickEventHandler } from 'rc-menu/lib/interface';
+import FilterSVG from '../../customIcons/FilterSVG';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import Checkbox from '../../../checkbox';
-import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
@@ -15,6 +16,10 @@ import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
 const { SubMenu, Item: MenuItem } = Menu;
+
+const FilterFilled = (props: any): JSX.Element => (
+  <Icon component={FilterSVG} aria-label="filter-button" {...props} />
+);
 
 function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
@@ -26,12 +31,14 @@ function renderFilterItems({
   filteredKeys,
   filterMultiple,
   locale,
+  onReset,
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
   locale: TableLocale;
+  onReset?: () => void;
 }) {
   if (filters.length === 0) {
     // wrapped with <div /> to avoid react warning
@@ -73,11 +80,18 @@ function renderFilterItems({
       );
     }
 
-    const Component = filterMultiple ? Checkbox : Radio;
+    const handleReset: MenuClickEventHandler = info => {
+      const { key: currentKey } = info;
+      if (!filterMultiple) {
+        if (filteredKeys.includes(currentKey) && onReset) {
+          onReset();
+        }
+      }
+    };
 
     return (
-      <MenuItem key={filter.value !== undefined ? key : index}>
-        <Component checked={filteredKeys.includes(key)} />
+      <MenuItem key={filter.value !== undefined ? key : index} onClick={handleReset}>
+        {filterMultiple && <Checkbox checked={filteredKeys.includes(key)} />}
         <span>{filter.text}</span>
       </MenuItem>
     );
@@ -133,6 +147,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
+    console.log(selectedKeys);
     setFilteredKeysSync(selectedKeys!);
   };
 
@@ -228,8 +243,18 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           prefixCls={`${dropdownPrefixCls}-menu`}
           className={dropdownMenuClass}
           onClick={onMenuClick}
-          onSelect={onSelectKeys}
-          onDeselect={onSelectKeys}
+          onSelect={(...args) => {
+            onSelectKeys(...args);
+            if (!filterMultiple) {
+              onConfirm();
+            }
+          }}
+          onDeselect={(...args) => {
+            onSelectKeys(...args);
+            if (!filterMultiple) {
+              onConfirm();
+            }
+          }}
           selectedKeys={selectedKeys}
           getPopupContainer={getPopupContainer}
           openKeys={openKeys}
@@ -241,16 +266,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             filteredKeys: getFilteredKeysSync(),
             filterMultiple,
             locale,
+            onReset,
           })}
         </Menu>
-        <div className={`${prefixCls}-dropdown-btns`}>
-          <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
-            {locale.filterReset}
-          </Button>
-          <Button type="primary" size="small" onClick={onConfirm}>
-            {locale.filterConfirm}
-          </Button>
-        </div>
+        {filterMultiple ? (
+          <div className={`${prefixCls}-dropdown-btns`}>
+            <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
+              {locale.filterReset}
+            </Button>
+            <Button type="primary" size="small" onClick={onConfirm}>
+              {locale.filterConfirm}
+            </Button>
+          </div>
+        ) : null}
       </>
     );
   }
@@ -274,34 +302,35 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   return (
     <div className={classNames(`${prefixCls}-column`)}>
-      <span className={`${prefixCls}-column-title`}>{children}</span>
-
-      <span
-        className={classNames(`${prefixCls}-trigger-container`, {
-          [`${prefixCls}-trigger-container-open`]: mergedVisible,
-        })}
-        onClick={e => {
-          e.stopPropagation();
-        }}
-      >
-        <Dropdown
-          overlay={menu}
-          trigger={['click']}
-          visible={mergedVisible}
-          onVisibleChange={onVisibleChange}
-          getPopupContainer={getPopupContainer}
-          placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+      <span className={`${prefixCls}-column-title`}>
+        {children}
+        <span
+          className={classNames(`${prefixCls}-trigger-container`, {
+            [`${prefixCls}-trigger-container-open`]: mergedVisible,
+          })}
+          onClick={e => {
+            e.stopPropagation();
+          }}
         >
-          <span
-            role="button"
-            tabIndex={-1}
-            className={classNames(`${prefixCls}-trigger`, {
-              active: filtered,
-            })}
+          <Dropdown
+            overlay={menu}
+            trigger={['click']}
+            visible={mergedVisible}
+            onVisibleChange={onVisibleChange}
+            getPopupContainer={getPopupContainer}
+            placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
           >
-            {filterIcon}
-          </span>
-        </Dropdown>
+            <span
+              role="button"
+              tabIndex={-1}
+              className={classNames(`${prefixCls}-trigger`, {
+                active: filtered,
+              })}
+            >
+              {filterIcon}
+            </span>
+          </Dropdown>
+        </span>
       </span>
     </div>
   );

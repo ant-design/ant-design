@@ -60,6 +60,24 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
     }
   };
 
+  const renderGoTo = () => {
+    if (restProps.hideOnSinglePage && totalPages === 1) {
+      return null;
+    }
+    return (
+      <div className={`${prefixCls}-options-quick-jumper`}>
+        Go to
+        <Input
+          disabled={restProps.disabled}
+          className={`${prefixCls}-input`}
+          value={restProps.current || currentPage}
+          onChange={e => handleSetPage(e.target.value)}
+        />
+        / {totalPages}
+      </div>
+    );
+  };
+
   return (
     <div className={`${prefixCls}-container`}>
       <Pagination
@@ -78,16 +96,7 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
         showQuickJumper={false}
         showSizeChanger={false}
       />
-      <div className={`${prefixCls}-options-quick-jumper`}>
-        Go to
-        <Input
-          disabled={restProps.disabled}
-          className={`${prefixCls}-input`}
-          value={restProps.current || currentPage}
-          onChange={e => handleSetPage(e.target.value)}
-        />
-        / {totalPages}
-      </div>
+      {renderGoTo()}
     </div>
   );
 };
