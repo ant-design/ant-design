@@ -147,7 +147,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
-    console.log(selectedKeys);
     setFilteredKeysSync(selectedKeys!);
   };
 
@@ -318,7 +317,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             visible={mergedVisible}
             onVisibleChange={onVisibleChange}
             getPopupContainer={getPopupContainer}
-            placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+            placement={direction === 'rtl' ? 'bottomLeft' : 'bottomCenter'}
           >
             <span
               role="button"

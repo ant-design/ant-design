@@ -55,7 +55,8 @@ class InternalMenu extends React.Component<InternalMenuProps> {
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, theme, arrow = false } = this.props;
+    const { arrow = false, ...restProps } = this.props;
+    const { prefixCls: customizePrefixCls, className, theme } = restProps;
     const defaultMotions = {
       horizontal: { motionName: 'slide-up' },
       inline: collapseMotion,
@@ -82,7 +83,7 @@ class InternalMenu extends React.Component<InternalMenuProps> {
       >
         <RcMenu
           getPopupContainer={getPopupContainer}
-          {...this.props}
+          {...restProps}
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}
