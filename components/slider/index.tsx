@@ -42,6 +42,8 @@ export interface SliderBaseProps {
   className?: string;
   id?: string;
   style?: React.CSSProperties;
+  handleStyle?: React.CSSProperties | React.CSSProperties[];
+  trackStyle?: React.CSSProperties | React.CSSProperties[];
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
@@ -54,8 +56,6 @@ export interface SliderSingleProps extends SliderBaseProps {
   defaultValue?: number;
   onChange?: (value: number) => void;
   onAfterChange?: (value: number) => void;
-  handleStyle?: React.CSSProperties;
-  trackStyle?: React.CSSProperties;
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
@@ -64,8 +64,6 @@ export interface SliderRangeProps extends SliderBaseProps {
   defaultValue?: [number, number];
   onChange?: (value: [number, number]) => void;
   onAfterChange?: (value: [number, number]) => void;
-  handleStyle?: React.CSSProperties[];
-  trackStyle?: React.CSSProperties[];
 }
 
 export type Visibles = { [index: number]: boolean };
