@@ -87,8 +87,8 @@ const columns = [
     ],
     filterMultiple: false,
     onFilter: (value, record) => record.address.indexOf(value) === 0,
-    sorter: (a, b) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
+    // sorter: (a, b) => a.address.length - b.address.length,
+    // sortDirections: ['descend', 'ascend'],
   },
 ];
 
@@ -115,7 +115,7 @@ const data = [
     key: '4',
     name: 'Jim Red',
     age: 32,
-    address: 'London No. 2 Lake Park',
+    address: 'London No. 2 Lake Park Delhi',
   },
 ];
 

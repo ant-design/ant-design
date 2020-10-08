@@ -494,7 +494,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         data={!loading ? pageData : []}
         rowKey={getRowKey}
         rowClassName={internalRowClassName}
-        emptyText={(locale && locale.emptyText) || blankView(loading)}
+        emptyText={(locale && !loading && locale.emptyText) || blankView(loading)}
         // Internal
         internalHooks={INTERNAL_HOOKS}
         internalRefs={internalRefs as any}
