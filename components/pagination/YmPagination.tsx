@@ -6,20 +6,17 @@ import Input from '../input';
 const { Option } = Select;
 
 const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
-  const { pageSize, defaultPageSize, current, defaultCurrent, total: quantity } = restProps;
+  const { pageSize, defaultPageSize, current, defaultCurrent, total: quantity = 0 } = restProps;
 
   const currentToSet = current || defaultCurrent || 1;
   const pageSizeToSet = pageSize || defaultPageSize || 10;
 
   const [currentPageSize, setCurrentPageSize] = useState<number>(pageSizeToSet);
-  const [totalItems, setTotalItems] = useState<number>(quantity || 0);
   const [currentPage, setCurrentPage] = useState<string | number>(currentToSet);
 
   const prefixCls = 'ant-pagination-ym';
 
   const Selector = ({ total }: { total: number }) => {
-    setTotalItems(total);
-
     return (
       <div className={`${prefixCls}-showing-select`}>
         {'Showing '}
@@ -35,17 +32,31 @@ const YmPagination: React.FC<PaginationProps> = ({ ...restProps }) => {
             }
           }}
         >
-          <Option value={10}>10</Option>
-          <Option value={20}>20</Option>
-          <Option value={30}>30</Option>
-          <Option value={50}>50</Option>
+          <Option key={10} value={10}>
+            10
+          </Option>
+          {total > 20 && (
+            <Option key={20} value={20}>
+              20
+            </Option>
+          )}
+          {total > 30 && (
+            <Option key={30} value={30}>
+              30
+            </Option>
+          )}
+          {total > 50 && (
+            <Option key={50} value={50}>
+              50
+            </Option>
+          )}
         </Select>
         {` of ${total}`}
       </div>
     );
   };
 
-  const totalPages = Math.ceil(totalItems / currentPageSize);
+  const totalPages = Math.ceil(quantity / currentPageSize);
 
   const handleSetPage = (value: string | number | undefined) => {
     const pageToGo = Number(value);
