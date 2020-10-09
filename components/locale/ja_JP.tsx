@@ -19,6 +19,9 @@ const localeValues: Locale = {
     filterReset: 'リセット',
     selectAll: 'すべてを選択',
     selectInvert: '選択を反転',
+    triggerDesc: 'クリックで降順にソート',
+    triggerAsc: 'クリックで昇順にソート',
+    cancelSort: 'クリックでソートをキャンセル',
   },
   Modal: {
     okText: 'OK',
