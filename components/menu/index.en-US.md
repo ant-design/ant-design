@@ -89,16 +89,16 @@ More layouts with navigation: [Layout](/components/layout).
 | children | Sub-menus or sub-menu items | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | key | Unique ID of the sub-menu | string | - |  |
-| title | Title of sub menu | string \| ReactNode | - |  |
+| title | Title of sub menu | ReactNode | - |  |
 | icon | Icon of sub menu | ReactNode | - | 4.2.0 |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup
 
-| Param    | Description            | Type                | Default value | Version |
-| -------- | ---------------------- | ------------------- | ------------- | ------- |
-| children | Sub-menu items         | MenuItem\[]         | -             |         |
-| title    | The title of the group | string \| ReactNode | -             |         |
+| Param    | Description            | Type        | Default value | Version |
+| -------- | ---------------------- | ----------- | ------------- | ------- |
+| children | Sub-menu items         | MenuItem\[] | -             |         |
+| title    | The title of the group | ReactNode   | -             |         |
 
 ### Menu.Divider
 

@@ -32,7 +32,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | drawerStyle | Style of the popup layer element | object | - |
 | headerStyle | Style of the drawer header part | object | - |
 | bodyStyle | Style of the drawer content part | object | - |
-| title | The title for Drawer | string \| ReactNode | - |
+| title | The title for Drawer | ReactNode | - |
 | visible | Whether the Drawer dialog is visible or not | boolean | false |
 | width | Width of the Drawer dialog | string \| number | 256 |
 | height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 256 |

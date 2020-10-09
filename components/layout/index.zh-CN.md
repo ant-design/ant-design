@@ -100,7 +100,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |
 | style | 指定样式 | CSSProperties | - |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |
-| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string \| ReactNode | - |
+| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | ReactNode | - |
 | width | 宽度 | number \| string | 200 |
 | zeroWidthTriggerStyle | 指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式 | object | - |
 

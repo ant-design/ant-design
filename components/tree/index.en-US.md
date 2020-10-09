@@ -67,7 +67,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | isLeaf | Determines if this is a leaf node(effective when `loadData` is specified). `false` will force trade TreeNode as a parent node | boolean | - |  |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree | string | (internal calculated position of treeNode) |  |
 | selectable | Set whether the treeNode can be selected | boolean | true |  |
-| title | Title | string \| ReactNode | `---` |  |
+| title | Title | ReactNode | `---` |  |
 
 ### DirectoryTree props
 

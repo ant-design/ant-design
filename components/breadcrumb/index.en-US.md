@@ -22,7 +22,7 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
 | routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
-| separator | Custom separator | string \| ReactNode | `/` |  |
+| separator | Custom separator | ReactNode | `/` |  |
 
 ### Breadcrumb.Item
 
@@ -35,9 +35,9 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ### Breadcrumb.Separator
 
-| Property | Description      | Type                | Default | Version |
-| -------- | ---------------- | ------------------- | ------- | ------- |
-| children | Custom separator | string \| ReactNode | `/`     |         |
+| Property | Description      | Type      | Default | Version |
+| -------- | ---------------- | --------- | ------- | ------- |
+| children | Custom separator | ReactNode | `/`     |         |
 
 > When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
 
