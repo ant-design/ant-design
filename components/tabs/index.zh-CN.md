@@ -46,9 +46,9 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ### Tabs.TabPane
 
-| 参数        | 说明                                            | 类型                | 默认值 |
-| ----------- | ----------------------------------------------- | ------------------- | ------ |
-| forceRender | 被隐藏时是否渲染 DOM 结构                       | boolean             | false  |
-| key         | 对应 activeKey                                  | string              | -      |
-| tab         | 选项卡头显示文字                                | string \| ReactNode | -      |
-| closeIcon   | 自定义关闭图标，`在 type="editable-card"`时有效 | ReactNode           | -      |
+| 参数        | 说明                                            | 类型      | 默认值 |
+| ----------- | ----------------------------------------------- | --------- | ------ |
+| forceRender | 被隐藏时是否渲染 DOM 结构                       | boolean   | false  |
+| key         | 对应 activeKey                                  | string    | -      |
+| tab         | 选项卡头显示文字                                | ReactNode | -      |
+| closeIcon   | 自定义关闭图标，`在 type="editable-card"`时有效 | ReactNode | -      |

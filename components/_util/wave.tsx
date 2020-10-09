@@ -4,7 +4,7 @@ import TransitionEvents from '@ant-design/css-animation/lib/Event';
 import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
 
-let styleForPesudo: HTMLStyleElement | null;
+let styleForPseudo: HTMLStyleElement | null;
 
 // Where el is the DOM element you'd like to test for visibility
 function isHidden(element: HTMLElement) {
@@ -74,8 +74,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     extraNode.className = `${getPrefixCls('')}-click-animating-node`;
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
-    // Not white or transparnt or grey
-    styleForPesudo = styleForPesudo || document.createElement('style');
+    // Not white or transparent or grey
+    styleForPseudo = styleForPseudo || document.createElement('style');
     if (
       waveColor &&
       waveColor !== '#ffffff' &&
@@ -86,18 +86,18 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     ) {
       // Add nonce if CSP exist
       if (this.csp && this.csp.nonce) {
-        styleForPesudo.nonce = this.csp.nonce;
+        styleForPseudo.nonce = this.csp.nonce;
       }
 
       extraNode.style.borderColor = waveColor;
-      styleForPesudo.innerHTML = `
+      styleForPseudo.innerHTML = `
       [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls(
         '',
       )}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
       }`;
-      if (!document.body.contains(styleForPesudo)) {
-        document.body.appendChild(styleForPesudo);
+      if (!document.body.contains(styleForPseudo)) {
+        document.body.appendChild(styleForPseudo);
       }
     }
     if (insertExtraNode) {
@@ -180,8 +180,8 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
 
-    if (styleForPesudo) {
-      styleForPesudo.innerHTML = '';
+    if (styleForPseudo) {
+      styleForPseudo.innerHTML = '';
     }
 
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {

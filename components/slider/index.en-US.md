@@ -20,7 +20,7 @@ To input a value in a range.
 | disabled | If true, the slider will not be interactable | boolean | false |  |
 | dots | Whether the thumb can drag over tick only | boolean | false |  |
 | included | Make effect when `marks` not null, true means containment and false means coordinative | boolean | true |  |
-| marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max], each mark can declare its own style | object | { number: string \| ReactNode } \| { number: { style: object, label: string \| ReactNode } } |  |
+| marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max], each mark can declare its own style | object | { number: ReactNode } \| { number: { style: object, label: ReactNode } } |  |
 | max | The maximum value the slider can slide to | number | 100 |  |
 | min | The minimum value the slider can slide to | number | 0 |  |
 | range | Dual thumb mode | boolean | false |  |
