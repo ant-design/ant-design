@@ -116,7 +116,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
   }
 
   componentWillUnmount() {
-    this.mql.removeEventListener('change', this.responsiveHandler);
+    this.mql?.removeEventListener('change', this.responsiveHandler);
     this.props?.siderHook.removeSider(this.uniqueId);
   }
 
