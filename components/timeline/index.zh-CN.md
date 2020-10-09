@@ -30,7 +30,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| pending | 指定最后一个幽灵节点是否存在或内容 | boolean \| ReactNode | false |
+| pending | 指定最后一个幽灵节点是否存在或内容 | ReactNode | false |
 | pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | ReactNode | &lt;LoadingOutlined /> |
 | reverse | 节点排序 | boolean | false |
 | mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `left` \| `alternate` \| `right` | - |

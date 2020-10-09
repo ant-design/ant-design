@@ -99,7 +99,7 @@ Basic text writing, including headings, body text, lists, and more.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
-| tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
+| tooltip | Custom tooltip text, hide when it is false | ReactNode | `Edit` | 4.6.0 |
 | editing | Whether to be editable | boolean | false |  |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | autoSize | `autoSize` attribute of textarea | boolean \| { minRows: number, maxRows: number } | - | 4.4.0 |
