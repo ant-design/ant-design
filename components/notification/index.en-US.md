@@ -34,13 +34,13 @@ The properties of config are as follows:
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |
 | btn | Customized close button | ReactNode | - |
 | className | Customized CSS class | string | - |
-| description | The content of notification box (required) | string \| ReactNode | - |
+| description | The content of notification box (required) | ReactNode | - |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | icon | Customized icon | ReactNode | - |
 | closeIcon | Custom close icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
-| message | The title of notification box (required) | string \| ReactNode | - |
+| message | The title of notification box (required) | ReactNode | - |
 | onClose | Trigger when notification closed | function | - |
 | onClick | Specify a function that will be called when the notification is clicked | function | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |

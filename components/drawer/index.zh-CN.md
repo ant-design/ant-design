@@ -31,7 +31,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | drawerStyle | 用于设置 Drawer 弹出层的样式 | CSSProperties | - |
 | headerStyle | 用于设置 Drawer 头部的样式 | CSSProperties | - |
 | bodyStyle | 可用于设置 Drawer 内容部分的样式 | CSSProperties | - |
-| title | 标题 | string \| ReactNode | - |
+| title | 标题 | ReactNode | - |
 | visible | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 256 |
 | height | 高度, 在 `placement` 为 `top` 或 `bottom` 时使用 | string \| number | 256 |

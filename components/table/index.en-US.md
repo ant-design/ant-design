@@ -147,9 +147,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description               | Type                | Default |
-| -------- | ------------------------- | ------------------- | ------- |
-| title    | Title of the column group | string \| ReactNode | -       |
+| Property | Description               | Type      | Default |
+| -------- | ------------------------- | --------- | ------- |
+| title    | Title of the column group | ReactNode | -       |
 
 ### pagination
 
@@ -189,7 +189,7 @@ Properties for row selection.
 | --- | --- | --- | --- | --- |
 | checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
 | columnWidth | Set the width of the selection column | string \| number | `60px` |  |
-| columnTitle | Set the title of the selection column | string \| ReactNode | - |  |
+| columnTitle | Set the title of the selection column | ReactNode | - |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3.0 |
@@ -216,7 +216,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | key | Unique key of this selection | string | - |
-| text | Display text of this selection | string \| ReactNode | - |
+| text | Display text of this selection | ReactNode | - |
 | onSelect | Callback executed when this selection is clicked | function(changeableRowKeys) | - |
 
 ## Using in TypeScript

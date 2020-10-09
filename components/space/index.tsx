@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import { ConfigConsumerProps, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
 
@@ -15,12 +15,11 @@ export interface SpaceProps {
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
+  split?: React.ReactNode;
 }
 
 const Space: React.FC<SpaceProps> = props => {
-  const { getPrefixCls, space, direction: directionConfig }: ConfigConsumerProps = React.useContext(
-    ConfigContext,
-  );
+  const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
     size = space?.size || 'small',
@@ -29,6 +28,7 @@ const Space: React.FC<SpaceProps> = props => {
     children,
     direction = 'horizontal',
     prefixCls: customizePrefixCls,
+    split,
     ...otherProps
   } = props;
 
@@ -70,6 +70,7 @@ const Space: React.FC<SpaceProps> = props => {
         size={size}
         index={i}
         marginDirection={marginDirection}
+        split={split}
       >
         {child}
       </Item>

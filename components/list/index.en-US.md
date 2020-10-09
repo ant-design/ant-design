@@ -19,13 +19,13 @@ A list can be used to display content related to a single subject. The content c
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bordered | Toggles rendering of the border around the list | boolean | false |  |
-| footer | List footer renderer | string \| ReactNode | - |  |
+| footer | List footer renderer | ReactNode | - |  |
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#List-grid-props) | - |  |
-| header | List header renderer | string \| ReactNode | - |  |
+| header | List header renderer | ReactNode | - |  |
 | itemLayout | The layout of list, default is `horizontal`, If a vertical list is desired, set the itemLayout property to `vertical` | string | - |  |
 | rowKey | Item's unique key, could be a string or function that returns a string | string \| Function(record): string | `key` |  |
 | loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
-| loadMore | Shows a load more content | string \| ReactNode | - |  |
+| loadMore | Shows a load more content | ReactNode | - |  |
 | locale | The i18n text including empty text | object | {emptyText: `No Data`} |  |
 | pagination | Pagination [config](/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
 | size | Size of list | `default` \| `large` \| `small` | `default` |  |
@@ -61,12 +61,12 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right | Array&lt;ReactNode> | - |  |
-| extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | string \| ReactNode | - |  |
+| extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | ReactNode | - |  |
 
 ### List.Item.Meta
 
-| Property    | Description                  | Type                | Default | Version |
-| ----------- | ---------------------------- | ------------------- | ------- | ------- |
-| avatar      | The avatar of list item      | ReactNode           | -       |         |
-| description | The description of list item | string \| ReactNode | -       |         |
-| title       | The title of list item       | string \| ReactNode | -       |         |
+| Property    | Description                  | Type      | Default | Version |
+| ----------- | ---------------------------- | --------- | ------- | ------- |
+| avatar      | The avatar of list item      | ReactNode | -       |         |
+| description | The description of list item | ReactNode | -       |         |
+| title       | The title of list item       | ReactNode | -       |         |

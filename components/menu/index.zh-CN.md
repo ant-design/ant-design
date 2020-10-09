@@ -90,16 +90,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | children       | 子菜单的菜单项 | Array&lt;MenuItem \| SubMenu> | -      |       |
 | disabled       | 是否禁用       | boolean                       | false  |       |
 | key            | 唯一标志       | string                        | -      |       |
-| title          | 子菜单项值     | string \| ReactNode           | -      |       |
+| title          | 子菜单项值     | ReactNode                     | -      |       |
 | icon           | 菜单图标       | ReactNode                     | -      | 4.2.0 |
 | onTitleClick   | 点击子菜单标题 | function({ key, domEvent })   | -      |       |
 
 ### Menu.ItemGroup
 
-| 参数     | 说明         | 类型                | 默认值 | 版本 |
-| -------- | ------------ | ------------------- | ------ | ---- |
-| children | 分组的菜单项 | MenuItem\[]         | -      |      |
-| title    | 分组标题     | string \| ReactNode | -      |      |
+| 参数     | 说明         | 类型        | 默认值 | 版本 |
+| -------- | ------------ | ----------- | ------ | ---- |
+| children | 分组的菜单项 | MenuItem\[] | -      |      |
+| title    | 分组标题     | ReactNode   | -      |      |
 
 ### Menu.Divider
 

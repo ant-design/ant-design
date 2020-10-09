@@ -18,15 +18,15 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| addonAfter | The label text displayed after (on the right side of) the input field | string \| ReactNode | - |  |
-| addonBefore | The label text displayed before (on the left side of) the input field | string \| ReactNode | - |  |
+| addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
+| addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | defaultValue | The initial input content | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | id | The ID for input | string | - |  |
 | maxLength | The max length | number | - |  |
-| prefix | The prefix icon for the Input | string \| ReactNode | - |  |
+| prefix | The prefix icon for the Input | ReactNode | - |  |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used | `large` \| `middle` \| `small` | - |  |
-| suffix | The suffix icon for the Input | string \| ReactNode | - |  |
+| suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
 | onChange | Callback when user input | function(e) | - |  |

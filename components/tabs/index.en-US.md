@@ -49,7 +49,7 @@ More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 | --- | --- | --- | --- |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |
-| tab | Show text in TabPane's head | string \| ReactNode | - |
+| tab | Show text in TabPane's head | ReactNode | - |
 | closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
 
 More option at [rc-tabs option](https://github.com/react-component/tabs#tabpane)

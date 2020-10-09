@@ -129,7 +129,7 @@ Recommend to start from the reading flow, collapsed content should always be on 
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tK-AQaE5h1YAAAAAAAAAAABkARQnAQ" alt="Do">
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_gU7ToHiZz4AAAAAAAAAAABkARQnAQ" alt="Don't" description="When button group has no space in betwee, it is easy to confuse it with Toggle Button.">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_gU7ToHiZz4AAAAAAAAAAABkARQnAQ" alt="Don't" description="When button group has no space in between, it is easy to confuse it with Toggle Button.">
 
 When multiple buttons form a group, align buttons in one line with spaces in between.
 
