@@ -14,7 +14,7 @@ const localeValues: Locale = {
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'メニューをフィルター',
+    filterTitle: 'フィルター',
     filterConfirm: 'OK',
     filterReset: 'リセット',
     filterEmptyText: 'フィルターなし',
