@@ -560,6 +560,23 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
+  it('`messageVariables` support validate', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }}>
+        <Form.Item name="test" messageVariables={{ label: 'Bamboo' }} rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+  });
+
   it('validation message should has alert role', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const wrapper = mount(
@@ -753,5 +770,33 @@ describe('Form', () => {
     );
 
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+  });
+
+  describe('tooltip', () => {
+    it('ReactNode', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="light" tooltip={<span>Bamboo</span>}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      const tooltipProps = wrapper.find('Tooltip').props();
+      expect(tooltipProps.title).toEqual(<span>Bamboo</span>);
+    });
+
+    it('config', () => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      const tooltipProps = wrapper.find('Tooltip').props();
+      expect(tooltipProps.title).toEqual('Bamboo');
+    });
   });
 });

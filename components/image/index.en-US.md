@@ -21,8 +21,17 @@ Previewable image.
 | fallback | Load failure fault-tolerant src | string | - | 4.6.0 |
 | height | Image height | string \| number | - | 4.6.0 |
 | placeholder | Load placeholder, use default placeholder when set `true` | ReactNode | - | 4.6.0 |
-| preview | Whether to enable the preview | boolean | true | 4.6.0 |
+| preview | preview config, disabled when `false` | boolean \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
 | src | Image path | string | - | 4.6.0 |
 | width | Image width | string \| number | - | 4.6.0 |
+
+### previewType
+
+```
+{
+  visible: boolean,
+  onVisibleChange:function(value, prevValue)
+}
+```
 
 Other attributes [<img\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)

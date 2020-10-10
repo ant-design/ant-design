@@ -139,19 +139,23 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
     <span
       class="ant-select-selection-search"
     >
-      <textarea
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-input ant-select-selection-search-input"
-        placeholder="input here"
-        role="combobox"
-        style="height:50px"
-        type="search"
-      />
+      <div
+        class="ant-input-textarea"
+      >
+        <textarea
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-input ant-select-selection-search-input"
+          placeholder="input here"
+          role="combobox"
+          style="height:50px"
+          type="search"
+        />
+      </div>
     </span>
     <span
       class="ant-select-selection-placeholder"

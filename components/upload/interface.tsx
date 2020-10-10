@@ -56,8 +56,8 @@ export interface ShowUploadListInterface {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   showDownloadIcon?: boolean;
-  removeIcon?: React.ReactNode;
-  downloadIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
 }
 
 export interface UploadLocale {
@@ -111,6 +111,11 @@ export interface UploadProps<T = any> {
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   progress?: UploadListProgressProps;
+  itemRender?: (
+    originNode: React.ReactElement,
+    file: UploadFile,
+    fileList?: Array<UploadFile<T>>,
+  ) => React.ReactNode;
 }
 
 export interface UploadState<T = any> {
@@ -129,11 +134,16 @@ export interface UploadListProps<T = any> {
   showRemoveIcon?: boolean;
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
-  removeIcon?: React.ReactNode;
-  downloadIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   appendAction?: React.ReactNode;
+  itemRender?: (
+    originNode: React.ReactElement,
+    file: UploadFile,
+    fileList?: Array<UploadFile<T>>,
+  ) => React.ReactNode;
 }

@@ -125,4 +125,15 @@ describe('Space', () => {
 
     expect(wrapper.find('#demo').text()).toBe('2');
   });
+
+  it('split', () => {
+    const wrapper = mount(
+      <Space split="-">
+        text1<span>text1</span>
+        <>text3</>
+      </Space>,
+    );
+
+    expect(render(wrapper)).toMatchSnapshot();
+  });
 });

@@ -15,7 +15,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | --- | --- | --- | --- | --- |
 | icon | Custom icon type for an icon avatar | ReactNode | - |  |
 | shape | The shape of avatar | `circle` \| `square` | `circle` |  |
-| size | The size of the avatar | number \| `large` \| `small` \| `default` | `default` |  |
+| size | The size of the avatar | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.7.0 |
 | src | The address of the image for an image avatar | string | - |  |
 | srcSet | A list of sources to use for different screen resolutions | string | - |  |
 | alt | This attribute defines the alternative text describing the image | string | - |  |

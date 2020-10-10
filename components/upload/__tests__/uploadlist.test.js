@@ -510,6 +510,7 @@ describe('Upload List', () => {
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
   });
+
   it('should support removeIcon and downloadIcon', () => {
     const list = [
       {
@@ -533,7 +534,7 @@ describe('Upload List', () => {
         showUploadList={{
           showRemoveIcon: true,
           showDownloadIcon: true,
-          removeIcon: <i>RM</i>,
+          removeIcon: () => <i>RM</i>,
           downloadIcon: <i>DL</i>,
         }}
       >
@@ -541,6 +542,22 @@ describe('Upload List', () => {
       </Upload>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+
+    const wrapper2 = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: true,
+          showDownloadIcon: true,
+          removeIcon: <i>RM</i>,
+          downloadIcon: () => <i>DL</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper2.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/7762
@@ -992,5 +1009,21 @@ describe('Upload List', () => {
     expect(uploadRef.current.fileList).toHaveLength(files.length);
 
     jest.useRealTimers();
+  });
+
+  it('itemRender', () => {
+    const itemRender = (originNode, file, currFileList) => {
+      const { name, status, uid, url } = file;
+      const index = currFileList.indexOf(file);
+      return (
+        <span className="custom-item-render">
+          {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
+            currFileList.length
+          }`}
+        </span>
+      );
+    };
+    const wrapper = mount(<UploadList locale={{}} items={fileList} itemRender={itemRender} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -36,7 +36,7 @@ export function getTimeProps<DateType>(
   const firstFormat = toArray(format)[0];
   const showTimeObj: SharedTimeProps<DateType> = { ...props };
 
-  if (firstFormat) {
+  if (firstFormat && typeof firstFormat === 'string') {
     if (!firstFormat.includes('s') && showSecond === undefined) {
       showTimeObj.showSecond = false;
     }
