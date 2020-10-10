@@ -1313,6 +1313,161 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
 </span>
 `;
 
+exports[`Upload List should support removeIcon and downloadIcon 2`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  >
+    <div
+      class=""
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <div
+                class="ant-upload-list-item-thumbnail"
+              >
+                <span
+                  aria-label="loading"
+                  class="anticon anticon-loading"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="anticon-spin"
+                    data-icon="loading"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://cdn.xxx.com/aaa"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image"
+              >
+                image
+              </a>
+              <span
+                class="ant-upload-list-item-card-actions picture"
+              >
+                <button
+                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                  title="Remove file"
+                  type="button"
+                >
+                  <i>
+                    RM
+                  </i>
+                </button>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list-item-progress"
+          />
+        </div>
+      </span>
+    </div>
+    <div
+      class=""
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://cdn.xxx.com/aaa"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="image"
+                  class="ant-upload-list-item-image"
+                  src="https://cdn.xxx.com/aaa"
+                />
+              </a>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                href="https://cdn.xxx.com/aaa"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image"
+              >
+                image
+              </a>
+              <span
+                class="ant-upload-list-item-card-actions picture"
+              >
+                <button
+                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                  title="Download file"
+                  type="button"
+                >
+                  <i>
+                    DL
+                  </i>
+                </button>
+                <button
+                  class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                  title="Remove file"
+                  type="button"
+                >
+                  <i>
+                    RM
+                  </i>
+                </button>
+              </span>
+            </span>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</span>
+`;
+
 exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
 <span
   class=""
