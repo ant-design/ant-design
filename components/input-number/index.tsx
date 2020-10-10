@@ -34,6 +34,7 @@ export interface InputNumberProps
   id?: string;
   precision?: number;
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
+  onStep?: (value: number, info: { offset: number, type: 'up' | 'down' }) => void;
 }
 
 const InputNumber = React.forwardRef<unknown, InputNumberProps>((props, ref) => {
