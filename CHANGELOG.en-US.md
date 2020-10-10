@@ -50,6 +50,7 @@ timeline: true
   - 🤖 Fix typo `TimeLineItemProps` to `TimelineItemProps`. [#27001](https://github.com/ant-design/ant-design/pull/27001) [@mgcrea](https://github.com/mgcrea)
   - 🤖 Fix Slider missing `autoFocus` prop. [#26995](https://github.com/ant-design/ant-design/pull/26995) [@shangyilim](https://github.com/shangyilim)
   - 🤖 Fix Slider `step` prop not accepting `null` value. [#26984](https://github.com/ant-design/ant-design/pull/26984) [@shangyilim](https://github.com/shangyilim)
+  - 🤖 Fix Slider.Range `trackStyle` and `handleStyle` should be array. [#27033](https://github.com/ant-design/ant-design/pull/27033)
   - 🤖 Optimize Tag `onClose` TypeScript definition. [#26932](https://github.com/ant-design/ant-design/pull/26932)
   - 🤖 Improve Form TypeScript definition to support `getFieldsValue` return generic type without `namePath` argument. [#26791](https://github.com/ant-design/ant-design/pull/26791)
 - Locale

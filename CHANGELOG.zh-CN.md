@@ -50,6 +50,7 @@ timeline: true
   - 🤖 修复 `TimeLineItemProps` 为 `TimelineItemProps`。[#27001](https://github.com/ant-design/ant-design/pull/27001) [@mgcrea](https://github.com/mgcrea)
   - 🤖 修复 Slider `autoFocus` 属性定义。[#26995](https://github.com/ant-design/ant-design/pull/26995) [@shangyilim](https://github.com/shangyilim)
   - 🤖 修复 Slider `step` 属性不接收 `null` 的问题。[#26984](https://github.com/ant-design/ant-design/pull/26984) [@shangyilim](https://github.com/shangyilim)
+  - 🤖 修复 Slider.Range `trackStyle` 和 `handleStyle` 应该接受数组的问题。[#27033](https://github.com/ant-design/ant-design/pull/27033)
   - 🤖 优化 Tag `onClose` TypeScript 定义。[#26932](https://github.com/ant-design/ant-design/pull/26932)
   - 🤖 调整 Form 定义，现在当 `getFieldsValue` 不配置 `namePath` 时返回类型为 FormValue 的泛型定义。[#26791](https://github.com/ant-design/ant-design/pull/26791)
 - 国际化
