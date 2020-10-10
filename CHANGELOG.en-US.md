@@ -27,7 +27,7 @@ timeline: true
   - 🆕 Form.Item support `messageVariables` prop. [#26597](https://github.com/ant-design/ant-design/pull/26597)
   - 🐞 Fix Form `onValuesChange` second param return fully `store` values instead of validate fields. [#26808](https://github.com/ant-design/ant-design/pull/26808)
 - Upload
-  - 🔥 Upload can custom item of uploadList by `itemRender`. [#26333](https://github.com/ant-design/ant-design/pull/26333)
+  - 🔥 Upload can custom the item of file list by `itemRender` now. [#26333](https://github.com/ant-design/ant-design/pull/26333)
   - 🆕 Upload custom action icons now supports callback functions. [#26684](https://github.com/ant-design/ant-design/pull/26684) [@mwaddell](https://github.com/mwaddell)
 - Table
   - 🆕 Table `sticky` now support `getContainer`. [#26973](https://github.com/ant-design/ant-design/pull/26973)

@@ -27,7 +27,7 @@ timeline: true
   - 🆕 Form.Item 支持 `messageVariables` 属性。[#26597](https://github.com/ant-design/ant-design/pull/26597)
   - 🐞 修复 Form `onValuesChange` 第二个参数返回整个 `store` 的值而不是有效字段值的问题。[#26808](https://github.com/ant-design/ant-design/pull/26808)
 - Upload
-  - 🔥 Upload 添加 `itemRender` 以支持自定义上传列表项。[#26333](https://github.com/ant-design/ant-design/pull/26333)
+  - 🔥 Upload 添加 `itemRender` 用于自定义文件列表项。[#26333](https://github.com/ant-design/ant-design/pull/26333)
   - 🆕 Upload `removeIcon` 和 `downloadIcon` 现在支持传入一个函数。[#26684](https://github.com/ant-design/ant-design/pull/26684) [@mwaddell](https://github.com/mwaddell)
 - Table
   - 🆕 Table `sticky` 支持 `getContainer` 以指定滚动容器。[#26973](https://github.com/ant-design/ant-design/pull/26973)
