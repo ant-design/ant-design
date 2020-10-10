@@ -1,17 +1,18 @@
+/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/by_BY';
 import DatePicker from '../date-picker/locale/by_BY';
 import TimePicker from '../time-picker/locale/by_BY';
 import Calendar from '../calendar/locale/by_BY';
 import { Locale } from '../locale-provider';
 
-var typeTemplate: string = "${label} не з'яўляецца тыпам ${type}";
+const typeTemplate: string = "${label} не з'яўляецца тыпам ${type}";
 
 const localeValues: Locale = {
   locale: 'by',
-  Pagination: Pagination,
-  DatePicker: DatePicker,
-  TimePicker: TimePicker,
-  Calendar: Calendar,
+  Pagination,
+  DatePicker,
+  TimePicker,
+  Calendar,
   global: {
     placeholder: 'Калі ласка выберыце',
   },
