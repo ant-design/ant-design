@@ -126,7 +126,7 @@
     "rc-dropdown": "~3.1.2",
     "rc-field-form": "~1.10.0",
     "rc-image": "~3.0.6",
-    "rc-input-number": "~6.0.0",
+    "rc-input-number": "~6.1.0",
     "rc-mentions": "~1.4.0",
     "rc-menu": "~8.6.1",
     "rc-motion": "^2.0.0",
