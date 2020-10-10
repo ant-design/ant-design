@@ -28,10 +28,10 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 
 ### previewType
 
-```
+```js
 {
-  visible: boolean,
-  onVisibleChange:function(value, prevValue)
+  visible?: boolean;
+  onVisibleChange?: (visible, prevVisible) => void;
 }
 ```
 
