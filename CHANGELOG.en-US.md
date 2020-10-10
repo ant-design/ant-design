@@ -39,12 +39,12 @@ timeline: true
 - 🆕 Image `preview` prop now support `visible` and `onVisibleChange`. [#26915](https://github.com/ant-design/ant-design/pull/26915)
 - 🆕 Avatar `size` support responsive config. [#26244](https://github.com/ant-design/ant-design/pull/26244) [@willamesoares](https://github.com/willamesoares)
 - 🐞 Fix Radio.Button children cannot apply Tooltip. [#27050](https://github.com/ant-design/ant-design/pull/27050)
-- 💄 Optimize Cascader and Tree style of the data expansion loading icon in RTL mode. [#27010](https://github.com/ant-design/ant-design/pull/27010)
 - RTL
-  - 💄 Fix List action button position in RTL mode. [#26964](https://github.com/ant-design/ant-design/pull/26964)
-  - 💄 Fix Transfer pagination style in RTL mode. [#26960](https://github.com/ant-design/ant-design/pull/26960)
-  - 💄 Fix Upload style in RTL mode. [#26961](https://github.com/ant-design/ant-design/pull/26961)
-  - 💄 Optimize Tag style to avoid the interaction between theme and RTL mode. [#26955](https://github.com/ant-design/ant-design/pull/26955)
+  - ⬅️ Fix List action button position in RTL mode. [#26964](https://github.com/ant-design/ant-design/pull/26964)
+  - ⬅️ Fix Transfer pagination style in RTL mode. [#26960](https://github.com/ant-design/ant-design/pull/26960)
+  - ⬅️ Fix Upload style in RTL mode. [#26961](https://github.com/ant-design/ant-design/pull/26961)
+  - ⬅️ Optimize Tag style to avoid the interaction between theme and RTL mode. [#26955](https://github.com/ant-design/ant-design/pull/26955)
+  - ⬅️ Optimize Cascader and Tree style of the data expansion loading icon in RTL mode. [#27010](https://github.com/ant-design/ant-design/pull/27010)
 - TypeScript
   - 🤖 Fix typo `TimeLineItemProps` to `TimelineItemProps`. [#27001](https://github.com/ant-design/ant-design/pull/27001) [@mgcrea](https://github.com/mgcrea)
   - 🤖 Fix Slider missing `autoFocus` prop. [#26995](https://github.com/ant-design/ant-design/pull/26995) [@shangyilim](https://github.com/shangyilim)

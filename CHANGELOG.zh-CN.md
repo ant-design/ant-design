@@ -38,13 +38,13 @@ timeline: true
 - 🆕 Space 增加 `split` 属性以支持分隔符间隔。[#26948](https://github.com/ant-design/ant-design/pull/26948)
 - 🆕 Image `preview` 属性扩展支持 `visible` 和 `onVisibleChange`。[#26915](https://github.com/ant-design/ant-design/pull/26915)
 - 🆕 Avatar `size` 可以进行响应式的大小配置。[#26244](https://github.com/ant-design/ant-design/pull/26244) [@willamesoares](https://github.com/willamesoares)
-- 💄 优化 Cascader/Tree 组件中数据扩展 `loading` 按钮在 RTL 模式下的样式。[#27010](https://github.com/ant-design/ant-design/pull/27010)
 - 🐞 修复 Radio.Button 内无法使用 Tooltip 的问题。[#27050](https://github.com/ant-design/ant-design/pull/27050)
 - RTL
-  - 💄 修复 List 按钮在 RTL 模式下的样式。[#26964](https://github.com/ant-design/ant-design/pull/26964)
-  - 💄 优化 Transfer 分页在 RTL 模式下的样式。[#26960](https://github.com/ant-design/ant-design/pull/26960)
-  - 💄 修复 Upload RTL 模式下样式。[#26961](https://github.com/ant-design/ant-design/pull/26961)
-  - 💄 优化 Tag 样式避免主题和 RTL 模式互相影响。[#26955](https://github.com/ant-design/ant-design/pull/26955)
+  - ⬅️ 修复 List 按钮在 RTL 模式下的样式。[#26964](https://github.com/ant-design/ant-design/pull/26964)
+  - ⬅️ 优化 Transfer 分页在 RTL 模式下的样式。[#26960](https://github.com/ant-design/ant-design/pull/26960)
+  - ⬅️ 修复 Upload RTL 模式下样式。[#26961](https://github.com/ant-design/ant-design/pull/26961)
+  - ⬅️ 优化 Tag 样式避免主题和 RTL 模式互相影响。[#26955](https://github.com/ant-design/ant-design/pull/26955)
+  - ⬅️ 优化 Cascader/Tree 组件中数据扩展 `loading` 按钮在 RTL 模式下的样式。[#27010](https://github.com/ant-design/ant-design/pull/27010)
 - TypeScript
   - 🤖 修复 `TimeLineItemProps` 为 `TimelineItemProps`。[#27001](https://github.com/ant-design/ant-design/pull/27001) [@mgcrea](https://github.com/mgcrea)
   - 🤖 修复 Slider `autoFocus` 属性定义。[#26995](https://github.com/ant-design/ant-design/pull/26995) [@shangyilim](https://github.com/shangyilim)
