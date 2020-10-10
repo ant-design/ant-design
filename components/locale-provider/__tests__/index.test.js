@@ -19,6 +19,7 @@ import LocaleProvider from '..';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
+import byBY from '../by_BY';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
 import deDE from '../de_DE';
@@ -78,6 +79,7 @@ const locales = [
   azAZ,
   arEG,
   bgBG,
+  byBY,
   caES,
   csCZ,
   daDK,
