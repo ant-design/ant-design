@@ -65,10 +65,10 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 #### Input.Group
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| compact | 是否用紧凑模式 | boolean | false |
-| size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |
+| 参数    | 说明                                  | 类型                           | 默认值    |
+| ------- | ------------------------------------- | ------------------------------ | --------- |
+| compact | 是否用紧凑模式                        | boolean                        | false     |
+| size    | `Input.Group` 中所有的 `Input` 的大小 | `large` \| `middle` \| `small` | `default` |
 
 ```jsx
 <Input.Group>
