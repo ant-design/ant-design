@@ -59,13 +59,13 @@ class App extends React.Component {
               onMouseOver={() => {
                 if (this.state.disabled) {
                   this.setState({
-                    disabled: true,
+                    disabled: false,
                   });
                 }
               }}
               onMouseOut={() => {
                 this.setState({
-                  disabled: false,
+                  disabled: true,
                 });
               }}
               // fix eslintjsx-a11y/mouse-events-have-key-events
