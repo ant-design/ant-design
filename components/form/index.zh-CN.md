@@ -85,20 +85,10 @@ const validateMessages = {
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
 | label | `label` 标签的文本 | ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
-| labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
-| name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
-| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
-| normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
-| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
-| rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
-| shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
-| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
-| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
-| validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
-| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false |  |
+
+<<<<<<< HEAD | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | | | messageVariables | 默认验证字段的信息 | Record<string, string> | - | 4.7.0 | ======= | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | |
+
+> > > > > > > origin/master | name | 字段名，支持数组 | [NamePath](#NamePath) | - | | | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 | | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - | | | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false | | | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - | | | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false | | | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 | | trigger | 设置收集字段值变更的时机 | string | `onChange` | | | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 | | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - | | | validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` | | | valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` | | | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | | | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -146,14 +136,30 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 你可以参考[示例](#components-form-demo-control-hooks)查看具体使用场景。
 
+### messageVariables
+
+你可以通过 `messageVariables` 修改 Form.Item 的默认验证信息。
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
+
 ## Form.List
 
 为字段提供数组化管理。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| name | 字段名，支持数组 | [NamePath](#NamePath) | - |
-| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
+| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |  |
+| rules | 校验规则，仅支持自定义规则。需要配合 [ErrorList](#Form.ErrorList) 一同使用。 | { validator, message }[] | - | 4.7.0 |
 
 ```tsx
 <Form.List>
@@ -179,6 +185,14 @@ Form.List 渲染表单相关操作函数。
 | add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
 | remove | 删除表单项 | (index: number \| number[]) => void                | number[]: 4.5.0    |
 | move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
+
+## Form.ErrorList
+
+4.7.0 新增。错误展示组件，仅限配合 Form.List 的 rules 一同使用。
+
+| 参数   | 说明     | 类型        | 默认值 |
+| ------ | -------- | ----------- | ------ |
+| errors | 错误列表 | ReactNode[] | -      |
 
 ## Form.Provider
 
@@ -364,6 +378,10 @@ validator(rule, value, callback) => {
 3. Rule validated
 
 在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
+
+### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？
+
+Form.List 本身是 renderProps，内部样式非常自由。因而默认配置 `label` 和 `error` 节点很难与之配合。如果你需要 antd 样式的 `label`，可以通过外部包裹 Form.Item 来实现。
 
 ### 为什么 Form.Item 的 `dependencies` 对 Form.List 下的字段没有效果？
 

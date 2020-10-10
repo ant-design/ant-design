@@ -89,7 +89,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
-| format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD` |  |
+| format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting, support [Custom Format](#components-date-picker-demo-format) | string \| (value: moment) => string \| (string \| (value: moment) => string)[] | `YYYY-MM-DD` |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |  |

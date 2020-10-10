@@ -260,11 +260,15 @@ Array [
       rows="1"
     />
   </div>,
-  <textarea
-    class="ant-input"
-    rows="1"
-    style="width:100px"
-  />,
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+      rows="1"
+      style="width:100px"
+    />
+  </div>,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -1004,58 +1008,74 @@ Array [
   </span>,
   <br />,
   <br />,
-  <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+  <div
+    class="ant-input-textarea"
   >
-    <textarea
-      class="ant-input"
-      placeholder="textarea with clear icon"
-    />
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
-      role="button"
-      tabindex="-1"
+      class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="close-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <textarea
+        class="ant-input"
+        placeholder="textarea with clear icon"
+      />
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+        role="button"
+        tabindex="-1"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
     </span>
-  </span>,
+  </div>,
 ]
 `;
 
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 Array [
-  <textarea
-    class="ant-input"
-    placeholder="Autosize height based on content lines"
-  />,
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="Autosize height based on content lines"
+    />
+  </div>,
   <div
     style="margin:24px 0"
   />,
-  <textarea
-    class="ant-input"
-    placeholder="Autosize height with minimum and maximum number of lines"
-  />,
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="Autosize height with minimum and maximum number of lines"
+    />
+  </div>,
   <div
     style="margin:24px 0"
   />,
-  <textarea
-    class="ant-input"
-    placeholder="Controlled autosize"
-  />,
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="Controlled autosize"
+    />
+  </div>,
 ]
 `;
 
@@ -1093,39 +1113,47 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
     type="text"
     value=""
   />
-  <textarea
-    class="ant-input ant-input-borderless"
-    placeholder="Unbordered"
-  />
-  <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
+  <div
+    class="ant-input-textarea"
   >
     <textarea
       class="ant-input ant-input-borderless"
       placeholder="Unbordered"
     />
+  </div>
+  <div
+    class="ant-input-textarea"
+  >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
-      role="button"
-      tabindex="-1"
+      class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-borderless"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="close-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <textarea
+        class="ant-input ant-input-borderless"
+        placeholder="Unbordered"
+      />
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+        role="button"
+        tabindex="-1"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
     </span>
-  </span>
+  </div>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
@@ -2651,10 +2679,14 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
-<textarea
-  class="ant-input"
-  rows="4"
-/>
+<div
+  class="ant-input-textarea"
+>
+  <textarea
+    class="ant-input"
+    rows="4"
+  />
+</div>
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
@@ -2668,13 +2700,29 @@ Array [
       Auto Resize: false
     </span>
   </button>,
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+      rows="4"
+    >
+      The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
+    </textarea>
+  </div>,
+]
+`;
+
+exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = `
+<div
+  class="ant-input-textarea ant-input-textarea-show-count"
+  data-count="0 / 100"
+>
   <textarea
     class="ant-input"
-    rows="4"
-  >
-    The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
-  </textarea>,
-]
+    maxlength="100"
+  />
+</div>
 `;
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `

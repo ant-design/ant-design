@@ -14190,7 +14190,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
         </div>
       </div>
       <div
-        class="config-form-item-explain"
+        class="config-form-item-explain config-form-item-explain-error"
       >
         <div
           role="alert"
@@ -14227,7 +14227,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
         </div>
       </div>
       <div
-        class="config-form-item-explain"
+        class="config-form-item-explain config-form-item-explain-error"
       >
         <div
           role="alert"
@@ -14264,7 +14264,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
         </div>
       </div>
       <div
-        class="config-form-item-explain"
+        class="config-form-item-explain config-form-item-explain-error"
       >
         <div
           role="alert"
@@ -14301,7 +14301,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -14338,7 +14338,7 @@ exports[`ConfigProvider components Form normal 1`] = `
         </div>
       </div>
       <div
-        class="ant-form-item-explain"
+        class="ant-form-item-explain ant-form-item-explain-error"
       >
         <div
           role="alert"
@@ -14375,7 +14375,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         </div>
       </div>
       <div
-        class="prefix-Form-item-explain"
+        class="prefix-Form-item-explain prefix-Form-item-explain-error"
       >
         <div
           role="alert"
@@ -14531,9 +14531,13 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       </span>
     </span>
   </span>
-  <textarea
-    class="config-input"
-  />
+  <div
+    class="config-input-textarea"
+  >
+    <textarea
+      class="config-input"
+    />
+  </div>
 </div>
 `;
 
@@ -14620,9 +14624,13 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       </span>
     </span>
   </span>
-  <textarea
-    class="config-input"
-  />
+  <div
+    class="config-input-textarea"
+  >
+    <textarea
+      class="config-input"
+    />
+  </div>
 </div>
 `;
 
@@ -14709,9 +14717,13 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       </span>
     </span>
   </span>
-  <textarea
-    class="config-input"
-  />
+  <div
+    class="config-input-textarea"
+  >
+    <textarea
+      class="config-input"
+    />
+  </div>
 </div>
 `;
 
@@ -14798,9 +14810,13 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
       </span>
     </span>
   </span>
-  <textarea
-    class="ant-input"
-  />
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+    />
+  </div>
 </div>
 `;
 
@@ -14887,9 +14903,13 @@ exports[`ConfigProvider components Input normal 1`] = `
       </span>
     </span>
   </span>
-  <textarea
-    class="ant-input"
-  />
+  <div
+    class="ant-input-textarea"
+  >
+    <textarea
+      class="ant-input"
+    />
+  </div>
 </div>
 `;
 
@@ -14976,9 +14996,13 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       </span>
     </span>
   </span>
-  <textarea
-    class="prefix-Input"
-  />
+  <div
+    class="prefix-Input-textarea"
+  >
+    <textarea
+      class="prefix-Input"
+    />
+  </div>
 </div>
 `;
 
@@ -16275,12 +16299,12 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
       class="config-modal-mask"
     />
     <div
-      class="config-modal-wrap "
+      class="config-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="config-modal "
+        class="config-modal"
         role="document"
         style="width:520px"
       >
@@ -16368,12 +16392,12 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
       class="config-modal-mask"
     />
     <div
-      class="config-modal-wrap "
+      class="config-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="config-modal "
+        class="config-modal"
         role="document"
         style="width:520px"
       >
@@ -16461,12 +16485,12 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
       class="config-modal-mask"
     />
     <div
-      class="config-modal-wrap "
+      class="config-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="config-modal "
+        class="config-modal"
         role="document"
         style="width:520px"
       >
@@ -16554,12 +16578,12 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
       class="ant-modal-mask"
     />
     <div
-      class="ant-modal-wrap "
+      class="ant-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="ant-modal "
+        class="ant-modal"
         role="document"
         style="width:520px"
       >
@@ -16647,12 +16671,12 @@ exports[`ConfigProvider components Modal normal 1`] = `
       class="ant-modal-mask"
     />
     <div
-      class="ant-modal-wrap "
+      class="ant-modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="ant-modal "
+        class="ant-modal"
         role="document"
         style="width:520px"
       >
@@ -16740,12 +16764,12 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
       class="prefix-Modal-mask"
     />
     <div
-      class="prefix-Modal-wrap "
+      class="prefix-Modal-wrap"
       role="dialog"
       tabindex="-1"
     >
       <div
-        class="prefix-Modal "
+        class="prefix-Modal"
         role="document"
         style="width:520px"
       >

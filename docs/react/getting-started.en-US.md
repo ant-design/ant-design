@@ -97,6 +97,16 @@ During actual real-world project development, you will most likely need a develo
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - More scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
+## Test with Jest
+
+If you use `create-react-app` follow the instructions [here](/docs/react/use-with-create-react-app#Test-with-Jest) instead.
+
+Jest does not support `esm` modules, and Ant Design uses them. In order to test your Ant Design application with Jest you have to add the following to your Jest config :
+
+```json
+"transform": { "^.+\\.(ts|tsx|js|jsx)?$": "ts-jest" }
+```
+
 ## Import on Demand
 
 `antd` supports tree shaking of ES modules, so using `import { Button } from 'antd';` would drop js code you didn't use.

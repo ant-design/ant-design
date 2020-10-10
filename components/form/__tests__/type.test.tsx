@@ -67,4 +67,20 @@ describe('Form.typescript', () => {
       expect(Demo).toBeTruthy();
     });
   });
+
+  it('FormItem renderProps support generic', () => {
+    const Demo = () => (
+      <Form<FormValues>>
+        <Form.Item<FormValues>>
+          {({ getFieldsValue }) => {
+            const values: FormValues = getFieldsValue();
+            expect(values).toBeTruthy();
+            return null;
+          }}
+        </Form.Item>
+      </Form>
+    );
+
+    expect(Demo).toBeTruthy();
+  });
 });

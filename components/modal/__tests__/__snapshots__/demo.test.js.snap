@@ -283,6 +283,17 @@ exports[`renders ./components/modal/demo/manual.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/modal/demo/modal-render.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Open Draggable Modal
+  </span>
+</button>
+`;
+
 exports[`renders ./components/modal/demo/position.md correctly 1`] = `
 Array [
   <button
