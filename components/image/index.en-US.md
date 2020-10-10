@@ -27,10 +27,10 @@ Previewable image.
 
 ### previewType
 
-```
+```js
 {
-  visible: boolean,
-  onVisibleChange:function(value, prevValue)
+  visible?: boolean;
+  onVisibleChange?: (visible, prevVisible) => void;
 }
 ```
 
