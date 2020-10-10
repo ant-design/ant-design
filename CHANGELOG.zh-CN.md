@@ -37,6 +37,7 @@ timeline: true
   - 🆕 Modal 新增 `modalRender` 属性，支持可拖拽的对话框。[#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
 - 🆕 Space 增加 `split` 属性以支持分隔符间隔。[#26948](https://github.com/ant-design/ant-design/pull/26948)
 - 🆕 Image `preview` 属性扩展支持 `visible` 和 `onVisibleChange`。[#26915](https://github.com/ant-design/ant-design/pull/26915)
+- 🆕 InputNumber 点击上下按钮时将触发 `onStep`。[#27075](https://github.com/ant-design/ant-design/pull/27075)
 - 🆕 Avatar `size` 可以进行响应式的大小配置。[#26244](https://github.com/ant-design/ant-design/pull/26244) [@willamesoares](https://github.com/willamesoares)
 - 🐞 修复 Radio.Button 内无法使用 Tooltip 的问题。[#27050](https://github.com/ant-design/ant-design/pull/27050)
 - RTL

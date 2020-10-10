@@ -37,6 +37,7 @@ timeline: true
   - 🆕 Modal add `modalRender` prop which can be used for draggable dialog. [#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
 - 🆕 Space add `split` prop. [#26948](https://github.com/ant-design/ant-design/pull/26948)
 - 🆕 Image `preview` prop now support `visible` and `onVisibleChange`. [#26915](https://github.com/ant-design/ant-design/pull/26915)
+- 🆕 InputNumber will trigger `onStep` prop when click up/down buttons. [#27075](https://github.com/ant-design/ant-design/pull/27075)
 - 🆕 Avatar `size` support responsive config. [#26244](https://github.com/ant-design/ant-design/pull/26244) [@willamesoares](https://github.com/willamesoares)
 - 🐞 Fix Radio.Button children cannot apply Tooltip. [#27050](https://github.com/ant-design/ant-design/pull/27050)
 - RTL
