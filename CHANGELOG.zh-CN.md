@@ -15,6 +15,51 @@ timeline: true
 
 ---
 
+## 4.7.0
+
+`2020-10-10`
+
+- 🔥 Input.TextArea 支持字数统计功能。[#26952](https://github.com/ant-design/ant-design/pull/26952) [@zhangchen915](https://github.com/zhangchen915)
+- 🔥 DatePicker `format` 支持传入一个函数以自定义显示内容。[#26845](https://github.com/ant-design/ant-design/pull/26845)
+- Form
+  - 🔥 Form.Item 支持 `tooltip` 属性自定义提示信息。[#26780](https://github.com/ant-design/ant-design/pull/26780)
+  - 🆕 Form.List 支持 `rules` 校验并添加 Form.ErrorList 组件用于展示。[#26676](https://github.com/ant-design/ant-design/pull/26676)
+  - 🆕 Form.Item 支持 `messageVariables` 属性。[#26597](https://github.com/ant-design/ant-design/pull/26597)
+  - 🐞 修复 Form `onValuesChange` 第二个参数返回整个 `store` 的值而不是有效字段值的问题。[#26808](https://github.com/ant-design/ant-design/pull/26808)
+- Upload
+  - 🔥 Upload 添加 `itemRender` 用于自定义文件列表项。[#26333](https://github.com/ant-design/ant-design/pull/26333)
+  - 🆕 Upload `removeIcon` 和 `downloadIcon` 现在支持传入一个函数。[#26684](https://github.com/ant-design/ant-design/pull/26684) [@mwaddell](https://github.com/mwaddell)
+- Table
+  - 🆕 Table `sticky` 支持 `getContainer` 以指定滚动容器。[#26973](https://github.com/ant-design/ant-design/pull/26973)
+  - 🐞 修复 Table `column.filterDropdown` 为 `undefined` 时依旧会展示筛选菜单的问题。[#27002](https://github.com/ant-design/ant-design/pull/27002) [@shangyilim](https://github.com/shangyilim)
+- Modal
+  - 🛠 重构 Modal 组件动画，现在关闭时将完全清理相关 Dom 节点。[#26940](https://github.com/ant-design/ant-design/pull/26940)
+  - 🆕 Modal 新增 `modalRender` 属性，支持可拖拽的对话框。[#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
+- 🆕 Space 增加 `split` 属性以支持分隔符间隔。[#26948](https://github.com/ant-design/ant-design/pull/26948)
+- 🆕 Image `preview` 属性扩展支持 `visible` 和 `onVisibleChange`。[#26915](https://github.com/ant-design/ant-design/pull/26915)
+- 🆕 InputNumber 点击上下按钮时将触发 `onStep`。[#27075](https://github.com/ant-design/ant-design/pull/27075)
+- 🆕 Avatar `size` 可以进行响应式的大小配置。[#26244](https://github.com/ant-design/ant-design/pull/26244) [@willamesoares](https://github.com/willamesoares)
+- 🐞 修复 Radio.Button 内无法使用 Tooltip 的问题。[#27050](https://github.com/ant-design/ant-design/pull/27050)
+- RTL
+  - ⬅️ 修复 List 按钮在 RTL 模式下的样式。[#26964](https://github.com/ant-design/ant-design/pull/26964)
+  - ⬅️ 优化 Transfer 分页在 RTL 模式下的样式。[#26960](https://github.com/ant-design/ant-design/pull/26960)
+  - ⬅️ 修复 Upload RTL 模式下样式。[#26961](https://github.com/ant-design/ant-design/pull/26961)
+  - ⬅️ 优化 Tag 样式避免主题和 RTL 模式互相影响。[#26955](https://github.com/ant-design/ant-design/pull/26955)
+  - ⬅️ 优化 Cascader/Tree 组件中数据扩展 `loading` 按钮在 RTL 模式下的样式。[#27010](https://github.com/ant-design/ant-design/pull/27010)
+- TypeScript
+  - 🤖 修复 `TimeLineItemProps` 为 `TimelineItemProps`。[#27001](https://github.com/ant-design/ant-design/pull/27001) [@mgcrea](https://github.com/mgcrea)
+  - 🤖 修复 Slider `autoFocus` 属性定义。[#26995](https://github.com/ant-design/ant-design/pull/26995) [@shangyilim](https://github.com/shangyilim)
+  - 🤖 修复 Slider `step` 属性不接收 `null` 的问题。[#26984](https://github.com/ant-design/ant-design/pull/26984) [@shangyilim](https://github.com/shangyilim)
+  - 🤖 修复 Slider.Range `trackStyle` 和 `handleStyle` 应该接受数组的问题。[#27033](https://github.com/ant-design/ant-design/pull/27033)
+  - 🤖 优化 Tag `onClose` TypeScript 定义。[#26932](https://github.com/ant-design/ant-design/pull/26932)
+  - 🤖 调整 Form 定义，现在当 `getFieldsValue` 不配置 `namePath` 时返回类型为 FormValue 的泛型定义。[#26791](https://github.com/ant-design/ant-design/pull/26791)
+- 国际化
+  - 🇧🇾 新增白俄罗斯语支持。[#27028](https://github.com/ant-design/ant-design/pull/27028) [@StIvan8](https://github.com/StIvan8)
+  - 🇯🇵 调整日语国际化文案。[#27043](https://github.com/ant-design/ant-design/pull/27043) [@iorikingdom](https://github.com/iorikingdom)
+  - 🇵🇱 补充 Table 波兰语国际化文案。[#26913](https://github.com/ant-design/ant-design/pull/26913) [@daczczcz1](https://github.com/daczczcz1)
+  - 🇹🇷 补充土耳其语可选文案。[#27017](https://github.com/ant-design/ant-design/pull/27017) [@alperTunca](https://github.com/alperTunca)
+  - 🇹🇭 补充 DatePicker 的泰语国际化文案。[#26993](https://github.com/ant-design/ant-design/pull/26993) [@anawinwz](https://github.com/anawinwz)
+
 ## 4.6.6
 
 `2020-09-27`
