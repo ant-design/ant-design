@@ -236,4 +236,9 @@ describe('Form.List', () => {
       jest.useRealTimers();
     });
   });
+
+  it('should render empty without errors', () => {
+    const wrapper = mount(<Form.ErrorList />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
