@@ -277,7 +277,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
-| enum | 是否匹配枚举中的值 | any[] |
+| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any[] |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
 | max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
 | message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |

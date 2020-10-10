@@ -275,7 +275,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 | Name | Description | Type |
 | --- | --- | --- |
-| enum | Match enum value | any[] |
+| enum | Match enum value. You need to set `type` to `enum` to enable this | any[] |
 | len | Length of string, number, array | number |
 | max | `type` required: max length of `string`, `number`, `array` | number |
 | message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |
