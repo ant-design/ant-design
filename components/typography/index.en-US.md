@@ -24,7 +24,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
+| ellipsis | Display ellipsis when text overflows | boolean | false |  |
 | mark | Marked style | boolean | false |  |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | underline | Underlined style | boolean | false |  |
