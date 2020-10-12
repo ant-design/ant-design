@@ -6,11 +6,13 @@ const Image: React.FC<ImageProps> = ({ prefixCls: customizePrefixCls, getPopupCo
   const { getPrefixCls }: ConfigConsumerProps = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
 
-  return <RcImage 
+  return (
+    <RcImage 
            prefixCls={prefixCls} 
            getPopupContainer={getPopupContainer}
            {...otherProps} 
-         />;
+         />
+  );
 };
 
 export default Image;
