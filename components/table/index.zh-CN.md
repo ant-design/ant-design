@@ -91,7 +91,7 @@ const columns = [
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
 | showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | true |  |
-| sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number}` | - | 4.6.0 |
+| sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) |
 
 #### onRow 用法
 
@@ -154,9 +154,9 @@ const columns = [
 
 ### ColumnGroup
 
-| 参数  | 说明         | 类型                | 默认值 |
-| ----- | ------------ | ------------------- | ------ |
-| title | 列头显示文字 | string \| ReactNode | -      |
+| 参数  | 说明         | 类型      | 默认值 |
+| ----- | ------------ | --------- | ------ |
+| title | 列头显示文字 | ReactNode | -      |
 
 ### pagination
 
@@ -196,7 +196,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
 | columnWidth | 自定义列表选择框宽度 | string \| number | `60px` |  |
-| columnTitle | 自定义列表选择框标题 | string \| ReactNode | - |  |
+| columnTitle | 自定义列表选择框标题 | ReactNode | - |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3.0 |
@@ -223,7 +223,7 @@ const columns = [
 | 参数     | 说明                       | 类型                        | 默认值 |
 | -------- | -------------------------- | --------------------------- | ------ |
 | key      | React 需要的 key，建议设置 | string                      | -      |
-| text     | 选择项显示的文字           | string \| ReactNode         | -      |
+| text     | 选择项显示的文字           | ReactNode                   | -      |
 | onSelect | 选择项点击回调             | function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用

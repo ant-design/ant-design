@@ -21,13 +21,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | afterClose | Modal 完全关闭后的回调 | function | - |
 | bodyStyle | Modal body 样式 | object | {} |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |
-| cancelText | 取消按钮文字 | string \| ReactNode | `取消` |
+| cancelText | 取消按钮文字 | ReactNode | `取消` |
 | centered | 垂直居中展示 Modal | boolean | false |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |
 | confirmLoading | 确定按钮 loading | boolean | false |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string \| ReactNode | (确定取消按钮) |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode | (确定取消按钮) |
 | forceRender | 强制渲染 Modal | boolean | false |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |
@@ -36,12 +36,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | maskStyle | 遮罩样式 | object | {} |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |
-| okText | 确认按钮文字 | string \| ReactNode | `确定` |
+| okText | 确认按钮文字 | ReactNode | `确定` |
 | okType | 确认按钮类型 | string | `primary` |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |
 | onOk | 点击确定回调 | function(e) | - |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |
-| title | 标题 | string \| ReactNode | - |
+| title | 标题 | ReactNode | - |
 | visible | 对话框是否可见 | boolean | - |
 | width | 宽度 | string \| number | 520 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
@@ -72,7 +72,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| content | 内容 | string \| ReactNode | - |  |
+| content | 内容 | ReactNode | - |  |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
@@ -85,7 +85,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 | onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
-| title | 标题 | string \| ReactNode | - |  |
+| title | 标题 | ReactNode | - |  |
 | width | 宽度 | string \| number | 416 |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 

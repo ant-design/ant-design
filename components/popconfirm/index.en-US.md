@@ -22,7 +22,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | okType | Button `type` of the Confirm button | string | `primary` |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |
-| title | The title of the confirmation box | string \| ReactNode \| () => ReactNode | - |
+| title | The title of the confirmation box | ReactNode \| () => ReactNode | - |
 | onCancel | A callback of cancel | function(e) | - |
 | onConfirm | A callback of confirmation | function(e) | - |
 | icon | Customize icon of confirmation | ReactNode | &lt;ExclamationCircle /> |

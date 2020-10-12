@@ -533,6 +533,60 @@ Array [
 ]
 `;
 
+exports[`renders ./components/space/demo/split.md correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:4px"
+  >
+    <a
+      class="ant-typography"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-split"
+    style="margin-right:4px"
+  >
+    <div
+      class="ant-divider ant-divider-vertical"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+    style="margin-right:4px"
+  >
+    <a
+      class="ant-typography"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-split"
+    style="margin-right:4px"
+  >
+    <div
+      class="ant-divider ant-divider-vertical"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography"
+    >
+      Link
+    </a>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"

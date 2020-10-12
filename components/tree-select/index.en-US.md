@@ -78,7 +78,7 @@ Tree selection control.
 | disabled | Disabled or not | boolean | false |  |
 | isLeaf | Leaf node or not | boolean | false |  |
 | key | Required property (unless using `treeDataSimpleMode`), should be unique in the tree | string | - |  |
-| title | Content showed on the treeNodes | string \| ReactNode | `---` |  |
+| title | Content showed on the treeNodes | ReactNode | `---` |  |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |  |
 
 ## FAQ

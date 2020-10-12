@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 4.6.6
+
+`2020-09-27`
+
+- 🐞 Fix Steps first item shifts in small screen. [#26894](https://github.com/ant-design/ant-design/pull/26894)
+- 💄 Fix Divider border style not work when text is provided. [#26863](https://github.com/ant-design/ant-design/pull/26863)
+- 🐞 Fix Radio.Button validation error highlight. [#26849](https://github.com/ant-design/ant-design/pull/26849) [@dhorelik](https://github.com/dhorelik)
+- 💄 Fix Typography link-decoration style. [#26854](https://github.com/ant-design/ant-design/pull/26854) [@vineetvk01](https://github.com/vineetvk01)
+- Locale
+  - 🌐 Add Thai locale support. [#26906](https://github.com/ant-design/ant-design/pull/26906) [@anawinwz](https://github.com/anawinwz)
+- TypeScript
+  - 🤖 Fix message.destroy parameter type. [#26864](https://github.com/ant-design/ant-design/pull/26864) [@lihqi](https://github.com/lihqi)
+  - 🤖 Optimize Slider type definition. [#26884](https://github.com/ant-design/ant-design/pull/26884)
+  - 🤖 Form properly export `FormListProps` type. [#26831](https://github.com/ant-design/ant-design/pull/26831) [@mgcrea](https://github.com/mgcrea)
+
 ## 4.6.5
 
 `2020-09-20`

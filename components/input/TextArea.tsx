@@ -4,11 +4,15 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { fixControlledValue, resolveOnChange } from './Input';
 
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
+  showCount?: boolean;
+  maxLength?: number;
+  size?: SizeType;
 }
 
 export interface TextAreaState {
@@ -74,13 +78,16 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
   };
 
-  renderTextArea = (prefixCls: string, bordered: boolean) => {
+  renderTextArea = (prefixCls: string, bordered: boolean, size?: SizeType) => {
+    const { size: customizeSize } = this.props;
     return (
       <RcTextArea
-        {...omit(this.props, ['allowClear', 'bordered'])}
+        {...omit(this.props, ['allowClear', 'bordered', 'showCount', 'size'])}
         className={classNames(
           {
             [`${prefixCls}-borderless`]: !bordered,
+            [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
+            [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
           },
           this.props.className,
         )}
@@ -92,22 +99,44 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { value } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
+    let value = fixControlledValue(this.state?.value);
+    const {
+      prefixCls: customizePrefixCls,
+      bordered = true,
+      showCount = false,
+      maxLength,
+    } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    const hasMaxLength = Number(maxLength) > 0;
+    value = hasMaxLength ? value.slice(0, maxLength) : value;
+    const valueLength = [...value].length;
+    const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+
     return (
-      <ClearableLabeledInput
-        {...this.props}
-        prefixCls={prefixCls}
-        direction={direction}
-        inputType="text"
-        value={fixControlledValue(value)}
-        element={this.renderTextArea(prefixCls, bordered)}
-        handleReset={this.handleReset}
-        ref={this.saveClearableInput}
-        triggerFocus={this.focus}
-        bordered={bordered}
-      />
+      <SizeContext.Consumer>
+        {size => (
+          <div
+            className={classNames(`${prefixCls}-textarea`, {
+              [`${prefixCls}-textarea-show-count`]: showCount,
+            })}
+            {...(showCount ? { 'data-count': dataCount } : {})}
+          >
+            <ClearableLabeledInput
+              size={size}
+              {...this.props}
+              prefixCls={prefixCls}
+              direction={direction}
+              inputType="text"
+              value={value}
+              element={this.renderTextArea(prefixCls, bordered, size)}
+              handleReset={this.handleReset}
+              ref={this.saveClearableInput}
+              triggerFocus={this.focus}
+              bordered={bordered}
+            />
+          </div>
+        )}
+      </SizeContext.Consumer>
     );
   };
 

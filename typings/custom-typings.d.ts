@@ -46,14 +46,6 @@ declare module 'rc-rate';
 
 declare module 'rc-queue-anim';
 
-declare module 'rc-slider';
-
-declare module 'rc-slider/lib/Slider';
-
-declare module 'rc-slider/lib/Range';
-
-declare module 'rc-slider/lib/Handle';
-
 declare module 'rc-steps';
 
 declare module 'rc-switch';

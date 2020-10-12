@@ -64,7 +64,7 @@ Select component to select value from options.
 | options | Select options. Will get better perf than jsx definition | { label, value }[] | - |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
-| placeholder | Placeholder of select | string \| ReactNode | - |  |
+| placeholder | Placeholder of select | ReactNode | - |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
 | showSearch | Whether show search input in single mode | boolean | false |  |

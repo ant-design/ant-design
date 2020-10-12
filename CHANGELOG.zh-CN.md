@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 4.6.6
+
+`2020-09-27`
+
+- 🐞 修复 Steps 在小屏幕下第一项偏移的问题。[#26894](https://github.com/ant-design/ant-design/pull/26894)
+- 💄 修复 Divider 在有文字时，设置边框颜色无效的问题。[#26863](https://github.com/ant-design/ant-design/pull/26863)
+- 🐞 修复 Radio.Button 错误校验高亮样式的问题。[#26849](https://github.com/ant-design/ant-design/pull/26849) [@dhorelik](https://github.com/dhorelik)
+- 💄 修复 Typography 链接下划线样式。[#26854](https://github.com/ant-design/ant-design/pull/26854) [@vineetvk01](https://github.com/vineetvk01)
+- 国际化
+  - 🌐 添加泰语支持。[#26906](https://github.com/ant-design/ant-design/pull/26906) [@anawinwz](https://github.com/anawinwz)
+- TypeScript
+  - 🤖 修复 message.destroy 参数类型错误。[#26864](https://github.com/ant-design/ant-design/pull/26864) [@lihqi](https://github.com/lihqi)
+  - 🤖 优化 Slider 类型定义。[#26884](https://github.com/ant-design/ant-design/pull/26884)
+  - 🤖 导出 Form 中的 `FormListProps` 类型。[#26831](https://github.com/ant-design/ant-design/pull/26831) [@mgcrea](https://github.com/mgcrea)
+
 ## 4.6.5
 
 `2020-09-20`

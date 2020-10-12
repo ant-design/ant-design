@@ -130,7 +130,20 @@ describe('TextArea', () => {
     const textarea = mount(<TextArea value="111" />);
     input.setProps({ value: undefined });
     textarea.setProps({ value: undefined });
-    expect(textarea.getDOMNode().value).toBe(input.getDOMNode().value);
+    expect(textarea.find('textarea').prop('value')).toBe(input.getDOMNode().value);
+  });
+
+  it('should support showCount', async () => {
+    const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
+    const textarea = wrapper.find('.ant-input-textarea');
+    expect(wrapper.find('textarea').prop('value')).toBe('12345');
+    expect(textarea.prop('data-count')).toBe('5 / 5');
+  });
+
+  it('should support size', async () => {
+    const wrapper = mount(<TextArea size="large" />);
+    expect(wrapper.find('textarea').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
 

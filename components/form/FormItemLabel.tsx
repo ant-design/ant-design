@@ -20,7 +20,7 @@ function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
     return null;
   }
 
-  if (tooltip && typeof tooltip === 'object' && !React.isValidElement(tooltip)) {
+  if (typeof tooltip === 'object' && !React.isValidElement(tooltip)) {
     return tooltip as WrapperTooltipProps;
   }
 
