@@ -33,6 +33,16 @@
       margin: 0 @input-affix-margin 0 0;
     }
   }
+
+  &-textarea {
+    &-rtl {
+      direction: rtl;
+    }
+
+    &-rtl&-show-count::after {
+      text-align: left;
+    }
+  }
 }
 
 // allow-clear
