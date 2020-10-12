@@ -78,7 +78,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
   };
 
-  renderTextArea = (prefixCls: string, bordered: boolean, size: SizeType | undefined) => {
+  renderTextArea = (prefixCls: string, bordered: boolean, size?: SizeType) => {
     const { size: customizeSize } = this.props;
     return (
       <RcTextArea
