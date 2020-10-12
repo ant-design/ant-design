@@ -8,13 +8,20 @@ export interface CheckableTagProps {
   style?: React.CSSProperties;
   checked: boolean;
   onChange?: (checked: boolean) => void;
-  onClick?: (e: React.MouseEventHandler<HTMLElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const CheckableTag: React.FC<CheckableTagProps> = props => {
+const CheckableTag: React.FC<CheckableTagProps> = ({
+  prefixCls: customizePrefixCls,
+  className,
+  checked,
+  onChange,
+  onClick,
+  ...restProps
+}) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const handleClick = (e: React.MouseEventHandler) => {
-    const { checked, onChange, onClick } = props;
+
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     if (onChange) {
       onChange(!checked);
     }
@@ -23,7 +30,6 @@ const CheckableTag: React.FC<CheckableTagProps> = props => {
     }
   };
 
-  const { prefixCls: customizePrefixCls, className, checked, ...restProps } = props;
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const cls = classNames(
     prefixCls,
@@ -34,8 +40,7 @@ const CheckableTag: React.FC<CheckableTagProps> = props => {
     className,
   );
 
-  delete (restProps as any).onChange; // TypeScript cannot check delete now.
-  return <span {...(restProps as any)} className={cls} onClick={handleClick} />;
+  return <span {...restProps} className={cls} onClick={handleClick} />;
 };
 
 export default CheckableTag;
