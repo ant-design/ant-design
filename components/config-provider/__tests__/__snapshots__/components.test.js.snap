@@ -14628,7 +14628,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-textarea"
   >
     <textarea
-      class="config-input"
+      class="config-input config-input-lg"
     />
   </div>
 </div>
