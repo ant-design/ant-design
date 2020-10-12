@@ -196,6 +196,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.6.0",
+    "esbuild": "^0.7.14",
     "esbuild-webpack-plugin": "^1.0.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.0.0",
