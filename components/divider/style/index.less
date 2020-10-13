@@ -6,7 +6,7 @@
 .@{divider-prefix-cls} {
   .reset-component;
 
-  border-top: 1px solid @divider-color;
+  border-top: @border-width-base solid @divider-color;
 
   &-vertical {
     position: relative;
@@ -16,7 +16,7 @@
     margin: 0 8px;
     vertical-align: middle;
     border-top: 0;
-    border-left: 1px solid @divider-color;
+    border-left: @border-width-base solid @divider-color;
   }
 
   &-horizontal {
@@ -43,7 +43,7 @@
       position: relative;
       top: 50%;
       width: 50%;
-      border-top: 1px solid transparent;
+      border-top: @border-width-base solid transparent;
       // Chrome not accept `inherit` in `border-top`
       border-top-color: inherit;
       border-bottom: 0;
@@ -83,7 +83,7 @@
     background: none;
     border-color: @divider-color;
     border-style: dashed;
-    border-width: 1px 0 0;
+    border-width: @border-width-base 0 0;
   }
 
   &-horizontal&-with-text&-dashed {
@@ -95,7 +95,7 @@
   }
 
   &-vertical&-dashed {
-    border-width: 0 0 0 1px;
+    border-width: 0 0 0 @border-width-base;
   }
 
   &-plain&-with-text {
