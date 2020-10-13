@@ -14,14 +14,26 @@
 
   &&-success {
     color: @success-color;
+    a&:active,
+    a&:focus,
+    a&:hover {
+      color: ~`colorPalette('@{success-color}', 5) `;
+    }
   }
 
   &&-warning {
     color: @warning-color;
+    a&:active,
+    a&:focus,
+    a&:hover {
+      color: ~`colorPalette('@{warning-color}', 5) `;
+    }
   }
 
   &&-danger {
     color: @error-color;
+    a&:active,
+    a&:focus,
     a&:hover {
       color: ~`colorPalette('@{error-color}', 5) `;
     }
