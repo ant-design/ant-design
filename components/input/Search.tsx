@@ -6,7 +6,7 @@ import Input, { InputProps } from './Input';
 import Button from '../button';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { cloneElement, replaceElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -96,7 +96,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
     if (addonAfter) {
       return [
         button,
-        replaceElement(addonAfter, null, {
+        cloneElement(addonAfter, {
           key: 'addonAfter',
         }),
       ];

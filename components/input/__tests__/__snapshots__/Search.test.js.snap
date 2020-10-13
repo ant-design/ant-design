@@ -194,6 +194,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
           </span>
         </span>
       </button>
+      addonAfter
     </span>
   </span>
 </span>
@@ -252,6 +253,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
           </span>
         </span>
       </button>
+      addonAfter
     </span>
   </span>
 </span>
