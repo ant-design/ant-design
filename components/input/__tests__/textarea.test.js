@@ -167,7 +167,7 @@ describe('TextArea allowClear', () => {
     );
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-textarea-clear-icon').exists()).toEqual(false);
+      expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
