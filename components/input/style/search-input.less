@@ -6,13 +6,19 @@
 @search-prefix: ~'@{ant-prefix}-input-search';
 
 .@{search-prefix} {
-  input {
+  .@{ant-prefix}-input {
     border-right: 0;
 
     &:hover,
     &:focus {
       border-color: @input-hover-border-color;
     }
+  }
+
+  // fix slight height diff in Firefox:
+  // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
+  .@{ant-prefix}-input-lg {
+    line-height: @line-height-base - 0.0002;
   }
 
   > .@{ant-prefix}-input-group {

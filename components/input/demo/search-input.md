@@ -32,8 +32,6 @@ const onSearch = value => console.log(value);
 
 ReactDOM.render(
   <>
-    <Search loading suffix="suffix" addonAfter="addonAfter" />
-    <Search loading suffix="suffix" enterButton addonAfter="addonAfter" />
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <br />
     <br />
