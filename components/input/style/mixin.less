@@ -202,17 +202,6 @@
         }
       }
     }
-
-    // Expand addon icon click area
-    // https://github.com/ant-design/ant-design/issues/3714
-    > i:only-child::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      content: '';
-    }
   }
 
   // Reset rounded corners
@@ -339,11 +328,8 @@
 
     // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
     & > .@{ant-prefix}-select > .@{ant-prefix}-select-selector,
-    & > .@{ant-prefix}-calendar-picker .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker .@{ant-prefix}-input,
-    & > .@{ant-prefix}-mention-wrapper .@{ant-prefix}-mention-editor,
-    & > .@{ant-prefix}-time-picker .@{ant-prefix}-time-picker-input,
     & > .@{ant-prefix}-input-group-wrapper .@{ant-prefix}-input {
       border-right-width: @border-width-base;
       border-radius: 0;
@@ -368,23 +354,16 @@
 
     & > *:first-child,
     & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
-    & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-mention-wrapper:first-child .@{ant-prefix}-mention-editor,
-    & > .@{ant-prefix}-time-picker:first-child .@{ant-prefix}-time-picker-input {
+    & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
     }
 
     & > *:last-child,
     & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selector,
-    & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-select-auto-complete:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-mention-wrapper:last-child .@{ant-prefix}-mention-editor,
-    & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
+    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
       border-right-width: @border-width-base;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;

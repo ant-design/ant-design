@@ -147,7 +147,7 @@ describe('TextArea allowClear', () => {
     wrapper.find('textarea').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
   });
@@ -156,7 +156,7 @@ describe('TextArea allowClear', () => {
     const wrappers = [null, undefined, ''].map(val => mount(<TextArea allowClear value={val} />));
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-textarea-clear-icon-hidden').exists()).toBeTruthy();
+      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -167,7 +167,7 @@ describe('TextArea allowClear', () => {
     );
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-textarea-clear-icon').exists()).toEqual(false);
+      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -180,7 +180,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<TextArea allowClear defaultValue="111" onChange={onChange} />);
-    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('');
@@ -194,7 +194,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<TextArea allowClear value="111" onChange={onChange} />);
-    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('111');
@@ -202,14 +202,14 @@ describe('TextArea allowClear', () => {
 
   it('should focus textarea after clear', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" />, { attachTo: document.body });
-    wrapper.find('.ant-input-textarea-clear-icon').at(0).simulate('click');
+    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(document.activeElement).toBe(wrapper.find('textarea').at(0).getDOMNode());
     wrapper.unmount();
   });
 
   it('should not support allowClear when it is disabled', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" disabled />);
-    expect(wrapper.find('.ant-input-textarea-clear-icon-hidden').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
   });
 
   it('not block input when `value` is undefined', () => {

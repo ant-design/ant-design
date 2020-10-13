@@ -21,12 +21,16 @@
   background-color: @primary-color;
   border-radius: @border-radius-sm;
 
+  &-text {
+    color: @white;
+  }
+
   &-corner {
     position: absolute;
     top: 100%;
     width: 8px;
     height: 8px;
-    color: @primary-color;
+    color: currentColor;
     border: 4px solid;
     transform: scaleY(0.75);
     transform-origin: top;
@@ -50,10 +54,8 @@
     @color: extract(@preset-colors, @i);
     @darkColor: '@{color}-6';
     &-color-@{color} {
-      background-color: @@darkColor;
-      .@{ribbon-prefix-cls}-corner {
-        color: @@darkColor;
-      }
+      color: @@darkColor;
+      background: @@darkColor;
     }
   }
   .make-color-classes();
@@ -65,20 +67,15 @@
     .@{ribbon-prefix-cls}-corner {
       right: 0;
       border-color: currentColor transparent transparent currentColor;
-      &::after {
-        border-color: currentColor transparent transparent currentColor;
-      }
     }
   }
+
   &.@{ribbon-prefix-cls}-placement-start {
     left: -8px;
     border-bottom-left-radius: 0;
     .@{ribbon-prefix-cls}-corner {
       left: 0;
       border-color: currentColor currentColor transparent transparent;
-      &::after {
-        border-color: currentColor currentColor transparent transparent;
-      }
     }
   }
 }

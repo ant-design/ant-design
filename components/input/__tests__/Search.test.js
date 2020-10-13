@@ -36,14 +36,14 @@ describe('Input.Search', () => {
   it('should disable search icon when disabled prop is true', () => {
     const onSearch = jest.fn();
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} disabled />);
-    wrapper.find('.anticon-search').simulate('click');
+    wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(0);
   });
 
   it('should trigger onSearch when click search icon', () => {
     const onSearch = jest.fn();
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
-    wrapper.find('.anticon-search').simulate('click');
+    wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith(
       'search text',
