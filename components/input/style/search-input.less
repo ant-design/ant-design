@@ -5,85 +5,38 @@
 
 @search-prefix: ~'@{ant-prefix}-input-search';
 
-.searchInputIcon(@input-height, @font-size) {
-  .@{search-prefix}-icon {
-    @horizontal-padding: (@input-height - @font-size) / 2;
-    padding: 0 @horizontal-padding;
-
-    &::before {
-      transform: translateX(-@horizontal-padding - @border-width-base);
-    }
-
-    &::after {
-      width: @input-height;
-    }
-  }
-}
-
-.searchInputIcon(@input-height-base, @font-size-base);
-
-.@{ant-prefix}-input-affix-wrapper-lg {
-  .searchInputIcon(@input-height-lg, @font-size-lg);
-}
-.@{ant-prefix}-input-affix-wrapper-sm {
-  .searchInputIcon(@input-height-sm, @font-size-sm);
-}
-
 .@{search-prefix} {
-  &-icon {
-    margin-left: 0.5em;
-    color: @text-color-secondary;
-    cursor: pointer;
-    transition: all 0.3s;
-    &:hover {
-      color: @input-icon-hover-color;
-    }
+  input {
+    border-right: 0;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      display: block;
-      border-left: @border-width-base @border-style-base @input-border-color;
-      transition: all 0.3s;
-      content: '';
-    }
-
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      content: '';
+    &:hover,
+    &:focus {
+      border-color: @input-hover-border-color;
     }
   }
 
-  &:not(&-enter-button) {
-    padding-right: 0;
-  }
-
-  &-enter-button {
-    input {
-      border-right: 0;
-
-      &:hover,
-      &:focus {
-        border-color: @input-hover-border-color;
-      }
-    }
-
-    &.@{ant-prefix}-input-affix-wrapper {
+  > .@{ant-prefix}-input-group {
+    > .@{ant-prefix}-input-affix-wrapper {
       border-right: 0;
     }
-
-    & + .@{ant-prefix}-input-group-addon,
-    input + .@{ant-prefix}-input-group-addon {
+    > .@{ant-prefix}-input-group-addon {
       padding: 0;
       border: 0;
 
       .@{search-prefix}-button {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+      }
+
+      .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+        color: @text-color-secondary;
+
+        &.@{ant-prefix}-btn-loading::before {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
       }
     }
   }
