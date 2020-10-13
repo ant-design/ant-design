@@ -12,6 +12,10 @@
     &:hover,
     &:focus {
       border-color: @input-hover-border-color;
+
+      + .@{ant-prefix}-input-group-addon .@{search-prefix}-button {
+        border-left-color: @input-hover-border-color;
+      }
     }
   }
 
