@@ -16,7 +16,7 @@ Display the document sample.
 ```jsx
 import { Typography, Divider } from 'antd';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph, Text, Link } = Typography;
 
 ReactDOM.render(
   <Typography>
@@ -45,13 +45,13 @@ ReactDOM.render(
     <Paragraph>
       <ul>
         <li>
-          <a href="/docs/spec/proximity">Principles</a>
+          <Link href="/docs/spec/proximity">Principles</Link>
         </li>
         <li>
-          <a href="/docs/pattern/navigation">Patterns</a>
+          <Link href="/docs/pattern/navigation">Patterns</Link>
         </li>
         <li>
-          <a href="/docs/resource/download">Resource Download</a>
+          <Link href="/docs/resource/download">Resource Download</Link>
         </li>
       </ul>
     </Paragraph>
@@ -81,13 +81,13 @@ ReactDOM.render(
     <Paragraph>
       <ul>
         <li>
-          <a href="/docs/spec/proximity">设计原则</a>
+          <Link href="/docs/spec/proximity">设计原则</Link>
         </li>
         <li>
-          <a href="/docs/pattern/navigation">设计模式</a>
+          <Link href="/docs/pattern/navigation">设计模式</Link>
         </li>
         <li>
-          <a href="/docs/resource/download">设计资源</a>
+          <Link href="/docs/resource/download">设计资源</Link>
         </li>
       </ul>
     </Paragraph>

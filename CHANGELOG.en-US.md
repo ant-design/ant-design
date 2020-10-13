@@ -15,6 +15,51 @@ timeline: true
 
 ---
 
+## 4.7.0
+
+`2020-10-10`
+
+- 🔥 Input.TextArea support word count. [#26952](https://github.com/ant-design/ant-design/pull/26952) [@zhangchen915](https://github.com/zhangchen915)
+- 🔥 DatePicker support custom `format` by passing a function. [#26845](https://github.com/ant-design/ant-design/pull/26845)
+- Form
+  - 🔥 Form.Item support `tooltip` to customize tooltip. [#26780](https://github.com/ant-design/ant-design/pull/26780)
+  - 🆕 Form.List support `rules` validation and add Form.ErrorList to show the errors. [#26676](https://github.com/ant-design/ant-design/pull/26676)
+  - 🆕 Form.Item support `messageVariables` prop. [#26597](https://github.com/ant-design/ant-design/pull/26597)
+  - 🐞 Fix Form `onValuesChange` second param return fully `store` values instead of validate fields. [#26808](https://github.com/ant-design/ant-design/pull/26808)
+- Upload
+  - 🔥 Upload can custom the item of file list by `itemRender` now. [#26333](https://github.com/ant-design/ant-design/pull/26333)
+  - 🆕 Upload custom action icons now supports callback functions. [#26684](https://github.com/ant-design/ant-design/pull/26684) [@mwaddell](https://github.com/mwaddell)
+- Table
+  - 🆕 Table `sticky` now support `getContainer`. [#26973](https://github.com/ant-design/ant-design/pull/26973)
+  - 🐞 Fix Table should not render dropdown filter icon when filterDropdown is `undefined`. [#27002](https://github.com/ant-design/ant-design/pull/27002) [@shangyilim](https://github.com/shangyilim)
+- Modal
+  - 🛠 Refactor Modal animation code so that it will remove all dom element when closed. [#26940](https://github.com/ant-design/ant-design/pull/26940)
+  - 🆕 Modal add `modalRender` prop which can be used for draggable dialog. [#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
+- 🆕 Space add `split` prop. [#26948](https://github.com/ant-design/ant-design/pull/26948)
+- 🆕 Image `preview` prop now support `visible` and `onVisibleChange`. [#26915](https://github.com/ant-design/ant-design/pull/26915)
+- 🆕 InputNumber will trigger `onStep` prop when click up/down buttons. [#27075](https://github.com/ant-design/ant-design/pull/27075)
+- 🆕 Avatar `size` support responsive config. [#26244](https://github.com/ant-design/ant-design/pull/26244) [@willamesoares](https://github.com/willamesoares)
+- 🐞 Fix Radio.Button children cannot apply Tooltip. [#27050](https://github.com/ant-design/ant-design/pull/27050)
+- RTL
+  - ⬅️ Fix List action button position in RTL mode. [#26964](https://github.com/ant-design/ant-design/pull/26964)
+  - ⬅️ Fix Transfer pagination style in RTL mode. [#26960](https://github.com/ant-design/ant-design/pull/26960)
+  - ⬅️ Fix Upload style in RTL mode. [#26961](https://github.com/ant-design/ant-design/pull/26961)
+  - ⬅️ Optimize Tag style to avoid the interaction between theme and RTL mode. [#26955](https://github.com/ant-design/ant-design/pull/26955)
+  - ⬅️ Optimize Cascader and Tree style of the data expansion loading icon in RTL mode. [#27010](https://github.com/ant-design/ant-design/pull/27010)
+- TypeScript
+  - 🤖 Fix typo `TimeLineItemProps` to `TimelineItemProps`. [#27001](https://github.com/ant-design/ant-design/pull/27001) [@mgcrea](https://github.com/mgcrea)
+  - 🤖 Fix Slider missing `autoFocus` prop. [#26995](https://github.com/ant-design/ant-design/pull/26995) [@shangyilim](https://github.com/shangyilim)
+  - 🤖 Fix Slider `step` prop not accepting `null` value. [#26984](https://github.com/ant-design/ant-design/pull/26984) [@shangyilim](https://github.com/shangyilim)
+  - 🤖 Fix Slider.Range `trackStyle` and `handleStyle` should be array. [#27033](https://github.com/ant-design/ant-design/pull/27033)
+  - 🤖 Optimize Tag `onClose` TypeScript definition. [#26932](https://github.com/ant-design/ant-design/pull/26932)
+  - 🤖 Improve Form TypeScript definition to support `getFieldsValue` return generic type without `namePath` argument. [#26791](https://github.com/ant-design/ant-design/pull/26791)
+- Locale
+  - 🇧🇾 Add Belarusian locale. [#27028](https://github.com/ant-design/ant-design/pull/27028) [@StIvan8](https://github.com/StIvan8)
+  - 🇯🇵 Fix Japanese locale. [#27043](https://github.com/ant-design/ant-design/pull/27043) [@iorikingdom](https://github.com/iorikingdom)
+  - 🇹🇭 Add Thai locale for Pickers. [#26993](https://github.com/ant-design/ant-design/pull/26993) [@anawinwz](https://github.com/anawinwz)
+  - 🇹🇷 Add Turkish locale of Form optional text. [#27017](https://github.com/ant-design/ant-design/pull/27017) [@alperTunca](https://github.com/alperTunca)
+  - 🇵🇱 Add Polish locale of Table. [#26913](https://github.com/ant-design/ant-design/pull/26913) [@daczczcz1](https://github.com/daczczcz1)
+
 ## 4.6.6
 
 `2020-09-27`

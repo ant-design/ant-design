@@ -22,16 +22,16 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 | fallback | 加载失败容错地址 | string | - | 4.6.0 |
 | height | 图像高度 | string \| number | - | 4.6.0 |
 | placeholder | 加载占位, 为 `true` 时使用默认占位 | ReactNode | - | 4.6.0 |
-| preview | 预览参数，为 `false` 时禁用 | boolean \| \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 
 ### previewType
 
-```
+```js
 {
-  visible: boolean,
-  onVisibleChange:function(value, prevValue)
+  visible?: boolean;
+  onVisibleChange?: (visible, prevVisible) => void;
 }
 ```
 

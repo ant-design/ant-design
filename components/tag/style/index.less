@@ -18,7 +18,7 @@
   border-radius: @border-radius-base;
   cursor: default;
   opacity: 1;
-  transition: all 0.3s @ease-in-out-circ;
+  transition: all 0.3s;
 
   &:hover {
     opacity: 0.85;
@@ -37,12 +37,11 @@
   }
 
   &-close-icon {
-    .iconfont-size-under-12px(10px);
-
     margin-left: 3px;
     color: @text-color-secondary;
+    font-size: 10px;
     cursor: pointer;
-    transition: all 0.3s @ease-in-out-circ;
+    transition: all 0.3s;
 
     &:hover {
       color: @heading-color;
