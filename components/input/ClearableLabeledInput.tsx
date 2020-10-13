@@ -154,9 +154,15 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
     const addonBeforeNode = addonBefore ? (
-      <span className={addonClassName}>{addonBefore}</span>
+      <span className={addonClassName} key="addonBefore">
+        {addonBefore}
+      </span>
     ) : null;
-    const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
+    const addonAfterNode = addonAfter ? (
+      <span className={addonClassName} key="addonAfter">
+        {addonAfter}
+      </span>
+    ) : null;
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
