@@ -165,74 +165,32 @@
     direction: rtl;
   }
 
-  &-icon {
-    .@{search-rtl-cls} & {
-      margin-right: 0.5em;
-      margin-left: 0;
-    }
+  .@{ant-prefix}-input {
+    border-right: @border-width-base solid @border-color-base;
+    border-left: 0;
 
-    &::before {
-      .@{search-rtl-cls} & {
-        border-left: none;
-      }
-    }
-
-    &::after {
-      .@{search-rtl-cls} & {
-        right: auto;
-        left: 0;
-        border-right: @border-width-base @border-style-base @input-border-color;
-        transition: all 0.3s;
+    &:hover,
+    &:focus {
+      + .@{ant-prefix}-input-group-addon .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+        border-right-color: @input-hover-border-color;
+        border-left-color: @border-color-base;
       }
     }
   }
 
-  &:not(&-enter-button) {
-    .@{search-rtl-cls}& {
-      padding-right: @input-padding-horizontal-base;
-      padding-left: 0;
-    }
-  }
-
-  &-enter-button {
-    input {
-      .@{search-rtl-cls}& {
-        border-right: @border-width-base @border-style-base @input-border-color;
-        border-left: 0;
-      }
+  > .@{ant-prefix}-input-group {
+    > .@{ant-prefix}-input-affix-wrapper {
+      border-right: @border-width-base solid @border-color-base;
+      border-left: 0;
 
       &:hover,
-      &:focus {
-        .@{search-rtl-cls}& {
-          border-color: @input-hover-border-color;
-        }
+      &-focused {
+        border-right-color: @input-hover-border-color;
       }
     }
-
-    &.@{ant-prefix}-input-affix-wrapper {
-      .@{search-rtl-cls}& {
-        border-right: @border-width-base @border-style-base @input-border-color;
-        border-left: 0;
-      }
-
-      &:hover,
-      &:focus {
-        .@{search-rtl-cls}& {
-          border-color: @input-hover-border-color;
-        }
-      }
-    }
-
-    & + .@{ant-prefix}-input-group-addon,
-    input + .@{ant-prefix}-input-group-addon {
-      .@{search-rtl-cls}& {
-        padding: 0;
-        border: 0;
-
-        .@{search-prefix}-button {
-          width: 100%;
-          border-radius: @border-radius-base 0 0 @border-radius-base;
-        }
+    > .@{ant-prefix}-input-group-addon {
+      .@{search-prefix}-button {
+        border-radius: @border-radius-base 0 0 @border-radius-base;
       }
     }
   }
