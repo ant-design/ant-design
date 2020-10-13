@@ -41,10 +41,7 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
   };
 
   const onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
-    const { onSearch: customOnSearch, loading, disabled } = props;
-    if (loading || disabled) {
-      return;
-    }
+    const { onSearch: customOnSearch } = props;
     if (customOnSearch) {
       customOnSearch(inputRef.current?.input.value!, e);
     }
