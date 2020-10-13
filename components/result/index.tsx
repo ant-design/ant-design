@@ -66,7 +66,6 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
       </div>
     );
   }
-
   const iconNode = React.createElement(
     IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>],
   );
@@ -83,27 +82,28 @@ export interface ResultType extends React.FC<ResultProps> {
   PRESENTED_IMAGE_500: React.ReactNode;
 }
 
-const Result: ResultType = props => {
+const Result: ResultType = ({
+  prefixCls: customizePrefixCls,
+  className: customizeClassName,
+  subTitle,
+  title,
+  style,
+  children,
+  status = 'info',
+  icon,
+}) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const {
-    prefixCls: customizePrefixCls,
-    className: customizeClassName,
-    subTitle,
-    title,
-    style,
-    children,
-    status = 'info',
-  } = props;
+
   const prefixCls = getPrefixCls('result', customizePrefixCls);
   const className = classNames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
   return (
     <div className={className} style={style}>
-      {renderIcon(prefixCls, props)}
+      {renderIcon(prefixCls, { status, icon })}
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-      {renderExtra(prefixCls, props)}
+      {renderExtra(prefixCls, { status, icon })}
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
     </div>
   );
