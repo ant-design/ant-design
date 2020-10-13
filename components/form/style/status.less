@@ -209,18 +209,6 @@
         border-color: @error-color;
       }
     }
-    .@{ant-prefix}-mention-wrapper {
-      .@{ant-prefix}-mention-editor {
-        &,
-        &:not([disabled]):hover {
-          border-color: @error-color;
-        }
-      }
-      &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
-      .@{ant-prefix}-mention-editor:not([disabled]):focus {
-        .active(@error-color);
-      }
-    }
 
     .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
       .active(@error-color);
