@@ -4,6 +4,7 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { fixControlledValue, resolveOnChange } from './Input';
 
 export interface TextAreaProps extends RcTextAreaProps {
@@ -11,6 +12,7 @@ export interface TextAreaProps extends RcTextAreaProps {
   bordered?: boolean;
   showCount?: boolean;
   maxLength?: number;
+  size?: SizeType;
 }
 
 export interface TextAreaState {
@@ -76,13 +78,16 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     resolveOnChange(this.resizableTextArea.textArea, e, this.props.onChange);
   };
 
-  renderTextArea = (prefixCls: string, bordered: boolean) => {
+  renderTextArea = (prefixCls: string, bordered: boolean, size?: SizeType) => {
+    const { size: customizeSize } = this.props;
     return (
       <RcTextArea
-        {...omit(this.props, ['allowClear', 'bordered', 'showCount'])}
+        {...omit(this.props, ['allowClear', 'bordered', 'showCount', 'size'])}
         className={classNames(
           {
             [`${prefixCls}-borderless`]: !bordered,
+            [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
+            [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
           },
           this.props.className,
         )}
@@ -108,26 +113,31 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
     return (
-      <div
-        className={classNames(`${prefixCls}-textarea`, {
-          [`${prefixCls}-textarea-show-count`]: showCount,
-          [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
-        })}
-        {...(showCount ? { 'data-count': dataCount } : {})}
-      >
-        <ClearableLabeledInput
-          {...this.props}
-          prefixCls={prefixCls}
-          direction={direction}
-          inputType="text"
-          value={value}
-          element={this.renderTextArea(prefixCls, bordered)}
-          handleReset={this.handleReset}
-          ref={this.saveClearableInput}
-          triggerFocus={this.focus}
-          bordered={bordered}
-        />
-      </div>
+      <SizeContext.Consumer>
+        {size => (
+          <div
+            className={classNames(`${prefixCls}-textarea`, {
+              [`${prefixCls}-textarea-show-count`]: showCount,
+              [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+            })}
+            {...(showCount ? { 'data-count': dataCount } : {})}
+          >
+            <ClearableLabeledInput
+              size={size}
+              {...this.props}
+              prefixCls={prefixCls}
+              direction={direction}
+              inputType="text"
+              value={value}
+              element={this.renderTextArea(prefixCls, bordered, size)}
+              handleReset={this.handleReset}
+              ref={this.saveClearableInput}
+              triggerFocus={this.focus}
+              bordered={bordered}
+            />
+          </div>
+        )}
+      </SizeContext.Consumer>
     );
   };
 
