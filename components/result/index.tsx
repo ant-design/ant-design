@@ -91,6 +91,7 @@ const Result: ResultType = ({
   children,
   status = 'info',
   icon,
+  extra,
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
@@ -103,7 +104,7 @@ const Result: ResultType = ({
       {renderIcon(prefixCls, { status, icon })}
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-      {renderExtra(prefixCls, { status, icon })}
+      {renderExtra(prefixCls, { extra })}
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
     </div>
   );
