@@ -194,7 +194,6 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
           </span>
         </span>
       </button>
-      addonAfter
     </span>
   </span>
 </span>
@@ -253,7 +252,6 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
           </span>
         </span>
       </button>
-      addonAfter
     </span>
   </span>
 </span>
@@ -275,11 +273,7 @@ exports[`Input.Search should support custom Button 1`] = `
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-primary ant-input-search-button"
-        type="button"
-      />
-      <button
-        class="ant-btn"
+        class="ant-btn ant-input-search-button"
         type="button"
       >
         <span>
@@ -306,10 +300,6 @@ exports[`Input.Search should support custom button 1`] = `
     <span
       class="ant-input-group-addon"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-input-search-button"
-        type="button"
-      />
       <button
         type="button"
       >

@@ -6,6 +6,7 @@ import Input, { InputProps } from './Input';
 import Button from '../button';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { cloneElement, replaceElement } from '../_util/reactNode';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -55,24 +56,50 @@ const Search = React.forwardRef<Input, SearchProps>((props, ref) => {
       typeof enterButton === 'boolean' || typeof enterButton === 'undefined' ? (
         <SearchOutlined />
       ) : null;
-    const button = (
-      <Button
-        className={`${prefixCls}-button`}
-        type={enterButton ? 'primary' : undefined}
-        size={size}
-        disabled={disabled}
-        key="enterButton"
-        onMouseDown={onMouseDown}
-        onClick={onSearch}
-        loading={loading}
-        icon={searchIcon}
-      >
-        {enterButton}
-      </Button>
-    );
+    const btnClassName = `${prefixCls}-button`;
+
+    let button: React.ReactNode;
+    const enterButtonAsElement = enterButton as React.ReactElement;
+    const isAntdButton =
+      enterButtonAsElement.type &&
+      (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
+    if (isAntdButton || enterButtonAsElement.type === 'button') {
+      button = cloneElement(enterButtonAsElement, {
+        onMouseDown,
+        onClick: onSearch,
+        key: 'enterButton',
+        ...(isAntdButton
+          ? {
+              className: btnClassName,
+              size,
+            }
+          : {}),
+      });
+    } else {
+      button = (
+        <Button
+          className={btnClassName}
+          type={enterButton ? 'primary' : undefined}
+          size={size}
+          disabled={disabled}
+          key="enterButton"
+          onMouseDown={onMouseDown}
+          onClick={onSearch}
+          loading={loading}
+          icon={searchIcon}
+        >
+          {enterButton}
+        </Button>
+      );
+    }
 
     if (addonAfter) {
-      return [button, addonAfter];
+      return [
+        button,
+        replaceElement(addonAfter, null, {
+          key: 'addonAfter',
+        }),
+      ];
     }
 
     return button;
