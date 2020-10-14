@@ -31,8 +31,9 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 
 ### Avatar.Group (4.5.0+)
 
-| 参数                | 说明                 | 类型              | 默认值 | 版本 |
-| ------------------- | -------------------- | ----------------- | ------ | ---- |
-| maxCount            | 显示的最大头像个数   | number            | -      |      |
-| maxStyle            | 多余头像样式         | CSSProperties     | -      |      |
-| maxPopoverPlacement | 多余头像气泡弹出位置 | `top` \| `bottom` | `top`  |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| maxCount | 显示的最大头像个数 | number | - |  |
+| maxStyle | 多余头像样式 | CSSProperties | - |  |
+| maxPopoverPlacement | 多余头像气泡弹出位置 | `top` \| `bottom` | `top` |  |
+| size | 设置多余头像大小 | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.8.0 |

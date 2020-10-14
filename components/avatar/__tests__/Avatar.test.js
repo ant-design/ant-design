@@ -11,7 +11,9 @@ jest.mock('../../grid/hooks/useBreakpoint');
 
 describe('Avatar Render', () => {
   mountTest(Avatar);
+  mountTest(() => <Avatar.Group size="small" />);
   rtlTest(Avatar);
+  rtlTest(() => <Avatar.Group size="small" />);
 
   const sizes = { xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 };
   let originOffsetWidth;
@@ -192,5 +194,19 @@ describe('Avatar Render', () => {
     expect(wrapper).toMatchRenderedSnapshot();
     wrapper.detach();
     global.document.body.removeChild(div);
+  });
+
+  it('group support size props', () => {
+    const wrapper = mount(
+      <Avatar.Group maxCount={2} size="small">
+        <Avatar>A</Avatar>
+        <Avatar>B</Avatar>
+        <Avatar>C</Avatar>
+        <Avatar>D</Avatar>
+      </Avatar.Group>,
+    );
+    expect(wrapper.find('.ant-avatar').at(2).hasClass('ant-avatar-sm')).toBe(true);
+    expect(wrapper.find('.ant-avatar-string').at(2).text()).toEqual('+2');
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

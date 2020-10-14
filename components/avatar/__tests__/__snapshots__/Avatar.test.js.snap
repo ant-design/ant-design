@@ -94,6 +94,43 @@ exports[`Avatar Render fallback 1`] = `
 </span>
 `;
 
+exports[`Avatar Render group support size props 1`] = `
+<div
+  class="ant-avatar-group"
+>
+  <span
+    class="ant-avatar ant-avatar-circle"
+  >
+    <span
+      class="ant-avatar-string"
+      style="transform: scale(0.32) translateX(-50%);"
+    >
+      A
+    </span>
+  </span>
+  <span
+    class="ant-avatar ant-avatar-circle"
+  >
+    <span
+      class="ant-avatar-string"
+      style="transform: scale(0.32) translateX(-50%);"
+    >
+      B
+    </span>
+  </span>
+  <span
+    class="ant-avatar ant-avatar-circle ant-avatar-sm"
+  >
+    <span
+      class="ant-avatar-string"
+      style="transform: scale(0.32) translateX(-50%);"
+    >
+      +2
+    </span>
+  </span>
+</div>
+`;
+
 exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
@@ -103,6 +140,12 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
     style="opacity:0"
   />
 </span>
+`;
+
+exports[`Avatar Render rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-avatar-group ant-avatar-group-rtl"
+/>
 `;
 
 exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `

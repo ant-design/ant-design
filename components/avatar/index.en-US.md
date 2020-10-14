@@ -26,8 +26,9 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 ### Avatar.Group (4.5.0+)
 
-| 参数                | 说明                                   | 类型              | 默认值 | 版本 |
-| ------------------- | -------------------------------------- | ----------------- | ------ | ---- |
-| maxCount            | Max avatars to show                    | number            | -      |      |
-| maxStyle            | The style of excess avatar style       | CSSProperties     | -      |      |
-| maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top`  |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| maxCount | Max avatars to show | number | - |  |
+| maxStyle | The style of excess avatar style | CSSProperties | - |  |
+| maxPopoverPlacement | The placement of excess avatar Popover | `top` \| `bottom` | `top` |  |
+| size | The size of excess avatar | number \| `large` \| `small` \| `default` \| `{ xs: number, sm: number, ...}` | `default` | 4.8.0 |

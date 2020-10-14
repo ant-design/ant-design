@@ -30,7 +30,11 @@ class Demo extends React.Component {
           <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
         </Avatar.Group>
         <Divider />
-        <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
+        <Avatar.Group
+          maxCount={2}
+          maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+          size="large"
+        >
           <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
           <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
           <Tooltip title="Ant User" placement="top">
