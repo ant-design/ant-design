@@ -1141,7 +1141,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           <div />
         </li>
         <li
-          class="ant-menu-item ant-menu-item-only-child"
+          class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
         >
@@ -1165,7 +1165,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               />
             </svg>
           </span>
-          <span />
+          <span>
+            Files
+          </span>
         </li>
       </ul>
     </div>
@@ -1632,6 +1634,12 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
+              <div>
+                <div
+                  class="ant-menu-submenu ant-menu-submenu-popup"
+                  style="opacity:0;pointer-events:none"
+                />
+              </div>
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 id="sub1$Menu"
@@ -1929,6 +1937,12 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               </span>
               <i
                 class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <div>
+              <div
+                class="ant-menu-submenu ant-menu-submenu-popup"
+                style="opacity:0;pointer-events:none"
               />
             </div>
             <ul
