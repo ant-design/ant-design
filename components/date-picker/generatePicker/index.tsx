@@ -56,6 +56,11 @@ export function getTimeProps<DateType>(
     return showTimeObj;
   }
 
+  if (typeof firstFormat === 'function') {
+    // format of showTime should use default when format is custom format function
+    delete showTimeObj.format;
+  }
+
   return {
     showTime: showTimeObj,
   };
