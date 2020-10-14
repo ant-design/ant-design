@@ -35,7 +35,7 @@ timeline: true
   - 🆕 Table `sticky` now support `getContainer`. [#26973](https://github.com/ant-design/ant-design/pull/26973)
   - 🐞 Fix Table should not render dropdown filter icon when filterDropdown is `undefined`. [#27002](https://github.com/ant-design/ant-design/pull/27002) [@shangyilim](https://github.com/shangyilim)
 - Modal
-  - 🛠 Refactor Modal animation code so that it will remove all dom element when closed. [#26940](https://github.com/ant-design/ant-design/pull/26940)
+  - 🛠 Refactor Modal animation code so that it will remove all dom element by `destroyOnClose` when closed. [#26940](https://github.com/ant-design/ant-design/pull/26940)
   - 🆕 Modal add `modalRender` prop which can be used for draggable dialog. [#26507](https://github.com/ant-design/ant-design/pull/26507) [@jhoneybee](https://github.com/jhoneybee)
 - 🆕 Space add `split` prop. [#26948](https://github.com/ant-design/ant-design/pull/26948)
 - 🆕 Image `preview` prop now support `visible` and `onVisibleChange`. [#26915](https://github.com/ant-design/ant-design/pull/26915)
