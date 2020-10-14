@@ -138,6 +138,13 @@ describe('DatePicker', () => {
         .length,
     ).toBe(60);
   });
+  it('showTime should work correctly when format is custom function', () => {
+    const wrapper = mount(
+      <DatePicker defaultValue={moment()} showTime format={val => val.format('YYYY-MM-DD')} open />,
+    );
+    const input = wrapper.find('input').simulate('mousedown');
+    expect(input.simulate.bind(input, 'focus')).not.toThrowError();
+  });
 
   it('12 hours', () => {
     const wrapper = mount(
