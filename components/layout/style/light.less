@@ -1,15 +1,11 @@
-.@{layout-prefix-cls} {
-  &-sider {
-    &-light {
-      background: @layout-sider-background-light;
-    }
-    &-light &-trigger {
-      color: @layout-trigger-color-light;
-      background: @layout-trigger-background-light;
-    }
-    &-light &-zero-width-trigger {
-      color: @layout-trigger-color-light;
-      background: @layout-trigger-background-light;
-    }
+.@{layout-prefix-cls}-sider.@{layout-prefix-cls}-light {
+  background: @layout-sider-background-light;
+  .@{layout-prefix-cls}-sider-trigger {
+    color: @layout-trigger-color-light;
+    background: @layout-trigger-background-light;
+  }
+  .@{layout-prefix-cls}-sider-zero-width-trigger {
+    color: @layout-trigger-color-light;
+    background: @layout-trigger-background-light;
   }
 }

@@ -14,7 +14,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
     </textarea>
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -49,7 +49,7 @@ exports[`TextArea allowClear should change type when click 2`] = `
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -84,7 +84,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -119,7 +119,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -154,7 +154,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -189,7 +189,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -224,7 +224,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >
@@ -259,7 +259,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     />
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-input-textarea-clear-icon-hidden ant-input-textarea-clear-icon"
+      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
       role="button"
       tabindex="-1"
     >

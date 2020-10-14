@@ -20,7 +20,9 @@ timeline: true
 `2020-10-10`
 
 - 🔥 Input.TextArea support word count. [#26952](https://github.com/ant-design/ant-design/pull/26952) [@zhangchen915](https://github.com/zhangchen915)
-- 🔥 DatePicker support custom `format` by passing a function. [#26845](https://github.com/ant-design/ant-design/pull/26845)
+- DatePicker
+  - 🔥 DatePicker support custom `format` by passing a function. [#26845](https://github.com/ant-design/ant-design/pull/26845)
+  - 🐞 Fix RangePicker initial date of end panel cannot selected. [#23167](https://github.com/ant-design/ant-design/issues/23167)
 - Form
   - 🔥 Form.Item support `tooltip` to customize tooltip. [#26780](https://github.com/ant-design/ant-design/pull/26780)
   - 🆕 Form.List support `rules` validation and add Form.ErrorList to show the errors. [#26676](https://github.com/ant-design/ant-design/pull/26676)

@@ -55,17 +55,12 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   };
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, readOnly, inputType, handleReset } = this.props;
-
+    const { allowClear, value, disabled, readOnly, handleReset } = this.props;
     if (!allowClear) {
       return null;
     }
-
     const needClear = !disabled && !readOnly && value;
-    const className =
-      inputType === ClearableInputType[0]
-        ? `${prefixCls}-textarea-clear-icon`
-        : `${prefixCls}-clear-icon`;
+    const className = `${prefixCls}-clear-icon`;
     return (
       <CloseCircleFilled
         onClick={handleReset}

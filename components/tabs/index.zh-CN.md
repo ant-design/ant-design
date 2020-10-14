@@ -27,7 +27,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | --- | --- | --- | --- | --- |
 | addIcon | 自定义添加按钮 | ReactNode | - | 4.4.0 |
 | activeKey | 当前激活 tab 面板的 key | string | - |  |
-| animated | 是否使用动画切换 Tabs，在 `tabPosition="top" | "bottom"` 时有效 | boolean \| {inkBar: boolean, tabPane: boolean} | false |  |
+| animated | 是否使用动画切换 Tabs，在 `tabPosition="top" | "bottom"` 时有效 | boolean \| { inkBar: boolean, tabPane: boolean } | `{ inkBar: true, tabPane: false }` |  |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
