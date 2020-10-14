@@ -24,7 +24,7 @@ Ant Design has 3 types of Tabs for different situations.
 | --- | --- | --- | --- | --- |
 | addIcon | Customize add icon | ReactNode | - | 4.4.0 |
 | activeKey | Current TabPane's key | string | - |  |
-| animated | Whether to change tabs with animation. Only works while `tabPosition="top" | "bottom"` | boolean \| {inkBar: boolean, tabPane: boolean} | false |  |
+| animated | Whether to change tabs with animation. Only works while `tabPosition="top" | boolean \| { inkBar: boolean, tabPane: boolean } | `{ inkBar: true, tabPane: false }` |  |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
