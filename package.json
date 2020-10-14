@@ -265,7 +265,7 @@
     "react-window": "^1.8.5",
     "remark": "^12.0.0",
     "remark-cli": "^8.0.0",
-    "remark-lint": "^7.0.0",
+    "remark-lint": "^8.0.0",
     "remark-preset-lint-recommended": "^5.0.0",
     "reqwest": "^2.0.5",
     "rimraf": "^3.0.0",
