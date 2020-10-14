@@ -7,6 +7,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
@@ -14,7 +15,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import collapseMotion from '../../_util/motion';
 import { sleep } from '../../../tests/utils';
-import { act } from 'react-dom/test-utils';
 
 const { SubMenu } = Menu;
 
