@@ -162,8 +162,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useFakeTimers();
     expect($$('.ant-modal-confirm')).toHaveLength(1);
     $$('.ant-btn')[0].click();
-
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect($$('.ant-modal-confirm')).toHaveLength(0);
     jest.useRealTimers();
   });
@@ -188,10 +189,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
       $$('.ant-btn')[0].click();
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
     });
     jest.useRealTimers();
@@ -205,10 +210,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       content: 'content',
       onCancel,
     });
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
     $$('.ant-btn')[0].click();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
     expect(onCancel).toHaveBeenCalledTimes(1);
     jest.useRealTimers();
@@ -222,10 +231,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         content: 'content',
         onOk: close => null, // eslint-disable-line no-unused-vars
       });
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
       $$('.ant-btn')[0].click();
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
     });
     jest.useRealTimers();
@@ -238,7 +251,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
       expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('title');
       expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('content');
@@ -246,7 +261,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'new title',
         content: 'new content',
       });
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
       expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('new title');
       expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('new content');
@@ -263,10 +280,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
       instance.destroy();
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
     });
     jest.useRealTimers();
@@ -279,12 +300,16 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
     });
     Modal.destroyAll();
     ['info', 'success', 'warning', 'error'].forEach(type => {
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
     });
     jest.useRealTimers();
