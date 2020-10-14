@@ -20,7 +20,9 @@ timeline: true
 `2020-10-10`
 
 - 🔥 Input.TextArea 支持字数统计功能。[#26952](https://github.com/ant-design/ant-design/pull/26952) [@zhangchen915](https://github.com/zhangchen915)
-- 🔥 DatePicker `format` 支持传入一个函数以自定义显示内容。[#26845](https://github.com/ant-design/ant-design/pull/26845)
+- DatePicker
+  - 🔥 DatePicker `format` 支持传入一个函数以自定义显示内容。[#26845](https://github.com/ant-design/ant-design/pull/26845)
+  - 🐞 修复 RangePicker 结束日期初始值无法选择的问题。[#23167](https://github.com/ant-design/ant-design/issues/23167)
 - Form
   - 🔥 Form.Item 支持 `tooltip` 属性自定义提示信息。[#26780](https://github.com/ant-design/ant-design/pull/26780)
   - 🆕 Form.List 支持 `rules` 校验并添加 Form.ErrorList 组件用于展示。[#26676](https://github.com/ant-design/ant-design/pull/26676)
