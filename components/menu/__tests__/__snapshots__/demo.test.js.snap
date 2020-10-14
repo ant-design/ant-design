@@ -257,12 +257,6 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
         class="ant-menu-submenu-arrow"
       />
     </div>
-    <div>
-      <div
-        class="ant-menu-submenu ant-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
-      />
-    </div>
     <ul
       class="ant-menu ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
@@ -571,12 +565,6 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           class="ant-menu-submenu-arrow"
         />
       </div>
-      <div>
-        <div
-          class="ant-menu-submenu ant-menu-submenu-popup"
-          style="opacity:0;pointer-events:none"
-        />
-      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
@@ -699,12 +687,6 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       </span>
       <i
         class="ant-menu-submenu-arrow"
-      />
-    </div>
-    <div>
-      <div
-        class="ant-menu-submenu ant-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
       />
     </div>
     <ul
@@ -1173,12 +1155,6 @@ Array [
           class="ant-menu-submenu-arrow"
         />
       </div>
-      <div>
-        <div
-          class="ant-menu-submenu ant-menu-submenu-popup"
-          style="opacity:0;pointer-events:none"
-        />
-      </div>
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
@@ -1359,12 +1335,6 @@ Array [
         </span>
         <i
           class="ant-menu-submenu-arrow"
-        />
-      </div>
-      <div>
-        <div
-          class="ant-menu-submenu ant-menu-submenu-popup"
-          style="opacity:0;pointer-events:none"
         />
       </div>
       <ul

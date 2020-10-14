@@ -16037,12 +16037,6 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
         class="config-menu-submenu-arrow"
       />
     </div>
-    <div>
-      <div
-        class="config-menu-submenu config-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
-      />
-    </div>
     <ul
       class="config-menu config-menu-sub config-menu-inline"
       id="bamboo$Menu"
@@ -16095,12 +16089,6 @@ exports[`ConfigProvider components Menu configProvider componentSize large 1`] =
       bamboo
       <i
         class="config-menu-submenu-arrow"
-      />
-    </div>
-    <div>
-      <div
-        class="config-menu-submenu config-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
       />
     </div>
     <ul
@@ -16157,12 +16145,6 @@ exports[`ConfigProvider components Menu configProvider componentSize middle 1`] 
         class="config-menu-submenu-arrow"
       />
     </div>
-    <div>
-      <div
-        class="config-menu-submenu config-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
-      />
-    </div>
     <ul
       class="config-menu config-menu-sub config-menu-inline"
       id="bamboo$Menu"
@@ -16215,12 +16197,6 @@ exports[`ConfigProvider components Menu configProvider virtual and dropdownMatch
       bamboo
       <i
         class="ant-menu-submenu-arrow"
-      />
-    </div>
-    <div>
-      <div
-        class="ant-menu-submenu ant-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
       />
     </div>
     <ul
@@ -16277,12 +16253,6 @@ exports[`ConfigProvider components Menu normal 1`] = `
         class="ant-menu-submenu-arrow"
       />
     </div>
-    <div>
-      <div
-        class="ant-menu-submenu ant-menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
-      />
-    </div>
     <ul
       class="ant-menu ant-menu-sub ant-menu-inline"
       id="bamboo$Menu"
@@ -16335,12 +16305,6 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       bamboo
       <i
         class="prefix-Menu-submenu-arrow"
-      />
-    </div>
-    <div>
-      <div
-        class="prefix-Menu-submenu prefix-Menu-submenu-popup"
-        style="opacity:0;pointer-events:none"
       />
     </div>
     <ul
