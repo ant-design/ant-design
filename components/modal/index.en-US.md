@@ -96,6 +96,11 @@ modal.update({
   content: 'Updated content',
 });
 
+modal.update(prevConfig => ({
+  ...prevConfig,
+  title: `${prevConfig.title} (New)`,
+}));
+
 modal.destroy();
 ```
 

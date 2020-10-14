@@ -99,6 +99,11 @@ modal.update({
   content: '修改的内容',
 });
 
+modal.update(prevConfig => ({
+  ...prevConfig,
+  title: `${prevConfig.title}（新）`,
+}));
+
 modal.destroy();
 ```
 
