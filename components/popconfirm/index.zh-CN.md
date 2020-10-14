@@ -27,7 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
 | onCancel | 点击取消的回调 | function(e) | - |
 | onConfirm | 点击确认的回调 | function(e) | - |
 | icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircle /> |
-| disabled | 点击 Popconfirm 子元素是否弹出气泡确认框 | boolean | false |
+| disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 
