@@ -59,6 +59,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
     <ul>
       <li>
         <a
+          class="ant-typography"
           href="/docs/spec/proximity"
         >
           Principles
@@ -66,6 +67,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
       <li>
         <a
+          class="ant-typography"
           href="/docs/pattern/navigation"
         >
           Patterns
@@ -73,6 +75,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
       <li>
         <a
+          class="ant-typography"
           href="/docs/resource/download"
         >
           Resource Download
@@ -160,6 +163,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
     <ul>
       <li>
         <a
+          class="ant-typography"
           href="/docs/spec/proximity"
         >
           设计原则
@@ -167,6 +171,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
       <li>
         <a
+          class="ant-typography"
           href="/docs/pattern/navigation"
         >
           设计模式
@@ -174,6 +179,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </li>
       <li>
         <a
+          class="ant-typography"
           href="/docs/resource/download"
         >
           设计资源

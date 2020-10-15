@@ -85,10 +85,22 @@ const validateMessages = {
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
 | label | `label` 标签的文本 | ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
-
-<<<<<<< HEAD | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | | | messageVariables | 默认验证字段的信息 | Record<string, string> | - | 4.7.0 | ======= | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | |
-
-> > > > > > > origin/master | name | 字段名，支持数组 | [NamePath](#NamePath) | - | | | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 | | normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - | | | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false | | | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - | | | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false | | | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 | | trigger | 设置收集字段值变更的时机 | string | `onChange` | | | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 | | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - | | | validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` | | | valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` | | | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - | | | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | |
+| labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
+| messageVariables | 默认验证字段的信息 | Record<string, string> | - | 4.7.0 |
+| name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
+| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
+| normalize | 组件获取值后进行转换，再放入 Form 中 | (value, prevValue, prevValues) => any | - |  |
+| required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
+| rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |  |
+| shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
+| tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 |
+| trigger | 设置收集字段值变更的时机 | string | `onChange` |  |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
+| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
+| validateTrigger | 设置字段校验的时机 | string \| string[] | `onChange` |  |
+| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
+| hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false |  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -291,7 +303,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
-| enum | 是否匹配枚举中的值 | any[] |
+| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any[] |
 | len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
 | max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
 | message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |

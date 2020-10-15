@@ -25,7 +25,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false | [ellipsis](#ellipsis) |
+| ellipsis | 自动溢出省略 | boolean | false |  |
 | mark | 添加标记样式 | boolean | false |  |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | underline | 添加下划线样式 | boolean | false |  |

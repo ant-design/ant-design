@@ -22,6 +22,11 @@
 
   &&-danger {
     color: @error-color;
+    a&:active,
+    a&:focus,
+    a&:hover {
+      color: ~`colorPalette('@{error-color}', 5) `;
+    }
   }
 
   &&-disabled {
