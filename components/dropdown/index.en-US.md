@@ -38,7 +38,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| buttonsRender | Custom buttons inside Dropdown.Button | ([buttons: ReactNode[]]) => ReactNode | - |  |
+| buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode[]) => ReactNode[] | - |  |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | onClick | The same as [Button](/components/button): called when you click the button on the left | function | - |  |

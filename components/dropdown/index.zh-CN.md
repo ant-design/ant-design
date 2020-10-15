@@ -42,7 +42,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| buttonsRender | 自定义左右两个按钮 | ([buttons: ReactNode[]]) => ReactNode | - |  |
+| buttonsRender | 自定义左右两个按钮 | (buttons: ReactNode[]) => ReactNode[] | - |  |
 | disabled | 菜单是否禁用 | boolean | - |  |
 | icon | 右侧的 icon | ReactNode | - |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | function | - |  |
