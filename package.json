@@ -264,7 +264,7 @@
     "react-virtualized": "^9.22.0",
     "react-window": "^1.8.5",
     "remark": "^13.0.0",
-    "remark-cli": "^8.0.0",
+    "remark-cli": "^9.0.0",
     "remark-lint": "^8.0.0",
     "remark-preset-lint-recommended": "^5.0.0",
     "reqwest": "^2.0.5",
