@@ -17,6 +17,7 @@ import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import scrollTo from '../_util/scrollTo';
 import {
   TableProps,
+  StoreTableProps,
   InternalTableProps,
   TableSize,
   TableState,
@@ -1393,7 +1394,7 @@ class StoreTable<T> extends React.Component<TableProps<T>> {
 
   CheckboxPropsCache: CheckboxPropsCache;
 
-  constructor(props: TableProps<T>) {
+  constructor(props: StoreTableProps<T>) {
     super(props);
 
     this.CheckboxPropsCache = {};
@@ -1410,6 +1411,7 @@ class StoreTable<T> extends React.Component<TableProps<T>> {
     return (
       <Table<T>
         {...this.props}
+        ref={this.props.forwardedRef}
         store={this.store}
         checkboxPropsCache={this.CheckboxPropsCache}
         setCheckboxPropsCache={this.setCheckboxPropsCache}
@@ -1418,4 +1420,10 @@ class StoreTable<T> extends React.Component<TableProps<T>> {
   }
 }
 
-export default StoreTable;
+function ForwardRef<T>() : React.FC<TableProps<T>> {
+  return React.forwardRef((props: TableProps<T>, ref: React.Ref<HTMLInputElement>) => {
+    return <StoreTable {...props} forwardedRef={ref} />;
+  })
+}
+
+export default ForwardRef;

@@ -221,6 +221,10 @@ export interface TableProps<T> {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
+export interface StoreTableProps<T> extends TableProps<T> {
+  forwardedRef: React.Ref<HTMLInputElement>;
+}
+
 export type InternalTableProps<T> = TableProps<T> & WithStore;
 
 export interface TableStateFilters {
