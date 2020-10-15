@@ -7,6 +7,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
@@ -291,7 +292,7 @@ describe('Menu', () => {
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
 
     expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
-    expect(wrapper.find('ul.ant-menu-sub').length).toBe(0);
+    expect(wrapper.find('ul.ant-menu-sub:not(.ant-menu-hidden)').length).toBe(0);
 
     wrapper.setProps({ inlineCollapsed: false });
     jest.runAllTimers();
@@ -501,7 +502,9 @@ describe('Menu', () => {
     );
 
     wrapper.find('.ant-menu-item').simulate('mouseenter');
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     wrapper.update();
 
     const text = wrapper.find('.ant-tooltip-inner').text();
@@ -537,11 +540,19 @@ describe('Menu', () => {
       }
     }
     const wrapper = mount(<Demo />);
+    expect(wrapper.find(Menu).at(0).getDOMNode().classList.contains('ant-menu-inline')).toBe(true);
     wrapper.find('.ant-menu-submenu-title').simulate('click');
     wrapper.find('.ant-layout-sider-trigger').simulate('click');
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
+    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline-collapsed')).toBe(
+      true,
+    );
+    wrapper.find(Menu).simulate('mouseenter');
+    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline')).toBe(false);
+    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-vertical')).toBe(true);
   });
 
   it('onMouseEnter should work', () => {

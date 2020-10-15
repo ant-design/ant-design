@@ -20,7 +20,7 @@ const dimensionMaxMap = {
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
-  collapsedWidth?: string | number;
+  collapsedWidth?: number | string;
 }
 
 export const SiderContext: React.Context<SiderContextProps> = React.createContext({});

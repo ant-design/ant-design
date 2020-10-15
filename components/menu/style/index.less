@@ -483,7 +483,7 @@
       > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
-      padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2;
+      padding: 0 ~'calc(50% - @{menu-icon-size-lg} / 2)';
       text-overflow: clip;
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;
