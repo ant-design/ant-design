@@ -24,14 +24,14 @@ Previewable image.
 | preview | preview config, disabled when `false` | boolean \| [previewType](#previewType) | true | 4.6.0 [previewType](#previewType):4.7.0 |
 | src | Image path | string | - | 4.6.0 |
 | width | Image width | string \| number | - | 4.6.0 |
-| getPopupContainer | The DOM container of the preview dialog | () => HTMLElement | () => document.body | 4.8.0 |
 
 ### previewType
 
 ```
 {
   visible: boolean,
-  onVisibleChange:function(value, prevValue)
+  onVisibleChange:function(value, prevValue),
+  getContainer: string | HTMLElement | (() => HTMLElement)
 }
 ```
 
