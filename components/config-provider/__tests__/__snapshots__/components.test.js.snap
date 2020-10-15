@@ -13138,6 +13138,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
               aria-label="Close"
               class="config-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13199,6 +13200,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
               aria-label="Close"
               class="config-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13260,6 +13262,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
               aria-label="Close"
               class="config-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13321,6 +13324,7 @@ exports[`ConfigProvider components Drawer configProvider virtual and dropdownMat
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13382,6 +13386,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
               aria-label="Close"
               class="ant-drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
@@ -13443,6 +13448,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
               aria-label="Close"
               class="prefix-Drawer-close"
               style="--scroll-bar:0px"
+              type="button"
             >
               <span
                 aria-label="close"
