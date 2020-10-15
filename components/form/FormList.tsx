@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { List } from 'rc-field-form';
-import { Rule, StoreValue } from 'rc-field-form/lib/interface';
+import { ValidatorRule, StoreValue } from 'rc-field-form/lib/interface';
 import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import { FormItemPrefixContext } from './context';
@@ -20,7 +20,7 @@ export interface FormListOperation {
 export interface FormListProps {
   prefixCls?: string;
   name: string | number | (string | number)[];
-  rules?: Rule[];
+  rules?: ValidatorRule[];
   children: (
     fields: FormListFieldData[],
     operation: FormListOperation,
