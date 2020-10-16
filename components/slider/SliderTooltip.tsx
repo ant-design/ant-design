@@ -1,25 +1,6 @@
 import * as React from 'react';
 import Tooltip, { TooltipProps } from '../tooltip';
-
-function useCombinedRefs(
-  ...refs: Array<React.MutableRefObject<unknown> | ((instance: unknown) => void) | null>
-) {
-  const targetRef = React.useRef();
-
-  React.useEffect(() => {
-    refs.forEach(ref => {
-      if (!ref) return;
-
-      if (typeof ref === 'function') {
-        ref(targetRef.current);
-      } else {
-        ref.current = targetRef.current;
-      }
-    });
-  }, [refs]);
-
-  return targetRef;
-}
+import useCombinedRefs from '../_util/hooks/useCombinedRefs';
 
 const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const { visible } = props;
