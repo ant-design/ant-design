@@ -36,22 +36,22 @@ const MORE_LIST: MoreProps[] = [
     href: 'https://zhuanlan.zhihu.com/p/176534657',
   },
   {
-    title: '设计考古：工具类产品 Office',
+    title: '设计体系的响应式设计',
     description:
-      '微软 Office 办公系列产品的精髓在于 Ribbon（功能区）设计模式，它很好的解决了文档类、工具类复杂产品的高交互密度设计难题。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*nJogR776K8EAAAAAAAAAAABkARQnAQ',
-    date: '2019-11-05',
+      '在蚂蚁内部有着数量繁多且复杂的中后台业务系统，Ant Design 一直以来致力于从设计策略和资产的角度解决这些产品的体验一致性问题。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zk6CQphLepQAAAAAAAAAAAAAARQnAQ',
+    date: '2020-03-24',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/90304083',
+    href: 'https://zhuanlan.zhihu.com/p/109781992',
   },
   {
-    title: '设计法则「映射」: 让你的设计更符合直觉',
+    title: '我的按钮究竟该放哪儿！？',
     description:
-      '影响一个东西好不好用的因素有很多，本文将从125条通用设计法则中的「映射Mapping」出发，探讨一下这个法则对事物可用性的影响。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*AVELR486CNcAAAAAAAAAAABkARQnAQ',
-    date: '2019-08-24',
+      '按钮是一种使用广泛的基础界面元素，正因其使用的普遍性和重要性，我们需要并一直在探索建立按钮设计规范。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d595RpGKQ_IAAAAAAAAAAAAAARQnAQ',
+    date: '2020-02-29',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/79632824',
+    href: 'https://zhuanlan.zhihu.com/p/109644406',
   },
 ];
 
