@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Tooltip, { TooltipProps } from '../tooltip';
-import { useCombinedRefs } from '../_util/ref';
+import useCombinedRefs from '../_util/hooks/useCombinedRefs';
 
 const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const { visible } = props;

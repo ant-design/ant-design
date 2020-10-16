@@ -15,18 +15,3 @@ export function composeRef<T>(...refs: React.Ref<T>[]): React.Ref<T> {
     });
   };
 }
-
-export function useCombinedRefs(
-  ...refs: Array<React.MutableRefObject<unknown> | ((instance: unknown) => void) | null>
-) {
-  const targetRef = React.useRef();
-
-  React.useEffect(() => {
-    refs.forEach(ref => {
-      if (!ref) return;
-      fillRef(ref, targetRef.current);
-    });
-  }, [refs]);
-
-  return targetRef;
-}
