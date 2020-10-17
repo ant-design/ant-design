@@ -80,6 +80,7 @@ export interface ModalProps {
   wrapProps?: any;
   prefixCls?: string;
   closeIcon?: React.ReactNode;
+  modalRender?: (node: ReactNode) => ReactNode;
 }
 
 type getContainerFunc = () => HTMLElement;
