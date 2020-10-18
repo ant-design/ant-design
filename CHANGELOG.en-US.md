@@ -26,7 +26,7 @@ timeline: true
   - 💄 Fix Typography miss `pre` and `blockquote` style. [#27150](https://github.com/ant-design/ant-design/pull/27150)
   - 🐞 Fix Typography.Link hover color. [#27119](https://github.com/ant-design/ant-design/pull/27119)
   - 🐞 Fix Typography.Link hover color when type is danger. [#27104](https://github.com/ant-design/ant-design/pull/27104)
-- 💄 Fix Descriptions `ant-descriptions-item-content` add style `word-break:break-word;`. [#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
+- 💄 Fix Descriptions `ant-descriptions-item-content` and add style `word-break:break-word;`. [#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
 - 🐞 Fix clear Password value attribute in controlled mode. [#27191](https://github.com/ant-design/ant-design/pull/27191)
 - 🐞 Optimize notification width in small screen. [#27189](https://github.com/ant-design/ant-design/pull/27189)
 - 🐞 Fix Cascader className duplicate. [#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
