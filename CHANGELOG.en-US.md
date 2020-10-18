@@ -32,7 +32,7 @@ timeline: true
 - 🐞 Fix Cascader className duplicate. [#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
 - 🐞 Fix the issue that the Drawer will trigger form submission. [#27175](https://github.com/ant-design/ant-design/pull/27175)
 - 🐞 Fix Dropdown icon missing margin. [#27165](https://github.com/ant-design/ant-design/pull/27165)
-- 💄 Fix Layout.Sider `collapsedWidth` cannot work without modifying`@menu-collapsed-width`.[#27154](https://github.com/ant-design/ant-design/pull/27154)
+- 💄 Fix Layout.Sider `collapsedWidth` cannot work without modifying `@menu-collapsed-width`. [#27154](https://github.com/ant-design/ant-design/pull/27154)
 - 🐞 Fix Tabs `animated={true}` not working for panels. [#27145](https://github.com/ant-design/ant-design/pull/27145)
 - 🐞 Fix Divider color when contains text. [#27134](https://github.com/ant-design/ant-design/pull/27134)
 - 💄 Fix the cursor style when the Radio option is selected and disabled. [#27125](https://github.com/ant-design/ant-design/pull/27125)
