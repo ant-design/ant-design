@@ -27,7 +27,7 @@ timeline: true
   - 🐞 修复 Typography.Link 悬浮颜色错误的问题。[#27119](https://github.com/ant-design/ant-design/pull/27119)
   - 🐞 修复 Typography.Link 危险类型的悬浮颜色问题。[#27104](https://github.com/ant-design/ant-design/pull/27104)
 - 💄 修复 Descriptions 组件的内容含有超长数字，会出现无法换行的情况。[#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
-- 🐞 修复 Password 在受控模式下清除密码值的问题。[#27191](https://github.com/ant-design/ant-design/pull/27191)
+- 🐞 修复 Password 在受控模式下未清除 `value` 属性的问题。[#27191](https://github.com/ant-design/ant-design/pull/27191)
 - 🐞 修复 Notification 在小尺寸屏幕下的宽度问题。[#27189](https://github.com/ant-design/ant-design/pull/27189)
 - 🐞 修复 Cascader 类名重复的问题。[#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
 - 🐞 修复 Drawer 会触发 Form 提交事件的问题。[#27175](https://github.com/ant-design/ant-design/pull/27175)
