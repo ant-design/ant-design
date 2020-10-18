@@ -20,7 +20,7 @@ timeline: true
 `2020-10-18`
 
 - DatePicker
-  - 🐞 修复当 `showTime` 为 `true` 并且 `format` 为一个函数时，DatePicker 报错问题。[#27156](https://github.com/ant-design/ant-design/pull/27156)
+  - 🐞 修复 DatePicker `showTime` 为 `true` 并且 `format` 为一个函数时报错的问题。[#27156](https://github.com/ant-design/ant-design/pull/27156)
   - 💄 修复 DatePicker 在下拉空间不足时的动画方向问题。[#27101](https://github.com/ant-design/ant-design/pull/27101)
 - Typography
   - 💄 修复 Typography 没有 `pre` 和 `blockquote` 样式的问题。[#27150](https://github.com/ant-design/ant-design/pull/27150)
