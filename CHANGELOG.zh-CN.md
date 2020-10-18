@@ -41,7 +41,7 @@ timeline: true
   - 💄 优化 Input.TextArea 字数提示在 RTL 模式下的样式。[#27098](https://github.com/ant-design/ant-design/pull/27098)
 - TypeScript
   - 🤖 Button `shape` 移除文档中未声明的类型。[#27159](https://github.com/ant-design/ant-design/pull/27159)
-  - 🤖 添加可选的`rules`属性至`FormListProps`。[#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
+  - 🤖 修复 Form.List `rules` 属性缺失的问题。[#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
 
 ## 4.70
 
