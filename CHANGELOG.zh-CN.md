@@ -43,7 +43,7 @@ timeline: true
   - 🤖 Button `shape` 移除文档中未声明的类型。[#27159](https://github.com/ant-design/ant-design/pull/27159)
   - 🤖 修复 Form.List `rules` 属性缺失的问题。[#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
 
-## 4.70
+## 4.7.0
 
 `2020-10-10`
 
