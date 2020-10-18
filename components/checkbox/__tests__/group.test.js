@@ -14,25 +14,13 @@ describe('CheckboxGroup', () => {
     const wrapper = mount(
       <Checkbox.Group options={['Apple', 'Pear', 'Orange']} onChange={onChange} />,
     );
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChange).toHaveBeenCalledWith(['Apple']);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(1)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear']);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(2)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(2).simulate('change');
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear', 'Orange']);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(1)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Orange']);
   });
 
@@ -47,15 +35,9 @@ describe('CheckboxGroup', () => {
     const groupWrapper = mount(
       <Checkbox.Group options={options} onChange={onChangeGroup} disabled />,
     );
-    groupWrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    groupWrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChangeGroup).not.toHaveBeenCalled();
-    groupWrapper
-      .find('.ant-checkbox-input')
-      .at(1)
-      .simulate('change');
+    groupWrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChangeGroup).not.toHaveBeenCalled();
   });
 
@@ -68,15 +50,9 @@ describe('CheckboxGroup', () => {
     ];
 
     const groupWrapper = mount(<Checkbox.Group options={options} onChange={onChangeGroup} />);
-    groupWrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    groupWrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
-    groupWrapper
-      .find('.ant-checkbox-input')
-      .at(1)
-      .simulate('change');
+    groupWrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
   });
 
@@ -105,10 +81,10 @@ describe('CheckboxGroup', () => {
     ];
 
     const wrapper = mount(<Checkbox.Group options={options} />);
-
-    expect(wrapper.instance().state.value).toEqual([]);
+    expect(wrapper.find('.ant-checkbox-checked').length).toBe(0);
     wrapper.setProps({ value: ['Apple'] });
-    expect(wrapper.instance().state.value).toEqual(['Apple']);
+    wrapper.update();
+    expect(wrapper.find('.ant-checkbox-checked').length).toBe(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/12642
@@ -119,10 +95,7 @@ describe('CheckboxGroup', () => {
         <Checkbox value="my" onChange={onChange} />
       </Checkbox.Group>,
     );
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0].target.value).toEqual('my');
   });
@@ -141,10 +114,7 @@ describe('CheckboxGroup', () => {
       children: [<Checkbox key={2} value={2} />],
     });
 
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
 
     expect(onChange).toHaveBeenCalledWith([2]);
   });
@@ -160,12 +130,7 @@ describe('CheckboxGroup', () => {
     wrapper.setProps({
       children: [<Checkbox key={1} value={2} />],
     });
-    expect(
-      wrapper
-        .find('.ant-checkbox-input')
-        .at(0)
-        .prop('checked'),
-    ).toBe(false);
+    expect(wrapper.find('.ant-checkbox-input').at(0).prop('checked')).toBe(false);
   });
 
   // https://github.com/ant-design/ant-design/issues/17297
@@ -180,25 +145,13 @@ describe('CheckboxGroup', () => {
       </Checkbox.Group>,
     );
 
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChange).toHaveBeenCalledWith([1]);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(1)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChange).toHaveBeenCalledWith([1, 2]);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChange).toHaveBeenCalledWith([2]);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
     expect(onChange).toHaveBeenCalledWith([1, 2]);
   });
 
@@ -215,30 +168,10 @@ describe('CheckboxGroup', () => {
         </Collapse>
       </Checkbox.Group>,
     );
-    wrapper
-      .find('.ant-collapse-item')
-      .at(0)
-      .find('.ant-collapse-header')
-      .simulate('click');
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
-    expect(
-      wrapper
-        .find(Checkbox.Group)
-        .at(0)
-        .state('value'),
-    ).toEqual(['1']);
-    wrapper
-      .find('.ant-checkbox-input')
-      .at(0)
-      .simulate('change');
-    expect(
-      wrapper
-        .find(Checkbox.Group)
-        .at(0)
-        .state('value'),
-    ).toEqual([]);
+    wrapper.find('.ant-collapse-item').at(0).find('.ant-collapse-header').simulate('click');
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    expect(wrapper.find('.ant-checkbox-checked').length).toBe(1);
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    expect(wrapper.find('.ant-checkbox-checked').length).toBe(0);
   });
 });
