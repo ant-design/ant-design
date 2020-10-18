@@ -28,7 +28,7 @@ timeline: true
   - 🐞 Fix Typography.Link hover color when type is danger. [#27104](https://github.com/ant-design/ant-design/pull/27104)
 - 💄 Fix Descriptions `ant-descriptions-item-content` and add style `word-break:break-word;`. [#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
 - 🐞 Fix clear Password value attribute in controlled mode. [#27191](https://github.com/ant-design/ant-design/pull/27191)
-- 🐞 Optimize notification width in small screen. [#27189](https://github.com/ant-design/ant-design/pull/27189)
+- 🐞 Optimize Notification width in small screen. [#27189](https://github.com/ant-design/ant-design/pull/27189)
 - 🐞 Fix Cascader className duplicate. [#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
 - 🐞 Fix the issue that the Drawer will trigger form submission. [#27175](https://github.com/ant-design/ant-design/pull/27175)
 - 🐞 Fix Dropdown icon missing margin. [#27165](https://github.com/ant-design/ant-design/pull/27165)
