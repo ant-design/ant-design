@@ -41,7 +41,7 @@ timeline: true
   - 💄 Optimize the style of Input.TextArea character count in RTL mode. [#27098](https://github.com/ant-design/ant-design/pull/27098)
 - TypeScript
   - 🤖 Button shape remove undeclared doc type. [#27159](https://github.com/ant-design/ant-design/pull/27159)
-  - 🤖 add optional `rules` property into `FormListProps`. [#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
+  - 🤖 Add optional `rules` property into `FormListProps`. [#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
 
 ## 4.7.0
 
