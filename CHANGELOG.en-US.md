@@ -30,7 +30,7 @@ timeline: true
 - 🐞 Fix clear Password value attribute in controlled mode. [#27191](https://github.com/ant-design/ant-design/pull/27191)
 - 🐞 Optimize Notification width in small screen. [#27189](https://github.com/ant-design/ant-design/pull/27189)
 - 🐞 Fix Cascader className duplicate. [#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
-- 🐞 Fix the issue that the Drawer will trigger form submission. [#27175](https://github.com/ant-design/ant-design/pull/27175)
+- 🐞 Fix the issue that the Drawer will trigger form submit. [#27175](https://github.com/ant-design/ant-design/pull/27175)
 - 🐞 Fix Dropdown icon missing margin. [#27165](https://github.com/ant-design/ant-design/pull/27165)
 - 💄 Fix Layout.Sider `collapsedWidth` cannot work without modifying `@menu-collapsed-width`. [#27154](https://github.com/ant-design/ant-design/pull/27154)
 - 🐞 Fix Tabs `animated={true}` not working for panels. [#27145](https://github.com/ant-design/ant-design/pull/27145)
