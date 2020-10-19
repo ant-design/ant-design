@@ -226,13 +226,13 @@ async function printLog() {
   fs.writeFileSync(path.join(__dirname, 'previewEditor', 'index.html'), html, 'utf8');
 
   // Start preview
-  const ls = spawn('npx', [
-    'http-server',
-    path.join(__dirname, 'previewEditor'),
-    '-c-1',
-    '-p',
-    '2893',
-  ]);
+  const ls = spawn(
+    'npx',
+    ['http-server', path.join(__dirname, 'previewEditor'), '-c-1', '-p', '2893'],
+    {
+      shell: true,
+    },
+  );
   ls.stdout.on('data', data => {
     console.log(data.toString());
   });
