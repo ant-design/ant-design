@@ -21,6 +21,7 @@ timeline: true
 
 - 💄 Fix Layout.Sider `light` theme lost styles. [#27227](https://github.com/ant-design/ant-design/pull/27227) [@lingjieee](https://github.com/lingjieee)
 - 💄 Fix TextArea wrapped with additional div when `showCount` is `false`, and pass `className` and `style` to outer wrapper when `showCount` is `true`. [#27216](https://github.com/ant-design/ant-design/pull/27216)
+- 🐞 Fix Checkbox.Group TS2559 error. [#27231](https://github.com/ant-design/ant-design/pull/27231)
 
 ## 4.7.1
 
