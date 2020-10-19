@@ -107,6 +107,11 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     const textareaProps = omit(this.props, ['className', 'style']);
 
+    // Max length value
+    const hasMaxLength = Number(maxLength) > 0;
+    value = hasMaxLength ? value.slice(0, maxLength) : value;
+
+    // show count props
     if (!showCount) {
       textareaProps.className = className;
       textareaProps.style = style;
@@ -130,8 +135,6 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     // Only show text area wrapper when needed
     if (showCount) {
-      const hasMaxLength = Number(maxLength) > 0;
-      value = hasMaxLength ? value.slice(0, maxLength) : value;
       const valueLength = [...value].length;
       const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
