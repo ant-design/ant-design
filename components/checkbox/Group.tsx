@@ -27,6 +27,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: Array<CheckboxValueType>;
   value?: Array<CheckboxValueType>;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
+  children?: React.ReactNode;
 }
 
 export interface CheckboxGroupContext {
