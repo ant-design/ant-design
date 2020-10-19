@@ -29,12 +29,6 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 See: https://ant.design/docs/react/customize-theme .
 
-### Will you provide other themes?
-
-No, we follow Ant Design's design specification.
-
-Related issue: https://github.com/ant-design/ant-design/issues/1241
-
 ### How do I modify `Menu`/`Button`(etc.)'s style?
 
 While you can override a component's style, we don't recommend doing so. antd is not only a set of React components, but also a design specification as well.
