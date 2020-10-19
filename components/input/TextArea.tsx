@@ -77,15 +77,16 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   renderTextArea = (prefixCls: string, bordered: boolean) => {
+    const { showCount, className, style } = this.props;
+
     return (
       <RcTextArea
         {...omit(this.props, ['allowClear', 'bordered', 'showCount'])}
-        className={classNames(
-          {
-            [`${prefixCls}-borderless`]: !bordered,
-          },
-          this.props.className,
-        )}
+        className={classNames({
+          [`${prefixCls}-borderless`]: !bordered,
+          [className!]: className && !showCount,
+        })}
+        style={showCount ? null : style}
         prefixCls={prefixCls}
         onChange={this.handleChange}
         ref={this.saveTextArea}
@@ -105,22 +106,15 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     } = this.props;
 
     const prefixCls = getPrefixCls('input', customizePrefixCls);
-    const textareaProps = omit(this.props, ['className', 'style']);
 
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
     value = hasMaxLength ? value.slice(0, maxLength) : value;
 
-    // show count props
-    if (!showCount) {
-      textareaProps.className = className;
-      textareaProps.style = style;
-    }
-
     // TextArea
     let textareaNode = (
       <ClearableLabeledInput
-        {...textareaProps}
+        {...this.props}
         prefixCls={prefixCls}
         direction={direction}
         inputType="text"
@@ -140,11 +134,14 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
       textareaNode = (
         <div
-          className={classNames(`${prefixCls}-textarea`, {
-            [`${prefixCls}-textarea-show-count`]: showCount,
-            [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+          className={classNames(
+            `${prefixCls}-textarea`,
+            {
+              [`${prefixCls}-textarea-show-count`]: showCount,
+              [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+            },
             className,
-          })}
+          )}
           style={style}
           {...(showCount ? { 'data-count': dataCount } : {})}
         >
