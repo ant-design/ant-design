@@ -2788,14 +2788,10 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <div
-            class="ant-input-textarea"
-          >
-            <textarea
-              class="ant-input"
-              id="nest-messages_user_introduction"
-            />
-          </div>
+          <textarea
+            class="ant-input"
+            id="nest-messages_user_introduction"
+          />
         </div>
       </div>
     </div>
