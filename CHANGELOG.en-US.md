@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.7.2
+
+`2020-10-19`
+
+- 💄 Fix Layout.Sider `light` theme lost styles. [#27227](https://github.com/ant-design/ant-design/pull/27227) [@lingjieee](https://github.com/lingjieee)
+- 💄 Fix TextArea wrapped with additional div when `showCount` is `false`, and pass `className` and `style` to outer wrapper when `showCount` is `true`. [#27216](https://github.com/ant-design/ant-design/pull/27216)
+
 ## 4.7.1
 
 `2020-10-18`

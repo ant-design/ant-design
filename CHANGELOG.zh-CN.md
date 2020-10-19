@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.7.2
+
+`2020-10-19`
+
+- 💄 修复 Layout.Sider `light` 主题失效问题。[#27227](https://github.com/ant-design/ant-design/pull/27227) [@lingjieee](https://github.com/lingjieee)
+- 💄 修复 TextArea 没有设置 `showCount` 时仍然会包裹 div 的问题，同时解决 `showCount` 下 `className` 和 `style` 没有传递给最外层节点的问题。[#27216](https://github.com/ant-design/ant-design/pull/27216)
+
 ## 4.7.1
 
 `2020-10-18`
