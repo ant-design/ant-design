@@ -137,9 +137,9 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
           className={classNames(
             `${prefixCls}-textarea`,
             {
-              [`${prefixCls}-textarea-show-count`]: showCount,
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
             },
+            `${prefixCls}-textarea-show-count`,
             className,
           )}
           style={style}
