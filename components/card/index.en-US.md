@@ -38,7 +38,7 @@ A card can be used to display content related to a single subject. The content c
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
-| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
+| tabProps | [Tabs](/components/tabs/#API) | - | - |  |
 
 ### Card.Grid
 
