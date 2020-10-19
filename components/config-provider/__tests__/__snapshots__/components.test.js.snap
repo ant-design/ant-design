@@ -14545,13 +14545,9 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       </span>
     </span>
   </span>
-  <div
-    class="config-input-textarea"
-  >
-    <textarea
-      class="config-input"
-    />
-  </div>
+  <textarea
+    class="config-input"
+  />
 </div>
 `;
 
@@ -14646,13 +14642,9 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       </span>
     </span>
   </span>
-  <div
-    class="config-input-textarea"
-  >
-    <textarea
-      class="config-input"
-    />
-  </div>
+  <textarea
+    class="config-input"
+  />
 </div>
 `;
 
@@ -14747,13 +14739,9 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       </span>
     </span>
   </span>
-  <div
-    class="config-input-textarea"
-  >
-    <textarea
-      class="config-input"
-    />
-  </div>
+  <textarea
+    class="config-input"
+  />
 </div>
 `;
 
@@ -14848,13 +14836,9 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
       </span>
     </span>
   </span>
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-    />
-  </div>
+  <textarea
+    class="ant-input"
+  />
 </div>
 `;
 
@@ -14949,13 +14933,9 @@ exports[`ConfigProvider components Input normal 1`] = `
       </span>
     </span>
   </span>
-  <div
-    class="ant-input-textarea"
-  >
-    <textarea
-      class="ant-input"
-    />
-  </div>
+  <textarea
+    class="ant-input"
+  />
 </div>
 `;
 
@@ -15050,13 +15030,9 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       </span>
     </span>
   </span>
-  <div
-    class="prefix-Input-textarea"
-  >
-    <textarea
-      class="prefix-Input"
-    />
-  </div>
+  <textarea
+    class="prefix-Input"
+  />
 </div>
 `;
 
