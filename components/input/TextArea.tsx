@@ -100,35 +100,57 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       bordered = true,
       showCount = false,
       maxLength,
+      className,
+      style,
     } = this.props;
-    const prefixCls = getPrefixCls('input', customizePrefixCls);
-    const hasMaxLength = Number(maxLength) > 0;
-    value = hasMaxLength ? value.slice(0, maxLength) : value;
-    const valueLength = [...value].length;
-    const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
 
-    return (
-      <div
-        className={classNames(`${prefixCls}-textarea`, {
-          [`${prefixCls}-textarea-show-count`]: showCount,
-          [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
-        })}
-        {...(showCount ? { 'data-count': dataCount } : {})}
-      >
-        <ClearableLabeledInput
-          {...this.props}
-          prefixCls={prefixCls}
-          direction={direction}
-          inputType="text"
-          value={value}
-          element={this.renderTextArea(prefixCls, bordered)}
-          handleReset={this.handleReset}
-          ref={this.saveClearableInput}
-          triggerFocus={this.focus}
-          bordered={bordered}
-        />
-      </div>
+    const prefixCls = getPrefixCls('input', customizePrefixCls);
+    const textareaProps = omit(this.props, ['className', 'style']);
+
+    if (!showCount) {
+      textareaProps.className = className;
+      textareaProps.style = style;
+    }
+
+    // TextArea
+    let textareaNode = (
+      <ClearableLabeledInput
+        {...textareaProps}
+        prefixCls={prefixCls}
+        direction={direction}
+        inputType="text"
+        value={value}
+        element={this.renderTextArea(prefixCls, bordered)}
+        handleReset={this.handleReset}
+        ref={this.saveClearableInput}
+        triggerFocus={this.focus}
+        bordered={bordered}
+      />
     );
+
+    // Only show text area wrapper when needed
+    if (showCount) {
+      const hasMaxLength = Number(maxLength) > 0;
+      value = hasMaxLength ? value.slice(0, maxLength) : value;
+      const valueLength = [...value].length;
+      const dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
+
+      textareaNode = (
+        <div
+          className={classNames(`${prefixCls}-textarea`, {
+            [`${prefixCls}-textarea-show-count`]: showCount,
+            [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
+            className,
+          })}
+          style={style}
+          {...(showCount ? { 'data-count': dataCount } : {})}
+        >
+          {textareaNode}
+        </div>
+      );
+    }
+
+    return textareaNode;
   };
 
   render() {
