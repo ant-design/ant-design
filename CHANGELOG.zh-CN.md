@@ -15,6 +15,34 @@ timeline: true
 
 ---
 
+## 4.7.1
+
+`2020-10-18`
+
+- DatePicker
+  - 🐞 修复 DatePicker `showTime` 为 `true` 并且 `format` 为一个函数时报错的问题。[#27156](https://github.com/ant-design/ant-design/pull/27156)
+  - 💄 修复 DatePicker 在下拉空间不足时的动画方向问题。[#27101](https://github.com/ant-design/ant-design/pull/27101)
+- Typography
+  - 💄 修复 Typography 没有 `pre` 和 `blockquote` 样式的问题。[#27150](https://github.com/ant-design/ant-design/pull/27150)
+  - 🐞 修复 Typography.Link 悬浮颜色错误的问题。[#27119](https://github.com/ant-design/ant-design/pull/27119)
+  - 🐞 修复 Typography.Link 危险类型的悬浮颜色问题。[#27104](https://github.com/ant-design/ant-design/pull/27104)
+- 💄 修复 Descriptions 组件的内容含有超长数字时无法换行的问题。[#27195](https://github.com/ant-design/ant-design/pull/27195) [@WLyKan](https://github.com/WLyKan)
+- 🐞 修复 Password 在受控模式下未清除 `value` 属性的问题。[#27191](https://github.com/ant-design/ant-design/pull/27191)
+- 🐞 修复 Notification 在小尺寸屏幕下的宽度问题。[#27189](https://github.com/ant-design/ant-design/pull/27189)
+- 🐞 修复 Cascader 类名重复的问题。[#27187](https://github.com/ant-design/ant-design/pull/27187) [@huntdream](https://github.com/huntdream)
+- 🐞 修复 Drawer 会触发 Form 提交事件的问题。[#27175](https://github.com/ant-design/ant-design/pull/27175)
+- 🐞 修复 Dropdown 下拉菜单图标间距丢失的问题。[#27165](https://github.com/ant-design/ant-design/pull/27165)
+- 💄 修复 Layout.Sider 指定 `collapsedWidth` 后侧边菜单部分宽度不对的问题。[#27154](https://github.com/ant-design/ant-design/pull/27154)
+- 🐞 修复 Tabs `animated` 属性为 `true` 时未开启内容切换动画的问题。[#27145](https://github.com/ant-design/ant-design/pull/27145)
+- 🐞 修复 Divider 带标题时的分割线颜色。[#27134](https://github.com/ant-design/ant-design/pull/27134)
+- 💄 修复 Radio 选项选中并禁用时的鼠标样式。[#27125](https://github.com/ant-design/ant-design/pull/27125)
+- 🇪🇸 为西班牙语 es_ES 中添加缺少的翻译。[#27079](https://github.com/ant-design/ant-design/pull/27079) [@gerongams](https://github.com/gersongams)
+- RTL
+  - 💄 优化 Input.TextArea 字数提示在 RTL 模式下的样式。[#27098](https://github.com/ant-design/ant-design/pull/27098)
+- TypeScript
+  - 🤖 Button `shape` 移除文档中未声明的类型。[#27159](https://github.com/ant-design/ant-design/pull/27159)
+  - 🤖 修复 Form.List `rules` 属性缺失的问题。[#27164](https://github.com/ant-design/ant-design/pull/27164) [@huntdream](https://github.com/huntdream)
+
 ## 4.7.0
 
 `2020-10-10`
