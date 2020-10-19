@@ -28,7 +28,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
 | itemRender | To customize item's innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | Number of data items per page | number | - |  |
-| pageSizeOptions | Specify the sizeChanger options | string\[] | \[`10`, `20`, `50`, `100`] |  |
+| pageSizeOptions | Specify the sizeChanger options | string\[] | \[`'10'`, `'20'`, `'50'`, `'100'`] |  |
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
 | showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean | - |  |
