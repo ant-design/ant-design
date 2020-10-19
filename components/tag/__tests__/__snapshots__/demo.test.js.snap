@@ -482,17 +482,17 @@ Array [
     class="ant-tag"
   >
     Tag1
-    <div
+    <span
       class="ant-tag-close-icon"
     >
       关 闭
-    </div>
+    </span>
   </span>,
   <span
     class="ant-tag"
   >
     Tag2
-    <div
+    <span
       class="ant-tag-close-icon"
     >
       <span
@@ -518,7 +518,7 @@ Array [
           />
         </svg>
       </span>
-    </div>
+    </span>
   </span>,
 ]
 `;
