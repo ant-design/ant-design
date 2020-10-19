@@ -143,7 +143,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
             className,
           )}
           style={style}
-          {...(showCount ? { 'data-count': dataCount } : {})}
+          data-count={dataCount}
         >
           {textareaNode}
         </div>
