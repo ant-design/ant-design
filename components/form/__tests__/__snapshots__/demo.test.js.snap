@@ -7622,7 +7622,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password"
+            class="ant-input-affix-wrapper"
           >
             <input
               action="click"
