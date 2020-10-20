@@ -34,11 +34,11 @@ export default function Item({
   }
 
   const style =
-    index >= latestIndex
+    index >= latestIndex || split != null
       ? {}
       : {
           [direction === 'vertical' ? 'marginBottom' : marginDirection]:
-            ((typeof size === 'string' ? spaceSize[size] : size) ?? 0) / (split ? 2 : 1),
+            typeof size === 'string' ? spaceSize[size] : size,
         };
 
   return (
