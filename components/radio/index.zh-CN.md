@@ -31,15 +31,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8cYb5seNB/Radio.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |
 | defaultValue | 默认选中的值 | any | - |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
 | name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | - |  |
+| onChange | 选项变化时的回调函数 | function(e:Event) | - |  |
+| optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |
 | options | 以配置形式设置子元素 | string\[] \| Array&lt;{ label: string value: string disabled?: boolean }> | - |  |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |
 | value | 用于设置当前选中的值 | any | - |  |
-| onChange | 选项变化时的回调函数 | function(e:Event) | - |  |
-| optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |
-| buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |
 
 ## 方法
 

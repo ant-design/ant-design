@@ -22,23 +22,23 @@ When there is a need for autocomplete functionality.
 | children (for customize input element) | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | children (for dataSource) | Data source to auto complete | React.ReactElement&lt;OptionProps> \| Array&lt;React.ReactElement&lt;OptionProps>> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
+| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
 | dropdownClassName | The className of dropdown menu | string | - |  |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
-| placeholder | The placeholder of input | string | - |  |
-| value | Selected option | string | - |  |
+| notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |  |
+| onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
-| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | open | Controlled open state of dropdown | boolean | - |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }[] | - |  |
-| onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
-| notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
+| placeholder | The placeholder of input | string | - |  |
+| value | Selected option | string | - |  |
 
 ## Methods
 

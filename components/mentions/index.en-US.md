@@ -24,22 +24,22 @@ When need to mention someone or something.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | false |
+| autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |
 | defaultValue | Default value | string | - |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |
+| getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |
 | notFoundContent | Set mentions content when not match | ReactNode | `Not Found` |
+| onBlur | Trigger when mentions lose focus | () => void | - |
+| onChange | Trigger when value changed | (text: string) => void | - |
+| onFocus | Trigger when mentions get focus | () => void | - |
+| onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |
+| onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |
+| onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |
 | prefix | Set trigger prefix keyword | string \| string[] | `@` |
 | split | Set split string before and after selected mention | string | `` |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |
 | value | Set value of mentions | string | - |
-| onChange | Trigger when value changed | (text: string) => void | - |
-| onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |
-| onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |
-| onFocus | Trigger when mentions get focus | () => void | - |
-| onBlur | Trigger when mentions lose focus | () => void | - |
-| getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |
-| autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |
-| onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |
 
 ### Mention methods
 

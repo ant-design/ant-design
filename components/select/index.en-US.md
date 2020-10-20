@@ -61,9 +61,9 @@ Select component to select value from options.
 | onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance | function(string \| number \| LabeledValue, option: Option) | - |  |
 | open | Controlled open state of dropdown | boolean | - |  |
-| options | Select options. Will get better perf than jsx definition | { label, value }[] | - |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
+| options | Select options. Will get better perf than jsx definition | { label, value }[] | - |  |
 | placeholder | Placeholder of select | ReactNode | - |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |

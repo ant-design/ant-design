@@ -17,16 +17,16 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 
 | Param | Description | Type | Default value |
 | --- | --- | --- | --- |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |
 | cancelText | The text of the Cancel button | string | `Cancel` |
+| disabled | Whether show popconfirm when click its childrenNode | boolean | false |
+| icon | Customize icon of confirmation | ReactNode | &lt;ExclamationCircle /> |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |
 | okText | The text of the Confirm button | string | `OK` |
 | okType | Button `type` of the Confirm button | string | `primary` |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |
-| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |
-| title | The title of the confirmation box | ReactNode \| () => ReactNode | - |
 | onCancel | A callback of cancel | function(e) | - |
 | onConfirm | A callback of confirmation | function(e) | - |
-| icon | Customize icon of confirmation | ReactNode | &lt;ExclamationCircle /> |
-| disabled | Whether show popconfirm when click its childrenNode | boolean | false |
+| title | The title of the confirmation box | ReactNode \| () => ReactNode | - |
 
 Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
 

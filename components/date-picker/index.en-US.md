@@ -54,26 +54,26 @@ The following APIs are shared by DatePicker, RangePicker.
 | --- | --- | --- | --- | --- |
 | allowClear | Whether to show clear button | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
+| bordered | Whether has border style | boolean | true |  |
 | className | The picker className | string | - |  |
 | dateRender | Custom rendering function for date cells | function(currentDate: moment, today: moment) => React.ReactNode | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: moment) => boolean | - |  |
 | dropdownClassName | To customize the className of the popup calendar | string | - |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
+| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
+| onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
+| onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 | open | The open state of picker | boolean | - |  |
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
 | size | The determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
-| bordered | Whether has border style | boolean | true |  |
-| suffixIcon | The custom suffix icon | ReactNode | - |  |
 | style | To customize the style of the input box | CSSProperties | {} |  |
-| onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
-| onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
-| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
+| suffixIcon | The custom suffix icon | ReactNode | - |  |
 
 ### Common Methods
 
@@ -86,30 +86,30 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting, support [Custom Format](#components-date-picker-demo-format) | string \| (value: moment) => string \| (string \| (value: moment) => string)[] | `YYYY-MM-DD` |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
+| onOk | Callback when click ok button | function() | - |  |
+| onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
+| showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |  |
 | showToday | Whether to show `Today` button | boolean | true |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
-| onOk | Callback when click ok button | function() | - |  |
-| onPanelChange | Callback function for panel changing | function(value, mode) | - |  |
-| showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 
 ### DatePicker\[picker=year]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY` |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
 ### DatePicker\[picker=quarter]
 
@@ -117,35 +117,35 @@ Added in `4.1.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-\QQ` |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
 ### DatePicker\[picker=month]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-MM` |  |
 | monthCellRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 
 ### DatePicker\[picker=week]
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | defaultPickerValue | To set default picker date | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default date | [moment](http://momentjs.com/) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/) | string | `YYYY-wo` |  |
-| value | To set date | [moment](http://momentjs.com/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
+| value | To set date | [moment](http://momentjs.com/) | - |  |
 
 ### RangePicker
 
@@ -153,19 +153,19 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
 | dateRender | Customize date cell. `info` argument is added in 4.3.0 | function(currentDate: moment, today: moment, info: { range: `start` \| `end` }) => React.ReactNode | - |  |
-| defaultValue | To set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | defaultPickerValue | To set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
+| defaultValue | To set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date: moment, partial: `start` \| `end`) | - |  |
 | format | To set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string[] | `YYYY-MM-DD HH:mm:ss` |  |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
+| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 | ranges | The preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | string | `~` |  |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
 | value | To set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[moment, moment], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
-| onChange | Callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
 ## FAQ
 
