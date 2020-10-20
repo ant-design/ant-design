@@ -36,6 +36,8 @@ Cascade selection box.
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) => void | - |  |
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
+| onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
+| onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
 | options | The data options of cascade | [Option](#Option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
 | popupClassName | The additional className of popup overlay | string | - |  |
@@ -46,8 +48,6 @@ Cascade selection box.
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
-| onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
-| onPopupVisibleChange | Callback when popup shown or hidden | (value) => void | - |  |
 
 Fields in `showSearch`:
 

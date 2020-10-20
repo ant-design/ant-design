@@ -28,6 +28,10 @@ High performance Form component with data scope management. Including data colle
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
+| onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
+| onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
+| onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
+| onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 | preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean | false |  |
@@ -35,10 +39,6 @@ High performance Form component with data scope management. Including data colle
 | validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
 | wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#Col) | - |  |
-| onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
-| onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
-| onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
-| onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
 
 ### validateMessages
 

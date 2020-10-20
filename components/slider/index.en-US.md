@@ -24,6 +24,8 @@ To input a value in a range.
 | marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max], each mark can declare its own style | object | { number: ReactNode } \| { number: { style: object, label: ReactNode } } |  |
 | max | The maximum value the slider can slide to | number | 100 |  |
 | min | The minimum value the slider can slide to | number | 0 |  |
+| onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
+| onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
 | range | Dual thumb mode | boolean | false |  |
 | reverse | Reverse the component | boolean | false |  |
 | step | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When `marks` no null, `step` can be null | number \| null | 1 |  |
@@ -32,8 +34,6 @@ To input a value in a range.
 | tooltipVisible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering | boolean | - |  |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
 | vertical | If true, the slider will be vertical | boolean | false |  |
-| onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
-| onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
 
 ## Methods
 

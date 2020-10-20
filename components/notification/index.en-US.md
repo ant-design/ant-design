@@ -41,11 +41,11 @@ The properties of config are as follows:
 | icon | Customized icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
 | message | The title of notification box (required) | ReactNode | - |
+| onClick | Specify a function that will be called when the notification is clicked | function | - |
+| onClose | Trigger when notification closed | function | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
-| onClick | Specify a function that will be called when the notification is clicked | function | - |
-| onClose | Trigger when notification closed | function | - |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 

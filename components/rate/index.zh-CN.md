@@ -25,14 +25,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
 | count | star 总数 | number | 5 |  |
 | defaultValue | 默认值 | number | 0 |  |
 | disabled | 只读，无法进行交互 | boolean | false |  |
-| style | 自定义样式对象 | CSSProperties | - |  |
-| tooltips | 自定义每项的提示信息 | string\[] | - |  |
-| value | 当前数，受控值 | number | - |  |
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onChange | 选择时的回调 | function(value: number) | - |  |
 | onFocus | 获取焦点时的回调 | function() | - |  |
 | onHoverChange | 鼠标经过时数值变化的回调 | function(value: number) | - |  |
 | onKeyDown | 按键回调 | function(event) | - |  |
+| style | 自定义样式对象 | CSSProperties | - |  |
+| tooltips | 自定义每项的提示信息 | string\[] | - |  |
+| value | 当前数，受控值 | number | - |  |
 
 ## 方法
 

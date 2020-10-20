@@ -29,6 +29,10 @@ Ant Design has 3 types of Tabs for different situations.
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | keyboard | Whether to turn on keyboard navigation | boolean | true |  |
+| onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
+| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (targetKey, action) => void | - |  |
+| onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
+| onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - |  |
@@ -36,10 +40,6 @@ Ant Design has 3 types of Tabs for different situations.
 | tabBarStyle | Tab bar style object | object | - |  |
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
-| onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
-| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (targetKey, action) => void | - |  |
-| onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
-| onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
 
 More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 

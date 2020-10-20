@@ -30,8 +30,8 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | --- | --- | --- | --- | --- |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
 | href | Target of hyperlink | string | - |  |
-| overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+| overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
 
 ### Breadcrumb.Separator
 

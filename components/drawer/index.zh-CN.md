@@ -36,6 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | maskStyle | 遮罩样式 | CSSProperties | {} |  |
+| onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
@@ -43,4 +44,3 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | visible | Drawer 是否可见 | boolean | - |  |
 | width | 宽度 | string \| number | 256 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
-| onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |

@@ -25,15 +25,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 | formatter | 指定输入框展示值的格式 | function(value: number \| string): string | - | - |
 | max | 最大值 | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | 最小值 | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
+| onChange | 变化回调 | function(value: number \| string) | - | - |
+| onPressEnter | 按下回车的回调 | function(e) | - | - |
+| onStep | 点击上下箭头的回调 | `(value: number, info: { offset: number, type: 'up' \| 'down' }) => void` | - | 4.7.0 |
 | parser | 指定从 `formatter` 里转换回数字的方式，和 `formatter` 搭配使用 | function(string): number | - | - |
 | precision | 数值精度 | number | - | - |
 | readOnly | 只读 | boolean | false | - |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | value | 当前值 | number | - | - |
-| onChange | 变化回调 | function(value: number \| string) | - | - |
-| onPressEnter | 按下回车的回调 | function(e) | - | - |
-| onStep | 点击上下箭头的回调 | `(value: number, info: { offset: number, type: 'up' \| 'down' }) => void` | - | 4.7.0 |
 
 ## 方法
 

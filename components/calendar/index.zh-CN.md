@@ -43,11 +43,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 | mode | 初始模式 | `month` \| `year` | `month` |  |
 | monthCellRender | 自定义渲染月单元格，返回内容会被追加到单元格 | function(date: moment): ReactNode | - |  |
 | monthFullCellRender | 自定义渲染月单元格，返回内容覆盖单元格 | function(date: moment): ReactNode | - |  |
-| validRange | 设置可以显示的日期 | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| value | 展示日期 | [moment](http://momentjs.com/) | - |  |
 | onChange | 日期变化回调 | function(date: moment） | - |  |
 | onPanelChange | 日期面板变化回调 | function(date: moment, mode: string) | - |  |
 | onSelect | 点击选择日期回调 | function(date: moment） | - |  |
+| validRange | 设置可以显示的日期 | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
+| value | 展示日期 | [moment](http://momentjs.com/) | - |  |
 
 ## FAQ
 

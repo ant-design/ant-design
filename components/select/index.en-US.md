@@ -48,6 +48,18 @@ Select component to select value from options.
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |  |
 | mode | Set mode of Select | `multiple` \| `tags` | - |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
+| onBlur | Called when blur | function | - |  |
+| onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
+| onClear | Called when clear | function | - | 4.6.0 |
+| onDeselect | Called when a option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(string \| number \| LabeledValue) | - |  |
+| onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
+| onFocus | Called when focus | function | - |  |
+| onInputKeyDown | Called when key pressed | function | - |  |
+| onMouseEnter | Called when mouse enter | function | - |  |
+| onMouseLeave | Called when mouse leave | function | - |  |
+| onPopupScroll | Called when dropdown scrolls | function | - |  |
+| onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
+| onSelect | Called when a option is selected, the params are option's value (or key) and option instance | function(string \| number \| LabeledValue, option: Option) | - |  |
 | open | Controlled open state of dropdown | boolean | - |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
@@ -62,18 +74,6 @@ Select component to select value from options.
 | tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
 | value | Current selected option | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
-| onBlur | Called when blur | function | - |  |
-| onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
-| onClear | Called when clear | function | - | 4.6.0 |
-| onDeselect | Called when a option is deselected, param is the selected option's value. Only called for `multiple` or `tags`, effective in multiple or tags mode only | function(string \| number \| LabeledValue) | - |  |
-| onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
-| onFocus | Called when focus | function | - |  |
-| onInputKeyDown | Called when key pressed | function | - |  |
-| onMouseEnter | Called when mouse enter | function | - |  |
-| onMouseLeave | Called when mouse leave | function | - |  |
-| onPopupScroll | Called when dropdown scrolls | function | - |  |
-| onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
-| onSelect | Called when a option is selected, the params are option's value (or key) and option instance | function(string \| number \| LabeledValue, option: Option) | - |  |
 
 > Note, if you find that the drop-down menu scrolls with the page, or you need to trigger Select in other popup layers, please try to use `getPopupContainer={triggerNode => triggerNode.parentElement}` to fix the drop-down popup rendering node in the parent element of the trigger .
 

@@ -24,10 +24,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 | defaultChecked | 初始是否选中 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | loading | 加载中的开关 | boolean | false |
-| size | 开关大小，可选值：`default` `small` | string | `default` |
-| unCheckedChildren | 非选中时的内容 | ReactNode | - |
 | onChange | 变化时回调函数 | function(checked: boolean, event: Event) | - |
 | onClick | 点击时回调函数 | function(checked: boolean, event: Event) | - |
+| size | 开关大小，可选值：`default` `small` | string | `default` |
+| unCheckedChildren | 非选中时的内容 | ReactNode | - |
 
 ## 方法
 

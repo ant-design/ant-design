@@ -37,6 +37,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | mask | Whether to show mask or not | boolean | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
 | maskStyle | Style for Drawer's mask element | CSSProperties | {} |  |
+| onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | style | Style of wrapper element which **contains mask** compare to `drawerStyle` | CSSProperties | - |  |
@@ -44,4 +45,3 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | visible | Whether the Drawer dialog is visible or not | boolean | false |  |
 | width | Width of the Drawer dialog | string \| number | 256 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
-| onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |

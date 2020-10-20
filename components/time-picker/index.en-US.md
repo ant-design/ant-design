@@ -42,6 +42,9 @@ import moment from 'moment';
 | hourStep | Interval between hours in picker | number | 1 |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | minuteStep | Interval between minutes in picker | number | 1 |  |
+| onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
+| onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
+| onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
 | popupClassName | The className of panel | string | - |  |
@@ -52,9 +55,6 @@ import moment from 'moment';
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [moment](http://momentjs.com/) | - |  |
-| onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
-| onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
-| onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
 
 ## Methods
 

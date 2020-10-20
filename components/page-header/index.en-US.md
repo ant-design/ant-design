@@ -23,10 +23,10 @@ PageHeader can be used to highlight the page topic, display important informatio
 | extra | Operating area, at the end of the line of the title line | ReactNode | - |  |
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |  |
 | ghost | PageHeader type, will change background color | boolean | true |  |
+| onBack | Back icon click event | () => void | - |  |
 | subTitle | Custom subtitle text | ReactNode | - |  |
 | tags | Tag list next to title | [Tag](/components/tag/)\[] \| [Tag](/components/tag/) | - |  |
 | title | Custom title text | ReactNode | - |  |
-| onBack | Back icon click event | () => void | - |  |
 
 <style>
   [data-theme="dark"] .site-page-header {

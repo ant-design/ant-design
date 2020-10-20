@@ -22,15 +22,15 @@ When a numeric value needs to be provided.
 | formatter | Specifies the format of the value presented | function(value: number \| string): string | - | - |
 | max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
 | min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
+| onChange | The callback triggered when the value is changed | function(value: number \| string) | - | - |
+| onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
+| onStep | The callback function that is triggered when click up or down buttons | `(value: number, info: { offset: number, type: 'up' \| 'down' }) => void` | - | 4.7.0 |
 | parser | Specifies the value extracted from formatter | function(string): number | - | - |
 | precision | The precision of input value | number | - | - |
 | readOnly | If readonly the input | boolean | false | - |
 | size | The height of input box | `large` \| `middle` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | value | The current value | number | - | - |
-| onChange | The callback triggered when the value is changed | function(value: number \| string) | - | - |
-| onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
-| onStep | The callback function that is triggered when click up or down buttons | `(value: number, info: { offset: number, type: 'up' \| 'down' }) => void` | - | 4.7.0 |
 
 ## Methods
 

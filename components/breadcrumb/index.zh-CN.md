@@ -31,8 +31,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 | --- | --- | --- | --- | --- |
 | dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - |  |
 | href | 链接的目的地 | string | - |  |
-| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
+| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
 
 ### Breadcrumb.Separator
 

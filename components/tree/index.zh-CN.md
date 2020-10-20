@@ -37,14 +37,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | loadData | 异步加载数据 | function(node) | - |  |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  |
-| selectable | 是否可选中 | boolean | true |  |
-| selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
-| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
-| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean} | false |  |
-| switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |  |
-| titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
-| treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
-| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |
 | onDragEnter | dragenter 触发时调用 | function({event, node, expandedKeys}) | - |  |
@@ -56,6 +48,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| selectable | 是否可选中 | boolean | true |  |
+| selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
+| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
+| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean} | false |  |
+| switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode | - |  |
+| titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
+| treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
+| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 
 ### TreeNode props
 
